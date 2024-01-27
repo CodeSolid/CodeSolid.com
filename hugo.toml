@@ -5,7 +5,18 @@ title = 'CodeSolid'
 theme = 'hugo-theme-stack'
 
 sectionPagesMenu = "main"
+[menu]
+[[menu.main]]
+    name = "GitHub"
+    url = "https://github.com/CodeSolid"
+    weight = -10
+    identifier = "home"
+    [menu.main.params]
+        # icon = "Github"
+        newTab = true
 
 [Params]
 mainSections = ["posts", "math", "about"	] # Specify section pages to show on home page and the "Recent articles" widget
 toc = true # Enable Table of Contents
+
+
