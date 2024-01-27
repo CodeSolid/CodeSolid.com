@@ -1,0 +1,11 @@
+baseURL = 'http://codesolid.com'
+languageCode = 'en-us'
+title = 'CodeSolid'
+# theme = 'ananke'
+theme = 'hugo-theme-stack'
+
+sectionPagesMenu = "main"
+
+[Params]
+mainSections = ["posts", "math", "about"	] # Specify section pages to show on home page and the "Recent articles" widget
+toc = true # Enable Table of Contents
