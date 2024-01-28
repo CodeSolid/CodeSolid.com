@@ -1,4 +1,4 @@
 ---
-title: Programming
-layout: list
+title: Recent Articles
+url: /blog
 ---
