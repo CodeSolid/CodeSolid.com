@@ -1,0 +1,10 @@
+sphinx
+sphinx-autobuild
+sphinx-rtd-theme
+myst-parser
+nbsphinx
+jupyterlab
+sympy
+pandas
+seaborn
+myst-nb

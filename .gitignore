@@ -8,3 +8,4 @@ vendor
 .venv
 delme
 .vscode
+legacy_hugo
