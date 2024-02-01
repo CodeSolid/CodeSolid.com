@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Part One: Up and Running &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=19645805"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Part One: Up and Running</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/images/jupyter-notebook-a-complete-introduction/index.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>Jupyter Notebook is a popular development environment that supports Python and other programming languages. It is a browser-based environment, which is excellent since you can connect to notebooks running either online or locally.</p>
+<p>Our goal in this article is two-fold and reflects the article’s division into two parts:</p>
+<ul class="simple">
+<li><p>In Part One, we want to get you started in Jupyter Notebook using the latest evolution of the tool, JupyterLab. JupyterLab runs traditional “notebooks”, but it also serves as a kind of lightweight, browser-based IDE where you can edit files, preview markdown documents, run Python programs, and open an IPython terminal – all within one integrated web interface. If you’re just looking to “get your hands dirty” with the tool, Part One is for you.</p></li>
+<li><p>In Part Two, we want to answer several frequently asked questions that beginners have about Jupyter Notebook. If you’re the type of person who likes to dig into all the facts before jumping into new things, you may want to skip the tutorial and read this part first. Part Two will include much of the background material you’d need to make a decision as to whether Jupyter Notebook or JupyterLab is right for your needs.</p></li>
+</ul>
+<section class="tex2jax_ignore mathjax_ignore" id="part-one-up-and-running">
+<h1>Part One: Up and Running<a class="headerlink" href="#part-one-up-and-running" title="Link to this heading"></a></h1>
+<section id="running-online-with-colab">
+<h2>Running Online With Colab<a class="headerlink" href="#running-online-with-colab" title="Link to this heading"></a></h2>
+<p>To give you a feel for running Jupyter Notebook, we’ve prepared a starter notebook for you that you can run online. You may want to open it in a new browser tab to switch back to this article. To do this, use CTRL+T on Windows or Linux or CMD-T on a Mac. Here is the online notebook.</p>
+<p>If you look at the URL for the article, you’ll see it’s hosted on Google Colab – perhaps the most popular site for hosting Jupyter Notebooks online.</p>
+<p>Jupyter Notebook files are a set of editable rows called “cells.” Cells have two basic types – markdown cells containing text in markdown format and code cells that contain code. In addition, non-editable cells below the code cells will show the result of running the cell. To edit the cell as the notebook asks you to do, in Colab, you’ll need to “connect” the notebook to a running Python kernel. Click the connect button in the upper-righthand corner.</p>
+<p><img alt="" src="../../_images/colab_connect_button.png" /></p>
+<p>Clicking connect will prompt you to log in using your Gmail account. At this point, you can follow along with the notebook and edit the Python code in the code cell and run it. You likely will see a warning to the effect that Google is not the author of the notebook, but as you can see, the code is relatively straightforward.</p>
+<p>Jupyter Notebook supports many keyboard shortcuts, and you can find links to many cheat sheets online. In addition to Shift-ENTER to run the cell. I’ll satisfy myself here by just listing four of my favorites. For each of these, type escape first and the indicated letter, don’t key them simultaneously.</p>
+<ul class="simple">
+<li><p>ESC + B create a new cell BELOW the current cell.</p></li>
+<li><p>ESC + A create a new cell ABOVE the current cell.</p></li>
+<li><p>ESC + C Change the current cell type to CODE.</p></li>
+<li><p>ESC + M Change the curent cell type to MARKDOWN.</p></li>
+</ul>
+<p>I love Colab because it allows my readers to interactively run the coding exercises I publish from time to time. For example, all of the Jupyter Notebook pages on the companion site to this one, <a class="reference external" href="https://codesolid.github.io/intro.html">CodeSolid.github.io</a>, contain a link (look for the rocketship on top) to a live Colab version of the notebook.</p>
+<p><img alt="" src="../../_images/colab_githubio_button.png" /></p>
+<p>Colab is a great place to share work with others, but until your notebooks are ready for that, you’ll probably want to run Juptyer locally. Moreover, running Jupyter locally will give you access to a more complete Jupyter Lab environment, which offers many more features.</p>
+</section>
+<section id="running-jupyter-lab-locally">
+<h2>Running Jupyter Lab Locally<a class="headerlink" href="#running-jupyter-lab-locally" title="Link to this heading"></a></h2>
+<p>If you have a version of Python 3.4 or greater, you already have what you need to run JupyterLab. You just need to do a quick bit of setup at a command (terminal) prompt. We’ll cover that next. While installing JupyterLab, we’ll also install Seaborn, which will get us Pandas, NumPy, and Matplotlib. (If you just want to run JupyterLab, you can leave that off). The instructions are very similar for Mac, Linux, and Windows, except for one line (which we’ll point out below). Ready? Open a command prompt and enter:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>jupyter
+<span class="nb">cd</span><span class="w"> </span>jupyter
+python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+
+<span class="c1"># On Mac/Linux:</span>
+<span class="nb">source</span><span class="w"> </span>venv/bin/activate
+
+<span class="c1"># On Windows:</span>
+venv/Scripts/activate.bat
+
+pip<span class="w"> </span>install<span class="w"> </span>JupyterLab<span class="w"> </span>Seaborn
+
+<span class="c1"># Running Jupyter Lab:</span>
+jupyter<span class="w"> </span>lab
+</pre></div>
+</div>
+<p>When JupyterLab starts up, it will launch the JupyterLab server and open your default browser to a launcher page. It will also print the URL you can return to if you happen to close your browser, as shown here:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>To access the server, open this file in a browser:
+    file:///Users/username/Library/Jupyter/runtime/jpserver-37474-open.html
+Or copy and paste one of these URLs:
+    http://localhost:8889/lab?token=4a63802ed46f749388b6069b5eea48bd7f4bb09288a9c2eb
+ or http://127.0.0.1:8889/lab?token=4a63802ed46f749388b6069b5eea48bd7f4bb09288a9c2eb
+</pre></div>
+</div>
+<p>Unlike Jupyter Notebook, which allows opening up notebook files only, the launcher window enables you to launch a notebook like the one we saw in Colab, a Python Console, terminal windows, and various types of files.</p>
+<p>Here’s how it looks for me. Note that you probably won’t see the Julia selections available on your machine if you followed the steps above unless at some point you also set up Julia for Jupyter Notebook, as <a class="reference external" href="https://codesolid.com/julia-vs-python-now-for-something-completely-different/">I did recently</a>.</p>
+<p><img alt="" src="../../_images/image-1024x486.png" /></p>
+<p>If you later close the launcher, you can still launch these items by selecting “File / New” from the menu. Unlike Jupyter Notebook, then, JupyterLab is much more flexible, and supports a wide variety of file types. It’s not as full featured an editor as something like Visual Studio Code, but it’s appropriate for quick editing jobs that need to be done while working on a notebook.</p>
+<p>JupyterLab supports tiled windows. One place where this shines is when editing Markdown files, and using Markdown Preview. Right-click on the Markdown file to show a preview pane.</p>
+<p><img alt="" src="../../_images/MarkdownPreviewJupyterLab-1024x635.png" /></p>
+<p>Another excellent feature of Jupyter lab that you can take advantage of is one that users of the Spyder IDE are used to – being able to have more than one screen element sharing the same Python kernel. You can, for example, open a notebook then open a Python terminal that shares the same kernel as the notebook.</p>
+<p>To do this, right-click on the notebook and select “New Console for Notebook.” This will open up a new kernel sharing the same variable space as the notebook. In the screenshot below, for example, I followed these steps:</p>
+<ol class="arabic simple">
+<li><p>I added the imports in the first cell</p></li>
+<li><p>I used “New Console for Notebook” to open the console at the bottom.</p></li>
+<li><p>In the console, I defined a data_frame.</p></li>
+<li><p>Back in the notebook, I used the data_frame.</p></li>
+</ol>
+<p><img alt="" src="../../_images/notebook_and_console-1024x840.png" /></p>
+<p>Of course, that precise sequence isn’t something you’d do outside of a demo – I did it to show that you can go back and forth between the console and the notebook. But one practical real-world application of this would be to run quick experiments in the console to evaluate or explore data in the notebook while keeping the notebook itself in a more pristine state.</p>
+<p>One feature of JupyterLab that I admit I haven’t had much success with are the extensions. The “puzzle-piece” icon on the left brings up the interface to manage JupyterLab extensions. Of the extensions I’ve explored, many of these require additional, manual configuration, and some are incompatible with my current JupyterLab version. Perhaps in the future I’ll have more to say about these after spending more time on them. In the meantime, the takeaway is that they don’t generally install and work as seamlessly as, for example, PyCharm plugins or VS Code extensions.</p>
+<p>As a final note, installing JupyterLab also enables running traditional Jupyter Notebook in the traditional way. To see how this works, simply replace the command <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code> in the instructions above with <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span></code>.</p>
+<p>In my own work, JupyterLab offers so many new features that I rarely run the “traditional” Jupyter Notebook server, but some people do prefer the more minimalistic interface.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="part-two-jupyter-notebook-questions-and-answers">
+<h1>Part Two: Jupyter Notebook Questions and Answers<a class="headerlink" href="#part-two-jupyter-notebook-questions-and-answers" title="Link to this heading"></a></h1>
+<p>In this section, we wanted to address some questions that folks who are unfamiliar with Juptyer will sometimes ask. Some of these are beginner questions, so if you’re not a beginner, bear with us if the answers seem obvious to you.</p>
+<section id="who-uses-jupyter-notebook">
+<h2>Who Uses Jupyter Notebook?<a class="headerlink" href="#who-uses-jupyter-notebook" title="Link to this heading"></a></h2>
+<p>Jupyter Notebook and Jupyter Lab are favorites of the Data Science and Machine Learning Community, where the ability to deal with data graphically, to explore tabular data such as Pandas DataFrames, and to publish reproducible results for colleagues, makes Jupyter a natural for this community.</p>
+<p>Because it supports publishing coding lessons and even whole books, Jupyter is also a favorite among educators. One popular Jupyter hosting site, CoCalc, specializes in working with educators who are using Jupyter not only to teach data science and machine learning but also various courses in mathematics (using SageMath an open-source alternative to pricey symbolic mathematics tools like Matlab).</p>
+</section>
+<section id="what-are-the-disadvanatages-of-jupyter-notebooks">
+<h2>What are the Disadvanatages of Jupyter Notebooks<a class="headerlink" href="#what-are-the-disadvanatages-of-jupyter-notebooks" title="Link to this heading"></a></h2>
+<p>Although Jupyter Notebook and JupyterLab are popular with the data science community, these tools are used far less extensively by the software development community, which is where I have my roots. There the tool of choice for Python is often PyCharm, though a few folks swear by Visual Studio Code.</p>
+<p>My professional version of PyCharm has many features that make it better as a general development tool for Python. The debugger works well on local and remote processes, as well as in processes running in Docker or Docker Compose. It also enables me to work with many other file types and provides outstanding code navigation features. That makes it an ideal tool for working with Terraform files, for example. These are features that would make Jupyter Notebook a very poor choice indeed.</p>
+<p>Another criticism leveled at Jupyter Notebook from time to time is the fact that it’s browser-based makes it slow, but I have not had much trouble on that score. Of course, if it’s run remotely, then it’s subject to more latency than if run locally, but I’ll wager that none of my readers run 300-baud modems at this stage (unless maybe for fun).</p>
+</section>
+<section id="what-languages-does-jupyter-support">
+<h2>What Languages Does Jupyter Support?<a class="headerlink" href="#what-languages-does-jupyter-support" title="Link to this heading"></a></h2>
+<p>As a Python project, Jupyter of course supports Python without further configuration. However, the Jupyter project also supports a support a huge array of other languages through community maintained kernels. In fact, Jupyter was designed to support multiple languages from the beginning. The name is actually a sort of anagram or mnemonic based on the the combination of “Ju” (from Julia), “Pyt” (from Python), and “R” (from R, of course). Gordon Ball has provided a very helpful <a class="reference external" href="https://gist.github.com/chronitis/682c4e0d9f663e85e3d87e97cd7d1624">list of active Jupyter Kernels</a>, so that should give you an idea of what’s available. Running C++ in a Jupyter Notebook? You always knew you wanted to. <a class="reference external" href="https://github.com/jupyter-xeus/xeus-cling">Now you can</a>.</p>
+</section>
+<section id="is-jupyter-notebook-the-same-as-anaconda">
+<h2>Is Jupyter Notebook the Same As Anaconda?<a class="headerlink" href="#is-jupyter-notebook-the-same-as-anaconda" title="Link to this heading"></a></h2>
+<p>Jupyter Notebook is not the same as Anaconda, but the two tools are related. Anaconda is a heavyweight Python distribution that includes the Conda tool (also available in a more lightweight distribution called Miniconda), as well as full suite of data science tools including Jupyter Notebook.</p>
+</section>
+<section id="is-jupyter-notebook-an-ide">
+<h2>Is Jupyter Notebook an IDE?<a class="headerlink" href="#is-jupyter-notebook-an-ide" title="Link to this heading"></a></h2>
+<p>Strictly speaking, JupyterLab is an Integrated Development Environment, or IDE. It supports consoles, file editing, running code, debugging, etc. However, because the core use case for Jupyter is to run notebooks, it’s more correct to label it a specialized data science / publishing tool.</p>
+<p>In Python, there’s broad agreement that PyCharm is an IDE, as is Spyder. VS Code can also be made to serve, but it straddles the fence between an IDE and a general editor.</p>
+</section>
+<section id="what-is-the-difference-between-pycharm-and-jupyter">
+<h2>What is the Difference Between PyCharm and Jupyter?<a class="headerlink" href="#what-is-the-difference-between-pycharm-and-jupyter" title="Link to this heading"></a></h2>
+<p>PyCharm and Jupyter differ in that PyCharm is more of a general software development IDE as opposed to a data science/educational/publishing tool. Also, PyCharm is a commercial tool owned by JetBrains (though there is a free community edition available), whereas Jupyter is open source.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="conclusion">
+<h1>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading"></a></h1>
+<p>If you’re doing Data Science or Machine Learning, JupyterLab or Jupyter Notebook are essential tools to know. But you may also find them useful if that’s not your primary role. Also, as we’ve discussed, support for editing and displaying mathematical formulas and Latex files, for example, make the Jupyter project the foundation for such general analytic math tools as SageMath.</p>
+<p>In my own case, although my background is in software development, and I use PyCharm in my “day job”, as I work on this blog, I am more and more fond of using Jupyter Notebook in my work. This is partly because I can publish runnable sets of coding exercises and solution sets – and these have been my most popular articles to date. (Everybody loves a puzzle).</p>
+<p>Even when not publishing the notebook, however, Jupyter fully supports the kind of interactive, experimental coding that one does when teaching coding skills or blogging about coding. Python’s versatility means it supports large-scale coding efforts done in an IDE as well as interactive experiments published in a notebook. So Jupyter Lab may well be worth a look even if you rarely leave PyCharm.</p>
+<section id="you-might-also-enjoy">
+<h2>You Might Also Enjoy<a class="headerlink" href="#you-might-also-enjoy" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://codesolid.com/basic-command-line-skills-to-rock-your-development-world/">Learn Basic Command Line Skills</a></p></li>
+<li><p><a class="reference external" href="https://codesolid.com/how-to-install-pip-and-conda-on-the-same-machine/">How to Install Pip and Conda on the Same Machine</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

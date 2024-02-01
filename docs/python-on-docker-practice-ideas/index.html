@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python Practice: More Python on Docker Project Ideas &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=19645805"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Python Practice:  More Python on Docker Project Ideas</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/python-on-docker-practice-ideas.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="python-practice-more-python-on-docker-project-ideas">
+<h1>Python Practice:  More Python on Docker Project Ideas<a class="headerlink" href="#python-practice-more-python-on-docker-project-ideas" title="Link to this heading"></a></h1>
+<p>After I wrote my article on <a class="reference external" href="https://codesolid.com/how-to-use-docker-with-python/">How To Use Docker and Docker Compose With Python</a>, it struck me that I had only begun to scratch the surface of the cool projects that might flow out of that idea.</p>
+<p>With this in mind, I thought I’d write briefly about some of these project ideas. Usually, I’m not particularly eager to do “coming soon” posts. However, this is such a rich area for exploration that I thought it would make a good “Python Practice Ideas” article and turn into a laundry list of things I might write about. We may see some of these added to the <a class="reference external" href="https://github.com/CodeSolid/python-docker-examples">Python Docker Examples</a> repo soon, or maybe one of our readers will get to these ideas ahead of us.</p>
+<p>So here, then, in no particular order, are several more ideas for Python Practice projects on Docker.</p>
+<section id="setting-up-python-tests-independently-of-code">
+<h2>Setting Up Python Tests Independently of Code<a class="headerlink" href="#setting-up-python-tests-independently-of-code" title="Link to this heading"></a></h2>
+<p>An everyday use case for Docker Compose is relatively easy to set up. It consists of treating the container that contains the production code that one is running as a base container. It’s then straightforward to have a set of unit tests built into another container. Those unit tests might run on the host machine. A more common scenario is that the production and test containers will collectively serve as the whole “ready-to-debug” developer environment.</p>
+</section>
+<section id="showing-how-to-debug-python-containers">
+<h2>Showing How To Debug Python Containers<a class="headerlink" href="#showing-how-to-debug-python-containers" title="Link to this heading"></a></h2>
+<p>Speaking of debugging, debugging into containers is an area that might lead to some excellent articles and starter projects. On the last project I worked on, where we routinely debugged into containers professionally, I used PyCharm as an IDE. I relied on its excellent support for debugging in docker with a Docker Compose configuration. Unfortunately, however, this feature is part of the PyCharm Professional Edition, which might effectively put it out of reach of users who haven’t made that purchase.</p>
+<p>There are at least two workarounds for this. The first workaround is not to pick an IDE where you’re nickel-and-dimed for features; instead, work through the recently improved VS Code documentation on setting up <a class="reference external" href="https://code.visualstudio.com/docs/containers/debug-python">Python Debugging in Containers</a>.</p>
+<p>If suggesting that PyCharm nickels and dimes you sounds harsh, I should point out that I was much more of a Jetbrains fanboy until learning that my expensive all-products-pack didn’t include pre-release software. So it’s “all-products” except the ones you don’t get.).</p>
+<p>The other workaround is to show a general remote-debugging configuration using the Enhanced Python Debugger, <a class="reference external" href="https://pypi.org/project/epdb/">epdb</a>. The benefit of remote debugging is that it works not only in Docker but also in Kubernetes and anywhere else one might be able to open up a port. Of course, it appears that this other workaround also won’t work for PyCharm, since remote debugging is also a paid feature:</p>
+<p><img alt="" src="../_images/Remote_Debugging_with_PyCharm___PyCharm1.jpg" /></p>
+<p>Perhaps the best approach here is to skip PyCharm altogether and limit the discussion to VS Code.</p>
+</section>
+<section id="other-containers-to-help-with-postgres-and-django-development">
+<h2>Other Containers to Help With Postgres and Django Development<a class="headerlink" href="#other-containers-to-help-with-postgres-and-django-development" title="Link to this heading"></a></h2>
+<p>The original example I gave for <a class="reference external" href="https://codesolid.com/how-to-use-docker-with-python/#htoc-running-django-and-postgres-using-docker-compose">Postgres plus Django</a> provided a pretty easy-to-use starter application for Django plus Postgres. Still, I could add a great deal more to that example. Another container that would be useful in that context would be a pgAdmin container connected to the same Postgres database to which Django connects. Of course, the common workflow is to set up and run migrations using Django, but I’ve found it’s often helpful to be able to view the database entities themselves. Moreover, one can use PgAdmin to do backups and restores of the development database, so it’s a tool worth having.</p>
+<p>Another container example could take the Postgres plus Docker Compose idea in a different direction. This would involve comparing two major Python ORM products: Djangos versus SQLAlchemy. I suspect that for most Django developers, the choice is moot since their natural (and correct!) inclination is to go with the easy, built-in Django ORM. Still, it might be fun to compare the two on a feature-by-feature basis.</p>
+</section>
+<section id="containers-for-remote-shared-python-development-environments">
+<h2>Containers for Remote Shared Python Development Environments<a class="headerlink" href="#containers-for-remote-shared-python-development-environments" title="Link to this heading"></a></h2>
+<p>I am always interested in different ways I might share code with readers and allow beginners to Python to work with this code in a hands-on way. Many of the examples I’ve relied on have used JupyterBook (c.f. codesolid.github.io), which provides excellent integration with Google Colab.</p>
+<p>However, another viable option here might have been something like Github Codespaces or Gitpod.io. Both of these options allow for the configuration of a full VS Code environment in a Docker container. For a shared development environment for a Python course or the like, this might prove to be a more useful option than JupyterBook, since it allows teaching a decent (free) IDE with a full-featured debugger.</p>
+</section>
+<section id="interfacing-python-and-c-or-c">
+<h2>Interfacing Python and C++ or C<a class="headerlink" href="#interfacing-python-and-c-or-c" title="Link to this heading"></a></h2>
+<p>A research and writing area I would really like to devote more time and attention to on this blog are the many ways that one can interface and optimize Python with C or C++ code. Doing this work inside a container that supports both C++ and Python development would definitely be a plus, because C++ development is notoriously platform-specific. Focusing on the different approaches to this problem that are available while trying to support all the platforms a user might try it on would really be too much, I think, so a C++ plus Python container could at least lock down the platform side of the equation.</p>
+<p>That said, there are <em>at least</em> four approaches to the problem that one could explore:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/ctypes.html">Ctypes</a>. This approach should be reasonably simple to demonstrate but only handles simple cases of “calling a C DLL from within Python.”</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/extending/extending.html">CPython C Extensions</a> are a mechanism for extending CPython only, but that’s not a significant limitation, given that this is the implementation that most of us have in mind when we think about Python.</p></li>
+<li><p><a class="reference external" href="https://cython.org/">Cython</a> is the mechanism for interfacing C and C++ with Python that I’m most excited about digging into. It forms the basis for scikit-learn, and it seems to have the most recommendations when users ask about it on r/Python. It does take us “outside” of the CPython world somewhat, inasmuch as it provides a superset of CPython that allows compiling Cython-enhanced Python code to C. This, of course, has gotten all the nerd receptors in my nervous system firing like crazy.</p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/user/c-info.html">Using the Numpy C API</a> - I suspect that this solution will be pretty specific to Numpy, but given that Numpy is the basis for Pandas, SciPy, and a zillion other wonderful things, as “limited choice” options go this should still be pretty interesting.</p></li>
+</ul>
+</section>
+<section id="serverless-c-you-know-you-want-some">
+<h2>Serverless C++? You Know You Want Some<a class="headerlink" href="#serverless-c-you-know-you-want-some" title="Link to this heading"></a></h2>
+<p>As we’ve discussed before in the context of reviewing <a class="reference external" href="https://codesolid.com/career-paths-for-python-programmers/">Python careers</a>, AWS Lambda functions are one of the areas where Python is heavily used. We’ve covered <a class="reference external" href="https://codesolid.com/python-and-aws-lambda-functions/">Python Lambda functions</a> in a basic way, but in addition to hosting functions written in native Python (or JavaScript, or what have you), AWS Lambda also supports running functions based on <a class="reference external" href="https://docs.aws.amazon.com/lambda/latest/dg/images-create.html">custom containers</a>.</p>
+<p>Creating and launching such a container to run Python would be an interesting exercise in itself, but would not add much value beyond what one can do simply by deploying a Python AWS Lambda function in the usual way, without a custom container. However, the ability to interface with C++ in the last section suggests that we could provide some support – albeit in a very custom way – for running C++ code in AWS Lambda.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

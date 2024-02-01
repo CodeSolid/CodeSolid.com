@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Is Julia Easy to Learn for Python Developers? &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=19645805"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Is Julia Easy to Learn for Python Developers?</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/julia-vs-python-now-for-something-completely-different.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="is-julia-easy-to-learn-for-python-developers">
+<h1>Is Julia Easy to Learn for Python Developers?<a class="headerlink" href="#is-julia-easy-to-learn-for-python-developers" title="Link to this heading"></a></h1>
+<p>When I first took a look at Julia, I was wondering if it would be easy to learn and use it, coming from a background as a Python developer. I thought features like LISP-style macros might make it a difficult transition. It turns out it was easier than expected.</p>
+<p><strong>Julia has many features that are very similar to Python features, so this makes it easy to start programming Julia if you know some Python. Though there are differences between the two languages, where they differ, the Julia approach frequently makes things easier to learn and work with.</strong></p>
+<p>If you use Python for data science or machine learning, you may have heard of Julia. Though my own background is more along the lines of general software development, I’ve recently taken a first look at Julia and from what I can see so far, it’s really worth learning more about.</p>
+<p>In this article, we’ll walk through the features of Julia that are easy to learn coming from a Python background as well as a few of the major differences. We’ll do this in the context of a beginner Julia project, doing some simple data analysis in Jupyter notebook using a Julia DataFrame.</p>
+<section id="julia-easily-integrates-with-jupyter-notebook">
+<h2>Julia Easily Integrates With Jupyter Notebook<a class="headerlink" href="#julia-easily-integrates-with-jupyter-notebook" title="Link to this heading"></a></h2>
+<p>I found installing Julia to be quite straightforward in my environment. The installable packages are <a class="reference external" href="https://julialang.org/downloads/">available here</a>. For my environment, macOS ARM (M-series Processor), the release is listed as experimental, but I’m pleased to report that nothing untoward occurred in running the package, other than this:</p>
+<p><img alt="" src="../_images/JuliaInstall1.png" /></p>
+<p>As usual, I simply dragged Julia to the Applications folder, and it did the right thing. Launching Julia from as an application brought up a windowed terminal running with the Julia. To make things easier to work with in a terminal, I wrote the following shell script named julia and put it on my path:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/Applications/Julia-1.7.app/Contents/Resources/julia/bin/julia<span class="w"> </span><span class="nv">$@</span>
+</pre></div>
+</div>
+<p>For other environments, this site gives the platform-specific instructions.</p>
+<p>With this in place, in a new terminal, running <code class="docutils literal notranslate"><span class="pre">julia</span></code> brought up the REPL:</p>
+<p><img alt="" src="../_images/julia-repl1.png" /></p>
+<p>Hello world in Julia looks exactly like it does in Python, so I probably tried that out next, but it wasn’t long before I wanted to run Julia in Jupyter notebook. To do that, I found a site that suggested how to do this using Anaconda, but I didn’t want to install the Internet to try this out, so instead I followed this procedure.</p>
+<p>Once Julia is installed, the next step is to install the Julia kernel to integrate it with Python. Unlike in Python, packages can be managed inside the REPL, not separately. The following technique worked with the latest version of Julia and ensured that the kernel was visible from Jupyter. While still in the Julia REPL, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>using<span class="w"> </span>Pkg
+Pkg.update<span class="o">()</span>
+Pkg.add<span class="o">(</span><span class="s2">&quot;IJulia&quot;</span><span class="o">)</span>
+
+<span class="c1"># I needed this for Julia 1.7.2, but not for Julia 1.7.1 for some reason</span>
+Pkg.build<span class="o">(</span><span class="s2">&quot;IJulia&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>After a few seconds, the kernel will be installed. At this point, you can type “<code class="docutils literal notranslate"><span class="pre">exit()</span></code>” (<code class="docutils literal notranslate"><span class="pre">or</span> <span class="pre">CTRL-D</span></code>) to leave the Julia REPL, and we can set up a local environment with Jupyter installed, and run Jupyter in the usual way:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv<span class="w"> </span>
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+pip<span class="w"> </span>install<span class="w"> </span>jupyter
+jupyter<span class="w"> </span>notebook
+</pre></div>
+</div>
+<p>We should now see the Julia kernel as a selection in Jupyter Notebook.</p>
+<p><img alt="" src="../_images/jupyter-julia1.png" /></p>
+<p>Some of the first things I tried in my nifty new notebook were validating that I really was in Julia by checking the version.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">VERSION</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">1.7.2</span>
+</pre></div>
+</div>
+<p>Yes, that’s as expected.</p>
+</section>
+<section id="julia-list-comprehensions-work-like-python-s">
+<h2>Julia List Comprehensions Work Like Python’s<a class="headerlink" href="#julia-list-comprehensions-work-like-python-s" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p>5-element Vector{Int64}:
+2
+4
+6
+8
+10</p>
+<p>One gotcha I ran into, however, was expecting the resulting Vector to be zero-based. Instead, by convention and consensus, arrays are one-based in Julia, so <code class="docutils literal notranslate"><span class="pre">a_list[1]</span></code> in the above equals 2, while <code class="docutils literal notranslate"><span class="pre">a_list[0]</span></code> just throws an exception.</p>
+<p>I say by arrays are one based by convention and consensus because – although doing so lightly is a bad idea – one can actually implement <a class="reference external" href="https://docs.julialang.org/en/v1/devdocs/offset-arrays/">arrays with arbitrary indexes</a> in Julia. I don’t think you’ll catch me doing that anytime soon, though.</p>
+</section>
+<section id="julia-manages-packages-and-environments-better">
+<h2>Julia Manages Packages and Environments Better<a class="headerlink" href="#julia-manages-packages-and-environments-better" title="Link to this heading"></a></h2>
+<p>I mentioned earlier that Julia’s package manager can be run from inside the REPL. There’s actually a fair bit more that the package manager can do, so overall the landscape here looks much simpler than it is in Python. Without leaving the Julia REPL, for example, you can:</p>
+<ul class="simple">
+<li><p>Create an isolated environment.</p></li>
+<li><p>Install packages into it.</p></li>
+<li><p>Install packages locally in development mode, so you can patch or do development on the packages locally as needed.</p></li>
+<li><p>Add unregistered packages (i.e., add packages directly from Julia code on GitHub).</p></li>
+</ul>
+<p>Let’s see how this works in action. Let’s save our Jupyter notebook for now, exit Jupyter, and run the Julia REPL again.</p>
+<p>From that environment, we can activate a special prompt where we can interact with the package manager more directly. To do this, type a <code class="docutils literal notranslate"><span class="pre">&quot;]&quot;</span></code> (right-bracket character). This brings up a prompt, which in my case running 1.7.2 looks like this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>@v1.7<span class="o">)</span><span class="w"> </span>pkg&gt;<span class="w"> </span>
+</pre></div>
+</div>
+<p>From this prompt, we can start to use a local environment (what we’d call a virtual environment in Python) quite simply:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>activate<span class="w"> </span>.
+</pre></div>
+</div>
+<p>At this point, we haven’t saved anything to disk, but we’ve told Julia to work with a local environment in the same directory as our Jupyter notebook. Let’s add some packages we’ll need:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">add</span> <span class="n">DataFrames</span> <span class="n">CSV</span> <span class="n">RemoteFiles</span>
+</pre></div>
+</div>
+<p>When these packages finish installing, you can exit the package prompt and then Julia with <code class="docutils literal notranslate"><span class="pre">CTRL-C</span></code> and <code class="docutils literal notranslate"><span class="pre">exit()</span></code>.</p>
+<p>Adding packages creates two files, Manifest.toml and Project.toml. Project.toml looks like this when we’re done:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>deps<span class="o">]</span>
+<span class="nv">CSV</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;336ed68f-0bac-5ca0-87d4-7b16caf5d00b&quot;</span>
+<span class="nv">DataFrames</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;a93c6f00-e57d-5684-b7b6-d8193f3e46c0&quot;</span>
+<span class="nv">RemoteFiles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;cbe49d4c-5af1-5b60-bb70-0a60aa018e1b&quot;</span>
+</pre></div>
+</div>
+<p>This gives us a high-level overview of what’s installed. The UUIDs after the name are not version specific, but vary depending on the package. Manifest.toml is much more detailed, so I won’t reproduce all of it here, but you can find out about versions and transitive dependencies there. For example, for CSV, we see:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[[</span>deps.CSV<span class="o">]]</span>
+<span class="nv">deps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="s2">&quot;CodecZlib&quot;</span>,<span class="w"> </span><span class="s2">&quot;Dates&quot;</span>,<span class="w"> </span><span class="s2">&quot;FilePathsBase&quot;</span>,<span class="w"> </span><span class="s2">&quot;InlineStrings&quot;</span>,<span class="w"> </span><span class="s2">&quot;Mmap&quot;</span>,<span class="w"> </span><span class="s2">&quot;Parsers&quot;</span>,<span class="w"> </span><span class="s2">&quot;PooledArrays&quot;</span>,<span class="w"> </span><span class="s2">&quot;SentinelArrays&quot;</span>,<span class="w"> </span><span class="s2">&quot;Tables&quot;</span>,<span class="w"> </span><span class="s2">&quot;Unicode&quot;</span>,<span class="w"> </span><span class="s2">&quot;WeakRefStrings&quot;</span><span class="o">]</span>
+git-tree-sha1<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;9519274b50500b8029973d241d32cfbf0b127d97&quot;</span>
+<span class="nv">uuid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;336ed68f-0bac-5ca0-87d4-7b16caf5d00b&quot;</span>
+<span class="nv">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0.10.2&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="like-python-julia-features-dataframes">
+<h2>Like Python, Julia Features DataFrames<a class="headerlink" href="#like-python-julia-features-dataframes" title="Link to this heading"></a></h2>
+<p>Let’s go back into Jupyter notebook and create a new Julia Notebook. Julia and Jupyter should work out that there’s a local environment and use that for the notebook, but let’s just confirm. In a code cell, enter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">using</span> <span class="n">Pkg</span>
+<span class="n">Pkg</span><span class="o">.</span><span class="n">status</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>     Status `~/source/CodeSolid/JuliaSandbox/Jupyter1/Project.toml`
+  [336ed68f] CSV v0.10.2
+  [a93c6f00] DataFrames v1.3.2
+  [cbe49d4c] RemoteFiles v0.4.2
+</pre></div>
+</div>
+<p>Let’s see if we can load a DataFrame with some interesting data. Here in the United States, we might be interested in comparing our COVID-19 mortality to Canada, if only to see if moving to a colder climate might be worth it. First, let’s download the data:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>using<span class="w"> </span>RemoteFiles
+using<span class="w"> </span>CSV
+using<span class="w"> </span>DataFrames
+
+@RemoteFile<span class="o">(</span>COVID_DATA,<span class="w"> </span><span class="s2">&quot;https://covid.ourworldindata.org/data/owid-covid-data.csv&quot;</span>,<span class="w">      </span><span class="nv">file</span><span class="o">=</span><span class="s2">&quot;owid-covid-data.csv&quot;</span><span class="o">)</span>
+
+
+<span class="c1"># Check whether the file has been downloaded</span>
+println<span class="o">(</span>isfile<span class="o">(</span>COVID_DATA<span class="o">))</span>
+
+<span class="c1"># Get the path</span>
+<span class="nv">FILE_PATH</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>path<span class="o">(</span>COVID_DATA<span class="o">)</span>
+print<span class="o">(</span>FILE_PATH<span class="o">)</span>
+</pre></div>
+</div>
+<p>You may see a message saying the file is being downloaded, but if you re-run the cell after a few seconds, you’ll see that the file exists and the path to load it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kc">True</span>
+<span class="o">&lt;</span><span class="n">path</span><span class="o">&gt;/</span><span class="n">data</span><span class="o">/</span><span class="n">owid</span><span class="o">-</span><span class="n">covid</span><span class="o">-</span><span class="n">data</span><span class="o">.</span><span class="n">csv</span>
+</pre></div>
+</div>
+<p>By the way, the <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>in &#64;RemoteFile means we’re calling a macro rather than a function. Using a macro this way is easy, generally. We’ll forego a discussion of how to create them for now.</p>
+<p>Now that we’ve downloaded the remote file, we can load it into a DataFrame fairly easily. This is why we saved the <code class="docutils literal notranslate"><span class="pre">FILE_PATH</span></code> constant.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">df</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>DataFrame<span class="o">(</span>CSV.File<span class="o">(</span>FILE_PATH<span class="o">))</span>
+df
+</pre></div>
+</div>
+<p>Output of the first few rows:</p>
+<table><tbody><tr><td>iso_code</td><td>continent</td><td>location</td><td>date</td><td>total_cases</td><td>new_cases</td><td>new_cases_smoothed</td></tr><tr><td>String15</td><td>String15?</td><td>String</td><td>Date</td><td>Float64?</td><td>Float64?</td><td>Float64?</td></tr><tr><td>AFG</td><td>Asia</td><td>Afghanistan</td><td>2020-02-24</td><td>5</td><td>5</td><td>missing</td></tr><tr><td>AFG</td><td>Asia</td><td>Afghanistan</td><td>2020-02-25</td><td>5</td><td>0</td><td>missing</td></tr><tr><td>AFG</td><td>Asia</td><td>Afghanistan</td><td>2020-02-26</td><td>5</td><td>0</td><td>missing</td></tr><tr><td>AFG</td><td>Asia</td><td>Afghanistan</td><td>2020-02-27</td><td>5</td><td>0</td><td>missing</td></tr><tr><td>AFG</td><td>Asia</td><td>Afghanistan</td><td>2020-02-28</td><td>5</td><td>0</td><td>missing</td></tr><tr><td>AFG</td><td>Asia</td><td>Afghanistan</td><td>2020-02-29</td><td>5</td><td>0</td><td>0.714</td></tr></tbody></table>
+<p>Next, we can explore what column attributes are available using the <code class="docutils literal notranslate"><span class="pre">names</span></code> function. Because long arrays won’t be printed by default, we can iterate through the array as we might in Python. In Julia, the loop looks like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+   <span class="n">println</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">iso_code</span>
+<span class="n">continent</span>
+<span class="n">location</span>
+<span class="n">date</span>
+<span class="n">total_cases</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+</section>
+<section id="subsets-of-data-in-julia-are-similar-to-pandas">
+<h2>Subsets of Data in Julia Are Similar To Pandas<a class="headerlink" href="#subsets-of-data-in-julia-are-similar-to-pandas" title="Link to this heading"></a></h2>
+<p>Without getting into the many <a class="reference external" href="https://dataframes.juliadata.org/stable/man/working_with_dataframes/#Taking-a-Subset">options for taking subsets</a> data in Julia DataFrames, here’s just one example where we get all the rows, as shown by the <code class="docutils literal notranslate"><span class="pre">:</span></code> as the first subset argument, and a small list of columns passed as a vector in the second argument.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[:,</span> <span class="p">[:</span><span class="n">continent</span><span class="p">,</span> <span class="p">:</span><span class="n">location</span><span class="p">,</span> <span class="p">:</span><span class="n">new_deaths_smoothed_per_million</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>Output of the first few rows:</p>
+<table><tbody><tr><td>continent</td><td>location</td><td>new_deaths_smoothed_per_million</td></tr><tr><td>String15?</td><td>String</td><td>Float64?</td></tr><tr><td>Asia</td><td>Afghanistan</td><td>missing</td></tr><tr><td>Asia</td><td>Afghanistan</td><td>missing</td></tr><tr><td>Asia</td><td>Afghanistan</td><td>missing</td></tr><tr><td>Asia</td><td>Afghanistan</td><td>missing</td></tr><tr><td>Asia</td><td>Afghanistan</td><td>missing</td></tr><tr><td>Asia</td><td>Afghanistan</td><td>missing</td></tr></tbody></table>
+</section>
+<section id="julia-packages-can-be-added-in-code">
+<h2>Julia Packages Can Be Added in Code<a class="headerlink" href="#julia-packages-can-be-added-in-code" title="Link to this heading"></a></h2>
+<p>In Julia, it’s more obvious than in Python how to use the package manager in the REPL or in code. Of course, since pip is a python module, I suppose in principle one could load packages in Python code too, but I’ve never seen it done or learned how to do it. Working in the notebook, it occurred to me that I could load some packages I’d forgotten right inside the notebook.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Query&quot;</span><span class="p">)</span>
+<span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Plots&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This turned out to be somewhat less useful than doing it inside the REPL, because during the build phase it looks like Jupyter might have cached some output until the end, and the Plots package took a fair amount of time to install and build. So I ended up going out to the REPL and finishing the process.</p>
+<p>Moreover, even though you can do it while prototyping, having packages added inside the notebook is something you’ll want to remove before committing your project. In a later section, we’ll show how to start working with existing projects.</p>
+</section>
+<section id="julia-s-query-tool-simplifies-querying-dataframes">
+<h2>Julia’s Query Tool Simplifies Querying DataFrames<a class="headerlink" href="#julia-s-query-tool-simplifies-querying-dataframes" title="Link to this heading"></a></h2>
+<p>As you can see in the last section, we’ve started to think about how we can query and plot the data that we’ve loaded. The DataFrames documentation mentioned a couple of different tools for querying DataFrames easily. One of them, <a class="reference external" href="https://github.com/queryverse/Query.jl">Query</a>, is inspired by LINQ, C#’s library for querying and joining multiple data sources. I thought this would be a good tool to pick up, and it turned out to be quite easy to use, once you get past the difficulty in typing the Julia pipe operator: <code class="docutils literal notranslate"><span class="pre">|&gt;</span></code>.</p>
+<p>Before we hop into the Query package, however, let’s take a minute to work with the pipe operator a bit and to mention another difference between Julia and Python.</p>
+<p>The pipe operator is tough to type, but easy to understand. All it does is take the output of the expression to the left of it, and uses it as input to the expression on the right. So in this respect, it functions similarly to the builder pattern, which allows for complex chains of object construction.</p>
+<p>The pipe operator is useful where long chains of expressions need to be chained, as is the case for queries (think about the clauses of a SQL query, for example). For simpler cases it’s easier to use nested functions, but a simpler case is helpful to illustrate how it works.</p>
+</section>
+<section id="julia-slicing-ranges-differ-from-python-s">
+<h2>Julia Slicing Ranges Differ from Python’s<a class="headerlink" href="#julia-slicing-ranges-differ-from-python-s" title="Link to this heading"></a></h2>
+<p>Let’s take our old friend, “Hello, world”. We can slice a string in Julia as we might in Python, but in Julia, slices are one-based (as arrays are), and include the final index rather than excluding it. Thus, to get “Hello”, we want: “Hello, world”[1:5]. Without a pipe, making “Hello” uppercase is simply:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uppercase<span class="o">(</span><span class="s2">&quot;Hello, world&quot;</span><span class="o">[</span><span class="m">1</span>:5<span class="o">])</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;HELLO&quot;</span>
+</pre></div>
+</div>
+<p>Converted to a pipe expression, the same operation looks like this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Hello, world&quot;</span><span class="o">[</span><span class="m">1</span>:5<span class="o">]</span><span class="w"> </span><span class="p">|</span>&gt;<span class="w"> </span>uppercase
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;HELLO&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="julia-s-query-package-is-easy-to-grasp">
+<h2>Julia’s Query Package is Easy to Grasp<a class="headerlink" href="#julia-s-query-package-is-easy-to-grasp" title="Link to this heading"></a></h2>
+<p>Now that we understand how Julia uses pipes, let’s see how we can query some data about total deaths per million people in Canada vs the United States.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>using<span class="w"> </span>Query
+
+<span class="c1"># Narrow down to only the columns we need</span>
+<span class="nv">df_column_subset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>df<span class="o">[</span>:,<span class="w"> </span><span class="o">[</span>:location,<span class="w"> </span>:new_deaths_smoothed_per_million,<span class="w"> </span>:date<span class="o">]]</span>
+
+<span class="c1"># Drop missing data, select only the countries we want, order the results and save to a DataFrame</span>
+<span class="nv">df_north_america</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>df_column_subset<span class="w"> </span><span class="p">|</span>&gt;
+<span class="w">    </span>@dropna<span class="o">(</span>:new_deaths_smoothed_per_million<span class="o">)</span><span class="w"> </span><span class="p">|</span>&gt;
+<span class="w">    </span>@filter<span class="o">(</span>_.location<span class="w"> </span><span class="k">in</span><span class="o">([</span><span class="s2">&quot;United States&quot;</span>,<span class="w"> </span><span class="s2">&quot;Canada&quot;</span><span class="o">]))</span><span class="w"> </span><span class="p">|</span>&gt;
+<span class="w">    </span>@orderby<span class="o">(</span>_.date<span class="o">)</span><span class="w"> </span><span class="p">|</span>&gt;
+<span class="w">    </span>DataFrame
+</pre></div>
+</div>
+<p>Output of the first few rows:</p>
+<table><tbody><tr><td>location</td><td>new_deaths_smoothed_per_million</td><td>date</td></tr><tr><td>String</td><td>Float64</td><td>Date</td></tr><tr><td>United States</td><td>0</td><td>2020-02-29</td></tr><tr><td>United States</td><td>0</td><td>2020-03-01</td></tr><tr><td>United States</td><td>0.003</td><td>2020-03-02</td></tr><tr><td>United States</td><td>0.003</td><td>2020-03-03</td></tr><tr><td>United States</td><td>0.005</td><td>2020-03-04</td></tr><tr><td>United States</td><td>0.005</td><td>2020-03-05</td></tr><tr><td>United States</td><td>0.006</td><td>2020-03-06</td></tr><tr><td>United States</td><td>0.007</td><td>2020-03-07</td></tr><tr><td>United States</td><td>0.009</td><td>2020-03-08</td></tr><tr><td>Canada</td><td>0.004</td><td>2020-03-09</td></tr></tbody></table>
+<p>Most of this is query syntax is pretty easy to understand, but if you’re wondering why in the <code class="docutils literal notranslate"><span class="pre">dropna</span></code> case we use <code class="docutils literal notranslate"><span class="pre">:column_name</span></code> syntax but everywhere else we use <code class="docutils literal notranslate"><span class="pre">_.column_name</span></code>, you’re <a class="reference external" href="https://github.com/queryverse/Query.jl/issues/331">not the first</a> to notice this inconsistency. Beyond that, we’re filtering the rows, sorting, etc., and saving the output to a new DataFrame with the name df_north_america. Before we plot this data, however, it will be helpful to transform it a bit.</p>
+</section>
+<section id="transforming-rows-into-columns-in-julia">
+<h2>Transforming Rows into Columns in Julia<a class="headerlink" href="#transforming-rows-into-columns-in-julia" title="Link to this heading"></a></h2>
+<p>Our DataFrame, df_north_america, has total deaths for both Canada and the United States as rows. But in order to plot those values, it’s easier to have them as columns. The next line does that for us, using the “location” label for the column and populating the total_deaths_per_million values for the US and Canada in those columns. We may decide later to worry about the missing values, depending on how the plot looks.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">df_plottable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>unstack<span class="o">(</span>df_north_america,<span class="w"> </span>:location,<span class="w"> </span>:new_deaths_smoothed_per_million<span class="o">)</span>
+</pre></div>
+</div>
+<p>Output of the first few rows:</p>
+<table><tbody><tr><td>date</td><td>United States</td><td>Canada</td></tr><tr><td>Date</td><td>Float64?</td><td>Float64?</td></tr><tr><td>2020-02-29</td><td>0</td><td>missing</td></tr><tr><td>2020-03-01</td><td>0</td><td>missing</td></tr><tr><td>2020-03-02</td><td>0.003</td><td>missing</td></tr><tr><td>2020-03-03</td><td>0.003</td><td>missing</td></tr><tr><td>2020-03-04</td><td>0.005</td><td>missing</td></tr><tr><td>2020-03-05</td><td>0.005</td><td>missing</td></tr><tr><td>2020-03-06</td><td>0.006</td><td>missing</td></tr><tr><td>2020-03-07</td><td>0.007</td><td>missing</td></tr><tr><td>2020-03-08</td><td>0.009</td><td>missing</td></tr><tr><td>2020-03-09</td><td>0.007</td><td>0.004</td></tr><tr><td>2020-03-10</td><td>0.009</td><td>0.004</td></tr></tbody></table>
+</section>
+<section id="plotting-data-in-julia-is-straightforward">
+<h2>Plotting Data In Julia is Straightforward<a class="headerlink" href="#plotting-data-in-julia-is-straightforward" title="Link to this heading"></a></h2>
+<p>Once we have a DataFrame in the format we want it, plotting the data is quite straightforward. We use the Plots package that we installed earlier. First, we extract two columns representing the smoothed value of new deaths per million population for the US and Canada. These will be our Y values. Our X values will simply be the dates. We pass the X values, followed by an array of our Y values. Finally, we pass in the labels to use for our Y values, and give our chart a grim title.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>using Plots
+
+us = df_plottable[!, &quot;United States&quot;]
+ca = df_plottable[!, &quot;Canada&quot;]
+x_values = df_plottable[!, :date]
+plot(x_values, [us, ca], label = [&quot;United States&quot; &quot;Canada&quot;], 
+        title=&quot;COVID-19 Deaths per Million USA vs Canada&quot;)
+</pre></div>
+</div>
+<p>Here is our result:</p>
+<p><img alt="" src="../_images/covid_deaths_us_vs_canada-11.png" /></p>
+<p>COVID-19 Deaths US vs Canada</p>
+<p>Wow, time to pack up my passport, eh?</p>
+</section>
+<section id="julia-is-faster-than-python">
+<h2>Julia Is Faster Than Python<a class="headerlink" href="#julia-is-faster-than-python" title="Link to this heading"></a></h2>
+<p>Although we’re meant to be discussing Julia from the point of view of how easy it is to learn given a background in Python, I do feel I must take a nod to the topic that every article brings up when comparing the two – the difference in performance.</p>
+<p>Setting up benchmarks to compare the two involved making allowances for the differences between the most commonly used timing library in Python, the timeit module, and Julia’s built-in timing macro, &#64;time. Because Julia’s macro didn’t seem to accommodate accumulations of successive runs like timeit, I instead went with a third-party package, Kristoffer Carlsson’s <a class="reference external" href="https://github.com/KristofferC/TimerOutputs.jl">TimerOutputs</a>. (This will need to be installed using one of the methods outlined above).</p>
+<p>Here, we’re going to sum the numbers zero to 255 (inclusive), 1000 times</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>using<span class="w"> </span>TimerOutputs
+
+<span class="k">function</span><span class="w"> </span>test_implicit_types<span class="o">(</span>iterations<span class="o">)</span>
+<span class="w">    </span><span class="nv">to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>TimerOutput<span class="o">()</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span>run<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1</span>:iterations
+<span class="w">        </span>@timeit<span class="w"> </span>to<span class="w"> </span><span class="s2">&quot;sum&quot;</span><span class="w"> </span>sum<span class="o">([</span>x<span class="w"> </span><span class="k">for</span><span class="w"> </span>x<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>:255<span class="o">])</span>
+<span class="w">    </span>end
+<span class="w">    </span><span class="k">return</span><span class="w"> </span>to
+end
+
+test_implicit_types<span class="o">(</span><span class="m">1000</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> ──────────────────────────────
+                            Time                    Allocations      
+  ──────────────────────────────                  
+ Tot / % measured:      557μs /  40.1%           2.08MiB /  99.8%    
+
+ Section   ncalls     time    %tot     avg     alloc    %tot      avg
+ ──────────────────────────────
+ sum        1.00k    223μs  100.0%   223ns   2.08MiB  100.0%  2.12KiB
+ ──────────────────────────────
+</pre></div>
+</div>
+<p>If we can assume that timeit accumulates the time spent in the contents of each iteration, not on the execution of the loop itself, the relevant number for comparison in the above output is the 233 microseconds spent on the 1,000 calls to sum.</p>
+<p>Now we execute the same code in Python for both NumPy and native Python. In the NumPy case, we even give Python the benefit of the doubt by excluding the NumPy array object construction from the loop, which also moves the list comprehension out.</p>
+<p>To facilitate the comparison, we measure in microseconds here too.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">timeit</span> <span class="kn">import</span> <span class="n">timeit</span>
+
+<span class="k">def</span> <span class="nf">display_time</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">result</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Time in </span><span class="se">\u00B5</span><span class="s2">s: </span><span class="si">{</span><span class="n">result</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000000</span><span class="si">}</span><span class="s2">, in ms: </span><span class="si">{</span><span class="n">result</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">timeit</span><span class="p">(</span><span class="s2">&quot;sum([x for x in range(0,256)])&quot;</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">display_time</span><span class="p">(</span><span class="s2">&quot;Python for Julia-comparable case&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">timeit</span><span class="p">(</span><span class="s2">&quot;the_list.sum()&quot;</span><span class="p">,</span> 
+      <span class="n">setup</span><span class="o">=</span><span class="s2">&quot;import numpy as np; the_list = np.array([x for x in range(0,256)])&quot;</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">display_time</span><span class="p">(</span><span class="s2">&quot;NumPy (best case)&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Python<span class="w"> </span><span class="k">for</span><span class="w"> </span>Julia-comparable<span class="w"> </span><span class="k">case</span>
+<span class="w">	</span>Time<span class="w"> </span><span class="k">in</span><span class="w"> </span>µs:<span class="w"> </span><span class="m">12535</span>.66699961084,<span class="w"> </span><span class="k">in</span><span class="w"> </span>ms:<span class="w"> </span><span class="m">12</span>.53566699961084
+
+NumPy<span class="w"> </span><span class="o">(</span>best<span class="w"> </span><span class="k">case</span><span class="o">)</span>
+<span class="w">	</span>Time<span class="w"> </span><span class="k">in</span><span class="w"> </span>µs:<span class="w"> </span><span class="m">883</span>.5419976094272,<span class="w"> </span><span class="k">in</span><span class="w"> </span>ms:<span class="w"> </span><span class="m">0</span>.8835419976094272
+</pre></div>
+</div>
+<p>If you want to try this on different machines, I’ll include a link to the code, but on my M1 apple processor, the results are looking much better for Julia. The best case (with a leg-up) effort for NumPy is about four times slower than Julia. The native Python case – at least in this test – takes fifty-six times as long to run as the native Julia code!</p>
+<p>My things to-do list as of now?</p>
+<ul class="simple">
+<li><p>Move to Canada to improve my pandemic chances.</p></li>
+<li><p>Launch a Julia blog.</p></li>
+</ul>
+</section>
+<section id="julia-from-python-can-be-done-incrementally">
+<h2>Julia From Python Can Be Done Incrementally<a class="headerlink" href="#julia-from-python-can-be-done-incrementally" title="Link to this heading"></a></h2>
+<p>Coming from a background in Python and other languages, I did not find Julia too hard to learn. To be sure, there are some differences between the two, and I’ve pointed out some of these as we’ve gone along.</p>
+<p>There are other differences that are even more fundamental that we haven’t covered in this article. For example, although it has a rich type system, Julia does not support bundling methods and custom data types together as Python does. In this respect, it more closely resembles Golang than Python. On the other hand, one of Julia’s coolest features, multiple dispatch, means it’s possible to define heavily overloaded functions that can be crafted to be precisely selected based on the runtime type of the arguments passed. Because of this, selecting behavior based on the type of object bound to the method is not really necessary in Julia.</p>
+<p>Overall, however, I was not so much impressed by how much Julia differs from Python as by how much they overlap. I tried using an “in” on an array, for example, and it just worked. I haven’t touched Pandas in a while, yet I was able to write this article only a week after beginning to read about Julia. The approach I used was simply to take the language as it is and find good examples from which to work. Doing that, my impression was that Julia was easy to learn, coming from Python.</p>
+<p>This side trip to Julia was great fun for me. The main disadvantage to the language that I see is the practical consideration that even though Julia may be an order of magnitude faster, Python is an order of magnitude more popular. It will be interesting indeed to see how this all plays out going forward.</p>
+</section>
+<section id="you-may-also-like">
+<h2>You May Also Like<a class="headerlink" href="#you-may-also-like" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://codesolid.com/learning-c-and-python-the-perfect-duo-for-success/">Learning C++ and Python: The Perfect Duo for Success</a></p></li>
+<li><p><a class="reference external" href="https://codesolid.com/how-do-i-profile-python-code/">How to Profile Python Code</a></p></li>
+<li><p><a class="reference external" href="https://codesolid.com/python-format-strings/">Python Format Strings: Beginner to Expert</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

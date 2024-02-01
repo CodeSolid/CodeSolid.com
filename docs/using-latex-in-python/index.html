@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Using LaTeX In Python &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=19645805"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="Installing Pyenv on a Mac (A Setup Guide With Usage Tips)" href="../installing-pyenv-on-a-mac/" />
+    <link rel="prev" title="CodeSolid.com" href="../" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Using LaTeX In Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#latex-in-jupyter-markdown">LaTeX in Jupyter Markdown</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#centering-math-output">Centering Math Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#left-aligning-and-inline-latex-blocks">Left-Aligning and Inline LaTeX Blocks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#an-important-caveat-mathjax-vs-latex">An Important Caveat: MathJax vs. LaTeX</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#latex-files-in-jupyterlab">LaTeX Files in JupyterLab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#latex-in-sagemath-and-sympy">LaTeX in SageMath and SymPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#other-packages-in-python">Other Packages in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#source-code-and-additional-resources">Source Code and Additional Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Using LaTeX In Python</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/using-latex-in-python.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="using-latex-in-python">
+<h1>Using LaTeX In Python<a class="headerlink" href="#using-latex-in-python" title="Link to this heading"></a></h1>
+<p>It’s no surprise that Python should have good support for using LaTeX. Python recently became the number one programming language, especially for scientific and mathematical applications. For many years, LaTeX has been the top tool for typesetting documents for math and science.</p>
+<p>In Jupyter, both traditional Jupyter notebooks and JupyterLab support using LaTeX math expressions in Markdown cells. Moreover, in JupyterLab, you can edit complete LaTeX documents, and a third-party extension enables building these files automatically and getting a live preview of the results.</p>
+<p>In addition to the support provided by Jupyter, Python Computer Algebra systems also boast LaTeX features. SymPy and SageMath, the two major ones, support displaying mathematical expressions using LaTeX. They also allow you to access the underlying LaTeX code itself. In both cases, there are some options for controlling the LaTeX output.</p>
+<p>In addition to Jupyter and the Python symbolic math tools, there are third-party Python packages that work with LaTeX. We’ll examine one of the more practical and well-maintained of these, Latexifier.</p>
+<section id="latex-in-jupyter-markdown">
+<h2>LaTeX in Jupyter Markdown<a class="headerlink" href="#latex-in-jupyter-markdown" title="Link to this heading"></a></h2>
+<p>In one respect, Jupyter lets you start integrating math expressions into Markdown cells easily and quickly. This section will show you how to do this and some basic “alignment” tricks.</p>
+<section id="centering-math-output">
+<h3>Centering Math Output<a class="headerlink" href="#centering-math-output" title="Link to this heading"></a></h3>
+<p>Suppose you have a math expression that you want to display neatly formatted and centered. In this case, you can begin a block using two dollar signs, <code class="docutils literal notranslate"><span class="pre">$$</span></code>, insert the LaTeX code for the expression, and end the block again with two dollar signs. For example:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>$$
+\lim_{x\to0} \frac{\sin{x}}{x} = 1
+$$
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="" src="../_images/image-330.png" /></p>
+<p>Our purpose here does not leave us space for a comprehensive LaTeX tutorial, but if we look at the source, we can get a basic feel for how it works. Here we have a <code class="docutils literal notranslate"><span class="pre">\lim</span></code>_ directive, which we follow with an underscore and brackets containing what we want to appear underneath the limit. Next, we declare the function, beginning with a fraction, which takes two bracket pairs (numerator and denominator). You’ll find this basic pattern of <code class="docutils literal notranslate"><span class="pre">\directive{parameter...}</span></code> everywhere in LaTeX.</p>
+</section>
+<section id="left-aligning-and-inline-latex-blocks">
+<h3>Left-Aligning and Inline LaTeX Blocks<a class="headerlink" href="#left-aligning-and-inline-latex-blocks" title="Link to this heading"></a></h3>
+<p>If we want the same block to appear left-aligned, we can keep the core limit line the same as before, but we need to do two things. First, we need to change the double dollar signs to single. That alone will left align the output, as shown below:</p>
+<p><img alt="" src="../_images/image-420.png" /></p>
+<p>Notice, however, that the term of the limit “as x approaches zero” no longer appears underneath the limit as we expect, and the rest of the expression looks slightly different as well. To fix this and make the output consistent with the centered version, we need to add the second piece of the puzzle, an alignment directive. Here’s how the code and output will look:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>$
+\begin{align}
+\lim_{x\to0} \frac{\sin{x}}{x} = 1
+\end{align}
+$
+</pre></div>
+</div>
+<p>Output when evaluated:</p>
+<p><img alt="" src="../_images/image-615.png" /></p>
+<p>Inlining a block uses the same single dollar signs to start and end a block but without any leading or trailing new lines. Take, for example, a sentence that looks like this:</p>
+<p><img alt="" src="../_images/image-813.png" /></p>
+<p>To get that result, we include the math expressions in inline blocks in the text:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>The function $f(x) = \frac{17}{x-4}$ has a discontinuity at $x = 4$.
+</pre></div>
+</div>
+</section>
+<section id="an-important-caveat-mathjax-vs-latex">
+<h3>An Important Caveat: MathJax vs. LaTeX<a class="headerlink" href="#an-important-caveat-mathjax-vs-latex" title="Link to this heading"></a></h3>
+<p>Before leaving this section, we should mention one “issue” with Jupyter’s “LaTeX” support that you may encounter. Jupyter adds LaTeX support to Markdown via MathJax, a JavaScript library for formatting and displaying math expressions. What this means is that for math expressions and a very small subset of formatting and other non-math expressions, Jupyter works flawlessly. So although you’re using a subset of the LaTeX language that works quite well, this is not actually a LaTeX build environment.</p>
+<p>Because of this, often you’ll find that if you try to search for how to do something in LaTeX, you’ll find a technique that is not supported by MathJax. Most of the reference material online is not for MathJax, but for LaTeX itself. For example, you may often find documentation for solutions that rely on importing some library using the <code class="docutils literal notranslate"><span class="pre">\usepackage</span></code> directive, or perhaps on creating a LaTeX table.</p>
+<p>You don’t really get an error <em>per se</em> in such cases – you’ll just get weird-looking results. Consider the following LaTeX source and output.</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>$$
+\usepackage{amsmath}
+$$
+
+$$
+\begin{table}[]
+\begin{tabular}{lll}
+1 &amp; 2 &amp; 3  \\
+2 &amp; 4 &amp; 6 \\
+\end{tabular}
+\end{table}
+$$
+</pre></div>
+</div>
+<p>Output when the cell is evaluated:</p>
+<p><img alt="" src="../_images/image-140.png" /></p>
+<p>The first directive should give no output at all, the second should show an actual table that looks like this:</p>
+<p><img alt="" src="../_images/image-228.png" /></p>
+<p>If you’re dealing with math expressions, MathJax gives beautiful results and can generally do exactly what you need. (To give you an idea, MathJax underlies the math expressions on the popular Paul’s Math Notes site). But keep in mind that although MathJax supports a subset of LaTeX brilliantly, it’s still just a subset. If you have non-mathematical LaTeX-formatted content that must appear “as-is” in Jupyter, you’ll likely find the easiest way forward to be via an embedded screenshot.</p>
+</section>
+</section>
+<section id="latex-files-in-jupyterlab">
+<h2>LaTeX Files in JupyterLab<a class="headerlink" href="#latex-files-in-jupyterlab" title="Link to this heading"></a></h2>
+<p>In addition to the MathJax support that’s available from the classic notebook and forward, in the case of JupyterLab, that tools extension support means that you can use JupyterLab as an editor for “real” LaTeX files. To do this, you’ll need to have a compiler that can convert .tex files to PDFs, which is generally available in many <a class="reference external" href="https://www.latex-project.org/get/">TeX distributions</a>. In addition, you’ll need to install the jupyterlab_latex extension, for example, by running <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">jupyterlab_latex</span> <span class="pre">-y</span></code> or <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">jupyterlab_latex</span></code>.</p>
+<p>Once you have these installed, you can click right-click on a LaTeX document in a file with the .tex extension to bring up a LaTeX preview window. This window will update every time the corresponding source is changed. The screenshot below shows how this might look for some of the directives that failed earlier when we tried them in Markdown. At this point, we’re no longer dealing with MathJax, but LaTeX itself.</p>
+<p><img alt="" src="../_images/image-99.png" /></p>
+</section>
+<section id="latex-in-sagemath-and-sympy">
+<h2>LaTeX in SageMath and SymPy<a class="headerlink" href="#latex-in-sagemath-and-sympy" title="Link to this heading"></a></h2>
+<p>In addition to working with LaTeX directly in Jupyter, Python’s two popular symbolic math tools, SageMath and SymPy, both support viewing their expressions in LaTeX. There are, however, some differences in how they approach this:</p>
+<ul class="simple">
+<li><p>For SageMath, displaying the expressions using MathJax in the browser requires a separate call to the <code class="docutils literal notranslate"><span class="pre">show</span></code> function, whereas in SymPy, the output is formatted via MathJax by default.</p></li>
+<li><p>SageMath can output LaTeX expressions just as SymPy can, but SageMath can’t parse them to create SageMath objects from LaTeX. SymPy does include an experimental parser for LaTeX, but it sometimes produces unexpected results even for simple functions created in SymPy, so it has a long way to go.</p></li>
+<li><p>When generating output, SageMath controls detailed LaTeX formatting via a global object (so it handles “universal” defaults well). In SymPy, options to control the output can be passed into the <code class="docutils literal notranslate"><span class="pre">latex</span></code> function itself.</p></li>
+</ul>
+<p>With that brief introduction, let’s look at a few examples. We’ll take the case of SageMath first. To show both a function and its solution set using MathJax, you simply display each using the show method.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the function and the solution in SageMath</span>
+<span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span><span class="mi">5</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">6</span>
+<span class="n">solution</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Display them both using MathJax</span>
+<span class="n">show</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="n">solution</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="" src="../_images/image-109.png" /></p>
+<p>By the way, that vertical pipe with an arrow is read as “maps to”. SageMath shows functions using a <code class="docutils literal notranslate"><span class="pre">\mapto</span></code> symbol, to show that the function f maps x to whatever function body you declared, in our case x2 - 5x + 6.</p>
+<p>To get the LaTeX source in SageMath, simply call the <code class="docutils literal notranslate"><span class="pre">latex</span></code> function, passing in the expression you want to convert. If you need to see the string in a format that you can paste into Python or other code (i.e., you want the escape sequences you’d need), wrap it in a <code class="docutils literal notranslate"><span class="pre">str</span></code> constructor. For example, here’s how to get it both ways for our function, f:</p>
+<p><img alt="" src="../_images/image-1310.png" /></p>
+<p>As we mentioned earlier, in SageMath, the default output is nicely formatted in MathJax, so the need to call show largely disappears. The downside of that is that it’s not obvious how one might have several calls to “show” different objects via MathJax in the same cell. In SageMath, the easy thing to do in this case is just to split the code into multiple cells, as shown below:</p>
+<p><img alt="" src="../_images/image-156.png" /></p>
+<p>As in Sage, you can also get the string representation in SymPy, with or without escape sequences:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show the LaTeX:</span>
+<span class="n">print_latex</span><span class="p">(</span><span class="n">solution</span><span class="p">)</span>
+
+<span class="c1"># Get the LaTeX string with the escape sequences</span>
+<span class="n">latex</span><span class="p">(</span><span class="n">solution</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="se">\l</span>eft<span class="o">[</span><span class="w"> </span><span class="m">2</span>,<span class="w"> </span><span class="se">\ </span><span class="w"> </span><span class="m">3</span><span class="se">\r</span>ight<span class="o">]</span>
+<span class="s1">&#39;\\left[ 2, \\  3\\right]&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="other-packages-in-python">
+<h2>Other Packages in Python<a class="headerlink" href="#other-packages-in-python" title="Link to this heading"></a></h2>
+<p>There are a number of LaTeX utilities that are published as third-party Python packages (on PyPi). One interesting one, latexify-py, converts math-oriented Python functions into LaTeX. However, this package only supports a narrow range of Python versions and does not appear to be maintained currently.</p>
+<p>A more up-to-date package in this space is latexifier. The latexifier module supports a few different Python types including plain lists, tuples, and SymPy expressions. One really great feature is its ability to handle NumPy arrays directly In this section we’ll show how to do this. Along the way, we’ll also discuss how you can take any MathJax-compatible string and display it in Jupyter.</p>
+<p>With latexifier installed, the code below does the following:</p>
+<ul class="simple">
+<li><p>Creates a 2-D NumPy array.</p></li>
+<li><p>Converts it to a string representing a matrix</p></li>
+<li><p>Outputs it using IPython.display.Latex</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">latexifier</span> <span class="kn">import</span> <span class="n">latexify</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Latex</span>
+
+<span class="c1"># Create a sample &quot;Matrix&quot; (NumPy 2-D array)</span>
+<span class="n">MM</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">13</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="c1"># Specify that we want newlines and we want curly braces (&quot;Bmatrix&quot;) as the matrix display type.</span>
+<span class="n">converted</span> <span class="o">=</span> <span class="n">latexify</span><span class="p">(</span><span class="n">MM</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">arraytype</span><span class="o">=</span><span class="s2">&quot;Bmatrix&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Showing converted LaTeX string:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">converted</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">Displaying it using the Latex method of IPython.display:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">Latex</span><span class="p">(</span><span class="n">converted</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="" src="../_images/image-196.png" /></p>
+<p>By converting it to a one-dimensional NumPy array first, we can take a simple Python list and display it as either a row vector or a column vector:</p>
+<p>Here’s the setup for that:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># A simple python list</span>
+<span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">]</span>
+<span class="n">one_d_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">a_list</span><span class="p">)</span>
+
+<span class="n">as_row</span> <span class="o">=</span> <span class="n">latexify</span><span class="p">(</span><span class="n">one_d_array</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">as_column</span> <span class="o">=</span> <span class="n">latexify</span><span class="p">(</span><span class="n">one_d_array</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">arraytype</span><span class="o">=</span><span class="s2">&quot;bmatrix&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>That done, we can display the vector both ways:</p>
+<p><img alt="" src="../_images/image-204.png" /></p>
+</section>
+<section id="source-code-and-additional-resources">
+<h2>Source Code and Additional Resources<a class="headerlink" href="#source-code-and-additional-resources" title="Link to this heading"></a></h2>
+<p>You can get the source for this article in the associated <a class="reference external" href="https://github.com/Codesolid/latex-in-python">GitHub repository</a>, or <a class="reference external" href="https://github.com/CodeSolid/latex-in-python/archive/refs/heads/main.zip">download it</a> (zip file). The README contains a resources section with some other links you may find helpful for getting started in LaTeX.</p>
+<p>The image for this article was just for fun and was created using the techniques we’ve covered here. That business underneath the Python logo tells you what you can use in MathJax, and can be read as “the set of all elements such that the element is a subset of LaTeX and the element is in the set of math expressions.”</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../" class="btn btn-neutral float-left" title="CodeSolid.com" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../installing-pyenv-on-a-mac/" class="btn btn-neutral float-right" title="Installing Pyenv on a Mac (A Setup Guide With Usage Tips)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

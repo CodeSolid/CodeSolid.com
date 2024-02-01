@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=19645805"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/images/python-dictionaries-with-exercises/index.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>Python dictionaries are a popular and easy-to-use built-in type. Among the collection data types – the types programmers use to store and retrieve other objects – dictionaries are probably the most widely used class next to Python lists. Using Python dictionaries is simple to learn, but mastering them and remembering the syntax when you need it requires some practice, so we have several exercises at the end of this tutorial lesson. These are available as Jupyter Notebooks and feature both the exercises and a solutions guide if you need more help.</p>
+<p>Although this is a beginner tutorial, cover dictionaries in some depth here. For more beginner-focused Python articles, see our list, <a class="reference external" href="https://codesolid.com/python-for-beginners/">Python for Beginners</a>.</p>
+<section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h1>
+<p>It’s easy to understand the role of dictionaries in Python if you think about the role of dictionaries in finding the meaning of an unfamiliar word or learning a language. Unlike novels or screenplays, or even Python blogs, language dictionaries are books that are arranged to make looking up entries fast and convenient. It’s a rare person who would read a dictionary cover to cover, though it can be done. Most people would prefer to use them as a lookup tool.</p>
+<p>Python dictionaries are unlike natural language dictionaries in being somewhat more precise. In a Python dictionary, each key refers to exactly one object. (Note that it is possible to map to an object that contains a set of other objects, like a set or list). In natural language dictionaries, in contrast, the word bat could either be a flying mammal that lives in a cave or a tool for playing baseball.</p>
+<p>Table of Contents</p>
+<ul class="simple">
+<li><p>Introduction</p></li>
+<li><p>Creating Python Dictionaries</p></li>
+<li><p>The Append Method in Python Dictionaries?</p></li>
+<li><p>A Less Common Way to Create a Dictionary</p></li>
+<li><p>Python Dictionaries vs. Python Lists</p></li>
+<li><p>Dealing With Missing Data</p></li>
+<li><p>Iterating Dictionaries</p></li>
+<li><p>Some Slightly More Advanced Dictionary Topics</p>
+<ul>
+<li><p>When To Use Python Defaultdict</p></li>
+<li><p>Dictionary Comprehensions</p></li>
+</ul>
+</li>
+<li><p>Python Dictionary Exercises</p></li>
+<li><p>You May Also Like</p></li>
+</ul>
+</section>
+<section id="creating-python-dictionaries">
+<h1>Creating Python Dictionaries<a class="headerlink" href="#creating-python-dictionaries" title="Link to this heading"></a></h1>
+<p>There are several ways to create a Python dictionary, but the most common is to use a dictionary literal. (If you don’t have a good reason to do it another way, this is the method I would recommend). A dictionary literal is a set of key/value pairs surrounded by curly brackets. For example, let’s say we wanted to be able to map letter grades to the minimum average score one would need to reach this grade. An “F” would be represented by not appearing in the dictionary.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">grade_map</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="mi">70</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="mi">60</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example, each letter grade is a key. Between each key and value, we have a colon, “:”. Separating each key-value pair, we have either a comma or (to end the dictionary) a closing curly brace. More formally, we can write the syntax this way:</p>
+<p>{key1: value1, …, keyN:valueN}</p>
+<p>When we want to look up a value, we use the dictionary name, followed by the key name in square brackets:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">grade_map</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="mi">70</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="mi">60</span><span class="p">}</span>
+<span class="n">min_grade_for_a</span> <span class="o">=</span> <span class="n">grade_map</span><span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">min_grade_for_a</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">90</span>
+</pre></div>
+</div>
+</section>
+<section id="the-append-method-in-python-dictionaries">
+<h1>The Append Method in Python Dictionaries?<a class="headerlink" href="#the-append-method-in-python-dictionaries" title="Link to this heading"></a></h1>
+<p>Beginners to Python who have learned about lists and the <code class="docutils literal notranslate"><span class="pre">list.append</span></code> method sometimes search in vain for a method of the same name in Python dictionaries. In place of append, you can add to Python dictionaries using an assignment operator and the same brackets operator we used to look up an item before.</p>
+<p>Let’s say we want to add an “F” grade to our grade_map since we’re unhappy that we didn’t explicitly document that you need at least a zero to get an “F.” Our original map looks like this: <code class="docutils literal notranslate"><span class="pre">{&quot;A&quot;:</span> <span class="pre">90,</span> <span class="pre">&quot;B&quot;:</span> <span class="pre">80,</span> <span class="pre">&quot;C&quot;:</span> <span class="pre">70,</span> <span class="pre">&quot;D&quot;:</span> <span class="pre">60}</span></code>. Here’s how we would add an “F” grade to it:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">grade_map</span><span class="p">[</span><span class="s2">&quot;F&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># print the new map</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">grade_map</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span><span class="s1">&#39;A&#39;</span>:<span class="w"> </span><span class="m">90</span>,<span class="w"> </span><span class="s1">&#39;B&#39;</span>:<span class="w"> </span><span class="m">80</span>,<span class="w"> </span><span class="s1">&#39;C&#39;</span>:<span class="w"> </span><span class="m">70</span>,<span class="w"> </span><span class="s1">&#39;D&#39;</span>:<span class="w"> </span><span class="m">60</span>,<span class="w"> </span><span class="s1">&#39;F&#39;</span>:<span class="w"> </span><span class="m">0</span><span class="o">}</span>
+</pre></div>
+</div>
+</section>
+<section id="a-less-common-way-to-create-a-dictionary">
+<h1>A Less Common Way to Create a Dictionary<a class="headerlink" href="#a-less-common-way-to-create-a-dictionary" title="Link to this heading"></a></h1>
+<p>We’ve seen that we can use dictionary literals to create a dictionary in the form <code class="docutils literal notranslate"><span class="pre">{key1:</span> <span class="pre">value1,</span> <span class="pre">key2:</span> <span class="pre">value2,</span> <span class="pre">...}</span></code>. However, it’s also possible to create a dictionary using the dict() constructor. We can combine this with setting values individually if we wish:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">good_grades</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">good_grades</span><span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">90</span>
+<span class="n">good_grades</span><span class="p">[</span><span class="s2">&quot;B&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">80</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">good_grades</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span><span class="s1">&#39;A&#39;</span>:<span class="w"> </span><span class="m">90</span>,<span class="w"> </span><span class="s1">&#39;B&#39;</span>:<span class="w"> </span><span class="m">80</span><span class="o">}</span>
+</pre></div>
+</div>
+<p>This way of creating dictionaries is much less common and is not recommended if you know the values your dictionary should have in advance. For dictionaries that need to be created dynamically, there’s another mechanism we can use, but let’s put off discussion of that for a bit as it’s a little bit more advanced. We have some basics and a bit of theory to get through first.</p>
+</section>
+<section id="python-dictionaries-vs-python-lists">
+<h1>Python Dictionaries vs. Python Lists<a class="headerlink" href="#python-dictionaries-vs-python-lists" title="Link to this heading"></a></h1>
+<p>As we’re learning about the basics of Python dictionaries, it’s helpful to compare them to Python lists, especially to understand when we would prefer one over the other. The main question to ask yourself when selecting a list or a dictionary is whether you need to process a whole group of elements or whether what you need is to be able to retrieve a single element quickly. If you need to operate on all the elements, then a list is probably what you want. If you’re looking up elements, you should definitely prefer a Python dictionary.</p>
+<p>For example, suppose you were writing a program to print out labels for the people you send holiday cards to. In this case, each name and address might be an object, and you are trying to make sure you send everyone a card. The last part gives away that you’re processing every item, and the goal of the group of items is to get processed as a group. Therefore, a list is an appropriate collection to use, and indeed, we typically call such a group of holiday cards a “list” even if we’re not programmers.</p>
+<p>But now, suppose that for each item we were processing, we had to translate a state name into a state abbreviation. Perhaps our address objects contained New England state names, but the full names – “Rhode Island,” “Massachusetts,” “Connecticut” – wouldn’t fit on the card. We could have another list of objects with state names and their abbreviations to abbreviate the state names, but then we’d have to have a nested loop to look up the state name by name. The nested loop would slow down processing considerably.</p>
+<p>A much better approach would be something like the following pseudo-code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">states</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Rhode Island&quot;</span><span class="p">,</span> <span class="s2">&quot;RI, &quot;</span><span class="n">Connecticut</span><span class="s2">&quot;: &quot;</span><span class="n">CT</span><span class="s2">&quot;, ... }</span>
+
+<span class="k">for</span> <span class="n">address</span> <span class="ow">in</span> <span class="n">addresses</span><span class="p">:</span>
+    <span class="n">address</span><span class="o">.</span><span class="n">state_abreviation</span> <span class="o">=</span> <span class="n">states</span><span class="p">[</span><span class="n">address</span><span class="o">.</span><span class="n">long_state_name</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">address</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We have to deal with every address anyway, so the outer loop is fine. Using a dictionary means the lookup happens quickly. So again, use dictionary objects when you need to look up a single value rapidly.</p>
+<p>Another difference between lists and dictionaries is the type of data they hold. For lists, the elements of the list can be any Python object – strings, numbers, dates, booleans, custom types, you name it! For dictionaries, the values can be of any Python type, but the keys have two other requirements, both of which are fulfilled by some basic types such as strings and numbers that are commonly used as keys. First, the key must be hashable; that is to say, it must be possible to efficiently turn int into a number using the “<code class="docutils literal notranslate"><span class="pre">__hash__</span></code>” method. (Double-underbar “magic” methods like this are typically called internally, though you can call them directly if you’re curious).</p>
+<p>Secondly, the type must be immutable. In other words, you shouldn’t be able to change the object’s value. This second requirement means, for example, that you can’t use lists, sets, or dictionaries as keys to a dictionary.</p>
+<p>The reason for this limitation is that Python dictionaries are implemented as a hashtable. Values are stored based on the hashed value of the key. Since the __hash__ method is very efficient to call, lookups are based on a single key very fast.</p>
+</section>
+<section id="dealing-with-missing-data">
+<h1>Dealing With Missing Data<a class="headerlink" href="#dealing-with-missing-data" title="Link to this heading"></a></h1>
+<p>Earlier, we showed one method for getting data, using a key in square brackets.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">grade_map</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="mi">70</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="mi">60</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">grade_map</span><span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">90</span>
+</pre></div>
+</div>
+<p>While this method works if you know the key exists in the dictionary, it raises a KeyError if the key is not in the dictionary:</p>
+<p><img alt="" src="../../_images/image-19-1024x214.png" /></p>
+<p>The way to avoid this error if you’re unsure what keys the dictionary contains is to use the dictionary’s get method instead. This method takes a key to retrieve, and instead of raising an error if the key is not in the dictionary, it returns none by default. As an option, you can pass a second argument to the <code class="docutils literal notranslate"><span class="pre">get</span></code> method to return a different default.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">grade_map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;G&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">grade_map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>None
+<span class="m">0</span>
+</pre></div>
+</div>
+<p>Of course, the get method only returns the default if the key is not found. Otherwise, it returns the value that was associated with the key</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">grade_map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">90</span>
+</pre></div>
+</div>
+</section>
+<section id="iterating-dictionaries">
+<h1>Iterating Dictionaries<a class="headerlink" href="#iterating-dictionaries" title="Link to this heading"></a></h1>
+<p>Although dictionaries are designed to make single lookups efficient, you can also iterate through them if you need to do so. There are a couple of ways to do this. The dictionary type has two methods: <code class="docutils literal notranslate"><span class="pre">keys()</span></code> and <code class="docutils literal notranslate"><span class="pre">values()</span></code>, which returns a list only of keys or only of values, respectively. Using each key in the <code class="docutils literal notranslate"><span class="pre">keys()</span></code> list, we can always look up the value and iterate the list this way:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">super_powers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Superman&quot;</span><span class="p">:</span> <span class="s2">&quot;strength&quot;</span><span class="p">,</span> <span class="s2">&quot;Flash&quot;</span><span class="p">:</span> <span class="s2">&quot;speed&quot;</span><span class="p">,</span> <span class="s2">&quot;Sue Storm&quot;</span><span class="p">:</span> <span class="s2">&quot;invisiblity&quot;</span><span class="p">}</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">super_powers</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&#39;s superpower is </span><span class="si">{</span><span class="n">super_powers</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Superman<span class="s1">&#39;s superpower is strength.</span>
+<span class="s1">Flash&#39;</span>s<span class="w"> </span>superpower<span class="w"> </span>is<span class="w"> </span>speed.
+Sue<span class="w"> </span>Storm<span class="err">&#39;</span>s<span class="w"> </span>superpower<span class="w"> </span>is<span class="w"> </span>invisiblity.
+</pre></div>
+</div>
+<p>Another way to do this is to use the dictionary’s <code class="docutils literal notranslate"><span class="pre">items()</span></code> method. Here’s what the <code class="docutils literal notranslate"><span class="pre">items()</span></code> method returns:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">super_powers</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dict_items<span class="o">([(</span><span class="s1">&#39;Superman&#39;</span>,<span class="w"> </span><span class="s1">&#39;strength&#39;</span><span class="o">)</span>,<span class="w"> </span><span class="o">(</span><span class="s1">&#39;Flash&#39;</span>,<span class="w"> </span><span class="s1">&#39;speed&#39;</span><span class="o">)</span>,<span class="w"> </span><span class="o">(</span><span class="s1">&#39;Sue Storm&#39;</span>,<span class="w"> </span><span class="s1">&#39;invisiblity&#39;</span><span class="o">)])</span>
+</pre></div>
+</div>
+<p>This object looks like it contains a list of tuples, so this means we can unpack each item easily:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">super_powers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Superman&quot;</span><span class="p">:</span> <span class="s2">&quot;strength&quot;</span><span class="p">,</span> <span class="s2">&quot;Flash&quot;</span><span class="p">:</span> <span class="s2">&quot;speed&quot;</span><span class="p">,</span> <span class="s2">&quot;Sue Storm&quot;</span><span class="p">:</span> <span class="s2">&quot;invisiblity&quot;</span><span class="p">}</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">super_powers</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&#39;s superpower is </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The output here is the same as earlier:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Superman<span class="s1">&#39;s superpower is strength.</span>
+<span class="s1">Flash&#39;</span>s<span class="w"> </span>superpower<span class="w"> </span>is<span class="w"> </span>speed.
+Sue<span class="w"> </span>Storm<span class="err">&#39;</span>s<span class="w"> </span>superpower<span class="w"> </span>is<span class="w"> </span>invisiblity.
+</pre></div>
+</div>
+</section>
+<section id="some-slightly-more-advanced-dictionary-topics">
+<h1>Some Slightly More Advanced Dictionary Topics<a class="headerlink" href="#some-slightly-more-advanced-dictionary-topics" title="Link to this heading"></a></h1>
+<section id="when-to-use-python-defaultdict">
+<h2>When To Use Python Defaultdict<a class="headerlink" href="#when-to-use-python-defaultdict" title="Link to this heading"></a></h2>
+<p>The built-in dict class works well for most use cases. As we’ve seen, if you need to retrieve a value that may not be present, you can use the dictionary “<code class="docutils literal notranslate"><span class="pre">get</span></code>” method to specify a default. Another typical case is where you need that default value to be present even when creating a value. For example, let’s say that you’re implementing a counter of words in a given text.</p>
+<p>For simplicity, we assume for now that the string has no punctuation and is all lowercase. Here’s how the implementation might look given a standard dict class</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count_words</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;returns a dictionary with the count of each word in the text&quot;&quot;&quot;</span>
+    <span class="n">counts</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">counts</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">counts</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">counts</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">=</span> <span class="n">counts</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">counts</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;this is the thing that this is not the thing that it isn&#39;t.&quot;</span>
+<span class="n">presult</span> <span class="o">=</span> <span class="n">count_words</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>this:<span class="w"> </span><span class="m">2</span>
+is:<span class="w"> </span><span class="m">2</span>
+the:<span class="w"> </span><span class="m">2</span>
+thing:<span class="w"> </span><span class="m">2</span>
+that:<span class="w"> </span><span class="m">2</span>
+not:<span class="w"> </span><span class="m">1</span>
+it:<span class="w"> </span><span class="m">1</span>
+isn<span class="err">&#39;</span>t.:<span class="w"> </span><span class="m">1</span>
+</pre></div>
+</div>
+<p>This code works fine, but note that we have to check the word against the dictionary, then based on whether it’s there or not, either set it to the starter value of one or increment it. We can simplify this code using defaultdict. Default dict takes a callable, which takes no parameters and returns a default value in all cases, including on assignment. The callable can be a lambda function or even a class constructor. In our code, we take advantage that the default value for an “int” is zero, so passing int uses the constructor to set a value to zero. From there, we can simply increment it by one each time. So if we haven’t seen the word before, this means that the first time we see it, it’s set to a one.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+
+<span class="k">def</span> <span class="nf">count_words</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;returns a defaultdict with the count of each word in the text&quot;&quot;&quot;</span>
+    <span class="n">counts</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+        <span class="n">counts</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">=</span> <span class="n">counts</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">counts</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;this is the thing that this is not the thing that it isn&#39;t.&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">count_words</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The output of this program is identical to the dict version, above.</p>
+<p>You can write the program above even more simply using the <a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.Counter">Counter class</a>, but we wanted to show one of the use cases for defaultdict. There’s another use case for defaultdict for which it’s even more well suited. Imagine that you have a list of students’ last names and their grades on certain tests. To find an average for each student, you need to prepare a dictionary where the key is the last name, and the value is a list of all the student’s grades.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+
+<span class="k">def</span> <span class="nf">make_grade_list</span><span class="p">(</span><span class="n">all_grades</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Given a list of tuples of names and grades, return a dictionary of each student and all their grades&quot;&quot;&quot;</span>
+    <span class="n">grades</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">student</span><span class="p">,</span> <span class="n">grade</span> <span class="ow">in</span> <span class="n">all_grades</span><span class="p">:</span>
+        <span class="n">grades</span><span class="p">[</span><span class="n">student</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">grade</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">grades</span>
+
+<span class="n">all_grades</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;Smith&quot;</span><span class="p">,</span> <span class="mi">97</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Lockwood&quot;</span><span class="p">,</span> <span class="mi">76</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Jones&quot;</span><span class="p">,</span> <span class="mi">82</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Jones&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Lockwood&quot;</span><span class="p">,</span> <span class="mi">65</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Smith&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)]</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">make_grade_list</span><span class="p">(</span><span class="n">all_grades</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Smith</span><span class="p">:</span> <span class="p">[</span><span class="mi">97</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+<span class="n">Lockwood</span><span class="p">:</span> <span class="p">[</span><span class="mi">76</span><span class="p">,</span> <span class="mi">65</span><span class="p">]</span>
+<span class="n">Jones</span><span class="p">:</span> <span class="p">[</span><span class="mi">82</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>It looks like that poor Lockwood fellow could use some extra help.</p>
+</section>
+<section id="dictionary-comprehensions">
+<h2>Dictionary Comprehensions<a class="headerlink" href="#dictionary-comprehensions" title="Link to this heading"></a></h2>
+<p>A dictionary comprehension is similar to a list comprehension, except it creates a dictionary instead of a list. Dictionary comprehensions are an advanced topic, but they can be very useful when working with dictionaries. Like list comprehensions, dictionary comprehensions are a concise way to create dictionaries from sets of elements. Here is the general form of the syntax:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">value</span> <span class="k">for</span> <span class="p">[</span><span class="n">code</span> <span class="n">to</span> <span class="n">get</span> <span class="n">key</span> <span class="ow">and</span> <span class="n">value</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="n">some</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">values</span><span class="p">]</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>They are convenient when you need to create a dictionary based on the values of another dictionary. For example, suppose you have a dictionary that maps country codes to country names. If you want to create a dictionary that maps country names to country codes, you can use a dictionary comprehension:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># The original dictionary:</span>
+
+<span class="n">codes_to_countries</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;US&quot;</span><span class="p">:</span> <span class="s2">&quot;United States&quot;</span><span class="p">,</span> <span class="s2">&quot;CA&quot;</span><span class="p">:</span> <span class="s2">&quot;Canada&quot;</span><span class="p">,</span> <span class="s2">&quot;China&quot;</span><span class="p">:</span> <span class="s2">&quot;CN&quot;</span><span class="p">,</span> <span class="s2">&quot;Colombia&quot;</span><span class="p">:</span> <span class="s2">&quot;CO&quot;</span><span class="p">,</span> <span class="s2">&quot;Mexico&quot;</span><span class="p">:</span> <span class="s2">&quot;MX&quot;</span><span class="p">}</span>
+
+<span class="c1"># Use a dictionary comprehension to swap keys and values:</span>
+<span class="n">countries_to_codes</span> <span class="o">=</span> <span class="p">{</span><span class="n">value</span><span class="p">:</span> <span class="n">key</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">codes_to_countries</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">countries_to_codes</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span><span class="s1">&#39;United States&#39;</span>:<span class="w"> </span><span class="s1">&#39;US&#39;</span>,<span class="w"> </span><span class="s1">&#39;Canada&#39;</span>:<span class="w"> </span><span class="s1">&#39;CA&#39;</span>,<span class="w"> </span><span class="s1">&#39;CN&#39;</span>:<span class="w"> </span><span class="s1">&#39;China&#39;</span>,<span class="w"> </span><span class="s1">&#39;CO&#39;</span>:<span class="w"> </span><span class="s1">&#39;Colombia&#39;</span>,<span class="w"> </span><span class="s1">&#39;MX&#39;</span>:<span class="w"> </span><span class="s1">&#39;Mexico&#39;</span><span class="o">}</span>
+</pre></div>
+</div>
+<p>This comprehension created a dictionary with the same keys and values as the original dictionary but with the keys and values swapped.</p>
+</section>
+</section>
+<section id="python-dictionary-exercises">
+<h1>Python Dictionary Exercises<a class="headerlink" href="#python-dictionary-exercises" title="Link to this heading"></a></h1>
+<p>Here are several questions and coding exercises to help you practice your dictionary skills. They’re also available as an online notebook.</p>
+<p><a class="reference external" href="https://colab.research.google.com/github/CodeSolid/CodeSolid.github.io/blob/main/booksource/exercises/DictionaryExercises.ipynb">Dictionary Exercises (Notebook)</a></p>
+<ol class="arabic simple">
+<li><p>When should you prefer a dictionary over a list?</p></li>
+<li><p>Given the following elements and their symbols, create a dictionary that allows you to look up the symbol given the element name as a key. Assume the element name and symbol names have the cases as shown. Name the dictionary “elements”.</p></li>
+</ol>
+<ul class="simple">
+<li><p>Hydrogen H</p></li>
+<li><p>Bismuth Bi</p></li>
+<li><p>Iron Fe</p></li>
+<li><p>Carbon C</p></li>
+<li><p>Silicon Si</p></li>
+<li><p>Helium He</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>Write a for loop that loops over the elements dictionary you created in exercise 2, above. Print each item as “Symbol =&gt; Name” on a single line.</p></li>
+<li><p>Assuming the elements dictionary is in scope (declared globally, for example, or you can add it to the function), write a function that takes an element name and returns the symbol name. If the element name is not found, return the string “NOT FOUND”.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_symbol</span><span class="p">(</span><span class="n">element</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Todo:  Replace None with your code&quot;&quot;&quot;</span>
+    <span class="kc">None</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Add the following elements and their symbols to the elements table.</p></li>
+</ol>
+<ul class="simple">
+<li><p>Oxygen O</p></li>
+<li><p>Sodium Na</p></li>
+<li><p>Zinc Zn</p></li>
+</ul>
+<ol class="arabic simple" start="6">
+<li><p>The elements table allows you to look up symbols, given an element name. How could you create a dictionary that would allow you to look up the element name, given a symbol name?</p></li>
+<li><p>You have a list of sensor IDs and sensor readings, as given in the next cell (the sensor ID comes first in each pair). Also shown is the code for iterating through the list. Write the code to create a dictionary that maps each unique sensor ID to a list of readings related to it, as shown in the following pseudocode: <code class="docutils literal notranslate"><span class="pre">{sensor_id:</span> <span class="pre">[reading1,</span> <span class="pre">reading2,</span> <span class="pre">...],</span> <span class="pre">...}</span></code> Name the dictionary “readings”.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">reading_list</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;id001&quot;</span><span class="p">,</span> <span class="mf">93.9</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;id001&quot;</span><span class="p">,</span> <span class="mf">93.9</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;id007&quot;</span><span class="p">,</span> <span class="mf">33.5</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;id001&quot;</span><span class="p">,</span> <span class="mf">22.0</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;id003&quot;</span><span class="p">,</span> <span class="mf">55.1</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;id007&quot;</span><span class="p">,</span> <span class="mf">22.10</span><span class="p">)]</span>
+<span class="k">for</span> <span class="n">reading</span> <span class="ow">in</span> <span class="n">reading_list</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;id = </span><span class="si">{</span><span class="n">reading</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">, reading = </span><span class="si">{</span><span class="n">reading</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="8">
+<li><p>Write the code to create a dictionary named “squares”. Each key should be a number between one and ten, and each value should be the square of the number.</p></li>
+<li><p>Since you know the squares dictionary contains as keys the numbers 1-10, write the code to retrieve and print the square of 7 using an operator.</p></li>
+<li><p>What is wrong with the following code? You can run it if needed to refresh your memory about this topic:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">grades</span> <span class="o">=</span> <span class="p">{[</span><span class="mi">99</span><span class="p">,</span> <span class="mi">95</span><span class="p">]:</span> <span class="s2">&quot;Kalea&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">85</span><span class="p">,</span> <span class="mi">100</span><span class="p">]:</span> <span class="s2">&quot;Antoine&quot;</span><span class="p">}</span>
+<span class="n">grades</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://colab.research.google.com/github/CodeSolid/CodeSolid.github.io/blob/main/booksource/solutions/DictionaryExercises.ipynb">Solution Guide for Exercises</a></p>
+</section>
+<section id="you-may-also-like">
+<h1>You May Also Like<a class="headerlink" href="#you-may-also-like" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="https://codesolid.com/learning-c-and-python-the-perfect-duo-for-success/">Learning C++ and Python: The Perfect Duo for Success</a></p>
+<p><a class="reference external" href="https://codesolid.com/python-format-strings/">Python Format Strings: Beginner to Expert</a></p>
+<p><a class="reference external" href="https://codesolid.com/python-operators/">Python Operators: The Building Blocks of Successful Code</a></p>
+<p><a class="reference external" href="https://codesolid.com/python-function-arguments-and-parameters-examples/">Python Function Arguments: The Complete Guide</a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

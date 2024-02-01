@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Python For Loop: Complete Tutorial and Practice Exercises &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=19645805"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">The Python For Loop:  Complete Tutorial and Practice Exercises</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/python-for-loop-a-complete-tutorial-with-exercises.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="the-python-for-loop-complete-tutorial-and-practice-exercises">
+<h1>The Python For Loop:  Complete Tutorial and Practice Exercises<a class="headerlink" href="#the-python-for-loop-complete-tutorial-and-practice-exercises" title="Link to this heading"></a></h1>
+<section id="introduction-what-is-a-for-loop-in-python">
+<h2>Introduction: What is a For Loop In Python<a class="headerlink" href="#introduction-what-is-a-for-loop-in-python" title="Link to this heading"></a></h2>
+<p>The for loop is a fundamental construct in Python. It allows you to iterate through a sequence of items, such as a list or a range. In this tutorial, we will discuss the for loop in detail and provide several examples along the way and a set of exercises at the end so that you can practice using it. We will also compare the for loop with while loops and demonstrate several techniques, including how to build a list using a for loop, best practices for naming and other techniques, iterating through Python dictionaries, and several more techniques.</p>
+</section>
+<section id="python-for-loop-syntax-iterating-through-a-list">
+<h2>Python For Loop Syntax: Iterating Through a List<a class="headerlink" href="#python-for-loop-syntax-iterating-through-a-list" title="Link to this heading"></a></h2>
+<p>We can use the for loop to iterate through any sequence of items, but our first example will use a list. The syntax for a for loop is as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">:</span>
+    <span class="n">statement</span>
+    <span class="o">...</span>
+    <span class="n">statement</span>
+</pre></div>
+</div>
+<p>Whatever is indented one level underneath the for loop, as shown above, will be controlled by the loop. (There can be further indentation levels, such as an if statement within a for loop, for example).</p>
+<p>The for loop will execute the statement or statements inside the block for each item in the sequence. The item variable will refer to the current item in the series for each iteration of the for loop.</p>
+<p>Let’s see how this works with a simple example. We’ll create a list of numbers and then iterate through it using a for loop:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
+    <span class="n">doubled</span> <span class="o">=</span> <span class="n">number</span> <span class="o">*</span> <span class="mi">2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="s2">&quot;times 2 =&quot;</span><span class="p">,</span> <span class="n">doubled</span><span class="p">)</span> 
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">0</span><span class="w"> </span><span class="nb">times</span><span class="w"> </span><span class="nv">2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+<span class="m">1</span><span class="w"> </span><span class="nb">times</span><span class="w"> </span><span class="nv">2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span>
+<span class="m">3</span><span class="w"> </span><span class="nb">times</span><span class="w"> </span><span class="nv">2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">6</span>
+<span class="m">4</span><span class="w"> </span><span class="nb">times</span><span class="w"> </span><span class="nv">2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">8</span>
+<span class="m">5</span><span class="w"> </span><span class="nb">times</span><span class="w"> </span><span class="nv">2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span>
+</pre></div>
+</div>
+<section id="a-for-loop-best-practice">
+<h3>A For Loop Best Practice<a class="headerlink" href="#a-for-loop-best-practice" title="Link to this heading"></a></h3>
+<p>Note that part of what makes the example above so simple and readable is that we have named are variables according to a loop naming best practice. The list (sequence) is named with a plural name that describes what each element is (in this case, “numbers”). For the variable we use to store the name of each item as we go through each iteration, we use the singular form of the name in the list.</p>
+<p>So, it’s “for number in numbers” in this case. If you had a list of people, you could use “for person in people.” And so forth.</p>
+<p>Newcomers to programming will sometimes use an “i” for this item variable. However, I think this is based on confusion with other languages. In other languages, a for loop contains an index into the list, not the item from the list itself.</p>
+</section>
+</section>
+<section id="python-for-loop-example-building-a-list-using-the-range-function">
+<h2>Python For Loop Example: Building a List Using the Range Function<a class="headerlink" href="#python-for-loop-example-building-a-list-using-the-range-function" title="Link to this heading"></a></h2>
+<p>In our second example, we’ll see how we can use a for loop to build a list dynamically. This example will show a popular programming pattern in which we use a Python for loop to iterate through a sequence of values and transform it into something else.</p>
+<p>We’ll start with an empty list and then add items to it using a for loop. Our example will use the range function to generate a sequence of values from 1 to 10. The range function returns an iterable sequence of numbers that is often used to iterate a specific number of times in a for loop. We start at the first number passed to the range function (which defaults to zero), and we end just before the second number we pass to the range function. So range(1, 6) counts from 1 to 5, not 1 to 6.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">):</span>
+    <span class="n">numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note we must always create the empty list outside the code block that the loop controls. Then we call append inside the block of code controlled by the loop to add each element.</p>
+</section>
+<section id="for-loops-vs-comprehensions">
+<h2>For Loops vs. Comprehensions<a class="headerlink" href="#for-loops-vs-comprehensions" title="Link to this heading"></a></h2>
+<p>If you’re new to Python and just learning about it, you may hear at some point that creating a list, as we’ve shown above, is somehow “not as good” as making a list using a list comprehension. Without discussing list comprehensions in detail, there is some truth to that. However, knowing the pattern shown above is still very helpful because sometimes, the loop needs to do more than just build the list.</p>
+<p>We focus on simple examples in tutorials such as this one. Still, as your skill progresses, you will find yourself writing for loops that need to not just iterate through a sequence. They may also have to construct strings dynamically, print values, or save results to a database in addition to creating a new sequence and returning it.</p>
+<p>If the only thing you’re doing is creating a sequence, a list comprehension is more concise. However, as a beginner, using a loop is also perfectly valid. Moreover, avoiding a list comprehension is also what you’ll need if your code is doing more than simply creating a sequence.</p>
+</section>
+<section id="using-a-for-loop-with-a-python-dictionary">
+<h2>Using a For Loop With a Python Dictionary<a class="headerlink" href="#using-a-for-loop-with-a-python-dictionary" title="Link to this heading"></a></h2>
+<p>Recall that you can use the for loop on any sequence. So far, we’ve seen lists and ranges as sequences, but dictionaries are also iterable this way. In Python, a for loop iterates through the keys of a dictionary. The syntax for this is as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dictionary</span><span class="p">:</span>
+    <span class="n">statements</span>
+</pre></div>
+</div>
+<p>The for loop will execute the statement or statements inside the block for each key in the dictionary. The “key” variable will refer to the current key in the dictionary for each iteration.</p>
+<p>Let’s see how this works with a simple example. We’ll create a dictionary and then iterate through it using a for loop:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="s2">&quot;cherry&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">:</span> <span class="s2">&quot;Doh! Out of fruits!&quot;</span><span class="p">}</span>
+<span class="k">for</span> <span class="n">fruit_key</span> <span class="ow">in</span> <span class="n">fruits</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fruit_key</span> <span class="o">+</span> <span class="s2">&quot; is for &quot;</span> <span class="o">+</span> <span class="n">fruits</span><span class="p">[</span><span class="n">fruit_key</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>a<span class="w"> </span>is<span class="w"> </span><span class="k">for</span><span class="w"> </span>apple
+b<span class="w"> </span>is<span class="w"> </span><span class="k">for</span><span class="w"> </span>banana
+c<span class="w"> </span>is<span class="w"> </span><span class="k">for</span><span class="w"> </span>cherry
+d<span class="w"> </span>is<span class="w"> </span><span class="k">for</span><span class="w"> </span>Doh!<span class="w"> </span>Out<span class="w"> </span>of<span class="w"> </span>fruits!
+</pre></div>
+</div>
+<p>As you can see, this prints out each key and its corresponding value from the dictionary. Note that we use the dictionary key to look up the value for that key (fruits[fruit_key]]).</p>
+<p>This is because, by default, iterating through a dictionary using a Python for loop only gives us the keys, not the values.</p>
+<p>If you want to iterate through both the keys and values of a dictionary, you can use the items() method. To get the same output as above, use:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="s2">&quot;cherry&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">:</span> <span class="s2">&quot;Doh! Out of fruits!&quot;</span><span class="p">}</span>
+<span class="k">for</span> <span class="n">fruit_key</span><span class="p">,</span> <span class="n">fruit_value</span> <span class="ow">in</span> <span class="n">fruits</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fruit_key</span> <span class="o">+</span> <span class="s2">&quot; is for &quot;</span> <span class="o">+</span> <span class="n">fruit_value</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="for-loops-vs-while-loops">
+<h2>For Loops vs. While Loops<a class="headerlink" href="#for-loops-vs-while-loops" title="Link to this heading"></a></h2>
+<p>Loops using “for” and “while” are two of Python’s most basic control structures. They both allow you to iterate through a sequence of items, but they have different purposes and uses.</p>
+<p>Generally speaking, the Python for loop is used to implement a definite loop, one that will execute a number of times that’s known in advance. Iterating through a list, for example, it will loop once for each element, or “len(list)”.</p>
+<p>The while loop, on the other hand, is most often used for what’s called an indefinite loop. This type of loop will execute until some condition is met.</p>
+<p>The while loop’s syntax can be summarized as:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">boolean_condition</span><span class="p">:</span>
+    <span class="n">statement</span> <span class="n">block</span>
+</pre></div>
+</div>
+<p>For example, suppose you wanted to multiply a number by 2 and keep iterating through it until the product of the numbers is greater than 100. Here’s how you might do it:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="nb">sum</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>
+    <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">*</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">1</span>
+<span class="m">2</span>
+<span class="m">4</span>
+<span class="m">8</span>
+<span class="m">16</span>
+<span class="m">32</span>
+<span class="m">64</span>
+</pre></div>
+</div>
+<p>Another pattern that’s more common with while loops rather than for loops is to loop “forever” (<code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True:</span></code>) and use a <code class="docutils literal notranslate"><span class="pre">break</span></code> statement following some check on a return value or the like inside the loop. The break keyword exits the loop unconditionally.</p>
+<p>(As an aside: It’s important that there be a condition that will break out of the loop, however, otherwise, the loop could be infinite. (CTRL-C will stop it for you). Also, this sort of loop is also combined with a sleep statement to do polling of a remote server or the like; the sleep helps prevent the loop from running too tightly and consuming the CPU unnecessarily.)</p>
+<p>Generally speaking, then, the for loop is better suited for situations where you know how many times it will need to run, and the while loop is for when you don’t. That said, there are often ways to rewrite for loops as indefinite loops and while loops as definite loops</p>
+</section>
+<section id="using-the-enumerate-function">
+<h2>Using the Enumerate Function<a class="headerlink" href="#using-the-enumerate-function" title="Link to this heading"></a></h2>
+<p>The enumerate function is a useful built-in function in Python that allows you to iterate through a sequence of items and also keep track of the index for each item. The syntax for using the enumerate function in a for loop is as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sequence</span><span class="p">):</span>
+    <span class="n">statements</span>
+</pre></div>
+</div>
+<p>The sequence can be a list, tuple, string, or dictionary. The enumerate function will return an object that contains the index for each item in the sequence as well as the value of each item.</p>
+<p>Let’s see how this works. The following example displays both the index and the value for the list ‘a’, ‘b’, ‘c’</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">letters</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">letter</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">letters</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The letter at index </span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="n">letter</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span> 
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>The<span class="w"> </span>letter<span class="w"> </span>at<span class="w"> </span>index<span class="w"> </span><span class="m">0</span><span class="w"> </span>is<span class="w"> </span>a.
+The<span class="w"> </span>letter<span class="w"> </span>at<span class="w"> </span>index<span class="w"> </span><span class="m">1</span><span class="w"> </span>is<span class="w"> </span>b.
+The<span class="w"> </span>letter<span class="w"> </span>at<span class="w"> </span>index<span class="w"> </span><span class="m">2</span><span class="w"> </span>is<span class="w"> </span>c.
+</pre></div>
+</div>
+</section>
+<section id="for-loop-practice-exercises">
+<h2>For Loop Practice Exercises<a class="headerlink" href="#for-loop-practice-exercises" title="Link to this heading"></a></h2>
+<p>To practice what you’ve learned, here are some things you can try:</p>
+<ol class="arabic simple">
+<li><p>For the first exercise, create a list of numbers from 1 to 20 using the range function, and print it.</p></li>
+<li><p>With the list that you created in #1, use a for loop to go through the list, and print each number that is divisible by three. You’ll need to use an “if” statement and the modulo operator for this (See <a class="reference external" href="https://codesolid.com/python-operators/">Python Operators</a> if you need a refresher on the modulo operator).</p></li>
+<li><p>Try re-writing the example in #2 as a while loop. Which loop was more clear and easier to reason about?</p></li>
+<li><p>Did you know strings are sequences in Python? Declare a string and write a for loop to iterate through it. How is the string divided when you do this?</p></li>
+<li><p>Given the following list of Python dictionaries, write a for loop to go through the list, printing only the value given by the name key. (For this and #6, if you’re not familiar with working with dictionaries, you may need to consult <a class="reference external" href="https://codesolid.com/python-dictionaries-with-exercises/">Python Dictionaries for Beginners</a>).</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">people</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Eric Idle&quot;</span><span class="p">,</span> <span class="s2">&quot;born&quot;</span><span class="p">:</span> <span class="mi">1943</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Terry Jones&quot;</span><span class="p">,</span> <span class="s2">&quot;born&quot;</span><span class="p">:</span> <span class="mi">1942</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;John Cleese&quot;</span><span class="p">,</span> <span class="s2">&quot;born&quot;</span><span class="p">:</span> <span class="mi">1939</span><span class="p">}]</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>Using the enumerate function, write a for loop that loops through each dictionary in the <code class="docutils literal notranslate"><span class="pre">people</span></code> list from the last example (#5). For each item in the list, add a new key, “index”, set to the index value returned from the enumerate function.</p></li>
+<li><p>One could imagine a 5 unit by 5 unit square of points on an X, Y coordinate plane, spaced one unit apart, beginning at one. If you printed out the values, it would look like this</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>x:<span class="w"> </span><span class="m">1</span>,<span class="w"> </span>y:<span class="w"> </span><span class="m">1</span>
+x:<span class="w"> </span><span class="m">2</span>,<span class="w"> </span>y:<span class="w"> </span><span class="m">1</span>
+<span class="o">(</span>...<span class="w"> </span><span class="m">21</span><span class="w"> </span>more<span class="w"> </span>lines<span class="w"> </span>...<span class="o">)</span>
+x:<span class="w"> </span><span class="m">5</span>,<span class="w"> </span>y:<span class="w"> </span><span class="m">4</span>
+x:<span class="w"> </span><span class="m">5</span>,<span class="w"> </span>y:<span class="w"> </span><span class="m">5</span>
+</pre></div>
+</div>
+<p>The code below is partially written and shows how this can be done using nested loops. It will create the program to print this output, but each line has the word MISSING where the rest of the code should be. Replace the word missing with the correct code to make the program run as described.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="c1"># MISSING</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="c1"># MISSING</span>
+        <span class="nb">print</span><span class="p">(</span> <span class="c1"># MISSING</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="8">
+<li><p>A Python set is a data structure that contains no duplicate items:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">todo_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s2">&quot;Buy the milk&quot;</span><span class="p">,</span> <span class="s2">&quot;Buy the milk&quot;</span><span class="p">,</span> <span class="s2">&quot;Study Python&quot;</span><span class="p">,</span> <span class="s2">&quot;Bookmark CodeSolid&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Write a for loop to iterate through todo_set, printing each value. How many times did “Buy the milk” get printed?</p>
+<p>9. Write a program that iterates through this string: “The quick brown fox jumps over the lazy dog”, creating a list of each letter that’s a vowel. Print the list of vowels.</p>
+<p>10. Write your own exercise and solve it. Bonus: Post your exercise and solution it in the comments section!</p>
+</section>
+<section id="you-may-also-enjoy">
+<h2>You May Also Enjoy<a class="headerlink" href="#you-may-also-enjoy" title="Link to this heading"></a></h2>
+<p><a class="reference external" href="https://codesolid.com/python-format-strings/">Python Format Strings: From Beginner to Expert</a></p>
+<p><a class="reference external" href="https://codesolid.com/python-operators/">Python Operators: The Building Blocks of Successful Code</a></p>
+<p><a class="reference external" href="https://codesolid.com/python-dataclasses/">Python Dataclass: Easily Automate Class Best Practices</a></p>
+<p><a class="reference external" href="https://codesolid.com/python-indexing-slicing-exercises/">Python Indexing and Slicing: Complete Tutorial and Hands-On Exercises</a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logarithms and Exponents &mdash; JohnLockwood.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=2709fde1"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Double and Half Angle Formulas (Summary)" href="DoubleAndHalfAngleFormulas.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            JohnLockwood.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../cognitive_science/index.html">Cognitive Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../socialmedia/index.html">Social Media</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recovery/index.html">Recovery</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Math</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Journal.html">Math Journal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SyllabusAndJournal.html">Johnsin University</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Limits.html">Limits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Derivatives.html">Derivatives Review and Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LinearAlgebraBeginnings.html">Interesting Linear Algebra Stuff</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LearningTheUnitCircle.html">How I Learned the Unit Circle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TrigFunctionsAndUnitCircle.html">Using the Unit Circle in Trigonometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UsingTheUnitCircleInTrigonometry.html">Trig functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UsingTheUnitCircleInTrigonometry.html#domain-and-range">Domain and Range</a></li>
+<li class="toctree-l2"><a class="reference internal" href="UsingTheUnitCircleInTrigonometry.html#reciprocal-identities">Reciprocal Identities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EvenOddAndPythagoreanIdentities.html">Even and Odd and Pythagorean Identities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DoubleAndHalfAngleFormulas.html">Double and Half Angle Formulas (Summary)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Logarithms and Exponents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#easy-examples">Easy examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#weirder-logs">Weirder logs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#natural-logs">Natural logs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#even-weirder">Even weirder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#log-properties">Log Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#more-solving">More solving</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">JohnLockwood.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Math</a></li>
+      <li class="breadcrumb-item active">Logarithms and Exponents</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/math/LogarithmReview.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="logarithms-and-exponents">
+<h1>Logarithms and Exponents<a class="headerlink" href="#logarithms-and-exponents" title="Link to this heading"></a></h1>
+<p>I feel like this area needed some review, so here are some notes on various things.  Logarithmic functions are inverse of exponential functions, so:</p>
+<div class="math notranslate nohighlight">
+\[ y = log_a x \iff x = a^y \]</div>
+<p>See these resources:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=Zw5t6BTQYRU">Logarithms – How?</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=rBnQiLa2TYo">Solving Logarithmic Equations…How?</a></p></li>
+</ul>
+<section id="easy-examples">
+<h2>Easy examples<a class="headerlink" href="#easy-examples" title="Link to this heading"></a></h2>
+<p><span class="math notranslate nohighlight">\( log_3\space9 \)</span>, think to yourself 3 to what power equals 9, but formally, do this, make it equal to x, i.e.
+<span class="math notranslate nohighlight">\( x = log_3\space 9 \)</span>.  Next use formula above so <span class="math notranslate nohighlight">\( x = log_3\space 9 \iff 3^x = 9 \)</span> therefore x = 2, or <span class="math notranslate nohighlight">\( log_3\space 9 = 2 \)</span>.  With no base, e.g. <span class="math notranslate nohighlight">\( log 10000 \)</span>, then base = 10, so equals <span class="math notranslate nohighlight">\(log_{10} \space10000 = x \iff x^10 = 10000 = 4\)</span>.</p>
+</section>
+<section id="weirder-logs">
+<h2>Weirder logs<a class="headerlink" href="#weirder-logs" title="Link to this heading"></a></h2>
+<p><span class="math notranslate nohighlight">\( log_2\space\frac{1}{8} = x \iff 2^x = \frac{1}{8}.\space \therefore \space  x = -3\)</span></p>
+<p>Other weird ones:</p>
+<p><span class="math notranslate nohighlight">\( log\space 1 (1); log\space0 (undefined); log\space(-1) (undefined)\)</span></p>
+</section>
+<section id="natural-logs">
+<h2>Natural logs<a class="headerlink" href="#natural-logs" title="Link to this heading"></a></h2>
+<p><span class="math notranslate nohighlight">\( ln\space1 = log_e\space1 \)</span></p>
+<p>Do same steps as before, set it to x and rearange to exponential form:</p>
+<p><span class="math notranslate nohighlight">\( log_e\space1 = x \iff x^x = 1 \therefore x = 0 \)</span></p>
+<p><span class="math notranslate nohighlight">\( ln(e^3) \)</span>  Visually, this should be 3!  Do it long way:</p>
+<p><span class="math notranslate nohighlight">\( ln_e (e^3) = x \iff e^x = e^3 \therefore x = 3 \)</span></p>
+</section>
+<section id="even-weirder">
+<h2>Even weirder<a class="headerlink" href="#even-weirder" title="Link to this heading"></a></h2>
+<div class="math notranslate nohighlight">
+\[ log_x\space32 = 5 \iff x^5 = 32 x = 2\]</div>
+<div class="math notranslate nohighlight">
+\[ log_5x = 3 \iff 5^3 = x; x = 125\]</div>
+<div class="math notranslate nohighlight">
+\[ Calculate log_2\space7 \iff 2^x = 7 \]</div>
+<p>Change of base formula says we can do:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{log\space7}{log\space2} \]</div>
+<p>You need to plug that into a calculator.  Answer by the way is 2.807354922057604.</p>
+</section>
+<section id="log-properties">
+<h2>Log Properties<a class="headerlink" href="#log-properties" title="Link to this heading"></a></h2>
+<p><span class="math notranslate nohighlight">\( log_a(x * y ) =  log_a\space x + log_a\space y \)</span></p>
+<p><span class="math notranslate nohighlight">\( log_a\space(\frac{x}{y} ) =  log_a\space x -  log_a\space y \)</span></p>
+<p><span class="math notranslate nohighlight">\( log_a\space x^n  =  n\space log_a\space x \)</span></p>
+</section>
+<section id="more-solving">
+<h2>More solving<a class="headerlink" href="#more-solving" title="Link to this heading"></a></h2>
+<p>E.g.</p>
+<div class="math notranslate nohighlight">
+\[ \log\space (12x-7) = \log\space (3x+11) \]</div>
+<p>Looks hard but if logs have same base, can just set insides = to each other and solve, so</p>
+<p><span class="math notranslate nohighlight">\(
+	12x -7 = 3x + 11 \\ 
+	9x = 18 \\
+	x = 2
+\)</span></p>
+<p>Based on equality property:</p>
+<div class="math notranslate nohighlight">
+\[
+log_b \space m = log_b \space m \iff m = n
+\]</div>
+<p>Note, need to plug answer back into original equation – occasionally doesn’t work.  Above we get <span class="math notranslate nohighlight">\( log 17 = log 17 \)</span>.  If get negative number, have to throw it out because log of negative # is undefined.</p>
+<p>Now, based on product property:</p>
+<p><span class="math notranslate nohighlight">\( log_a(x * y ) =  log_a\space x + log_a\space y \)</span></p>
+<p>if have this problem:</p>
+<p><span class="math notranslate nohighlight">\( \log_2 x + \log_2 (x-2) = 3 \)</span></p>
+<p>Equivalent to</p>
+<p><span class="math notranslate nohighlight">\( \log_2 \space (x * (x -2)) \\
+\log_2 \space \therefore \\
+2^3 = x(x-2) \\
+8 = x^2 - 2x \\
+x^2 - 2x - 8 = 0 \\
+(x -4)(x + 2) = 0 \\
+x = 4, x = -2 \\
+x = 4, \cancel{(x = 2)}
+\)</span></p>
+<p>Have to plug back in… which leads us to throw out the -2 as it’s a domain error.
+$</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="DoubleAndHalfAngleFormulas.html" class="btn btn-neutral float-left" title="Double and Half Angle Formulas (Summary)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

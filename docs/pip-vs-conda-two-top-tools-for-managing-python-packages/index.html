@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pip vs. Conda: Two Top Tools for Managing Python Packages &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=19645805"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Pip vs. Conda: Two Top Tools for Managing Python Packages</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/pip-vs-conda-two-top-tools-for-managing-python-packages.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="pip-vs-conda-two-top-tools-for-managing-python-packages">
+<h1>Pip vs. Conda: Two Top Tools for Managing Python Packages<a class="headerlink" href="#pip-vs-conda-two-top-tools-for-managing-python-packages" title="Link to this heading"></a></h1>
+<p>Pip and Conda are two of the most common tools that Python developers use to install third-party libraries. Pip is a tool that’s tightly integrated with modern versions of Python, while conda is a separate tool that provides additional functionality.</p>
+<p>In this article, we introduce both tools and compare them. We also give basic usage instructions for each.</p>
+<section id="what-is-pip">
+<h2>What is pip?<a class="headerlink" href="#what-is-pip" title="Link to this heading"></a></h2>
+<p>Pip is a basic command-line tool for introducing python bundles. It is the norm and the suggested approach to introducing bundles from all the distributed python bundles in the Python Package Index (PyPI). (For installing packages to PyPI, see the related article, <a class="reference external" href="https://codesolid.com/python-package-example-setuptools/">Python Packages Using Setuptools</a>).</p>
+<p>If you’re running a newer version of Python (3.4 or higher), you already have pip installed on your computer. If you are running an older variant of Python, you might have to install PIP. You can install Pip without much difficulty.</p>
+<p>In the section that follows, we give the instructions for this on Windows. This basically involves downloading the installation bundle, opening the command line, and running the installer.</p>
+</section>
+<section id="installing-pip-on-windows">
+<h2>Installing pip on Windows<a class="headerlink" href="#installing-pip-on-windows" title="Link to this heading"></a></h2>
+</section>
+<section id="prerequisites">
+<h2>Prerequisites:<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Computer running Windows or Windows server</p></li>
+<li><p>Access to the Command Prompt window</p></li>
+</ul>
+</section>
+<section id="install-pip-on-your-pc">
+<h2>Install pip on your PC:<a class="headerlink" href="#install-pip-on-your-pc" title="Link to this heading"></a></h2>
+<p>Before you <a class="reference external" href="https://codesolid.com/installing-a-python-development-environment-on-windows/">install pip on Windows</a>, check to see if it is already installed.</p>
+<p>1. Open the run window:</p>
+<ul class="simple">
+<li><p>Press Windows Key + X.</p></li>
+<li><p>Click Run.</p></li>
+<li><p>Type in cmd.exe and hit enter.</p></li>
+</ul>
+<p>2. Type in the accompanying order in the run window:</p>
+<ul class="simple">
+<li><p>Type pip help and press enter</p></li>
+</ul>
+<p>If pip responds, then it is installed. Otherwise, there will be an error saying the program could not be found.</p>
+<p><img alt="" src="../_images/pic11.png" /></p>
+<p>If you receive the error as shown in the above picture then probably pip is not installed on your computer. In this case, you should work through the following steps to install pip on your PC.</p>
+<section id="step-1-getting-the-get-pip-py-file">
+<h3>Step 1. Getting the get-pip.py file<a class="headerlink" href="#step-1-getting-the-get-pip-py-file" title="Link to this heading"></a></h3>
+<p>Now before installing the pip on your PC, first download the get-pip.py file.</p>
+<ul class="simple">
+<li><p>Open a command prompt if you don’t have one open. To do this, open the Windows search bar, type cmd and click on the symbol.</p></li>
+<li><p>Copy and run this in the command prompt:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>https://bootstrap.pypa.io/get-pip.py<span class="w"> </span>-o<span class="w"> </span>get-pip.py
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="" src="../_images/pic1-1-1024x1311.png" /></p>
+</section>
+<section id="step-2-running-get-pip-py">
+<h3>Step 2: Running get-pip.py<a class="headerlink" href="#step-2-running-get-pip-py" title="Link to this heading"></a></h3>
+<p>Now is the time to install pip on your PC, type the following command in your command prompt and press enter.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>get-pip.py
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="" src="../_images/pic1-2-1024x1951.png" /></p>
+</section>
+<section id="step-3-validating-the-installation">
+<h3>Step-3: Validating the Installation<a class="headerlink" href="#step-3-validating-the-installation" title="Link to this heading"></a></h3>
+<p>After installing pip on your computer, the next step is to check if it is installed correctly. You can check if pip is installed successfully on your PC by typing the following command in your command prompt.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">help</span>
+</pre></div>
+</div>
+<p>If PIP has been installed, the program runs, and you should see the location of the software package and a list of commands you can use with <strong>pip</strong>.</p>
+<p><img alt="" src="../_images/pic1-31.png" /></p>
+</section>
+<section id="step-4-adding-pip-to-the-system-path">
+<h3>Step 4: Adding pip to the system PATH<a class="headerlink" href="#step-4-adding-pip-to-the-system-path" title="Link to this heading"></a></h3>
+<p>If you’re able to run pip after following the process above, great! However, if you get an error to the extent that pip was not found, you need to add pip to the system path. Here’s how to do this:</p>
+<ul class="simple">
+<li><p>Open Control Panel, and open the System and Security window.</p></li>
+<li><p>Click on System to open System settings.</p></li>
+</ul>
+<p><img alt="" src="../_images/pic1-41.png" /></p>
+<ul class="simple">
+<li><p>Then, select <strong>Advanced system settings</strong>.</p></li>
+</ul>
+<p><img alt="" src="../_images/pic1-51.jpg" /></p>
+<ul class="simple">
+<li><p>Open the <strong>Environment Variables</strong> and double-click on the <strong>Path</strong> variable in the <strong>System Variables</strong>.</p></li>
+</ul>
+<p><img alt="" src="../_images/pic1-61.jpg" /></p>
+<ul class="simple">
+<li><p>Next, select <strong>New</strong> and add the directory where you installed PIP.</p></li>
+<li><p>Click <strong>OK</strong> to save the changes.</p></li>
+</ul>
+<p>Now you have successfully added pip to your environment variable, now you can easily use it from any location in your PC. Note that if you have a command prompt open, you’ll need to close it and open a new one.</p>
+</section>
+</section>
+<section id="what-is-virtualenv">
+<h2>What is Virtualenv?<a class="headerlink" href="#what-is-virtualenv" title="Link to this heading"></a></h2>
+<p>Virtual environments are isolated installation directories for Python packages. This isolation permits you to restrict the installation of your project dependencies, which prevents problems, for example, when different versions of the library are installed by different projects.</p>
+<p>virtualenv is a tool used to establish separated Python conditions. It makes a folder that contains all the fundamental executables to utilize the bundles that a Python project would require.</p>
+<p>You can install virtualenv using pip on your computer. Open your command line prompt and enter the following code then press enter.</p>
+<div class="highlight-adoc notranslate"><div class="highlight"><pre><span></span>pip install virtualenv
+</pre></div>
+</div>
+<p>After pressing enter, the installation will start, don’t interrupt the installation. Once virtualenv is successfully installed on your computer, you can verify the installation by entering the following command in your command line prompt.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>virtualenv<span class="w"> </span>–version
+</pre></div>
+</div>
+<p>If it is correctly installed, you will see the version of vistualenv.</p>
+<p><strong>Creating an environment:</strong></p>
+<p>Now after the installation is done and you have checked and verified the installation, the next step is to create the virtual environment. Use the following command to create a virtual environment.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtualenv</span> <span class="n">venv</span>
+</pre></div>
+</div>
+<p>This makes a folder in the current registry with the name of the environment (venv/). This folder contains the directories for introducing modules and Python executables.</p>
+<p>You can likewise indicate the Python version you need to work with. Simply add the setting:<br />
+- - python=/path/to/python/version. For example, for python2.7:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">virtualenv</span> <span class="o">--</span><span class="n">python</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python2</span><span class="mf">.7</span> <span class="n">venv</span>
+</pre></div>
+</div>
+<p>You can activate the environment before using it by using the following command.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="n">venv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
+</pre></div>
+</div>
+<p>This ensures that only packages under venv/ are used.</p>
+<p>You will notice that the name of the environment is shown on the left of the prompt. This way you can see which environment is active.</p>
+<p>You can install packages one by one, or by setting a requirements.txt file for your project.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">some</span><span class="o">-</span><span class="n">package</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>If you want to create a requirements.txt file from the already installed packages, run the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">freeze</span> <span class="o">&gt;</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>The file will contain the list of all the packages installed in the current environment and their respective versions. This will help you release your project with its own dependent modules.</p>
+</section>
+<section id="what-is-conda">
+<h2>What is conda?<a class="headerlink" href="#what-is-conda" title="Link to this heading"></a></h2>
+<p>Conda is an open-source package and environment management system that runs on Windows, Mac OS, and Linux.</p>
+<ul class="simple">
+<li><p>Conda can quickly install, run, and update packages and associated dependencies.</p></li>
+<li><p>Conda can create, save, load, and switch between project specific software environments on your local computer.</p></li>
+<li><p>Although Conda was created for Python programs, Conda can package and distribute software for any language such as R, Ruby, Lua, Scala, Java, JavaScript, C, C++, FORTRAN.</p></li>
+</ul>
+<p>Conda as a bundle supervisor helps you find and introduce packages. Assuming you want a package that requires an alternate variant of Python, you don’t have to change to an environment manager, in light of the fact that Conda is likewise an environment manager. With only a couple of commands, you can set up a thoroughly separate environment to run that different version of Python, while proceeding to run your standard version of Python in your default environment.</p>
+<p>Conda can be installed in one of three ways. First, conda is a part of the Anaconda distribution, which also includes many other libraries (some of which you may not need).</p>
+<p>Secondly, as an alternative to Anaconda, you can choose to install miniconda, a minimal installer for conda that includes conda and its dependencies (Python, the packages they depend on, and a small number of other useful packages, including pip, zlib, and a few others).</p>
+<p>Finally, if you already have python version installed that your happy with, conda ca be installed independently of Anaconda/miniconda, in a system that has Python and pip installed using:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">conda</span>
+</pre></div>
+</div>
+<p>After installation, you can begin creating environments with Conda or Virtualenv on your machine</p>
+<p>Conda provides a fairly robust set of commands to create environments. This can be done with the <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span></code> command. The environment can either be made from scratch or from an existing <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file. Based on an environment.yml, a Conda environment can be created in the following manner:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">env</span> <span class="n">create</span> <span class="o">-</span><span class="n">f</span> <span class="n">environment</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+<p>After creating a Conda environment, the environment can then be activated using the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="n">blog</span><span class="o">-</span><span class="n">post</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> is the source of truth for packages. <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> is a reference point where you can see all the required dependencies for an environment, the repository to install those packages from, and the environment name.</p>
+</section>
+<section id="why-should-you-use-conda">
+<h2>Why Should You Use Conda?<a class="headerlink" href="#why-should-you-use-conda" title="Link to this heading"></a></h2>
+<p>Of the many different package and environment management systems around Conda is one of the few explicitly targeted at data scientists.</p>
+<p>Conda provides prebuilt packages or binaries (which generally avoids the need to deal with compiling packages from the source). TensorFlow is an example of a tool widely used by data scientists which is difficult to install source (particularly with GPU support), but that can be installed using Conda in a single step.</p>
+<p>Conda is cross-platform, with support for Windows, macOS, GNU/Linux, and support for multiple hardware platforms, such as x86 and Power 8 and 9.</p>
+<p>Where a library or tools is not already packaged for installation using conda, Conda allows for using other package management tools (such as pip) inside Conda environments.</p>
+<p>Using Conda you can quickly install commonly used <a class="reference external" href="https://codesolid.com/how-to-practice-python-data-science-and-pandas/">data science libraries and tools</a>, such as R, NumPy, SciPy, Scikit-learn, Dask, TensorFlow, PyTorch, Fast.ai, NVIDIA RAPIDS, and more built using optimized, hardware-specific libraries (such as Intel’s MKL or NVIDIA’s CUDA), which provides a speedup without having to change any of your code.</p>
+</section>
+<section id="what-is-miniconda">
+<h2>What is miniconda?<a class="headerlink" href="#what-is-miniconda" title="Link to this heading"></a></h2>
+<p>Miniconda is a slimmed-down distribution version of Anaconda. It has all the components of the Anaconda distribution, except the 200+ pre-installed data science applications. With the various Mini condo installers, you will get the core Python language, and a package manager tool (Conda).</p>
+<p>Following a successful installation of the Miniconda distribution, you can use the command line to install the packages you need individually. As such, Miniconda offers all the benefits of the Anaconda distribution with minimal space requirements.</p>
+<p>Owing to the smaller file size and reduced disk space requirements, Miniconda is relatively faster to install as compared to the Anaconda distribution.</p>
+</section>
+<section id="what-is-anaconda">
+<h2>What is Anaconda?<a class="headerlink" href="#what-is-anaconda" title="Link to this heading"></a></h2>
+<p>You should opt for the Anaconda distribution if you:</p>
+<ul class="simple">
+<li><p>Are rather new to the Python language or Conda commands</p></li>
+<li><p>Happen to have the extra disk space and time required to install all the 720+ on this distribution.</p></li>
+<li><p>Do not wish to install the packages you require individually, as is the case with the Miniconda distribution.</p></li>
+<li><p>Need a distribution for classes, as Anaconda contains most of the packages you will ever need.</p></li>
+</ul>
+<p>If you happen to have some programming experience, you should consider installing the standard Python distribution instead. However, this distribution required you to manually configure additional library dependencies.</p>
+</section>
+<section id="conda-vs-miniconda-vs-anaconda">
+<h2>Conda vs. Miniconda vs. Anaconda<a class="headerlink" href="#conda-vs-miniconda-vs-anaconda" title="Link to this heading"></a></h2>
+<p>Users are often confused about the differences between Conda, Miniconda, and Anaconda. The Planemo documentation has an excellent diagram that nicely demonstrates the difference between the Conda environment and package management tool and the Miniconda and Anaconda Python distributions (N.B. the Anaconda Python distribution now has well more than 150 additional packages!).</p>
+<p><img alt="" src="../_images/pic1-71.jpg" /></p>
+<p>I suggest installing Miniconda which combines Conda with Python 3 (and a small number of core systems packages) instead of the full Anaconda distribution. Installing only Miniconda will encourage you to create separate environments for each project (and to install only those packages that you actually need for each project!) which will enhance the portability and reproducibility of your research and workflows.</p>
+<p>Besides, if you really want a particular version of the full Anaconda distribution you can always create a new conda environment and install it by using the following command.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span> <span class="n">anaconda</span><span class="o">-</span><span class="mi">2020</span><span class="o">-</span><span class="mi">02</span> <span class="n">anaconda</span><span class="o">=</span><span class="mf">2020.02</span>
+</pre></div>
+</div>
+</section>
+<section id="conda-vs-pip">
+<h2>Conda vs Pip<a class="headerlink" href="#conda-vs-pip" title="Link to this heading"></a></h2>
+<p>In this section we want to briefly compare conda and pip, and consider questions such as the following:</p>
+<ul class="simple">
+<li><p>How are they unique?</p></li>
+<li><p>What are the tradeoffs between the two?</p></li>
+<li><p>Which would it be advisable for you to use?</p></li>
+</ul>
+<p>Now let’s talk about the fundamental difference between conda and pip, The key distinction between pip and Conda bundling is what they put in bundles.</p>
+<ul class="simple">
+<li><p>Pip bundles are Python libraries like NumPy or matplotlib.</p></li>
+<li><p>Conda bundles incorporate Python libraries (NumPy or matplotlib), C libraries (libjpeg), and executables (like C compilers, and, surprisingly, the Python translator itself).</p></li>
+</ul>
+<p>The following table lists some other differences between conda and pip.</p>
+<table><tbody><tr><td>Point of Difference</td><td>pip</td><td>Conda</td></tr><tr><td>Multi-Language Dependency</td><td>Not Supported</td><td>Supported</td></tr><tr><td>Package Installation</td><td>Builds from source or downloads wheels</td><td>Downloads binary packages.</td></tr><tr><td>Package Availability</td><td>235,000 packages</td><td>1,500+ packages</td></tr><tr><td>Dependency Management</td><td>No SAT test</td><td>Performs SAT test (i.e., checks a number of constraints to make sure package dependencies do not conflict).</td></tr><tr><td>Virtual Environment Management</td><td>No in-built virtual environment management</td><td>In-built virtual environment management system</td></tr><tr><td>Minimalistic</td><td>yes</td><td>no</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

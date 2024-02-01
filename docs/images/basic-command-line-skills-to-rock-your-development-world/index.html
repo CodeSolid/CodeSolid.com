@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Core Command Line Skills &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=19645805"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">The Core Command Line Skills</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/images/basic-command-line-skills-to-rock-your-development-world/index.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>I firmly believe that every software developer should know how to use the command line. At the same time that this is my position, it feels strange to have to advocate for it since the alternative of ignoring the command prompt altogether is a very recent development.</p>
+<p>For us dinosaurs born in the last century, the command line <em>was</em> the computer’s interface, so using a computer without knowing the command line wasn’t an option. My first computer didn’t come with a mouse. The user interface looked like this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>A:<span class="se">\</span>
+</pre></div>
+</div>
+<p>It wasn’t a badge of honor to learn the command line back then – any more than being able to swipe a phone makes you a rock star today. It was just an essential skill you needed to use the device.</p>
+<p>Things are different now, of course. Most of the programmers I work with today grew up with graphical user interfaces: Windows, macOS, and even Linux all feature excellent interfaces that make my old A:\ prompt look as quaint as a rotary dial phone.</p>
+<p>However, for all the convenience of windowing interfaces, I’ve only met two developers during a long career who were utterly ignorant of how to get around in a command line (or “terminal,” as it’s also called). Most developers are also quite adept at using a computer generally, including knowing their way around a terminal.</p>
+<p>In the sections that follow, we’ll begin with a list of core command-line skills that we want to cover. For completeness, I’ll discuss both the Windows “<code class="docutils literal notranslate"><span class="pre">cmd</span></code>” version of the command line and the terminals like bash. You’ll notice that I’m not planning to cover Windows PowerShell. Though it’s quite powerful and certainly worthy of discussion if you’re planning a career as a Windows system administrator, I don’t know it well enough to do it justice.</p>
+<p>Table of Contents</p>
+<ul class="simple">
+<li><p>The Core Command Line Skills</p></li>
+<li><p>Starting a Terminal Session</p>
+<ul>
+<li><p>Opening a Command Prompt From Your Computer</p></li>
+<li><p>Opening a Command Prompt From Your Editor or IDE</p></li>
+</ul>
+</li>
+<li><p>Navigating the File System from the Command Line</p>
+<ul>
+<li><p>Where Am I?</p></li>
+<li><p>Creating Folders and Moving Around</p></li>
+<li><p>Navigating to Your Home Directory from the Command Line</p></li>
+</ul>
+</li>
+<li><p>Working With Environment Variables and Setting the Path</p>
+<ul>
+<li><p>Adding a Path to the User Path on Windows</p></li>
+<li><p>Adding a Path to the User’s Path on Mac or Linux</p></li>
+</ul>
+</li>
+<li><p>Exploring Folders and Files and Their Contents</p></li>
+<li><p>Copying and Moving Files and Directories</p></li>
+<li><p>Listing All Files and Discovering Shell Configuration Files</p></li>
+<li><p>Creating and Running Basic Command Line Programs</p>
+<ul>
+<li><p>Windows Batch Files</p></li>
+</ul>
+</li>
+<li><p>Getting Help for Command Line Tools</p></li>
+<li><p>Most Useful Shell Commands: Windows vs. Mac and Linux</p></li>
+</ul>
+<section id="the-core-command-line-skills">
+<h1>The Core Command Line Skills<a class="headerlink" href="#the-core-command-line-skills" title="Link to this heading"></a></h1>
+<p>Here are what I consider the top command-line skills you should master:</p>
+<ul class="simple">
+<li><p>Navigating and managing folders. Having known and easy-to-use locations for your files and repositories.</p></li>
+<li><p>Setting the PATH variable to manage what programs you can launch from the command line by default. That is to say, given a program you’ve installed, you should generally be able to run it from the command line.</p></li>
+<li><p>Listing folder contents and locating files in subfolders, either based on name or contents.</p></li>
+<li><p>Listing file contents and re-directing program output.</p></li>
+<li><p>Writing simple shell scripts or batch files to automate tasks. I’m not talking about advanced bash, CMD, or PowerShell scripts here, just basic task launchers. One could also write aliases in place of simple scripts (depending on the environment).</p></li>
+<li><p>Setting and using environment variables.</p></li>
+<li><p>Running career-relevant command-line tools. In Python, of course, that means python and pip, and perhaps conda, not to mention being able to launch pip-installed tools like Jupyter notebook or IPython. (For front-end folks, we could talk about tools like npm, node, yarn, etc.). Top on my list of career-agnostic tools would be git and – optionally – <code class="docutils literal notranslate"><span class="pre">gh</span></code> (the GitHub command-line tool). You should be able to run other tools as needed, such as the AWS command-line interface.</p></li>
+</ul>
+<p>With that list to guide us as a broad outline, let’s begin a whirlwind tour of the basics. There are many types of command terminals available to us, and because of this, we’re going to have to be a bit selective about what we cover. For Mac and Linux, I will discuss commands that will generally work on two popular shells: bash and zsh. There are some subtle differences between the two, but we won’t need to discuss the differences in much detail, especially at the beginner level.</p>
+<p>On Windows, these same “bash” commands will also work on WSL (Windows Subsystem for Linux) and in git bash. I’ll also discuss some basics of the Windows command-line interface, “cmd.” For serious work in the terminal on Windows, however, I recommend using git bash. WSL is also quite good, but it makes integrating other Windows programs a bit more complicated.</p>
+</section>
+<section id="starting-a-terminal-session">
+<h1>Starting a Terminal Session<a class="headerlink" href="#starting-a-terminal-session" title="Link to this heading"></a></h1>
+<section id="opening-a-command-prompt-from-your-computer">
+<h2>Opening a Command Prompt From Your Computer<a class="headerlink" href="#opening-a-command-prompt-from-your-computer" title="Link to this heading"></a></h2>
+<p>To get to a command line terminal, you should have by default, from the Windows search bar, you can type “<code class="docutils literal notranslate"><span class="pre">cmd</span></code>” to locate the “Command Prompt” application. Running this will open a command-line terminal.</p>
+<p><img alt="" src="../../_images/CmdClip-1024x8981.png" /></p>
+<p>On the Mac, use Launchpad and search for “term” to find and run the terminal program, as shown here below: (You probably won’t see ITerm, unless you’ve installed it separately).</p>
+<p><img alt="" src="../../_images/TerminalCip1.jpg" /></p>
+<p>On Linux, you’d also search for “Terminal,” but the way you locate programs depends on the distribution.</p>
+<p>One of the first things I do on a new computer once I’ve run a command line terminal for the first time is to right-click on the icon of the running terminal, then select “Pin to taskbar” (Windows) or “Options / Keep in Dock” (Mac). This way, I’ll always have a terminal program handy.</p>
+</section>
+<section id="opening-a-command-prompt-from-your-editor-or-ide">
+<h2>Opening a Command Prompt From Your Editor or IDE<a class="headerlink" href="#opening-a-command-prompt-from-your-editor-or-ide" title="Link to this heading"></a></h2>
+<p>It’s also a good idea to understand how to open a command-line terminal from your editor or IDE. In Visual Studio Code, you can reach for the Terminal menu item, or from the keyboard, use CTRL-SHIFT-`. (That’s a “backtick” key, typically above the tab key). In PyCharm, you’ll reach for Alt-F12 on Windows or Option-F12 on the Mac. You can also get there through the much longer menu sequence “View / Tool Windows / Terminal.” In Jupyter Lab, you can open a terminal via the menu sequence “File / New / Terminal.” As far as I know, you don’t have a separate terminal available in Jupyter Notebook.</p>
+</section>
+</section>
+<section id="navigating-the-file-system-from-the-command-line">
+<h1>Navigating the File System from the Command Line<a class="headerlink" href="#navigating-the-file-system-from-the-command-line" title="Link to this heading"></a></h1>
+<section id="where-am-i">
+<h2>Where Am I?<a class="headerlink" href="#where-am-i" title="Link to this heading"></a></h2>
+<p>Generally speaking, if you open a terminal from your computer, your initial location or “current working directory” will be your user’s home directory. Your prompt may be set up to show you where you are, but if it isn’t, in CMD on Windows, you can use “cd” to print the current working directory. You’re likely to see “C:\Users\YourUserName.” On Linux/Mac, you would use “pwd” and you’re likely to see “/Users/YourUserName”.</p>
+<p>From now on, I’ll try to simply refer to “the Mac” to mean Mac and Linux (as well as git bash and other bash environments on Windows).</p>
+<p>In an IDE or editor, your terminal will probably open up where your project is located or where you opened your editor. Again, however, you can use <code class="docutils literal notranslate"><span class="pre">pwd</span></code> on the Mac or <code class="docutils literal notranslate"><span class="pre">cd</span></code> on Windows to print out your current working directory.</p>
+</section>
+<section id="creating-folders-and-moving-around">
+<h2>Creating Folders and Moving Around<a class="headerlink" href="#creating-folders-and-moving-around" title="Link to this heading"></a></h2>
+<p>Let’s begin by creating a folder, moving into it, and then moving out again. The following sequence works in all environments:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a directory </span>
+mkdir<span class="w"> </span>myfolder
+
+<span class="c1"># Move into it</span>
+<span class="nb">cd</span><span class="w"> </span>myfolder
+
+<span class="c1"># Move back</span>
+<span class="nb">cd</span><span class="w"> </span>..
+</pre></div>
+</div>
+<p>On Windows “<code class="docutils literal notranslate"><span class="pre">cmd</span></code>”it’s possible to substitute the shorter “<code class="docutils literal notranslate"><span class="pre">md</span></code>” command for “<code class="docutils literal notranslate"><span class="pre">mkdir</span></code>”. Other than that, so far, things have been the same, cd (“Change directory”) moves into a directory by name. “..” represents the parent directory, so if we start in /User/me and create a folder there called “myfolder,” navigating into it lands us in /User/me/myfolder, and “<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">..</span></code>” gets us back where we started.</p>
+<p>Paths are separated differently in Windows and on Linux or Mac. We use a backslash, “&quot;, on Windows and a forward slash, “/” on a Mac. To navigate to our “grandparent” directory, so to speak, we’d use “<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">../../</span></code>” on Mac and “cd ....&quot; on Windows and Mac. To go all the way to the root, we use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/<span class="w">   </span><span class="c1"># Mac</span>
+<span class="nb">cd</span><span class="w"> </span><span class="se">\ </span><span class="w">  </span><span class="c1"># Windows</span>
+</pre></div>
+</div>
+</section>
+<section id="navigating-to-your-home-directory-from-the-command-line">
+<h2>Navigating to Your Home Directory from the Command Line<a class="headerlink" href="#navigating-to-your-home-directory-from-the-command-line" title="Link to this heading"></a></h2>
+<p>On the Mac, the tilde character is an alias for the current user’s home directory. So to go there, you can use “<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">~</span></code>”. On Windows, things are a bit more verbose. On Windows, the different drive letters look like “<code class="docutils literal notranslate"><span class="pre">C:</span></code>”, “<code class="docutils literal notranslate"><span class="pre">E:</span></code>”, etc. Your user home directory is probably in <code class="docutils literal notranslate"><span class="pre">C:</span></code>, so unless you moved to another drive using the command “<code class="docutils literal notranslate"><span class="pre">E:</span></code>” (for example), you can probably use the following to get home again:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>%HOMEPATH%
+</pre></div>
+</div>
+</section>
+</section>
+<section id="working-with-environment-variables-and-setting-the-path">
+<h1>Working With Environment Variables and Setting the Path<a class="headerlink" href="#working-with-environment-variables-and-setting-the-path" title="Link to this heading"></a></h1>
+<p>The operating system on your computer launches a command-line terminal program (or any other program) with a default set of environment variables. These are key-value pairs that store important information. When we used the command cd %HOMEPATH% in the last section on Windows, we said, in effect, “change directory to directory stored in the environment variable called HOMEPATH.”</p>
+<p>One of the most important environment variables is the “PATH” variable, which is set to a list of directories, separated either by colons (Mac) or semi-colons (Windows). Generally speaking, outside of some system defaults, you can run a program easily if it’s located on your PATH. Otherwise, you have to type the whole path to the program to run it, and terminal-wielding cool kids like us HATE typing long paths.</p>
+<p>To find out if a program is runnable, you can generally try something like this on any system:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>program-name<span class="w"> </span>--version
+</pre></div>
+</div>
+<p>You should get information about the program if it’s available; if not, you’ll get an error. Given a non-existent program, “badprogram,” on Windows, you’ll see:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;badprogram&#39;</span><span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span>a<span class="w"> </span>recognized<span class="w"> </span>internal<span class="w"> </span>or<span class="w"> </span>external<span class="w"> </span>command,<span class="w"> </span>operable<span class="w"> </span>program<span class="w"> </span>or<span class="w"> </span>batch<span class="w"> </span>file
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>zsh:<span class="w"> </span><span class="nb">command</span><span class="w"> </span>not<span class="w"> </span>found:<span class="w"> </span>badprogram
+</pre></div>
+</div>
+<p>If you know that the program is installed, you’ll need to check the online documentation for it to see where it gets installed and add the directory where it lives to the PATH variable. Note that this is not the full path to the executable file itself, just the full path to the directory where it lives.</p>
+<section id="adding-a-path-to-the-user-path-on-windows">
+<h2>Adding a Path to the User Path on Windows<a class="headerlink" href="#adding-a-path-to-the-user-path-on-windows" title="Link to this heading"></a></h2>
+<p>To add a path to the system path on Windows, follow these steps, run the Control Panel system administration app by typing this command in the terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>control<span class="w"> </span>sysdm.cpl
+</pre></div>
+</div>
+<p>In the Window that opens, click the Advanced tab:</p>
+<p><img alt="" src="../../_images/ControlPanel1.png" /></p>
+<p>Next, click on environment variables, which will bring up an editor.</p>
+<p><img alt="" src="../../_images/ControlPanel21.png" /></p>
+<p>Here you can search for the “Path” variable underneath the User variables section to edit it. Clicking edit will bring up a list editing window, where you can click New to enter your new path.</p>
+<p><img alt="" src="../../_images/ControlPanel31.png" /></p>
+<p>After you’ve added your new path to this list, click OK on this dialog box and all the ones behind it to save your changes. You’ll also need to open up a new terminal to pick up the changes as a final step.</p>
+</section>
+<section id="adding-a-path-to-the-user-s-path-on-mac-or-linux">
+<h2>Adding a Path to the User’s Path on Mac or Linux<a class="headerlink" href="#adding-a-path-to-the-user-s-path-on-mac-or-linux" title="Link to this heading"></a></h2>
+<p>On Mac or Linux, you can modify the path where programs are loaded for the user by editing a user’s profile file. The name of that file depends on the shell you’re using. For newer Mac machines using the zsh shell, the file will be located at ~/.zprofile. For older Macs and on Linux running the bash shell, the file is at ~/.bash_profile. In either case, you can add a single directory named “/my/new/path” to the user’s PATH variable by adding a line like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">PATH</span><span class="o">=</span><span class="s2">&quot;$PATH:/my/new/path&quot;</span>
+</pre></div>
+</div>
+<p>You can then save the file and then either open a new terminal or use the following command to reload the file’s contents into the current shell environment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">~/.</span><span class="n">zprofile</span>  <span class="c1"># For example</span>
+</pre></div>
+</div>
+<p>By the way, that $PATH is the way to get the PATH variable’s value (or any other named environment variable) on Linux. Remember that on Windows, the equivalent would be %PATH%. Therefore, these commands will show you the whole PATH on either system:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Mac:
+echo $PATH
+
+# Windows
+echo %PATH%
+</pre></div>
+</div>
+<p>If you want to see all the environment variables that are currently set in the terminal, use “<code class="docutils literal notranslate"><span class="pre">env</span></code>” on a Mac and “<code class="docutils literal notranslate"><span class="pre">set</span></code>” on Windows.</p>
+<p>Knowing how to set the PATH variable is a crucial skill for making the programs you need available to you in the terminal. Some install utilities will set things up correctly for you – but many others won’t.</p>
+<p>By the way, if you already know you have access to a program but need to find out where it’s coming from, you can use “<code class="docutils literal notranslate"><span class="pre">which</span> <span class="pre">program-name</span></code>” on the Mac or “<code class="docutils literal notranslate"><span class="pre">where</span> <span class="pre">program-name</span></code>” on Windows. For example, here’s some info about where I’m running Python as of today:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>%<span class="w"> </span>which<span class="w"> </span>python
+/Users/johnlockwood/.pyenv/shims/python
+</pre></div>
+</div>
+</section>
+</section>
+<section id="exploring-folders-and-files-and-their-contents">
+<h1>Exploring Folders and Files and Their Contents<a class="headerlink" href="#exploring-folders-and-files-and-their-contents" title="Link to this heading"></a></h1>
+<p>Let’s create and manipulate some files and folders to get an idea of how we would do this at the command line.</p>
+<p>First, to make sure we’re looking at the same files, let’s create a directory and go to it:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>files
+<span class="nb">cd</span><span class="w"> </span>files
+</pre></div>
+</div>
+<p>At this point, we won’t have any files to look at, but let’s try the command to see what would happen in that case. On Windows, use <code class="docutils literal notranslate"><span class="pre">dir</span></code> (directory). You’ll see some output like this.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>C:<span class="se">\U</span>sers<span class="se">\C</span>odeS<span class="se">\f</span>iles&gt;dir
+<span class="w"> </span>Volume<span class="w"> </span><span class="k">in</span><span class="w"> </span>drive<span class="w"> </span>C<span class="w"> </span>is<span class="w"> </span>Windows
+<span class="w"> </span>Volume<span class="w"> </span>Serial<span class="w"> </span>Number<span class="w"> </span>is<span class="w"> </span><span class="m">3885</span>-2FC1
+
+<span class="w"> </span>Directory<span class="w"> </span>of<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\C</span>odeS<span class="se">\f</span>iles
+
+<span class="m">04</span>/16/2022<span class="w">  </span><span class="m">10</span>:49<span class="w"> </span>AM<span class="w">    </span>&lt;DIR&gt;<span class="w">          </span>.
+<span class="m">04</span>/16/2022<span class="w">  </span><span class="m">10</span>:49<span class="w"> </span>AM<span class="w">    </span>&lt;DIR&gt;<span class="w">          </span>..
+<span class="w">               </span><span class="m">0</span><span class="w"> </span>File<span class="o">(</span>s<span class="o">)</span><span class="w">              </span><span class="m">0</span><span class="w"> </span>bytes
+<span class="w">               </span><span class="m">2</span><span class="w"> </span>Dir<span class="o">(</span>s<span class="o">)</span><span class="w">  </span><span class="m">294</span>,031,634,432<span class="w"> </span>bytes<span class="w"> </span>free
+</pre></div>
+</div>
+<p>You can see two directories are showing. The one-dot directory is an alias for “here”; the two dots represent the parent directory. (Recall from earlier that “<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">..&quot;</span></code> moves us one up, i.e., back to our parent directory).</p>
+<p>On Mac and Linux, the equivalent command is <code class="docutils literal notranslate"><span class="pre">ls</span></code>, but since this shows nothing for a bare directory, we use “<code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-a</span></code>” to show directories.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>johnlockwood@Johns-Mac-mini<span class="w"> </span>files<span class="w"> </span>%<span class="w"> </span>ls<span class="w"> </span>-a
+.<span class="w">	</span>..
+</pre></div>
+</div>
+<p>Not very interesting so far, is it? Let’s create a file so we’ll have something to look at. We can do this with echo, which prints whatever we tell it, and a redirect operator. These are the same everywhere, so we don’t have to learn them separately. A single greater-than operator, “&gt;,” redirects to a file but recreates the contents of the file (delete + add), so be careful with it. Only use it if you know the file either isn’t there or you don’t care about it. Double greater-than, “&gt;&gt;,” appends to the file, so it doesn’t change the existing contents. Let’s try this now.</p>
+<p>Now that we have a file, we’ll see it in the directory if we use “dir” or “ls” again. To view the contents of a text file, we can use one of the following, depending on where we are:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Windows:</span>
+<span class="nb">type</span><span class="w"> </span>myfile.txt
+
+<span class="c1"># Mac / Linux</span>
+cat<span class="w"> </span>myfile.txt
+
+<span class="c1"># Output:</span>
+Hello,<span class="w"> </span><span class="nb">command</span><span class="w"> </span>line,<span class="w"> </span>this<span class="w"> </span>is<span class="w"> </span>fun!
+I<span class="w"> </span>am<span class="w"> </span>line<span class="w"> </span><span class="c1">#2</span>
+</pre></div>
+</div>
+<p>The redirect command can be used with other commands besides echo. Sometimes, for example, if you want to keep a log of what a program does to examine it later, you can run the program and redirect the output. For example, you could run “<code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">&gt;</span> <span class="pre">filelist.txt</span></code>” on Mac or “<code class="docutils literal notranslate"><span class="pre">dir</span> <span class="pre">&gt;</span> <span class="pre">filelist.txt</span></code>” on Windows to save a list of files in the current directory.</p>
+</section>
+<section id="copying-and-moving-files-and-directories">
+<h1>Copying and Moving Files and Directories<a class="headerlink" href="#copying-and-moving-files-and-directories" title="Link to this heading"></a></h1>
+<p>Suppose we wanted to copy or move some of our files or rename them. On the Mac, we would use the <code class="docutils literal notranslate"><span class="pre">cp</span></code> command to make a copy, thus:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp<span class="w"> </span>myfile.txt<span class="w"> </span>newfile.txt
+cat<span class="w"> </span>newfile.txt
+
+<span class="c1"># Output:</span>
+Hello,<span class="w"> </span><span class="nb">command</span><span class="w"> </span>line,<span class="w"> </span>this<span class="w"> </span>is<span class="w"> </span>fun!
+I<span class="w"> </span>am<span class="w"> </span>line<span class="w"> </span><span class="c1">#2</span>
+</pre></div>
+</div>
+<p>We can use wildcards with files to represent all or part of a filename, for example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>%<span class="w"> </span>ls<span class="w"> </span>*
+myfile.txt<span class="w">	</span>newfile.txt
+
+%<span class="w"> </span>ls<span class="w"> </span>myf*
+myfile.txt
+
+%<span class="w"> </span>ls<span class="w"> </span>*.txt
+myfile.txt<span class="w">	</span>newfile.txt
+</pre></div>
+</div>
+<p>Using this fact, here’s how we could create a new directory and recursively copy another directory’s contents into it. Starting in our files directory, we would execute the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>..
+mkdir<span class="w"> </span>new_folder
+cp<span class="w"> </span>-R<span class="w"> </span>files/*<span class="w"> </span>new_folder
+ls<span class="w"> </span>new_folder
+</pre></div>
+</div>
+<p>We’re using the -R switch to make the copy recurse into any subfolders and using the * wildcard to get all the files under the files directory.</p>
+<p>On Windows, two commands can be used for copying files, copy (the simpler one) and xcopy (extended copy), which supports more options. Over a long period spent wrestling with the Windows command line, I finally taught myself to use a relatively long set of <code class="docutils literal notranslate"><span class="pre">xcopy</span></code> command switches, which I’ll share now. On Windows, again beginning in our files directory, we would do:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>..
+mkdir<span class="w"> </span>new_folder
+xcopy<span class="w"> </span>/s/e/h/k/c<span class="w"> </span>files<span class="se">\*</span><span class="w"> </span>new_folder
+</pre></div>
+</div>
+<p>That command continues on errors, sets the read-only attribute, copies hidden files, and does everything else that I learned through experience that I needed. If you wanted to pare it down somewhat, you could google <code class="docutils literal notranslate"><span class="pre">xcopy</span></code> to see the documentation on the whole command.</p>
+<p>To move directories and files around, which can also be used to rename them, simply use the <code class="docutils literal notranslate"><span class="pre">move</span></code> command on Windows or <code class="docutils literal notranslate"><span class="pre">mv</span></code> on Mac/Linux.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>files
+mv<span class="w"> </span>newfile.txt<span class="w"> </span>afile.txt.<span class="w">     </span><span class="c1"># Linux / Mac</span>
+move<span class="w"> </span>newfile.txt<span class="w"> </span>afile.txt<span class="w">  </span><span class="c1"># Windows</span>
+</pre></div>
+</div>
+</section>
+<section id="listing-all-files-and-discovering-shell-configuration-files">
+<h1>Listing All Files and Discovering Shell Configuration Files<a class="headerlink" href="#listing-all-files-and-discovering-shell-configuration-files" title="Link to this heading"></a></h1>
+<p>Another command you’ll find helpful in any Bash-like shell environment (Linux, Mac, Git Bash, etc.) is “ls -all ~”. This lists the contents of the home directory, including hidden files and directories (those whose names begin with a period). The reason for listing the home directory, in particular, is to discover configuration files like the .zprofile and .bash_profile files we discussed earlier. In addition, many third-party programs will store configuration information in hidden directories here, so you can learn a lot about your system configuration this way. For example, here’s a partial list (files only) of the contents of my home directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>.bash_history
+.bash_profile
+.conda
+.config
+.docker
+.ipython
+.jupyter
+.zcompdump
+.zprofile
+.zsh_history
+.zsh_sessions
+.zshrc
+</pre></div>
+</div>
+<p>From this, we can tell that not only are the bash and zsh shells configured from files in the home directory, but directories or files there also account for the configuration of the AWS CLI, Docker, IPython, and Jupyter – and that’s just a partial list!</p>
+</section>
+<section id="creating-and-running-basic-command-line-programs">
+<h1>Creating and Running Basic Command Line Programs<a class="headerlink" href="#creating-and-running-basic-command-line-programs" title="Link to this heading"></a></h1>
+<p>Although some commands behave somewhat differently in an interactive shell (or command line) than they do in a script, as a rule of thumb, what you can do at the command line you can do in a script. In what follows, I’ll show some beginner shell scripts (for Linux/Mac) and batch files (for Windows). This is not meant to be an in-depth overview of either Windows or Linux scripting, instead, it’s a bare-bones introduction that you can fill in with other online resources.</p>
+<p>If you followed the advice at the beginning of the chapter about using a bash environment even on Windows, you could safely skip over the next section on Windows batch files. However, I’ll include it here for completeness.</p>
+<section id="windows-batch-files">
+<h2>Windows Batch Files<a class="headerlink" href="#windows-batch-files" title="Link to this heading"></a></h2>
+<p>Generally speaking, in Windows, what a file can do is associated with the extension it has. Groups of commands can be saved to a batch file, which is a set of commands stored in a text file with the extension, “.bat”.</p>
+<p>Let’s see how we can echo that contains the date and the current PATH environment variable. We won’t save it to a file at this point because we can always redirect it later. We already know how to output the PATH. As for the date, if we simply type “date” in a Windows CMD prompt, we’ll see the date but be prompted to change it. We need to know how to tell the “date” command to simply display the date.</p>
+<p>So we don’t get sidetracked, I’ll simply reveal that he /T switch tells the date command not to prompt for a new date. (We’ll explain how we figured it out in the next section, “Getting Help for Command Line Tools”). For now, given this information, we can print the date and the PATH to the screen using this simple BATCH file, which we’ll call logpath.bat.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>@echo<span class="w"> </span>OFF
+rem<span class="w"> </span>logpath.bat<span class="w"> </span>outputs<span class="w"> </span>the<span class="w"> </span>date<span class="w"> </span>and<span class="w"> </span>current<span class="w"> </span>path
+date<span class="w"> </span>/<span class="w"> </span>T
+<span class="nb">echo</span><span class="w"> </span>%PATH%
+</pre></div>
+</div>
+<p>Saving this file as logpath.bat and running either “<code class="docutils literal notranslate"><span class="pre">logpath</span></code>” or “<code class="docutils literal notranslate"><span class="pre">logpath.bat</span></code>” from the same directory, we see that it works OK. The first line disables, echoing each line as we go along unless we explicitly call “echo”. This way, we won’t see the path twice and a lot of other noise as we otherwise would. The &#64; in front of echo does the same thing because when the first line is run, we haven’t yet turned off the echo, so the &#64; means the first line won’t be shown either. The second line is a comment line, “rem” stands for “remark” (or comment). The last two lines output the date and path.</p>
+<p>The Windows environment is generally case-insensitive, so you’ll sometimes see batch files using uppercase for commands like ECHO and REM, etc. For me, uppercasing commands in batch files make them look a bit too like a mainframe program for my taste.</p>
+<p>Mac and Linux Shell Scripts</p>
+</section>
+</section>
+<section id="getting-help-for-command-line-tools">
+<h1>Getting Help for Command Line Tools<a class="headerlink" href="#getting-help-for-command-line-tools" title="Link to this heading"></a></h1>
+<p>One skill that’s crucial for success at the command line is knowing how to get help. That is to say, for any program, we want to be able to learn options (switches) we can pass to the command. There are two answers to that question, one for Windows built-in commands like dir, dateEtc., and one for most other programs.</p>
+<p>In the case of Windows built-in commands, we type the command followed by a space, then a forward slash, and a question mark, so on Windows, we would do:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>date<span class="w"> </span>/?
+</pre></div>
+</div>
+<p>Doing this, we learn that the /T switch “tells the command to just output the current date, without prompting for a new date.” Perfect. We already know.</p>
+<p>The answer for most third-party programs (Java, Python, IPython, pip, etc.), is that we type the command name, a space, and <code class="docutils literal notranslate"><span class="pre">--help</span></code>. For Linux and Mac commands, the <code class="docutils literal notranslate"><span class="pre">--help</span></code> switch sometimes works, but the “man” command brings up a detailed manual (sometimes too detailed!). Thus, for example, “<code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">ls</span></code>” will bring up eight screens full of options you can pass to the simple <code class="docutils literal notranslate"><span class="pre">ls</span></code> command. Although I’m sure some die-hard Unix types will insist the man page will tell you everything you need to know, you won’t hear that from me: as a last resort, Google is your friend for this whole section.</p>
+<p>Although, in my experience, they’re rare, there are a few command-line utilities for which the “<code class="docutils literal notranslate"><span class="pre">--help</span></code>” switch is not supported; for these I’ve found you just have to go to the documentation for the tool. For some strange reason, the AWS CLI is one such utility that comes to mind. For that, one must use “<code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">help</span></code>” or “<code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">service-name</span> <span class="pre">help</span></code>” rather than “<code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">--help</span></code>”.</p>
+</section>
+<section id="most-useful-shell-commands-windows-vs-mac-and-linux">
+<h1>Most Useful Shell Commands: Windows vs. Mac and Linux<a class="headerlink" href="#most-useful-shell-commands-windows-vs-mac-and-linux" title="Link to this heading"></a></h1>
+<table><tbody><tr><td>Task</td><td>Mac / Linux</td><td>Windows</td></tr><tr><td>Create a directory</td><td>mkdir name<br></td><td>mkdir name<br>md name</td></tr><tr><td>Move to a directory underneath this one</td><td>cd name</td><td>cd name</td></tr><tr><td>Navigate to "home directory."</td><td>cd ~</td><td>cd %HOMEPATH%<br>cd %HOMEDRIVE%%HOMEPATH%</td></tr><tr><td>Print the contents of a text file</td><td>cat filename</td><td>type filename</td></tr><tr><td>Print something to the screen</td><td>echo something</td><td>echo something</td></tr><tr><td>Print something to<br>a file (appending)</td><td>echo something &gt; filename</td><td>echo something &gt; filename</td></tr><tr><td>Copy a file</td><td>cp source target</td><td>xcopy source target</td></tr><tr><td>Copy a set of files recursively from one directory to another</td><td>cp -R source/* target</td><td>xcopy /s/e/k/c/h source\* target</td></tr><tr><td>Move a file or directory</td><td>mv source target</td><td>move source target</td></tr><tr><td>Getting help</td><td>command-name /?</td><td>command-name --help<br>man command-name</td></tr></tbody></table>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

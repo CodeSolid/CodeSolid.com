@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notes on Synapses, Neurons, and Brains &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=2709fde1"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="On Reading Dennett’s Consciousness Explained" href="OnReadingConsciousnessExplained.html" />
+    <link rel="prev" title="Cognitive Science Resources" href="Resources.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../math/index.html">Math Notes</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Cognitive Science</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Resources.html">Cognitive Science Resources</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Notes on Synapses, Neurons, and Brains</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#week-one">Week One</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#five-exciting-things">Five exciting things:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#connectomics">Connectomics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#brainbow">BrainBow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#brain-machine-interface">Brain Machine Interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#optogenetics">Optogenetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#blue-brain-project-brain-simulation">Blue Brain Project - Brain Simulation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#week-two">Week Two</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#the-neuron">The Neuron</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-neuron-doctrine">The Neuron Doctrine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-neuron-as-an-input-output-device">The neuron as an input / output device</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-axon">The Axon</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-dendrite">The Dendrite</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#neuron-types">Neuron Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-synapse">The Synapse</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-neuron-as-output-device-part-2">The Neuron as Output Device: Part 2</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#week-three-electrifying-brains-passive-electrical-signals">Week Three - Electrifying Brains – Passive Electrical SIgnals</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#the-cell-as-an-rc-circuit">The Cell as an RC Circuit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-voltage-equation-for-the-passive-cell">The voltage equation for the passive cell</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-membrane-time-constant">The Membrane Time Constant</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#temporal-summation">Temporal Summation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-resting-potential">The Resting Potential</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-synaptic-potential-part-i">The Synaptic Potential, Part I</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-synaptic-conductance">The Synaptic Conductance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-synaptic-battery">The Synaptic Battery</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-synaptic-potential-part-ii">The Synaptic Potential, Part II</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-voltage-equation-for-the-synapse-and-epsp-and-ipsp">The Voltage Equation for the Synapse and EPSP and IPSP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#week-four-electrifying-brains-active-electrical-spikes">Week Four:  Electrifying Brains - Active Electrical Spikes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#the-hodgkin-huxley-experiments">The Hodgkin Huxley Experiments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#membrane-currents-underlying-the-spike">Membrane Currents Underlying the Spike</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modeling-the-membrane-currents">Modeling the Membrane Currents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-h-h-spike-model">The H&amp;H Spike Model</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#week-five-neurons-as-plastic-dynamic-devices">Week Five - Neurons as Plastic/Dynamic Devices</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#outline-and-introduction">Outline and Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mechanisms-subserving-learning-and-memory">Mechanisms Subserving Learning and Memory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#functional-plasticity">Functional Plasticity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#structural-plasticity">Structural Plasticity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#neurogenesis-and-learning">Neurogenesis and Learning</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#week-six-cable-theory-and-dendritic-computations">Week Six: Cable Theory and Dendritic Computations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#the-brain-computes">The Brain Computes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#computation-at-the-level-of-single-neuron">Computation at the level of Single Neuron</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fundamentals-of-dendritic-cable-theory">Fundamentals of Dendritic Cable Theory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rall-cable-theory-for-dendrites">Rall Cable Theory for Dendrites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dendritic-computation">Dendritic Computation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#recent-breakthroughs">Recent Breakthroughs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#week-7-cortical-networks-out-of-the-blue-project">Week 7 Cortical Networks - Out of the Blue Project</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cortical-networks-out-of-the-blue-project">Cortical networks - out of the blue project.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-blue-brain-project">The Blue Brain Project</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-cortical-column">The Cortical Column</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-cortical-column-network">The Cortical Column Network</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#blue-brain-project">Blue Brain Project</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#blue-brain-simulations">Blue Brain Simulations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#from-mouse-to-human">From Mouse to Human</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-human-brain-project">The Human Brain Project</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#perception-action-cognition-emotion">Perception, action, cognition, emotion</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sensory-transduction">Sensory Transduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#early-processing-of-sensory-information">Early Processing of Sensory Information</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#how-sensory-information-guides-motion">How Sensory Information Guides Motion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#higher-order-processes-of-sensory-information">Higher Order Processes of Sensory Information</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#emotions">Emotions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#from-synapses-to-free-will">From Synapses to Free Will</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#what-did-we-learn">What Did We Learn?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">What Did We Learn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#free-will-and-neuro-ethics">Free will and neuro-ethics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#brain-reading-part-2">Brain Reading Part 2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#free-will">Free Will</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#farewell-words">Farewell Words</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="OnReadingConsciousnessExplained.html">On Reading Dennett’s <em>Consciousness Explained</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="TheSecretLifeOfTheMind.html">The Secret Life of the Mind</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../socialmedia/index.html">Social Media</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Cognitive Science</a></li>
+      <li class="breadcrumb-item active">Notes on Synapses, Neurons, and Brains</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/cognitive_science/SynapsesNeuronsAndBrainsNotes.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="notes-on-synapses-neurons-and-brains">
+<h1>Notes on Synapses, Neurons, and Brains<a class="headerlink" href="#notes-on-synapses-neurons-and-brains" title="Link to this heading"></a></h1>
+<p>On October 18, 2023, I started on the course <a class="reference external" href="https://www.coursera.org/learn/synapses">Synapses, Neurons, and Brains</a> with Professor Idan Segev.  Below are my notes on the course.  As always with notes, expect lots of abbreviated language and shortcuts.  I also have some much more preliminary <a class="reference internal" href="SynapseseNeuronsAndBrainsReviewNotes.html"><span class="doc std std-doc">Review Notes</span></a>.</p>
+<section id="week-one">
+<h2>Week One<a class="headerlink" href="#week-one" title="Link to this heading"></a></h2>
+<p>Some dramatic billion-dollar projects include:
+* Allen Institute Seattle - Mouse/Human Brain Atlas
+* <a class="reference external" href="https://www.janelia.org/">Janelia farm</a> - DC, USA
+* EU Human brain project
+* President Obama’s “Brain Activity Map” initiative</p>
+<section id="five-exciting-things">
+<h3>Five exciting things:<a class="headerlink" href="#five-exciting-things" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Connectomix (see also <a class="reference external" href="https://en.wikipedia.org/wiki/Connectomics">Wikipedia article</a>)</p></li>
+<li><p>Brainbow</p></li>
+<li><p>Brain-machine/Computer Interface (BMI)</p></li>
+<li><p>Optogenetics</p></li>
+<li><p>Computer Simulation of the Brain (e.g. Blue Brain Project)</p></li>
+</ul>
+<p>Camillo Golgi and Santiago Ramon Y Cajal are “The Two Giants”, the beginning of modern neuroscience.   Golgi stains actually only stain about &lt; 1% of cells, so doesn’t make tissue dark, you can then see those stained neurons (a later term).  1906 Nobel Prize.</p>
+</section>
+<section id="connectomics">
+<h3>Connectomics<a class="headerlink" href="#connectomics" title="Link to this heading"></a></h3>
+<p>Connectomics is modern anatomy wiring diagram – cut very thin slices (nanometer resolutions).  Electron microscope used for this.  Detect slice structure separately, then reconnect slices.  So it’s 3D mapping, so far done on pieces of brain, not whole brain.</p>
+<p>Prospects for connectomics is to give us a complete blueprint of healthy and sick brain, and we may start to bridge the “structure-to-function” problem, and get into simulation-based research.</p>
+</section>
+<section id="brainbow">
+<h3>BrainBow<a class="headerlink" href="#brainbow" title="Link to this heading"></a></h3>
+<p>Genetic staining of neurons in vivo (light microscope – micrometer resolution).  Harvard messing with mice genes, inserting pieces of DNA, when DNA is expressed, some cell types become colorful because of floursecent proteins (hence Brainbow).  By the way, synapses are too small for this resolution, but can see general placement of neurons.  Lot of art exhibitions based on this.</p>
+<p>Prospects of this are 1) structural basis for learning; 2) taggging and genetic characterization of different cell types, eg. in retina, or find out how many cell types you have 3) Tracing connections in circuits, short and long range.</p>
+</section>
+<section id="brain-machine-interface">
+<h3>Brain Machine Interface<a class="headerlink" href="#brain-machine-interface" title="Link to this heading"></a></h3>
+<p>Electrodes implanted and listening to a single cell’s spike, or a large group of cells.  Spikes are the common language.  Talks to an Artificial Neural Network, and then to a robotic arm.  Or can go the other way to ameliorate parkinsons, pulses from battery into basal ganglia.  Basically a pacemaker for brain.  Future challenges are 1) to be able to telemetrically record from within the brain without invasive electodes 2) real-time signal analysis. 3) Close the loop for movement with touching.</p>
+</section>
+<section id="optogenetics">
+<h3>Optogenetics<a class="headerlink" href="#optogenetics" title="Link to this heading"></a></h3>
+<p>Idea is to tweak the genetics of cells to plant probes that are sensitive to light, so you can shine light of particular wavelength and have it generate a signal.  In nature, only retina is sensitive to light.  But existence of retinal receptors means there are genes that can code for molecules that are sensitive to light.  With two examples.  Ion channel Rhodopsin spikes when blue light shines on it. C.f. <a class="reference external" href="https://en.wikipedia.org/wiki/Rhodopsin">Rhodopsin</a>.  Other example Natronomas pharaonis, yellow light prevents spikes.  Movie from Janelia Farm (aka now Janelia Research Campus), can induce mice to drink with blue light on certain group of cells.</p>
+</section>
+<section id="blue-brain-project-brain-simulation">
+<h3>Blue Brain Project - Brain Simulation<a class="headerlink" href="#blue-brain-project-brain-simulation" title="Link to this heading"></a></h3>
+<p>Computer simulation (modeling) of neural circuits.  Lord Kelvin (William Thompson) quote:
+“I am never content until I have constructed a mechanical model of the subject I am studying. If I succeed in making one, I understand; otherwise I do not.” [BL]</p>
+<p>Uses powerful “<a class="reference external" href="https://en.wikipedia.org/wiki/IBM_Blue_Gene">Blue-Gene</a>” IBM computer.  Blue as in Big Blue, IBM.  Modeling is writing equation to describe types of spikes for certain class of cells.  Different equations for different spike (ultimately cell) types.</p>
+<p>Modelling helps us to understand the network (e.g. by visualizing model in action).</p>
+<p>So this is “simulation-based medicine [or s-b research]”</p>
+</section>
+</section>
+<section id="week-two">
+<h2>Week Two<a class="headerlink" href="#week-two" title="Link to this heading"></a></h2>
+<section id="the-neuron">
+<h3>The Neuron<a class="headerlink" href="#the-neuron" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>The neuron</p></li>
+<li><p>The axon</p></li>
+<li><p>Dendrites / dendritic spines</p></li>
+<li><p>Neuron types</p></li>
+<li><p>Synapses</p></li>
+<li><p>Electrical signals</p>
+<ul>
+<li><p>Spike (action potentitial)</p></li>
+<li><p>Post-Synaptic Potential (PSP)</p></li>
+</ul>
+</li>
+<li><p>Neuron as I/O Device</p></li>
+</ul>
+<p>Historical perspective first, Hooke, Schwann, Golgi, Ramon Y Cajal, … and interestingly, Sigmund Freud (drawing crayfish neurons).</p>
+<p>Nice images from Blue Brain, also videos of activity of living brain.</p>
+</section>
+<section id="the-neuron-doctrine">
+<h3>The Neuron Doctrine<a class="headerlink" href="#the-neuron-doctrine" title="Link to this heading"></a></h3>
+<p>Controversy between Camillo Golgi and Santiago Ramon y Cajal (RyC). Ramon y Cajal originally an artist.  Looking through primitive microscope at different parts of nervous system in different animals, using Golgi staining method.</p>
+<p>RyC by looking at anatomy only, conceived that information flows through axon, to and then to dendrites.  Could not really see communication, drew arrows showing information flow, then thought from dendrite to cell body, to axon, to dendrite of next neuron.  So theory that we’re dealing with individual cells is the neuron doctrine.  The theory of dynamic polarization is that the receiving dendrite is somehow polarized, then flows to body, then axon.</p>
+<p>N.B. RyC:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* Dendrites are the receptive devices (Input).
+* Axons are the sending (output) devices.
+</pre></div>
+</div>
+<p>We agree with this.  Golgi did not like this – thought they were all connected physically.  1906 was a debate at the podium for Nobel prize.</p>
+<p>Both axons and dendrites look like trees, axonal trees, dendritic trees.  Axonal trees have varicosities (boutons) – this is where the neurotransmitters send the signal.  Sometimes one axon will have 5,000 synapses</p>
+</section>
+<section id="the-neuron-as-an-input-output-device">
+<h3>The neuron as an input / output device<a class="headerlink" href="#the-neuron-as-an-input-output-device" title="Link to this heading"></a></h3>
+<p><strong>NB:  Really important introduction</strong></p>
+<p>NOTE:  This <a class="reference external" href="https://www.coursera.org/learn/synapses/lecture/97K4b/the-neuron-as-i-o-device-part-i">video lesson</a> has an excellent abstracted image associated with it.</p>
+<p>Many (like up to thoushands) of axons (synapses) connect to one dendrite.  Make little change in voltage, local synaptic potential.  Certain types of cells (red in picture) make positive voltage (excitatory), the other ones are inhibitory.  All together they sum the input, and the cell “decides” whether to generate an output yes or no.  Output if there is one will be a set of spikes, tak tak tak etc.</p>
+<p>Image too of pyramidal cell from cortex.</p>
+</section>
+<section id="the-axon">
+<h3>The Axon<a class="headerlink" href="#the-axon" title="Link to this heading"></a></h3>
+<p>Just after the soma, axon initial segment (AIS), hot region generating spikes.  Consists of special ion channelss that make this region hot, i.e. enables generation of spike.  This is where action potential starts, then it propagates down the axon, to all axon branches.  Between axon segments are nodes of Ranvier. Between nodes of Ranvier are inter-nodes, with myelin sheath.  Nodes of ranvier don’t have myelin sheath.  Myelin is a lipid, it electrically isolates axon.  Terminals of axon are pre-synaptic sites, boutons or varicosities; up to 5,000 per axon.  No myelin on varicosity – it’s “bare wire”.</p>
+<p>Myelin internodes generated by special set of non-neuronal cells.  These are sometimes called glial cells, or have other names too that aren’t worth remembering but are oligodendrocytes.  Electrical potential gets boosted in nodes of Ranvier.</p>
+<p>Note that dendrites never have myelin.</p>
+<p>By the way multiple sclerosis is a disease where the immune system attacks the myelen sheath, and messes with the signal flow.</p>
+<p>Nodes of Ranvier amplify (boost) signal.</p>
+<p>Summary:</p>
+<ul class="simple">
+<li><p>Axon is highly branched structure emerging from soma.  Can branch locally or go centimeters or even meters away from soma.</p></li>
+<li><p>Starts with hot axon initial segment, where spike starts, then it propagates along axon.</p></li>
+<li><p>Covered with myelin, except in nodes of ranvier, where there are hot ion channels</p></li>
+<li><p>Has frequent swellings (boutons), where the neurotransmitter “hides” (pre-synaptic site).</p></li>
+</ul>
+<p>Most importantly, axon is an output electrical device.  It generates and carries electrical signals called spikes.</p>
+</section>
+<section id="the-dendrite">
+<h3>The Dendrite<a class="headerlink" href="#the-dendrite" title="Link to this heading"></a></h3>
+<p>10/20/2023</p>
+<p>Pictures of dendrites (links below to 3rd party resources)</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Purkinje_cell">Purkinje cells</a> from cerebellum, “small brain”.  Flat, bush-like.</p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Amacrine_cell">Starburst amacrine</a> retina cells.</p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Pyramidal_cell">Pyramidal cell</a> – common in hippocampus; pyramidal structure (triangular looking) cell body.</p></li>
+</ul>
+<p>Point here is name of cell often depends on structure of dendritic tree.</p>
+<p>RyC drawing shown pyramidal cell, with small branches, dendtritic spines, so this type is a spiney dendritic tree, and these spines are “where synapses are made onto”.  Pyramidal cells are spiney.  Sometimes 10,000 spines per pyramidal cell.  On his death bed RyC was drawing spines.</p>
+<p>Typical number for pyradimal cell in cortex:</p>
+<ul class="simple">
+<li><p>total area 20,000 square micrometer [(= micron).  One millionth of a meter]</p></li>
+<li><p>each spine has area of 1 square micrometer of dendritic spines per cell, 8,000, average.  But could be 30,000 or more.</p></li>
+<li><p>Listen to 10,000 synapses</p></li>
+</ul>
+<p>In cortex, in terms of area, 50-60% of brain area is dendrites.</p>
+<p>Pictures of human pyramidal cells from cortex.  Showing apical tree (point of pyramid) and basal tree (again see <a class="reference external" href="https://en.wikipedia.org/wiki/Pyramidal_cell">Pyramidal cell</a>).</p>
+<p>Takeaway:  cortical pyramidal cells have dendritic spines.</p>
+</section>
+<section id="neuron-types">
+<h3>Neuron Types<a class="headerlink" href="#neuron-types" title="Link to this heading"></a></h3>
+<p>Can classify by:</p>
+<ul class="simple">
+<li><p>Anatomical features (e.g. “face” of dendrites and axons)</p></li>
+<li><p>Functional, .e.g. excitatory (principle) vs inhibitory (interneurons) – balance between two is very important, by way.</p></li>
+<li><p>By electrical spiking pattern.  Some cells fire more or less, different patterns.</p></li>
+<li><p>By chemical characteristics.</p></li>
+<li><p>Using gene expression</p></li>
+</ul>
+<p>Count of neurons in human brain:  a number close to 100 billion.</p>
+<p>Work on this is not final.  # of types not final, depends on classification, but could say several thousand types overall.</p>
+<p>Example (detail on point 2), in neocortex, principle (excitatory cells) have long axon that projects to other brain regions, whereas interneurons (inhibitory) have local axonal projection.</p>
+<p>2013 work by Javier DeFelipe to classify inhibitory neurons, Chandelier, large baskent, horse-tail, Cajal-Retzius, etc. etc.  Depends largely in differences in dendritic tree or sometimes axonal structure.  Why different structures an interesting question.  [I also wonder if this needs to be modeled for an artificial (ANN) human.]</p>
+<p>Slide of electrically-based (spiking) classification.  Some fire a lot (regular).  Some “stutter”.  We don’t understand the structual reason for this.</p>
+</section>
+<section id="the-synapse">
+<h3>The Synapse<a class="headerlink" href="#the-synapse" title="Link to this heading"></a></h3>
+<p>The synapses is a chemical / electrical device that connects axon of neuron A to dendrites of nueron B.  Pictures of very close axon - denrite connections.  Single pre-synaptic cell can make contact at several locations to the same post-synaptic cell.  Using electron microscope, can see axon bouton (pre-synaptic) connecting to dendritic spine (post-synaptic). They don’t physically touch, but very very small gap.</p>
+<p>Side note when axon connecting to spiny dendrite, this is typically excitatory type connection.  Electron microscope view showing showing axon A with small vesicles, a very small gap, and a dentridic spine, B  – vesicles contain neurotransmitter, e.g. 5,000 molecules of glutamate, acytlcoline, or seratonin.  So vessicles live in axonal varicosities (boutons).  Neurotransmitter travels through gap to dendrite spine.  Spike is digital, all or none.  When spike arrives, secretes the neurotransmitter – spike is the trigger.  Post-synaptic, you’ll also see a signal too, “excitatory synaptic potential”.  So two types of activity:</p>
+<ul class="simple">
+<li><p>Action potential (from axon)</p></li>
+<li><p>Post-synaptic potential (could be excitatory or inhibitory)</p></li>
+</ul>
+<p>Major difference is action potential is digital signal.  The post-synaptic potential is graded, analog signal [this reminds me of how ANNs are modeled?].  So digital signal on one side to analog on other side. So digital-to-analog converter.</p>
+<p>Slide on synapse vesicle quantal release.</p>
+</section>
+<section id="the-neuron-as-output-device-part-2">
+<h3>The Neuron as Output Device: Part 2<a class="headerlink" href="#the-neuron-as-output-device-part-2" title="Link to this heading"></a></h3>
+<p>Summary of Lesson 2</p>
+<ul class="simple">
+<li><p>Different cell types.</p></li>
+<li><p>Excitatory input can come from very far away, e.g., thalamus to the cortex.</p></li>
+<li><p>Cell may receive 1500 synapses from neighbors, 360 from thalamus, etc.</p></li>
+<li><p>Now reshow important diagram</p></li>
+<li><p>In the receiving cells, have Excitatory post-synaptic potentials (EPSPs) and Inhibitory post-synaptic potentials (IPSPs) – eventually all gets summed up in the cell body, may reach threshold for action potential generation.</p></li>
+</ul>
+<p>First quiz first attempt got 92.85% on attempt one, 10/21/2024</p>
+</section>
+</section>
+<section id="week-three-electrifying-brains-passive-electrical-signals">
+<h2>Week Three - Electrifying Brains – Passive Electrical SIgnals<a class="headerlink" href="#week-three-electrifying-brains-passive-electrical-signals" title="Link to this heading"></a></h2>
+<section id="the-cell-as-an-rc-circuit">
+<h3>The Cell as an RC Circuit<a class="headerlink" href="#the-cell-as-an-rc-circuit" title="Link to this heading"></a></h3>
+<p>Today starting with passive properties.  Already mentioned, pre-synaptic we have action potential, digital, all or none.  In this lesson we’re talking about next part, the synatpic potential, in the dendrite.  So in week 3:</p>
+<ul class="simple">
+<li><p>link anatomical structure to idea of passive-RC circuit.</p></li>
+<li><p>talk about membrane, and the membrane time-constant (Tau-M)</p></li>
+<li><p>Temporal summation of repeated inputs – “electrical memory”</p></li>
+<li><p>Generation of post-synaptic-potential (PSP) in post-synaptic membrande</p></li>
+<li><p>Continue talking about excitatory (E) and inhibitory (I) synapses.</p></li>
+<li><p>E &amp; I interaction</p></li>
+</ul>
+<p>Start with a small patch of membrane, can wrap it into a sphere.  We’ll place an electrode, and record dif between inside and outside of cell (voltage).  If we inject a positive current into cell, I (current), if you do this you see a voltrage change (V), the voltage change doesn’t look square like current we injected, but it grows over time as a smooth curve, also slowly drops when current stopped.  So cell is not a mere resistor, because if it were, and you injected I, you would get a voltage that consists of I x R.  (Ohm’s law - V = IR).  Not like that, it takes time t to grow, and also to decay.  We call curved response to I, we get a <a class="reference external" href="https://en.wikipedia.org/wiki/Depolarization">depolarizing current</a>, i.e. becoming less negative.</p>
+<p>When people saw this, they though that a cell that acts like an <a class="reference external" href="https://en.wikipedia.org/wiki/RC_circuit">R-C circuit</a>.  If you inject I into such a circuit, it takes time to grow, and when stop injecting current, takes time to go back to baseline or zero.  So RC circuit is a good approximation of such behavior.</p>
+</section>
+<section id="the-voltage-equation-for-the-passive-cell">
+<h3>The voltage equation for the passive cell<a class="headerlink" href="#the-voltage-equation-for-the-passive-cell" title="Link to this heading"></a></h3>
+<p>The math for an RC circuit, want to again measure V (voltage) in response to current (I):</p>
+<p>Total current is either resistance current or capacitance current.</p>
+<div class="math notranslate nohighlight">
+\[ C\space\frac{dV}{dt} + \frac{V}{R} = I \]</div>
+<p>So capacitative current + resistance current is equal to Current (I).</p>
+<p>This is basicall <a class="reference external" href="https://en.wikipedia.org/wiki/Kirchhoff's_circuit_laws#Kirchhoff's_voltage_law">Kirchoff’s Law</a></p>
+<p>If you solve this equation for V you get behavior of cell, solution is linear because C is constant, resistance is constant, current input (I) is constant.  end up with dv/dt as a solution, which is a derviative, so shows change over time.</p>
+<p>Initial conditions, V (t = 0) = 0, and up with some V after certain time.</p>
+<div class="math notranslate nohighlight">
+\[ V(t) = I*R\space\space(1 - e^{\frac{-t}{RC}}) \]</div>
+<p>At t = 0, e to zero is one, 1-1 = 0, so V(t = 0) = 0, or</p>
+<div class="math notranslate nohighlight">
+\[V(t = 0) = 0\]</div>
+<p>If inject current for infinite time, e to power of -t goes to zero, so IR * (1 - 0) = IR so</p>
+<div class="math notranslate nohighlight">
+\[ V(t = \infty) = IR \]</div>
+<p>This last is steady state.</p>
+<p>So these are two ends.</p>
+</section>
+<section id="the-membrane-time-constant">
+<h3>The Membrane Time Constant<a class="headerlink" href="#the-membrane-time-constant" title="Link to this heading"></a></h3>
+<p>This time we want to look at <span class="math notranslate nohighlight">\( t = RC \)</span>.</p>
+<p>By the way, RC is many times called tau,</p>
+<div class="math notranslate nohighlight">
+\[ \tau \]</div>
+<p>or sometimes</p>
+<div class="math notranslate nohighlight">
+\[ \tau_{m} \]</div>
+<p>i.e. tau membrane.</p>
+<p>Looking at t = RC = Tau, what is value of V.  Well ends up being</p>
+<div class="math notranslate nohighlight">
+\[ 1 - e^{-1} \]</div>
+<p>So</p>
+<div class="math notranslate nohighlight">
+\[ V(t = \tau) = IR * (1 - e^{-1}) \]</div>
+<p>The one minus e to the -1 is = .63, so</p>
+<div class="math notranslate nohighlight">
+\[ V(t = \tau) = .63 IR  \]</div>
+<div class="math notranslate nohighlight">
+\[ IR = \infty \]</div>
+<p>Can use same equation to ask how will voltage decay (attenuation) when we stop the current.  So still exponential, but not 1 - exponent, just exponent.  Attenuation like build-up.</p>
+<p>Tau-M is caled the membrane time constant (very important).</p>
+<p>Attenuation function is</p>
+<div class="math notranslate nohighlight">
+\[ V(t) = V * e^{\frac{-t}{\tau_{m}}} \]</div>
+<p>Growth and decay are mirror images of one another, goverened by Tau-M, the membrane time constant.  It governs how fast the voltage develops / attenuates.  If time constant long, will take a long time to attenuate, and vice versa.  (earlier I believe he said RC (tau) in seconds).</p>
+<p>This constant in effect tells you about the electrical memory of cell.  Short means it “forgets” quickly.</p>
+<p>Another important parameter is R, sometimes called</p>
+<div class="math notranslate nohighlight">
+\[ R_{in} \]</div>
+<p>R input, or input resistance.</p>
+<p>R directly tells you maximum voltage you can reach for a given I.  RC tells you how fast go up and down.</p>
+<p>So critical parameters for passive RC circuits are:</p>
+<ul class="simple">
+<li><p>R</p></li>
+<li><p>RC</p></li>
+</ul>
+</section>
+<section id="temporal-summation">
+<h3>Temporal Summation<a class="headerlink" href="#temporal-summation" title="Link to this heading"></a></h3>
+<p>An important consequence of time constant, what if inject an intermittent current, not a constant one.  So I is intermittent.  Voltage goes up and then attenuates, but not all the way down, so following second period of I, get a buildup on top of remainder of previous one.  This is called temporal summation.</p>
+<p>If would have done it constantly, would have gotten a larger buildup.  IR is maximum you can get.</p>
+<p>Next shows negative current, here voltage will be pushed down.  The name for this [mentioned in passing] is <a class="reference external" href="https://en.wikipedia.org/wiki/Hyperpolarization_(biology)">hyperpolarization</a>.  (When cell gets more positive, it’s called depolarization, or hypopolarization).</p>
+<p>This temporal summation of positive and negative current is “exactly what synapses are doing”.</p>
+</section>
+<section id="the-resting-potential">
+<h3>The Resting Potential<a class="headerlink" href="#the-resting-potential" title="Link to this heading"></a></h3>
+<p>Now back to cell membrane (circle) near R/C diagram – this is the “Passive Membrane Model”.</p>
+<p>New:  When you implant the electrode into the cell, suddenly see a drop in voltage.  I.e., cell is more negative than outside, so drop in voltage is from zero to “something like -70 mV” (millivolts).</p>
+<p>So inside of cell is about 70 mV more negative than the outside of the cell. This is called the resting potential, i.e., with no current.  This negative charge inside requires energy to maintain.  In any brain, inside is more negative, so because of this we need to add a battery to the original RC circuit.  (This appears to be a good <a class="reference external" href="https://www.cns.nyu.edu/~david/handouts/membrane.pdf">related article</a>).</p>
+<p>Resting potential symbol:</p>
+<div class="math notranslate nohighlight">
+\[ E_{\space rest} \]</div>
+<p>Again:
+More positive:  Depolarization
+More negative:  Hyperpolarization</p>
+<p>Next stage is to speak about synapses, which can add this current….</p>
+</section>
+<section id="the-synaptic-potential-part-i">
+<h3>The Synaptic Potential, Part I<a class="headerlink" href="#the-synaptic-potential-part-i" title="Link to this heading"></a></h3>
+<p>Up until now we’ve dealt with passive proprerties of cell, resting potential.</p>
+<p>BTW, ballpark values for R * C, Time constant, = Tau, of on the order of 20 milliseconds</p>
+<p>Brief review of synapse, vessicles of axon meeting receptors of dendrite – what happens when neurotransmitter interacts with receptors.  We get new ion channels opened in the receptor, which enable the flow of current, either from out -&gt; in or from in -&gt; out.  So on the dendrite side eventually, result of neurotransmitter uptake is new ion channels.  Channel behaves like a conductor or a resistor, we call it</p>
+<div class="math notranslate nohighlight">
+\[ g_{\space syn} \]</div>
+<p>Wait – now talking about it as a battery for the synapse:</p>
+<div class="math notranslate nohighlight">
+\[ E_{\space syn} \]</div>
+</section>
+<section id="the-synaptic-conductance">
+<h3>The Synaptic Conductance<a class="headerlink" href="#the-synaptic-conductance" title="Link to this heading"></a></h3>
+<p>Looking at dendritic side membrane, earlier said two types of channels.</p>
+<ul class="simple">
+<li><p>One type is passive type that, in total, represent the R value (resistance) in the cell.   (“white channels” for purposes of drawing)</p></li>
+<li><p>Other type (“red channels” for purposes of drawing), when synapse interacting w/ neurotransmitter.  These then are synaptic channels.</p></li>
+</ul>
+<p>We represent the conductance of these with</p>
+<div class="math notranslate nohighlight">
+\[ g_{\space r} \]</div>
+<p>for the r (resting channel), passive resistance, and</p>
+<div class="math notranslate nohighlight">
+\[ g_{\space s} \]</div>
+<p>for the synaptic channels.</p>
+<p>Red channels only open in response to reaction with a neurtransmitter.  Collectively they result in something called the synaptic voltage.</p>
+<p>But we need to also discuss the Synaptic Battery (next)</p>
+</section>
+<section id="the-synaptic-battery">
+<h3>The Synaptic Battery<a class="headerlink" href="#the-synaptic-battery" title="Link to this heading"></a></h3>
+<p>Difference in ion concentration is a general property of living cells.  In particular in nerve cells.  For instance, outside nerve cells there are a LOT of (positive +) sodium channels, and much fewer inside cells.  In case of potassium, opposite is true, lots inside, less outside.</p>
+<p>If you open a particular sodium channel only, because of concentration gradient, you will get positive flow into the cell.  So will get depolarization, John says – and professor says a second later. :)</p>
+<p>So calling it a battery is a way of representing the flow of ions.</p>
+<p>For potassium, because there is more inside, it will flow from inside -&gt; outside, so you will lose positive charge, so cell will become hyperpolarized.</p>
+</section>
+<section id="the-synaptic-potential-part-ii">
+<h3>The Synaptic Potential, Part II<a class="headerlink" href="#the-synaptic-potential-part-ii" title="Link to this heading"></a></h3>
+<p>So, again:</p>
+<ul class="simple">
+<li><p>Post-synaptic membrane has both passive channel and synaptic channel.</p></li>
+<li><p>Specific ion channels get opened, allows current to flow either in or out.</p></li>
+</ul>
+<p>Circuit has <span class="math notranslate nohighlight">\( g_{\space r} \)</span> (g-rest), resting conductance plus resting battery, <span class="math notranslate nohighlight">\( E_{\space r} \)</span>, the whole -70 millivolts – this is the passive part of circuit.</p>
+<p>Synaptic part is <span class="math notranslate nohighlight">\( g_{\space s} \)</span> synaptic conductance plus <span class="math notranslate nohighlight">\( E_{\space s} \)</span>, synaptic battery.</p>
+<p>Equation before was <span class="math notranslate nohighlight">\( C \frac{dV}{dt} + g_{r} (V - E_{r})\)</span>  First part is capacitative current, second part of that is passive current.</p>
+<p>Now equation with red current (synaptic part):</p>
+<p><span class="math notranslate nohighlight">\( C \frac{dV}{dt} + g_{r} (V - E_{r})  + g_{s} ( V - E_{s}) = 0 \)</span></p>
+<p>Last term is synaptic current.  Sum of all terms in above equation = 0 according to kirchoff’s law.  You can solve this equation to get that last V – the voltage generated by the synapse.</p>
+</section>
+<section id="the-voltage-equation-for-the-synapse-and-epsp-and-ipsp">
+<h3>The Voltage Equation for the Synapse and EPSP and IPSP<a class="headerlink" href="#the-voltage-equation-for-the-synapse-and-epsp-and-ipsp" title="Link to this heading"></a></h3>
+<p>Again, the current equation is:</p>
+<p><span class="math notranslate nohighlight">\( C \frac{dV}{dt} + g_{r} (V - E_{r})  + g_{s} ( V - E_{s}) = 0 \)</span></p>
+<p>If solve it for V – the voltage change due to activity of synapse, you get this equation:</p>
+<div class="math notranslate nohighlight">
+\[ V(t) = \frac{g_{r} \space E_{r} + g_{s} \space E_{s}}{g_{r} + g_{s}} \space (1 - e^{-t \frac{g_{r} + g_{s}} {c}})\]</div>
+<p>There is a ceiling to positive or negative synaptic battery.</p>
+<p>Reasonable range is something like +200 millivolts to -90 millivolts.  Whole world represented by signals in this range. :)  If voltage goes up, it’s EPSP (Excitatory Post-Synaptic Potential). If it goes down, it’s IPSP (Inhibitory Post-Synaptic Potential)</p>
+</section>
+<section id="summary">
+<h3>Summary<a class="headerlink" href="#summary" title="Link to this heading"></a></h3>
+<p>EPSP and IPSP diagram, we have time consant – if both at both time, have temporal summation.</p>
+<p>Quiz for this one done on 10/25/2023, got this nice little encouragement along with a 90% grade:</p>
+<p><img alt="Grade on second quiz on Electricity and Brains" src="../_images/Congratulations.png" /></p>
+</section>
+</section>
+<section id="week-four-electrifying-brains-active-electrical-spikes">
+<h2>Week Four:  Electrifying Brains - Active Electrical Spikes<a class="headerlink" href="#week-four-electrifying-brains-active-electrical-spikes" title="Link to this heading"></a></h2>
+<section id="the-hodgkin-huxley-experiments">
+<h3>The Hodgkin Huxley Experiments<a class="headerlink" href="#the-hodgkin-huxley-experiments" title="Link to this heading"></a></h3>
+<p>Now talking about active signals – the spike!  The all or none, digital phenomenon that comes from the axon. This again is the action potential (axon) – as opposed to resulting synaptic potential in the dendrite.</p>
+<p>Outline:</p>
+<ol class="arabic simple">
+<li><p>The excitable (“spiking” axon)</p></li>
+<li><p>The Hodgkin &amp; Huxley experiments (Two giants)</p></li>
+<li><p>Space clamp and voltage clamp</p></li>
+<li><p>Membrane conductances/currents underlying the spike</p></li>
+<li><p>Hodgkin &amp; Huxley model for spike initiation (math. model)</p></li>
+<li><p>Spike propogation along axon</p></li>
+<li><p>From synapses to spikes</p></li>
+</ol>
+<p>Two giants:  Sir Alan Lloyd Hodgkin and Sir Andrew Fielding Huxley – both working in Cambridge before WWII.  Nobel prize 1963. They used the squid as an experimental animal.  Squid has unique property – a giant axon, that’s about 0.5 mm (500 micrometer) wide.  (Axons in brain on the order of micrometers – too small to work on)
+This allows you to place an electrode (the long way, like a catheter).  Published first view of spike (on oscilloscope) in 1939, by electrically signalling the cell.  Needs stimulus strong enough in depolarizing direction.  Starts from resting potential.  Goes up, then goes back down below resting potential (but gradually creeps back up).  Spike is about 1 millisecond long.</p>
+<p>This is a universal activity of nerve cells.</p>
+<p>Wrote beautiful set of 4 equations in several papers (1952).  Now we understand action potential in a very compact way.  “I see it as a triumph of theory.  Actually I don’t think that today we have such a beautiful theory in neuroscience as the Hodgkin/Huxley theory for the spike.”</p>
+</section>
+<section id="membrane-currents-underlying-the-spike">
+<h3>Membrane Currents Underlying the Spike<a class="headerlink" href="#membrane-currents-underlying-the-spike" title="Link to this heading"></a></h3>
+<p>Example of a votage clamp – now changing voltage (Hodgkin and Huxley) by a fixed amount.  So there is a voltage change.  Behaves like a passive RC current – nothing new – if depolarizing current is sub-threshold.  If depolarize further, “For suprathreshold depolarizing voltage clamp, the recorded membrane current (after the first capacitative current) flows first inwards (into the axon) and later outward (from inside to outside).” – this is a surprise.  First see capacitative current as before – as you hold voltage – see first an inward current into the axon, then curves up.  Remember, voltage is fixed, but then get inward then outward current.</p>
+<p>Found that if you used drug, tetrodotoxin (TTX), a fish toxin, if put it on axon, the inward phase disappears, left only with the outward phase.  With tetraethilammonium (TEA) – now the outward current gets blocked, but leaves inward.  What they found by playing with Na and K concentrations, that inward was Na and outward was K.</p>
+<p>Found sodium current was inward current (fast – happens early on) – then changes to potassium current later (outward current).  Outward current continues if continue voltage clamp. In 1954D paper by Hodgkin / Huxley, circuit diagram of squid axon.</p>
+<p>Have Capacitive current + Early sodium current + later potasium current + leak current (resting state cell is negative).</p>
+</section>
+<section id="modeling-the-membrane-currents">
+<h3>Modeling the Membrane Currents<a class="headerlink" href="#modeling-the-membrane-currents" title="Link to this heading"></a></h3>
+<div class="math notranslate nohighlight">
+\[ I_{K} = g_{K} (V_{m} - E_{K}); \space \space I_{Na} = g_{Na} (V_{m} - E_{Na})
+\]</div>
+<p>I.e. for first one, membrane voltage minus the potassium ion battery times the conductance = the current.  Same for sodium.  In voltage clamp case, we fix <span class="math notranslate nohighlight">\( V_{m} \)</span>.  Can try different values of <span class="math notranslate nohighlight">\( V_{m} \)</span>m, measuring conductance of potassium and sodium.  Important:  Degree of conductance depends on voltage.  Get more conductance of both depending on voltage.</p>
+<p>Summary:</p>
+<ul class="simple">
+<li><p>The slow (K) current (conductance) does not inactivate during voltage clamp (VC)(outward).</p></li>
+<li><p>The K conductance rises slower than it decays at the end of VC.</p></li>
+<li><p>The fast (early) Na conductance inactivates during VC.</p></li>
+</ul>
+<p>H. &amp; H. fitted an equation.  The fact that it grows slower and attenuates faster, rising phase described as function
+$<span class="math notranslate nohighlight">\( (1 - exp(-t))^{4} \)</span><span class="math notranslate nohighlight">\(
+and the decay as 
+\)</span><span class="math notranslate nohighlight">\( exp \space (-4t) \)</span>$</p>
+<p>So then they wrote this equation:
+$<span class="math notranslate nohighlight">\( \newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu} \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( g_{K} = \overbar{g_{K}}^{n^{4}} \)</span>$</p>
+<p>Right hand side, “g-k-bar”, is maximum conductance, but actual conductance depends on term n – which is the voltage.  When it’s zero, no potassium conductance. When n = 1, you get maximum conductance since <span class="math notranslate nohighlight">\( 1^{4} = 1\)</span>  Can also say n repesents the proportion of K-ion channels in the open state.  Tried to relate that 4 to the number of ions are in a certain region of the membrane.</p>
+</section>
+<section id="the-h-h-spike-model">
+<h3>The H&amp;H Spike Model<a class="headerlink" href="#the-h-h-spike-model" title="Link to this heading"></a></h3>
+<p>Talking about potassium channel.  Can think about <span class="math notranslate nohighlight">\( n^{4} \)</span> as having four gates. Need to move all 4.  Say zero means it’s closed.  Can think about n as a probablity, because in range 0-1.  So probablity must be n = 1 to get to all of them to open.</p>
+<p>Already saw activation function:</p>
+<div class="math notranslate nohighlight">
+\[ g_{K} = \overbar{g_{K}}^{n^{4}} \]</div>
+<p>The rate function that <span class="math notranslate nohighlight">\( n \)</span> depends on in turn is</p>
+<div class="math notranslate nohighlight">
+\[ \frac{dn}{dt} = \alpha (1 - n) - \beta_{n^{n}}\]</div>
+<p>Basically this says you move from open state to closed state as a function of both voltage and time.  <span class="math notranslate nohighlight">\( \alpha \)</span>, if big, shifts close state to open state, and <span class="math notranslate nohighlight">\( \beta \)</span> shifts shifts open state to closed state.   <span class="math notranslate nohighlight">\( \alpha \)</span>, becomes larger with voltage <span class="math notranslate nohighlight">\( \beta \)</span> becomes smaller with voltage.</p>
+<p>Sodium equation a bit more complicated.</p>
+<div class="math notranslate nohighlight">
+\[ g_{Na} = m^{3}h\overbar{g}_{Na} \]</div>
+<div class="math notranslate nohighlight">
+\[ \frac{dm}{dt} = \alpha_{m}(1-m)\space-\space\beta m^{m} \]</div>
+<div class="math notranslate nohighlight">
+\[ \frac{dh}{dt} = \alpha_{h}(1-h)\space-\space\beta h^{h} \]</div>
+<p>First means that <span class="math notranslate nohighlight">\( m \)</span> opens the channel very fast, but <span class="math notranslate nohighlight">\( h \)</span> closes the channel more slowly.  Two differential equations that follow show how m and h change with time.  Because now dealing with <span class="math notranslate nohighlight">\( m^{3} \)</span>, sodium channel has (schematically) three gates.  m gate opens early but h gate closes the channel but slowly.</p>
+<p>Now can see that this prediction and math by H&amp;H, now know that there are parts of channels that are voltage sensors, m fast and starts it, h slower and turns it off.</p>
+<p><img alt="Hodgekin/Huxley Equations" src="../_images/HH_Equations.png" /></p>
+<p>When you solve equations for V, which appears in quite a few places, you can graph the spike that you actually see.  Since values are voltage dependent, e.g. for sodium, as voltage increases, this opens up channel even more.</p>
+<p>Variable notes (mine):</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\( m \)</span> - Sodium activating variable</p></li>
+<li><p><span class="math notranslate nohighlight">\( h \)</span> - Sodium de-activating variable</p></li>
+<li><p><span class="math notranslate nohighlight">\( n \)</span> - Potassium activating variable</p></li>
+</ul>
+<p>At same time that start with de-activation of sodium with h variable, also get activation of potassium with the n variable.  So it’s an extra help to hyperpolarization.  (Hence overshoots below baseline).</p>
+<section id="the-refratory-period">
+<h4>The Refratory period:<a class="headerlink" href="#the-refratory-period" title="Link to this heading"></a></h4>
+<p>You can’t get a second action potential very early after first one – have to wait enough time.  It’s about 10 milliseconds for full action potential.  So maximally, 100 spikes per second.  This is an experimental finding.  H&amp;H explained it with behavior of both <span class="math notranslate nohighlight">\( h \)</span> (inactivation) variable and the potasium conductance.  Both h and K conductance are slow.</p>
+<p>Can see spikes in any nerve cell, e.g. squid (as we’ve discussed), or cortical pyramidal cell.</p>
+<p>In living cell, this is a result of cell being de-polarized enough by voltage received from synapses of up 10,000 dendrites (if not too many inhibitory cells).</p>
+<p>Note: This one was the toughest quiz so far and the only one yet that I’ve had to re-do.</p>
+</section>
+</section>
+</section>
+<section id="week-five-neurons-as-plastic-dynamic-devices">
+<h2>Week Five - Neurons as Plastic/Dynamic Devices<a class="headerlink" href="#week-five-neurons-as-plastic-dynamic-devices" title="Link to this heading"></a></h2>
+<section id="outline-and-introduction">
+<h3>Outline and Introduction<a class="headerlink" href="#outline-and-introduction" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Fast examples</p></li>
+<li><p>Purpose of learning (“action perception loop”)</p></li>
+<li><p>Functional plasticity (learning w/o anatomical changes)</p></li>
+<li><p>Structural plasticity (where anatomy does change)</p></li>
+<li><p>Discussion on memory:  Embedding memories.  Copy memories?  Is it reliable?</p></li>
+</ol>
+<p>New thing 2013 Nature Karl Deisseroth et al published, “The Clarity Method”.  Idea to develop methods to make whole brain transparent.  c.f. <a class="reference external" href="https://www.youtube.com/watch?v=LJ4PA1Gkhkg">Bringing Clarity to Brain Research</a> video.  Remove coating of brain and stain different cells different colors, make it transparent and “fly around” in it.</p>
+<p>Aristotle quote on memory – not groundbreaking. :)</p>
+<p>What changes in brain when you learn.</p>
+<p>Some ambiguous or not clear images shown – teach you how to interpret them.</p>
+<p>Amir Amedi - Hebrew University – Sensory substitution for the blind.  Can we use sound?</p>
+<p>Learning [looks like this slide is on Machine Learning] enables us to:</p>
+<ol class="arabic simple">
+<li><p>Generate useful predictions.</p></li>
+<li><p>Categorize the world (“faces”, “cars”, etc.)</p></li>
+<li><p>Create consensus among us for successful interaction.</p></li>
+</ol>
+<p>Movement essential for perceptual learning (“action-perception” loop) - active cat vs. passive cat.  (Held &amp; Hein experiment).</p>
+</section>
+<section id="mechanisms-subserving-learning-and-memory">
+<h3>Mechanisms Subserving Learning and Memory<a class="headerlink" href="#mechanisms-subserving-learning-and-memory" title="Link to this heading"></a></h3>
+<p>The brain reconstructs reality from minute/very partial information (e.g. cochlear implants).  In this case, get strange noises in your ear, but you can interpret it.  Brain has to reconstruct it.</p>
+<p>Also true of vision, for example.</p>
+<p>Now, brain mechanisms supporting functional and structural plasticity.  How does what we’ve learned feed into this.</p>
+<p>We start again with Santiago Ramon Y Cajal.  Believed that nerve cells do not multiply [not correct], so he believed that learning resulted in more dendritic processes and axonal “colllaterals” – so important point is more <em><strong>connections</strong></em>.  Thought cerebral cortex like “a garden filled with trees, the pyramidial cells, … multiply their branches …”</p>
+<p>Hippocampus very very important for learning and memory.  Looks like a sea-horse [sort of], hence, hippocampus.  But not only this – also study the cortex.</p>
+<section id="possible-neuronal-mechanisms-underlying-learning-memory">
+<h4>Possible neuronal mechanisms underlying learning &amp; memory:<a class="headerlink" href="#possible-neuronal-mechanisms-underlying-learning-memory" title="Link to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p>New nerve cells grow - new functional neural networks relate to new items (structural plasticity).  Cajal didn’t know aobut this.</p></li>
+<li><p>New synaptic connections (structural plasticity).  Ramon Y Cajal believed this.</p></li>
+<li><p>Strength of existing (synaptic) connections change, becoming stronger or weaker – functional plasticity.  (Donald Hebb)</p></li>
+</ol>
+</section>
+</section>
+<section id="functional-plasticity">
+<h3>Functional Plasticity<a class="headerlink" href="#functional-plasticity" title="Link to this heading"></a></h3>
+<p>The Hebb Hypothesis:  (Donald Hebb 1949 – likely <a class="reference external" href="https://www.amazon.com/Organization-Behavior-Donald-Hebb/dp/0471367273/ref=sr_1_4?crid=3MBOLLMQKJ83F&amp;amp;keywords=Donald+Hebb&amp;amp;qid=1698781531&amp;amp;sprefix=donald+hebb%2Caps%2C86&amp;amp;sr=8-4">here</a>)
+<em>“When an axon of cell A is near enough to excite cell B or repeatedly or consistently takes part in firing it, some growth or metabolic change takes place in one or both cells such that A’s efficiency, as one of the cells firing B, is increased”</em></p>
+<p>aka “Fire together/wire together”</p>
+<p>Subsequent investigation has shown that Hebb’s rule is indeed implemented at some (hippocampal and cortical) synapses.  So synapse is highly plastic device.  So after learning, for example, for same spike (axonal) get stronger EPSP (Excitatory post-synaptic potential) in dendrite of cell B – more depolarization.  E.g. insertion of additional receptors to post-synaptic membrane.  More ion-channels post-synaptically.  Could also do pre-synaptically, same spike could release more transmitters.</p>
+<p>Now we can add electrodes to both cells and try to figure out mechanism.  Doing this led mainly in 1990s to <em><strong>Spike Timing-Dependent Synaptic Plasticity</strong></em> (STDP).  If generate with electode pre-synaptic (A cell) spike and post-synaptic (B-cell) spike, enough times, then you get a larger EPSP as in last paragraph.  Depends on timing between pre-synaptic and post-synaptic spike.  We call result, Long-Term Potentiation (LTP) – for hours, days, lifetime.</p>
+<p>If reverse order of timing (B then A) then you can make the connection weaker.  Called LTD – Long Term Depression.  See this in Slide based on Dan and Poo work in rat visual cortex, 2006, curve trending downward.  Trends upward if A then B.  Also shows smooth curve based on time (timing dependent).  For times &gt; +/- 40ms, no effect.  Incidentally, this doesn’t explain the Pavlov case since bell/food could be seconds away.</p>
+<p>We can write the equation for LTP/LTD.  Really blurry slide.</p>
+</section>
+<section id="structural-plasticity">
+<h3>Structural Plasticity<a class="headerlink" href="#structural-plasticity" title="Link to this heading"></a></h3>
+<p>“Morphological/anatomical changes that are correlated with learning”</p>
+<p>Here talking about dendritic spines, it seems.</p>
+<p>1967 - Globus &amp; Scheibel [one of many experiments].  If cover eyes (visual deprivation) of an animal (cat? rabbit?), you see changes in the density of the spines.</p>
+<p>In response to learning, see increase in number of stable new “spines”.</p>
+<p>Until recently, all of this was learned on dead brains, before and after learning or deprivation.  Now we have the 2-photon microscope to view spines in living brain tissues.  Can see changes in real-time in living brain in response to learning, see changes in dendritic spines.</p>
+<p>“Spines appear and disappear frequently in the adult cortex.”  Some are stable, but others appear and disappear.  So morphological changes and new synaptic connections all the time – but does it relate to plasticity?  Yes!</p>
+<p>Also strength of the synapses increases.  As it becomes stronger, it persists longer.  So…</p>
+<ol class="arabic simple">
+<li><p>New dendritic spines are born constantly.</p></li>
+<li><p>More during learning tasks/enriched environment.</p></li>
+<li><p>New spines associated with new synapses – i.e. new functional networks.</p></li>
+</ol>
+</section>
+<section id="neurogenesis-and-learning">
+<h3>Neurogenesis and Learning<a class="headerlink" href="#neurogenesis-and-learning" title="Link to this heading"></a></h3>
+<p>Are there new-born cells (neurogenesis) in the adult Brain?</p>
+<p>Yes, in song-birds, in adult males, when they sing new song.  Controversial until recently in mammals.  Pasko Ravic thought only new cells in prenatal and early postnatal.  But in 1997, Elizabeth Gould at Princeton showed neurogenesis in tree shrews, and in 1997 in marmoset monkeys (primates :)).  At least two regions where this happens: olfactory system and hippocampus.</p>
+<p>In mouse, more challenging task (learn to wait to respond to a tone), the more newborn cells you develop.  These are born from stem cells in hippocampus, some of them are integrated in network.  Questions are what makes them stable or not.</p>
+<p>Neurogenesis provides hope for Alzheimer’s and Parkinsons, as well as rehab from stroke / brain injury.</p>
+<p>“If you don’t use it, you lose it.” Challenge is good.</p>
+<p>Comments and anecdotes about memory:</p>
+<ul class="simple">
+<li><p>Hippocampus of London Taxi Drivers</p></li>
+<li><p>Whole brain structural differences between musicians and non-musicians (increasing volume – could be from spines, or cells)</p></li>
+</ul>
+<p>Future - controversial issues</p>
+<ul class="simple">
+<li><p>Machine learning</p></li>
+<li><p>How trustworthy are memories?</p></li>
+<li><p>Can we read out memories?  (Generally, no, because you code things differently from other people)</p></li>
+<li><p>Can we stimulate brain to embed new memories. Difficult to know how to manipulate network correctly.</p></li>
+</ul>
+</section>
+</section>
+<section id="week-six-cable-theory-and-dendritic-computations">
+<h2>Week Six: Cable Theory and Dendritic Computations<a class="headerlink" href="#week-six-cable-theory-and-dendritic-computations" title="Link to this heading"></a></h2>
+<section id="the-brain-computes">
+<h3>The Brain Computes<a class="headerlink" href="#the-brain-computes" title="Link to this heading"></a></h3>
+<p>Focus of this week is on computation, especially computational capbabilities of dendrites.</p>
+<ol class="arabic simple">
+<li><p>“The brain computes (thus ‘computational neuroscience’).”</p></li>
+<li><p>Computation at level of single neurons</p></li>
+<li><p>Focus on very important, fundamental “cable theory for Dendrites” (William Rall)</p></li>
+<li><p>Dendritic computation - the neurons as a computing device.</p></li>
+<li><p>Recent experimental breakthroughs that prove the these ideas of neurons as computing devices, e.g. the retina.</p></li>
+</ol>
+<p>Start with this “The Brain Computes” – how do neuronal ingredients (neurons, synapses, electrical and chemical signals, their networks etc.) “represent and process information (compute)”?</p>
+<ol class="arabic simple">
+<li><p>What are the problems that need to be solved by the brain?</p></li>
+<li><p>What are the algorithms (techniques) to solve the problem?</p></li>
+<li><p>How do [are] these algorithms implememented by the various brain regions.</p></li>
+</ol>
+<p>Each region has a computational role - slide showing this.  E.g. movement (crossing street, reaching for cup), compute distance of objects like cars, movement, speed, direction.  Movement and vision together.  In visual system other things to compute.  E.g. figure/ground, recognizing objects in world.  Brain has a particular algorithm to compute faces, e.g. classical example with just faces and pixels showing where your eyes focus.  Shows an algorithm for finding the face, not a full scan of whole image.  Another one in profile.</p>
+<p>Other figure ground – four pac-man figures oriented the right way make a square.</p>
+<p>Also motion – visual system sensitive to motion.</p>
+</section>
+<section id="computation-at-the-level-of-single-neuron">
+<h3>Computation at the level of Single Neuron<a class="headerlink" href="#computation-at-the-level-of-single-neuron" title="Link to this heading"></a></h3>
+<p>Computation is “main mission of brain”.  Single cell already shows aspects of computation – most direct example, from Nobel Laureates Hubel and Wiesel, 1981 Nobel. Recording spiking activity of cat visual cortex during visual motion.  Recording electrode in living, seeing cat.  So particular cell was firing in a paticular occasion – whenever there was a line crossing the screen at a particular angle.  Recorded from V1, part of the visual area (primary visual cortext), from a single cell.  If line crossing screen at a different angle, does not fire.  So cell is orientation/direction specific cell.  A given cell will fire more strongly or not fire at all for these:  _ | / \ etc.  One he showed fired strongly for vertical, a bit for just off of vertical, other orientation not at all.  So cell is tuned for particular range of angles, strongest at center of range.</p>
+<p>V1 is early in visual system, we decompose the world into lines.</p>
+</section>
+<section id="fundamentals-of-dendritic-cable-theory">
+<h3>Fundamentals of Dendritic Cable Theory<a class="headerlink" href="#fundamentals-of-dendritic-cable-theory" title="Link to this heading"></a></h3>
+<p>Before this, early theoretical ideas about neuron as computational device – influential early paper was McCulloch and Pitts “point neuron”.  “A logical calculus of the ideas immanent in nervous activity” (1943) – was influential in computer science as well.  Ideas inspired by:</p>
+<ul class="simple">
+<li><p>“all or none” nature of the spike</p></li>
+<li><p>Two types of synapses, Excitatory (E) and Inhibitory (I)</p></li>
+</ul>
+<p>Abstract (point) neuron, has all or none property – it fires or doesn’t.  [He’s basically going to end up with boolean possibilities I bet. – YEP! :)] Assumes single cell I can veto, and three excitatory cells, can write:</p>
+<p>“Output (“1”) is generated if:  (e1 OR e2 OR e3) AND NOT i.  Again this is a logical calculus.  So now neuron is logical device, with thresholds.  Showed that with these simple properties, can build a universal computing machine, using connected networks of such neurons.  By the way a lot of the mathematics for computers was influenced by neurons.  So “basically the first example of looking at neurons as computing devices.”</p>
+<p>But neurons (dendrites) and their syapses are not “points”, but <em><strong>distributed electrical systems</strong></em>  So what are the computational implications?  For this need a conceptual framework and rigorous theoretical approach.</p>
+<p>Goes back to the importance of mathematics – Lord Kelvin  I think he misquotes him?</p>
+<p>“I am never content until I have constructed a mechanical model of what I am studying. If I succeed in making one, I understand; otherwise I do not.”</p>
+<p>Professor has “mathematical” in there.</p>
+<p>Thompson did <a class="reference external" href="https://mathshistory.st-andrews.ac.uk/Biographies/Thomson/quotations/">like his math</a>, though, e.g.</p>
+<p>“When you can measure what you are speaking about, and express it in numbers, you know something about it, when you cannot express it in numbers, your knowledge is of a meager and unsatisfactory kind; it may be the beginning of knowledge, but you have scarely, in your thoughts advanced to the stage of science.”</p>
+<p>Why Model (in Details?)</p>
+<p>Three reasons for mathematical models:</p>
+<ol class="arabic simple">
+<li><p>Correct <em>interpretation</em> of experimental results (provides experimental predictions!).  Go from details to predictions.</p></li>
+<li><p>Gain insights into <em><strong>key</strong></em> biophysical parameters (enables compact description of the physiologicaql behavior studied capturing the essence, e.g. HH model for the AP).  So allows you to zero in on key parameters, important features.</p></li>
+<li><p>Enables you to jump conceptually from biophysics to computation, i.e. functional.  E.g. M&amp;P neuron – and next thing we’ll talk about, Rall’s ideas for dendritic computation (next slide).</p></li>
+</ol>
+<p>But first a bit about our friend Ramon y Cajal – he didn’t like theoreticians.  Bunch of anti-theorist quotes from “Advice for a young scientist”</p>
+</section>
+<section id="rall-cable-theory-for-dendrites">
+<h3>Rall Cable Theory for Dendrites<a class="headerlink" href="#rall-cable-theory-for-dendrites" title="Link to this heading"></a></h3>
+<p>Wilfrid Rall was  “my [Professor Idan Segev’s] own great mentor”.</p>
+<p>Goal here is to understand the impact of (remote) dendritic synapses (input) on the soma/axon (output) region.  Rall [Wikipedia:  “one of the founders of computational neuroscience”]. Wrote paper in 1964 showing contrast between M&amp;P point neuron (AKA schematic neuron) vs real neuron.  The real neuron distributed, much more complex.  Thought M&amp;P was too oversimplified.</p>
+<p>First intuition came about in 1959 – if inject current into cell (soma) or current comes from synapses, can see, most of current flows through out to dendrites and not into the soma membrane, so can’t think of soma as isopotential because of all the dendrites popping out.</p>
+<p>Dendrites are not isopotential devices, but a distributed electrical system.  Therefore:</p>
+<ul class="simple">
+<li><p>Voltage attenuates from synapse to soma</p></li>
+<li><p>It takes time delay for the PSP to reach soma</p></li>
+<li><p>Somatic EPSP/IPSP is expected to change with synaptic location</p></li>
+</ul>
+<p>So Rall showed it schematically as dendritic tree as sets of cylinders.  A distributed system, again.  Asked, what does it mean for electrical behavior.</p>
+<p>Now look at cable theory:</p>
+<p>Suppose you have cylinder, has a membrane, and inside dendrite, and inside there are chemicals etc. that act as a resistance (hence, more or less, acts like a cable). Suppose you activate it at some location of the cylinder.  Ion channel flows into (for example) across membrane.  Some flows left and right in cylinder, and a bit leaks out of the cylinder (dendrite) too.  So membrane voltage attenuates as you go away from synapse, maximum voltage is local.  So question is how to describe the attenuation of of voltage across a branching tree structure mathematically.</p>
+<p>In brief (simplifying the math somewhat).  Idea is basically you have an axial current that is proportional to the derivative of voltage with distance.  ( <span class="math notranslate nohighlight">\( \frac{\delta V}{\delta x} \)</span>). Change in actual current actually second derivative.</p>
+<p>Much longer passive cable equation given.  Change in current is basically sum of cable current and membrane current.  Passive current because r and c (resistance and capacitance) are static (passive).  So current changes with both distance and time.</p>
+<p>Linear partial differential equations that can be solved analytically, if you have initial conditions and boundary conditions – dimensions of cylinder and voltage.  Rall solved it for various initial conditions.  Can assume steady state (no change in time), voltage still attenuates with distance, shape of attenuation depends on properties of cable (infinite vs a sealed end cable so no current can escape, etc.).  For short branch, almost no attenuation.</p>
+<p>Most fundamental and important solution of cable equation was for branch dendritic tree model – in this case steep (assymetrical) voltage attenuation from dendritic synapse to soma.  Steep attenuation of voltage to first branch site, more shallow as we go closer to “trunk” of three.  At boundary of cable, have a leaky end, hence steep attenuation.  Eventually some voltage reaches soma.  So this is very non-isopotential system, high voltage near synapse, low at soma.  Maybe 30 or 40 millivolts at synapse, but only see one millivolt at the soma.</p>
+<p>Another thing that falls out is get less attenuation at soma if inject current directly there.</p>
+<p>Now think about dendrites as “functional subunits” or “synaptic territory”.  If synapse near cell body, soma and cell body about the same.  Each synapse has a neighborhood, or sub-region; distal part less affected.  We can use notion of regional sub-units as doing computation.</p>
+<section id="transient-synapses">
+<h4>Transient synapses<a class="headerlink" href="#transient-synapses" title="Link to this heading"></a></h4>
+<div class="math notranslate nohighlight">
+\[ \frac{\delta^2 V}{\delta X^2} = \frac{\delta V}{\delta T} + V(X,T) \]</div>
+<p>Relationship not only to X (distance), but also T (time) – so with time, voltage dissipates distally as well.  If wait enough time, cell becomes more isopotential, resting synapse.</p>
+<p>Distal synapses have a broader curve (not so much local voltage initially). “Distal synapses are broader and delayed” was a predictive result of cable theory, compared to proximal synapses.  If normalize peaks just to compare shape, distal synapse is delayed and broader.  Can plot time to peak, then plot half-width.  So can use shape curve of EPSP, can predict how far away the synapse is that caused the EPSP.  This a big success of theory – later experimentally verified.</p>
+<p>Now take Rall mathematics and look at the cell as a computational element…</p>
+</section>
+</section>
+<section id="dendritic-computation">
+<h3>Dendritic Computation<a class="headerlink" href="#dendritic-computation" title="Link to this heading"></a></h3>
+<p>A few theoretical ideas that came out from Rall’s (better :) Cable theory.</p>
+<ol class="arabic simple">
+<li><p>Dendrites enable neurons to act as multiple functional subunits.  So dendrites may be computing locally first, then globally at the soma and axon.</p></li>
+<li><p>Dendrites because distributed can classify inputs.</p></li>
+<li><p>Important - neurons with dendrites can compute direction of motion (directionally selective)</p></li>
+<li><p>Dendrites improve sound localization (in auditory system)</p></li>
+<li><p>Dendrites can sharpen the tuning of cortical neurons</p></li>
+</ol>
+<p>First back to neurons as as multiple functional subunits.  Distributed multiple functional subunits ideas means (Koch and Poggio) can extend (write more precise but complex) version of the logical calculus of M&amp;P.  If closer (proximal), inhibition can veto.  So inhibition / excitation.  All inibitory synapses “on the path” (proximally to soma) can veto you.   – “on the path” conditions.</p>
+<p>Another idea (Bartlett Mel) is notion of functional sub-regions performing preliminary summation (non-linear operations), and then sum the local operatrions.  So clustering of synapses in sub-regions can affect output differently than if didn’t have it.  B. Mel showed that this allows neuron to act as a classifier.  E.g. image of face gets projected to different regions of a cell.  So one cell may be sensitive to a given face.  So individual cell becomes a classifier.</p>
+<p>Most influential original idea is Rall, 1964, is that neuron can behave as directional selective computation device.  Moving from proximal to distal codes one direction, reverse codes reverse.  Temporal order switches.  EPSP at soma will have a different voltage profile.  More distal first will have a taller voltage curve because will sum up with proximal, but spike will happen later.  Smaller peak but broader if proximal first.  Could have a threshold between the two to make output depend on which direction.  Spike in one case and not the other. Say you have a directional selective cell in retina.  Can distribute photoreceptors along the cable.  With Rall’s cable theory, then, built up directional cell (a computation).  Can’t do this with a point neuron.</p>
+<p>Rall suggested that you have to be careful about the “granularity of the model” needed to explain the phenomenon.  So, for example, point neuron can’t compute directional sensitivity on its own, as we saw above.  So Rall suggested going up only so far as you need to understand a particular computational phenomenon.  Rodin’s detailed model of a kiss as example, vs. Brancusi’s simplified kiss…<img alt="Simplified kiss" src="https://i.pinimg.com/736x/ae/b1/23/aeb1236f2bc5cbff3ae733cdc903bbfe--kiss-art-constantin-brancusi.jpg" />.  Overly detailed model more like a simulation.</p>
+</section>
+<section id="recent-breakthroughs">
+<h3>Recent Breakthroughs<a class="headerlink" href="#recent-breakthroughs" title="Link to this heading"></a></h3>
+<p>“tour de force” as attempt to understand neurons as a computing device.  For example, direction of motion.  Two experimental breakthrough.</p>
+<p>Arthur Konnerth in Munich.  Nature paper 2010.  Using two-photon microscope.  Mouse watching lines move in one direction or other – electrode recording of different direction.  Spikes in two directions – one much stronger than other. If you zoom into input synapse.  Different synapses “like” different directions.  So we’re in a “miraculous time” - not only record output of cell (summation of inputs), but also record from input synapse itself.  All orientations are presented to various synapses, but each synapse sensitive to particular orientation.  We don’t know yet how it creates output corresponding to orientation.  Could be that cell counts the orientation of majority – or another mechanism.</p>
+<p>Second result is direction sensitivity in retina ganglion cells.  How is it computed?</p>
+<p>Retina built up in layers (in order distal to proximal)</p>
+<ul class="simple">
+<li><p>Receptor layer - neurons that receive the light.</p></li>
+<li><p>Bipolar cells</p></li>
+<li><p>Amacrine cells</p></li>
+<li><p>Then to ganglion cells (optic nerve)  [Optic nerve “is composed of retinal ganglion cell axons and glial cells” - wikipedia]. SOME of Ganglion cells are directionally senstive – spikes for certain directions of motion.  Tuned cells.  Before cortex [ before Hubel and Wiesel].</p></li>
+</ul>
+<p>HOW?</p>
+<p>One idea over the years was the “Reihard Detector” – general idea is that in one direction there is more inhibition, than in other direction.  So assymetry of location of E &amp; I connections into ganglion cells.  Depends on whether E or I happens first for a given direction.  If I comes in after E – too late.  Just an idea, but how do you prove / disprove it?</p>
+<p>Answer:  Connectomix - Kevan Martin, Winfrid Denk, and others, cutting and reconstructing anatomy and electrophysiology at level of synapses.  Recently breakthroughs – from Winfid Denk and his team, shows indeed, if look at DS Ganglion cell, and it’s predecessor, the Amacrine (inhibitory) cell, can count the inhibitory synapses.  If have three cells for example:</p>
+<p><strong>Amacrine 1 -&gt; DS &lt;–Amacrine 2</strong></p>
+<p>If one have more synapses, can count the synapses. E.g., if more on 2, get more inhibition to the right, for example.  [amacrine cells are all or primarily inhibitory].  So this could be a verification of Reihard detector idea.</p>
+<section id="personal-note">
+<h4>Personal note<a class="headerlink" href="#personal-note" title="Link to this heading"></a></h4>
+<p>Brain differs from other large physical systems in which elementary units are simple and uniform. “It is composed of neurons which are inherently complex, dynamic, and plastic units, which form connected networks that exploit the impact of the individual neuron.</p>
+<p>Analogy to indiv. humans and society.</p>
+<p>Need conceptual and theoretical tools for connecting low level computation and learning to global computational functions.  This the central role of new field of “computational neuroscience.”</p>
+<p>Only tight integration between theory / modeling will provide missing breakthrough.</p>
+</section>
+</section>
+</section>
+<section id="week-7-cortical-networks-out-of-the-blue-project">
+<h2>Week 7 Cortical Networks - Out of the Blue Project<a class="headerlink" href="#week-7-cortical-networks-out-of-the-blue-project" title="Link to this heading"></a></h2>
+<section id="cortical-networks-out-of-the-blue-project">
+<h3>Cortical networks - out of the blue project.<a class="headerlink" href="#cortical-networks-out-of-the-blue-project" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Mega projects for the brain. Blue Brain part of several.</p></li>
+<li><p>The cortex and its “cortical column”</p></li>
+<li><p>A test-case for large-scale details modeling (the blue brain project)</p></li>
+<li><p>The Human Brain Project</p></li>
+</ol>
+<p>Some dramatic new ($ billions) projects for the brain</p>
+<ul class="simple">
+<li><p>Allen Institute Seattle - Mouse/Human Brain Atlas - mouse/human brain atlas, and now gene expression of brain related genes.  Recent focus on visual system.</p></li>
+<li><p><a class="reference external" href="https://www.janelia.org/">Janelia farm</a> - DC, USA - Work on connecting network level anatomy and pysiology to a specific behavior. Somewhat futuristic.  Very new.</p></li>
+<li><p>EU Human brain project - Professor is involved.  Lausanne, Switzerland.  New platforms for research, integrates knowledge from different disciplines.</p></li>
+<li><p>President Obama’s “Brain Activity Map” initiative - “Brain Activity Map”.  Creating revolutionary tools to measure/simulate of millions or even billions of neurons simultaneously.  Record many spikes in living brain.  Hope to see what happens in coding, decoding, etc.</p></li>
+</ul>
+<p>The “diseaseome” - the 560 known neurological diseases.</p>
+<p>Attempt to systematically link genes to certain diseases, and other correlations.  Part of big attempt worldwide – also part of Human Brain Project.  All a result of misbehaving anatomy or behavior (e.g. spiking behavior) or both.  Hagai Bergman’s work on Parkinsons – showing different activity of brain region vs. Parkinson.</p>
+</section>
+<section id="the-blue-brain-project">
+<h3>The Blue Brain Project<a class="headerlink" href="#the-blue-brain-project" title="Link to this heading"></a></h3>
+<p>Before the Human Brain Project.  Idea was:</p>
+<ol class="arabic simple">
+<li><p>Build new platform for databasing the brain.  (I added, see <a class="reference external" href="https://github.com/BlueBrain">GitHub Repo</a>).  This part not controversial.  Controversial part is simmulation.  Data enables visualization and reverse engineering via simulation.  Platforms for collecting and preserving data.  Platform at all levels, from genes to behavior.</p></li>
+</ol>
+<p>Generate simulated spikes and so on, of neurons.  This controversial.  Whole field is called simulation-based researched, simulate in fine detail the system you study.  Question is – is that reasonable, useful, etc.</p>
+<p>Like reverse engineering, rebuilding a simulated brain – hoping you’ll understand via simulation.  Henry Markram started BB project – later head of human brain project.  IBM provided the “Blue-Gene” supercomputer (earlier used to sequence human genome) 10,000 processors, 0.05 Peta Flops / sec.  So blue comes from IBM.  [hints at a sexual connotation too.]  Data-basing the brain was assisted major new anatomical methods:</p>
+<ul class="simple">
+<li><p>BrainBow.  (Design mouse genetically so that cells intrinsically will have color.)  Other anatomical tools too.  Now can see certain types of cells standing out.</p></li>
+<li><p>Connectomics – also controversial – Labor intensive, EM slices.  Cells “reconstructed” in computer and colored.  Controversy is about – OK, so now you have all this data what do you do with it?</p></li>
+<li><p>Other technique related to BAM, in vivo optical recording of electrical activity of thousands of neurons – use Ca-sensitive florescent dyes + 2-photon microscope.  Can now see individual cells of a living mouse, for example, and study it while it’s doing specific tasks.</p></li>
+</ul>
+</section>
+<section id="the-cortical-column">
+<h3>The Cortical Column<a class="headerlink" href="#the-cortical-column" title="Link to this heading"></a></h3>
+<p>So we choose a circuit and reconstruct it so we can simulate it.  What should we choose?  The cortical column.  If look at mamalian neurocortex, and look at skull side and go two mm deep, see layers and layers of cells.  Ballpark, <span class="math notranslate nohighlight">\(1\space mm^2 \approx 30,000\)</span>  cells, 100 million connections (synapses).  Cortex has many cell types:  “Some of the cells are pyramidal cells, we discussed them. Some of the cells are spiny stellar cells. Some are inter-neurons. Some are inhibitory. Some are excitatory. Many, many cell types within, a circuit like this.”  There are layers in the cortical columns – layer means cell bodies of certain cells is denser there.  Or may be some layers less dense than others. (Slide showing layers approx 2 mm x .46 mm).  Slide of spiny stellate cells in cat v1 in layer 4, attempt to map out all the input synapses into cell (yellow coming from the thalamus, green are regional).  So statistical synaptic mapping of the local cell region.  (Kevan Martin et al).</p>
+<p>Location of synapses, firing sequences, I vs. E, etc. all part of what we enter into our simulation.</p>
+</section>
+<section id="the-cortical-column-network">
+<h3>The Cortical Column Network<a class="headerlink" href="#the-cortical-column-network" title="Link to this heading"></a></h3>
+<p>Now move from individual cells to networks of cells.  Slide of the mouse whisker and the barrel cortex.  This system well defined anatomically. Somato-sensory cortex, different columns for each indiv. whisker.  Each column on order of 10,000-20,000 cells.  Diagram showing cortex column surfaces seems to be aligned corresponding to layout of whiskers, notion of column an active area of research – clear mapping between whisker and a column.  E.g. Bert Sakmann, noble laureat.  Slide showing excitatory cell types, e.g. pyramidal layer 5 cells, spiny stellate cells in layer 4, etc.  Typically six layers, other showing input from thalamus.  Can also stain cells, exitatory red, inhibitory green, etc. – map types into a column.</p>
+<p>Some other functional properties of columns:</p>
+<ul class="simple">
+<li><p>Orientation of moving lines.  Mentioned this in Hubel and Wiesel - Clay Reed discovered that in the cat V1, we have a whole functional column that is sensitive to a particular direction.  Columns tend to go in order, with orientaion changing a bit between each one.  If look at different axis from surface, other axis is oriented according to left eye / right eye.  This is called the “ice cube model” of visual cortex.</p></li>
+</ul>
+<p><img alt="ice cube model" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.nwvPin2ZA_kpGP-3VZSURgHaD5%26pid%3DApi&amp;f=1&amp;ipt=24c14d6f5425c369bad642b2b0c0d9c22cb625c2a41f8b58817e698fa2c2278a&amp;ipo=images" /></p>
+<p>The functional unit (the column) is plastic, not just indiv. cells.  For example, can show cat limited visual angles in world at early age, and only those respective columns formed in V1.</p>
+</section>
+<section id="blue-brain-project">
+<h3>Blue Brain Project<a class="headerlink" href="#blue-brain-project" title="Link to this heading"></a></h3>
+<p>Modeling the cortical column</p>
+<p>We need to model all that stuff we mentioned before about connectivity, cell types, firing properies, etc. – but we don’t understand how these ingredients generate a response.  For that we need to model it.</p>
+</section>
+<section id="blue-brain-simulations">
+<h3>Blue Brain Simulations<a class="headerlink" href="#blue-brain-simulations" title="Link to this heading"></a></h3>
+<p>We have not only anatomy of many layers, but each cell has its own properties.  E.g., different firing patterns.  So reconstructing cells anatomically, as well as by firing pattern – need to find mathematical rules to write equation to represent firing properties.  So we use H&amp;H equations, but make them more sophisticated to capture whole firing properties not just single spike.  We also use passive cable equation, also now active cable equation.  Eventually we can use “Multiple Objective Optimization” (MOO) to provide true to life model of all cell types.  [Professor created some of these mathematical methods.].  Also modeling synapses (PSPs) as R-C circuits and as plastic devices, use equation describing site-timing dependent plasticity.</p>
+<p>Challenge 2:  Math. modeling connections between neurons - Done</p>
+<p>Challenge 3: Modeling plastic learning processes in networks (synaptic plasticity) - ongoing</p>
+<p>Challenge 4: Connecting the cortical networks (a-la experiments) - ongoing</p>
+<p>Take all this and put it in super-computer with 20,000 processors million-squared operations per second.  100,000 real cells (10 columns) – in detail.  Can simulate single cell in detail, cells and fibers, or whole network.  Can see synapses, E (blue) I (red).  Can look at activity of whole column.</p>
+<p>Interlude:  cool video https://www.youtube.com/watch?v=M-D8NTw7PgI</p>
+</section>
+<section id="from-mouse-to-human">
+<h3>From Mouse to Human<a class="headerlink" href="#from-mouse-to-human" title="Link to this heading"></a></h3>
+<p>Mouse column from 10,000 cells; can connect 10 columns.  But what about humans?  Amsterdam group receives from MD big chunk of human cortex removed from brain of epileptic patient (rare material).  Can do anatomical work, see pyramidal cell, can see layers.  Can also do physiology – human cortical column.  Limitation – for complete human brain simulation, need an exaflop computer (<span class="math notranslate nohighlight">\(10^{18}\)</span>) - 2023 (now) estimated.  For complete mouse brain, could do in 2014 (supposedly) 3 years from recording, Petaflop (<span class="math notranslate nohighlight">\(10^{15}\)</span>), enough for mouse brain.</p>
+</section>
+<section id="the-human-brain-project">
+<h3>The Human Brain Project<a class="headerlink" href="#the-human-brain-project" title="Link to this heading"></a></h3>
+<p>Very different from Blue Brain Project.  BBP only concerned with simulationo, HBP works on simulation, computation, analytics, screening, informatics, the neuroscope, neurorobotics, <a class="reference external" href="https://www.intel.com/content/www/us/en/research/neuromorphic-computing.html">neuromorphic chips</a> – a platform for developing new technologies.  Zero in on ONE aspect of this:  society / education.  We’ll get amazing new info that will impact on ethics, industry, etc., scientists responsible for sharing with public.</p>
+<p>This is a Global project – led by Europe, but 256 labs, 114 institutions, 24 countries.  Goals are, new model of ICT – Information and Communications Technology – based brain research to obtain:</p>
+<ul class="simple">
+<li><p>a new understanding of the brain (neuroscience)</p></li>
+<li><p>new treatments for brain disease (medicine)</p></li>
+<li><p>new brain-like computing technologies (future computings)</p></li>
+</ul>
+<p>So it’s basically platform project. A platform inspired by what we understand about the brain.</p>
+<p>We can do millions of computations very cheaply with our brains, 20 watts.  Supercomputers we need take so much energy that we can’t increase it by a factor of a million.</p>
+<p>Six new ICT Platforms:</p>
+<ol class="arabic simple">
+<li><p>Neuroinformatics</p></li>
+<li><p>Brain Simulation</p></li>
+<li><p>Medical Informatics</p></li>
+<li><p>HPC</p></li>
+<li><p>Neuromorphic Computing</p></li>
+<li><p>Neurorobotics</p></li>
+</ol>
+<p>New technologies within each of these.</p>
+<p>Simulation across multiple levels (genetic, chemical, network, etc.).  Building the thing interactively, don’t need all the details.  [Note:  s
+lides for this lecture ]</p>
+<p>Medical Informatics</p>
+<p>Future Computing</p>
+<p>Next week guest speaker Professor Israel Nelken –</p>
+</section>
+</section>
+<section id="perception-action-cognition-emotion">
+<h2>Perception, action, cognition, emotion<a class="headerlink" href="#perception-action-cognition-emotion" title="Link to this heading"></a></h2>
+<section id="sensory-transduction">
+<h3>Sensory Transduction<a class="headerlink" href="#sensory-transduction" title="Link to this heading"></a></h3>
+<p>Emphasis here on auditory system, “The Story of a Sound” – auditory system, which is Israel Nelken’s research subject.</p>
+<p>Sensation
+Perception
+Actions
+Emotions</p>
+<p>What are neuronal processsing mechanisms for.  Sensation is “the transformation of external events into neural activity”.  Perception has to do with processing of sensory information.  We believe end result of perception is a useful representation in terms of the external objects that produced the sensation.</p>
+<p>David Marr - “Seeing is knowing what is where by looking”</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>2D image on retina
+recover latent variables (causes for things to fall on retina)
+</pre></div>
+</div>
+<p>Actions - Organisms use representations of world to exploit opportunities and avoid threats.</p>
+<p>Now we see this as a perception – action loop.  Creating music is an example of this.</p>
+<p>Emotions – discuss at end.</p>
+<p>The Story of a Sound</p>
+<ul class="simple">
+<li><p>Sensory transduction</p></li>
+<li><p>Auditory localization</p></li>
+<li><p>How sensory information guides motion – turn toward the sound</p></li>
+<li><p>Higher order processing of sensory information – the case of surprise</p></li>
+<li><p>The case of music-induced chills.</p></li>
+</ul>
+<section id="id1">
+<h4>Sensory Transduction<a class="headerlink" href="#id1" title="Link to this heading"></a></h4>
+<p>Hair cells in ear.  Mechano-sensitive ion channels, to current in neurons, causes depolariztion, via transmitter release between hair cells to auditory nerve fiber – which goes to brain.  Hairs sit on top of the basilar membrane, in the organ of corti.  When basilar membrane goes up or down, relative motion of hairs relative to roof (copola).  Basilar membrane vibrates with because of sound because sits in long tube (the cochlea – a snail-like section)  Has cross sections with more tubes, with basilar membranes connected to cochlear nerves.</p>
+<p>Ear canal (external) ends in tympanic membrane (aka eardrum), vibration transferred through 3 tiniest bones in human body to liquid in cochlea, causes pressure waves which causes vibration of basilar membrane, so organ of corti moves, hairs move, depolarization of nerve cells, “and so on” :).</p>
+<p>Important feature of cochlea, so 19th century Hermann Helmholtz realized that different frequencies are picked up at different places along length.  Low frequencies (100 hz) late, high frequencies early on 10,000 hz.  Medium at about 1,000 hz.k.  Sounds travel in a travelling wave in the cochlea (basilar membranes).  Amplitude of wave is much higher in living tissue, dead cochlea has a flatter wave.  Turned out that the main source of energy to “cochlear amplifier”, which are peizoelectric, they supply energy to the cochlear amplifier.</p>
+<p>Summarizing,</p>
+<p>Auditory Transduction</p>
+<ul class="simple">
+<li><p>is done by specialized cells</p></li>
+<li><p>sitting in a specialized organ</p></li>
+<li><p>coupled to the physical stimulus</p></li>
+</ul>
+</section>
+</section>
+<section id="early-processing-of-sensory-information">
+<h3>Early Processing of Sensory Information<a class="headerlink" href="#early-processing-of-sensory-information" title="Link to this heading"></a></h3>
+<p>Today discuss auditory localization. We turn our heads to sound.  There is no explicit representation of sound direction in ear.  Requires comparing sound from two ears – requires nervous system interpretation.</p>
+<p>What are the physical cues?</p>
+<p>They are binaural cues, discuss only localization of pure sin waves – two types.  First of all, minute shift in time, reaches near ear first in time.  Also slightly louder in near ear, head acts as a “shadow”.  Time difference between two waves is the “Interaural Time Difference, (ITD)”, Level differences are ILD, Interaural Level Difference.  He focuses mostly today on time differences.  REALLY small difference, less than one millisecond.  For sounds at front of head to a few degrees to the side, difference is a few tens of microseconds.  Tens of microseconds == hundreths of milliseconds.</p>
+<p>The phenomenon that allows this is called phase locking.  When auditory nerve fibers fire, they fire at a fixed relationship to shape of incoming sound. Neural firing spikes happen mostly at the peaks of the audio sin wave. Time therefore marks the peaks.  So with ITD – spike times are different.</p>
+<p>Complex slide now. Auditory nerves come out of cochlear, end in a structure called the cochlear nucleus (one per side).  So these have large axons, send info to third structure, Medial Superior Olive (MSO), located below thalamus on the brain stem, along with the two cochlear nuclei.  MSO is part of the <a class="reference external" href="https://en.wikipedia.org/wiki/Superior_olivary_complex">Superior Olivary Complex</a>. MSO has dendrites pointing to two sides.  MSO is slightly off to one side, so slightly longer axon on one side than the other (in slide, one on right is longer.)  Action potential over axon takes time.  For this reason, sound happening earlier on right may reach MSO at same time.  MSO has coincidence detectors, which fire mostly when sounds arrive at same time.</p>
+<p>Circuit requires extreme specialization.  Cochlear nucleus neurons do no temporal or spatial summation – high fidelity relay only.  Coincidence detection in MSO.  These neurons also specialized in structure and physical mechanism.  Reason – coincidence detection requires sensitivity of 10s of microseconds, spike width could be on the order of 1 millisecond.  So very short time constants.  Important use of dendrites to resolve some of the computational problems.</p>
+<p>Similar mechanisms throughout sensory system, specialized needs:</p>
+<ul class="simple">
+<li><p>Comparison of timing between two ears.  Also other ways to detect level differences.</p></li>
+<li><p>Visual motion detection</p></li>
+<li><p>Early processing of smells</p></li>
+</ul>
+<p>So specialized circuits in</p>
+<ul class="simple">
+<li><p>The auditory brainstem</p></li>
+<li><p>The retina in eye</p></li>
+<li><p>The olfactory bulb</p></li>
+</ul>
+</section>
+<section id="how-sensory-information-guides-motion">
+<h3>How Sensory Information Guides Motion<a class="headerlink" href="#how-sensory-information-guides-motion" title="Link to this heading"></a></h3>
+<p>Model animal for this is barn owl. Barn owls localize prey by sounds.  Can hunt in complete darkness (though prefer to do so at dusk).  Also good model for steo vision.  Main cue for azimuth of sound is ITD, just like mammals.  In addition, ears are assymetric – left ear hears sounds from below better, so for a mouse, it will be louder in left ear.  So all the more reason to rely on ITD.  Barn owl are very good at turning heads both to visual and auditory targets.</p>
+<p>One experiment is to take young owls, put prisms on eyes to shift the visual field by 20 degrees or so to side.  When do this, visual turns will be shifted (wrong), auditory still good.  Over time, however, auditory head turns match the visual head turns.  Note this means auditory now wrong too!  So vision is primary, because generally more reliable.  Immediately after removing prisms. takes time for auditory head turns to catch up to correct position.</p>
+<p>As in mammals, important stuff in brain stem. The structures in barn owl that figure out ITDs (analogous to MSO in mamals) is called inferior colliculus.  From there signals go to optic tectum – both a sensory structure and a motor structure.  Gets both visual and auditory input, and also projects down to areas which guides movement (mainly of head – don’t move eyes in socket as mammals do).  In mamals the circuit that guides movement is called the superior colliculus.</p>
+<p>Earlier mentioned that already in cochlea, get frequency differences.  Each area of sensitivty to frequency has it’s own correspending area in ICC (Inferior colliculus).  Within a frequency group of neurons, certain ones will fire with 0 ITD, others with different ITD values.</p>
+<p>When you represent space, frequency is immaterial, so projection to ICX (External projection of ICC).  Here all neurons that are in same ITD time group all converge to same place in ICX, regardless of their frequency grouping.  So ICX representation independent of frequency.  So here roughly is the auditory space map.  Next station is optic tectum, which also gets visual inputs.  What’s cool is that ITD (time difference) related nerves from ICX relate to OT area with correct (corresponding) azimuth in visual field.  So 0 microseconds to 0 degrees, 50 microseconds to 20 degrees, 100 to 40 degrees, etc.  So we have an auditory space map in ICX, and Multimodal in OT.  In mammals the homolog of the optic tectum is the <a class="reference external" href="https://en.wikipedia.org/wiki/Inferior_colliculus">inferior colliculus</a>.</p>
+<p>Slide showing what happens when we add the prisms.  Turns out that Optic Tectum instructs ICX to shift its behavior.  So ICX is site of plasticity.  ICC neurons too now grow new axons.  This led to hypothesis that there is a signal from OT to ICX, but couldn’t be demonstrated at first.  Eventually discovered by Gutfreund, Zheng, Knudson (2002).  Just flashes in OT doesn’t produce output in ICX, so then hypothesis that there’s inhibitory activity.  If remove inhibition, create more intense flashes in OT, eventually saw responses in ICX.</p>
+<p>There are certain illusions like talking heads created by multimodal interactions.  Usually, we create complete representation of world from different senses.  Multimodal senses guide motion toward a sensory event, in birds and mammals.</p>
+</section>
+<section id="higher-order-processes-of-sensory-information">
+<h3>Higher Order Processes of Sensory Information<a class="headerlink" href="#higher-order-processes-of-sensory-information" title="Link to this heading"></a></h3>
+<p>E.g. processing of surprises.</p>
+<p>Surprises cause us to re-evaluate what world is doing to us.  Can be from totally new thing, or something that occurs at times when we don’t expect them to happen.  Latter is deviance detection.</p>
+<p>How to study surprises:</p>
+<p>Basic approach is:</p>
+<ul class="simple">
+<li><p>Generate expectations</p></li>
+<li><p>Violate them</p></li>
+<li><p>See whether brain reacts (electrical activity, blood flow, etc.)</p></li>
+<li><p>If they do, conclude that an expectation was formed.</p></li>
+</ul>
+<p>Beeps and boops – boops rare, measure EEG signals.  See responses to boops – different.  Boops violate expectation – brain activity more negative in response to violation of expectation than to response to standard.  This called “Mismatch Negativity” (MMN), evoked under many different conditions.  Early – after about 150 ms, far before information reaches consciousness.  Get something quite similar this for unexpected cadences in music.</p>
+<p>Can happen even with anaesthetized animals (rats for example). Not quite mismatch negativity.</p>
+<p>Note that for surprise, need both rarity and randomness, otherwise can be rare and periodic – those that were random elicited a much stronger response.  So this is on border of musical perception.  Real melodies is between the two extremes.  Even anaesthetized rodents can discriminate between these types of regular and irregular.</p>
+<p>So:</p>
+<p>Sensitivity to surprise:</p>
+<ul class="simple">
+<li><p>Neurons sensitive to surprise</p></li>
+<li><p>Present even in anesthetized rats</p></li>
+<li><p>Suggesting detection of surprise is major pre-attentive task.</p></li>
+<li><p>Such responses may be present in other sensory systems too.</p></li>
+</ul>
+</section>
+<section id="emotions">
+<h3>Emotions<a class="headerlink" href="#emotions" title="Link to this heading"></a></h3>
+<p>Emotions evoked by sound.</p>
+<ul class="simple">
+<li><p>Emotions involve:</p></li>
+<li><p>Physiological activation</p></li>
+<li><p>Expressive behavior</p></li>
+<li><p>Conscious experience</p></li>
+<li><p>Happiness is related to faster heart rate (phys. activation), smiling (expressive behavior), and experience (affect)</p></li>
+</ul>
+<p>Emotions are different from other cognitive processes, such as</p>
+<ul class="simple">
+<li><p>Memory</p></li>
+<li><p>Attention</p></li>
+<li><p>Language</p></li>
+<li><p>Problem solving</p></li>
+<li><p>Planning</p></li>
+</ul>
+<p>Distinction implicit here between emotion and cognition</p>
+<p>Hard to define – E. Rolls:  “Emotions are states elicited by rewards and punnishers”
+M.B. Arnold – involved in conscious or unconscious evaluation of events
+A. Damasio Emotions are pre-programmed set of coordinated bodily reactions with adaptive values; affect is secondary.</p>
+<p>Affective reactions conserved across evolution</p>
+<p>So very complex, but primitive in certain cases.  Many brain regions involved, most well known is amygdala; associated with fear reactions.  Also VTA in midbrain, dopamine containing neurons; similarly the Nucleus Acumbens.  Dopamine associated with
+“good” outcomes (food, sex, drugs). Can say goal of mamallian brain is to maximize dopamine released over course of lifetime.</p>
+<p>Music that evokes “chills”.  Blood and Zatorre asked folks to bring music that elicits this reaction.  Can graph changes in heart rate.  Selection very individual of course.  Can also measure changes in blood flow in various brain structures, using PET and functional MRI: Anterior Cingulate, anterior cingulate, ventral striatum increased output; decrease in the Amygdala.</p>
+<p>Music affects activity in brain regions implicated in the processing of emotions.</p>
+<p>Auditory cortex in contrast is activated the same regardless of emotional content.</p>
+<p>Sounds, music and emotions.</p>
+<ul class="simple">
+<li><p>How do sounds become music?</p>
+<ul>
+<li><p>How do sounds become speech?</p></li>
+<li><p>How do patches of light and dark become a picture of grandmother?</p></li>
+</ul>
+</li>
+<li><p>How does music activeate emotions?</p>
+<ul>
+<li><p>Or taste and smell and texture of a madeleine (Proust book passage).</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="from-synapses-to-free-will">
+<h2>From Synapses to Free Will<a class="headerlink" href="#from-synapses-to-free-will" title="Link to this heading"></a></h2>
+<p>Final, 9th lesson.<br />
+Summary:</p>
+<section id="what-did-we-learn">
+<h3>What Did We Learn?<a class="headerlink" href="#what-did-we-learn" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Neuroethics (“brain reading”, brain intervention/augmented cognition - ethical issues emerging from brain research)</p></li>
+<li><p>The question of “free will”</p></li>
+<li><p>Disseminating knowledge in the digital age (MOOC, <em>Frontiers</em> and <em>Open Acccess</em> idea)</p></li>
+<li><p>A personal note and farewell</p></li>
+</ul>
+<p>Started course with Francis Crick and Claude Shannon quotes.  We are a physical machine.  We need to understand machine to understand and repair ourselves.</p>
+</section>
+<section id="id2">
+<h3>What Did We Learn<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>These are unique times</strong> - a world-wide effort to understand brain, e.g. brainbow, connectomics, Human Brain Project, B.R.AI.N., Clarity, etc – new theoretical efforts).  He emphasized that we really need theoretical framework.</p></li>
+<li><p>That the <strong>Spike</strong> is a universal “trick” of nerve cells for representation / processing information, and that functional neural networks are formed via <strong>synapses</strong> and <strong>PSP’s</strong> (Post-Synaptic Potentials).</p></li>
+</ul>
+<blockquote>
+<div><p>“So you have two major electrical signals in the brain. The spikes mostly in the axons, the post-synaptic potentials mostly in the dendrites, and they converge one to the other via PSPs many of them converging on the dendritic tree, eventually giving rise if enough of them depolarize the axon giving rise to a spikes. And the connection between cells are the synapses which are fantastic unique device. Enabling one cell so to speak to talk to the other cell via a chemical transmission between the spike in one side, and the EPSP or IPSP, inhibitory or excitatory on the other side.”</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>That there are two key electrical signals in the brain that are carried via specific ions flowing across specific channels in the neural membrane.</p></li>
+<li><p>The neurons receive thousands of <strong>synaptic inputs</strong> over their dendritic tree and that the <strong>spiking output</strong> is generated in the axon.</p></li>
+<li><p>That neurons and the networks they form <strong>compute</strong>.  Without such computation we would not be able to survive.  We make very sophisticated use of information from environment, and change it. Perception / active loop.</p></li>
+<li><p>The synapse is the most fantastic <strong>plastic element</strong>, enabling us to learn and change.  Some structural (new synapses), some functional (more efficient).</p></li>
+<li><p>That electrical activity of large neural network corresponsdsd to perception, action and emotion. <strong>That brain-diseases emerge when the network activity goes wrong.</strong>  (We don’t completely understand this – big challenge for 21st century)</p></li>
+<li><p>That we lack <strong>a theory</strong> on how to connect brain mechanisms to subjective experience.  – the <em><strong>biggest</strong></em> challenge for 21st century.</p></li>
+</ul>
+</section>
+<section id="free-will-and-neuro-ethics">
+<h3>Free will and neuro-ethics<a class="headerlink" href="#free-will-and-neuro-ethics" title="Link to this heading"></a></h3>
+<p>Neuroethics emerging issues</p>
+<ul class="simple">
+<li><p>Brain reading</p></li>
+<li><p>Brain interventions (repair and manipulations). E.g. “mood brighteners”, augmenting cognition electrically, or using drugs.</p></li>
+<li><p>Are we free to choose?</p></li>
+</ul>
+<section id="reading-thoughts">
+<h4>Reading Thoughts<a class="headerlink" href="#reading-thoughts" title="Link to this heading"></a></h4>
+<p>Issues (in brief):</p>
+<ul class="simple">
+<li><p>Privacy</p></li>
+<li><p>Reproducibility (accuracy)</p></li>
+<li><p>Individuality (how similar/different are our “personal” brains?)</p></li>
+</ul>
+<p>Scanning the (“social”) brain:</p>
+<p>Functional Magnetic Resonance Imaging (MRI)</p>
+<ul class="simple">
+<li><p>Detects brain function in health and diseases</p></li>
+<li><p>Communicating with brain in vegetative states</p></li>
+<li><p><strong>Detecting beliefs?  Intentions?  (e.g. lie, agrressions)</strong></p></li>
+</ul>
+<p>MRI technically only measures blood flow, so electrical activity only indirectly.</p>
+<p>E.g. face-related region in brain.</p>
+<p>Resolution not good – over millions of cells.</p>
+<p>Same region overall lights up for different people.  But can’t tell whose face, unless you do machine learning on a particular individual.  So where specific faces are encoded is individual.</p>
+</section>
+</section>
+<section id="brain-reading-part-2">
+<h3>Brain Reading Part 2<a class="headerlink" href="#brain-reading-part-2" title="Link to this heading"></a></h3>
+<p>Kawabata and Zeki – “Neural correlates of beauty”.</p>
+<ol class="arabic simple">
+<li><p>Are there brain areas that are consistently active across all subjects that are active when you think a painting is a) beautiful b) ugly</p></li>
+</ol>
+<ul class="simple">
+<li><p>10 students of both sexes</p></li>
+<li><p>4 categories of paintings – each student had to quantify how much they liked/disliked painting (1-10)</p></li>
+</ul>
+<p>Results:</p>
+<ul class="simple">
+<li><p>For a particular category, you see a certain brain region (except abstract vs. non-abstract).  Interesting but not the point of study.</p></li>
+<li><p>For Beautiful vs. Ugly, For beautiful:  Medial Orbital Frontal Cortex lights up.  For ugly - Somato-motor cortex (strong at left hemisphere).</p></li>
+</ul>
+<p>Note – both regions are active for both ugly and beautiful, but one is activated more than the others for ugly vs. beautiful.</p>
+<p>One hypothesis for why motor cortex more active for ugly is that you “want to escape” the painting, painting is aversive.</p>
+<p>Even more intesting is case where you can’t interact with brain otherwise, i.e,</p>
+<section id="interacting-with-the-brain-in-vegetative-states">
+<h4>Interacting with the Brain in Vegetative States<a class="headerlink" href="#interacting-with-the-brain-in-vegetative-states" title="Link to this heading"></a></h4>
+<p>New England Journal of Medicine article, “Willful Modulation of Brain Activity in Disorders of Consciousness” Martin Monti et al.</p>
+<p>SOME of these patients can respond willfully and specifically using particular brain regions.  Can teach patient to image something like motor cortex for yes, and when answer is no, image a tree (for example).</p>
+<p>Raises issues of brain polygraph.  EEG or fMRI</p>
+<ul class="simple">
+<li><p>What is succcess rate?  There’s the issue of calibrating per person.  Very rare to take one image and say something.  Issue of noise and variability, as well as personal variability.  Polygraph has to be calibrated to individual, meaning individual has to cooperate to some extent.</p></li>
+<li><p>How does it compare to regular polygraphs?  As of now, “brain polygraph” and regular polygraph have about the same results.</p></li>
+</ul>
+</section>
+</section>
+<section id="free-will">
+<h3>Free Will<a class="headerlink" href="#free-will" title="Link to this heading"></a></h3>
+<p>Reminder about Transcranial Magnetic Stimulation - TMS, non-invasive probing of living brain.  Here you are inducing activity in a large group of cells, can ask what that region is responsible for.</p>
+<p>Picture of Oliver Sacks getting it.  Was curious whether he could start to draw better.  Can he enhance cognition?  Of course, it’s transient.</p>
+<p>Recent book “Augmenting Cognition” that our professor edited with Henry Markham.</p>
+<section id="how-free-are-we">
+<h4>How Free Are We?<a class="headerlink" href="#how-free-are-we" title="Link to this heading"></a></h4>
+<p>Phineas Gage – most famous patent to have survived severe damage to brain.  Vermont, 1848 – have reconstruction of his skull.  Rod through PFC.  We learned about relation between personality of front part of brain.  Major personality change – friends said he was not the same person.  So we all agree he didn’t choose the change, in his case – was he free to be a nice person before?  Or are we all not free?</p>
+<p>Thomas Huxley “Are we completely defined  by the deterministic nature of physical laws?” I.e. driven as automota, “Or do we have some independence…”</p>
+<p>Isaac Bashevis Singer –  life is worth living for the little free choice we have.</p>
+<p>Most dramatic and famous research – Benjamin Libet experiments.  He used EEGs with many electrodes.  Experiment is you’re shown rotating ball, you decide freely when to press a button.  You have to decide at what time you decided to press button.  Curve of when you press (time 0), but EEG “readiness potential” signal builds up some 2000 ms before that.  But reported time of decision is almost at end of readiness potential, maybe 100 ms before actual pressing button.  So subconscious is active before the thing you call “you” decides.</p>
+<p>Many people take this to mean you do not have free will.  If you’re not aware of it, what kind of free will is it?</p>
+<p>“Libet’s findings have been widely taken to show that since our brain has already started preparing to flex the wrist before we even became aware of our intention to flex it, our supposedly free will is not free at all.</p>
+<p>Rather, our brain has decided for us and has started to a causal chain, leading to a finger bending before we became aware of our decision. Thus, our will appears to determined and causally irrelevant. I feel like I decide causally, in my head, but this was already decided before I’m aware of it.”</p>
+<p>Furthermore, there are new results. (2009) – patients who have undergone brain surgery are stimulated using electrodes.  In left/right inferior parietal region.  If stimulate it with low intensity, patient reports a desire to lick lips, at higher intensity, “I moved my mouth, I talked, what did I say?” (illusory movement).  In premotor region – stimulate, hand will move but he’s not aware of it.</p>
+<p>Wolf Singer from Max Planck Institute in Frankfort - 2004.  “Crime itself should be taken as evidence of brain abnormality. … Free will is an illusion. … We need to continue to assign value to our behavior - essential to organizing society.”</p>
+</section>
+</section>
+<section id="farewell-words">
+<h3>Farewell Words<a class="headerlink" href="#farewell-words" title="Link to this heading"></a></h3>
+<p>These are unique, exciting times.  Again stress need for a theoretical framework.</p>
+<p>The brain is plastic, so we (and the world) are constantly changing (action-perception loop).  Still we judge things as deterministic, “good and bad”, “right and wrong” – as if people were static; this is incorrect.</p>
+<p><img alt="Course Finished" src="../_images/final_finished_course_snb.png" /></p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Resources.html" class="btn btn-neutral float-left" title="Cognitive Science Resources" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="OnReadingConsciousnessExplained.html" class="btn btn-neutral float-right" title="On Reading Dennett’s Consciousness Explained" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

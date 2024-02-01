@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Is Python Good for Shell Scripting? &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=19645805"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Is Python Good for Shell Scripting?</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/images/python-shell-programming/index.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>If you ask developers about Python, those who love it may tell you that it’s a powerful, object-oriented, multi-purpose language. They’ll also say it supports many use cases, including back support for back-end web development, data science, cloud programming, and more. On the other hand, those who hate it may tell you it’s “just a scripting language.”</p>
+<p>Like Bash, Python enables you to work quickly and to run scripts without a separate (manual) compile step. Additionally, Python lets you choose between running a file with your program’s statements or working interactively at the command line. So there is a lot of overlap between the two. It’s revealing that even Python’s detractors acknowledge that it has excellent support for tasks one can otherwise use Bash or another Linux / Unix shell to accomplish.</p>
+<p>However, for all the surface similarities, Bash and Python differ in many important ways. We want to spend some time comparing them, but our goal is broader. What we want to understand are topics like these:</p>
+<ul class="simple">
+<li><p>How can we accomplish some of the things in Python that we can also do in Bash?</p></li>
+<li><p>Is Python good for shell scripting, or must I use Bash, the “native” shell language?</p></li>
+<li><p>What Python runtime libraries do we need for shell programming?</p></li>
+<li><p>How can I run external programs from Python?</p></li>
+<li><p>What Python Shells have good support for working with the system shell?</p></li>
+</ul>
+<p>With that brief introduction out of the way, let’s dive right in!</p>
+<section id="is-python-good-for-shell-scripting">
+<h1>Is Python Good for Shell Scripting?<a class="headerlink" href="#is-python-good-for-shell-scripting" title="Link to this heading"></a></h1>
+<p>Strictly speaking, Python is not a shell programming language, so it does not create shell scripts in the same sense as Bash scripts, batch files, or PowerShell scripts. However, Python does allow you to easily create simple and readable scripts that will work across different platforms.</p>
+<section id="the-strengths-of-shell-scripts">
+<h2>The Strengths of Shell Scripts<a class="headerlink" href="#the-strengths-of-shell-scripts" title="Link to this heading"></a></h2>
+<p>To better understand this, let’s first discuss what a shell is, which will help us understand what shell scripts are and where they excel. A shell is simply a tool that provides an abstract or high-level interface to an operating system. This interface can be anything, really, but generally, what we mean by a system shell is a command-line program. So we don’t usually use “shell” to refer to a graphical user interface. However, that command line “shell” can run inside a graphical user interface as a “terminal window.”</p>
+<p>This definition is not exact because Bash has been ported to Windows, and you can even run PowerShell from a Mac or Linux machine. But generally speaking, shell scripts work best as glue for other operating system utilities. For example, Bash is easy enough to run on Windows. Still, unless you do it in the Windows Subsystem for Linux, you may need several other Linux utilities to “port” a Bash script successfully.</p>
+<p>System Administrators are often great fans and experts in shell scripting. A tool that can “script” tasks they’d otherwise type by hand is a substantial win for this community. However, this same reliance on operating system utilities makes shell scripts somewhat less portable than Python.</p>
+</section>
+<section id="python-as-a-shell-scripting-tool">
+<h2>Python as a Shell Scripting Tool<a class="headerlink" href="#python-as-a-shell-scripting-tool" title="Link to this heading"></a></h2>
+<p>In contrast to operating system shell scripting languages, Python has several advantages.</p>
+<p>From the perspective of a beginner wondering where to invest their time, Python has a clear advantage in being a more general-purpose tool. It’s hard to imagine using Bash to handle web requests or data science tasks, but both these use cases are well-supported in Python.</p>
+<p>Python is also more portable than shell scripting tools. As we mentioned earlier, most of the valuable work you do in Bash consists of wiring up and integrating other programs. In Python, in contrast, the standard runtime library provides many tools for a variety of tasks that don’t rely on other dependencies being available. Though there are portions of the standard library that are non-portable, such as pipes (Unix only) and <code class="docutils literal notranslate"><span class="pre">winreg</span></code> (for working with the Windows registry), the great majority of Python libraries work equally well without further dependencies on Windows, Mac, or Linux. Of course, as with any language that supports a portable runtime such as Java, the tradeoff is that Python must be available on the target machine.</p>
+</section>
+</section>
+<section id="how-can-i-run-shell-commands-from-python">
+<h1>How can I Run Shell Commands from Python?<a class="headerlink" href="#how-can-i-run-shell-commands-from-python" title="Link to this heading"></a></h1>
+<p>This section has two main goals.</p>
+<p>The first goal is to introduce several packages and places to look for general shell programming tasks. Because Python’s runtime libraries provide so many built-in utilities that do the sorts of things you can also do in shell scripts by launching a program, you may not need to execute a separate process as routinely as you would in Bash.</p>
+<p>The second goal is to discuss how to use the subprocess module. Even though you won’t need to use separate processes as often as you do in Bash, you’ll still find you need to do this from time to time. We’ll walk through some ways you can use the subprocess module’s run function and the more flexible Popen constructor to call shell commands or other external applications.</p>
+<section id="the-top-nineteen-modules-for-python-shell-programming">
+<h2>The Top Nineteen Modules for Python Shell Programming<a class="headerlink" href="#the-top-nineteen-modules-for-python-shell-programming" title="Link to this heading"></a></h2>
+<p>This section is for you if you’re new to Python and wondering where the shell script toolset is to let you accomplish what you could in Bash or another tool. Python support for shell scripts falls into two main categories:</p>
+<ul class="simple">
+<li><p>Built-in functions (i.e., functions you can call without an import).</p></li>
+<li><p>Python standard library functions. These functions and modules are available using “import” but are part of Python. Therefore, you don’t need to install them using Pip, Conda, or a similar tool.</p></li>
+</ul>
+<p>To very briefly discuss built-in functions, two that you will find yourself using all the time are <code class="docutils literal notranslate"><span class="pre">print</span></code> and <code class="docutils literal notranslate"><span class="pre">open</span></code>. From a Bash perspective, that’s what you need to make a beginning on the equivalent of “echo” and “cat.” You can use the <code class="docutils literal notranslate"><span class="pre">input</span></code> function to prompt the user for a value, but shell scripts commonly rely on command line arguments. Of course, you can also use any other Python language features tools as well, so although most scripts are procedural, if it makes sense to develop a simple class for your program, for example, you can do so.</p>
+<p>Beyond the built-in functions, for the cost of an import statement, you also have access to the rich Python standard library, and we turn to that now. For each of the Python modules below, I discuss the features that I believe are most relevant for writing shell scripts. You should consult the Python documentation for the many other functions these modules contain if you need to go further. Unless otherwise indicated, the quoted material in this list comes from the relevant section of that same <a class="reference external" href="https://docs.python.org/3">Python documentation</a>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">**os**</span></code>: Python’s os module <em>“provides a portable way of using operating system dependent functionality”</em>. This module contains a number of useful tools for working with environment variables. <code class="docutils literal notranslate"><span class="pre">os.environ</span></code> is a mapping object (similar to a dictionary) that allows you to both read and write environment variables, or you can use the <code class="docutils literal notranslate"><span class="pre">getenv</span></code> and <code class="docutils literal notranslate"><span class="pre">putenv</span></code>. It contains tools for querying or changing the current working directory, <code class="docutils literal notranslate"><span class="pre">os.getcwd</span></code> and <code class="docutils literal notranslate"><span class="pre">os.chdir</span></code>, respectively. This module also includes several functions for working with the current process id and other functions related to users and groups. Many of the group functions are available only on Linux / Mac.</p></li>
+<li><p><strong>sys</strong>: Perhaps the most commonly used gem in this module is <code class="docutils literal notranslate"><span class="pre">sys.argv</span></code>, a list that contains the name of the current script file as the first element, and any command-line arguments passed to the script, in order, as the remaining elements of the list. (The filename returned here is just the file itself; use the __file__ built-in if you need the whole path). Other important features of this module include:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">sys.platform</span></code> for querying what operating system we’re running on, e.g. “darwin” for macOS, “linux”, or “win32”. (The last value is also what you get on 64-bit Windows, by the way).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sys.version</span></code> allows you to discover the current Python version number as a string, while <code class="docutils literal notranslate"><span class="pre">sys.version_info</span></code> gives you a tuple you can use to get the various version numbers: major, minor, etc.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sys.path</span></code> is useful for querying the Python module search path for troubleshooting purposes. It can also be used to modify the search path, for example, to locate Python dependencies in a “dependencies” folder rather than directly underneath the program.</p></li>
+</ul>
+</li>
+<li><p><strong>argparse:</strong> The <code class="docutils literal notranslate"><span class="pre">argparse</span></code> module lets you go beyond the simple command line argument reading provided by <code class="docutils literal notranslate"><span class="pre">sys.argv</span></code> not only to parse more sophisticated command line options but also to provide help and instructions to the user of the script about the available options.</p></li>
+<li><p><strong>getopt:</strong> Another command line parser is getopt. Although argparse is generally the preferred option, this package is an alternative for developers who may be familiar with the equivalent UNIX <code class="docutils literal notranslate"><span class="pre">getopt</span></code> C function.</p></li>
+<li><p><strong>platform:</strong> Just as argparse goes beyond what you can do with <code class="docutils literal notranslate"><span class="pre">sys.argv</span></code>, the <code class="docutils literal notranslate"><span class="pre">platform</span></code> module provides a wealth of information about the operating system, machine architecture, and Python version on which you’re running. Once you have basic information about the operating system, you can also drill down to get more information using platform-specific functions such as <code class="docutils literal notranslate"><span class="pre">platform.win32_edition</span></code> or <code class="docutils literal notranslate"><span class="pre">platform.mac_ver</span></code>.</p></li>
+<li><p><strong>tempfile</strong>: This module allows you to create temporary files and directories in a platform-independent way. It contains functions for creating temporary files that require manual cleanup, as well as several classes that can be used as context managers, automatically cleaning up when you’re finished with them.</p></li>
+<li><p><strong>pathlib</strong>: When writing useful shell scripts, needing to lookup paths comes up a lot. Often we need to look up a path relative to the current Python __file__, for example, or build a path based on the user’s home directory. Pathlib contains a lot of what you need to do this and other path-related tasks. For a detailed tutorial that walks you through many such use cases, see our article, <a class="reference external" href="https://codesolid.com/python-files-from-beginner-to-expert/">Find Files in Python: Complete Cookbook for Searching Files and Folders</a>.</p></li>
+<li><p><strong>shutil</strong>: The shutil module provides support for many file and directory operations such as copying files to different directories, (including recursively using <code class="docutils literal notranslate"><span class="pre">copytree</span></code>), moving them or deleting files and directories.</p></li>
+<li><p><strong>glob</strong>: The glob module supports finding files and directories using path globs (I.e., wildcards such as *), to match whole sets of files.</p></li>
+<li><p><strong>filecmp</strong>: Filecmp allows you to compare files and directories to provide summary information about which files match and which have changed. To compare the contents of individual files (or any sequences) in detail, the <strong>difflib</strong> module can be used instead.</p></li>
+<li><p><strong>zlib, gzip, bz2, lzma, zipfile, tarfile</strong>: In addition to the many general file handling libraries we’ve already discussed, shell scripts often need to be able to work with compressed archive files. Launching a sub-process to zip or tar a file can be problematic, because it relies on utilities that may not be available, especially on Windows. Instead, your Python shell script can rely on these libraries to add or extract files from an archive.</p></li>
+<li><p><strong>pipes:</strong> Much like the Unix shell’s pipe operator, “|”, the <code class="docutils literal notranslate"><span class="pre">pipes</span></code> module lets you use the output from one process as input to another. This module is deprecated as of Python 3.11 in favor of using the <code class="docutils literal notranslate"><span class="pre">subprocess</span></code> module.</p></li>
+<li><p><strong>subprocess:</strong> The <code class="docutils literal notranslate"><span class="pre">subprocess</span></code> module lets you call another program, wait until the call is complete, and process the results including any output or errors. This is perhaps the most common task of all that shell scripts are called upon to do, so we’re going to discuss it in much more detail in the next section.</p></li>
+</ul>
+</section>
+<section id="the-subprocess-module-run-external-programs-in-python">
+<h2>The Subprocess Module: Run External Programs In Python<a class="headerlink" href="#the-subprocess-module-run-external-programs-in-python" title="Link to this heading"></a></h2>
+<p>Because shell scripts are so often called upon to run other programs, the <code class="docutils literal notranslate"><span class="pre">subprocess</span></code> module is a crucial tool for writing a shell script in Python. This is even still true in Python, though as we discussed in the last section, many standard library tools make it slightly less necessary to glue other programs together than in Bash.</p>
+</section>
+<section id="python-s-subprocess-module-basic-example">
+<h2>Python’s Subprocess Module: Basic Example<a class="headerlink" href="#python-s-subprocess-module-basic-example" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">subprocess</span></code> module’s documentation recommends using <code class="docutils literal notranslate"><span class="pre">subprocess.run</span></code> for most uses. This is a simplified method that uses the more flexible <code class="docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> class, which can be used if you have more advanced use cases.</p>
+<p>Let’s take a look at a simple program that uses the <code class="docutils literal notranslate"><span class="pre">subprocess</span></code> module and another module. In order to demonstrate how you might adapt your shell script for different environments, we detect the platform using the <code class="docutils literal notranslate"><span class="pre">platform</span></code> module we discussed earlier. One caveat about this example is that intentionally making this program accessible also is a double-edged sword because as written, you could much more easily accomplish the results of this program in Python without the <code class="docutils literal notranslate"><span class="pre">subprocess</span></code> module. However, I wanted the example program to be easy to run so you wouldn’t have more to set up before trying it out.</p>
+<p><strong>subprocess_demo.py</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Shows a basic use of the subprocess module.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">from</span> <span class="nn">platform</span> <span class="kn">import</span> <span class="n">system</span>
+
+<span class="k">def</span> <span class="nf">file_lister</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Gets a platform-appropriate file lister&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">system</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;Windows&quot;</span><span class="p">:</span>
+         <span class="k">return</span> <span class="s2">&quot;type&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;cat&quot;</span>
+
+<span class="k">def</span> <span class="nf">call_subprocess</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the contents of the current file using a subprocess.&quot;&quot;&quot;</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">file_lister</span><span class="p">()</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="vm">__file__</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+        <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">display_summary</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">display_summary</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">lines</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Prints only the first few lines of the file&quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Here are the first </span><span class="si">{</span><span class="n">lines</span><span class="si">}</span><span class="s2"> lines of the file:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)[:</span><span class="n">lines</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines</span><span class="p">))</span>
+    
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Call a subprocess to get the contents of this file&quot;&quot;&quot;</span>
+    <span class="n">call_subprocess</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The output will be the first few lines of the above file. In the example above, we’re calling <code class="docutils literal notranslate"><span class="pre">suprocess.run</span></code> in the <code class="docutils literal notranslate"><span class="pre">call_subprocess</span></code> function. We have chosen a few arguments of the many available to pass to the function, so let’s briefly discuss the ones we’ve selected:</p>
+<ul class="simple">
+<li><p><strong>args</strong>: Here we’re passing the first positional argument, “args” as a string, which will resolve to <code class="docutils literal notranslate"><span class="pre">&quot;type</span> <span class="pre">subprocess_demo.py&quot;</span></code> on Windows or “<code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">subprocess_demo.py</span></code>” on Mac/Linux. When passing a string containing the complete shell command like this instead of an array containing each argument, we also need to pass the argument shell=True, which we’ll discuss further below.</p></li>
+<li><p><strong>capture_output=True</strong>: This is the most direct way to get the output of the program available to us. If you don’t pass either this argument or otherwise specify how you want STDOUT and STDERR handled, any text output from the function will be unavailable.</p></li>
+<li><p><strong>text=True</strong>: Probably to avoid breaking Python 2 code, the default type in Python 3 for the stdout and stderr attributes that are returned on the results object is a bytes array. Adding <code class="docutils literal notranslate"><span class="pre">text=True</span></code> here is the most straightforward way to get a nice happy UTF-8 Python string.</p></li>
+<li><p><strong>check=True</strong>: This is a convenient way to get the sort of basic error handling we might want in a shell script. With this argument in place, if <code class="docutils literal notranslate"><span class="pre">result.returncode</span></code> is non-zero (i.e., if we received an error from the shell command), the run function will throw an exception. Though the output won’t be all that pretty, it will give us an idea of where our script is failing so we can troubleshoot further. We’ll discuss ways to improve on that in the error handling section below.</p></li>
+<li><p><strong>shell=True</strong>: Depending on what you need, the <code class="docutils literal notranslate"><span class="pre">subprocess.run</span></code> function can be called in a couple of different ways. In our case, we know that “<code class="docutils literal notranslate"><span class="pre">type</span></code>” is a built-in shell function on Windows, whereas “<code class="docutils literal notranslate"><span class="pre">cat</span></code>” on Mac is an actual executable program sitting somewhere. (”<code class="docutils literal notranslate"><span class="pre">where</span> <span class="pre">cat</span></code>” on my machine gives “<code class="docutils literal notranslate"><span class="pre">/bin/cat</span></code>”, and now the cat is out of the bag). Feline humor aside, the point is that for Windows built-in functions, we <em>must</em> call <code class="docutils literal notranslate"><span class="pre">subprocess.run</span></code> with a string argument instead of a list, and pass <code class="docutils literal notranslate"><span class="pre">shell=True</span></code>. The downside of this approach is that you don’t want to use it for untrusted code, in that case, you likely want shell=False (the default), and an array of argument tokens in for the first, default argument.</p></li>
+</ul>
+</section>
+<section id="subprocess-run-return-values-and-error-handling">
+<h2>Subprocess Run: Return Values and Error Handling<a class="headerlink" href="#subprocess-run-return-values-and-error-handling" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">supbrocess.run</span></code> function returns a CompletedProcess object, with only a few attributes. The <code class="docutils literal notranslate"><span class="pre">args</span></code> attribute contains the same arguments we passed to the run method. The <code class="docutils literal notranslate"><span class="pre">returncode</span></code> will be zero on success, or non-zero if the process fails. You can’t count on all programs doing this, but in general, if the <code class="docutils literal notranslate"><span class="pre">returncode</span></code> is zero and you captured the output, then <code class="docutils literal notranslate"><span class="pre">stdout</span></code> will contain the output, and <code class="docutils literal notranslate"><span class="pre">stderr</span></code> will be an empty string. The reverse will be true for a non-zero exit code.</p>
+<p>In terms of error handling, as we mentioned earlier, passing check=True will return an exception. We can test this by changing the args line to this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">args</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">file_lister</span><span class="p">()</span><span class="si">}</span><span class="s2"> NO_SUCH_FILE&quot;</span>
+</pre></div>
+</div>
+<p>With this change, the program output will look something like the following stack trace:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Traceback<span class="w"> </span><span class="o">(</span>most<span class="w"> </span>recent<span class="w"> </span>call<span class="w"> </span>last<span class="o">)</span>:
+<span class="w">  </span>File<span class="w"> </span><span class="s2">&quot;/Users/johnlockwood/source/CodeSolid/private_work/articles/shell/exception.py&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">32</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>&lt;module&gt;
+<span class="w">    </span>call_subprocess<span class="o">()</span>
+<span class="w">  </span>File<span class="w"> </span><span class="s2">&quot;/Users/johnlockwood/source/CodeSolid/private_work/articles/shell/exception.py&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">20</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>call_subprocess
+<span class="w">    </span><span class="nv">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>subprocess.run<span class="o">(</span>args,<span class="w"> </span><span class="nv">capture_output</span><span class="o">=</span>True,<span class="w"> </span>
+<span class="w">  </span>File<span class="w"> </span><span class="s2">&quot;/Users/johnlockwood/.pyenv/versions/3.10.2/lib/python3.10/subprocess.py&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">524</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>run
+<span class="w">    </span>raise<span class="w"> </span>CalledProcessError<span class="o">(</span>retcode,<span class="w"> </span>process.args,
+subprocess.CalledProcessError:<span class="w"> </span>Command<span class="w"> </span><span class="s1">&#39;cat NO_SUCH_FILE&#39;</span><span class="w"> </span>returned<span class="w"> </span>non-zero<span class="w"> </span><span class="nb">exit</span><span class="w"> </span>status<span class="w"> </span><span class="m">1</span>.
+</pre></div>
+</div>
+<p>In the following listing, we’ve modified the imports and the call_subprocess method to add a general-purpose error handler you can use for subprocess calls. We also added that handler function as <code class="docutils literal notranslate"><span class="pre">handle_exception</span></code>. The only required argument for that method is the handler itself, the other arguments are available to display the stack trace in various levels of detail if that will help in your troubleshooting.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Subprocess demo with a general purpose exception handler added.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">subprocess</span> <span class="kn">import</span> <span class="n">run</span><span class="p">,</span> <span class="n">CalledProcessError</span>
+<span class="kn">from</span> <span class="nn">platform</span> <span class="kn">import</span> <span class="n">system</span>
+<span class="kn">from</span> <span class="nn">traceback</span> <span class="kn">import</span> <span class="n">print_exception</span><span class="p">,</span> <span class="n">format_exc</span>
+<span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">exit</span>
+
+
+<span class="k">def</span> <span class="nf">file_lister</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Gets a platform-appropriate file lister&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">system</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;Windows&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;type&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;cat&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">handle_exception</span><span class="p">(</span><span class="n">error</span><span class="p">:</span> <span class="n">CalledProcessError</span><span class="p">,</span> <span class="n">print_last</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+    <span class="n">stack_trace</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Handle a subprocess.run error CalledProcessError:</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">    error       - The CalledProcessError exception.  Required.</span>
+<span class="sd">    print_call  - Also display the line throwing the exception.  Optional, default = False.</span>
+<span class="sd">    stack_trace - Print a full stack trace.  Optional, default = False.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Command:     </span><span class="si">{</span><span class="n">error</span><span class="o">.</span><span class="n">cmd</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Return code: </span><span class="si">{</span><span class="n">error</span><span class="o">.</span><span class="n">returncode</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;STDERR:      </span><span class="si">{</span><span class="n">error</span><span class="o">.</span><span class="n">stderr</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">stack_trace</span><span class="p">:</span>
+        <span class="n">print_exception</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">print_last</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">format_exc</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">call_subprocess</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Demonstrate a subprocess.run exception handler&quot;&quot;&quot;</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">file_lister</span><span class="p">()</span><span class="si">}</span><span class="s2"> NO_SUCH_FILE&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="n">run</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">display_summary</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">CalledProcessError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+        <span class="n">handle_exception</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">display_summary</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">lines</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Prints only the first few lines of the file&quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Here are the first </span><span class="si">{</span><span class="n">lines</span><span class="si">}</span><span class="s2"> lines of the file:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)[:</span><span class="n">lines</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines</span><span class="p">))</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Call a subprocess to get the contents of this file&quot;&quot;&quot;</span>
+    <span class="n">call_subprocess</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>As you can see, handling an error is as simple as adding a try/except block and calling the function.</p>
+</section>
+</section>
+<section id="python-command-line-tools-that-work-with-bash">
+<h1>Python Command-Line Tools That Work with Bash<a class="headerlink" href="#python-command-line-tools-that-work-with-bash" title="Link to this heading"></a></h1>
+<p>If you are familiar with Bash or other shell scripting tools, you likely have noticed that our Python “shell scripts” have become a bit more verbose than you may be used to. This is especially true when it comes to launching subprocesses.</p>
+<p>In addition, you may want a tool where you have all the language features and libraries of Python without giving up the convenience of being able to list and manipulate files and directories easily as you can in Bash. Two tools that let you have your cake and eat it, too, are IPython and Xonsh.</p>
+<p>I mention Xonsh for completeness here – it is an ambitious project that features a new Bash-like language overlaid on a Python shell. Xonsh certainly has attracted a few fans who use it routinely, but after trying it out for some time, I found it to be a bit quirky and hard to learn, and if I’m going to work on something like that, I prefer mathematics!</p>
+<p>IPython is a different story. IPython is a robust and popular Python shell, and it’s one of the few packages that I usually install globally rather than in a virtual environment – because it’s too useful not to have it. If you’re new to IPython, because it’s a Python shell, you can begin using it as a drop-in replacement for the default Python shell. The only surprise you’ll encounter early on is a cell-based interface reminiscent of Jupyter Notebook (which is not surprising, inasmuch as “Jupyter” notebooks were once “IPython” notebooks). Beyond that, you can enter any Python expression and see it evaluated just as you can in the “vanilla” Python shell.</p>
+<p><img alt="The cell-based IPython interface." src="../../_images/image-4-1024x242.png" /></p>
+<p>IPython has many more great features than we can consider in this article, but two that are relevant to our discussion are <em>magic commands</em> and something the IPython docs call the “<em>!cmd syntax</em>.”</p>
+<p>IPython magic commands behave much like bash aliases. They’re named commands that run some other command or group of commands. You don’t always need to create these aliases yourself; IPython includes many of the most popular shell commands as magic commands. You can list these using the alias command with no arguments:</p>
+<p><img alt="List of built-in IPython magic commands that mirror popular shell commands." src="../../_images/image-53.png" /></p>
+<p>(Note: If that command didn’t work as shown, try calling this first “<code class="docutils literal notranslate"><span class="pre">%automagic</span> <span class="pre">ON</span></code>”. Running that command sets a configuration so you don’t have to type a % sign before a magic command).</p>
+<p>Because these shell commands are aliased as IPython magic commands, you can simply type them in IPython as you would at a system shell. For example “<code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">.</span></code>” will show you the files in the current directory.</p>
+<p>What if the shell command you want to run isn’t included in the list? No problem, simply prefix the shell command with an exclamation point, and it will work just fine. Let’s see how our Git repository is doing:</p>
+<p><img alt="Using the ! operator in IPython to access commands that don't have magic functions associated with them." src="../../_images/image-77.png" /></p>
+<p>The exclamation point operator has another useful feature that you can use with commands whether or not they have any alias associated with them. Calling a command with the exclamation point prefix returns the resulting output as a list of lines. (Well, technically it returns an object of type <code class="docutils literal notranslate"><span class="pre">IPython.utils.text.SList</span></code>, but that object behaves very much like a list).</p>
+<p>When we used it on git just now, we simply displayed those lines to the screen – but we can also save them to a variable. Here we grab the contents of a directory we’re working on to a list:</p>
+<p><img alt="" src="../../_images/image-87.png" /></p>
+<p>As you can see, IPython functions very well not just as a Python shell, but also as a general-purpose terminal.</p>
+<p>As powerful and flexible as IPython is as a shell replacement, you do need to give some thought before using it as a general scripting tool. First, the issue that Python has in this regard of not being available on every computer is further exacerbated by IPython, which requires a separate package install over and above what Python needs. Secondly, certain shell utilities like the <code class="docutils literal notranslate"><span class="pre">!cmd</span></code> syntax we’ve been discussing may only work in the interactive shell and might not be available to you as a script.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

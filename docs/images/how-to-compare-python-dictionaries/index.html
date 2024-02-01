@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python Is Consistent &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=19645805"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Python Is Consistent</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/images/how-to-compare-python-dictionaries/index.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>The easiest way to compare Python dictionaries is simply to use the same equality operator you use on other Python types, “==”. This works great for most cases, but it relies on the behavior of “==” for the values involved. If you need a more strict test, this can be done in a few lines of code.</p>
+<section id="python-is-consistent">
+<h1>Python Is Consistent<a class="headerlink" href="#python-is-consistent" title="Link to this heading"></a></h1>
+<p>Two of the benefits of Python are its ease of use and consistency. It’s different from Java, for example, where string comparisons compare object references, and you have to use the “equals” method to do the string comparison you want to do. In Python, in contrast, you can largely rely on <code class="docutils literal notranslate"><span class="pre">==</span></code> to do the right thing most of the time.</p>
+<p>Consider the following code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span>
+<span class="n">same_string</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span>
+<span class="n">number</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">same_number</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">boolean</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">same_boolean</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">string</span> <span class="o">==</span> <span class="n">same_string</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">number</span> <span class="o">==</span> <span class="n">same_number</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">boolean</span> <span class="o">==</span> <span class="n">same_boolean</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>True
+True
+True
+</pre></div>
+</div>
+<p>Of course, this also works for negative cases, as you’d expect: <code class="docutils literal notranslate"><span class="pre">&quot;pig&quot;</span> <span class="pre">==</span> <span class="pre">&quot;canary&quot;</span></code> returns <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</section>
+<section id="compare-dictionaries-like-other-types">
+<h1>Compare Dictionaries Like Other Types<a class="headerlink" href="#compare-dictionaries-like-other-types" title="Link to this heading"></a></h1>
+<p>Python is not just consistent for simple types, it also implements reasonable equality checks for more complex types as well. Let’s see this for dictionaries:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dictionary</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;favorite_website&quot;</span><span class="p">:</span> <span class="s2">&quot;https://codesolid.com&quot;</span><span class="p">,</span> <span class="s2">&quot;attempts&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="n">same_dictionary</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># Comparing simply a matter of using ==, same with other Python types</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dictionary</span> <span class="o">==</span> <span class="n">same_dictionary</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+<p>Since what’s being checked is perhaps a bit less obvious than it is for simple types, let’s try changing different elements.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dictionary</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;favorite_website&quot;</span><span class="p">:</span> <span class="s2">&quot;https://codesolid.com&quot;</span><span class="p">,</span> <span class="s2">&quot;attempts&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+
+<span class="c1"># Add a key</span>
+<span class="n">key_added</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">key_added</span><span class="p">[</span><span class="s2">&quot;new&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;New Value&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dictionary</span> <span class="o">==</span> <span class="n">key_added</span><span class="p">)</span>
+
+<span class="c1"># Remove a key</span>
+<span class="n">key_removed</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="k">del</span><span class="p">(</span><span class="n">key_removed</span><span class="p">[</span><span class="s2">&quot;attempts&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dictionary</span> <span class="o">==</span> <span class="n">key_removed</span><span class="p">)</span>
+
+<span class="c1"># Change a value</span>
+<span class="n">value_changed</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">value_changed</span><span class="p">[</span><span class="s2">&quot;attempts&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dictionary</span> <span class="o">==</span> <span class="n">value_changed</span><span class="p">)</span>
+
+<span class="c1"># Change type of a value from int to float</span>
+<span class="n">type_changed</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">type_changed</span><span class="p">[</span><span class="s2">&quot;attempts&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">type_changed</span><span class="p">[</span><span class="s2">&quot;attempts&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dictionary</span> <span class="o">==</span> <span class="n">type_changed</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>False
+False
+False
+True
+</pre></div>
+</div>
+<p>The first three cases are pretty much what we’d expect. The last one needs some explaining.</p>
+</section>
+<section id="use-caution-with-equality-compatible-types">
+<h1>Use Caution With Equality-Compatible Types<a class="headerlink" href="#use-caution-with-equality-compatible-types" title="Link to this heading"></a></h1>
+<p>What’s happening in the last case is that we’re comparing a <code class="docutils literal notranslate"><span class="pre">1</span></code> (an integer) with <code class="docutils literal notranslate"><span class="pre">1.0</span></code> (a floating point value). Behind the scenes, the integer value converts to a float, the two floats are compared, and the comparison returns true. This has nothing to do with dictionaries <em>per se</em> – it’s just a property of the values being compared. In the same way:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">==</span> <span class="mf">1.0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</section>
+<section id="what-if-we-need-a-stronger-check-for-equality">
+<h1>What If We Need a Stronger Check for Equality?<a class="headerlink" href="#what-if-we-need-a-stronger-check-for-equality" title="Link to this heading"></a></h1>
+<p>If we need to check that the dictionaries are equal <strong>and</strong> that the types of all the values are equal, that’s relatively straightforward in Python. Here’s one version of a method that will work:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">typing</span>
+<span class="k">def</span> <span class="nf">type_aware_equals</span><span class="p">(</span><span class="n">d1</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Dict</span><span class="p">,</span> <span class="n">d2</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compares dictionaries with strong check on equality of values&quot;&quot;&quot;</span>
+    
+    <span class="c1"># Return early if standard equality fails</span>
+    <span class="k">if</span> <span class="n">d1</span> <span class="o">!=</span> <span class="n">d2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="c1"># Compare types</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">d1</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">d2</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+    <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">!=</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+    
+    <span class="k">return</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>To test this, we can run our original cases again, using the function instead of <code class="docutils literal notranslate"><span class="pre">==</span></code> this time. We’ll also do one more check for dictionaries we know to be equal to make sure that case works.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">type_aware_equals</span><span class="p">(</span><span class="n">dictionary</span><span class="p">,</span> <span class="n">key_added</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">type_aware_equals</span><span class="p">(</span><span class="n">dictionary</span><span class="p">,</span> <span class="n">key_removed</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">type_aware_equals</span><span class="p">(</span><span class="n">dictionary</span><span class="p">,</span> <span class="n">value_changed</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">type_aware_equals</span><span class="p">(</span><span class="n">dictionary</span><span class="p">,</span> <span class="n">type_changed</span><span class="p">))</span>
+
+<span class="c1"># Make sure equal dictionaries are reported correctly</span>
+<span class="n">same_dictionary</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">type_aware_equals</span><span class="p">(</span><span class="n">dictionary</span><span class="p">,</span> <span class="n">same_dictionary</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>False
+False
+False
+False
+True
+</pre></div>
+</div>
+</section>
+<section id="using-for-other-python-collections">
+<h1>Using “==” for Other Python Collections<a class="headerlink" href="#using-for-other-python-collections" title="Link to this heading"></a></h1>
+<p>As we saw, Python’s treatment of equality for dictionaries is consistent with its treatment of equality for simple types like numbers and strings.</p>
+<p>This consistency also extends to other built-in composed types and collections, as well as collections defined in Python standard library modules. For example, here we demonstrate that it works for lists, sets, tuples, and arrays:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">array</span> <span class="kn">import</span> <span class="n">array</span>
+
+<span class="n">favorite_foods</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Chilli&quot;</span><span class="p">,</span> <span class="s2">&quot;Fish and Chips&quot;</span><span class="p">,</span> <span class="s2">&quot;Potatoes&quot;</span><span class="p">]</span>
+<span class="n">list_copied</span> <span class="o">=</span> <span class="n">favorite_foods</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">favorite_foods</span> <span class="o">==</span> <span class="n">list_copied</span><span class="p">)</span>
+
+<span class="n">foods_as_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">favorite_foods</span><span class="p">)</span>
+<span class="n">second_set</span> <span class="o">=</span> <span class="n">foods_as_set</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">foods_as_set</span> <span class="o">==</span> <span class="n">second_set</span><span class="p">)</span>
+
+<span class="n">tuple1</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Parrot&quot;</span><span class="p">,</span> <span class="s2">&quot;is&quot;</span><span class="p">,</span> <span class="s2">&quot;late&quot;</span><span class="p">)</span>
+<span class="n">tuple2</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Parrot&quot;</span><span class="p">,</span> <span class="s2">&quot;is&quot;</span><span class="p">,</span> <span class="s2">&quot;late&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tuple1</span> <span class="o">==</span> <span class="n">tuple2</span><span class="p">)</span>
+
+<span class="c1"># An array of integers, and a copy</span>
+<span class="n">array1</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">array_copy</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">array1</span> <span class="o">==</span> <span class="n">array_copy</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The output is as we expect:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>True
+True
+True
+True
+</pre></div>
+</div>
+</section>
+<section id="what-about-user-defined-types">
+<h1>What About User-Defined Types?<a class="headerlink" href="#what-about-user-defined-types" title="Link to this heading"></a></h1>
+<p>This topic is a bit more advanced than what we’ve been discussing, but I wanted to include it for readers who may be asking themselves, “How is such consistency achieved? Can I implement it too?”<br />
+The answer is, “Yes, you can.”</p>
+<p>Although you may not need it for simple cases,it’s also possible to define methods on user-defined classes that will allow consumers of your class to use the standard comparison operators (<code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, etc.). This is not done directly via operator overloading, as it is in C++. Instead, Python allows this via special methods like <code class="docutils literal notranslate"><span class="pre">__eq__</span></code>, <code class="docutils literal notranslate"><span class="pre">__ge__</span></code>, <code class="docutils literal notranslate"><span class="pre">__lt__</span></code>, etc. These are called “magic methods” or sometimes “dunder” methods (dunder comes from the “double underscore” at the beginning and end of each method).</p>
+<p>Such magic methods are ubiquitous in Python, and form an important part of what the book, Fluent Python, calls “the Python data model”. In the case of what we’re discussing now, the various comparison operators, Python’s <code class="docutils literal notranslate"><span class="pre">functools</span></code> module contains a useful shortcut to save you from having to implement each one of these methods individually. It’s possible to only have to define two such methods and have the rest implemented automatically, using the <a class="reference external" href="https://docs.python.org/3/library/functools.html#functools.total_ordering">&#64;functools.total_ordering</a> decorator. The Python documentation for that decorator contains a useful example you can use as a starting point for your own classes.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Finding Duplicates in a List When Order Doesn’t Matter &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=19645805"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Finding Duplicates in a List When Order Doesn’t Matter</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/images/finding-duplicates-in-a-list-in-python/index.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>Dealing with messy data is a common task. Data analysts recognize that data cleaning is where they spend a lot of their time, but software engineers also have to contend with it from time to time.</p>
+<p>One typical example of messy data is a list with duplicate entries, so finding the duplicates in a list is a common thing to do. The most common reason for this is that we need to find the copies to return a list that is “pared down,” where each element is unique.</p>
+<p>Like so many programming tasks, Python makes this easy to do. However, the best approach depends on several things. If we are doing this duplicate search to remove duplicates, we may or may not need to preserve the order, so we’ll dive into both solutions here. If we don’t care about the order, there’s an even simpler solution that works across all versions of Python from 2.4 on.</p>
+<p>Since these are the most common cases, we’ll deal with those right up front. We will begin with straightforward instances in which the elements are strings or numbers that are easily compared. Next, we’ll consider two related topics:</p>
+<ul class="simple">
+<li><p>What if the objects you’re dealing with are not simple but are lists of custom objects? How can we deal with objects with some unique key, for example? How can we ensure that the code we wrote for strings or numbers also works here?</p></li>
+<li><p>What if instead of removing the object, we want to find the duplicate counts?</p></li>
+</ul>
+<p>But again, let’s start with the simplest cases first!</p>
+<section id="finding-duplicates-in-a-list-when-order-doesn-t-matter">
+<h1>Finding Duplicates in a List When Order Doesn’t Matter<a class="headerlink" href="#finding-duplicates-in-a-list-when-order-doesn-t-matter" title="Link to this heading"></a></h1>
+<p>If the order of the elements in the Python list doesn’t matter, the trick to eliminating duplicate values is simply to think about a data structure that’s like a list, but guarantees that the items are unique without preserving the order. Go ahead and think about it. I’ll give you a minute…</p>
+<p>If you thought about a Python set type, you get the gold medal in my only guessing game in this article (promise). We can leverage the fact that sets guarantee uniqueness (in Python as in other languages as in mathematics). So all we have to do is convert the list to a set, then back into a list, and return the new list.</p>
+<p>Let’s write the function and a quick test for it.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+
+<span class="k">def</span> <span class="nf">get_unique_elements</span><span class="p">(</span><span class="nb">input</span><span class="p">:</span> <span class="n">List</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;returns unique elements without preserving the order&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="nb">input</span><span class="p">))</span>
+
+<span class="c1"># Test it</span>
+<span class="n">too_much_cheese</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;cheese&quot;</span><span class="p">,</span> <span class="s2">&quot;pizza&quot;</span><span class="p">,</span> <span class="s2">&quot;chicken&quot;</span><span class="p">,</span> <span class="s2">&quot;cheese&quot;</span><span class="p">,</span> <span class="s2">&quot;grapes&quot;</span><span class="p">,</span> <span class="s2">&quot;cheese&quot;</span><span class="p">]</span>
+<span class="n">unique</span> <span class="o">=</span> <span class="n">get_unique_elements</span><span class="p">(</span><span class="n">too_much_cheese</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">unique</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="s1">&#39;cheese&#39;</span>,<span class="w"> </span><span class="s1">&#39;chicken&#39;</span>,<span class="w"> </span><span class="s1">&#39;pizza&#39;</span>,<span class="w"> </span><span class="s1">&#39;grapes&#39;</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>As you can see, all the elements are there, but the order was changed. “Cheese” now comes before “chicken”.</p>
+</section>
+<section id="removing-duplicates-from-a-list-with-order-preserved">
+<h1>Removing Duplicates from a List With Order Preserved<a class="headerlink" href="#removing-duplicates-from-a-list-with-order-preserved" title="Link to this heading"></a></h1>
+<p>To remove duplicates from a list in Python while preserving the order, we use the <code class="docutils literal notranslate"><span class="pre">fromkeys</span></code> function of dict or OrderedDict (depending on the Python version), then convert the result to a list.</p>
+<p>Python dictionaries have preserved the order of inserted elements since Python 3.6, so reworking our example above to preserve the list’s order while removing the duplicates can be done using a dictionary.</p>
+<p>Here’s the code for newer versions of Python:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+
+<span class="k">def</span> <span class="nf">get_unique_elements_ordered</span><span class="p">(</span><span class="nb">input</span><span class="p">:</span> <span class="n">List</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;returns unique elements.  Preserves order.  Python 3.5 and earlier&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="nb">input</span><span class="p">))</span>
+
+<span class="n">unique_ordered</span> <span class="o">=</span> <span class="n">get_unique_elements_ordered</span><span class="p">(</span><span class="n">too_much_cheese</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">unique_ordered</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now the output preserves the same order as the list, but with the extra cheese removed:</p>
+<p>[‘cheese’, ‘pizza’, ‘chicken’, ‘grapes’]</p>
+<p>In Python 3.5 and earlier, we can do the same thing by making the minor changes shown in bold below:</p>
+<p>from typing import List
+<strong>from collections import OrderedDict</strong></p>
+<p>def get_unique_elements_ordered(input: List) -&gt; List:
+“””returns unique elements.  Preserves order.  Python 3.5 and earlier”””
+r<strong>eturn list(OrderedDict.fromkeys(input))</strong>
+unique_ordered = get_unique_elements_ordered(too_much_cheese)
+print(unique_ordered)</p>
+<p>This gives the same output as above.</p>
+</section>
+<section id="removing-duplicates-in-a-list-of-complex-objects">
+<h1>Removing Duplicates in a List of Complex Objects<a class="headerlink" href="#removing-duplicates-in-a-list-of-complex-objects" title="Link to this heading"></a></h1>
+<p>So far we’ve been looking at solutions that rely on either a Set or a dictionary or OrderedDict to ensure that the object is unique. We then convert that to a new list and return it.</p>
+<p>This works fine for many simple built-in types like numbers and strings. However, when we start to deal with objects, things get a bit more interesting, and we need to do a little more work.</p>
+<p>To see why let’s begin by considering a really simple user-defined function. Suppose we want to save a list of people and their phone numbers. We’ll consider people to be duplicates if both their first name and their phone number are the same.</p>
+<p>Our class just has a phone field and a name field.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">phone</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">phone</span> <span class="o">=</span> <span class="n">phone</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Person(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">phone</span><span class="si">}</span><span class="s2">)&quot;</span>
+
+<span class="c1"># Our list of close friends</span>
+<span class="n">people</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">Person</span><span class="p">(</span><span class="s2">&quot;Melissa&quot;</span><span class="p">,</span> <span class="s2">&quot;9193612495&quot;</span><span class="p">),</span>
+    <span class="n">Person</span><span class="p">(</span><span class="s2">&quot;Jon&quot;</span><span class="p">,</span> <span class="s2">&quot;5083412318&quot;</span><span class="p">),</span>
+    <span class="n">Person</span><span class="p">(</span><span class="s2">&quot;Ida&quot;</span><span class="p">,</span> <span class="s2">&quot;7043756942&quot;</span><span class="p">),</span>
+    <span class="n">Person</span><span class="p">(</span><span class="s2">&quot;Melissa&quot;</span><span class="p">,</span> <span class="s2">&quot;9193612495&quot;</span><span class="p">)</span>
+<span class="p">]</span>  
+</pre></div>
+</div>
+<p>As you can see, we have two friends named Melissa who also have the same phone number. In our earlier examples, we returned our unique list using either a set or a dict as an intermediate structure.</p>
+<p>Let’s try that here to see if we get unique values. Do we go from four elements to three as we expect?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">people</span><span class="p">)</span>
+<span class="n">a_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">people</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">people</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a_dict</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a_set</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">4</span>
+<span class="m">4</span>
+<span class="m">4</span>
+</pre></div>
+</div>
+<p>Interestingly, Python’s default behavior allows us to add the objects as keys to a dictionary or store them in a set, but we’re not getting the behavior we want.</p>
+<p>The problem here is that Python really doesn’t know if two objects contain the same information or not. We might want a phone number as a key. Often in a store’s point-of-sale system, that’s how they look you up as a customer. On the other hand, we might want to compare the whole object.</p>
+<p>By default, Python implements two “dunder” methods related to object equality. (Dunder methods are special methods that begin and end with double underscores, hence <strong>D</strong>ouble + <strong>UNDER</strong>score = “dunder”). Because Python doesn’t know how user-defined objects can be compared, it</p>
+<p>The reason our code does not work yet is that by default, Python implements both of these dunder methods in terms of the object’s identity (a numeric value that Python uses internally to keep track of object instances). Because we created a duplicate Melissa as a new object, Python considered her to be a different object than the original Melissa, even though they have the same name and phone number.</p>
+<p>We want to prevent such human cloning. We want only one Melissa. To implement this behavior, the two dunder methods we need are <code class="docutils literal notranslate"><span class="pre">__eq__</span></code> and <code class="docutils literal notranslate"><span class="pre">__hash__</span></code>. The first should return True if we consider the object passed into it to be equal to the current object. The second should return an integer value that Python can use to decide where to store it in the hashtable so it can quickly be retrieved. (Dicts and sets are both implemented as hashtables internally).</p>
+<p>Here are the two methods we need to add to our Person class:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="fm">__hash__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">hash</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">phone</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__hash__</span><span class="p">()</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="fm">__hash__</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Now our test code works as expected. If we add our people to either a set or a dict, clone Melissa doesn’t get to come to the party:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">people</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">Person</span><span class="p">(</span><span class="s2">&quot;Melissa&quot;</span><span class="p">,</span> <span class="s2">&quot;9193612495&quot;</span><span class="p">),</span>
+    <span class="n">Person</span><span class="p">(</span><span class="s2">&quot;Jon&quot;</span><span class="p">,</span> <span class="s2">&quot;5083412318&quot;</span><span class="p">),</span>
+    <span class="n">Person</span><span class="p">(</span><span class="s2">&quot;Ida&quot;</span><span class="p">,</span> <span class="s2">&quot;7043756942&quot;</span><span class="p">),</span>
+    <span class="n">Person</span><span class="p">(</span><span class="s2">&quot;Melissa&quot;</span><span class="p">,</span> <span class="s2">&quot;9193612495&quot;</span><span class="p">)</span>
+<span class="p">]</span>  
+
+<span class="n">a_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">people</span><span class="p">)</span>
+<span class="n">a_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">people</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">people</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a_dict</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a_set</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">4</span>
+<span class="m">3</span>
+<span class="m">3</span>
+</pre></div>
+</div>
+<p>Of course, if we wanted to, we could implement the hash function differently, in this case comparing only the phone number, for example.</p>
+</section>
+<section id="find-duplicates-in-a-list-to-count-the-entries">
+<h1>Find Duplicates in a List to Count the Entries<a class="headerlink" href="#find-duplicates-in-a-list-to-count-the-entries" title="Link to this heading"></a></h1>
+<p>Next to removing duplicates, perhaps the most common reason to find duplicates in a list is to count the number of entries. When analyzing text, for example, you might want to know how often a word occurs.</p>
+<p>You might first think of using a dictionary to do this. This is a reasonable approach since the words could be stored as keys and the counts as values. However, in Python, there’s a Counter class specialized for this purpose that makes the task even easier. All you have to do is pass the list to the constructor to create a dictionary-like object that processes the counts for you automatically.</p>
+<p>Let’s demo this briefly by printing the word count of an important question my father taught me to ask:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Count duplicates using the counter class</span>
+
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+
+<span class="n">question</span> <span class="o">=</span> <span class="s2">&quot;How much wood would a woodchuck chuck if a woodchuck could chuck wood ?&quot;</span>
+<span class="n">question</span> <span class="o">=</span> <span class="n">question</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="n">count</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">question</span><span class="p">)</span>    
+<span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Counter<span class="o">({</span><span class="s1">&#39;wood&#39;</span>:<span class="w"> </span><span class="m">2</span>,<span class="w"> </span><span class="s1">&#39;a&#39;</span>:<span class="w"> </span><span class="m">2</span>,<span class="w"> </span><span class="s1">&#39;woodchuck&#39;</span>:<span class="w"> </span><span class="m">2</span>,<span class="w"> </span><span class="s1">&#39;chuck&#39;</span>:<span class="w"> </span><span class="m">2</span>,<span class="w"> </span><span class="s1">&#39;How&#39;</span>:<span class="w"> </span><span class="m">1</span>,<span class="w"> </span><span class="s1">&#39;much&#39;</span>:<span class="w"> </span><span class="m">1</span>,<span class="w"> </span><span class="s1">&#39;would&#39;</span>:<span class="w"> </span><span class="m">1</span>,<span class="w"> </span><span class="s1">&#39;if&#39;</span>:<span class="w"> </span><span class="m">1</span>,<span class="w"> </span><span class="s1">&#39;could&#39;</span>:<span class="w"> </span><span class="m">1</span>,<span class="w"> </span><span class="s1">&#39;?&#39;</span>:<span class="w"> </span><span class="m">1</span><span class="o">})</span>
+</pre></div>
+</div>
+<p>Since Counter has a dictionary interface, we can get the count for any value. Counter returns zero if the key is not in the dictionary (unlike a dict, which will raise a key error).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">[</span><span class="s1">&#39;woodchuck&#39;</span><span class="p">])</span>  <span class="c1"># prints 2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">[</span><span class="s1">&#39;squirrel&#39;</span><span class="p">])</span>         <span class="c1"># prints 0</span>
+</pre></div>
+</div>
+<p>Without the Counter class (which is built-in to Python since version 3.1), we could still accomplish this, with the following more verbose code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Count duplicates without the counter class (3.0 and earlier)</span>
+
+<span class="n">question</span> <span class="o">=</span> <span class="s2">&quot;How much wood would a woodchuck chuck if a woodchuck could chuck wood ?&quot;</span>
+<span class="n">question</span> <span class="o">=</span> <span class="n">question</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="n">count</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">question</span><span class="p">:</span>
+    <span class="n">added</span> <span class="o">=</span> <span class="n">count</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">added</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">count</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">count</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+        
+<span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>By the way, we cheated a bit in our example above and added a space before the question mark. The issue of punctuation and case matching muddies the water a bit. Removing multiple punctuation characters is easy to do but doing it efficiently is a topic that’s a bit bigger than we want to dive into for this article.</p>
+</section>
+<section id="you-may-also-enjoy">
+<h1>You May Also Enjoy<a class="headerlink" href="#you-may-also-enjoy" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://codesolid.com/python-lists/">Python Lists for Beginners</a></p></li>
+<li><p><a class="reference external" href="https://codesolid.com/python-indexing-slicing-exercises/">Python Indexing and Slicing: Complete Tutorial and Hands-On Exercises</a></p></li>
+<li><p><a class="reference external" href="https://codesolid.com/python-lists-vs-arrays/">Python Lists vs. Arrays: How to Choose Between Them</a></p></li>
+<li><p>[Python Dictionaries for Beginners: A Complete Lesson With Exercises](http://Python Dictionaries for Beginners: A Complete Lesson with Exercises)</p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

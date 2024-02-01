@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Visualize Data Using Pandas &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=19645805"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">How to Visualize Data Using Pandas</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/how-to-visualize-data-using-pandas.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="how-to-visualize-data-using-pandas">
+<h1>How to Visualize Data Using Pandas<a class="headerlink" href="#how-to-visualize-data-using-pandas" title="Link to this heading"></a></h1>
+<p>Pandas is an open-source Python module that is commonly used for data analysis and data manipulation. You might have seen some useful methods in Pandas to handle data frames and preprocess the datasets. However, in this article, we will explore some of the powerful methods to visualize data using pandas. We will cover line plots, scatter plots, histograms, area plots, pie plots, and many more.</p>
+<section id="exploring-the-dataset">
+<h2>Exploring the Dataset<a class="headerlink" href="#exploring-the-dataset" title="Link to this heading"></a></h2>
+<p>Visualization is an essential tool whether you are analyzing data or preparing it. It is important to learn how to visualize data to see the hidden patterns in the dataset that can be observed by just looking at the numbers. In this article, we will use the famous iris dataset and apply various techniques to visualize the data using the Pandas module. You can download the dataset from <a class="reference external" href="https://www.kaggle.com/datasets/uciml/iris" title="Kaggle">Kaggle</a> or can import it directly from either sklearn or seaborn as well.</p>
+<p>Before importing import and beginning work on visualization, however, make sure that you have installed the necessary dependencies on your system. You can install the Pandas module using the pip command or using Conda. To set up the starter project for this article, see the article, <a class="reference external" href="https://codesolid.com/python-data-analysis-starter-project/">Python Data Analysis Starter Project</a>.</p>
+<p>Now, let us first import the dataset and print a few rows to get familiar with the dataset.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing the pandas module</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># loading the dataset</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Iris.csv&#39;</span><span class="p">)</span>
+
+<span class="c1"># heading of data</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="data-visualization-using-pandas" src="../_images/data-visualization-using-pandas.png" /></p>
+<p>As you can see, we have four input columns and one output column.</p>
+<p>Let us now analyze and manipulate the dataset a little bit before going to the visualization part. We can use the unique() method to find all the unique outputs as shown below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># finding the unique values</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;Species&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="unique-values-in-dataset" src="../_images/unique-values-in-dataset.png" /></p>
+<p>This shows that we have a dataset of three different types of flowers as shown above.</p>
+<p>Now, let us check if we have any null values in our dataset by using the isnull() method.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculating the null values</span>
+<span class="n">data</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="isnull-method" src="../_images/isnull-method.png" /></p>
+<p>As you can see, there are no null values in the dataset. Now, the final step before starting visualization is to drop the Id column. We don’t need it because it is just indexing values.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># dropping the id column</span>
+<span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;Id&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="visualize-data-using-pandas">
+<h2>Visualize Data Using Pandas<a class="headerlink" href="#visualize-data-using-pandas" title="Link to this heading"></a></h2>
+<p>As we know Pandas is a very powerful tool for data analysis. It has many useful methods that play an important role in data preprocessing, manipulation, and feature engineering.</p>
+<p>Moreover, although Pandas is not a data visualization tool, it can be used to plot some basic plots that can help us to understand the data more clearly.</p>
+<p>In this section, we will learn how to plot the following graphs using the Pandas module</p>
+<ul class="simple">
+<li><p>Line plots</p></li>
+<li><p>Scatter plots</p></li>
+<li><p>Bar plots</p></li>
+<li><p>Histograms</p></li>
+<li><p>Area plots</p></li>
+<li><p>Box plots</p></li>
+<li><p>Pie plots</p></li>
+</ul>
+<section id="line-plots-in-pandas">
+<h3>Line plots in Pandas<a class="headerlink" href="#line-plots-in-pandas" title="Link to this heading"></a></h3>
+<p>Line Plot is one of the easiest and most basic graphical analysis techniques that play an important role in data analysis when working especially on time series datasets. They are used to express a relationship between two variables.</p>
+<p>In Pandas the plot() method is used to plot the line plots of the dataset.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting line plots in pandas</span>
+<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="line-plots-in-pandas" src="../_images/line-plots-in-pandas.png" /></p>
+<p>As you can see, just one line of code in Pandas gives us a beautiful line plot where each input value is colored differently. The reason why there is no plot for the output column is that the output column contains objects, not numeric values.</p>
+<p>Sometimes, we may want to plot the dataset with respect to other input values. For example, we will take the sepal width along the x-axis and then plot the rest of the data set.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># plotting fixing the x-axis</span>
+<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span> <span class="s1">&#39;SepalWidthCm&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="line-plot-in-pandas-fixing-x-axis" src="../_images/line-plot-in-pandas-fixing-x-axis.png" /></p>
+<p>Although the plot is messy, the important thing to note is the x-axis which is now the width of sepals.</p>
+<p>Another important feature of Pandas plot method is the subplots. Rather than plotting all the input columns on one plot, we can plot them separately using subplots. The pandas plot() method has an optional argument subplot, and by default its value is false. We can create subplots by specifying the subplot argument to true as shown below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># creating sub-plots in pandas</span>
+<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">subplots</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="subplots-in-pandas-line-plot" src="../_images/subplots-in-pandas-line-plot.png" /></p>
+<p>As shown above, we got subplots for each of the input values.</p>
+</section>
+<section id="scatter-plots-in-python">
+<h3>Scatter plots in Python<a class="headerlink" href="#scatter-plots-in-python" title="Link to this heading"></a></h3>
+<p>A scatter plot is a set of points plotted on horizontal and vertical axes. Scatter plots are important in statistics because they can show the extent of correlation, if any, between the values of observed quantities or variables.</p>
+<p>Now let us plot a scatter plot of the same dataset using pandas. The scatter() function is used to create a scatter plot as shown below. Notice that we have to specify the y and x axes values explicitly for the scatter plots.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Scatter plot in pandas</span>
+<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span><span class="s1">&#39;SepalWidthCm&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span><span class="s1">&#39;SepalLengthCm&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="data-visualization-in-pandas-scatter-plot" src="../_images/data-visualization-in-pandas-scatter-plot.png" /></p>
+<p>Similar to any other Python plots, we can change the color and the size of the plots using color and figsize parameters. Let us now increase the size and change the color of the above plot.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Scatter plot in pandas</span>
+<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span><span class="s1">&#39;SepalWidthCm&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span><span class="s1">&#39;SepalLengthCm&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span> <span class="n">c</span> <span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="data-visualization-using-pandas-larger-plot" src="../_images/data-visualization-using-pandas-larger-plot.png" /></p>
+<p>As you can see, we have increased the size of the plot and changed the color to red.</p>
+<p>Another important plot that we can do using scatter() function is to plot multiple attributes/columns. For example, we will plot a graph comparing the sepals’ length, sepals’ width, and petals’ length.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># creating first scatter plot</span>
+<span class="n">ax</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;SepalWidthCm&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;SepalLengthCm&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+
+<span class="c1"># adding one more scattered plot on the same graph</span>
+<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;SepalWidthCm&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;PetalLengthCm&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="multiple-scatter-plots" src="../_images/multiple-scatter-plots.png" /></p>
+<p>The red dots show the relationship between the width and length of the sepals while the green color shows the relation between the length of the sepals and the petals.</p>
+<p>Another important plot that we can do using scatter() method is to color each value differently. This plot is useful when we have categorial values, and we want to know how the values of each category are distributed. In our dataset, the Species column has categorical values, but they are not numeric values. So, before plotting them, we must convert them into numeric values.</p>
+<p>There exist many ways to plot and convert the categorical values to numeric values, but here we will use sklearn label encoding method.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import sklearn labelencoder</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">preprocessing</span>
+  
+<span class="c1"># initializing sklearn labelencoder</span>
+<span class="n">label_encoder</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">LabelEncoder</span><span class="p">()</span>
+  
+<span class="c1"># encoding marrige column</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;Species&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">label_encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Species&#39;</span><span class="p">])</span>
+
+<span class="c1"># dataset</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="label-encoding" src="../_images/label-encoding.png" /></p>
+<p>As you can see, the categorical values have been converted into numeric values, and each category has been assigned a unique integer value. Now, let us plot the scatter plot and color the points based on the species.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># plotting the scatter plot based on coloring</span>
+<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;PetalLengthCm&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;PetalWidthCm&quot;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;Species&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span><span class="n">colormap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="colored-scatter-plot" src="../_images/colored-scatter-plot.png" /></p>
+<p>As shown above, the scattered plot with different colors for each category helps to see how each category is distributed.</p>
+</section>
+<section id="bar-plots-in-pandas">
+<h3>Bar plots in Pandas<a class="headerlink" href="#bar-plots-in-pandas" title="Link to this heading"></a></h3>
+<p>A bar plot is a plot that presents categorical data with rectangular bars with lengths proportional to the values that they represent. A bar plot shows comparisons among discrete categories. One axis of the plot shows the specific categories being compared, and the other axis represents a measured value.</p>
+<p>The plot() method in pandas takes an optional parameter ‘kind’ which specifies the type of plot we want. The default value for kind is a line plot, as we’ve seen above. We can change it to any other plot as in this section, we will assign bar charts to it.</p>
+<p>First, we will create a very simple bar plot for the length of the sepals. But as our dataset is large, we will only take 10% of the overall dataset and plot bar charts for it.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># taking 10% of the data randomly</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">)</span>
+
+<span class="c1"># plotting bar charts</span>
+<span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;PetalLengthCm&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="bar-charts-in-pandas" src="../_images/bar-charts-in-pandas.png" /></p>
+<p>The x-axis shows the bars and the y-axis shows the height of each bar. In general, bars are useful to compare categorical values, but because our dataset does not have enough categorical values, we are randomly taking a small portion of the dataset and plotting bar charts.</p>
+<p>We can also plot a bar chart for more than one variable and compare their heights. For example, now we will plot a bar chart of all the input variables.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># plotting bar charts</span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="multiple-bar-charts" src="../_images/multiple-bar-charts.png" /></p>
+<p>As you can see, this time we have bar charts where each bar with different color represents a different input variable.</p>
+<p>Another type of bar chart is the stacked bar chart. It represents the proportional contribution of individual data points compared to the total. The height or length of each bar represents how much each group contributes to the total. For example, let us plot the above plot in the stacked bar chart. By default, the stacked parameter in the bar chart is False, we can plot stacked bar charts by making this parameter True.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># plotting the bar chart</span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="stacked-bar-charts" src="../_images/stacked-bar-charts.png" /></p>
+</section>
+<section id="area-plots-in-pandas">
+<h3>Area plots in Pandas<a class="headerlink" href="#area-plots-in-pandas" title="Link to this heading"></a></h3>
+<p>An area chart is a graph that combines a line chart and a bar chart to show changes in quantities over time. It’s similar to a line graph in that data points are plotted and connected by line segments.</p>
+<p>Let us plot the area chart of the dataset using Pandas. The area() method is used to plot the area plots.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Area plots using Pandas</span>
+<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">area</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="Area-plot" src="../_images/Area-plot.png" /></p>
+<p>As you can see the lines and the area under the graph are filled with color. By default, the area plots are stacked over one another. We can plot them without stacking as well.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Area plots using Pandas</span>
+<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">area</span><span class="p">(</span><span class="n">stacked</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="area-plot-without-stacked" src="../_images/area-plot-without-stacked.png" /></p>
+<p>As shown above, the area plot is not stacked, and the color is transparent so that each graph/area will be visible.</p>
+<p>We can also plot the area chart of only single columns as well by specifying the name of the column.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Area plots using Pandas</span>
+<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">area</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;PetalWidthCm&#39;</span><span class="p">,</span><span class="n">stacked</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="pandas-area-chart" src="../_images/pandas-area-chart.png" /></p>
+</section>
+<section id="box-plots-in-pandas">
+<h3>Box plots in Pandas<a class="headerlink" href="#box-plots-in-pandas" title="Link to this heading"></a></h3>
+<p>A box plot is a graphical rendition of statistical data based on the minimum, first quartile, median, third quartile, and maximum. The term “box plot” comes from the fact that the graph looks like a rectangle with lines extending from the top and bottom. A box plot looks like this:</p>
+<p><img alt="box-plot" src="../_images/box-plot.png" /></p>
+<p>The box plot helps us to find the distribution of the data points. Any data point outside the min and max are considered to be outliers.</p>
+<p>Let us plot the box plot of the width of the petals. The box() method is used in Pandas to plot the box plot.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># plotting the box plot</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;PetalWidthCm&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">box</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output;</p>
+<p><img alt="Box-plot-of-column" src="../_images/Box-plot-of-column.png" /></p>
+<p>As you can see, there are no outliers in the dataset, and the data is skewed as the median line is not in the middle.</p>
+<p>Let us plot the box plots for each of the input values which will help us to compare the distribution of each of the input values.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># plotting the box plot</span>
+<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">box</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="box-plot-of-multiple-columns" src="../_images/box-plot-of-multiple-columns.png" /></p>
+<p>As you can see, there are some outliers in the width of the sepals.</p>
+<p>Another way to plot the box plot in pandas is to use the boxplot() method. Using this method, we can plot box plots for each of the output categories which will help us to understand how each of the categories is distributed.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># plotting box plot by categories</span>
+<span class="n">data</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Species&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="box-plots-by-categories" src="../_images/box-plots-by-categories.png" /></p>
+<p>Similarly, we can also compare the distribution of each of the categories by plotting box plots of the single column only.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># box plot of single column</span>
+<span class="n">data</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;PetalWidthCm&#39;</span><span class="p">],</span> <span class="n">by</span><span class="o">=</span><span class="s1">&#39;Species&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="box-plot-in-pandas" src="../_images/box-plot-in-pandas.png" /></p>
+</section>
+<section id="pie-charts-in-pandas">
+<h3>Pie charts in Pandas<a class="headerlink" href="#pie-charts-in-pandas" title="Link to this heading"></a></h3>
+<p>A pie chart is a graphical representation technique that displays data in a circular-shaped graph. It can be used to show percentages of a whole and represents percentages at a set point in time. Unlike bar graphs and line graphs, pie charts do not show changes over time.</p>
+<p>The pie() method in pandas plots pie charts. Let us again take 10% of the data and plot a pie chart of the length of the sepals.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># taking 10% of the data randomly</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">)</span>
+
+<span class="c1"># plotting bar charts</span>
+<span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;SepalLengthCm&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">pie</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="Pie-chart-in-pandas" src="../_images/Pie-chart-in-pandas.png" /></p>
+<p>Usually, the pie chart is used to compare categorical values in each of the columns.</p>
+<p>To demonstrate this, we will create a random dataset and then will plot different subplots for each of the columns.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing numpy</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1">#creating a DataFrame</span>
+<span class="n">Data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+                   <span class="n">columns</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;First&#39;</span><span class="p">,</span> <span class="s1">&#39;Second&#39;</span><span class="p">,</span> <span class="s1">&#39;Third&#39;</span><span class="p">))</span>
+
+<span class="c1"># plotting subplots of pie chart</span>
+<span class="n">Data</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">subplots</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="pandas-pie-subplots" src="../_images/pandas-pie-subplots.png" /></p>
+</section>
+<section id="density-plots-in-pandas">
+<h3>Density plots in Pandas<a class="headerlink" href="#density-plots-in-pandas" title="Link to this heading"></a></h3>
+<p>A density plot is a representation of the distribution of a numeric variable. It uses a kernel density estimate to show the probability density function of the variable. In other words, a density plot is the continuous and smoothed version of the histogram estimated from the data.</p>
+<p>Let us first plot the density graph of the length of petals. The density() method in pandas is used to plot the density graph.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># density plot of the dataset</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;PetalLengthCm&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">density</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="Visualize data using pandas" src="../_images/density-plot-in-pandas.png" /></p>
+<p>Similarly, we can also plot the density plots of each of the input variables which helps to see the densities of each input value.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># density plot of the dataset</span>
+<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">density</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="density-plot" src="../_images/density-plot.png" /></p>
+<p>As you can see, we now have the density plots for each input value.</p>
+</section>
+<section id="hexbin-plots-in-pandas">
+<h3>Hexbin plots in Pandas<a class="headerlink" href="#hexbin-plots-in-pandas" title="Link to this heading"></a></h3>
+<p>A HexBin plot is also known as a hexagonal bin plot, and it looks like a honeycomb with different hexagons shaded differently. Each shade corresponds to a value intensity, and the hexagon represents a collection of points. Usually, these types of plots are useful for plotting data on the map.</p>
+<p>Let us understand how the hexbin plots work. We assume that we have the following random data.</p>
+<p><img alt="random-dataset" src="../_images/random-dataset.png" /></p>
+<p>Hexabin plot is actually a plot of hexagons over the coordinates. For example, see empty hexagons below:</p>
+<p><img alt="hexongs-only" src="../_images/hexongs-only.png" /></p>
+<p>Now if show the above-scattered plot (dataset) is in the form of hexbin plot, each hexagon will have color intensity based on the number of data points in each. If there are no data points in a hexagon, it will disappear. For example see the sample demonstration below:</p>
+<p><img alt="haxbin-plotting" src="../_images/haxbin-plotting.png" /></p>
+<p>Now the hexagons that will have more data points will have more intense color while the hexagons with no dataset will disappear in the hexbin plots:</p>
+<p><img alt="final-haxbin" src="../_images/final-haxbin.png" /></p>
+<p>In pandas, the hexbin() method is used to plot the hexbin graphs. Let us plot the hexbin graph of the length and width of the petals.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># haxbin plots using pandas</span>
+<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">hexbin</span><span class="p">(</span><span class="s1">&#39;PetalLengthCm&#39;</span><span class="p">,</span> <span class="s1">&#39;PetalWidthCm&#39;</span><span class="p">,</span> <span class="n">gridsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="Hexbin-plots-using-pandas" src="../_images/Hexbin-plots-using-pandas.png" /></p>
+<p>As shown above, we got the hexbin plots where the intensity of the color shows a higher value.</p>
+</section>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading"></a></h2>
+<p>Pandas is a powerful open-source Python module that is used for data analysis and manipulation. However, we can also use Pandas for data visualization as well. In this article, we learned how can use Pandas to visualize the dataset in various plots.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

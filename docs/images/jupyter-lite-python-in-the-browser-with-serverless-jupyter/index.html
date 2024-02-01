@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add Jupyter Notebook to Any Website &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=19645805"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Add Jupyter Notebook to Any Website</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/images/jupyter-lite-python-in-the-browser-with-serverless-jupyter/index.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>JupyterLite is an unofficial project being developed by the core Jupyter developers. It lets you run Python in the browser in a version of Jupyter notebook that works without a server.</p>
+<p>If you follow Python news, you may remember that in the early summer of 2022, there was a lot of buzz around PyScript, another tool that allows you to run Python in the browser. Both these tools are based on Pyodide, which is a port of CPython to WebAssembly.</p>
+<p>Unlike Jupyter Lite, however, PyScript does not come with a built-in interactive environment and appears much rougher and earlier in development. In contrast, even though Jupyter Lite is still “unofficial” and no doubt contains many outstanding issues, we were satisfied enough with our early testing to teach you how to add it to your website. But don’t worry – we’re not making you jump first. We’re adding it here too!</p>
+<section id="add-jupyter-notebook-to-any-website">
+<h1>Add Jupyter Notebook to Any Website<a class="headerlink" href="#add-jupyter-notebook-to-any-website" title="Link to this heading"></a></h1>
+<p>The goals of this section will be to:</p>
+<ol class="arabic simple">
+<li><p>Create a GitHub Pages website based on the JupyterLite Demo.</p></li>
+<li><p>Show you an example of pointing a subdomain from your website to the resulting GitHub Pages site.</p></li>
+</ol>
+<p>The first goal will be straightforward to adapt to any site from which you might want to “host” your JupyterLite pages. The exact details of the second part will depend a lot on which Domain Name System service provider you have for your site, but once you know the basic technique, you should be able to adapt this article to your needs.</p>
+<p>Let’s get started!</p>
+<section id="creating-the-jupyterlite-repository">
+<h2>Creating the JupyterLite Repository<a class="headerlink" href="#creating-the-jupyterlite-repository" title="Link to this heading"></a></h2>
+<p>We begin by creating a repository based on the <a class="reference external" href="https://github.com/jupyterlite/demo">JupyterLite Demo</a>. You’ll notice there’s a “Use This Template” button there to create a repository of your own that’s not based on a fork, as shown in the lower right of the screenshot below.</p>
+<p><img alt="" src="../../_images/image-13-1024x247.png" /></p>
+<p>Clicking that button begins the process of creating a new repository in your account, as shown below:</p>
+<p><img alt="" src="../../_images/image-142.png" /></p>
+<p>An important consideration here is the name of your repository. If you don’t already have a GitHub Pages site associated with your account, I recommend using “YourAccountName.github.io”. This is the default for account-level sites. If you already have an account-level Github pages site, the repository pages site will be deployed to https://account-name.github.io/repository-name.</p>
+<p>In addition to a name, the repository will likely default to being created as Private, but as you can see here I’ve changed it to Public. This is important to do unless you have a paid GitHub account. The reason is that for free accounts, you need a public repository to host public GitHub pages.</p>
+<p>When you’re happy with your settings, go ahead and click the button to create a repository from the template. By the way, my repository is <a class="reference external" href="https://github.com/CodeSolid/python-online">here</a> if you want to visit, say hello, throw me a star, etc.</p>
+<p>Once you have the repository created, click on the settings button (across the top of the repository), then note the left-hand navigation bar, where we’ll make two stops.</p>
+<p><img alt="" src="../../_images/image-182.png" /></p>
+<p>Under the first, the Actions / General Tab, shown selected above, select “Allow all actions and reusable workflows, and make sure under Workflow permissions that “Read and write permissions” is checked. Click save on each section.</p>
+<p>While still on this left-hand navigation bar, click on Pages. Then under Build and Deployment source, Deploy from a branch is probably selected. We want to change that to select “GitHub Actions”.</p>
+<p>To run the action, we need to commit something to the main branch. You can make a minor change to the README.md and commit it to accomplish this. This will take a few minutes to run. If you wish, you can monitor the progress by clicking on the “Actions” item on the top navigation bar of the repository. When it finishes, you should be able to return to Settings, then click on Pages. It may take a few more minutes, but eventually, you should see a message that looks something like this:</p>
+<p><img alt="" src="../../_images/image-191.png" /></p>
+<p>I’m going to change that domain name soon, but as I’m writing this, here’s how it looks when I go there.</p>
+<p><img alt="" src="../../_images/image-20-1024x666.png" /></p>
+<p>You may recognize a look and feel that’s very close to JupyterLab when running on the server, but in this case, the notebooks are running strictly on the client side. (That doesn’t mean you can’t save your work, by the way – we’ll have more on how that works in a future article). There are quite a few choices here like Lua and Wren that I may not want to keep going forward, but it’s fine for now.</p>
+<p>Now that we have the default site up and running, let’s customize it.</p>
+</section>
+</section>
+<section id="serving-jupyterlite-from-a-subdomain-of-your-website">
+<h1>Serving JupyterLite from a Subdomain of Your Website<a class="headerlink" href="#serving-jupyterlite-from-a-subdomain-of-your-website" title="Link to this heading"></a></h1>
+<section id="create-the-subdomain-in-dns">
+<h2>Create the Subdomain in DNS<a class="headerlink" href="#create-the-subdomain-in-dns" title="Link to this heading"></a></h2>
+<p>GitHub has good documentation on how to set up a <a class="reference external" href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#about-custom-domain-configuration">custom domain</a> for a GitHub Pages site. I use AWS’s Route53 for DNS, so the steps in my case boiled down to logging into the AWS console and navigating to Route53. I then added a record with the following configuration:</p>
+<ul class="simple">
+<li><p>Record Type: CNAME</p></li>
+<li><p>Record Name: jupyter (this ends up resolving to jupyter.codesolid.com).</p></li>
+<li><p>Value: codesolid.github.io</p></li>
+</ul>
+<p>Note that the value for the record (the target of the CNAME) is the account or organization-level GitHub pages domain, github.codesolid.io, <em>not</em> the repository-level site, which in this case would be codesolid.github.io/python-online. I was concerned that this might not work because that root domain already has a separate GitHub Pages site it’s serving, but it resolved fine on GitHub’s side.</p>
+</section>
+<section id="configuring-your-subdomain-in-github-pages">
+<h2>Configuring Your Subdomain in GitHub Pages<a class="headerlink" href="#configuring-your-subdomain-in-github-pages" title="Link to this heading"></a></h2>
+<p>The next step is to go back to your GitHub repository. In Settings / Pages, enter the full domain from which you want to serve your Jupyter Lite site. As we saw when setting the CNAME, the full domain resolves to jupyter.codesolid.com in my case.</p>
+<p>It will look something like this, but using your domain name of course:</p>
+<p><img alt="" src="../../_images/image-22-1024x297.png" /></p>
+<p>When working with DNS, remember that it takes time for DNS changes to propagate. How much time? I don’t know in your case – many authors recommend waiting up to a day, but I’ve often found it will generally happen within about a half hour or so. You’re likely to see the DNS check fail several times during that time. If you’re sure you’ve configured everything correctly, you can click the Recheck button on GitHub periodically. At some point during this process, GitHub will also pause for a bit to generate an SSL/TLS certificate. Once it does, you should select Enforce DNS, and your GitHub settings page should look like this:</p>
+<p><img alt="" src="../../_images/image-242.png" /></p>
+<p>So at this point, I’m excited to announce that CodeSolid supports doing Python online at <a class="reference external" href="https://jupyter.codesolid.com">https://jupyter.codesolid.com</a>.</p>
+</section>
+</section>
+<section id="making-changes-and-basic-customizations">
+<h1>Making Changes and Basic Customizations<a class="headerlink" href="#making-changes-and-basic-customizations" title="Link to this heading"></a></h1>
+<p>JupyterLite operates at two levels. On the one hand, there are the pages served, which is what your user sees when they click on the JupyterLite site. On the other hand, your users can also create new files and make changes to the default notebooks and other files. When your users make changes, they’re saved locally in their browser, typically in IndexDB.</p>
+<p>If you’re familiar with GitHub, making changes to the default contents is simple. Add your notebook files to the content directory of the repository, commit them to the main branch, and do a push. GitHub will run a build, and they’ll be available on your site in a couple of minutes. The repository contains a requirements.txt file you can use to set up a virtual environment. Because one of the dependencies is JupyterLab, you can run that locally to create and edit your work in a compatible environment.</p>
+<section id="building-and-serving-jupyterlite-notebooks-locally">
+<h2>Building and Serving JupyterLite Notebooks Locally<a class="headerlink" href="#building-and-serving-jupyterlite-notebooks-locally" title="Link to this heading"></a></h2>
+<p>Of course, you probably also want to test out your Notebooks in JupyterLite too, which is easy to do locally.</p>
+<p>I encountered a few build issues at first, so I decided to use the source and see how GitHub actions are doing it. If you’re curious as to the whole process, you can look at the file, .github/workflows/deploy.yml, but to save you a trip, here’s the relevant line:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter<span class="w"> </span>lite<span class="w"> </span>build<span class="w"> </span>--contents<span class="w"> </span>content<span class="w"> </span>--output-dir<span class="w"> </span>dist
+</pre></div>
+</div>
+<p>That done, serve your site as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">dist</span>
+<span class="n">jupyter</span> <span class="n">lite</span> <span class="n">serve</span>
+</pre></div>
+</div>
+<p>Your site will be available at http://127.0.0.1:8000.</p>
+</section>
+<section id="adding-a-default-page">
+<h2>Adding a Default Page<a class="headerlink" href="#adding-a-default-page" title="Link to this heading"></a></h2>
+<p>I wanted to be able to serve a page prominently that helps visitors who might not be familiar with Jupyter Lab use the platform, but I was unsuccessful in creating a “default page,” per se. Finally, I realized that I didn’t need one but could accomplish the same thing with a link. For this purpose, the link format is as follows: https://subdomain.example.com/lab/index.html?path=yourpage.ipynb. By doing this, I was able to begin building out a link I could use, for example from a top-level menu: <a class="reference external" href="https://jupyter.codesolid.com/lab/index.html?path=index.ipynb" title="Python Online">Python Online</a> (https://jupyter.codesolid.com/lab/index.html?path=index.ipynb).</p>
+<p><img alt="" src="../../_images/image-262.png" /></p>
+</section>
+</section>
+<section id="acknowledgments">
+<h1>Acknowledgments<a class="headerlink" href="#acknowledgments" title="Link to this heading"></a></h1>
+<p>Portions of this tutorial were based on the JupyterLite <a class="reference external" href="https://jupyterlite.readthedocs.io/en/latest/quickstart/deploy.html">documentation</a> for deploying to GitHub pages. What I’ve tried to do here is make some of the steps a bit more explicit and also add more detail around some initial domain configuration and site integration.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

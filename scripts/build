@@ -1,0 +1,3 @@
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+WORKSPACE=$(realpath "$SCRIPT_DIR"/..)
+sphinx-build -b dirhtml "${WORKSPACE}/src/" "${WORKSPACE}/docs"

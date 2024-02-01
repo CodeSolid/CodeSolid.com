@@ -1,0 +1,78 @@
+Traceback (most recent call last):
+  File "/Users/johnlockwood/source/JohnLockwood/johnlockwood.github.io/.venv/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/johnlockwood/source/JohnLockwood/johnlockwood.github.io/.venv/lib/python3.11/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/johnlockwood/source/JohnLockwood/johnlockwood.github.io/.venv/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 173, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/base_events.py", line 653, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/johnlockwood/source/JohnLockwood/johnlockwood.github.io/.venv/lib/python3.11/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/Users/johnlockwood/source/JohnLockwood/johnlockwood.github.io/.venv/lib/python3.11/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/johnlockwood/source/JohnLockwood/johnlockwood.github.io/.venv/lib/python3.11/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+from sympy import log, init_printing, symbols, Function, N
+init_printing()
+# x = symbols('x')
+f = Function('log(1/8, 2) = x')
+
+print(f)
+print(N(f))
+------------------
+
+----- stdout -----
+log(1/8, 2) = x
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mKeyError[0m                                  Traceback (most recent call last)
+File [0;32m~/source/JohnLockwood/johnlockwood.github.io/.venv/lib/python3.11/site-packages/sympy/core/evalf.py:1481[0m, in [0;36mevalf[0;34m(x, prec, options)[0m
+[1;32m   1480[0m [38;5;28;01mtry[39;00m:
+[0;32m-> 1481[0m     rf [38;5;241m=[39m [43mevalf_table[49m[43m[[49m[38;5;28;43mtype[39;49m[43m([49m[43mx[49m[43m)[49m[43m][49m
+[1;32m   1482[0m     r [38;5;241m=[39m rf(x, prec, options)
+
+[0;31mKeyError[0m: <class 'int'>
+
+During handling of the above exception, another exception occurred:
+
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+Cell [0;32mIn[1], line 7[0m
+[1;32m      4[0m f [38;5;241m=[39m Function([38;5;124m'[39m[38;5;124mlog(1/8, 2) = x[39m[38;5;124m'[39m)
+[1;32m      6[0m [38;5;28mprint[39m(f)
+[0;32m----> 7[0m [38;5;28mprint[39m([43mN[49m[43m([49m[43mf[49m[43m)[49m)
+
+File [0;32m~/source/JohnLockwood/johnlockwood.github.io/.venv/lib/python3.11/site-packages/sympy/core/evalf.py:1749[0m, in [0;36mN[0;34m(x, n, **options)[0m
+[1;32m   1727[0m [38;5;250m[39m[38;5;124mr[39m[38;5;124;03m"""[39;00m
+[1;32m   1728[0m [38;5;124;03mCalls x.evalf(n, \*\*options).[39;00m
+[1;32m   1729[0m 
+[0;32m   (...)[0m
+[1;32m   1745[0m 
+[1;32m   1746[0m [38;5;124;03m"""[39;00m
+[1;32m   1747[0m [38;5;66;03m# by using rational=True, any evaluation of a string[39;00m
+[1;32m   1748[0m [38;5;66;03m# will be done using exact values for the Floats[39;00m
+[0;32m-> 1749[0m [38;5;28;01mreturn[39;00m [43msympify[49m[43m([49m[43mx[49m[43m,[49m[43m [49m[43mrational[49m[38;5;241;43m=[39;49m[38;5;28;43;01mTrue[39;49;00m[43m)[49m[38;5;241;43m.[39;49m[43mevalf[49m[43m([49m[43mn[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43moptions[49m[43m)[49m
+
+File [0;32m~/source/JohnLockwood/johnlockwood.github.io/.venv/lib/python3.11/site-packages/sympy/core/evalf.py:1647[0m, in [0;36mEvalfMixin.evalf[0;34m(self, n, subs, maxn, chop, strict, quad, verbose)[0m
+[1;32m   1645[0m     options[[38;5;124m'[39m[38;5;124mquad[39m[38;5;124m'[39m] [38;5;241m=[39m quad
+[1;32m   1646[0m [38;5;28;01mtry[39;00m:
+[0;32m-> 1647[0m     result [38;5;241m=[39m [43mevalf[49m[43m([49m[38;5;28;43mself[39;49m[43m,[49m[43m [49m[43mprec[49m[43m [49m[38;5;241;43m+[39;49m[43m [49m[38;5;241;43m4[39;49m[43m,[49m[43m [49m[43moptions[49m[43m)[49m
+[1;32m   1648[0m [38;5;28;01mexcept[39;00m [38;5;167;01mNotImplementedError[39;00m:
+[1;32m   1649[0m     [38;5;66;03m# Fall back to the ordinary evalf[39;00m
+[1;32m   1650[0m     [38;5;28;01mif[39;00m [38;5;28mhasattr[39m([38;5;28mself[39m, [38;5;124m'[39m[38;5;124msubs[39m[38;5;124m'[39m) [38;5;129;01mand[39;00m subs [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:  [38;5;66;03m# issue 20291[39;00m
+
+File [0;32m~/source/JohnLockwood/johnlockwood.github.io/.venv/lib/python3.11/site-packages/sympy/core/evalf.py:1487[0m, in [0;36mevalf[0;34m(x, prec, options)[0m
+[1;32m   1485[0m [38;5;28;01mif[39;00m [38;5;124m'[39m[38;5;124msubs[39m[38;5;124m'[39m [38;5;129;01min[39;00m options:
+[1;32m   1486[0m     x [38;5;241m=[39m x[38;5;241m.[39msubs(evalf_subs(prec, options[[38;5;124m'[39m[38;5;124msubs[39m[38;5;124m'[39m]))
+[0;32m-> 1487[0m xe [38;5;241m=[39m [43mx[49m[38;5;241;43m.[39;49m[43m_eval_evalf[49m(prec)
+[1;32m   1488[0m [38;5;28;01mif[39;00m xe [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[1;32m   1489[0m     [38;5;28;01mraise[39;00m [38;5;167;01mNotImplementedError[39;00m
+
+[0;31mAttributeError[0m: 'int' object has no attribute '_eval_evalf'
+

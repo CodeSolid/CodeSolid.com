@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python Chemistry: SymPy and ChemPy &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=19645805"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Python Chemistry:  SymPy and ChemPy</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/python-chemistry.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="python-chemistry-sympy-and-chempy">
+<h1>Python Chemistry:  SymPy and ChemPy<a class="headerlink" href="#python-chemistry-sympy-and-chempy" title="Link to this heading"></a></h1>
+<p>Chemists are strongly addicted to Python. And that’s a good thing!</p>
+<p>The chemistry profession has wholeheartedly embraced the Python language for many applications. From balancing multi-component equations to advances in quantum mechanics, chemists have taken advantage of its utility in numerous aspects of teaching, research, and production. Part of this growth is related to the focus on STEM in many areas of our society while another part is the various Python-based packages and systems that facilitate its ease of use.</p>
+<p>This article will look at some of these packages that can make life easier for chemists and other scientists. The first of these is SymPy, the fascinating implementation of computer algebra. It has applications in many fields including chemistry, The second is ChemPy, a time-saving toolbox created using SymPy and targeted for applications in chemistry. Both are characterized by a focus on equations and provide many methods to apply and manipulate those equations.</p>
+<section id="using-sympy-for-chemistry-in-python">
+<h2>Using SymPy for Chemistry in Python<a class="headerlink" href="#using-sympy-for-chemistry-in-python" title="Link to this heading"></a></h2>
+<p>A companion article provided a first look at SymPy (<a class="reference external" href="https://codesolid.com/sympy-solving-math-equations-in-python/">SymPy: Solving Math Equations in Python and Jupyter</a>). This article will provide a more focused look into some possible uses of interest to those in chemistry and allied professions. The idea behind SymPy is that it is possible to explore many aspects of mathematics using symbols related to the concept being studied. These symbols are then operated on with well-known techniques to provide not just solutions but also a deeper understanding of the meaning behind the solutions.</p>
+<p>Using a symbolic computation tool for chemistry may seem strange initially, but the idea is no stranger to chemists as much of the science is based on symbols! Consider these two equations:</p>
+<p><code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">mx</span> <span class="pre">+</span> <span class="pre">b</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">CH4</span> <span class="pre">=</span> <span class="pre">C</span> <span class="pre">+</span> <span class="pre">4H</span></code></p>
+<p>Both have meaning in context, and both are symbolic representations of important concepts. I specifically used “=” above to show how this symbol can have different meanings depending on where and how it is used. In a chemistry sense, “=” can mean “is composed of” or “can be transformed to be.” Of course, mathematicians have reserved the “=” for the algebra system, but Sympy allows us to easily manipulate both.</p>
+<p>Chemistry is full of equations, and many are like the equation above in that they represent a change of one or more molecules to a different mix of molecules. A simple example is the combustion of methane to carbon dioxide and water:</p>
+<p><code class="docutils literal notranslate"><span class="pre">CH4</span> <span class="pre">+</span> <span class="pre">O2</span> <span class="pre">-&gt;</span> <span class="pre">CO2</span> <span class="pre">+</span> <span class="pre">H2O</span></code></p>
+<p>To write this equation properly, the atoms on each side must be identical in quantity (“Matter is neither created nor destroyed in a chemical reaction.” - Antoine Lavoisier). Chemists are familiar with the fun challenge of balancing equations. This can get rather complicated, but SymPy helps! First, we assign some symbols and then explore how to express the chemical equation in “SymPy terms.”</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># assumes the Sympy package has been installed, for example using pip</span>
+<span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>    
+<span class="n">sp</span><span class="o">.</span><span class="n">init_session</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The process using SymPy is not totally intuitive to a chemist but is exactly correct mathematically. A balanced equation requires that reactants and products must each have the same number of atoms of each type. The actual process is quite easy.</p>
+<p>First, we create symbols to represent the coefficients, then show SymPy which atoms should be equal. Second, we create equations that denote the numbers of each type of atom. These equations are set up so that the coefficients add to zero. The coefficient (on carbon for example) will be a negative number if it is a reactant and a positive number if it is a product. The sum of the coefficients is always zero.</p>
+<p>In the following code, we set up the products, setting each to zero:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sp</span><span class="o">.</span><span class="n">var</span><span class="p">([</span><span class="s1">&#39;vCH4&#39;</span><span class="p">,</span> <span class="s1">&#39;vO2&#39;</span><span class="p">,</span> <span class="s1">&#39;vCO2&#39;</span><span class="p">,</span> <span class="s1">&#39;vH2O&#39;</span><span class="p">])</span>   <span class="c1"># variables which hold the coefficients</span>
+<span class="n">atomBalances</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">vCH4</span> <span class="o">+</span> <span class="n">vCO2</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>                 <span class="c1"># Carbon</span>
+    <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">vCH4</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">vH2O</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>             <span class="c1"># Hydrogen</span>
+    <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">vO2</span> <span class="o">+</span> <span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">vCO2</span> <span class="o">+</span> <span class="n">vH2O</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>       <span class="c1"># Oxygen</span>
+<span class="p">]</span>
+<span class="k">for</span> <span class="n">eqn</span> <span class="ow">in</span> <span class="n">atomBalances</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">eqn</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Eq<span class="o">(</span>vCH4<span class="w"> </span>+<span class="w"> </span>vCO2,<span class="w"> </span><span class="m">0</span><span class="o">)</span>
+Eq<span class="o">(</span><span class="m">4</span>*vCH4<span class="w"> </span>+<span class="w"> </span><span class="m">2</span>*vH2O,<span class="w"> </span><span class="m">0</span><span class="o">)</span>
+Eq<span class="o">(</span><span class="m">2</span>*vCO2<span class="w"> </span>+<span class="w"> </span>vH2O<span class="w"> </span>+<span class="w"> </span><span class="m">2</span>*vO2,<span class="w"> </span><span class="m">0</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>A final step is necessary because there is an infinite number of exactly correct solutions. The term from linear algebra is the basis vector for the system. We tell SymPy to use -1 on CH4 (methane) because it is a reactant. Once this is available; the set of equations can be easily solved</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">basis</span> <span class="o">=</span> <span class="p">[</span><span class="n">sympy</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">vCH4</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span> 
+<span class="c1">#a different basis just multiplies all the coefficients. Same result if a +1 basis is supplied for CO2</span>
+<span class="c1">#basis = [sympy.Eq(vCO2,1)]</span>
+<span class="k">for</span> <span class="n">eqn</span> <span class="ow">in</span> <span class="n">atomBalances</span> <span class="o">+</span> <span class="n">basis</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">eqn</span><span class="p">)</span>
+<span class="n">sympy</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">atomBalances</span> <span class="o">+</span> <span class="n">basis</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="" src="../_images/image-810.png" /></p>
+<p>Here is a complicated equation illustrating the need for an approach to add some chemistry knowledge to Sympy.</p>
+<p>Ca(OH)2 + H3(PO)4 -&gt; Ca3(PO4)2 + H2O</p>
+<p>It is solved in these steps:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sp</span><span class="o">.</span><span class="n">var</span><span class="p">([</span><span class="s1">&#39;vCaOHOH&#39;</span><span class="p">,</span> <span class="s1">&#39;vCa3PO4PO4&#39;</span><span class="p">,</span> <span class="s1">&#39;vH3PO4&#39;</span><span class="p">])</span>
+<span class="n">atomBalances</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">vCaOHOH</span>   <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">vCa3PO4PO4</span> <span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="p">,</span>                     <span class="c1"># Calcium</span>
+    <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">vCaOHOH</span> <span class="o">+</span> <span class="mi">8</span><span class="o">*</span><span class="n">vCa3PO4PO4</span> <span class="o">+</span><span class="mi">4</span><span class="o">*</span><span class="n">vH3PO4</span> <span class="o">+</span> <span class="n">vH2O</span> <span class="p">,</span> <span class="mi">0</span><span class="p">),</span>    <span class="c1"># Oxygen</span>
+    <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">vCaOHOH</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">vH2O</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">vH3PO4</span> <span class="p">,</span> <span class="mi">0</span><span class="p">),</span>                <span class="c1"># Hydrogen</span>
+    <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">vH3PO4</span>    <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">vCa3PO4PO4</span><span class="p">,</span><span class="mi">0</span> <span class="p">)</span>                       <span class="c1"># Phosphorus</span>
+<span class="p">]</span> 
+<span class="k">for</span> <span class="n">eqn</span> <span class="ow">in</span> <span class="n">atomBalances</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">eqn</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Eq<span class="o">(</span><span class="m">3</span>*vCa3PO4PO4<span class="w"> </span>+<span class="w"> </span>vCaOHOH,<span class="w"> </span><span class="m">0</span><span class="o">)</span>
+Eq<span class="o">(</span><span class="m">8</span>*vCa3PO4PO4<span class="w"> </span>+<span class="w"> </span><span class="m">2</span>*vCaOHOH<span class="w"> </span>+<span class="w"> </span>vH2O<span class="w"> </span>+<span class="w"> </span><span class="m">4</span>*vH3PO4,<span class="w"> </span><span class="m">0</span><span class="o">)</span>
+Eq<span class="o">(</span><span class="m">2</span>*vCaOHOH<span class="w"> </span>+<span class="w"> </span><span class="m">2</span>*vH2O<span class="w"> </span>+<span class="w"> </span><span class="m">3</span>*vH3PO4,<span class="w"> </span><span class="m">0</span><span class="o">)</span>
+Eq<span class="o">(</span><span class="m">2</span>*vCa3PO4PO4<span class="w"> </span>+<span class="w"> </span>vH3PO4,<span class="w"> </span><span class="m">0</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>Some simple variations are fine:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># basis = [sympy.Eq(vCaOHOH,-1)]  # correct fractional coefficients</span>
+<span class="n">basis</span> <span class="o">=</span> <span class="p">[</span><span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">vCaOHOH</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">)]</span>       <span class="c1"># correct integer coefficients</span>
+<span class="k">for</span> <span class="n">eqn</span> <span class="ow">in</span> <span class="n">atomBalances</span> <span class="o">+</span> <span class="n">basis</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">eqn</span><span class="p">)</span>
+<span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">atomBalances</span> <span class="o">+</span> <span class="n">basis</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="" src="../_images/image-97.png" /></p>
+<p>We will revisit balancing equations in a later section of this post. Following this equation trail, we will discuss some that you can discuss at the next barbecue. The propane grill appears, and immediately someone asks “What is the pressure in that thing?” To answer let’s study a fairly famous equation. That is the equation for an ideal gas, <code class="docutils literal notranslate"><span class="pre">PV=nRT</span></code>.</p>
+<p>Anyone who recognizes the equation for an ideal gas also realizes that 30 minutes after they were introduced to it, they were also taught would be useless in the real world! This annoying condition was corrected over many years by clever chemists introducing many ‘corrections’ to this equation. These corrections were cleverly designed to exasperate generations of chemists and chemical engineers. Of the many, let’s look at the Van Der Waals Equation of state.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Preliminary symbols, constants and equations</span>
+<span class="c1"># Note that Sympy can rearrange equations for you via solve</span>
+<span class="n">p</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">T</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;p,V,T&quot;</span><span class="p">,</span>   <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>                 <span class="c1"># variables with optional constraints</span>
+<span class="n">R</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;R, a, b&quot;</span><span class="p">,</span> <span class="n">posiptive</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">constant</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># constants with optional constraints</span>
+<span class="n">ideal_p</span> <span class="o">=</span> <span class="n">n</span><span class="o">*</span><span class="n">R</span><span class="o">*</span><span class="n">T</span><span class="o">/</span><span class="n">V</span>
+<span class="n">vdw_eos</span><span class="o">=</span><span class="n">R</span><span class="o">*</span><span class="n">T</span><span class="o">/</span><span class="p">(</span><span class="n">V</span><span class="o">-</span><span class="n">b</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="n">a</span><span class="o">/</span><span class="n">V</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>                                            <span class="c1"># Van der Waals Equation Of State</span>
+
+<span class="c1"># See how equations can be rearranged</span>
+<span class="n">van_der_walls_solved_for_volume</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">vdw_eos</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span>
+<span class="n">van_der_walls_solved_for_temparature</span> <span class="o">=</span> <span class="n">solve</span> <span class="p">(</span><span class="n">vdw_eos</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">van_der_walls_solved_for_volume</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">van_der_walls_solved_for_temparature</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="" src="../_images/image-108.png" /></p>
+<p>As shown above, Sympy’s ability to rearrange equations as needed is a great help and can be used in any setting through the ‘solve’ function.</p>
+<p>The van Der Waals equation can be displayed as a graph of pressure versus volume, and for a given temperature it is called an isotherm. Of interest are the conditions of pressure, volume, and temperature that form a liquid state. Propane, butane, and liquified natural gas(LNG) represent materials that have been widely studied. A key feature of an isotherm is that the critical pressure, volume, and temperature can be found from the equation of the state curve. It’s common to use ‘V’ to represent the molar volume (V/n), and these equations will use this convention.</p>
+<p>Instead of guessing from a plot, however, we can calculate the critical parameters with help from SymPy. We’ll all recall from calculus that a minimum occurs when the first derivative is zero. The critical point is defined where the second derivative is also zero. Instead of reviewing calculus for hours, let Sympy do the work.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dp</span><span class="o">=</span><span class="n">diff</span><span class="p">(</span><span class="n">vdw_eos</span><span class="p">,</span><span class="n">V</span><span class="p">)</span>                            <span class="c1">#first derivative from the equation above</span>
+<span class="n">ddp</span><span class="o">=</span><span class="n">diff</span><span class="p">(</span><span class="n">vdw_eos</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>                       <span class="c1">#second derivative#</span>
+<span class="n">display</span> <span class="p">(</span><span class="n">dp</span><span class="p">,</span> <span class="n">ddp</span><span class="p">)</span>                                <span class="c1">#take a look</span>
+<span class="n">pressure_eq</span><span class="o">=</span><span class="n">Eq</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">vdw_eos</span><span class="p">)</span>            <span class="c1">#solve the equation for p</span>
+<span class="n">dp_eq</span><span class="o">=</span><span class="n">Eq</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">dp</span><span class="p">)</span>                                 <span class="c1">#set the derivatives to zero</span>
+<span class="n">ddp_eq</span><span class="o">=</span><span class="n">Eq</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">ddp</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">pressure_eq</span><span class="p">,</span><span class="n">dp_eq</span><span class="p">,</span><span class="n">ddp_eq</span><span class="p">)</span>  <span class="c1">#see what they look like</span>
+<span class="c1">#the critical point will have three values related to pressure, volume and temperature</span>
+<span class="c1">#some new symbols for this</span>
+<span class="n">pc</span><span class="p">,</span><span class="n">Vc</span><span class="p">,</span><span class="n">Tc</span><span class="o">=</span><span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;p_c, V_c, T_c &quot;</span><span class="p">)</span>
+<span class="n">critpoint</span><span class="p">,</span><span class="o">=</span><span class="n">solve</span><span class="p">([</span><span class="n">pressure_eq</span><span class="p">,</span><span class="n">dp_eq</span><span class="p">,</span><span class="n">ddp_eq</span><span class="p">],[</span><span class="n">p</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">T</span><span class="p">])</span>  <span class="c1">#the equation has three roots</span>
+<span class="n">pcr</span><span class="p">,</span><span class="n">Vcr</span><span class="p">,</span><span class="n">Tcr</span><span class="o">=</span><span class="p">[</span><span class="n">critpoint</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">critpoint</span><span class="p">))]</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Eq</span><span class="p">(</span><span class="n">pc</span><span class="p">,</span><span class="n">pcr</span><span class="p">),</span> <span class="n">Eq</span><span class="p">(</span><span class="n">Vc</span><span class="p">,</span><span class="n">Vcr</span><span class="p">),</span> <span class="n">Eq</span><span class="p">(</span><span class="n">Tc</span><span class="p">,</span><span class="n">Tcr</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The code above displays three equations, one for each variable This will provide three equations, one for each variable (pressure, volume, and temperature).</p>
+<p><img alt="" src="../_images/image-1114.png" /></p>
+<p>Now that we have a solution, let’s see how to provide some numbers. Sympy has several methods to convert the symbolic equation into a form that gives a numeric result. One of these, the <code class="docutils literal notranslate"><span class="pre">subs</span></code> method, allows for substitution into an equation using values for one or more variables. For example, we can substitute the value 8.314 for the constant ‘R’ or make other substitutions.</p>
+<p>(A warning about units: the actual value for any equations of state parameters is highly dependent on the unit system. The literature in this area is inconsistent in using the SI standard – International System of Units! SymPy does have provisions to specify units that should be used for critical applications.)</p>
+<p>Here’s an example of how we might substitute variables:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">vdw_eos</span><span class="o">.</span><span class="n">subs</span> <span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="mf">8.314</span><span class="p">)</span>
+<span class="n">vdw_eos</span><span class="o">.</span><span class="n">subs</span> <span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">vdw_eos</span><span class="o">.</span><span class="n">subs</span> <span class="p">({</span><span class="n">R</span><span class="p">:</span> <span class="mf">8.314</span><span class="p">,</span> <span class="n">V</span><span class="p">:</span><span class="mi">100</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Another approach is to convert the equation into its numeric form using the <code class="docutils literal notranslate"><span class="pre">lambdify</span></code> method then call the new expression with the values of interest.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numeric_pressure</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">lambdify</span><span class="p">([</span><span class="n">R</span><span class="p">,</span><span class="n">T</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">],</span> <span class="n">vdw_eos</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span> <span class="n">numeric_pressure</span><span class="p">(</span><span class="mf">8.314</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span> <span class="mf">4.225</span> <span class="o">/</span> <span class="mf">1.e6</span><span class="p">,</span>  <span class="mf">0.03707</span> <span class="o">/</span> <span class="mf">1.e3</span><span class="p">)</span> <span class="p">)</span>
+<span class="c1"># prints 24.942009245580326</span>
+</pre></div>
+</div>
+<p>The above will be a good starting point if you love thermodynamics but won’t easily answer the barbecue question! Wikipedia tells us the answer that the tank is about 10 bar.</p>
+<p>In order to properly finish this topic, the sections below will reiterate and illustrate the steps needed to easily transform the symbolic equation to one that can deliver numeric results. A nice way to illustrate this will be a colorized graph of the equation with some real-world data.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">z</span><span class="o">=</span><span class="n">vdw_eos</span><span class="o">.</span><span class="n">subs</span> <span class="p">({</span><span class="n">R</span><span class="p">:</span> <span class="mf">8.314</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span><span class="mf">.36616</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span><span class="mf">4.2925e-5</span> <span class="p">})</span>
+<span class="c1"># display(z)                              # Note it still contains symbols</span>
+<span class="n">press_z</span><span class="o">=</span><span class="n">lambdify</span><span class="p">([</span><span class="n">T</span><span class="p">,</span> <span class="n">V</span><span class="p">],</span> <span class="n">z</span><span class="p">)</span>               <span class="c1"># press_z is now a Python callable</span>
+
+<span class="c1"># Optionally show data for carbon dioxide</span>
+<span class="c1"># print(press_z (223.15, 6e-5) )  #T=223.15; V=6e-5  -&gt;returns 6943008.947454035</span>
+
+<span class="c1"># generate the data array to be plotted</span>
+<span class="c1"># set the temperature range</span>
+<span class="n">T1</span><span class="p">,</span> <span class="n">T2</span> <span class="o">=</span> <span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mi">120</span>                         <span class="c1"># Start and end temperatures, °C </span>
+<span class="n">T_step</span> <span class="o">=</span> <span class="mi">20</span>                               <span class="c1"># Step size, °C</span>
+<span class="n">myT</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">T1</span><span class="o">+</span><span class="mf">273.15</span><span class="p">,</span><span class="n">T2</span><span class="o">+</span><span class="mf">273.15</span><span class="p">,</span><span class="n">T_step</span><span class="p">)</span> 
+
+<span class="c1"># set the volume range</span>
+<span class="n">V1</span><span class="p">,</span> <span class="n">V2</span> <span class="o">=</span> <span class="mf">0.00006</span><span class="p">,</span> <span class="mf">0.001</span>                   <span class="c1"># Start and end molar volume, m3</span>
+<span class="n">V_step</span> <span class="o">=</span> <span class="mf">0.000001</span>                         <span class="c1"># Step size, m3</span>
+<span class="n">myV</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">V1</span><span class="p">,</span><span class="n">V2</span><span class="p">,</span><span class="n">V_step</span><span class="p">)</span> 
+
+<span class="n">myP</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">myT</span><span class="p">),</span><span class="nb">len</span><span class="p">(</span><span class="n">myV</span><span class="p">)))</span>        <span class="c1">#array to hold the results</span>
+
+<span class="c1">#do the calculations</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">myT</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">myV</span><span class="p">)):</span>
+        <span class="n">myP</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">press_z</span><span class="p">(</span><span class="n">myT</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">myV</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">shape</span><span class="p">(</span><span class="n">myP</span><span class="p">))</span>                        <span class="c1"># Show size of resulting data</span>
+
+<span class="c1"># Outputs:  (9, 940)</span>
+</pre></div>
+</div>
+<p>At this point we’ve run the data for the range of temperature and volume we’re interested in. Next, we’ll plot the data.</p>
+<p>The code for the plot does not use the SymPy plot function but rather the matplotlib backend. The graphing routine was edited from a <a class="reference external" href="https://medium.com/&#64;pukumarathe/van-der-waals-equation-of-state-in-python-6e3710190fb0">Medium article</a> on the Van der Walls equation of state.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">myT</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">)</span>
+<span class="n">norm</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">vmin</span><span class="o">=</span><span class="n">c</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">vmax</span><span class="o">=</span><span class="n">c</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">ScalarMappable</span><span class="p">(</span><span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">mpl</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">jet</span><span class="p">)</span>
+<span class="n">cmap</span><span class="o">.</span><span class="n">set_array</span><span class="p">([])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">yi</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">myP</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">myV</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span> <span class="n">yi</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">cmap</span><span class="o">.</span><span class="n">to_rgba</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;van der Waals Equation of State&quot;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Volume $(L)$&quot;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Pressure $(bar)$&quot;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">)</span>    
+<span class="c1">#visualize temperature bar</span>
+<span class="n">cbar</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cmap</span><span class="p">,</span> <span class="n">ticks</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">())</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">set_ticks</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">set_ticklabels</span><span class="p">(</span><span class="n">myT</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([</span><span class="s2">&quot;</span><span class="si">{:.0f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot; &quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">myT</span><span class="p">])</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature ($K$)&#39;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If all goes well, it should look like this:</p>
+<p><img alt="" src="../_images/image-1211.png" /></p>
+</section>
+<section id="introducing-chempy">
+<h2>Introducing ChemPy<a class="headerlink" href="#introducing-chempy" title="Link to this heading"></a></h2>
+<p>As we’ve seen, SymPy is a useful tool for many areas in chemistry, Now let’s explore a package that takes advantage of the power of SymPy but adds the ‘language’ of chemistry. A current favorite is ChemPy, available as a package or on GitHub. Installation on Macs and Linux is straightforward using pip, but for Windows, you will need to load each required package by hand. Some required packages related to the Sundials solvers may not load but are not needed for this code.</p>
+<p>We’ll assume ChemPy has been installed and illustrate some code demonstrating the ‘chemistry awareness of the package. The context is in balancing equations, but there is more to it.</p>
+<p>Of interest is the use of Python dictionaries and how one should denote the left-hand side and right-hand side (lhs and rhs) of the equation to be balanced.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">chempy</span> <span class="kn">import</span> <span class="n">balance_stoichiometry</span>  
+<span class="n">reactants</span><span class="p">,</span> <span class="n">products</span> <span class="o">=</span> <span class="n">balance_stoichiometry</span><span class="p">(</span> <span class="p">{</span><span class="s1">&#39;NH4ClO4&#39;</span><span class="p">,</span> <span class="s1">&#39;Al&#39;</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;Al2O3&#39;</span><span class="p">,</span> <span class="s1">&#39;HCl&#39;</span><span class="p">,</span> <span class="s1">&#39;H2O&#39;</span><span class="p">,</span> <span class="s1">&#39;N2&#39;</span> <span class="p">}</span> <span class="p">)</span>
+<span class="c1"># print(dict(reactants))           # leads to  {&#39;Al&#39;: 10, &#39;NH4ClO4&#39;: 6}</span>
+<span class="c1"># print(dict(products))            # leads to {&#39;Al2O3&#39;: 5, &#39;H2O&#39;: 9, &#39;HCl&#39;: 6, &#39;N2&#39;: 3}</span>
+<span class="kn">from</span> <span class="nn">chempy</span> <span class="kn">import</span> <span class="n">mass_fractions</span>
+<span class="k">for</span> <span class="n">fractions</span> <span class="ow">in</span> <span class="nb">map</span><span class="p">(</span><span class="n">mass_fractions</span><span class="p">,</span> <span class="p">[</span><span class="n">reactants</span><span class="p">,</span> <span class="n">products</span><span class="p">]):</span>
+    <span class="nb">print</span><span class="p">({</span><span class="n">k</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">{0:.3g}</span><span class="s1"> wt%&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">v</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">fractions</span><span class="o">.</span><span class="n">items</span><span class="p">()})</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">chempy</span> <span class="kn">import</span> <span class="n">balance_stoichiometry</span>  
+<span class="n">reactants</span><span class="p">,</span> <span class="n">products</span> <span class="o">=</span> <span class="n">balance_stoichiometry</span><span class="p">(</span> <span class="p">{</span><span class="s1">&#39;NH4ClO4&#39;</span><span class="p">,</span> <span class="s1">&#39;Al&#39;</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;Al2O3&#39;</span><span class="p">,</span> <span class="s1">&#39;HCl&#39;</span><span class="p">,</span> <span class="s1">&#39;H2O&#39;</span><span class="p">,</span> <span class="s1">&#39;N2&#39;</span> <span class="p">}</span> <span class="p">)</span>
+<span class="c1"># print(dict(reactants))           # leads to  {&#39;Al&#39;: 10, &#39;NH4ClO4&#39;: 6}</span>
+<span class="c1"># print(dict(products))            # leads to {&#39;Al2O3&#39;: 5, &#39;H2O&#39;: 9, &#39;HCl&#39;: 6, &#39;N2&#39;: 3}</span>
+<span class="kn">from</span> <span class="nn">chempy</span> <span class="kn">import</span> <span class="n">mass_fractions</span>
+<span class="k">for</span> <span class="n">fractions</span> <span class="ow">in</span> <span class="nb">map</span><span class="p">(</span><span class="n">mass_fractions</span><span class="p">,</span> <span class="p">[</span><span class="n">reactants</span><span class="p">,</span> <span class="n">products</span><span class="p">]):</span>
+    <span class="nb">print</span><span class="p">({</span><span class="n">k</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">{0:.3g}</span><span class="s1"> wt%&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">v</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">fractions</span><span class="o">.</span><span class="n">items</span><span class="p">()})</span>
+</pre></div>
+</div>
+<p>Here we demonstrate how to set up the earlier equations that we discussed in the pure SymPy section:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># CH4 + O2 --&gt; CO2 + H2O                    #SymPy answer was:{𝑣𝐶𝐻4:−1, 𝑣𝐶𝑂2:1, 𝑣𝐻2𝑂:2, 𝑣𝑂2:−2}</span>
+<span class="n">reactants</span><span class="p">,</span> <span class="n">products</span> <span class="o">=</span> <span class="n">balance_stoichiometry</span><span class="p">(</span> <span class="p">{</span><span class="s1">&#39;CH4&#39;</span><span class="p">,</span> <span class="s1">&#39;O2&#39;</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;CO2&#39;</span><span class="p">,</span> <span class="s1">&#39;H2O&#39;</span> <span class="p">}</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">reactants</span><span class="p">))</span>   
+<span class="nb">print</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">products</span><span class="p">))</span> 
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--------------------------&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># a tougher one</span>
+<span class="c1"># sympy.var([&#39;vCaOHOH&#39;, &#39;vH3PO4&#39;, &#39;vCa3PO4PO4&#39;, &#39;vH2O&#39;])</span>
+<span class="c1"># SymPy answer was {𝑣𝐶𝑎3𝑃𝑂4𝑃𝑂4:1, 𝑣𝐶𝑎𝑂𝐻𝑂𝐻:−3, 𝑣𝐻2𝑂:6, 𝑣𝐻3𝑃𝑂4:−2}</span>
+<span class="n">reactants</span><span class="p">,</span> <span class="n">products</span> <span class="o">=</span> <span class="n">balance_stoichiometry</span><span class="p">(</span> <span class="p">{</span><span class="s1">&#39;Ca(OH)2&#39;</span><span class="p">,</span> <span class="s1">&#39;H3(PO4)&#39;</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;Ca3(PO4)2&#39;</span><span class="p">,</span> <span class="s1">&#39;H2O&#39;</span> <span class="p">}</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">reactants</span><span class="p">))</span>   
+<span class="nb">print</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">products</span><span class="p">))</span>
+
+
+</pre></div>
+</div>
+<p>Output:</p>
+</section>
+<section id="ch4-1-o2-2-co2-1-h2o-2">
+<h2>{‘CH4’: 1, ‘O2’: 2}
+{‘CO2’: 1, ‘H2O’: 2}<a class="headerlink" href="#ch4-1-o2-2-co2-1-h2o-2" title="Link to this heading"></a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="python-chemistry-sympy-and-chempy-ca-oh-2-3-h3-po4-2">
+<h1>Python Chemistry:  SymPy and ChemPy{‘Ca(OH)2’: 3, ‘H3(PO4)’: 2}<a class="headerlink" href="#python-chemistry-sympy-and-chempy-ca-oh-2-3-h3-po4-2" title="Link to this heading"></a></h1>
+<p>{‘Ca3(PO4)2’: 1, ‘H2O’: 6}</p>
+<p>This output is a lot simpler, and the result is clear about reactants and products!</p>
+<p>The next section will cover how ChemPy can help generate kinetic models for reaction simulation. This is a very active area of investigation in chemistry, and adequate kinetic models are critical to understanding many important processes.</p>
+<p>ChemPy can interpret common chemical notation and convert it to the proper math equations to be used in a solver for differential equations. The example we’ll consider is the reaction of molecular bromine and nitrous oxide to synthesize nitrosyl bromide. In a closed system, this is actually an equilibrium reaction. ChemPy sorts it out!</p>
+<p>ChemPy has a nice feature where we can use the standard notation to indicate a reaction. First, this string representation of a reaction is processed into a set of chemical equations. Then these are converted to a series of equations and parameters for eventual use by the Chempy ODE solver. I would suggest starting a new notebook to handle the necessary imports.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">chempy</span> <span class="kn">import</span> <span class="n">Reaction</span><span class="p">,</span> <span class="n">Substance</span><span class="p">,</span> <span class="n">ReactionSystem</span>
+<span class="kn">from</span> <span class="nn">chempy.kinetics.ode</span> <span class="kn">import</span> <span class="n">get_odesys</span>
+<span class="kn">import</span> <span class="nn">sympy</span>
+<span class="n">sympy</span><span class="o">.</span><span class="n">init_printing</span><span class="p">()</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="c1">#now for the reaction</span>
+<span class="kn">from</span> <span class="nn">chempy</span> <span class="kn">import</span> <span class="n">balance_stoichiometry</span>  
+<span class="n">reactants</span><span class="p">,</span> <span class="n">products</span> <span class="o">=</span> <span class="n">balance_stoichiometry</span><span class="p">(</span> <span class="p">{</span><span class="s1">&#39;NO&#39;</span><span class="p">,</span> <span class="s1">&#39;Br2&#39;</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;NOBr&#39;</span><span class="p">}</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">reactants</span><span class="p">))</span>   <span class="c1">#printing is for understanding the system</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">products</span><span class="p">))</span> 
+<span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span>  <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">Substance</span><span class="p">,</span> <span class="s1">&#39;ABC&#39;</span><span class="p">)</span>      <span class="c1">#map some symbols to our equation</span>
+<span class="c1"># how Chempy sets up the equation:</span>
+<span class="n">str_massaction</span> <span class="o">=</span>  <span class="s2">&quot;&quot;&quot;   </span>
+<span class="s2">2 A + B -&gt;2 C ; &#39;k1&#39;</span>
+<span class="s2">2 C -&gt; 2 A + B; &#39;k2&#39;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="c1">#the spaces are required!</span>
+<span class="c1">#Set up the reaction system</span>
+<span class="n">rsys</span> <span class="o">=</span> <span class="n">ReactionSystem</span><span class="o">.</span><span class="n">from_string</span><span class="p">(</span><span class="n">str_massaction</span><span class="p">,</span> <span class="n">substance_factory</span><span class="o">=</span><span class="k">lambda</span> <span class="n">formula</span><span class="p">:</span> <span class="n">Substance</span><span class="p">(</span><span class="n">formula</span><span class="p">))</span>
+<span class="n">Display</span> <span class="p">(</span><span class="n">rsys</span><span class="o">.</span><span class="n">substance_names</span><span class="p">()</span> <span class="p">)</span>    
+<span class="c1">#want a peek inside; use &quot;ReactionSystem?&quot;  inside of a notebook cell for details</span>
+<span class="n">odesys</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span> <span class="n">get_odesys</span><span class="p">(</span><span class="n">rsys</span><span class="p">,</span> <span class="n">include_params</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">lower_bounds</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> 
+<span class="n">display</span><span class="p">(</span><span class="n">odesys</span><span class="o">.</span><span class="n">exprs</span><span class="p">,</span> <span class="n">odesys</span><span class="o">.</span><span class="n">params</span><span class="p">,</span> <span class="n">odesys</span><span class="o">.</span><span class="n">names</span><span class="p">,</span> <span class="n">odesys</span><span class="o">.</span><span class="n">param_names</span> <span class="p">)</span>       <span class="c1"># needed to integrate the ode</span>
+<span class="c1">#do the work getting time,concentration values initial rate constants</span>
+<span class="n">t_max</span><span class="o">=</span> <span class="mi">10</span>
+<span class="n">A0</span><span class="o">=</span><span class="mf">1.0</span> <span class="c1">#used to create the very logical dictionary below</span>
+<span class="n">B0</span><span class="o">=</span><span class="mf">1.0</span>
+<span class="n">C0</span><span class="o">=</span><span class="mf">0.0</span>
+<span class="n">tout</span><span class="p">,</span> <span class="n">yout</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">odesys</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span>
+        <span class="n">t_max</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="n">A0</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="n">B0</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="n">C0</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">&#39;k1&#39;</span><span class="p">:</span> <span class="mf">0.42</span><span class="p">,</span> <span class="s1">&#39;k2&#39;</span><span class="p">:</span> <span class="mf">0.17</span> <span class="p">},</span>
+        <span class="n">integrator</span><span class="o">=</span><span class="s1">&#39;cvode&#39;</span><span class="p">,</span> <span class="n">nsteps</span><span class="o">=</span><span class="mi">3000</span><span class="p">)</span>
+<span class="c1">#What does it look like?</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tout</span><span class="p">,</span> <span class="n">yout</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;NO&#39;</span><span class="p">,</span> <span class="s1">&#39;Br$_2$&#39;</span><span class="p">,</span> <span class="s1">&#39;NOBr&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p><img alt="" src="../_images/Reaction_Model-13.jpg" /></p>
+<p>The graph illustrates the equilibrium reaction-each of the components reaches a steady state. This can be a great start to model any number of reaction steps in a mechanism.</p>
+<p>Another interesting feature of ChemPy is that it supports more detailed engineering models such as a Continuous Stirred Tank Reactor (CSTR). For example:</p>
+<p><code class="docutils literal notranslate"><span class="pre">cstr,</span> <span class="pre">extra2</span> <span class="pre">=</span> <span class="pre">get_odesys(new_rsys,</span> <span class="pre">include_params=False,</span> <span class="pre">cstr=True)</span></code></p>
+<p>The user just needs to add the chemistry part to simulate a commercial reactor.</p>
+<p>Some parts of ChemPy deal with complicated equilibria in solution, reaction kinetics with appropriate SI units, fitting data to the calculated values, and the energetics of protein folding. And there’s more! The examples included with ChemPy demonstrate how to perform various calculations in an interactive mode. It is truly an amazing package for any chemist.</p>
+<p>These short notes barely do justice to the capability of Sympy and the utility of ChemPy. These packages add to core Python features like equation solving (including differential equations) and exploring thermodynamics. This area is under constant development there is no obvious limit to its implementation throughout the various fields of chemistry.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

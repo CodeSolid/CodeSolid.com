@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Convert a String to Datetime in Python? &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=19645805"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">How to Convert a String to Datetime in Python?</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/how-to-convert-a-string-to-datetime-in-python.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="how-to-convert-a-string-to-datetime-in-python">
+<h1>How to Convert a String to Datetime in Python?<a class="headerlink" href="#how-to-convert-a-string-to-datetime-in-python" title="Link to this heading"></a></h1>
+<p>Working with dates and times can be tricky, but Python makes it manageable.</p>
+<p>The dates and times can be represented in various forms, and one of the most convenient is strings. However, we need to convert this string data into DateTime objects to work with these dates and times for arithmetic manipulations like finding time differences, adding or subtracting time, and more.</p>
+<p>This tutorial will look at converting a string date and time to a DateTime object in Python using the Datetime module. In addition, we’ll also understand the behavior of date and time in different time zones and learn about different output types of date and time objects.</p>
+<section id="what-is-python-datetime">
+<h2>What is Python Datetime?<a class="headerlink" href="#what-is-python-datetime" title="Link to this heading"></a></h2>
+<p>The primary method we will use is the <a class="reference external" href="https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior" title="DateTime Module Documentation">DateTime</a> module. Datetime is a built-in Python module that provides functions to handle many complex functions related to date and time.</p>
+<p>The DateTime module has three basic types of objects: date, time, and datetime.<br />
+Date works with dates, time works with time, and datetime works with both dates and times.</p>
+</section>
+<section id="converting-strings-to-datetime-objects">
+<h2>Converting Strings to Datetime Objects<a class="headerlink" href="#converting-strings-to-datetime-objects" title="Link to this heading"></a></h2>
+<p>Python strptime() is a built-in method of the DateTime class that converts a string of date and time into DateTime objects.</p>
+<p>Its syntax is as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">date_string</span><span class="p">,</span> <span class="nb">format</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="" src="../_images/strptime-1024x465.png" /></p>
+<p>Here both arguments are required and must be strings.</p>
+<p><strong>date_string</strong> - the date (can be time as well) represented in string format.</p>
+<p><strong>format</strong> - the data represented in datetime format, which is converted from date_string with this function.</p>
+<p><img alt="" src="../_images/DateTime-Module-1024x558.png" /></p>
+<p>If no format string is specified, it defaults to “%a %b %d %H:%M:%S %Y.”<br />
+If the input string does not match the provided format, the ValueError occurs.</p>
+</section>
+<section id="python-datetime-format-codes">
+<h2>Python Datetime Format Codes<a class="headerlink" href="#python-datetime-format-codes" title="Link to this heading"></a></h2>
+<p>Before converting the date and time string to DateTime, let’s look at a fundamental concept: formatting codes.</p>
+<p>Dates have a default representation - DD/MM/YYYY, for example, but we can output them in a particular format using different format codes.</p>
+<p>Each formatting code represents a different part of the date/time, such as day, month, year, day of the month or week, and so on.</p>
+<p>Below is a list of date and time formatting codes:</p>
+<table><tbody><tr><td class="has-text-align-left" data-align="left"><strong>Directive</strong></td><td class="has-text-align-left" data-align="left"><strong>Meaning</strong></td><td class="has-text-align-left" data-align="left"><strong>Returns</strong></td></tr><tr><td class="has-text-align-left" data-align="left">%a</td><td class="has-text-align-left" data-align="left">Abbreviated names of weekdays</td><td class="has-text-align-left" data-align="left">Sun, Mon, ... , Sat</td></tr><tr><td class="has-text-align-left" data-align="left">%A</td><td class="has-text-align-left" data-align="left">Full names of weekdays</td><td class="has-text-align-left" data-align="left">Sunday, Monday, ... , Saturday</td></tr><tr><td class="has-text-align-left" data-align="left">%w</td><td class="has-text-align-left" data-align="left">Weekday as a number, where 0 is Sunday, and 6 is Saturday</td><td class="has-text-align-left" data-align="left">0, 1, 2, ... , 6</td></tr><tr><td class="has-text-align-left" data-align="left">%d</td><td class="has-text-align-left" data-align="left">Days of months as zero-padded numbers</td><td class="has-text-align-left" data-align="left">01, 02, 03, ... , 31</td></tr><tr><td class="has-text-align-left" data-align="left">%b</td><td class="has-text-align-left" data-align="left">Abbreviated names of months</td><td class="has-text-align-left" data-align="left">Jan, Feb, ... , Dec</td></tr><tr><td class="has-text-align-left" data-align="left">%B</td><td class="has-text-align-left" data-align="left">Full names of months</td><td class="has-text-align-left" data-align="left">January, February, ... , December</td></tr><tr><td class="has-text-align-left" data-align="left">%m</td><td class="has-text-align-left" data-align="left">Months as zero-padded numbers</td><td class="has-text-align-left" data-align="left">01, 02, 03, ... , 12</td></tr><tr><td class="has-text-align-left" data-align="left">%y</td><td class="has-text-align-left" data-align="left">Years without century as zero-padded numbers</td><td class="has-text-align-left" data-align="left">00, 01, 02, 03, ... , 99</td></tr><tr><td class="has-text-align-left" data-align="left">%Y</td><td class="has-text-align-left" data-align="left">Years with centuries as zero-padded numbers</td><td class="has-text-align-left" data-align="left">0001, 0002, 0003, ... , 2019, 2020, ... , 9998, 9999</td></tr><tr><td class="has-text-align-left" data-align="left">%H</td><td class="has-text-align-left" data-align="left">Hours (24 hours) as zero-padded numbers</td><td class="has-text-align-left" data-align="left">00, 01, 03, ... , 23</td></tr><tr><td class="has-text-align-left" data-align="left">%I</td><td class="has-text-align-left" data-align="left">Hours (12 hours) as zero-padded numbers</td><td class="has-text-align-left" data-align="left">01, 02, 03, ... , 12</td></tr><tr><td class="has-text-align-left" data-align="left">%p</td><td class="has-text-align-left" data-align="left">The local equivalent of AM/PM</td><td class="has-text-align-left" data-align="left">AM, PM</td></tr><tr><td class="has-text-align-left" data-align="left">%M</td><td class="has-text-align-left" data-align="left">Minutes as zero-padded numbers</td><td class="has-text-align-left" data-align="left">00, 01, 02, 03, ... , 59</td></tr><tr><td class="has-text-align-left" data-align="left">%S</td><td class="has-text-align-left" data-align="left">Seconds as zero-padded numbers</td><td class="has-text-align-left" data-align="left">00, 01, 02, 03, ... , 59</td></tr><tr><td class="has-text-align-left" data-align="left">%f</td><td class="has-text-align-left" data-align="left">Microseconds as zero-padded to 6 digits numbers</td><td class="has-text-align-left" data-align="left">000000, 000001, 000002, …, 999999</td></tr><tr><td class="has-text-align-left" data-align="left">%z</td><td class="has-text-align-left" data-align="left">UTC offset in the form ±HHMM[SS[.ffffff]]</td><td class="has-text-align-left" data-align="left">+0000, -0400, +1030, +063415, -030712.345216</td></tr><tr><td class="has-text-align-left" data-align="left">%Z</td><td class="has-text-align-left" data-align="left">Time zone name</td><td class="has-text-align-left" data-align="left">UTC, GMT</td></tr><tr><td class="has-text-align-left" data-align="left">%j</td><td class="has-text-align-left" data-align="left">Day of the year as zero-padded numbers</td><td class="has-text-align-left" data-align="left">001, 002, 003, ... , 365, 366</td></tr><tr><td class="has-text-align-left" data-align="left">%U</td><td class="has-text-align-left" data-align="left">Week number of the year as zero-padded numbers, where Sunday is the first day of the week</td><td class="has-text-align-left" data-align="left">00, 01, 03, 04, ... , 53</td></tr><tr><td class="has-text-align-left" data-align="left">%W</td><td class="has-text-align-left" data-align="left">Week number of the year as zero-padded numbers, where Monday is the first day of the week</td><td class="has-text-align-left" data-align="left">00, 01, 03, 04, ... , 53</td></tr><tr><td class="has-text-align-left" data-align="left">%c</td><td class="has-text-align-left" data-align="left">Date and time representation</td><td class="has-text-align-left" data-align="left">Mon Jun 14 21:30:00 2002</td></tr><tr><td class="has-text-align-left" data-align="left">%x</td><td class="has-text-align-left" data-align="left">Date representation</td><td class="has-text-align-left" data-align="left">01/14/02<br>01/14/2002<br>14.01.2002</td></tr><tr><td class="has-text-align-left" data-align="left">%X</td><td class="has-text-align-left" data-align="left">Time representation</td><td class="has-text-align-left" data-align="left">21:30:00</td></tr><tr><td class="has-text-align-left" data-align="left">%%</td><td class="has-text-align-left" data-align="left">The literal '%' symbol</td><td class="has-text-align-left" data-align="left">%</td></tr></tbody></table>
+<p>We’ve already looked at formatting codes, so let’s get down to converting strings into the date, time, and datetime objects.</p>
+</section>
+<section id="string-to-datetime-object">
+<h2>String to Datetime Object<a class="headerlink" href="#string-to-datetime-object" title="Link to this heading"></a></h2>
+<p>Let’s look at an example where the string representing the date and time is in standard format (dd/mm/yyyy hh:mm:ss).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#importing module</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="c1"># date string in DD/MM/YYYY HH:MM:SS format</span>
+<span class="n">date</span> <span class="o">=</span> <span class="s2">&quot;14/01/2002 21:30:15&quot;</span>
+
+<span class="c1"># checking the type of the date variable</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="s2">&quot;- type is&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">date</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># converting string to date object</span>
+<span class="n">date_obj</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">/%m/%Y %H:%M:%S&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">date_obj</span><span class="p">,</span> <span class="s2">&quot;- type is&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">date_obj</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="" src="../_images/datetime.datetime-1024x145.png" /></p>
+<p>As you can see, before the conversion, the variable type was a string, which is later a datetime object.</p>
+<section id="accessing-datetime-objects-elements">
+<h3>Accessing Datetime Objects’ Elements<a class="headerlink" href="#accessing-datetime-objects-elements" title="Link to this heading"></a></h3>
+<p>Using different methods, it is possible to use the datetime object elements individually.<br />
+Let’s look at the example of accessing separate parts:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># using &#39;.now()&#39; to get current date and time</span>
+<span class="n">current</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Current date and time is&quot;</span><span class="p">,</span> <span class="n">current</span><span class="p">)</span>
+
+<span class="c1"># applying &#39;year&#39; method to get year from the datetime object</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Current year is&quot;</span><span class="p">,</span> <span class="n">current</span><span class="o">.</span><span class="n">year</span><span class="p">)</span>
+
+<span class="c1"># applying &#39;month&#39; method to get month from the datetime object</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Current month is&quot;</span><span class="p">,</span> <span class="n">current</span><span class="o">.</span><span class="n">month</span><span class="p">)</span>
+
+<span class="c1"># applying &#39;day&#39; method to get day from the datetime object</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Current day is&quot;</span><span class="p">,</span> <span class="n">current</span><span class="o">.</span><span class="n">day</span><span class="p">)</span>
+
+<span class="c1"># applying &#39;hour&#39; method to get hour from the datetime object</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Current hour is&quot;</span><span class="p">,</span> <span class="n">current</span><span class="o">.</span><span class="n">hour</span><span class="p">)</span>
+
+<span class="c1"># applying &#39;minute&#39; method to get minute from the datetime object</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Current minute is&quot;</span><span class="p">,</span> <span class="n">current</span><span class="o">.</span><span class="n">minute</span><span class="p">)</span>
+
+<span class="c1"># applying &#39;second&#39; method to get second from the datetime object</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Current second is&quot;</span><span class="p">,</span> <span class="n">current</span><span class="o">.</span><span class="n">second</span><span class="p">)</span>
+
+<span class="c1"># applying &#39;microsecond&#39; method to get microsecond from the datetime object</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Current microsecond is&quot;</span><span class="p">,</span> <span class="n">current</span><span class="o">.</span><span class="n">microsecond</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="" src="../_images/elements-of-datetime-1024x406.png" /></p>
+<p>Each datetime object element is an integer, so we can perform arithmetic manipulations.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Type of the day element of datetime:&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">current</span><span class="o">.</span><span class="n">day</span><span class="p">))</span>
+
+<span class="c1"># adding day to year</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Addition of day to year:&quot;</span><span class="p">,</span> <span class="n">current</span><span class="o">.</span><span class="n">day</span> <span class="o">+</span> <span class="n">current</span><span class="o">.</span><span class="n">year</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output</p>
+<p><img alt="" src="../_images/addition-1024x109.png" /></p>
+</section>
+<section id="datetime-and-time-zones">
+<h3>Datetime and Time Zones<a class="headerlink" href="#datetime-and-time-zones" title="Link to this heading"></a></h3>
+<p>Python has a built-in pytz module to get information about the world’s different time zones.</p>
+<p>Below is an example showing how to get the current date and time in Berlin:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing time zones module</span>
+<span class="kn">import</span> <span class="nn">pytz</span>
+
+<span class="c1"># using &#39;pytz.timezone&#39; to get date and time of Berlin</span>
+<span class="n">datetime_berlin</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">pytz</span><span class="o">.</span><span class="n">timezone</span><span class="p">(</span><span class="s1">&#39;Europe/Berlin&#39;</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Current date and time in Berlin -&quot;</span><span class="p">,</span> <span class="n">datetime_berlin</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="" src="../_images/timezone-1024x47.png" /></p>
+<p>The pytz object “timezone” takes the information/parameter(s) of the specific time zone we want to output.</p>
+<p>You can use the “all_timezones” attribute to get a list of all possible time zones in the pytz library that we can pass as parameters to the timezone.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">all_timezones</span> <span class="o">=</span> <span class="n">pytz</span><span class="o">.</span><span class="n">all_timezones</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">all_timezones</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="" src="../_images/all-timezones-1024x538.png" /></p>
+<p>As you can see, first, we should specify the continent, then the city.</p>
+</section>
+</section>
+<section id="string-to-date-object">
+<h2>String to Date Object<a class="headerlink" href="#string-to-date-object" title="Link to this heading"></a></h2>
+<p>Let’s now look at how to convert the same string only to a date object, that is, without the time part.</p>
+<p>To convert a string date to a date object, we first needed to convert the string to a datetime object using strptime(), as we have already did in the example above.<br />
+Then we have to use datetime.date() to extract only the date object part from the datetime instance.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#importing module</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="c1"># date string in DD/MM/YYYY HH:MM:SS format</span>
+<span class="n">date</span> <span class="o">=</span> <span class="s2">&quot;14/01/2002 21:30:15&quot;</span>
+
+<span class="c1"># checking the type of the date variable</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="s2">&quot;- type is&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">date</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># converting string to date object</span>
+<span class="n">date_obj</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">/%m/%Y %H:%M:%S&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">date_obj</span><span class="p">,</span> <span class="s2">&quot;- type is&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">date_obj</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="" src="../_images/datetime.date_-1024x189.png" /></p>
+<p>We got a result where only the date is displayed.</p>
+<section id="presenting-date-objects-in-different-formats">
+<h3>Presenting Date Objects in Different Formats<a class="headerlink" href="#presenting-date-objects-in-different-formats" title="Link to this heading"></a></h3>
+<p>Using the formatting codes of the datetime module, we can represent date objects in different formats. For example, YYYY/DD/MM, DD-MM-YYYY, or in text form.</p>
+<p>Let’s look at an example of presenting a date in the form of text:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+
+<span class="c1"># getting today&#39;s date</span>
+<span class="n">date_today</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Today&#39;s date is&quot;</span><span class="p">,</span> <span class="n">date_today</span><span class="p">)</span>
+
+                                     <span class="c1"># method to represent date objects as strings</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Date in full textual format:&quot;</span><span class="p">,</span> <span class="n">date_today</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2"> %B %Y&quot;</span><span class="p">))</span>
+
+                                                          <span class="c1"># short textual format</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Date in short textual format:&quot;</span><span class="p">,</span> <span class="n">date_today</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">-%b-%Y&quot;</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Date with weekday:&quot;</span><span class="p">,</span> <span class="n">date_today</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%A, </span><span class="si">%d</span><span class="s2"> %B, %Y&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="" src="../_images/formatting-date-1024x220.png" /></p>
+<p>To represent date objects as strings, we used the strftime() method of the datetime module, which has the same formatting codes as strptime(). The strftime() method turns a date object into a string representation, so we end up with a string output.</p>
+</section>
+</section>
+<section id="string-to-time-object">
+<h2>String to Time Object<a class="headerlink" href="#string-to-time-object" title="Link to this heading"></a></h2>
+<p>We can also use the datetime.time class to convert a string containing the time to a time object.</p>
+<p>As with the date object, we first need to convert the string to a datetime object. Then use the datetime.time() function (constructor) to extract only the time object from the datetime object.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#importing module</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="c1"># date string in DD/MM/YYYY HH:MM:SS format</span>
+<span class="n">date</span> <span class="o">=</span> <span class="s2">&quot;14/01/2002 21:30:15&quot;</span>
+
+<span class="c1"># checking the type of the date variable</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="s2">&quot;- type is&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">date</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># converting string to time object</span>
+<span class="n">date_obj</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">/%m/%Y %H:%M:%S&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">date_obj</span><span class="p">,</span> <span class="s2">&quot;- type is&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">date_obj</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="" src="../_images/datetime.time_-1024x186.png" /></p>
+<p>As we can see in this example, we only got 21:30:15 - the time part of the string.</p>
+<section id="presenting-time-objects-in-different-formats">
+<h3>Presenting Time Objects in Different Formats<a class="headerlink" href="#presenting-time-objects-in-different-formats" title="Link to this heading"></a></h3>
+<p>Like the date object, we can convert the time object into different formats.</p>
+<p>Let’s see how to format time objects to represent the time in 12 or 24-hour or AM/PM formats:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="c1"># getting current time</span>
+<span class="n">time_now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Current time -&quot;</span><span class="p">,</span> <span class="n">time_now</span><span class="p">)</span>
+
+<span class="c1"># printing time in 12 and 24 hours format</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Time in 24 hours format -&quot;</span><span class="p">,</span> <span class="n">time_now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H:%M:%S&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Time in 12 hours format -&quot;</span><span class="p">,</span> <span class="n">time_now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%I:%M:%S&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="" src="../_images/formatting-time-3.png" /></p>
+<p>Here we first get the present time using datetime.now() and extract the time element from it. Then we also used the strftime() method on this part, which helped us format the time object and end up with string output.</p>
+<p>Let’s convert the time object to AM/PM format:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># getting current time</span>
+<span class="n">time_now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Current time -&#39;</span><span class="p">,</span> <span class="n">time_now</span><span class="p">)</span>
+
+<span class="c1"># %p to represent datetime in AM/PM</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Time in PM/AM format -&quot;</span><span class="p">,</span> <span class="n">time_now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%I.%M %p&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="" src="../_images/formatting-time-2-1-1024x155.png" /></p>
+<p>Here we used code to format %p, which gave us the output in a PM format.</p>
+</section>
+</section>
+<section id="converting-a-pandas-column-to-datetime">
+<h2>Converting a Pandas Column to Datetime<a class="headerlink" href="#converting-a-pandas-column-to-datetime" title="Link to this heading"></a></h2>
+<p>Pandas has a built-in to_datetime() function to convert a column to datetime.<br />
+Let’s convert this data frame to a datetime object:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># pandas dataframe</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span>
+    <span class="p">{</span><span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;Alex&#39;</span><span class="p">,</span> <span class="s1">&#39;Mia&#39;</span><span class="p">,</span> <span class="s1">&#39;Bena&#39;</span><span class="p">],</span>
+     <span class="s1">&#39;Birthday&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;1975-12-13&#39;</span><span class="p">,</span> <span class="s1">&#39;2002-01-14&#39;</span><span class="p">,</span> <span class="s1">&#39;2005-04-12&#39;</span><span class="p">,</span> <span class="s1">&#39;2012-07-27&#39;</span><span class="p">],</span>
+     <span class="s1">&#39;Country&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;US&#39;</span><span class="p">,</span> <span class="s1">&#39;UK&#39;</span><span class="p">,</span> <span class="s1">&#39;KG&#39;</span><span class="p">,</span> <span class="s1">&#39;KZ&#39;</span><span class="p">]})</span>
+
+<span class="c1"># displaying the dataframe</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="" src="../_images/dataframe.png" /></p>
+<p>Our Pandas dataframe contains dates in the form of birthdays.<br />
+Let’s convert this part into a datetime object.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># converting pandas dateframe to datetime</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Birthday&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Birthday&#39;</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Birthday&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="" src="../_images/pandas-datetime-1024x318.png" /></p>
+<p>We have just converted birthdays into datetime objects, which means that now it’s possible to make various arithmetic calculations on them.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">timedelta</span>
+
+<span class="c1"># using &#39;._get_value&#39; to get access to the dataframes birthday elements</span>
+<span class="n">date1</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">_get_value</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="s1">&#39;Birthday&#39;</span><span class="p">)</span>
+<span class="n">date2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">_get_value</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;Birthday&#39;</span><span class="p">)</span>
+
+<span class="c1"># finding the difference between two dates</span>
+<span class="n">timedelta</span> <span class="o">=</span> <span class="n">date1</span> <span class="o">-</span> <span class="n">date2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Differance between &#39;date1&#39; and &#39;date2&#39; is&quot;</span><span class="p">,</span> <span class="n">timedelta</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="" src="../_images/date-difference-1024x58.png" /></p>
+<p>The output above shows the difference between the two dates as days.</p>
+</section>
+<section id="converting-a-string-to-datetime-using-other-python-libraries">
+<h2>Converting a String to Datetime Using Other Python Libraries<a class="headerlink" href="#converting-a-string-to-datetime-using-other-python-libraries" title="Link to this heading"></a></h2>
+<p>The datetime module in Python can convert all the different types of strings into datetime objects. However, it is time and energy-consuming to create a corresponding line of formatting code each time using strptime().</p>
+<p>Other third-party libraries can be used to convert strings to datetime objects. In some cases, these third-party libraries may do a better job manipulating dates and times.</p>
+<p>Let’s look at some of these libraries for converting strings to datetime objects.</p>
+<section id="string-to-datetime-with-dateutil">
+<h3>String to Datetime with Dateutil<a class="headerlink" href="#string-to-datetime-with-dateutil" title="Link to this heading"></a></h3>
+<p>The dateutil module is an extension of the datetime module. While using it, we don’t need to pass any formatting code to convert a string into a datetime object.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing dateutil</span>
+<span class="kn">from</span> <span class="nn">dateutil.parser</span> <span class="kn">import</span> <span class="n">parse</span>
+
+<span class="c1"># list of string dates with time</span>
+<span class="n">dates_list</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;2002-01-14 21:30:27.243860&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Nov 9 2020 at 9:40AM&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;September 15, 2007, 23:37:55&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Sun, 12/12/1998, 12:30PM&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;2022-12-13 17:08:00.586525+05:00&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Tuesday , 6th September, 2017 at 4:30pm&#39;</span><span class="p">]</span>
+
+<span class="c1"># for loop to convert elements of the list using dateutil to datetime</span>
+<span class="k">for</span> <span class="n">date</span> <span class="ow">in</span> <span class="n">dates_list</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Date is:&quot;</span><span class="p">,</span><span class="n">date</span><span class="p">)</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Date object -&quot;</span><span class="p">,</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Time object -&quot;</span><span class="p">,</span><span class="n">dt</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="" src="../_images/dateutil.png" /></p>
+<p>As you can see, the parse function of dateutil library makes converting strings into datetime objects much easier and faster.</p>
+</section>
+<section id="string-to-datetime-with-maya">
+<h3>String to Datetime with Maya<a class="headerlink" href="#string-to-datetime-with-maya" title="Link to this heading"></a></h3>
+<p>Like dateutil, Maya makes it easy to parse the string. However, before we can use this library, we must first download it.</p>
+<p>Use ‘pip install maya’ to install it.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing maya</span>
+<span class="kn">import</span> <span class="nn">maya</span>
+
+<span class="c1"># string to datetime with specific timezone</span>
+<span class="n">date</span> <span class="o">=</span> <span class="n">maya</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;2022-12-13T20:45:25Z&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="n">to_timezone</span> <span class="o">=</span> <span class="s2">&quot;Europe/Berlin&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Date is:&quot;</span><span class="p">,</span> <span class="n">date</span><span class="o">.</span><span class="n">date</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Time is:&quot;</span><span class="p">,</span> <span class="n">date</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Timezone is:&quot;</span><span class="p">,</span> <span class="n">date</span><span class="o">.</span><span class="n">tzinfo</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="" src="../_images/maya-1024x273.png" /></p>
+<p>Maya will automatically convert it to UTC if we don’t provide time zone information.</p>
+</section>
+<section id="string-to-datetime-with-arrow">
+<h3>String to Datetime with Arrow<a class="headerlink" href="#string-to-datetime-with-arrow" title="Link to this heading"></a></h3>
+<p>Arrow is another library for dealing with datetime in Python. It returns a Python datetime object from the arrow object after interpretation.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing arrow</span>
+<span class="kn">import</span> <span class="nn">arrow</span>
+
+<span class="c1"># converting timezones using the to() method</span>
+<span class="n">date</span> <span class="o">=</span> <span class="n">arrow</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;2022-12-13T20:45:25Z&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">&#39;America/New_York&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Date is:&quot;</span><span class="p">,</span> <span class="n">date</span><span class="o">.</span><span class="n">date</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Time is:&quot;</span><span class="p">,</span> <span class="n">date</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Timezone is:&quot;</span><span class="p">,</span> <span class="n">date</span><span class="o">.</span><span class="n">tzinfo</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="" src="../_images/arrow-1-1024x233.png" /></p>
+</section>
+</section>
+<section id="converting-datetime-back-into-integer-float-or-strings">
+<h2>Converting Datetime Back into Integer, Float, or Strings<a class="headerlink" href="#converting-datetime-back-into-integer-float-or-strings" title="Link to this heading"></a></h2>
+<p>We have looked at how to display strings as datetime objects. But we can also convert these datetime objects to integers, float, or strings.</p>
+<p>To do this, we will use the strftime() method with functions to convert, such as int() or float().</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+<span class="n">x_float</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y%m</span><span class="si">%d</span><span class="s2">%H%M%S.</span><span class="si">%f</span><span class="s2">&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Current date as float:&quot;</span><span class="p">,</span> <span class="n">x_float</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">x_float</span><span class="p">))</span>
+
+<span class="n">x_int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y%m</span><span class="si">%d</span><span class="s2">%H%M%S&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Current date as intiger:&quot;</span><span class="p">,</span> <span class="n">x_int</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">x_int</span><span class="p">))</span>
+
+<span class="n">x_str</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y%m</span><span class="si">%d</span><span class="s2">%H%M%S&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Current date as intiger:&quot;</span><span class="p">,</span> <span class="n">x_str</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">x_str</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="" src="../_images/back-to-edited.png" /></p>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading"></a></h2>
+<p>In this article, we have looked at different ways of converting a string into datetime, date, and time objects in Python. You can use either the default Python datetime library or any third-party libraries mentioned in the article, such as maya, dateutil, or arrow, to do this. Sometimes the third-party libraries add value and make it easier to parse, at the cost of introducing a new dependency.</p>
+<p>We looked at the different methods of formatting strings to convert them into a datetime object.<br />
+However, we have found that a significant problem with the default datetime package is that for almost all datetime string formats, we need to specify parsing code manually, which is not an optimal process.</p>
+<p>To better understand the material, we suggest you practice all the examples.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

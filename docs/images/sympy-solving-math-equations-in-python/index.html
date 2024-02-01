@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SymPy Alternatives &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=19645805"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">SymPy Alternatives</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/images/sympy-solving-math-equations-in-python/index.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>SymPy is a Python library for symbolic mathematics. It’s free and open source, and because it’s written entirely in Python, it’s easy to install and use. Symbolic math software tools, also called Computer Algebra Systems (CAS), allow you to work with mathematical equations more or less as you would on paper. For example, you can define mathematical functions in terms of one or more variables, then manipulate them in various ways: solving them, factoring, substituting numbers of other expressions, differentiating them (taking derivatives), and integrating them (calculating definite and indefinite integrals).</p>
+<p>This article is both a brief review of SymPy and a basic tutorial. In the review section, “SymPy Alternatives,” we’ll compare SymPy to other Python and non-Python tools that are alternatives to SymPy. We especially want to zero give a detailed comparison of SymPy to SageMath. We began working with SageMath first and shared our experiences with it in <a class="reference external" href="https://codesolid.com/introducing-sage-math-python-based-mathematics/">Introducing Sage Math: Symbolic Math Software In Python</a>. As we move into the tutorial, “Using SymPy and Jupyter,” we’ll share a simple code repository to get you up and running quickly with SymPy and Jupyter Lab so you can check it out for yourself.</p>
+<section id="sympy-alternatives">
+<h1>SymPy Alternatives<a class="headerlink" href="#sympy-alternatives" title="Link to this heading"></a></h1>
+<p>Many popular Computer Algebra System tools are closed source (which can be problematic from a “how did you get that result”? perspective). They can also be quite expensive. There are several tools in this space, but perhaps the best-known is Wolfram’s Mathematica.</p>
+<p>On the free side, if you mainly need a graphing calculator, the free tool, Desmos, is quite popular. Wolfram also hosts a popular freemium site, WolframAlpha, which we discussed in <a class="reference external" href="https://codesolid.com/teach-yourself-math/">Teach Yourself Math</a>.</p>
+<p>Many tools that overlap this category are specialized for high-speed matrix operations, linear algebra, data science, solving systems of linear equations, and the like. Among Python tools, NumPy and Pandas are well-known tools in this space. (See our practice exercises for Pandas and NumPy if you need a refresher on these). Outside of Python, noteworthy players in this space include MatLab (commercial) and Octave (A MatLab-compatible open source tool).</p>
+<section id="sympy-vs-scipy">
+<h2>SymPy vs. SciPy<a class="headerlink" href="#sympy-vs-scipy" title="Link to this heading"></a></h2>
+<p>In Python, I must also give a brief nod to SciPy, which has excellent support for functionality that overlaps SymPy, including solving equations, integration, differentiation, and many other features. In addition, it imports and extends many of NumPy’s linear algebra functions as well.</p>
+<p>Unlike SymPy, SciPy is not written entirely in Python. Another noteworthy difference is that, unlike Sage and SymPy, you write mathematical functions in SciPy as simple Python functions that return a result. In Sage and SymPy, as we’ll see below, they’re defined even more concisely as mathematical expressions.</p>
+<p>In general, SciPy works well when you need relatively to embed high-speed math algorithms in Python. SymPy, in contrast, is more appropriate for the sort of routine interactive use that a student of mathematics or researcher is likely to need.</p>
+</section>
+<section id="sympy-vs-sagemath">
+<h2>SymPy vs. SageMath<a class="headerlink" href="#sympy-vs-sagemath" title="Link to this heading"></a></h2>
+<p>SageMath is another Python Computer Algebra System and the first one that I evaluated in any depth. SageMath is an ambitious project that builds a domain-specific language on top of Python and an assortment of open-source libraries written in C, Fortran, and even LISP. Because many of these are the same C and Fortran libraries that SciPy relies on, Sage may run faster for many operations than SymPy. However, I have not yet run benchmarks on this.</p>
+<p>Additionally, because it is abstracted from Python, SageMath probably has the most appeal as a generalized CAS in the mold of a tool like Mathematica. However, this makes SageMath less appropriate for embedding into a Python application than either SciPy or SymPy.</p>
+<p>However, a more severe limitation of SageMath is that many of the options for installing it are problematic. I could not install SageMath on the first try on any major platform: macOS, Windows, and Linux. In fairness, I’ve since gotten it working on each of those, either using Docker or a native binary installer, but trying to do it via conda or apt-get has not gone well. I haven’t tested SymPy as extensively yet, but so far have been successful with both Pip and Conda right out of the gate on macOS.</p>
+</section>
+</section>
+<section id="using-sympy-and-jupyter-a-quick-start-tutorial">
+<h1>Using SymPy and Jupyter: A Quick Start Tutorial<a class="headerlink" href="#using-sympy-and-jupyter-a-quick-start-tutorial" title="Link to this heading"></a></h1>
+<p>There’s a lot more to SymPy than what we’ll cover here. This tutorial will focus on the mathematics I’m most familiar with, i.e., nothing beyond first-year university math. Those of you who are more advanced – and there are lots of folks who are – will want to spend some time digging into some resources I’ll point out as I go along.</p>
+<section id="installing-sympy">
+<h2>Installing SymPy<a class="headerlink" href="#installing-sympy" title="Link to this heading"></a></h2>
+<p>You can easily install SymPy and JupyterLab in a <a class="reference external" href="https://codesolid.com/what-is-a-python-package/#htoc-c">virtual environment</a>. With that environment active, use the following requirements.txt file.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># requirements.txt</span>
+<span class="c1"># Install using pip -r requirements.txt</span>
+<span class="n">jupyterlab</span><span class="o">==</span><span class="mf">3.3.2</span>
+<span class="n">sympy</span><span class="o">==</span><span class="mf">1.10.1</span>
+<span class="n">matplotlib</span><span class="o">=</span><span class="mf">3.5.2</span>
+</pre></div>
+</div>
+<p>Once installed, start JupyterLab as usual with the command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter<span class="w"> </span>lab
+</pre></div>
+</div>
+</section>
+<section id="sympy-first-steps">
+<h2>SymPy First Steps<a class="headerlink" href="#sympy-first-steps" title="Link to this heading"></a></h2>
+<p>Unlike SageMath, SymPy does not layer a domain-specific language on Python. Neither does it define many variables ahead of time for you. Instead, it behaves much as other Python packages do. You have to import what you need explicitly.</p>
+<p>This explicit approach is advantageous if you need to embed SymPy in another application since you can control what parts you need. However, if you’re using SymPy interactively, it’s nice to have it preconfigure a few “smart defaults.” You can set up these defaults easily, as shown here:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">init_session</span>
+<span class="n">init_session</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output (you can suppress this if desired by adding the parameter <code class="docutils literal notranslate"><span class="pre">quiet=True</span></code> to the init_session call):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>...<span class="w"> </span><span class="o">(</span>version<span class="w"> </span>information<span class="o">)</span>
+
+These<span class="w"> </span>commands<span class="w"> </span>were<span class="w"> </span>executed:
+&gt;&gt;&gt;<span class="w"> </span>from<span class="w"> </span>sympy<span class="w"> </span>import<span class="w"> </span>*
+&gt;&gt;&gt;<span class="w"> </span>x,<span class="w"> </span>y,<span class="w"> </span>z,<span class="w"> </span><span class="nv">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>symbols<span class="o">(</span><span class="s1">&#39;x y z t&#39;</span><span class="o">)</span>
+&gt;&gt;&gt;<span class="w"> </span>k,<span class="w"> </span>m,<span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>symbols<span class="o">(</span><span class="s1">&#39;k m n&#39;</span>,<span class="w"> </span><span class="nv">integer</span><span class="o">=</span>True<span class="o">)</span>
+&gt;&gt;&gt;<span class="w"> </span>f,<span class="w"> </span>g,<span class="w"> </span><span class="nv">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>symbols<span class="o">(</span><span class="s1">&#39;f g h&#39;</span>,<span class="w"> </span><span class="nv">cls</span><span class="o">=</span>Function<span class="o">)</span>
+&gt;&gt;&gt;<span class="w"> </span>init_printing<span class="o">()</span>
+</pre></div>
+</div>
+<p>The import line that this ran for us automatically imported far more delicious mathematics than we’ll be able to cover in this article. If you’re curious, you can see a list of the available functions with the following two lines of code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span>
+<span class="nb">dir</span><span class="p">(</span><span class="n">sympy</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The excellent <a class="reference external" href="https://docs.sympy.org/latest/index.html">SymPy documentation</a> can give you more information about these, but since we’re in a Jupyter notebook, you can also view the docstring for any function by creating a new notebook cell and running <code class="docutils literal notranslate"><span class="pre">function_name?</span></code></p>
+</section>
+<section id="solving-equations-and-working-with-math-functions">
+<h2>Solving Equations and Working With Math Functions<a class="headerlink" href="#solving-equations-and-working-with-math-functions" title="Link to this heading"></a></h2>
+<p>The syntax for defining math functions such as polynomials is quite different in SymPy than it is in SageMath, but still pretty straightforward. Take, for example, this simple difference of squares:</p>
+<p><img alt="" src="../../_images/image-1111.png" /></p>
+<p>In Sage, we would define this function with:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">9</span>
+</pre></div>
+</div>
+<p>In SymPy, in contrast, the ^ symbol is not overloaded, so we have to use Python’s usual exponent operator, **. Also, instead of using the special Sage syntax <code class="docutils literal notranslate"><span class="pre">f(x)</span> <span class="pre">=</span> <span class="pre">some_expression</span></code> (which doesn’t work in vanilla Python), so we assign the expression we want to <code class="docutils literal notranslate"><span class="pre">f</span></code> as you might expect:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">9</span>
+</pre></div>
+</div>
+<p>Now that we have a function defined, we can do several things with it. Let’s enter the variable name in a new cell. We see the function body displayed as nicely formatted LaTeX (in JupyterLab, SymPy uses MathJax to render the output this way).</p>
+<p><img alt="" src="../../_images/image-127.png" /></p>
+<p>We can solve the function using the <code class="docutils literal notranslate"><span class="pre">solve</span></code> function. The solve function sets the expression equal to zero and solves for that, i.e., it solves:</p>
+<p><img alt="" src="../../_images/image-323.png" /></p>
+<p>Once again, the result is nicely formatted:</p>
+<p><img alt="" src="../../_images/image-152.png" /></p>
+<p>That solution looks pretty good on the face of it, but we can check it by factoring the expression using <code class="docutils literal notranslate"><span class="pre">factor</span></code>:</p>
+<p><img alt="" src="../../_images/image-143.png" /></p>
+<p>We can also substitute the solution values, 3 and -3, back into the equation and check it that way:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>True
+True
+</pre></div>
+</div>
+</section>
+<section id="sympy-as-a-python-graphing-calculator">
+<h2>SymPy as a Python Graphing Calculator<a class="headerlink" href="#sympy-as-a-python-graphing-calculator" title="Link to this heading"></a></h2>
+<p>As easily as we can solve equations, we can also plot them. Let’s plot our function over the domain -8 &lt;= x &lt;= 8:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span><span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+         <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Plot of x squared minus 9&quot;</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><img alt="" src="../../_images/image-171.png" /></p>
+</section>
+<section id="sympy-and-latex">
+<h2>SymPy and LaTeX<a class="headerlink" href="#sympy-and-latex" title="Link to this heading"></a></h2>
+<p>I mentioned how much I like the default formatting you get when you use SymPy in Jupyter Lab. (Incidentally, it also works in Jupyter Notebook, too).</p>
+<p>You may want to view the raw LaTeX output from time to time, as I did earlier when I prepared the screenshot for our “difference of squares” function. To do that, call either <code class="docutils literal notranslate"><span class="pre">latex</span></code> or <code class="docutils literal notranslate"><span class="pre">print_latex</span></code>.</p>
+<p>For example:</p>
+<p><img alt="" src="../../_images/image-183.png" /></p>
+<p>To get the LaTeX for that, use one of:</p>
+<p><img alt="" src="../../_images/image-192.png" /></p>
+<p>As you can see, the second function returns an escaped string, so is suitable if you need it for a Python program, while <code class="docutils literal notranslate"><span class="pre">print_latex</span></code> is likely what you want if you’re working interactively. For example, you can paste the output of print_latex into a markdown cell with the following contents:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>$
+\frac{\sqrt{x}}{1 - x^{2}}
+$
+</pre></div>
+</div>
+<p>Running this in cell Jupyter, you’ll see it neatly formatted and centered.</p>
+<p><img alt="" src="../../_images/image-333.png" /></p>
+</section>
+<section id="sympy-and-latex-a-caveat">
+<h2>SymPy and LaTeX: A Caveat<a class="headerlink" href="#sympy-and-latex-a-caveat" title="Link to this heading"></a></h2>
+<p>I got pretty excited about this discovery of a built-in LaTeX training tool until I discovered that SymPy may very well start simplifying expressions to make them more tractable as soon as you enter them. Consider this expression with the square root in the denominator:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">)</span> <span class="o">/</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>That square root is in the denominator when we enter it, but not in the output:</p>
+<p><img alt="" src="../../_images/image-233.png" /></p>
+<p>I thought I’d done something wrong for a minute when I first saw that, until I realized that having the root of a constant in the denominator was low-hanging fruit, so SymPy took the liberty of making it more tractable by multiplying the whole thing by:</p>
+<p><img alt="" src="../../_images/image-222.png" /></p>
+<p>Incidentally, if you want to get more insight into how SymPy is managing the result, you can use the <code class="docutils literal notranslate"><span class="pre">srepr</span></code> function to see how the function is represented internally. This is a great tool for getting familiar with SymPy internals, but it can sometimes be a bit hard to follow. Therefore, I recommend trying it out on some simple functions first. For example, here we revisit our friend, the difference of squares function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">9</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">srepr</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Add<span class="o">(</span>Pow<span class="o">(</span>Symbol<span class="o">(</span><span class="s1">&#39;x&#39;</span><span class="o">)</span>,<span class="w"> </span>Integer<span class="o">(</span><span class="m">2</span><span class="o">))</span>,<span class="w"> </span>Integer<span class="o">(</span>-9<span class="o">))</span>
+</pre></div>
+</div>
+</section>
+<section id="python-calculus-made-almost-easy">
+<h2>Python Calculus Made (Almost) Easy<a class="headerlink" href="#python-calculus-made-almost-easy" title="Link to this heading"></a></h2>
+<p>Since I’m currently deep into studying the equivalent of first-year calculus, let’s briefly touch on what are usually the three main components of that: limits, differentiation, and integration. Of course, relying on SymPy won’t help you much come test time, but when doing practice problems, I often like to check a hand-done solution against a trusted source to see if it’s an opportunity to play my favorite math game, “Search my scribbles to find the error.”</p>
+</section>
+<section id="limits">
+<h2>Limits<a class="headerlink" href="#limits" title="Link to this heading"></a></h2>
+<p>Let’s start with a relatively simple limits problem (thanks to <a class="reference external" href="https://tutorial.math.lamar.edu/Solutions/CalcI/ComputingLimits/Prob3.aspx">Paul’s Online Math Notes</a> for this one):</p>
+<p><img alt="" src="../../_images/image-283.png" /></p>
+<p>I say this one is relatively simple because you can’t just substitute for -5 to get the answer, but factoring the numerator and the denominator and canceling terms is fairly straightforward, and yields 5/4. In SymPy, the parameters you need to enter are the expression (we’ll save that as a function), the values you’re solving for (in this case, x), and the limit value:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">25</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">15</span><span class="p">)</span>
+<span class="n">limit</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The output in Jupyter agrees. It’s 5/4. Hooray, I got one right.</p>
+<p>Incidentally, note that we had to explicitly multiply the “2x” term using the Python form: <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">*</span> <span class="pre">x</span></code>.</p>
+</section>
+</section>
+<section id="differentiation-and-integration">
+<h1>Differentiation and Integration<a class="headerlink" href="#differentiation-and-integration" title="Link to this heading"></a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">diff</span></code> (i.e., “differentiate”) function takes a derivative of an expression or function. Let’s work on this reasonably simple differentiation problem:</p>
+<p><img alt="" src="../../_images/image-292.png" /></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">diff</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">19</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="" src="../../_images/image-30.png" /></p>
+<p>As expected, we get 12 x squared from the power rule, cos(x) based on the “just have to remember that rule,” and the constant value disappears.</p>
+<p>And finally, because the indefinite integral is also known as the “anti-derivative,” let’s recover most of our original function by integrating the derivative of it back:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">integrate</span><span class="p">(</span><span class="mi">12</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="" src="../../_images/image-316.png" /></p>
+<p>The lack of the “constant” of integration, usually denoted by a ” + C” at the end of the polynomial, is a bit surprising. However, the SymPy docs mention it, so it’s at least a documented “feature.”</p>
+</section>
+<section id="closing-thoughts">
+<h1>Closing Thoughts<a class="headerlink" href="#closing-thoughts" title="Link to this heading"></a></h1>
+<p>As I began working on this article, I bumped into many differences between SymPy and my other favorite math environment, SageMath. However, by the time I was finished, I had found a lot to love about SymPy, including the ease of installation, the LaTeX support, and how well it worked with Jupyter. Although I also resolved to spend more time researching and using SciPy, I’m not sure it will measure up to SymPy for the kind of interactive, educational, and exploratory work that I usually spend my time on.</p>
+</section>
+<section id="companion-source">
+<h1>Companion Source<a class="headerlink" href="#companion-source" title="Link to this heading"></a></h1>
+<p>The Jupyter Notebook on which this article is based can be found downloaded from <a class="reference external" href="https://github.com/CodeSolid/sympy-tutorial/">this GitHub repository</a>.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

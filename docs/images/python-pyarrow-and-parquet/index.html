@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arrow Tables vs. Pandas DataFrames &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=19645805"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Arrow Tables vs. Pandas DataFrames</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/images/python-pyarrow-and-parquet/index.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>Table of Contents</p>
+<ul class="simple">
+<li><p>Arrow Tables vs. Pandas DataFrames</p></li>
+<li><p>Installing Using Pip or Conda</p></li>
+<li><p>Using Arrow With Pandas</p></li>
+<li><p>Arrow Tables vs. Pandas DataFrames</p></li>
+<li><p>Parquet vs. Other Storage Formats for Pandas</p>
+<ul>
+<li><p>Summary</p></li>
+<li><p>Discussion</p></li>
+</ul>
+</li>
+<li><p>Closing Thoughts: PyArrow Beyond Pandas</p></li>
+</ul>
+<p>Parquet and Arrow are two Apache projects available in Python via the PyArrow library. Parquet is an efficient, compressed, column-oriented storage format for arrays and tables of data. Arrow is an in-memory columnar format for data analysis that is designed to be used across different languages. It currently boasts supported libraries for several important languages, including Python. Parquet and Arrow work together well. In Python, the same PyArrow library supports both.</p>
+<p>Arrow supports tabular data as well as nested (hierarchical) data. Arrow tables are two-dimensional containers. They consist of a set of columns that are “chunked arrays” (arrays where data is often stored contiguously, but it is not required), along with a schema that describes each field in the data (where a field is either a column or a nested data type such as a struct.</p>
+<section id="arrow-tables-vs-pandas-dataframes">
+<h1>Arrow Tables vs. Pandas DataFrames<a class="headerlink" href="#arrow-tables-vs-pandas-dataframes" title="Link to this heading"></a></h1>
+<p>If you’re familiar with Python’s data science tools, the idea of an in-memory tool for dealing with two-dimensional data may remind you of a Pandas DataFrame. Similarly, the Arrow columns may remind you of Pandas Series.</p>
+<p>That’s certainly how I approached learning about Arrow, and it raises several interesting questions about Arrow and Parquet that this article will focus on.</p>
+<ul class="simple">
+<li><p>Can we use Pandas DataFrames and Arrow tables together, and if so, how is this done? (It turns out the answer is yes, and it’s quite simple, as we’ll see).</p></li>
+<li><p>In what ways are Arrow tables “better” than Pandas DataFrames? In other words, for which tasks are Arrow tables better suited? Conversely, what tasks are possible or easy in Pandas that are difficult or impossible in Arrow?</p></li>
+<li><p>As an on-disk format, how does Parquet compare to popular alternatives such as feather, orc, CSV, etc.?</p></li>
+</ul>
+<p>In this article, we’ll investigate the answers to these questions, but as always, we want you to be able to try the code and check the results for yourself, so let’s begin with the setup we used.</p>
+</section>
+<section id="installing-using-pip-or-conda">
+<h1>Installing Using Pip or Conda<a class="headerlink" href="#installing-using-pip-or-conda" title="Link to this heading"></a></h1>
+<p>Getting started with PyArrow is easy with either Conda or pip. In Conda, you can create and activate an environment to follow along with this article using the following steps.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>-n<span class="w"> </span>arrow<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11<span class="w"> </span>pyarrow<span class="w"> </span>jupyterlab<span class="w"> </span>seaborn
+<span class="c1"># Enter y to continue when prompted</span>
+conda<span class="w"> </span>activate<span class="w"> </span>arrow
+</pre></div>
+</div>
+<p>Using pip and installing to a virtual environment, the steps are as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+<span class="nb">source</span><span class="w"> </span>venv/bin/activate<span class="w"> </span>
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+pip<span class="w"> </span>install<span class="w"> </span>jupyterlab<span class="w"> </span>seaborn<span class="w"> </span>pyarrow
+</pre></div>
+</div>
+<p>With one of these done, running <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code> will allow you to follow along with the rest of the article.</p>
+</section>
+<section id="using-arrow-with-pandas">
+<h1>Using Arrow With Pandas<a class="headerlink" href="#using-arrow-with-pandas" title="Link to this heading"></a></h1>
+<p>You may have noticed that we installed Seaborn. This was to take advantage of the built-in data sets, so we could be productive immediately. We begin by importing a few packages and loading the taxis dataset into a Pandas DataFrame. We’ll also get a quick feel for the data.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">pyarrow</span> <span class="k">as</span> <span class="nn">pa</span>
+<span class="kn">import</span> <span class="nn">pyarrow.parquet</span> <span class="k">as</span> <span class="nn">parquet</span>
+
+<span class="n">df_taxis</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;taxis&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">df_taxis</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_taxis</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">df_taxis</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&lt;class<span class="w"> </span><span class="s1">&#39;pandas.core.frame.DataFrame&#39;</span>&gt;
+<span class="o">(</span><span class="m">6433</span>,<span class="w"> </span><span class="m">14</span><span class="o">)</span>
+pickup<span class="w">	</span>dropoff<span class="w">	</span>passengers<span class="w">	</span>distance<span class="w">	</span>fare<span class="w">	</span>tip<span class="w">	</span>tolls<span class="w">	</span>total<span class="w">	</span>color<span class="w">	</span>payment<span class="w">	</span>pickup_zone<span class="w">	</span>dropoff_zone<span class="w">	</span>pickup_borough<span class="w">	</span>dropoff_borough
+<span class="m">0</span><span class="w">	</span><span class="m">2019</span>-03-23<span class="w"> </span><span class="m">20</span>:21:09<span class="w">	</span><span class="m">2019</span>-03-23<span class="w"> </span><span class="m">20</span>:27:24<span class="w">	</span><span class="m">1</span><span class="w">	</span><span class="m">1</span>.60<span class="w">	</span><span class="m">7</span>.0<span class="w">	</span><span class="m">2</span>.15<span class="w">	</span><span class="m">0</span>.0<span class="w">	</span><span class="m">12</span>.95<span class="w">	</span>yellow<span class="w">	</span>credit<span class="w"> </span>card<span class="w">	</span>Lenox<span class="w"> </span>Hill<span class="w"> </span>West<span class="w">	</span>UN/Turtle<span class="w"> </span>Bay<span class="w"> </span>South<span class="w">	</span>Manhattan<span class="w">	</span>Manhattan
+<span class="m">1</span><span class="w">	</span><span class="m">2019</span>-03-04<span class="w"> </span><span class="m">16</span>:11:55<span class="w">	</span><span class="m">2019</span>-03-04<span class="w"> </span><span class="m">16</span>:19:00<span class="w">	</span><span class="m">1</span><span class="w">	</span><span class="m">0</span>.79<span class="w">	</span><span class="m">5</span>.0<span class="w">	</span><span class="m">0</span>.00<span class="w">	</span><span class="m">0</span>.0<span class="w">	</span><span class="m">9</span>.30<span class="w">	</span>yellow<span class="w">	</span>cash<span class="w">	</span>Upper<span class="w"> </span>West<span class="w"> </span>Side<span class="w"> </span>South<span class="w">	</span>Upper<span class="w"> </span>West<span class="w"> </span>Side<span class="w"> </span>South<span class="w">	</span>Manhattan<span class="w">	</span>Manhattan
+<span class="m">2</span><span class="w">	</span><span class="m">2019</span>-03-27<span class="w"> </span><span class="m">17</span>:53:01<span class="w">	</span><span class="m">2019</span>-03-27<span class="w"> </span><span class="m">18</span>:00:25<span class="w">	</span><span class="m">1</span><span class="w">	</span><span class="m">1</span>.37<span class="w">	</span><span class="m">7</span>.5<span class="w">	</span><span class="m">2</span>.36<span class="w">	</span><span class="m">0</span>.0<span class="w">	</span><span class="m">14</span>.16<span class="w">	</span>yellow<span class="w">	</span>credit<span class="w"> </span>card<span class="w">	</span>Alphabet<span class="w"> </span>City<span class="w">	</span>West<span class="w"> </span>Village<span class="w">	</span>Manhattan<span class="w">	</span>Manhattan
+<span class="m">3</span><span class="w">	</span><span class="m">2019</span>-03-10<span class="w"> </span><span class="m">01</span>:23:59<span class="w">	</span><span class="m">2019</span>-03-10<span class="w"> </span><span class="m">01</span>:49:51<span class="w">	</span><span class="m">1</span><span class="w">	</span><span class="m">7</span>.70<span class="w">	</span><span class="m">27</span>.0<span class="w">	</span><span class="m">6</span>.15<span class="w">	</span><span class="m">0</span>.0<span class="w">	</span><span class="m">36</span>.95<span class="w">	</span>yellow<span class="w">	</span>credit<span class="w"> </span>card<span class="w">	</span>Hudson<span class="w"> </span>Sq<span class="w">	</span>Yorkville<span class="w"> </span>West<span class="w">	</span>Manhattan<span class="w">	</span>Manhattan
+<span class="m">4</span><span class="w">	</span><span class="m">2019</span>-03-30<span class="w"> </span><span class="m">13</span>:27:42<span class="w">	</span><span class="m">2019</span>-03-30<span class="w"> </span><span class="m">13</span>:37:14<span class="w">	</span><span class="m">3</span><span class="w">	</span><span class="m">2</span>.16<span class="w">	</span><span class="m">9</span>.0<span class="w">	</span><span class="m">1</span>.10<span class="w">	</span><span class="m">0</span>.0<span class="w">	</span><span class="m">13</span>.40<span class="w">	</span>yellow<span class="w">	</span>credit<span class="w"> </span>card<span class="w">	</span>Midtown<span class="w"> </span>East<span class="w">	</span>Yorkville<span class="w"> </span>West<span class="w">	</span>Manhattan<span class="w">	</span>Manhattan
+</pre></div>
+</div>
+<p>Of course, we can create an arrow Table independently of Pandas, but for our purposes, it’s more interesting to convert the Pandas DataFrame. The PyArrow Table class contains several construction functions beginning with “from_,” and we pass a copy of our df_taxis to the appropriate function. We call copy on the DataFrame to ensure we’re not just mapping our Arrow Table onto existing data.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">arrow_taxis</span> <span class="o">=</span> <span class="n">pyarrow</span><span class="o">.</span><span class="n">Table</span><span class="o">.</span><span class="n">from_pandas</span><span class="p">(</span><span class="n">df_taxis</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>(We can also go the other way. Given an arrow Table, we can convert it to a Pandas DataFrame, using the <code class="docutils literal notranslate"><span class="pre">to_pandas</span></code> method.)</p>
+<p>With a Pandas DataFrame and a PyArrow Table in memory, we can now compare them.</p>
+</section>
+<section id="id1">
+<h1>Arrow Tables vs. Pandas DataFrames<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
+<p>The first thing we notice about the Arrow Table is that the default display looks very different. Entering just the Table instance’s name in Jupyter (<code class="docutils literal notranslate"><span class="pre">arrow_taxis</span></code>) we don’t see the summary in the usual tabular output. Instead, we see the type of the object, the column names and types, and some summary data for the first few columns:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pyarrow</span><span class="o">.</span><span class="n">Table</span>
+<span class="n">pickup</span><span class="p">:</span> <span class="n">timestamp</span><span class="p">[</span><span class="n">ns</span><span class="p">]</span>
+<span class="n">dropoff</span><span class="p">:</span> <span class="n">timestamp</span><span class="p">[</span><span class="n">ns</span><span class="p">]</span>
+<span class="n">passengers</span><span class="p">:</span> <span class="n">int64</span>
+<span class="n">distance</span><span class="p">:</span> <span class="n">double</span>
+<span class="n">fare</span><span class="p">:</span> <span class="n">double</span>
+<span class="n">tip</span><span class="p">:</span> <span class="n">double</span>
+<span class="n">tolls</span><span class="p">:</span> <span class="n">double</span>
+<span class="n">total</span><span class="p">:</span> <span class="n">double</span>
+<span class="n">color</span><span class="p">:</span> <span class="n">string</span>
+<span class="n">payment</span><span class="p">:</span> <span class="n">string</span>
+<span class="n">pickup_zone</span><span class="p">:</span> <span class="n">string</span>
+<span class="n">dropoff_zone</span><span class="p">:</span> <span class="n">string</span>
+<span class="n">pickup_borough</span><span class="p">:</span> <span class="n">string</span>
+<span class="n">dropoff_borough</span><span class="p">:</span> <span class="n">string</span>
+<span class="o">----</span>
+<span class="n">pickup</span><span class="p">:</span> <span class="p">[[</span><span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">23</span> <span class="mi">20</span><span class="p">:</span><span class="mi">21</span><span class="p">:</span><span class="mf">09.000000000</span><span class="p">,</span><span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">04</span> <span class="mi">16</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mf">55.000000000</span><span class="p">,</span><span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">27</span> <span class="mi">17</span><span class="p">:</span><span class="mi">53</span><span class="p">:</span><span class="mf">01.000000000</span><span class="p">,</span><span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">10</span> <span class="mi">01</span><span class="p">:</span><span class="mi">23</span><span class="p">:</span><span class="mf">59.000000000</span><span class="p">,</span><span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">30</span> <span class="mi">13</span><span class="p">:</span><span class="mi">27</span><span class="p">:</span><span class="mf">42.000000000</span><span class="p">,</span><span class="o">...</span><span class="p">,</span><span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">31</span> <span class="mi">09</span><span class="p">:</span><span class="mi">51</span><span class="p">:</span><span class="mf">53.000000000</span><span class="p">,</span><span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">31</span> <span class="mi">17</span><span class="p">:</span><span class="mi">38</span><span class="p">:</span><span class="mf">00.000000000</span><span class="p">,</span><span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">23</span> <span class="mi">22</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mf">18.000000000</span><span class="p">,</span><span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">04</span> <span class="mi">10</span><span class="p">:</span><span class="mi">09</span><span class="p">:</span><span class="mf">25.000000000</span><span class="p">,</span><span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">13</span> <span class="mi">19</span><span class="p">:</span><span class="mi">31</span><span class="p">:</span><span class="mf">22.000000000</span><span class="p">]]</span>
+<span class="n">dropoff</span><span class="p">:</span> <span class="p">[[</span><span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">23</span> <span class="mi">20</span><span class="p">:</span><span class="mi">27</span><span class="p">:</span><span class="mf">24.000000000</span><span class="p">,</span><span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">04</span> <span class="mi">16</span><span class="p">:</span><span class="mi">19</span><span class="p">:</span><span class="mf">00.000000000</span><span class="p">,</span><span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">27</span> <span class="mi">18</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mf">25.000000000</span><span class="p">,</span><span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">10</span> <span class="mi">01</span><span class="p">:</span><span class="mi">49</span><span class="p">:</span><span class="mf">51.000000000</span><span class="p">,</span><span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">30</span> <span class="mi">13</span><span class="p">:</span><span class="mi">37</span><span class="p">:</span><span class="mf">14.000000000</span><span class="p">,</span><span class="o">...</span><span class="p">,</span><span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">31</span> <span class="mi">09</span><span class="p">:</span><span class="mi">55</span><span class="p">:</span><span class="mf">27.000000000</span><span class="p">,</span><span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">31</span> <span class="mi">18</span><span class="p">:</span><span class="mi">34</span><span class="p">:</span><span class="mf">23.000000000</span><span class="p">,</span><span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">23</span> <span class="mi">23</span><span class="p">:</span><span class="mi">14</span><span class="p">:</span><span class="mf">25.000000000</span><span class="p">,</span><span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">04</span> <span class="mi">10</span><span class="p">:</span><span class="mi">14</span><span class="p">:</span><span class="mf">29.000000000</span><span class="p">,</span><span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">13</span> <span class="mi">19</span><span class="p">:</span><span class="mi">48</span><span class="p">:</span><span class="mf">02.000000000</span><span class="p">]]</span>
+<span class="n">passengers</span><span class="p">:</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">...</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
+<span class="n">distance</span><span class="p">:</span> <span class="p">[[</span><span class="mf">1.6</span><span class="p">,</span><span class="mf">0.79</span><span class="p">,</span><span class="mf">1.37</span><span class="p">,</span><span class="mf">7.7</span><span class="p">,</span><span class="mf">2.16</span><span class="p">,</span><span class="o">...</span><span class="p">,</span><span class="mf">0.75</span><span class="p">,</span><span class="mf">18.74</span><span class="p">,</span><span class="mf">4.14</span><span class="p">,</span><span class="mf">1.12</span><span class="p">,</span><span class="mf">3.85</span><span class="p">]]</span>
+<span class="n">fare</span><span class="p">:</span> <span class="p">[[</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mf">7.5</span><span class="p">,</span><span class="mi">27</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="o">...</span><span class="p">,</span><span class="mf">4.5</span><span class="p">,</span><span class="mi">58</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">15</span><span class="p">]]</span>
+<span class="n">tip</span><span class="p">:</span> <span class="p">[[</span><span class="mf">2.15</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">2.36</span><span class="p">,</span><span class="mf">6.15</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span><span class="o">...</span><span class="p">,</span><span class="mf">1.06</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">3.36</span><span class="p">]]</span>
+<span class="n">tolls</span><span class="p">:</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">...</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span>
+<span class="n">total</span><span class="p">:</span> <span class="p">[[</span><span class="mf">12.95</span><span class="p">,</span><span class="mf">9.3</span><span class="p">,</span><span class="mf">14.16</span><span class="p">,</span><span class="mf">36.95</span><span class="p">,</span><span class="mf">13.4</span><span class="p">,</span><span class="o">...</span><span class="p">,</span><span class="mf">6.36</span><span class="p">,</span><span class="mf">58.8</span><span class="p">,</span><span class="mf">17.3</span><span class="p">,</span><span class="mf">6.8</span><span class="p">,</span><span class="mf">20.16</span><span class="p">]]</span>
+<span class="n">color</span><span class="p">:</span> <span class="p">[[</span><span class="s2">&quot;yellow&quot;</span><span class="p">,</span><span class="s2">&quot;yellow&quot;</span><span class="p">,</span><span class="s2">&quot;yellow&quot;</span><span class="p">,</span><span class="s2">&quot;yellow&quot;</span><span class="p">,</span><span class="s2">&quot;yellow&quot;</span><span class="p">,</span><span class="o">...</span><span class="p">,</span><span class="s2">&quot;green&quot;</span><span class="p">,</span><span class="s2">&quot;green&quot;</span><span class="p">,</span><span class="s2">&quot;green&quot;</span><span class="p">,</span><span class="s2">&quot;green&quot;</span><span class="p">,</span><span class="s2">&quot;green&quot;</span><span class="p">]]</span>
+<span class="n">payment</span><span class="p">:</span> <span class="p">[[</span><span class="s2">&quot;credit card&quot;</span><span class="p">,</span><span class="s2">&quot;cash&quot;</span><span class="p">,</span><span class="s2">&quot;credit card&quot;</span><span class="p">,</span><span class="s2">&quot;credit card&quot;</span><span class="p">,</span><span class="s2">&quot;credit card&quot;</span><span class="p">,</span><span class="o">...</span><span class="p">,</span><span class="s2">&quot;credit card&quot;</span><span class="p">,</span><span class="s2">&quot;credit card&quot;</span><span class="p">,</span><span class="s2">&quot;cash&quot;</span><span class="p">,</span><span class="s2">&quot;credit card&quot;</span><span class="p">,</span><span class="s2">&quot;credit card&quot;</span><span class="p">]]</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>As with Pandas, there are methods that support selecting subsets of the data. We can select columns into a new Table with the <code class="docutils literal notranslate"><span class="pre">select</span></code> method and get ranges of rows using the (zero-copy) <code class="docutils literal notranslate"><span class="pre">slice</span></code> method. In the following code, we show how to chain the two calls to select the first five values in the leftmost two columns:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">arrow_taxis</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;pickup&#39;</span><span class="p">,</span> <span class="s1">&#39;dropoff&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+</section>
+<section id="pyarrow-table-pickup-timestamp-ns-dropoff-timestamp-ns">
+<h1>pyarrow.Table
+pickup: timestamp[ns]
+dropoff: timestamp[ns]<a class="headerlink" href="#pyarrow-table-pickup-timestamp-ns-dropoff-timestamp-ns" title="Link to this heading"></a></h1>
+<p>pickup: [[2019-03-23 20:21:09.000000000,2019-03-04 16:11:55.000000000,2019-03-27 17:53:01.000000000,2019-03-10 01:23:59.000000000,2019-03-30 13:27:42.000000000]]
+dropoff: [[2019-03-23 20:27:24.000000000,2019-03-04 16:19:00.000000000,2019-03-27 18:00:25.000000000,2019-03-10 01:49:51.000000000,2019-03-30 13:37:14.000000000]]</p>
+<p>We can also select rows according to some criteria using the filter method. To do this, we first have to create an expression on which the filter will operate. The following code shows how to do this. Here we select and display the fares that were at least $100.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyarrow.compute</span> <span class="k">as</span> <span class="nn">pc</span>
+<span class="n">expr</span> <span class="o">=</span> <span class="n">pc</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="s2">&quot;fare&quot;</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">100</span>
+<span class="n">high_fares</span> <span class="o">=</span> <span class="n">arrow_taxis</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">high_fares</span><span class="p">[</span><span class="s2">&quot;fare&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>
+<span class="w">  </span><span class="o">[</span>
+<span class="w">    </span><span class="m">120</span>,
+<span class="w">    </span><span class="m">130</span>,
+<span class="w">    </span><span class="m">103</span>,
+<span class="w">    </span><span class="m">143</span>.5,
+<span class="w">    </span><span class="m">100</span>,
+<span class="w">    </span><span class="m">150</span>,
+<span class="w">    </span><span class="m">150</span>
+<span class="w">  </span><span class="o">]</span>
+<span class="o">]</span>
+</pre></div>
+</div>
+<p>Although Arrow allows subsetting data down to certain rows or columns or even individual values just as Pandas does, these values are immutable in Arrow. Thus, for example, arrow_taxis[“fare”][0] outputs &lt;pyarrow.DoubleScalar: 7.0&gt;, trying something like “arrow_taxis[“fare”][0] = 10” throws an exception. In Pandas, in contrast, we can set the value directly (with a warning) or avoid the warning with the DataFrame.at method:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df_taxis</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;fare&#39;</span><span class="p">])</span>
+<span class="n">df_taxis</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;fare&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_taxis</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;fare&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p>7.0
+10.0</p>
+<p>Although the immutability of Arrow data limits the use of it to purely analytic work as opposed to data manipulation, for these operations Arrow Tables offer significant performance and memory usage improvements over Pandas DataFrames.</p>
+<p>We can demonstrate the advantage in terms of memory usage with the getsizeof method from the Python sys module:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">df_taxis</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">arrow_taxis</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">3019880</span>
+<span class="mi">982757</span>
+</pre></div>
+</div>
+<p>As we can see, the Arrow Table takes just under a third of the memory of the Python DataFrame. In addition to being smaller in memory, we’ve found Arrow Tables to be much faster for performing various aggregate or summary operations. Here are some representative results showing Pandas first, then PyArrow:</p>
+<p><img alt="Table showing performance difference in Pandas DataFrames vs Arrow tables." src="../../_images/image-124.png" /></p>
+</section>
+<section id="parquet-vs-other-storage-formats-for-pandas">
+<h1>Parquet vs. Other Storage Formats for Pandas<a class="headerlink" href="#parquet-vs-other-storage-formats-for-pandas" title="Link to this heading"></a></h1>
+<p>As we’ve seen, Apache Arrow provides better performance than Pandas for many operations. However, the fact that more users are familiar with Pandas and that Arrow data cannot easily be “wrangled” (modified) may mean that many users will want to stick with Pandas DataFrames in many cases. Even if that’s the case for you, however, you may still want to take advantage of the excellent performance and compression characteristics of the Parquet storage format.</p>
+<p>Installing PyArrow enables you to write and read Pandas DataFrames using two data formats that Pandas does not otherwise support: Parquet and ORC. In the case of Parquet, Pandas can also read and write such files using a module called “fastparquet.”</p>
+<p>Using %timeit, we ran several tests where we wrote df_taxis using Parquet and other supported file formats, then read it back. We wanted to know each case’s read time, write time, and file size. (Note: we also needed to install fastparquet and openpyxl to compile this table).</p>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading"></a></h2>
+<p>The table below summarizes the results, which we’ll follow with a discussion.</p>
+<table><tbody><tr><td><strong>Operation</strong></td><td><strong>Speed</strong></td><td><strong>File Size</strong></td></tr><tr><td>df_taxis.to_parquet (pyarrow)</td><td>4.55 ms</td><td>191,788</td></tr><tr><td>pandas.read_parquet (pyarrow)</td><td>2.03 ms</td><td></td></tr><tr><td>df_taxis.to_parquet (fastparquet)</td><td>14.2 ms</td><td>275,765</td></tr><tr><td>pandas.read_parquet (fastparquet)</td><td>2.7 ms</td><td></td></tr><tr><td>df_taxis.to_feather</td><td>2.74 ms</td><td>428,818</td></tr><tr><td>pandas.read_feather</td><td>1.48 ms</td><td></td></tr><tr><td>df_taxis.to_orc</td><td>7.01 ms</td><td>751,897</td></tr><tr><td>pandas.read_orc</td><td>5.65 ms</td><td></td></tr><tr><td>df_taxis.to_excel</td><td>874 ms</td><td>540,683</td></tr><tr><td>pandas.read_excel</td><td>560 ms</td><td></td></tr><tr><td>df_taxis.to_csv</td><td>32.7 ms</td><td>900,405</td></tr><tr><td>pandas.read_csv</td><td>8.13 ms</td><td></td></tr></tbody></table>
+</section>
+<section id="discussion">
+<h2>Discussion<a class="headerlink" href="#discussion" title="Link to this heading"></a></h2>
+<p>Parquet read and write operations were very performant, with the PyArrow engine being faster than fastparquet. For sheer speed, however, the feather format performed best, and Excel performed the worst. Regarding file size, PyArrow parquet turned in the smallest size at 191,788 bytes, a 4x space saving over CSV (the worst offender) which took up almost a gigabyte for the same data.</p>
+<p>All else being equal, Parquet using PyArrow turned in the best balance of reasonable speed and great compression. So for wrangling large data sets with Pandas, Parquet is a great choice.</p>
+<p>Of course, CSV is still ubiquitous. It may be inefficient to parse and wasteful of space, but the fact that it’s human-readable and almost universally supported makes it the format of choice, especially for small example data sets.</p>
+<p>Excel and ORC should be considered only in cases where you need to use them. The documentation for ORC boasts that its compression may sometimes be better than for Parquet, but we didn’t find that to be the case for our files written using Pandas.</p>
+<p>I should point out that the usual caveats that are always true of benchmarks apply here. These results are a snapshot taken on a particular machine with a particular data set. In addition, in all cases, we stored the data with as few options as possible besides the file name, so there may be differences in whether the index is stored between file formats.</p>
+</section>
+</section>
+<section id="closing-thoughts-pyarrow-beyond-pandas">
+<h1>Closing Thoughts: PyArrow Beyond Pandas<a class="headerlink" href="#closing-thoughts-pyarrow-beyond-pandas" title="Link to this heading"></a></h1>
+<p>PyArrow is an important project that has many more important uses than we’ve been able to cover here. One exciting area of development that has not yet stabilized is PyArrow’s flight module, which uses the Arrow data format to efficiently push rows of data over a network in much the same way as a database driver based on ODBC or JDBC would. The Python PyArrow Cookbook has an <a class="reference external" href="https://arrow.apache.org/cookbook/py/flight.html" title="Arrow Flight">Arrow Flight</a> tutorial that shows how to run a Flight server against a directory containing Parquet files. This tutorial leverages Arrow’s ability to stream data sets (a subset of rows) to avoid having to have entire data sets in memory.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

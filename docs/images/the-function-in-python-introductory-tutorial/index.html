@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=19645805"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/images/the-function-in-python-introductory-tutorial/index.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>Writing effective functions is a crucial skill to master, in Python or in any programming language. Learning to write and use Python functions is like playing the game of Go or Chess. Understanding the game’s basic rules is simple enough, and you can quickly master these after a short introduction. However, learning to play well can be a challenging, lifetime adventure.</p>
+<p>If you’re a new programmer, learning to write functions is the first leap you’ll take away from treating Python as a “quick and dirty” scripting language to a sophisticated general-purpose language that lets you write robust, maintainable code.</p>
+<p>Table of Contents</p>
+<ul class="simple">
+<li><p>Introduction</p>
+<ul>
+<li><p>What Is a Function in Python?</p></li>
+<li><p>Python Functions: Some Examples</p></li>
+<li><p>Keyword Arguments and Positional Arguments</p></li>
+<li><p>Default Parameters</p></li>
+<li><p>Return Values</p></li>
+<li><p>Early Returns from a Function</p></li>
+<li><p>Multiple Return Values from a Python Function</p></li>
+<li><p>Functions with No Return Value</p></li>
+</ul>
+</li>
+<li><p>You May Also Enjoy</p></li>
+</ul>
+<section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h1>
+<p>Welcome to this tutorial on functions in Python! In this tutorial, you will learn how to define and use functions in Python.</p>
+<p>Functions are essential to any programming language, as they allow you to reuse code and compartmentalize your program into logical blocks. In Python, functions are defined using the <code class="docutils literal notranslate"><span class="pre">def</span></code> keyword, and are called using the function name followed by parentheses.</p>
+<p>Writing good functions is a crucial first step to becoming an effective Python programmer.</p>
+<section id="what-is-a-function-in-python">
+<h2>What Is a Function in Python?<a class="headerlink" href="#what-is-a-function-in-python" title="Link to this heading"></a></h2>
+<p>As with everything in programming, the best way to understand functions is by example, but before we get to those, let’s begin with a formal definition.</p>
+<p>A Python function is named, callable group of statements. Functions accept zero or more arguments and may return a result. This very broad definition captures what the language allows.</p>
+<p>More strictly speaking, a function is a subroutine that returns a result. Still, Python is like most other languages, in that it doesn’t distinguish between “subroutines” (or procedures), which don’t return a result, and functions, which do return a result. They are defined the same in Python and called in roughly the same way.</p>
+<p>As in most programming languages, therefore, the definition of a function in Python is quite broad, and certainly a good deal broader than it is in mathematics, where a function maps a value to a result in a deterministic way.</p>
+<p>In addition to functions as defined here, Python also supports unnamed, anonymous lambda functions and callable objects that can serve as functions but are defined differently. There are also different types of methods that one can define on Python clases. (See <a class="reference external" href="https://codesolid.com/getting-started-with-python-classes/">Python Classes Zero To Expert: A Tutorial With Exercises</a>, for more on this topic). For the purposes of this article, however, we’ll focus primarily on simple functions declared outside of a class.</p>
+</section>
+<section id="python-functions-some-examples">
+<h2>Python Functions: Some Examples<a class="headerlink" href="#python-functions-some-examples" title="Link to this heading"></a></h2>
+<p>You define a function in Python with the following syntax:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">function_name</span><span class="p">(</span><span class="n">parameter_1</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">parameter_n</span><span class="p">):</span>
+    <span class="n">statement_1</span>
+    <span class="o">...</span>
+    <span class="n">statement_N</span>
+    <span class="n">optional</span> <span class="k">return</span> <span class="n">value</span>
+</pre></div>
+</div>
+<p>The items you pass to a function are called parameters when they appear in the function’s definition. They are called arguments when passed as part of a call to a function. To call a function, you type the function name followed by the arguments you want to pass to the function in parentheses. You already know how to do this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calling a function</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello world&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Multiple parameters, if any, are separated by commas.</p>
+<p>The print function is a good example of the “looseness” of the definition of a function because it doesn’t return a result. We call print for to get the “side effect” of displaying a result on the screen.</p>
+<p>Let’s look at some simple examples of function definitions and how we might call them. We first define a function like print that we call for its side effects, and then we define another that fits a stricter, mathematical idea of what a function does.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">log_info</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A function with one parameter called for side effects only.  No return value.&quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;INFO: </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A function with two parameters and a return value&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">n1</span> <span class="o">+</span> <span class="n">n2</span>
+
+<span class="n">log_info</span><span class="p">(</span><span class="s2">&quot;A function with side effects&quot;</span><span class="p">)</span>
+
+<span class="c1"># Save a return value to a variable:</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">log_info</span><span class="p">(</span><span class="s2">&quot;2 plus 2 equals &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+
+<span class="c1"># What about the side-effects only function. What does it &quot;return&quot;?</span>
+<span class="n">log_result</span> <span class="o">=</span> <span class="n">log_info</span><span class="p">(</span><span class="s2">&quot;What if a function returns no result?&quot;</span><span class="p">)</span>
+<span class="n">log_info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;log_result is None? </span><span class="si">{</span><span class="n">log_result</span><span class="w"> </span><span class="ow">is</span><span class="w"> </span><span class="kc">None</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p>INFO: A function with side effects
+INFO: Two plus two equals 4
+INFO: What if a function returns no result?
+INFO: log_result is None? True</p>
+</section>
+<section id="keyword-arguments-and-positional-arguments">
+<h2>Keyword Arguments and Positional Arguments<a class="headerlink" href="#keyword-arguments-and-positional-arguments" title="Link to this heading"></a></h2>
+<p>Python has a very rich and flexible syntax for passing arguments to a function. In fact, it’s so rich and flexible that we’ve published a whole separate article on <a class="reference external" href="https://codesolid.com/python-function-arguments-and-parameters-examples/">Python Function Arguments</a> that goes over all the rules and special cases.</p>
+<p>To briefly summarize some of the main points without getting into all the detailed syntax and special cases, if you have a plain function with a set of parameters, you can in general specify those parameters either by keyword or by position.</p>
+<p>Let’s suppose for example that you’re tired of looking up string formatting codes for displaying different numbers in base 2, base 16, and so forth. You decide to write a function that takes a decimal number and a string representing a base you want to display it as, and returns a string. The bases you want to be able to pass to it are “hex” for hexadecimal, “bin” for binary, “oct” for octal, and “dec” for decimal.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">int_to_string</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">target_base</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span> 
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Format an integer as a string, in one of the bases given by the keys in supported&quot;&quot;&quot;</span>
+    <span class="n">supported</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;hex&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{0:0x}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;bin&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{:0b}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;dec&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{0:0d}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;oct&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{0:0o}</span><span class="s2">&quot;</span><span class="p">}</span>
+    <span class="k">assert</span> <span class="n">target_base</span> <span class="ow">in</span> <span class="n">supported</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">supported</span><span class="p">[</span><span class="n">target_base</span><span class="p">]</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The implementation details are unimportant for now. The main point is that, given a simple Python function like this, we can pass a number in the first position, and a string in the second position:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Call a function using positional arguments</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">int_to_string</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;hex&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>a
+</pre></div>
+</div>
+<p>Being able to call a function by position like this is common to many, many programming languages. In Python, we can alternatively call the function by keyword, specifying the name of the parameter, an equals sign and a value. If we do this we can pass the arguments out of order if we like:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Call a function using keyword arguments</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">int_to_string</span><span class="p">(</span><span class="n">target_base</span><span class="o">=</span><span class="s2">&quot;bin&quot;</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">1010</span>
+</pre></div>
+</div>
+<p>You can also mix positional arguments and keyword arguments, but the rule for that is that if you do so, any positional arguments must come first. This is as you might expect, since in that case, order matters!</p>
+</section>
+<section id="default-parameters">
+<h2>Default Parameters<a class="headerlink" href="#default-parameters" title="Link to this heading"></a></h2>
+<p>Later parameters in a function parameter list can be created as default parameters. For example, maybe we designed <code class="docutils literal notranslate"><span class="pre">int_to_string</span></code> to be flexible, but since we deal with hexadecimal values a lot, we really wanted to make that a default. To do this, place the default value in an equals sign after the parameter definition, for example:</p>
+<p><code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">int_to_string(number:</span> <span class="pre">int,</span> <span class="pre">target_base:</span> <span class="pre">str**=&quot;hex&quot;**)</span></code> …</p>
+<p>With this change in place, we can still override the default to get octal or other formats, but if we leave off the parameter, we get hex:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Call a function using a default parameter</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">int_to_string</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ff
+</pre></div>
+</div>
+</section>
+<section id="return-values">
+<h2>Return Values<a class="headerlink" href="#return-values" title="Link to this heading"></a></h2>
+<p>As we saw above in <code class="docutils literal notranslate"><span class="pre">int_to_string</span></code>, values can be returned from a function using the “return” keyword, followed by a variable or expression. The return value can then be set to a variable or used in another expression. Function calls can also be nested, with the innermost call’s return value passed to the next innermost, and so forth. In practice, you should avoid having too much nesting because after awhile the code starts to become unclear, but the choice of when an intermediate variable improves readability is somewhat arbitrary. Here’s an example where we nest the return of <code class="docutils literal notranslate"><span class="pre">str</span></code> to the <code class="docutils literal notranslate"><span class="pre">len</span></code> function, and print that value.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="mi">12345</span><span class="p">)))</span> <span class="c1"># Prints 5</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">5</span>
+</pre></div>
+</div>
+<p>If the nesting begins to get confusing, you can clarify the explicit steps by creating variables if you wish.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">number_as_string</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="mi">12345</span><span class="p">)</span>
+<span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">number_as_string</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">length</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>When to keep things concise and when to make them explicit is often a judgment call, but usually, if there’s any complexity in the code that would make it difficult to understand otherwise, splitting it out into separate steps is a good idea. When in doubt, err on the side of clarity. The goal always should be to make the code readable, not clever.</p>
+</section>
+<section id="early-returns-from-a-function">
+<h2>Early Returns from a Function<a class="headerlink" href="#early-returns-from-a-function" title="Link to this heading"></a></h2>
+<p>A function can have more than one return statement. There’s some debate as to whether that’s a good idea or not, but many developers feel it makes sense if you already know the answer. Let’s suppose you have a function that takes a list of sales objects and counts those with a total value greater than $100.00. If the list is either null or empty, it makes no sense to continue, since the answer has to be zero. In that case, an early return at the top of the function might make perfect sense:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count_sales_over_one_hundred</span><span class="p">(</span><span class="n">sales</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Assert example&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">sales</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="c1"># Do count otherwise...</span>
+</pre></div>
+</div>
+<p>We’ll show another way we could have handled this condition a bit later in our discussion of asserts.</p>
+</section>
+<section id="multiple-return-values-from-a-python-function">
+<h2>Multiple Return Values from a Python Function<a class="headerlink" href="#multiple-return-values-from-a-python-function" title="Link to this heading"></a></h2>
+<p>You can easily return multiple values from a Python function by separating them with a comma. Strictly speaking, you’re really returning one Python tuple this way, and the comma serves as an operator that creates the tuple.</p>
+<p>Let’s say you wanted to modify your <code class="docutils literal notranslate"><span class="pre">count_sales_over_one_hundered</span></code> function to return both the total count of sales over one hundred dollars, as well as the count of sales under ten dollars. Once you’ve gone through the list, your return statement might look like this:</p>
+<p><code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">count_high_dollar,</span> <span class="pre">count_low_dollar</span></code></p>
+</section>
+<section id="functions-with-no-return-value">
+<h2>Functions with No Return Value<a class="headerlink" href="#functions-with-no-return-value" title="Link to this heading"></a></h2>
+<p>When your program calls a function in Python, generally speaking, one of three things will happen:</p>
+<ul class="simple">
+<li><p>The function will return a value to the caller. If it returns a value, that value should (generally) be handled by the caller in some way.</p></li>
+<li><p>The function will not return a value with an explicit return call, and will simply run through the last line of code in the function, then return None (implicitly) to the caller.</p></li>
+<li><p>The function will throw an exception. The caller may handle the exception, for example by logging or otherwise reporting the error. If the exception is unhandled or re-raised by the caller, the program will exit.</p></li>
+</ul>
+</section>
+</section>
+<section id="you-may-also-enjoy">
+<h1>You May Also Enjoy<a class="headerlink" href="#you-may-also-enjoy" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="https://codesolid.com/python-format-strings/">Python Format Strings: From Beginner to Expert</a></p>
+<p><a class="reference external" href="https://codesolid.com/python-dataclasses/">Python Dataclass: Easily Automate Class Best Practices</a></p>
+<p><a class="reference external" href="https://codesolid.com/python-indexing-slicing-exercises/">Python Indexing and Slicing</a></p>
+<p><a class="reference external" href="https://codesolid.com/python-operators/">Python Operators: The Building Blocks of Successful Code</a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

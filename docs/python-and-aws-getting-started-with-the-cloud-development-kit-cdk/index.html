@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python and AWS: Getting Started with the Cloud Development Kit (CDK) &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=19645805"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Python and AWS:  Getting Started with the Cloud Development Kit (CDK)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/python-and-aws-getting-started-with-the-cloud-development-kit-cdk.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="python-and-aws-getting-started-with-the-cloud-development-kit-cdk">
+<h1>Python and AWS:  Getting Started with the Cloud Development Kit (CDK)<a class="headerlink" href="#python-and-aws-getting-started-with-the-cloud-development-kit-cdk" title="Link to this heading"></a></h1>
+<p>Several infrastructure-as-code tools can help us deploy our code to Amazon’s cloud offering (Amazon Web Services or AWS). All such tools are essentially client applications of one sort or another, which deploy cloud infrastructure by calling into AWS’s Rest APIs.</p>
+<p>AWS’s CLI (Command Line Interface tool), for example, allows you to interact with AWS via the command line, in much the same way that you can interact with Python by running Python or IPython interactively. Interestingly, under the covers, the AWS command line tool is built on Python’s boto3 client library, which we introduced and discussed in <a class="reference external" href="https://codesolid.com/python-and-aws-lambda-functions/">Python for AWS Lambda Functions: A Beginner’s Guide</a>.</p>
+<p>Boto3 is an awesome library, but it cannot manage complex infrastructure deployments easily by itself. Often, what individuals and DevOps teams want are tools that will help them manage their costs by allowing them to create and tear down reproducible sets of components.</p>
+<p>The two major tools that fill that gap are CloudFormation, which is Amazon’s proprietary solution, and Terraform, a third-party tool that supports multiple cloud vendors with pluggable “providers” (including one for AWS, of course).</p>
+<p>As popular as these tools are, neither of them is written in a “real” programming language. Terraform files are written in HCL (Hashicorp Markup Language), a proprietary markup language. CloudFormation can be written either in JSON or YAML. These tools generally express simple relationships between infrastructure components well but lack the expressive power of languages like Python.</p>
+<p>To restore such expressive power to infrastructure deployment and to allow developers to use tools they already know, AWS created the Cloud Development Kit (or CDK). The CDK provides a layer of abstraction on top of CloudFormation and allows it to be used from TypeScript, Python, and other languages.</p>
+<section id="getting-started-basic-setup-for-the-cdk-for-python">
+<h2>Getting Started: Basic Setup for the CDK for Python<a class="headerlink" href="#getting-started-basic-setup-for-the-cdk-for-python" title="Link to this heading"></a></h2>
+<p>This article assumes that you have an AWS account and that you have the AWS CLI <a class="reference external" href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html">installed and configured</a>.</p>
+<p>In addition to the AWS CLI, the CDK also depends on Node for the CDK command line tool.</p>
+<p>The fact that you can easily install such extra tools into an environment is <a class="reference external" href="https://codesolid.com/conda-vs-pip/" title="one of many reasons">one of many reasons</a> I like to use conda, so if you have Anaconda or mini-conda installed, please use the next section. If you don’t, we’ll also walk you through the basics in the section “Using the CDK in a Python Virtual Environment”, but you’ll need to install <a class="reference external" href="https://nodejs.org/en/">Node.js</a> separately in that case if you don’t already have it. (If you’re not sure, try typing “<code class="docutils literal notranslate"><span class="pre">node</span> <span class="pre">--version</span></code>” to see if it’s available).</p>
+<section id="using-the-python-cdk-with-conda">
+<h3>Using the Python CDK With Conda<a class="headerlink" href="#using-the-python-cdk-with-conda" title="Link to this heading"></a></h3>
+<p>Conda makes it easy to set up an environment with Python and Node and to activate a separate environment. Note however that we still need to install the CDK library using pip.</p>
+<p>To get started, use the following terminal commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create and activate the environment:</span>
+conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>aws-cdk<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11<span class="w"> </span>nodejs<span class="w"> </span>--yes
+conda<span class="w"> </span>activate<span class="w"> </span>aws-cdk
+
+<span class="c1"># Install the CDK (Command line tool)</span>
+npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>aws-cdk
+
+<span class="c1"># Install the CDK (library)</span>
+pip<span class="w"> </span>install<span class="w"> </span>aws-cdk-lib
+</pre></div>
+</div>
+</section>
+<section id="using-the-cdk-in-a-python-virtual-environment">
+<h3>Using the CDK in a Python Virtual Environment<a class="headerlink" href="#using-the-cdk-in-a-python-virtual-environment" title="Link to this heading"></a></h3>
+<p>To create a virtual environment and install the Python Cloud Development Kit, use the following commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create and activate the environment:</span>
+
+<span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="n">venv</span>
+<span class="n">source</span> <span class="n">venv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>   <span class="c1"># Linux or Mac</span>
+<span class="n">venv</span>\<span class="n">scripts</span>\<span class="n">activate</span><span class="o">.</span><span class="n">bat</span>  <span class="c1"># Windows</span>
+
+<span class="c1"># Install the CDK</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">aws</span><span class="o">-</span><span class="n">cdk</span><span class="o">-</span><span class="n">lib</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

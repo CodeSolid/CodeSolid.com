@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simple Vagrant Ansible Local Example &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=19645805"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Simple Vagrant Ansible Local Example</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/vagrant-ansible-local.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="simple-vagrant-ansible-local-example">
+<h1>Simple Vagrant Ansible Local Example<a class="headerlink" href="#simple-vagrant-ansible-local-example" title="Link to this heading"></a></h1>
+<p>I recently worked on a project showing how to install and configure a complete Pentaho Server instance with a back-end data repository housed in Postgresql. I wanted to select a provisioner for this work that would be easy to use to deploy the server either as a single instance VM, as an Amazon AMI, or as a set of docker containers.</p>
+<p>As I was setting up the first such target I wanted to support – a VirtualBox VM – I noticed that the examples and documentation for using Vagrant’s ansible-local provisioner were a bit sparse. Because of this, once I had my proof of concept working I decided to make a copy of the repository so I could share it with my adoring public. Well, with the public, anyway!</p>
+<p>I’ve shared the code on <a class="reference external" href="https://github.com/CodeSolid/vagrant-ansible-local-example">Github</a>. It’s pretty straightforward, but let’s walk through it briefly. The code consists of four files, which together launch a simple Centos VM with Nginx installed:</p>
+<ul class="simple">
+<li><p>Vagrantfile - We’re using Vagrant to manage our VM.</p></li>
+<li><p>playbook.yml - Our Ansible Playbook that will install Nginx for us on our Vagrant VM.</p></li>
+<li><p>inventory - Ansible “inventory” lists are groups of target machines that Ansible will configure. Unlike tools like Chef and Puppet, which rely on having a client installed, Ansible can configure remote machines listed in its inventory over SSH. Since we’re only configuring a single VM, our inventory file is quite simple and simply contains the same IP address we configure in our VagantFile.</p></li>
+<li><p>index.html - A test file for Nginx to serve.</p></li>
+</ul>
+<p>The Vagrantfile is only a few lines:</p>
+<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="no">Vagrant</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s2">&quot;2&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">config</span><span class="o">|</span>
+<span class="w">  </span><span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span><span class="w"> </span><span class="s2">&quot;forwarded_port&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">guest</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w"> </span><span class="ss">host</span><span class="p">:</span><span class="w"> </span><span class="mi">8080</span>
+<span class="w">  </span><span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;centos/7&quot;</span>
+<span class="w">  </span><span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span><span class="w"> </span><span class="s1">&#39;private_network&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">ip</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;192.168.56.10&#39;</span>
+<span class="w">  </span><span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span><span class="w"> </span><span class="ss">:ansible_local</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">ansible</span><span class="o">|</span>
+<span class="w">    </span><span class="n">ansible</span><span class="o">.</span><span class="n">playbook</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;playbook.yml&quot;</span>
+<span class="w">    </span><span class="n">ansible</span><span class="o">.</span><span class="n">inventory_path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;inventory&#39;</span>
+<span class="w">    </span><span class="n">ansible</span><span class="o">.</span><span class="n">limit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;all&#39;</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>This example assumes Vagrant and Virtualbox are installed. We configure the VM to use a private network using a static IP in the reserved private address space (see the Vagrant docs on <a class="reference external" href="https://www.vagrantup.com/docs/networking/private_network.html">private networks</a> for more information). We also forward a port so that once you bring the VM up you can test the connection on your host machine’s browser (at http://localhost:8080).</p>
+<p>Looking at the ansible_local configuration, we see it points to the playbook.yml file in our directory. To keep things simple, this playbook was based on Ansible’s example, <a class="reference external" href="https://www.ansible.com/blog/getting-started-writing-your-first-playbook">Getting Started Writing Your First Playbook</a>. It installs Nginx, copies index.html to the right place, and starts the server listening. We won’t show the file here, but you can take a look on Github.</p>
+<p>The inventory file, an important piece that was missing from some of the documentation, is a one-liner that matches the IP in our private network:</p>
+<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="mi">192</span><span class="o">.</span><span class="mi">168</span><span class="o">.</span><span class="mi">56</span><span class="o">.</span><span class="mi">10</span><span class="w"> </span><span class="n">ansible_connection</span><span class="o">=</span><span class="n">local</span>
+</pre></div>
+</div>
+<p>Note we still give the IP even though we’ve specified “ansible_connection=local.” I ran into some issues at one point using localhost.</p>
+<p>Finally, our Vagrantfile sets “<code class="docutils literal notranslate"><span class="pre">ansible.limit</span> <span class="pre">=</span> <span class="pre">‘all’</span></code>”, which tells ansible to connect to “all the machines in our inventory” (that’s right all one of them)!</p>
+<section id="vagrant-up">
+<h2>Vagrant Up<a class="headerlink" href="#vagrant-up" title="Link to this heading"></a></h2>
+<p>To try it out, run “vagrant up” from the directory containing the Vagrantfile. It’ll take a few minutes to download the Centos VM and configure the VM, then you can try to connect to Nginx from your web browser: <a class="reference external" href="http://localhost:8080/">http://localhost:8080</a>.</p>
+</section>
+<section id="you-may-also-enjoy">
+<h2>You May Also Enjoy<a class="headerlink" href="#you-may-also-enjoy" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://codesolid.com/building-a-docker-golang-container/">Building a Docker Golang Container</a></p></li>
+<li><p><a class="reference external" href="https://codesolid.com/how-to-use-docker-with-python/">How to Use Docker Python Images and Docker Compose with Python</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How To Separate Source and Tests in Python &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=19645805"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">How To Separate Source and Tests in Python</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/how-to-separate-tests-and-source-for-python-tests.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="how-to-separate-source-and-tests-in-python">
+<h1>How To Separate Source and Tests in Python<a class="headerlink" href="#how-to-separate-source-and-tests-in-python" title="Link to this heading"></a></h1>
+<p>Separating tests and source is not hard to do in Python, if you start your source directory at the root of the package structure. This is not hard in principle, but it trips up developers coming from other languages. We review how one popular library does it (which is in line with the pytest docs), and share a simple starter repository.</p>
+<p>A friend and former co-worker was good enough to submit a comment on my Python Packages post recently where he reminded me of an article I wanted to write. This is a problem he’d mentioned to me in the past, and it was one I had struggled with as well from time to time. I’m going to show a solution for pytest, which is a very common testing framework for Python. (You’ll need to <a class="reference external" href="https://codesolid.com/what-is-a-python-package/#htoc-how-to-install-python-packages">install</a> the pytest package to use it).</p>
+<p>Here’s the issue. Let’s say you have a package named “<code class="docutils literal notranslate"><span class="pre">mypackage</span></code>”, and you want to keep your unit tests separate from your package structure. Inside <code class="docutils literal notranslate"><span class="pre">mypackage</span></code> you have a simple function in greeter.py.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># greeter.py</span>
+
+<span class="w"> </span><span class="sd">&quot;&quot;&quot;greeter module contains one testable function&quot;&quot;&quot;</span>
+
+<span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;greet is a hello world style function to have something to test.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Hello, World!&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span>
+</pre></div>
+</div>
+<p>To test this, you want a test_greeter.py file somewhere to write your unit tests for the function, but you don’t want it to live with the source. That’s not something all Python teams do, by the way, but it’s a reasonable choice.</p>
+<p>So, especially if you come from a Java background, but even if you come from a number of other languages, you probably think you should have a folder structure that looks like this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>src/mypackage/greeter.py
+test/mypackage/test_greeter.py
+</pre></div>
+</div>
+<p>Another possibility is that you’re trying to simplify things, and realizing that you only have one top-level package, you decide to just put your tests at the root of the test directory:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">src</span><span class="o">/</span><span class="n">mypackage</span><span class="o">/</span><span class="n">greeter</span><span class="o">.</span><span class="n">py</span>
+<span class="n">tests</span><span class="o">/</span><span class="n">test_greeter</span><span class="o">.</span><span class="n">py</span>
+<span class="n">tests</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>I not only moved the test_greeter.py file, I also added an empty __init__.py file to the test directory. I also renamed “test” to “tests” to line it up with a Python convention we’ll see later on. For now, let’s move on and write our test:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">test</span><span class="o">/</span><span class="n">test_greeter</span><span class="o">.</span><span class="n">py</span>
+
+<span class="sd">&quot;&quot;&quot;tests the myapp.greeter module&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">mypackage.greeter</span> <span class="kn">import</span> <span class="n">greet</span>
+
+<span class="k">def</span> <span class="nf">test_greeter_returns_hello_world_if_no_name_provided</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">greet</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;Hello, World!&quot;</span>
+
+<span class="k">def</span> <span class="nf">test_greeter_returns_hello_name_if_name_provided</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">greet</span><span class="p">(</span><span class="s2">&quot;John&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;Hello, John!&quot;</span>
+</pre></div>
+</div>
+<p>We should be able to see some goodness now if we type “pytest” at the root of the project, right? Well, that would be nice, but instead what we see is pytest displaying an error. Pytest really lets you know, too, with plenty of uppercase letters and exclamation points. Boiling it down to the relevant message, we see this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>E<span class="w">   </span>ModuleNotFoundError:<span class="w"> </span>No<span class="w"> </span>module<span class="w"> </span>named<span class="w"> </span><span class="s1">&#39;mypackage&#39;</span>
+</pre></div>
+</div>
+<section id="solution-code-python-in-python">
+<h2>Solution? Code Python in Python.<a class="headerlink" href="#solution-code-python-in-python" title="Link to this heading"></a></h2>
+<p>The issue here is just that <code class="docutils literal notranslate"><span class="pre">mypackage</span></code> is not the root of the package structure, <code class="docutils literal notranslate"><span class="pre">src</span></code> is. For Java programmers, in Maven we’re used to having a <code class="docutils literal notranslate"><span class="pre">src/main</span></code> and a <code class="docutils literal notranslate"><span class="pre">src/test</span></code> folder as the root of the source and tests, respectively.</p>
+<p>We can fix this in a number of ways. Let’s look at three ways I’m not going to recommend first.</p>
+<p>First, we can change our import line in the test file to read<code class="docutils literal notranslate"><span class="pre">:</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">src.mypackage.greeter</span> <span class="kn">import</span> <span class="n">greet</span>
+</pre></div>
+</div>
+<p>I don’t care for this solution, because tests should also serve as documentation of how to use the package. A user wants to import things from the package itself. <code class="docutils literal notranslate"><span class="pre">src</span></code> is just a directory.</p>
+<p>Second, we could do this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">PYTHONPATH</span><span class="o">=</span>src
+pytest
+</pre></div>
+</div>
+<p>That works OK, but it’s an extra step that we might forget to do, and environment variables just to get things to work is always a bit of a code smell.</p>
+<p>Third, we could just do add this little gem to the top of our test file, ahead of any other imports:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;src&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>That works fine, but now instead of doing it once in the environment, we have to do it for every test file. Again, we might forget.</p>
+<p>The best solution in my opinion is one that looks really strange for a Java developer (or even for someone familiar with Node.js), but it’s fairly idiomatic in Python. That’s simply to realize that src directory doesn’t need to be there!</p>
+</section>
+<section id="have-you-seen-this-puzzle">
+<h2>Have You Seen This Puzzle?<a class="headerlink" href="#have-you-seen-this-puzzle" title="Link to this heading"></a></h2>
+<p>You may have seen this puzzle, where you’re asked to connect all the dots using four lines – without lifting your pen from the paper.</p>
+<p><img alt="" src="../_images/dots.png" /></p>
+<p>Most people will scratch their heads over this one for a long time, but once you’re given the hint that the lines can extend beyond the dots, it’s pretty simple to solve. (If not, search for “nine-dots puzzle” on Google if it’s driving you crazy).</p>
+<p>So how should our source look, now that we are – rather literally – thinking outside the box?</p>
+<p>Here’s the <a class="reference external" href="https://github.com/CodeSolid/beginning_python_testing">GitHub repository</a> if you want to download it, but it’s pretty simple, really:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>mypackage
+│   └── greeter.py
+tests
+│   ├── __init__.py
+│   └── test_greeter.py
+</pre></div>
+</div>
+</section>
+<section id="id1">
+<h2><a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p>That’s Crazy Talk – Right?</p>
+<p>Well, is it? Let’s take a hugely popular Python package for making HTTP requests, the appropriately named “requests” package. Here’s a screenshot from their GitHub repository. Pay attention to the last two lines:</p>
+<p><img alt="" src="../_images/image2.png" /></p>
+<p>Now we see why I renamed “test” to “tests”.</p>
+<p>Or when all else fails, read the documentation. Here’s a screenshot from some documentation I found on pytest:</p>
+<p><img alt="" src="../_images/image-17.png" /></p>
+<p>You can see their structure is similar to mine.</p>
+<p>In retrospect, I might have led with that pytest documentation. However, I did want to make a point about some of the blinders we wear when we approach a new language – or at least, that happens to me. Making everything a class in Python is one of those obvious things that might get you a response like “Oh, you used to be a Java guy, right?” Now I know that the <code class="docutils literal notranslate"><span class="pre">src</span></code> directory is another tell-tale sign.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=19645805"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/images/alternatives-to-pandas-python-polars/index.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>Table of Contents</p>
+<ul class="simple">
+<li><p>Introduction</p></li>
+<li><p>Polars Advantages Over Pandas</p></li>
+<li><p>Pandas Advantages Over Polars</p></li>
+<li><p>Transitioning from Pandas to Polars</p>
+<ul>
+<li><p>Creating and Displaying DataFrames and Loading Data from Files</p></li>
+<li><p>Converting DataFrames</p></li>
+<li><p>Getting Basic Information About a DataFrame</p></li>
+<li><p>General Comparison and Overlap</p></li>
+<li><p>Selecting Data In Polars</p></li>
+</ul>
+</li>
+<li><p>Closing Thoughts</p></li>
+</ul>
+<section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h1>
+<p>The Python Polars module (available, for example, through “<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">instal</span> <span class="pre">polars</span></code>”) is a serious alternative to Pandas. Like Pandas, Polars exports a DataFrame object that can be thought of as a two-dimensional data container, not unlike a spreadsheet page or the rows of a database table. Also, like Pandas, the data is arranged in columnar format, and each column is a Series object. A Series is a labeled, one-dimensional array with each element having the same data type.</p>
+<p>In this article, I wanted to begin by reviewing some of the things I’ve learned about Polars in my recent work. We’ll begin with general “pros and cons,” but we don’t want to leave it at that. One place we can go to understand the differences in more depth is to rework some of the <a class="reference external" href="https://codesolid.com/pandas-practice-examples/">Python Pandas Practice Exercises</a> – this time using Polars. I’ve worked through some of these and wanted to share the results, along with some other research into the overlap between the APIs. Finally, we want to weave in some information from the Polars User Guide’s <a class="reference external" href="https://pola-rs.github.io/polars-book/user-guide/coming_from_pandas.html" title="Coming from Pandas">Coming from Pandas</a> article, which is worth consulting if you’re moving to Polars from Pandas.</p>
+</section>
+<section id="polars-advantages-over-pandas">
+<h1>Polars Advantages Over Pandas<a class="headerlink" href="#polars-advantages-over-pandas" title="Link to this heading"></a></h1>
+<p>The Polars module has several advantages over Pandas, and we discussed some of these in our article on <a class="reference external" href="https://codesolid.com/large-data-sets-in-python-pandas-and-the-alternatives/">Large Data Sets in Python: Pandas and the Alternatives</a>. Since the title gives it away, I suppose it’s not too much of a spoiler to say that Polars uses less memory and processes data more efficiently than Pandas.</p>
+<p>After that article was published, we learned that Polars uses Apache Arrow internally (compared to NumPy in the Pandas case). In a <a class="reference external" href="https://codesolid.com/python-pyarrow-and-parquet/">separate article on Apache Arrow</a>, we found that Arrow also used less memory and was generally more performant than Pandas. Pandas author Wes McKinney discusses some of the reasons for this in his excellent <a class="reference external" href="https://wesmckinney.com/blog/apache-arrow-pandas-internals/">Apache Arrow and the 10 Things I Hate About Pandas</a> article, especially in the “Getting Closer to the Metal” section.</p>
+<p>In addition to being more performant, I believe Polars has a much more intuitive API for selecting data than Pandas. We’ll want to cover this in some depth later in the article.</p>
+</section>
+<section id="pandas-advantages-over-polars">
+<h1>Pandas Advantages Over Polars<a class="headerlink" href="#pandas-advantages-over-polars" title="Link to this heading"></a></h1>
+<p>The main advantage that Pandas has over Polars is its huge first-mover advantage. Work on Pandas began in 2008, while work on Polars began twelve years later, in 2020. In the period in between, Pandas became one of the dominant general data analytics libraries in Python and has been the subject of many books, articles, and courses. If I were asked which tool one should learn today, from a technical perspective, I’d recommend Polars, hands down. However, I’d be hard-pressed to recommend that a newcomer ignore Pandas entirely – it’s just too widely used to ignore.</p>
+<p>Because Pandas has been in the field longer, it’s probably also true that a much larger ecosystem natively supports it. For example, the Seaborn statistical data visualization library has extensive support for Pandas DataFrames, and I don’t believe anything comparable exists for Polars. That Pandas relies on NumPy may make it marginally better for analyses that take advantage of NumPy’s linear algebra libraries. Then again, Polars DataFrames are also convertible to NumPy arrays, so this advantage may not be great.</p>
+</section>
+<section id="transitioning-from-pandas-to-polars">
+<h1>Transitioning from Pandas to Polars<a class="headerlink" href="#transitioning-from-pandas-to-polars" title="Link to this heading"></a></h1>
+<p>Although the Coming from Pandas article we mentioned earlier stresses the differences between Polars and Pandas, we have found considerable overlap between them. The learning curve between them is not steep. In particular, though data selection and indexing are very different, there’s a lot of overlap in the following areas:</p>
+<ul class="simple">
+<li><p>How DataFrames can be created or loaded.</p></li>
+<li><p>Common functions to get basic summary information to describe a DataFrame.</p></li>
+<li><p>Functions for getting summary or statistical information about a column (Series).</p></li>
+<li><p>How the DataFrames are displayed (generally speaking).</p></li>
+</ul>
+<p>Moreover, the DataFrame object in Polars interoperates well with the Pandas DataFrame. However, to convert between them, we need PyArrow installed.</p>
+<p>We can create a complete environment to explore the differences between Pandas and Polars in either Conda or Pip. Here are the instructions using conda :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create and activate an environment with the tools we need</span>
+conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>polars<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span><span class="w"> </span>jupyterlab<span class="w"> </span>seaborn<span class="w"> </span>polars<span class="w"> </span>pyarrow
+conda<span class="w"> </span>activate<span class="w"> </span>polars
+
+<span class="c1"># Launch jupyter lab</span>
+jupyter<span class="w"> </span>lab
+</pre></div>
+</div>
+<p>In JupyterLab, we can import some modules we’ll need, using some standard aliases to make our typing easier.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">polars</span> <span class="k">as</span> <span class="nn">pl</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+</pre></div>
+</div>
+<section id="creating-and-displaying-dataframes-and-loading-data-from-files">
+<h2>Creating and Displaying DataFrames and Loading Data from Files<a class="headerlink" href="#creating-and-displaying-dataframes-and-loading-data-from-files" title="Link to this heading"></a></h2>
+<p>An example of the overlap in creation methods is that both Pandas and Polars DataFrames can be created from NumPy arrays, in exactly the same way. Here we create two DataFrames based on a NumPy array with five rows and three columns:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">16</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">df_polars_from_numpy</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np_array</span><span class="p">)</span>
+<span class="n">df_pandas_from_numpy</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np_array</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>By default, Polars, unlike PyArrow, maintains a tabular display format that’s similar to what we get for Pandas. To see how they differ, let’s put the display up side by side:</p>
+<p><img alt="Sample display of a Pandas DataFrame" src="../../_images/image-35.png" /></p>
+<p><img alt="Sample display of a Polars DataFrame" src="../../_images/image-43.png" /></p>
+<p>As we can see, the order of the data is the same (five rows by three columns), but there are a few differences. By default, Polars displays the data type of each column, and the default column names begin with “column_”, vs. raw numbers for Pandas. (Both DataFrame constructors take an optional “columns” array value to override the default).</p>
+<p>More important than these cosmetic differences, the Polars DataFrame doesn’t display a default index along the left-hand side. This is not just a display issue: Polars DataFrames dispense with the index altogether, a move that makes sense in light of the fact that in Polars, list-style indexing is deprecated in favor of selecting data with expressions, which we’ll discuss later. If you still want to use square-bracket indexing, in Polars you simply use the zero-based position of the row (i.e., the same as using a default index in Pandas).</p>
+<p>Other methods for creating a DataFrame are quite similar in Pandas and Polars. For example, the code for loading this Zillow home data from a remote CSV file is the same in both cases:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://files.zillowstatic.com/research/public_csvs/zhvi/Metro_zhvi_uc_sfrcondo_tier_0.33_0.67_sm_sa_month.csv&quot;</span>
+
+<span class="c1">#Pandas</span>
+<span class="n">df_homes_pandas</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+<span class="c1"># Polars</span>
+<span class="n">df_homes_polars</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Generally, Pandas has more read methods (twenty in total vs. twelve in Polars), but a few of the most common ones overlap:</p>
+<ul class="simple">
+<li><p>read_csv</p></li>
+<li><p>read_excel</p></li>
+<li><p>read_json</p></li>
+<li><p>read_parquet</p></li>
+<li><p>read_sql</p></li>
+</ul>
+</section>
+<section id="converting-dataframes">
+<h2>Converting DataFrames<a class="headerlink" href="#converting-dataframes" title="Link to this heading"></a></h2>
+<p>As we mentioned earlier, we can also create Polars DataFrames from Pandas. This is handy when you’re learning the differences between the two APIS, or when you need to load data that otherwise might not be unavailable using Polars alone. For example, we can use the built-in sample datasets in Seaborn that create a Pandas DataFrame, then convert it to Polars. Here’s an example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the dataset in Pandas</span>
+<span class="n">df_pandas_penguins</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;penguins&#39;</span><span class="p">)</span>
+
+<span class="c1"># Convert the Pandas DataFrame Polars.  Note that for this line to work, PyArrow must also be installed</span>
+<span class="n">df_polars_penguins</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_pandas_penguins</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Given a Polars DataFrame, you can also revert this operation, returning a Pandas DataFrame using the <code class="docutils literal notranslate"><span class="pre">to_pandas</span></code> method.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">still_more_pandas_penguins</span> <span class="o">=</span> <span class="n">df_polars_penguins</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Given the state of the polar ice recently, that’s probably too many penguins, but let’s not worry too much about that for now.</p>
+<p>Pandas and Polars can also convert DataFrames to NumPy arrays or Python dictionaries (<code class="docutils literal notranslate"><span class="pre">to_numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">to_dict</span></code>, respectively) though the resulting data structures may differ.</p>
+</section>
+<section id="getting-basic-information-about-a-dataframe">
+<h2>Getting Basic Information About a DataFrame<a class="headerlink" href="#getting-basic-information-about-a-dataframe" title="Link to this heading"></a></h2>
+<p>Many popular methods and properties we use to discover basic information about a DataFrame have the same names in Pandas and Polars. For example, both Pandas and Polars DataFrames support the following methods:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">shape</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dtypes</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">describe</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">columns</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">head</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tail</span></code></p></li>
+</ul>
+<p>In some cases, the results are somewhat different. For example, describe returns slightly different information, and the columns property contains an Index object in Pandas, but a simple list of strings in Polars. However, from the point of view of transitioning from one library to another, these results don’t cause a user too much difficulty.</p>
+</section>
+<section id="general-comparison-and-overlap">
+<h2>General Comparison and Overlap<a class="headerlink" href="#general-comparison-and-overlap" title="Link to this heading"></a></h2>
+<p>One of the joys of working with Python is that you can easily get information about any object in the language. By filtering out the methods that start with an underscore and converting the resulting list to a set, we can easily compare the public API of two objects.</p>
+<p>We can use this technique to determine which methods or properties have the same name in the Pandas and Polars DataFrame objects.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">api_pandas</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)]</span>
+<span class="n">api_polars</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)]</span>
+<span class="n">common</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">api_pandas</span><span class="p">)</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">api_polars</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">common</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">common</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{</span><span class="s1">&#39;min&#39;</span>,<span class="w"> </span><span class="s1">&#39;columns&#39;</span>,<span class="w"> </span><span class="s1">&#39;unstack&#39;</span>,<span class="w"> </span><span class="s1">&#39;head&#39;</span>,<span class="w"> </span><span class="s1">&#39;drop&#39;</span>,<span class="w"> </span><span class="s1">&#39;pivot&#39;</span>,<span class="w"> </span><span class="s1">&#39;rename&#39;</span>,<span class="w"> </span><span class="s1">&#39;sample&#39;</span>,<span class="w"> </span><span class="s1">&#39;transpose&#39;</span>,<span class="w"> </span><span class="s1">&#39;pipe&#39;</span>,<span class="w"> </span><span class="s1">&#39;describe&#39;</span>,<span class="w"> </span><span class="s1">&#39;std&#39;</span>,<span class="w"> </span><span class="s1">&#39;shape&#39;</span>,<span class="w"> </span><span class="s1">&#39;quantile&#39;</span>,<span class="w"> </span><span class="s1">&#39;product&#39;</span>,<span class="w"> </span><span class="s1">&#39;explode&#39;</span>,<span class="w"> </span><span class="s1">&#39;sum&#39;</span>,<span class="w"> </span><span class="s1">&#39;to_dict&#39;</span>,<span class="w"> </span><span class="s1">&#39;mean&#39;</span>,<span class="w"> </span><span class="s1">&#39;groupby&#39;</span>,<span class="w"> </span><span class="s1">&#39;apply&#39;</span>,<span class="w"> </span><span class="s1">&#39;shift&#39;</span>,<span class="w"> </span><span class="s1">&#39;median&#39;</span>,<span class="w"> </span><span class="s1">&#39;join&#39;</span>,<span class="w"> </span><span class="s1">&#39;replace&#39;</span>,<span class="w"> </span><span class="s1">&#39;iterrows&#39;</span>,<span class="w"> </span><span class="s1">&#39;var&#39;</span>,<span class="w"> </span><span class="s1">&#39;melt&#39;</span>,<span class="w"> </span><span class="s1">&#39;dtypes&#39;</span>,<span class="w"> </span><span class="s1">&#39;to_numpy&#39;</span>,<span class="w"> </span><span class="s1">&#39;interpolate&#39;</span>,<span class="w"> </span><span class="s1">&#39;max&#39;</span>,<span class="w"> </span><span class="s1">&#39;filter&#39;</span>,<span class="w"> </span><span class="s1">&#39;tail&#39;</span><span class="o">}</span>
+<span class="m">34</span>
+</pre></div>
+</div>
+<p>If we use the same technique to compare the single-column Series objects, we get more methods returned: fifty-eight instead of thirty-four. Many of these are aggregate or statistical methods such as <code class="docutils literal notranslate"><span class="pre">min</span></code> , <code class="docutils literal notranslate"><span class="pre">max</span></code>, <code class="docutils literal notranslate"><span class="pre">sum</span></code>, <code class="docutils literal notranslate"><span class="pre">median</span></code>, <code class="docutils literal notranslate"><span class="pre">mean</span></code>, etc.</p>
+</section>
+<section id="selecting-data-in-polars">
+<h2>Selecting Data In Polars<a class="headerlink" href="#selecting-data-in-polars" title="Link to this heading"></a></h2>
+<p>Selecting data is one area in which Polars and Pandas are very different. Though Pandas experts may disagree with me, I have to admit that I have always found Pandas approach to selecting data to be quirky and difficult to remember. For example, to use “methods” like <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code>, one does not call them as though they were methods without the scare quotes, one uses indexing operators (square brackets).</p>
+<p>One of the practice questions (currently #31) from the Pandas example set mentioned earlier illustrates this issue. Given Seaborn’s diamonds dataset, <code class="docutils literal notranslate"><span class="pre">diamonds</span> <span class="pre">=</span> <span class="pre">sns.load_dataset('diamonds')</span></code>, here’s how you’d select the first ten rows of the price and carat columns:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">subset</span> <span class="o">=</span> <span class="n">diamonds</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;carat&#39;</span><span class="p">]]</span>
+<span class="n">subset</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>price<span class="w">	</span>carat
+<span class="m">0</span><span class="w">	</span><span class="m">326</span><span class="w">	</span><span class="m">0</span>.23
+<span class="m">1</span><span class="w">	</span><span class="m">326</span><span class="w">	</span><span class="m">0</span>.21
+<span class="m">2</span><span class="w">	</span><span class="m">327</span><span class="w">	</span><span class="m">0</span>.23
+<span class="m">3</span><span class="w">	</span><span class="m">334</span><span class="w">	</span><span class="m">0</span>.29
+<span class="m">4</span><span class="w">	</span><span class="m">335</span><span class="w">	</span><span class="m">0</span>.31
+<span class="m">5</span><span class="w">	</span><span class="m">336</span><span class="w">	</span><span class="m">0</span>.24
+<span class="m">6</span><span class="w">	</span><span class="m">336</span><span class="w">	</span><span class="m">0</span>.24
+<span class="m">7</span><span class="w">	</span><span class="m">337</span><span class="w">	</span><span class="m">0</span>.26
+<span class="m">8</span><span class="w">	</span><span class="m">337</span><span class="w">	</span><span class="m">0</span>.22
+<span class="m">9</span><span class="w">	</span><span class="m">338</span><span class="w">	</span><span class="m">0</span>.23
+</pre></div>
+</div>
+<p>To get that, once again, we indexed loc with the rows first as a slice, then with the column values we want in a list, all of that in <code class="docutils literal notranslate"><span class="pre">diamonds.loc</span></code>, which isn’t even a proper function, it’s a _LocationIndexer object, which can be accessed by labels or a boolean array, where you have to build the boolean array separately, and oh my gosh, my head hurts. Seriously.</p>
+<p>Here’s how the same code might look using Polars’ expression syntax:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">diamonds_polars</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">diamonds</span><span class="p">)</span>
+
+<span class="n">subset</span> <span class="o">=</span> <span class="n">diamonds_polars</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;carat&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">subset</span>
+</pre></div>
+</div>
+<p>Of course, when selecting data, a much more common use case than looking at the first N rows is selecting rows based on some condition. For example, in the Diamonds data set, five diamonds cost more than $18,800. Let’s select the price, carat, and cut values for these five, first in Pandas:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">diamonds</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">diamonds</span><span class="p">[</span><span class="s2">&quot;price&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">18800</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;carat&#39;</span><span class="p">,</span> <span class="s1">&#39;cut&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>In Polars we would do it this way:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">diamonds_polars</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;carat&#39;</span><span class="p">,</span> <span class="s1">&#39;cut&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;price&quot;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">18800</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Although loc may look a little more reasonable in this case, I prefer the two simple Polars over the Pandas case where there’s a single function with a difficult-to-remember syntax. Chaining <code class="docutils literal notranslate"><span class="pre">select</span></code> plus <code class="docutils literal notranslate"><span class="pre">filter</span></code> is reminiscent of how one builds a SQL statement using SELECT and WHERE. (Editors note: in fairness, here, we should point out that Pandas does feature alternative ways to do this query, as Bashir Alam recently covered in his excellent <a class="reference external" href="https://codesolid.com/selecting-data-in-pandas/">Selecting Data in Pandas</a> article. However, I’m not sure that having so many alternatives for data selection counts as a feature, rather than an accrual over time).</p>
+<p>In the end, though, the syntactical difference is probably a matter of taste. However, the expression syntax used here in Polars has other advantages. For these, it’s worth quoting the Polars User Guide at some length:</p>
+<blockquote>
+<div><p>We <strong>strongly recommend</strong> selecting data with expressions for almost all use cases. Square bracket indexing is perhaps useful when doing exploratory data analysis in a terminal or notebook when you just want a quick look at a subset of data.</p>
+<p>For all other use cases we recommend using expressions because:</p>
+<ul class="simple">
+<li><p>expressions can be parallelized</p></li>
+<li><p>the expression approach can be used in lazy and eager mode while the indexing approach can only be used in eager mode</p></li>
+<li><p>in lazy mode the query optimizer can optimize expressions</p></li>
+</ul>
+<p>https://pola-rs.github.io/polars-book/user-guide/howcani/selecting_data/selecting_data_intro.html</p>
+</div></blockquote>
+<p>Even for a relatively small DataFrame such as the diamonds (with 53,940 rows), the Polars expressions version performs better than Python loc, even if we set the index to the “price” in the case of Pandas.</p>
+</section>
+</section>
+<section id="closing-thoughts">
+<h1>Closing Thoughts<a class="headerlink" href="#closing-thoughts" title="Link to this heading"></a></h1>
+<p>The Polars library boasts many advantages over Pandas. Based on Apache Arrow and with built-in support for parallelization in most cases, Polars has outperformed Pandas in terms of processing speed for every operation I have tried. Moreover, because the object and method names of the two libraries overlap so much, the learning curve for Polars for anyone acquainted with Pandas is not steep.</p>
+<p>That said, Pandas won’t be going anywhere any time soon. It still enjoys a huge ecosystem of third-party tools and will be around for many years, so it’s worth learning about Pandas even if Polars and Apache Arrow point to the future.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

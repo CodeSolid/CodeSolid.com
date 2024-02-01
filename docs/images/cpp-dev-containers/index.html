@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dev Containers in VS Code: An Introduction &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=19645805"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Dev Containers in VS Code: An Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/images/cpp-dev-containers/index.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dev-containers-in-vs-code-an-introduction">
+<h1>Dev Containers in VS Code: An Introduction<a class="headerlink" href="#dev-containers-in-vs-code-an-introduction" title="Link to this heading"></a></h1>
+<p>Dev containers are a feature of Visual Studio Code that lets you easily develop and debug your code within a Docker container. The container can be one that “comes with” VS Code, and you can use this to develop code on any folder on your computer. This means you can run and debug code in C++, Python, TypeScript, etc., without ever installing any of the tools you need to do this (because the tools come with the container that VS Code provides).</p>
+<p>Moreover, you’re not limited to the containers that VS Code makes available. You can wrap a dev container around any container you can download from DockerHub or simply point your dev container configuration at a Dockerfile to build it on the fly. Nor are you limited to running the code on your machine. By adding a few files to any repository, anyone with access to your GitHub repository can work on your repository – either locally inside a dev container or online using Visual Studio CodeSpaces. By doing this, you don’t need to document paragraph after paragraph of steps for setting up the development environment – because you’ve already configured it for them! (That was nice of you).</p>
+</section>
+<section id="dev-containers-for-c-a-special-case">
+<h1>Dev Containers for C++: A Special Case<a class="headerlink" href="#dev-containers-for-c-a-special-case" title="Link to this heading"></a></h1>
+<p>As you can see from the discussion above, I’m a big fan of dev containers. In the case of C++, dev containers are especially useful since even those who love C++ admit that their packaging and build tools are a complete mess compared to other languages. The Reddit post, “What’s the hate for CMake all about? Is CMake really that bad?” was upvoted 201 times. Nothing in the C++ world is as useful and simple as Cargo is to Rust developers, or pip for Python, or npm for JavaScript – well, I could go on, but you get the picture.</p>
+<p>For example, I recently wanted to see how to integrate Boost with CMake. In an earlier <a class="reference external" href="https://codesolid.com/cmake-starter-project/" title="CMake Starter Project">CMake Starter Project</a> article, I showed how – for certain packages – one can simply use CMake’s FetchContent module to make CMake behave almost like a real dependency manager (albeit an overengineered one). This technique failed spectacularly for Boost.</p>
+<p>Perhaps I’d been away from C++ so long that I began to romanticize it somewhat. I failed to recall the true horror – the fire and brimstone, the wailing and gnashing of teeth – that awaited me in the hell of C++ dependency management.</p>
+<p>Well, we could start using Conan, I suppose, but let’s try to stick to CMake for now. Tools like FindBoost and even find_package in CMake assume that you’ve already got the package installed somewhere on your system, so how do we do that? We can use the system’s package manager or Boost’s recommended: “download this archive and install using bootstrap shell script”. If we want to automate our work, either of these alternatives requires some consistent, non-Cmake process to automate setting up an environment.</p>
+<p>Setting up a complex environment in a reliable way is exactly what containers do well. Dev containers are especially suited to C++ because they fit the case that C++ handles so poorly, i.e., it helps us automate all those steps we have to do before building anything because our tooling is so bad.</p>
+<p>Hopefully, by now, you’re anxious to learn more about how you can use dev containers in your C++ work, but before we get to the rest of the article, let me caution you that dev containers won’t let you test your code on both Windows and Linux containers. Windows containers are not supported by the VS Code dev containers feature. However, if that’s not a dealbreaker for you, read on to see what dev containers can do.</p>
+</section>
+<section id="two-important-dev-container-extensions-in-vs-code">
+<h1>Two important dev container extensions in VS Code<a class="headerlink" href="#two-important-dev-container-extensions-in-vs-code" title="Link to this heading"></a></h1>
+<p>Before we start working with C++ dev containers, let’s go ahead and grab the Dev Containers and CodeSpaces extensions. You can search for and install these in the extension window, but a quick way to do it is to run this in your terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>code<span class="w"> </span>--install-extension<span class="w"> </span>ms-vscode-remote.remote-containers
+code<span class="w"> </span>--install-extension<span class="w"> </span>GitHub.codespaces
+</pre></div>
+</div>
+<p>The first one is named “remote-containers”, but that’s also the dev containers plugin.</p>
+<p>With these extensions installed, there are now at least two paths you can take:</p>
+<ul class="simple">
+<li><p>To run Dev Containers locally, you’ll need to have Docker installed. If you don’t, see Docker’s <a class="reference external" href="https://www.docker.com/get-started/" title="Getting Started">Getting Started</a> page for installer downloads and instructions.</p></li>
+<li><p>Even without Docker on your local machine, you can still take advantage of CodeSpaces, which we’ll also discuss shortly.</p></li>
+</ul>
+</section>
+<section id="quick-start-a-default-c-dev-container">
+<h1>Quick Start: A “Default” C++ Dev Container<a class="headerlink" href="#quick-start-a-default-c-dev-container" title="Link to this heading"></a></h1>
+<p>Assuming you have both Docker and the dev containers extension installed, you can easily open any folder on your machine in a default C++ dev container. Here are the basic steps you can use to do this. (It’s fairly intuitive once you’ve gone through it once).</p>
+<p>First, in VS Code’s Command Palette (CTRL-SHIFT-P on Windows and Linux / CMD-SHIFT-P on a Mac), start typing “dev” to bring up the dev containers extension option. The selection you want is “Dev Containers: Open Folder in Container”:</p>
+<p><img alt="Opening a folder." src="../../_images/01_open-folder-in-dev-container1.png" /></p>
+<p>You’ll be prompted for a folder to open. I recommend using an empty folder. Select the folder you want, and you’ll next be prompted to select a container configuration template. Here, just type “C” to find the C++ dev container.</p>
+<p><img alt="Selecting C++ devcontainers in VS Code" src="../../_images/02_select-c1.png" /></p>
+<p>Next, you’ll be prompted for an OS type. The default is fine.</p>
+<p><img alt="Selecting a default OS for a dev container" src="../../_images/03_select_container_os1.png" /></p>
+<p>Next, if there are other CMake options visible, just select the default here.</p>
+<p><img alt="Use default CMake." src="../../_images/03_b_select_select_default_cmake1.png" /></p>
+<p>At the next step, you’ll be prompted to install additional tools. We’ll skip those and just click OK.</p>
+<p><img alt="Bypassing additional tools" src="../../_images/05_click_ok_to_save1.png" /></p>
+<p>What will happen next is that VS Code will start launching your dev container in a new window. It will take a few seconds to start up. Here’s that window (I’ve made it smaller for the screenshot, of course):</p>
+<p><img alt="Dev container opens in a new window" src="../../_images/06_opens_new_window1.png" /></p>
+<p>When that startup message goes away, you’ll be in a full-featured development environment running in a container on your machine. Behind the scenes, VS Code mounted a volume to the local directory you selected, so any work you save here will also be saved in your local directory. The tools you need to work in C++ have mostly been installed for you. Let’s add a C++ file to test things out:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// hello.cpp</span>
+<span class="c1">// compile and run with:</span>
+<span class="c1">// g++ hello.cpp -o hello &amp;&amp; ./hello</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, world!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Once you add that file to the directory, VS Code will suggest you add the C++ extension, and I recommend clicking yes to install it.</p>
+<p><img alt="Install recommended extension." src="../../_images/10_install_recommended_extension1.png" /></p>
+<p>With that extension installed, the F5 key will allow you to select “Build and debug active file”. Here it is with a breakpoint set:</p>
+<p><img alt="Debugging C++ in a container" src="../../_images/11_debugging1.png" /></p>
+<p>I realize that in a world of generative AI and other distractions, the ability to spin up a complete, ad-hoc development environment using tools you probably already have on your machine may not impress you quite as much as it does me. However, as someone who once installed a professional C++ compiler and IDE that came on twenty-two 3.5” floppies, I think it’s pretty cool. (Apologies for the “old-guy-who-walked-uphill-both-ways” story.)</p>
+<p>Before we look into how to further customize dev containers, we should point out that you only have to do the steps above for a given directory once. Because of the stored configuration in the .devcontainer folder, the next time you simply open the folder as you normally would, VS Code will prompt you to re-launch it in a dev container.</p>
+<p><img alt="" src="../../_images/12_re-open1.png" /></p>
+</section>
+<section id="creating-a-custom-dev-container">
+<h1>Creating a Custom Dev Container<a class="headerlink" href="#creating-a-custom-dev-container" title="Link to this heading"></a></h1>
+<p>If you explore what comes with the default C++ dev container, you’ll see it has a number of features. In addition to a basic Linux development environment, it also installed Git and CMake, for example. However, there is room for improvement:</p>
+<ul class="simple">
+<li><p>Chances are the version of CMake and Gcc are not the latest. Both programs are several versions behind the latest. This is likely true of other programs. At the time of this writing, for example, the version of CMake does not yet include the latest CMake experimental features for C++ modules, for example.</p></li>
+<li><p>Anything else we want to add will need to be done manually, defeating the purpose of a shared, automated development environment.</p></li>
+<li><p>We noticed we were prompted to install the C++ Extension Pack. Since we know C++ is what we want, we might want to make this and some other helpful extensions available automatically.</p></li>
+<li><p>You may want to automate other customizations when the container is built.</p></li>
+</ul>
+<p>With this in mind, let’s turn now to how to create a custom dev container. I believe the best way to do this is to start with a newly created repository on GitHub. Create the repository as you normally would, using either the GitHub site or the GitHub CLI. (We’ll discuss the files you’ll be adding below, but if you’d prefer to simply forck a repository that has these files already, they are in <a class="reference external" href="https://codesolid.com/cpp-dev-containers/" title="this repository">this repository</a>.)</p>
+<p>First, in the root of the directory, add a directory named “.devcontainer”. (Make sure you include the period symbol at the beginning of the name; this is a “hidden” directory). Then add the following files:</p>
+<div class="highlight-docker notranslate"><div class="highlight"><pre><span></span><span class="c"># Dockerfile</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">ubuntu:23.10</span>
+
+<span class="k">COPY</span><span class="w"> </span>packages.txt<span class="w"> </span>/tmp/
+
+<span class="k">RUN</span><span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">DEBIAN_FRONTEND</span><span class="o">=</span>noninteractive<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span><span class="k">$(</span>cat<span class="w"> </span>/tmp/packages.txt<span class="k">)</span>
+
+<span class="c"># [Optional] Uncomment this section to install additional vcpkg ports.</span>
+<span class="c"># RUN su vscode -c &quot;${VCPKG_ROOT}/vcpkg install &lt;your-port-name-here&gt;&quot;</span>
+</pre></div>
+</div>
+<p>This is pretty minimal – we copy a file containing the packages we want to install, then use apt-get to install them. We should point out that this container is for development purposes only and should not serve as the basis for a production build (not least because the default Ubuntu containers run as root).</p>
+<p>Here is the package list (packages.txt) we used, but naturally, you can make different selections:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">build</span><span class="o">-</span><span class="n">essential</span>
+<span class="n">git</span>
+<span class="n">cmake</span>
+<span class="n">meson</span>
+</pre></div>
+</div>
+<p>Build-essential gets us gcc and Gnu Make, while CMake and Meson are two alternative C++ build systems. (CMake is the <em>de facto</em> standard; Meson is optional but well regarded).</p>
+<p>Finally, we’ll add some custom configurations to what is otherwise a fairly “standard” devcontainer.json file:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="c1">// For format details, see https://aka.ms/devcontainer.json. For config options, see the</span>
+<span class="c1">// README at: https://github.com/devcontainers/templates/tree/main/src/cpp</span>
+<span class="c1">// For more information about this particular Dev Container, see the article</span>
+<span class="c1">// on C++ Dev Containers at: https://codesolid.com/cpp-dev-containers/</span>
+<span class="p">{</span>
+<span class="w">	</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;My Custom C++ Dev Container&quot;</span><span class="p">,</span>
+<span class="w">	</span><span class="nt">&quot;build&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">		</span><span class="nt">&quot;dockerfile&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Dockerfile&quot;</span>
+<span class="w">	</span><span class="p">},</span>
+
+<span class="w">	</span><span class="c1">// Features to add to the dev container. More info: https://containers.dev/features.</span>
+<span class="w">	</span><span class="c1">// &quot;features&quot;: {},</span>
+
+<span class="w">	</span><span class="c1">// Use &#39;forwardPorts&#39; to make a list of ports inside the container available locally.</span>
+<span class="w">	</span><span class="c1">// &quot;forwardPorts&quot;: [],</span>
+
+<span class="w">	</span><span class="c1">// Use &#39;postCreateCommand&#39; to run commands after the container is created.</span>
+<span class="w">	</span><span class="c1">// &quot;postCreateCommand&quot;: &quot;gcc -v&quot;,</span>
+<span class="w">	</span><span class="nt">&quot;customizations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">		</span><span class="nt">&quot;vscode&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">			</span><span class="nt">&quot;extensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">				</span><span class="s2">&quot;ms-vscode.cmake-tools&quot;</span><span class="p">,</span>
+<span class="w">				</span><span class="s2">&quot;ms-vscode.cpptools&quot;</span><span class="p">,</span>
+<span class="w">				</span><span class="s2">&quot;ms-vscode.cpptools-extension-pack&quot;</span><span class="p">,</span>
+<span class="w">				</span><span class="s2">&quot;ms-vscode.cpptools-themes&quot;</span><span class="p">,</span>
+<span class="w">				</span><span class="s2">&quot;ms-vscode.makefile-tools&quot;</span>
+<span class="w">			</span><span class="p">]</span>
+<span class="w">		</span><span class="p">}</span>
+<span class="w">	</span><span class="p">}</span>
+
+<span class="w">	</span><span class="c1">// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.</span>
+<span class="w">	</span><span class="c1">// &quot;remoteUser&quot;: &quot;root&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Under customizations, we’ve included several handy VS Code extensions that we want to have available when the dev container launches in VS Code. These will help us work with the system packages we’ve installed automatically.</p>
+<p>Here we’re still relying on the Dockerfile to start our container, but it’s also possible to use this Dockerfile and packages.txt file to build the container, push it to DockerHub, and rely on a pre-build container instead. In this case, we’d replace this section:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;build&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">		</span><span class="nt">&quot;dockerfile&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Dockerfile&quot;</span>
+<span class="w">	</span><span class="p">},</span>
+</pre></div>
+</div>
+<p>With something like</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="c1">// Update the &#39;image&#39; property with your Docker image name.  &quot;image&quot;: &quot;registry_name/your_account_name/path/image:tag&quot;,</span>
+</pre></div>
+</div>
+<p>Whether you keep it as is or push an image, you can launch it locally using the dev container extension, as we’ve shown above. Alternatively, you can push the code to GitHub and launch it in GitHub CodeSpaces. We’ll do that next.</p>
+</section>
+<section id="using-a-dev-container-in-github-codespaces">
+<h1>Using a Dev Container in GitHub CodeSpaces<a class="headerlink" href="#using-a-dev-container-in-github-codespaces" title="Link to this heading"></a></h1>
+<p>Once you’ve pushed your .devcontainer-enabled repository to GitHub, you (or anyone logged into a GitHub account if it’s a public repository) can open it and start developing easily without <em>cloning the repository</em>. To see this in action, simply sign in to GitHub and navigate to <a class="reference external" href="https://github.com/CodeSolid/dev-container-cpp">https://github.com/CodeSolid/dev-container-cpp</a>.</p>
+<p>Once there, click the Code button, then navigate to the Codespaces tab, and use the + button to create a CodeSpace.</p>
+<p><img alt="Launching a custom C++ Dev Container on CodeSpaces." src="../../_images/image-29.png" /></p>
+<p>After a few moments, you’ll see a complete VS Code development environment running in your browser.</p>
+<p><img alt="" src="../../_images/image-3-1024x4991.png" /></p>
+<p>Note that even though I own this repository, you’ll be running CodeSpaces under your own account (even if you haven’t forked. the repository). You currently get 100 CPU hours with a free account, but since the default configuration uses 2 CPUs, this works out to 50 free hours per week. Because of this, when you’re finished with a Codespace, it’s a good habit to stop it before you browse away. To do this, search for and select “Codespaces. Stop Current Codespace” in the Command Palette.</p>
+<p>Note that stopping it simply makes it inactive, so you won’t be billed for CPU time. You can return to it any time by clicking on your profile icon and navigating to “Your Codespaces”. This will show the Codespaces you’ve used recently.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conda vs. Pip, Venv, and Pyenv – Simplicity Wins &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=19645805"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="My Journey to Beautiful Documentation With JupyterBook" href="../beautiful-documentation-with-jupyterbook/" />
+    <link rel="prev" title="Installing Pyenv on a Mac (A Setup Guide With Usage Tips)" href="../installing-pyenv-on-a-mac/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#moving-to-conda">Moving to Conda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started-with-conda">Getting Started With Conda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conda-vs-other-tools">Conda vs. Other Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conda-vs-pyenv">Conda vs. PyEnv</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#some-background">Some Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#conda-vs-pyenv-pros-and-cons">Conda vs Pyenv: Pros and Cons</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pros-of-pyenv-compared-to-conda">Pros of Pyenv Compared to Conda</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pros-of-conda-compared-to-pyenv">Pros of Conda Compared to Pyenv</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#conda-vs-venv">Conda vs. Venv</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pros-and-cons-of-conda-vs-venv">Pros and Cons of Conda vs Venv</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-python-packages-conda-and-pip">Installing Python Packages: Conda and Pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a-brief-conda-tutorial">A Brief Conda Tutorial</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creating-environments-and-installing-packages">Creating Environments and Installing Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#saving-sharing-and-re-creating-saved-environments">Saving, Sharing, and Re-Creating Saved Environments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#final-thoughts">Final Thoughts</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/conda-vs-pip.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="conda-vs-pip-venv-and-pyenv-simplicity-wins">
+<h1>Conda vs. Pip, Venv, and Pyenv – Simplicity Wins<a class="headerlink" href="#conda-vs-pip-venv-and-pyenv-simplicity-wins" title="Link to this heading"></a></h1>
+<p>If you spend time on Python forums, you’ll find that even people who love Python think its package management tools are somewhat clunky compared to other languages. For example, I recently promoted my [SymPy post](http://SymPy is a Python library for symbolic mathematics. It’s free and open source, and because it’s written entirely in Python, it’s easy to install and use.) in such a place. In response, someone had some good-natured fun at my expense because I wrote that because SymPy is “written entirely in Python, it’s easy to install and use.”</p>
+<p>Let me give you another symptom of Python’s tooling. More than one person has told me that they don’t use virtual environments; they just install packages using pip into their global Python environment.</p>
+<p>In all fairness to them, that’s what I did first when I started using Python, too, even though, at the time, I already had over a decade of software development experience. In contrast, as an experienced Java developer, I would have been horrified to download jar files (Java packages) and drop them into the system-wide Java lib directory. In Java, one used Maven (at least for a time before Gradle and other Ivy-based tools muddied the waters).</p>
+<p>Later, and for years since, I’ve used the Python venv module. Now a veteran of many requirements.txt files, I have system aliases that help me quickly create and activate virtual environments. Flushed with the pride of thinking one has ceased to do it wrong, I wrote about <a class="reference external" href="https://codesolid.com/what-is-a-python-package/#htoc-how-to-install-python-packages">How to Install Python Packages the Right Way</a>.</p>
+<p>As any cat skinner will tell you, however, there’s more than one right way to do it. This post will share the way I prefer now and why.</p>
+<section id="moving-to-conda">
+<h2>Moving to Conda<a class="headerlink" href="#moving-to-conda" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>“The nice thing about standards is that you have so many to choose from; furthermore, if you do not like any of them, you can just wait for next year’s model.”</p>
+<p><a class="reference external" href="https://wiki.c2.com/?AndrewTanenbaum">Andrew S. Tanenbaum</a></p>
+</div></blockquote>
+</section>
+<section id="getting-started-with-conda">
+<h2>Getting Started With Conda<a class="headerlink" href="#getting-started-with-conda" title="Link to this heading"></a></h2>
+<p>If you’re interested in trying out Conda, I recommend <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a> unless you have a strong need to get Anaconda. The difference is that Anaconda is a massive Python distribution with a huge set of tools pre-installed. Miniconda lets you select which of those tools you need, based on the same “conda” command line tool that Anaconda uses. Once Miniconda is successfully installed, you should be able to run “<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">info</span></code>” or “<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">--version</span></code>” to verify you can see it on your path.</p>
+<p>Incidentally, you don’t already need Python installed to do this (but it’s OK if you do). Miniconda comes with a version of Python along with the libraries it needs to run. It also lets you install Python (and other tools), in addition to installing Python packages. Conda will isolate these from your “global” Python, so you won’t have to worry about conflicts.</p>
+</section>
+<section id="conda-vs-other-tools">
+<h2>Conda vs. Other Tools<a class="headerlink" href="#conda-vs-other-tools" title="Link to this heading"></a></h2>
+<p>In the title, I told you this post would be a comparison of Conda with Pip, Venv, and Pyenv. This may seem like an unfair fight, three against one and all, but let me assure you, this match is more balanced than it looks.</p>
+<ul class="simple">
+<li><p>Like Pip, Conda can install packages, and as we go forward, we will discuss the pros and cons of each as a package management tool.</p></li>
+<li><p>Like the Python venv module, Conda lets you create and manage isolated environments and save the dependencies for that environments with other developers.</p></li>
+<li><p>Finally, like PyEnv, Conda can install and keep separate versions of Python, so you can work out different versions or experiment with later releases.</p></li>
+</ul>
+<p>As you can see, Conda’s strength is that it handles tasks that would otherwise be three different tools to accomplish.</p>
+<p>You may be familiar with the Unix philosophy of having a collection of small tools that each do a single job well. In that case, you might think that a monolithic “Swiss-army knife” tool like Conda may involve some unacceptable tradeoffs. On the contrary, my experience with Conda has been that, on balance, Conda improves the work rather than degrades it.</p>
+<p>To show you what I mean, we’ll first go over the tools mentioned – Pyenv, Venv, and Pip – to see how it compares to Conda. In each section, we’ll give the pros and cons of the tool in contrast with Conda. Although this article is heavily opinionated toward the “just use Conda” use case, I want to be as fair as possible to the alternative possibilities.</p>
+<p>Next, we’ll go through a brief Conda tutorial that will teach you the basics of creating and using Conda environments.</p>
+<p>The first tool I want to discuss is the one whose quirks led me to consider Conda in the first place, PyEnv.</p>
+</section>
+<section id="conda-vs-pyenv">
+<h2>Conda vs. PyEnv<a class="headerlink" href="#conda-vs-pyenv" title="Link to this heading"></a></h2>
+<section id="some-background">
+<h3>Some Background<a class="headerlink" href="#some-background" title="Link to this heading"></a></h3>
+<p>Like Conda, pyenv lets you manage multiple Python versions. For example, if you have a project on an older Python version, let’s say 3.4, but you want to experiment with the later features of 3.10, pyenv lets you switch between them.  In this respect, a helpful feature of pyenv is that you can set a version globally (let’s say you usually want 3.10), but then for the project that uses Python 3.4, you can create a file with the name, “.python_version”. With that file containing the correct version, you’ll use that version when you run Python from anywhere underneath that project root folder.</p>
+<p>Before moving to Conda, I had used pyenv for some time and was pretty happy with it. However, the pain point that finally led me to explore Anaconda was an annoying problem with pyenv. At the time, I had several JupyterLab environments available on my machine, with the packages installed with pip and the virtual environments managed with venv. What I often noticed is that I would try to run <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code> with a virtual environment activated, and I would get an error, even though I knew it was available in that environment.</p>
+<p>It turned out that a shell script named “jupyter” inside the pyenv shims directory was the culprit. This file was taking precedence over my virtual environment. Deleting it from the shims directory or even deleting the whole directory didn’t help. Pyenv recreated the shims directory, presumably every time the shell re-evaluated my <code class="docutils literal notranslate"><span class="pre">.profile</span></code> file and ran init. I like my zombies in the movies; I like them far less in my development tools.</p>
+<p>Finally, in disgust, I commented out these lines of my <code class="docutils literal notranslate"><span class="pre">.profile</span></code> file, which I share with you here before deleting them:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#export PYENV_ROOT=&quot;$HOME/.pyenv&quot;</span>
+<span class="c1">#export PATH=&quot;$PATH:$PYENV_ROOT/bin&quot;</span>
+<span class="c1">#eval &quot;$(pyenv init --path)&quot;</span>
+<span class="c1">#eval &quot;$(pyenv init -)&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="conda-vs-pyenv-pros-and-cons">
+<h3>Conda vs Pyenv: Pros and Cons<a class="headerlink" href="#conda-vs-pyenv-pros-and-cons" title="Link to this heading"></a></h3>
+<section id="pros-of-pyenv-compared-to-conda">
+<h4>Pros of Pyenv Compared to Conda<a class="headerlink" href="#pros-of-pyenv-compared-to-conda" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># From your terminal</span>
+docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>python:3.11.0rc2-bullseye<span class="w"> </span>bash
+<span class="c1"># ...</span>
+
+<span class="c1"># From the bash prompt that comes up when docker starts</span>
+python<span class="w"> </span>--version
+<span class="c1"># Output:  Python 3.11.0rc2</span>
+</pre></div>
+</div>
+</section>
+<section id="pros-of-conda-compared-to-pyenv">
+<h4>Pros of Conda Compared to Pyenv<a class="headerlink" href="#pros-of-conda-compared-to-pyenv" title="Link to this heading"></a></h4>
+<p>Unlike pyenv, Conda is more than just a tool for managing Python versions. It also handles virtual environments and installing packages. Because of this, the kind of conflict that could happen with those pyenv shims is impossible in Conda or at least far less likely.</p>
+<p>I hesitated to conclude that a monolithic tool can be superior to a collection of small tools that each does one thing well. But having shims that repeatedly broke what should be a simple virtual environment configuration was finally too much of a mess.</p>
+<p>You have to be a die-hard tool-lover to appreciate pyenv and the plugins for it. Consider, for example, the following excerpt from the pyenv-virtualenv README on GitHub:</p>
+<p><em>pyenv-virtualenv is a pyenv plugin that provides features to manage virtualenvs and conda environments for Python on UNIX-like systems.</em> … <em>(NOTICE: If you are an existing user of virtualenvwrapper and you love it, pyenv-virtualenvwrapper may help you (additionally) to manage your virtualenvs.)</em></p>
+<p>This amounts to taking a tool that manages Python installations, then installing a plugin into it so you can manage virtual environments, including those managed by Conda. But Conda already handles all these things without pyenv or a plugin.</p>
+</section>
+</section>
+</section>
+<section id="conda-vs-venv">
+<h2>Conda vs. Venv<a class="headerlink" href="#conda-vs-venv" title="Link to this heading"></a></h2>
+<section id="pros-and-cons-of-conda-vs-venv">
+<h3>Pros and Cons of Conda vs Venv<a class="headerlink" href="#pros-and-cons-of-conda-vs-venv" title="Link to this heading"></a></h3>
+<p>Having a tool that comes with Python is a significant advantage. The biggest strength of Python’s venv module is that it has been part of core Python since 3.3. Venv allows you to create and manage virtual environments so that the packages you install (typically using pip) remain separate from your global Python environment.</p>
+<p>One difference between Venv and Conda is that they store environments in different places (by default). Conda creates environments as named folders in a shared location. (You can discover where that is with the command <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">info</span> <span class="pre">--base</span></code>).</p>
+<p>In venv, on the other hand, these environments are generally stored along with your project files in a separate folder, commonly named .venv or venv. This makes it easy to find the root of the installed libraries if you want to browse through the code. On the negative side, however, it has several minor disadvantages:</p>
+<ul class="simple">
+<li><p>Because the destination name and the module name are often the same, new users might be confused. Consider what a beginner might make of this: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">venv</span> <span class="pre">venv</span></code>. If that’s obtuse to you, the first venv is the module name, and the second is a path we’re passing to it as an argument.</p></li>
+<li><p>The commands to activate environments are different in Windows and Linux-like environments.</p></li>
+<li><p>If you use <code class="docutils literal notranslate"><span class="pre">.venv</span></code> as the directory name, be aware that VS Code may not be able to locate your Python interpreter. You may have to switch to “venv” to make that happen.</p></li>
+<li><p>You’ll need to add .venv or venv to your .gitignore file if you use git.</p></li>
+</ul>
+<p>Again, all of these drawbacks are pretty minor. Depending on your needs, however, there is one area where Conda’s shared folder structure makes more sense.</p>
+<p>Suppose, for example, that you need a JupyterLab environment with a standard set of libraries across several different repositories or folders. Nevertheless, you want to ensure that this environment is isolated from others you might need. In this case, using venv, you would tend to re-create environments often. With Conda, you could have a single isolated environment that you could activate at any time. For JupyterLab, doing this from a common folder root lets you navigate to the notebooks you need to work on. To be perfectly fair, you can manage this in venv too – it’s just easier and more intuitive in Conda.</p>
+<p>Other Conda features that are pros compared to venv:</p>
+<ul class="simple">
+<li><p>You can activate an environment from any folder location. If you forget the name of the environment you need, you can recall it with <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">list</span></code>.</p></li>
+<li><p>You don’t need to deactivate separately before activating a new environment. This is also true in venv to some extent, but in Conda, new environments are pushed onto the stack correctly, in case you want to return to a previous state. This is not the case with venv.</p></li>
+</ul>
+</section>
+</section>
+<section id="installing-python-packages-conda-and-pip">
+<h2>Installing Python Packages: Conda and Pip<a class="headerlink" href="#installing-python-packages-conda-and-pip" title="Link to this heading"></a></h2>
+<p>Of all the tools we’ve been discussing, the one that Conda does not eliminate the need for is pip. Once you start using Conda, you’ll find you can easily manage Python versions (except for the prerelease case we mentioned before), so the need for pyenv disappears. Similarly, Conda easily manages isolated environments, so you’ll find you may not need venv much – though you still might want to document its use for users of your library, tutorial, or other work product.</p>
+<p>In the case of pip, however, there are several reasons why you may be unable to replace it with Conda completely.</p>
+<ul class="simple">
+<li><p>As Python’s built-in package manager, pip is more widely supported and used by many projects. You may find that certain projects may be available on PyPi (the Python Package Index that pip uses), but not available on Anaconda or Conda-Forge (two of the most popular package sites for Conda).</p></li>
+<li><p>For the same reason, many projects contain a “requirements.txt” file to make them “pip ready”, but don’t publish a Conda environment file. This is probably the right default choice since it’s what every user will have available.</p></li>
+<li><p>PyPi may generally have more recent versions available of certain projects.</p></li>
+<li><p>Some users find that the stronger dependency checking of Conda can be a disadvantage since it will sometimes fail on installations that pip would allow. In that case, pip can be an option, though it’s also possible to disable <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/dev-guide/deep-dive-install.html#deep-dive-install">strong conflict checking</a> in Conda, too.</p></li>
+</ul>
+<p>Fortunately, pip and conda work quite well together. Unless you change the defaults, new Python environments in conda will include pip when you install Python into the environment. If you wanted to, you could use conda simply to manage isolated environments and install non-package tools such as Python. You could then use pip exclusively for installing Python packages. This still ensures that the packages you install with pip are isolated from other Python environments on your machine.</p>
+<p>Another approach is to always install conda packages wherever possible and install packages with pip as needed.</p>
+<p>Either way, when you export your current environment to a file, conda will export both the conda packages (in the “dependencies” section) and any pip dependencies (under “pip”). You can also use <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">freeze</span></code> to capture just the pip dependencies, but this won’t show the conda environment details.</p>
+</section>
+<section id="a-brief-conda-tutorial">
+<h2>A Brief Conda Tutorial<a class="headerlink" href="#a-brief-conda-tutorial" title="Link to this heading"></a></h2>
+<p>This tutorial will take you through the steps to create and use a conda environment, including how to export and recreate it. First, make sure that you have <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">miniconda</a> installed. You should see an informational screen rather than an error when you enter the following command at the terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>info
+</pre></div>
+</div>
+<section id="creating-environments-and-installing-packages">
+<h3>Creating Environments and Installing Packages<a class="headerlink" href="#creating-environments-and-installing-packages" title="Link to this heading"></a></h3>
+<p>For this example, we will create a JupyterLab environment that you can use for a number of projects in data science and mathematics. Our first step is to create and activate the environment:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>shared<span class="w"> </span>--yes<span class="w"> </span>
+conda<span class="w"> </span>activate<span class="w"> </span>shared
+</pre></div>
+</div>
+<p>As you’ve probably guessed, the -n switch in <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span></code> is where you specify the name. We’ve added –yes to suppress the confirmation prompt, but you can leave this off and press “y” when prompted to get the same effect.</p>
+<p>Conda has excellent interactive help, so you can get more information about what’s available and what options are needed using either <code class="docutils literal notranslate"><span class="pre">conda</span></code> (for general information), or <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">&lt;commandname&gt;</span> <span class="pre">--help</span></code>, to get detailed help and additional options for a given command.</p>
+<p>After activating the environment, you should see the environment name at the prompt, for example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>shared<span class="o">)</span><span class="w"> </span>~<span class="w"> </span>%
+</pre></div>
+</div>
+<p>At this point, our environment is active but not very useful. Let’s install the latest Python version:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span><span class="w"> </span>--yes
+python<span class="w"> </span>--version
+</pre></div>
+</div>
+<p>The output will vary, but because we only selected “3” as the version number, it will be the latest release available in conda underneath that, so 3.10, 3.11, etc. We can also pass multiple “package specifications” to install. I’ll explain more about what those are in a moment. For now, we’ll use the most straightforward specification, the name of the package, to get the latest in all cases:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>seaborn<span class="w"> </span>jupyterlab<span class="w"> </span>sympy<span class="w"> </span>--yes
+</pre></div>
+</div>
+<p>This is a minimal-looking environment, but it’s actually pretty rich. Because of Seaborn’s transitive dependencies, we also have at our disposal Matplotlib, Pandas, and NumPy. Similarly, JupyterLab gets us both Jupyter and the handy IPython shell. Without getting too distracted by the cool goodies that we installed here, here’s a quick screenshot showing how you can verify what’s available:</p>
+<p><img alt="" src="../_images/image-38.png" /></p>
+<p>Package specifications can get much more intricate than what we’ve shown here, but they’re similar to what pip supports. For example, for JupyterLab we might have used one of the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">jupyterlab</span><span class="o">=</span><span class="mf">3.4.7</span>             <span class="c1"># Install 3.4.7. Accept no substitutes!</span>
+<span class="n">conda</span> <span class="n">install</span> <span class="n">jupyterlab</span><span class="o">=</span><span class="mf">3.4</span>                <span class="c1"># Install the latest release under 3.4, for example, 3.4.7, 3.4.8, etc.</span>
+<span class="n">conda</span> <span class="n">install</span> <span class="s2">&quot;juptyerlab&gt;3.1&quot;</span>             <span class="c1"># Install a version greater than 3.1</span>
+<span class="n">conda</span> <span class="n">install</span> <span class="n">jupyterlab</span><span class="o">=</span><span class="s2">&quot;3.4.7|4.3&quot;</span><span class="o">.</span>  <span class="c1"># Install either 3.4.7 or 4.3</span>
+</pre></div>
+</div>
+<p>In the last two expressions, we needed to quote part of the package specification because otherwise, operators like “&gt;” and “|” would be interpreted by the shell. Quoting them ensures that Conda will parse them instead.</p>
+<p>That last line uses an “or” expression to install either of the two versions. It works because 3.4.7 is current as of now, while 4.3 doesn’t exist yet!</p>
+<p>If you’re curious about the version of a package in your environment, you can check it with <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">list</span></code>, for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="nb">list</span> <span class="n">sympy</span>
+
+<span class="c1"># Output:</span>
+
+<span class="c1"># packages in environment at /opt/homebrew/Caskroom/miniconda/base/envs/shared:</span>
+<span class="c1">#</span>
+<span class="c1"># Name                    Version                   Build  Channel</span>
+<span class="n">sympy</span>                     <span class="mf">1.11.1</span>          <span class="n">py310hf450f58_0</span>    <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+</pre></div>
+</div>
+</section>
+<section id="saving-sharing-and-re-creating-saved-environments">
+<h3>Saving, Sharing, and Re-Creating Saved Environments<a class="headerlink" href="#saving-sharing-and-re-creating-saved-environments" title="Link to this heading"></a></h3>
+<p>In pip, we often use the following sequence to save and restore an environment. Generally, this is done within the context of a virtual environment, but we’re simplifying here:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save the list of currently installed packages:</span>
+pip<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </span>requirements.txt
+
+<span class="c1"># Install from the requirements.txt file created above:</span>
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+<p>Conda has a similar mechanism but a few more features are available to us. Let’s take the simple case where you want to restore the exact same environment.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save the environment to a file:</span>
+conda<span class="w"> </span>env<span class="w"> </span><span class="nb">export</span><span class="w"> </span>--file<span class="w"> </span>environment.yml
+
+<span class="c1"># Recreate the environment with a new name:</span>
+conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>--file<span class="w"> </span>environment.yml<span class="w"> </span>-n<span class="w"> </span>shared-copy
+</pre></div>
+</div>
+<p>If we then list the environments using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">list</span></code>, we’ll see that we still have the shared environment active, but we’ve created a new environment under a new name:</p>
+<p><img alt="" src="../_images/image-39-1024x52.png" /></p>
+<p>Note that the command to recreate the environment from a file is is <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">create</span></code>, but when we originally created our environment from scratch, we were able to use <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span></code>. When re-creating an environment from a file, you must use <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">create</span> <span class="pre">--file</span> <span class="pre">FILENAME</span></code>. If you’re like me and you often use <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span> <span class="pre">--file</span> <span class="pre">FILENAME</span></code>, you’ll see this error:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>CondaValueError:<span class="w"> </span>could<span class="w"> </span>not<span class="w"> </span>parse<span class="w"> </span><span class="s1">&#39;name: shared&#39;</span><span class="w"> </span><span class="k">in</span>:<span class="w"> </span>environment.yml
+</pre></div>
+</div>
+<p>The environment.yml file we created in the last step will contain a lot of transitive dependencies and their exact versions, so it’s a good starting point for sharing your work with others in a reproducible way. It will be quite lengthy, but here’s an abbreviated view of what it might contain.</p>
+<p><img alt="" src="../_images/image-40.png" /></p>
+<p>It starts with the name of the saved environment. (That’s why when we used conda env create on the same machine, we needed to make a copy of the environment under a new name). Next, it lists the channels, which are repositories from which packages will be installed. (It gets these from the configuration file at HOME/.conda.rc, so your output may be slightly different than what’s shown here). Next will be all the top-level and transitive dependencies. Finally, conda will show the prefix. This is the path on your machine where the environment is located.</p>
+<p>Incidentally, having the prefix available allows us to view the source code for the libraries we’re using. Still, there’s an even more convenient way to get this than using the environment file. In an active python3.10 environment, for example, we can use the CONDA_PREFIX environment variable as follows to view our package source:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">pushd</span><span class="w"> </span><span class="nv">$CONDA_PREFIX</span>/lib/python3.10/site-packages
+<span class="c1"># ls pandas etc.</span>
+<span class="nb">popd</span>
+</pre></div>
+</div>
+<p>The method we used above for saving our environment is a good way to create a reasonably reproducible conda environment. If we want more of a summary that will always get the latest packages for us, however, conda has a nice feature we can use that has no direct analog in pip. By passing <code class="docutils literal notranslate"><span class="pre">--from-history</span></code> to our export command, we get only the top level requirements we specified.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>env<span class="w"> </span><span class="nb">export</span><span class="w"> </span>--from-history<span class="w"> </span>--file<span class="w"> </span>env-summary.yml
+</pre></div>
+</div>
+<p>The resulting file looks like this:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">shared</span>
+<span class="nt">channels</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">conda-forge</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">defaults</span>
+<span class="nt">dependencies</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python=3</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sympy</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">seaborn</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupyterlab</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">conda</span>
+<span class="nt">prefix</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/opt/homebrew/Caskroom/miniconda/base/envs/shared</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="final-thoughts">
+<h2>Final Thoughts<a class="headerlink" href="#final-thoughts" title="Link to this heading"></a></h2>
+<p>The tutorial above represents only a small fraction of what you can do with conda, but it’s easy to learn more about the available features. In addition to the interactive help we mentioned earlier, the Anaconda team maintains a <a class="reference external" href="https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf" title="Conda cheat sheet">conda cheat sheet</a> you can use. There’s even a cheat sheet extension for VS Code you can install if you do a lot of work there.</p>
+<p>The fact that venv and pip are integrated with Python has made them a de-facto standard for creating isolated environments and installing packages. Because of that, if you are working on an open-source library, it’s definitely worth supporting these for your users. That means publishing to PyPI and including a requirements.txt file in your repository.</p>
+<p>Although most software teams also standardize on these tools as well, at the very least, conda is well worth considering for personal projects and for sharing in a team as well. It’s great to have a single command line tool that correctly handles installing software tools like Python, R, and even Rust, as well as allowing for isolating Python environments and installing Python packages. Conda is generally intuitive and much easier to learn and use than the many tools it replaces.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../installing-pyenv-on-a-mac/" class="btn btn-neutral float-left" title="Installing Pyenv on a Mac (A Setup Guide With Usage Tips)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../beautiful-documentation-with-jupyterbook/" class="btn btn-neutral float-right" title="My Journey to Beautiful Documentation With JupyterBook" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python and MATLAB (And Octave, Oh My!) &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=19645805"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Python and MATLAB (And Octave, Oh My!)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/images/python-vs-matlab/index.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>Table of Contents</p>
+<ul class="simple">
+<li><p>Python and MATLAB (And Octave, Oh My!)</p></li>
+<li><p>MATLAB vs. Python Language Overview</p>
+<ul>
+<li><p>General Language Features</p></li>
+<li><p>MATLAB’s Advantages Compared to Python</p></li>
+<li><p>Python’s Advantages Compared to MATLAB</p></li>
+<li><p>Popularity</p></li>
+<li><p>Cost</p></li>
+</ul>
+</li>
+<li><p>MATLAB’s Live Editor vs. Python’s Jupyter Lab</p></li>
+<li><p>MATLAB, Python, and Octave: Some Performance Benchmarks</p></li>
+<li><p>Closing Thoughts and Additional Resources</p></li>
+</ul>
+<section id="python-and-matlab-and-octave-oh-my">
+<h1>Python and MATLAB (And Octave, Oh My!)<a class="headerlink" href="#python-and-matlab-and-octave-oh-my" title="Link to this heading"></a></h1>
+<p>In recent weeks I’ve been working on an excellent applied mathematics course in Linear Algebra that uses Python and MATLAB for coding examples. For the course, I used Octave, an open-source tool for editing and running MATLAB programs, which worked out fine for all the code we worked on.</p>
+<p>However, I wondered how the MATLAB portion might work if I used the “real product.” For instance, I’d heard that MATLAB’s performance was better than Octave’s, but I hadn’t verified that claim. Also, I felt that there were some usability issues with Octave that MATLAB might resolve, so I wanted to look into those.</p>
+<p>In addition to learning more about MATLAB’s relationship to Octave, I was curious to see how Python stacked up to MATLAB. I already knew about some of the syntactical differences and “pros and cons” that I wanted to discuss here. Beyond that, I had several open questions I tried to answer.</p>
+<ul class="simple">
+<li><p>MATLAB has a feature that does not appear in Octave called the Live Editor. This is a Notebook-like interface where you can combine code, code output, and formatted text. I was very interested to see how this feature compared to my favorite tool for writing Python articles and publishing samples, JupyterLab.</p></li>
+<li><p>I wanted to see how MATLAB’s performance compared to Python’s. Moreover, since many users had commented that MATLAB was faster than Octave, I didn’t think it was fair to compare Python to Octave directly.</p></li>
+<li><p>I’m not a consistent cheapskate, so I don’t mind spending on a tool that offers clear advantages. On the other hand, like anyone, I won’t decide to buy if the free options are equivalent or superior in terms of convenience and features. Between Python, MATLAB, and Octave, MATLAB was the only one that wasn’t free and open-source, so naturally, I wanted to see if it brought anything to the table that was worth the price.</p></li>
+</ul>
+<p>This article will explore all of these questions in some detail. However, before we get into the price, benchmarks, and features details, we begin with a high-level overview of the Python and MATLAB languages and their respective use cases.</p>
+</section>
+<section id="matlab-vs-python-language-overview">
+<h1>MATLAB vs. Python Language Overview<a class="headerlink" href="#matlab-vs-python-language-overview" title="Link to this heading"></a></h1>
+<section id="general-language-features">
+<h2>General Language Features<a class="headerlink" href="#general-language-features" title="Link to this heading"></a></h2>
+<p>In comparing MATLAB to Python, we first need to clarify an essential difference between the two. MATLAB is a specialized language for numerical computing, data analysis, and linear algebra. On the other hand, Python is a general-purpose programming language that handles many programming tasks, including cloud computing, back-end web development, and others.</p>
+<p>Python also handles the kinds of numerical computing and data analysis features we mentioned in connection with MATLAB. The difference is that in Python, they are provided by some high-quality, third-party libraries, whereas in MATLAB, these features are baked in.</p>
+</section>
+<section id="matlab-s-advantages-compared-to-python">
+<h2>MATLAB’s Advantages Compared to Python<a class="headerlink" href="#matlab-s-advantages-compared-to-python" title="Link to this heading"></a></h2>
+<p>MATLAB users commenting on Python quickly point out that MATLAB represents vectors and matrices in a way that’s “closer to the math” than Python. For example, in MATLAB, you can enter and correctly display row vectors vs. column vectors simply by changing the delimiter between the numbers.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">V1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">]</span>
+
+<span class="n">V1</span><span class="w"> </span><span class="p">=</span>
+
+<span class="w">     </span><span class="mi">1</span><span class="w">     </span><span class="mi">2</span><span class="w">     </span><span class="mi">3</span>
+
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">V2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">2</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">3</span><span class="w"> </span><span class="s">]</span>
+
+<span class="n">V2</span><span class="w"> </span><span class="p">=</span>
+
+<span class="w">     </span><span class="mi">1</span>
+<span class="w">     </span><span class="mi">2</span>
+<span class="w">     </span><span class="mi">3</span>
+</pre></div>
+</div>
+<p>This simple convention of starting a new row with a semi-colon also makes small matrices easy to set up and understand.</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">6</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">3</span><span class="w"> </span><span class="s">2</span><span class="w"> </span><span class="s">1]</span>
+
+<span class="n">M</span><span class="w"> </span><span class="p">=</span>
+
+<span class="w">     </span><span class="mi">6</span><span class="w">     </span><span class="mi">5</span><span class="w">     </span><span class="mi">4</span>
+<span class="w">     </span><span class="mi">3</span><span class="w">     </span><span class="mi">2</span><span class="w">     </span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>Beyond this, unlike in Python, matrix indices are one-based in MATLAB. For example, given the matrix above, <code class="docutils literal notranslate"><span class="pre">M(1,2)</span></code> refers to the second element in the first row, or 5. Mathemeticians also use one-based indexing for matrices, so MATLAB’s approach is more intuitive in that respect.</p>
+<p>Finally, because MATLAB specializes in numerical computing, we could do all of the above plus operations on the matrices and vectors without importing or installing anything.</p>
+<p>Getting set up for numerical work in Python involves a few more steps. NumPy and SymPy are two libraries that support matrix operations, for example, but the more commonly used tool for this use case is NumPy.</p>
+<p>In Python, therefore, you’ll need to install the NumPy package as well (typically via either “<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">numpy</span></code>” or “<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">numpy</span></code>”). You also need to import it before you can work with it. The code to create a matrix like the one above is certainly not rocket science, but it is a bit more verbose than the MATLAB version. Here are a couple of ways to accomplish it:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Two ways to create a 3x2 matrix in Python</span>
+
+<span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+<span class="n">M1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span> <span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">M1</span><span class="p">)</span>    
+
+
+<span class="c1"># Output</span>
+
+<span class="p">[[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span><span class="p">]]</span>
+
+<span class="p">[[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>Vectors in NumPy are created as one-dimensional arrays and always output as row vectors. One trick to get around this for display purposes is to wrap it in an Nx1 array using “reshape.”</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">V</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># Output</span>
+
+<span class="p">[[</span><span class="mi">1</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+ <span class="p">[</span><span class="mi">3</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>One user in a thread <a class="reference external" href="https://www.reddit.com/r/matlab/comments/t4z7bd/why_dont_more_people_use_octave/">comparing MATLAB to Octave</a> mentioned the toolboxes as a distinguishing feature of MATLAB, and admittedly there’s a rich UI here that I haven’t had time to explore in great depth. My first impressions, however, are that of those I’ve tried, some usability issues meant I eventually had to resort to code anyway.</p>
+<p>To give some specifics, MATLAB displayed a perpetual wait cursor when I tried to edit variable names using the “Import Data” tool, through doing it in code was easy enough:</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">users</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">readtable</span><span class="p">(</span><span class="s">&quot;users.csv&quot;</span><span class="p">)</span>
+<span class="n">users</span><span class="p">.</span><span class="n">Properties</span><span class="p">.</span><span class="n">VariableNames</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;Offset&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;UserCount&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="python-s-advantages-compared-to-matlab">
+<h2>Python’s Advantages Compared to MATLAB<a class="headerlink" href="#python-s-advantages-compared-to-matlab" title="Link to this heading"></a></h2>
+<p>Python has several advantages in comparison to MATLAB. One of Python’s features is that it’s easier to learn than other languages. (To give you an idea, the language that was one of its main inspirations was one called “ABC”). Moreover, as a free and general-purpose language, features not included in one library can typically be found easily in another.</p>
+<p>For example, Python boasts two packages for doing symbolic math: <a class="reference external" href="https://codesolid.com/introducing-sage-math-python-based-mathematics/">SageMath</a> and <a class="reference external" href="https://codesolid.com/sympy-solving-math-equations-in-python/">SymPy</a>. Both of these are free and open-source. A perpetual license for the <a class="reference external" href="https://www.mathworks.com/pricing-licensing.html?prodcode=SM">comparable tool</a> in MATLAB will set you back $1,120, over and above the cost of MATLAB itself (which we discuss below).</p>
+<p>Because it is a free and popular language, Python also boasts a large ecosystem of free tooling. IDE choices include Spyder, PyCharm (community), and others. Another excellent option in this space is VS Code, together with the Python extension that Microsoft maintains.</p>
+<p>Jupyter Notebook alone features many free or freemium online options, including Google’s CoLab, SageMath’s CoCalc, and (shameless plug time) this website’s <a class="reference external" href="https://jupyter.codesolid.com/">JupyterLite-based online Python</a> portal.</p>
+</section>
+<section id="popularity">
+<h2>Popularity<a class="headerlink" href="#popularity" title="Link to this heading"></a></h2>
+<p>Python is the most popular programming language according to the TIOBE index (and other metrics such as web trends). Here the playing field is not level because fully the top seven spots on the TIOBE index are dominated by general-purpose languages.</p>
+<p>Having said that, however, MATLAB does make a really strong showing in terms of popularity. It currently ranks at number fourteen among all languages, with only three “special purpose” languages ahead of it (R, SQL, and PHP). It even outranks many general-purpose languages including Scala, Kotlin, Julia, and Perl.</p>
+<p>More to the point than the absolute difference in popularity is the difference in the trend. Python’s popularity has grown enormously in recent years, and much of that growth is happening in the area where MATLAB used to dominate.</p>
+<p>Consider, for example, Coursera founder Andrew Ng’s very popular course in Machine Learning. For some time, this was being taught in Octave (to support users who wanted a free tool). More recent iterations of the course, however, are being taught in Python using scikit-learn and TensorFlow.</p>
+</section>
+<section id="cost">
+<h2>Cost<a class="headerlink" href="#cost" title="Link to this heading"></a></h2>
+<p>Python is free and open source. Some commercial development tools are available, but there are many free ones as well. In contrast, MATLAB is a paid commercial product, so please check the MathWorks website for the latest pricing. As of this article, the non-commercial home edition is <span class="math notranslate nohighlight">\(149, and the student edition is \)</span>49. You need to request a quote for the commercial edition.</p>
+<p>One thing to bring up here in fairness is that MATLAB does offer a generous (30-day) free trial, and I took advantage of that to evaluate it and review it here. So you can evaluate it independently if you wish.</p>
+</section>
+</section>
+<section id="matlab-s-live-editor-vs-python-s-jupyter-lab">
+<h1>MATLAB’s Live Editor vs. Python’s Jupyter Lab<a class="headerlink" href="#matlab-s-live-editor-vs-python-s-jupyter-lab" title="Link to this heading"></a></h1>
+<p>I’m a huge fan of the Jupyter environment. I use it for everything from writing and sharing articles here to organizing my math studies. That’s why as I was evaluating MATLAB, the Live Editor feature was the first thing I tried out.</p>
+<p>MATLAB’s <a class="reference external" href="https://www.mathworks.com/products/matlab/live-editor.html?s_tid=pl_ml_editor_banner02">Live Editor feature</a> allows you to “create scripts that combine code, output, and formatted text in an executable notebook.” This is a feature of MATLAB that Octave doesn’t have, and since it sounds very much like what I like about Jupyter, I thought it sounded pretty interesting.</p>
+<p>Oh, excuse me for a second, MATLAB appears to have crashed.</p>
+<p><img alt="" src="../../_images/image-214.png" /></p>
+<p>OK, I’ve restarted it. In fairness, that’s the first time that happened, and MATLAB has been open overnight.</p>
+<p>In general, I’ve found MATLAB to be reasonably robust despite what just happened, but the reason I mention the crash here is that it happened at an appropriate time. You see, in general, MATLAB handles “vanilla” MATLAB code fine, but my experience with the Live Editor is that it’s not stable enough to be worth spending more time exploring it. When I first started working on it, in the space of a couple of hours it froze three times. Apparently, I’m not the only user to encounter this; see <a class="reference external" href="https://www.mathworks.com/matlabcentral/answers/493088-matlab-live-script-freezes-often">this thread</a> or <a class="reference external" href="https://www.mathworks.com/matlabcentral/answers/275826-matlab-live-editor-code-hangs">this one</a> on the MathWorks site.</p>
+<p>For a reliable Notebook-like environment for MATLAB code, it’s possible that the <a class="reference external" href="https://github.com/Calysto/octave_kernel">Octave kernel</a> may work well, but I just learned about it today so I haven’t had time to demo it for you (perhaps a future article). The <a class="reference external" href="https://www.mathworks.com/products/reference-architectures/jupyter.html">MATLAB Integration for Jupyter</a> seems to beg the question a bit as it seems to be basically a launching tool for MATLAB desktop, though there are hints that a Jupyter kernel for MATLAB code is in development.</p>
+</section>
+<section id="matlab-python-and-octave-some-performance-benchmarks">
+<h1>MATLAB, Python, and Octave: Some Performance Benchmarks<a class="headerlink" href="#matlab-python-and-octave-some-performance-benchmarks" title="Link to this heading"></a></h1>
+<p>One reason to work with a commercial numerics tool over a free one is that you’re dealing with matrices or tensors that are of medium size, and you need the operations to complete quickly. What I mean by medium size in this context is a collection that is not the sort of small sample (maybe 4 x 4 elements) that you’d use when learning to do things by hand – but neither is it so large that it won’t fit into the memory of your machine, so it requires you to <a class="reference external" href="https://medium.com/&#64;ph_singer/handling-huge-matrices-in-python-dff4e31d4417">attack it piecemeal</a>.</p>
+<p>With this use case in mind, I put together a modest set of benchmarks to see how Python stacked up against MATLAB (and its free alternative, Octave). I want to caution you that for the kinds of tiny matrices one might deal with in a Linear Algebra class, any one of these tools is performant enough, and will return a result in a small fraction of a second – so in that case, you can safely skip this section. However, for larger matrices and for processor-bound code (which we’ll discuss a bit later), performance does begin to matter.</p>
+<p>Thinking about what sorts of operations would be slow enough to matter, I decided first to try some tensor products (think dot products or <a class="reference external" href="https://codesolid.com/python-matrix-multiplication/">matrix multiplication</a>, but with one or more extra dimensions to work with).</p>
+<p>The code for the tests is straightforward enough. Here’s the MATLAB version first:</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Test a decently-sized tensor product</span>
+<span class="n">t1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">clock</span><span class="p">();</span>
+<span class="n">A</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">rand</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="mi">800</span><span class="p">,</span><span class="mi">500</span><span class="p">);</span>
+<span class="n">B</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">rand</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="mi">800</span><span class="p">,</span><span class="mi">500</span><span class="p">);</span>
+<span class="n">prod_size</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">tensorprod</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+<span class="nb">disp</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">prod_size</span><span class="p">));</span>
+<span class="nb">fprintf</span><span class="p">(</span><span class="s">&quot;%0.5f seconds\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">etime</span><span class="p">(</span><span class="nb">clock</span><span class="p">(),</span><span class="w"> </span><span class="n">t1</span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+</pre></div>
+</div>
+<p>I realize that MATLAB has a timeit function, but because Octave doesn’t I standardized on this way of checking simple elapsed time for MATLAB code. (I only found out a bit late that this first test case worked for Python and MATLAB, but not for Octave, but we’ll share more in a moment). I also wanted to avoid relying on the profiler, since I wasn’t sure how much that would add to the execution time.</p>
+<p>For this and the remaining test, I also included some simple summary output and the creation of the random collections in the time being tested so I could run the tests in different ways.</p>
+<p>Here is the corresponding Python version, which here is in a function so I could use IPython’s <code class="docutils literal notranslate"><span class="pre">%time</span></code> magic function.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">numpy.linalg</span> <span class="k">as</span> <span class="nn">linalg</span>
+
+<span class="k">def</span> <span class="nf">tensor_case</span><span class="p">():</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tensordot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The table below shows the actual time and average of five runs. The numbers shown are in seconds.</p>
+<table><tbody><tr><td>Tensor Product Test</td><td>Python</td><td>MATLAB</td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td>2.45</td><td>5.24631</td></tr><tr><td></td><td>2.28</td><td>5.12205</td></tr><tr><td></td><td>2.32</td><td>5.54716</td></tr><tr><td></td><td>2.12</td><td>5.54716</td></tr><tr><td></td><td>2.37</td><td>5.2135</td></tr><tr><td></td><td></td><td></td></tr><tr><td>Average (seconds):</td><td>2.31</td><td>5.34</td></tr></tbody></table>
+<p>I wasn’t too surprised to find Python ahead, since, in fairness, NumPy is built with C while MATLAB is written in Java, so underneath the covers we’re comparing C performance to Java. As we’ll see later, for at least one simple (if contrived) test of MATLAB vs Python language performance for non-vectorized operations, MATLAB will do much better (an order of magnitude better).</p>
+<p>Meantime, since I didn’t find the <code class="docutils literal notranslate"><span class="pre">tensorprod</span></code> function in Octave, for the next test I wanted to try multiplying two simple matrices so I could see how Python stacked up to both Octave and MATLAB.</p>
+<p>Again, here are the code and the results.</p>
+<p>In MATLAB:</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% A simple timing comparison for random matrix creation and multiplication</span>
+<span class="c">% we can use in MATLAB and Octave</span>
+<span class="n">t1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">clock</span><span class="p">();</span>
+<span class="n">A</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">rand</span><span class="p">(</span><span class="mi">5000</span><span class="p">,</span><span class="mi">8000</span><span class="p">);</span><span class="w">   </span>
+<span class="n">B</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">rand</span><span class="p">(</span><span class="mi">8000</span><span class="p">,</span><span class="mi">5000</span><span class="p">);</span>
+<span class="n">C</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">B</span><span class="p">;</span>
+<span class="nb">disp</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">C</span><span class="p">));</span>
+<span class="nb">fprintf</span><span class="p">(</span><span class="s">&quot;%0.5f seconds\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">etime</span><span class="p">(</span><span class="nb">clock</span><span class="p">(),</span><span class="w"> </span><span class="n">t1</span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+</pre></div>
+</div>
+<p>And in Python:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">matrix_case</span><span class="p">():</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5000</span><span class="p">,</span> <span class="mi">8000</span><span class="p">)</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">8000</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">A</span> <span class="o">@</span> <span class="n">B</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Results for five runs:</p>
+<table><tbody><tr><td>Matix Multiplication Test</td><td>Python</td><td>MATLAB</td><td>Octave</td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td>2.21</td><td>4.70814</td><td>2.67995</td></tr><tr><td></td><td>2.27</td><td>4.69231</td><td>2.95874</td></tr><tr><td></td><td>2.33</td><td>4.67201</td><td>2.82718</td></tr><tr><td></td><td>2.25</td><td>4.67201</td><td>2.66544</td></tr><tr><td></td><td>2.24</td><td>4.89496</td><td>2.64445</td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td>Average (seconds):</td><td>2.26</td><td>4.73</td><td>2.76</td></tr></tbody></table>
+<p>Again, Python turned out to be significantly faster than MATLAB in this case. What’s surprising about these results is the strong showing against MATLAB that Octave turned in. Given what I had heard, I thought that Octave would do worse. Given that matrix multiplication is a pretty simple operation conceptually, perhaps this isn’t the kind of thing that a commercial shop can really optimize, so the difference here may have to do with the Java runtime or some other unknown.</p>
+<p>Finally, I wanted to try to do a common operation with a matrix that wasn’t a simple dot product, so I settled on getting the <a class="reference external" href="https://mathworld.wolfram.com/Eigenvalue.html#:~:text=Eigenvalues%20are%20a%20special%20set,144">eigenvalues of a square matrix</a>.).</p>
+<p>Here’s the MATLAB version:</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">t1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">clock</span><span class="p">();</span>
+<span class="n">LENGTH</span><span class="p">=</span><span class="w"> </span><span class="mi">3000</span><span class="p">;</span>
+<span class="n">M</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">rand</span><span class="p">(</span><span class="n">LENGTH</span><span class="p">,</span><span class="w"> </span><span class="n">LENGTH</span><span class="p">);</span>
+<span class="nb">eig</span><span class="p">(</span><span class="n">M</span><span class="p">);</span>
+<span class="nb">fprintf</span><span class="p">(</span><span class="s">&quot;%0.5f seconds\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">etime</span><span class="p">(</span><span class="nb">clock</span><span class="p">(),</span><span class="w"> </span><span class="n">t1</span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+</pre></div>
+</div>
+<p>In Python we have:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">numpy.linalg</span> <span class="k">as</span> <span class="nn">linalg</span>
+
+<span class="k">def</span> <span class="nf">eigen_case</span><span class="p">():</span>
+    <span class="n">size</span> <span class="o">=</span> <span class="mi">3000</span>
+    <span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">size</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+    <span class="n">linalg</span><span class="o">.</span><span class="n">eigvals</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here are the results of the eigenvalue benchmark:</p>
+<table><tbody><tr><td>Eigenvalues benchmarks</td><td>Python</td><td>MATLAB</td><td>Octave</td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td>6.58</td><td>8.90872</td><td>11.17574</td></tr><tr><td></td><td>6.52</td><td>8.49446</td><td>10.41338</td></tr><tr><td></td><td>6.71</td><td>8.516</td><td>10.79449</td></tr><tr><td></td><td>6.44</td><td>8.37918</td><td>10.47483</td></tr><tr><td></td><td>6.68</td><td>8.35057</td><td>11.88499</td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td>Average (seconds):</td><td>6.59</td><td>8.53</td><td>10.95</td></tr></tbody></table>
+<p>MATLAB did comparatively better in these results. Here it outperformed Octave, for example. In addition, although Python still came out ahead, in this case, the gap between MATLAB and Python was not as pronounced as it was earlier.</p>
+<p>For many everyday vectorized numerical tasks, then, it appears Python comes out ahead. However, as I considered this I began to think comparing MATLAB to NumPy was a bit unfair, since it’s pretty hard without assembly language to beat C’s performance for this sort of thing.</p>
+<p>With this in mind, I ran a final test that ran some code in a loop. It turned out that MATLAB was so performant on simple loops that I had to work somewhat hard at it, but filling an array with 10,000 square roots times 10,000 iterations slowed it down pretty well (that’s 100 million iterations!) Here’s the MATLAB version:</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">t1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">clock</span><span class="p">();</span>
+<span class="n">VALS</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">10000</span><span class="p">;</span>
+<span class="n">container</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="n">VALS</span><span class="p">);</span>
+<span class="k">for</span><span class="w"> </span><span class="nb">j</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="n">VALS</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nb">i</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="n">VALS</span>
+<span class="w">        </span><span class="n">container</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">sqrt</span><span class="p">(</span><span class="nb">i</span><span class="p">);</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="k">end</span>
+<span class="nb">fprintf</span><span class="p">(</span><span class="s">&quot;%0.5f seconds\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">etime</span><span class="p">(</span><span class="nb">clock</span><span class="p">(),</span><span class="w"> </span><span class="n">t1</span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Here’s the corresponding Python code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+
+<span class="k">def</span> <span class="nf">code_benchmark</span><span class="p">():</span>
+    <span class="n">VALS</span> <span class="o">=</span> <span class="mi">10000</span>
+    <span class="n">container</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">VALS</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">VALS</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">VALS</span><span class="p">):</span>            
+            <span class="n">container</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For this code, MATLAB performed extremely well, typically turning in times of 0.7 seconds or so. Python, meantime, was about eleven times slower, with a typical speed of 7.6 seconds. Octave, in contrast, couldn’t seem to run the code at all in the IDE, but from the command line managed to get through it in an abysmal 280 seconds or so (that’s about 400 times slower than MATLAB)!</p>
+<p>Taking out the square root of course sped things up for everyone somewhat proportionally, since we were just looping for looping’s sake, one hundred million times. That would take MATLAB about 0.05 seconds, while Python did it in about .8 seconds. Octave still brought up the rear at 5 seconds.</p>
+<p>If you’re interested in the details, these benchmarks were run on Apple Silicon (M1 chip) with 16 GB of RAM. The Python version was 3.10.6, and NumPy is at 1.23. On the MATLAB side, we’re running version R2022b. We tested these against GNU Octave is running version 7.1.0.</p>
+</section>
+<section id="closing-thoughts-and-additional-resources">
+<h1>Closing Thoughts and Additional Resources<a class="headerlink" href="#closing-thoughts-and-additional-resources" title="Link to this heading"></a></h1>
+<p>The Linear Algebra course I mentioned earlier that uses Python and MATLAB in addition to teaching the math behind it is Mike X. Cohen’s excellent <a class="reference external" href="https://www.udemy.com/course/linear-algebra-theory-and-implementation/">Complete Linear Algebra: Theory and Implementation in Code</a>.</p>
+<p>Although it wasn’t our primary purpose when we set out, looking at the differences between MATLAB and Python has also shed light on some of the differences between MATLAB and Octave. Both the MATLAB toolbox (graphical widgets) and the Live Editor distinguish MATLAB from Octave, but as we’ve seen, there are stability issues with these that make this feature advantage less clear-cut.</p>
+<p>Much more to the point in considering MATLAB over Octave are the huge performance advantages MATLAB has in most cases and the wealth of language features. In particular, I found while trying to make the tests portable to MATLAB and Octave that Octave lacks many newer functions in the MATLAB language. Also, as we saw, for non-trivial code running processor-intensive code, the MATLAB language really does best in the MATLAB product.</p>
+<p>Comparing MATLAB to Python, we encounter a different flavor of some of the same basic issues. In terms of language usability, MATLAB in one sense is simpler for plain numerical work, as it functions without the need for additional libraries or imports.</p>
+<p>It also appears to be more performant as a language than Python, though the 3.11 series of Python may close that gap somewhat, and for the NumPy-heavy code that one would use for most linear algebra tasks, Python performs better.</p>
+<p>Python, however, has the advantage of being free, more widely used, and more general purpose.</p>
+<p>The biggest advantage Python has, however, is in the area of tooling. The full Python language is well supported by multiple, robust tools. For full MATLAB language support, you need the commercial IDE because Octave lags behind.</p>
+<p>Unfortunately, in my view, the instability of the MATLAB development environment fails to justify the added cost. In fairness, however, I already know Python well, so installing additional libraries for numerical and computational work is not an issue for me. For others, the fast performance of the runtime and the “math-friendly” nature of the language may still make it attractive enough to overcome the limitations of the IDE.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

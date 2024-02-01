@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Classes vs. Objects &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=19645805"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Classes vs. Objects</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/images/getting-started-with-python-classes/index.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>Although it may not appear that way at first because of how well Python objects are integrated into the language, Python is a highly object-oriented language.</p>
+<p>We won’t stop to prove that yet, but we will toward the end of the article. Instead, because this article focuses on the needs of beginning software developers, we need to build up some basic terminology first.</p>
+<p>Following that, we’ll create several basic examples of Python classes – both how to write them and use them. Through these exercises, you’ll learn about classes and objects, inheritance, and what we mean when we say a program is object-oriented.</p>
+<p>We’ll follow that up with a set of review questions and programming exercises you can run online or on your machine – See our article on <a class="reference external" href="https://codesolid.com/jupyter-notebook-a-complete-introduction/">getting started With Jupyter Notebook</a> if you need help running these online. These will reinforce your knowledge.</p>
+<p>Table of Contents</p>
+<ul class="simple">
+<li><p>Classes vs. Objects</p></li>
+<li><p>A First Python Class</p></li>
+<li><p>Theory Break: What Is Object Orientation?</p></li>
+<li><p>Inheritance in Python Classes</p></li>
+<li><p>When To Use Inheritance in Python, and When Not To</p></li>
+<li><p>Python Abstract Base Classes</p></li>
+<li><p>Is Python an Object-Oriented Language?</p></li>
+<li><p>Practice Exercises for Python Classes and Objects</p></li>
+<li><p>Additional Topics to Explore</p></li>
+<li><p>You May Also Enjoy</p></li>
+</ul>
+<section id="classes-vs-objects">
+<h1>Classes vs. Objects<a class="headerlink" href="#classes-vs-objects" title="Link to this heading"></a></h1>
+<p>Let’s start with some basic terminology and definitions to get oriented. In Python, as in many other languages, you can think of Python classes as a template or cookie-cutter for creating objects. On the other hand, objects are “instances” of a class, just as you could consider Christmas Tree cookies to be “instances” of cookies cut out from a Christmas Tree cookie-cutter.</p>
+<p>In Python, we can show the type of an object using the built-in function, type. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="mi">42</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="mf">98.6</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="s2">&quot;I am a string object&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&lt;class<span class="w"> </span><span class="s1">&#39;int&#39;</span>&gt;
+&lt;class<span class="w"> </span><span class="s1">&#39;float&#39;</span>&gt;
+&lt;class<span class="w"> </span><span class="s1">&#39;str&#39;</span>&gt;
+</pre></div>
+</div>
+<p>Using the Python type function shows us the class of the object we pass to it, so this tells us that even number and string literals are classes in Python.</p>
+<p>Before we get into more theory, let’s write our first class in Python. There will be a lot of new stuff here, but don’t worry, we’ll explain all that.</p>
+</section>
+<section id="a-first-python-class">
+<h1>A First Python Class<a class="headerlink" href="#a-first-python-class" title="Link to this heading"></a></h1>
+<p>Let’s look at a very simple Python class, and then we’ll discuss the code in detail.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Declare a class</span>
+<span class="k">class</span> <span class="nc">Pet</span><span class="p">:</span>    
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;a simple class declaration in Python&quot;&quot;&quot;</span>    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;The __init__ method is a constructor&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+            
+    <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;another method&quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> is moving!&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create Two Instances</span>
+<span class="n">dog</span> <span class="o">=</span> <span class="n">Pet</span><span class="p">(</span><span class="s1">&#39;Fritz&#39;</span><span class="p">)</span>
+<span class="n">cat</span> <span class="o">=</span> <span class="n">Pet</span><span class="p">(</span><span class="s1">&#39;Smokey&#39;</span><span class="p">)</span>
+
+<span class="c1"># Call a method on one instance</span>
+<span class="n">cat</span><span class="o">.</span><span class="n">move</span><span class="p">()</span>
+
+<span class="c1"># Access a property on a class</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dog</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Smokey<span class="w"> </span>is<span class="w"> </span>moving!
+Fritz
+</pre></div>
+</div>
+<p>Now let’s examine what the code is doing. In lines 2 through 10, we declare a class. We begin on line two with the code “<code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">Pet</span></code>”. Unlike many types defined by Python, such as list, dict, etc., for user-defined classes, the convention is to capitalize the name of the class. Inside the class, we indent the rest of the code.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method on line 4 is a special method called a constructor. Note the terminology: functions are called methods when they appear inside a class. The most common methods are instance methods. Instance methods start with a parameter that’s conventionally called “<code class="docutils literal notranslate"><span class="pre">self</span></code>.” This special parameter is not passed explicitly outside the class. Inside the class and its methods, however, it refers to the current instance of the class.</p>
+<p>Inside the constructor, we set a property on the class, another name for a variable that’s a member of a class. So <code class="docutils literal notranslate"><span class="pre">self.name</span> <span class="pre">=</span> <span class="pre">name</span></code> assigns a class property to the name passed in as a parameter. In addition to the constructor, we also declare another method, “<code class="docutils literal notranslate"><span class="pre">move&quot;</span></code> on line 8. Here we can use <code class="docutils literal notranslate"><span class="pre">self.name</span></code> to access and display the property we set in the constructor.</p>
+<p>To create objects, we use the name of the class as though it were a function. We can see this in action, where we create two pets on lines 13-14. Again, we don’t pass self here explicitly, but we do pass the name argument (and any additional arguments, if there were any) as we would any other parameter.</p>
+<p>On line 17, we see that we use the name of the instance, a period, and a method name to call a method. We can also use the name of the instance as we do in line 20 to access a property of the class and display it.</p>
+</section>
+<section id="theory-break-what-is-object-orientation">
+<h1>Theory Break: What Is Object Orientation?<a class="headerlink" href="#theory-break-what-is-object-orientation" title="Link to this heading"></a></h1>
+<p>Now that we’ve defined a class and created and used two objects based on this definition, we’re in a position to understand what it means to say a programming language is object-oriented. At one time, this was a favorite interview question for new developers, and I suspect you’re still likely to encounter it.</p>
+<p>Generally speaking, the conventional definition of an object-oriented language is a language that supports:</p>
+<ul class="simple">
+<li><p><strong>Encapsulation:</strong> bundling code and the data it uses together in objects.</p></li>
+<li><p><strong>Inheritance</strong>: being able to build subclasses or subtypes of classes. For example, in the Pet case, we might want a Dog and a Cat class that are related to Pet somehow. We’ll see examples of that shortly.</p></li>
+<li><p><strong>Runtime polymorphism</strong>: a fancy name for calling the correct method on the class based on the actual object type. We’ll be able to demonstrate this once we’ve learned about inheritance.</p></li>
+</ul>
+</section>
+<section id="inheritance-in-python-classes">
+<h1>Inheritance in Python Classes<a class="headerlink" href="#inheritance-in-python-classes" title="Link to this heading"></a></h1>
+<p>In our simple Pet class example, we saw how code and data were encapsulated in the class as methods and properties. Next, let’s see how to use another central feature of object orientation: inheritance.</p>
+<p>In Python, as in other languages, class inheritance serves many valuable functions.</p>
+<p>First, it’s a way to enforce the DRY principle (“Don’t Repeat Yourself”). Pets have names, so we wouldn’t want to copy and paste the code if we created a Dog class and a Rabbit class. We also want our pets to move. A deceased parrot makes for a great Monty Python sketch but not a great pet.</p>
+<p>Secondly, inheritance lets us override certain class features if we need to. For example, for a Shape class, the draw method would do something different for Elipse, Line, and Rectangle, but the canvas they’re drawn on would want to treat them all the same, perhaps iterating through a list and calling draw on each one.</p>
+<p>Finally, inheritance lets us model how we think about classes of objects in the real world. We categorize things naturally, although it sometimes sounds strange to do it explicitly. We know that this orange is not representative of all oranges. It is an instance of a class whose parent class is fruit. The fruit class, in turn, is a child of the class, edible plants.</p>
+<p>Let’s dive into some concrete examples of inheritance using our Pet class.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Dog</span><span class="p">(</span><span class="n">Pet</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">breed</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">Pet</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">breed</span> <span class="o">=</span> <span class="n">breed</span>
+
+<span class="k">class</span> <span class="nc">Rabbit</span><span class="p">(</span><span class="n">Pet</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hop, hop, HOP!&quot;</span><span class="p">)</span>    
+
+<span class="n">spirit</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s2">&quot;Spirit&quot;</span><span class="p">,</span> <span class="s2">&quot;Pit Bull&quot;</span><span class="p">)</span>
+<span class="n">spirit</span><span class="o">.</span><span class="n">move</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">spirit</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> is a </span><span class="si">{</span><span class="n">spirit</span><span class="o">.</span><span class="n">breed</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+<span class="n">fluffy</span> <span class="o">=</span> <span class="n">Rabbit</span><span class="p">(</span><span class="s2">&quot;Fluffy&quot;</span><span class="p">)</span>
+<span class="n">fluffy</span><span class="o">.</span><span class="n">move</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Spirit<span class="w"> </span>is<span class="w"> </span>moving!
+Spirit<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>Pit<span class="w"> </span>Bull.
+Hop,<span class="w"> </span>hop,<span class="w"> </span>HOP!
+</pre></div>
+</div>
+<p>Our first child class is <code class="docutils literal notranslate"><span class="pre">Dog</span></code>. We can also say that Dog is a subclass of Pet or that it extends Pet. We do this by enclosing the parent class in parentheses after the name of the class (line 1). On line 2, we create a new constructor for the <code class="docutils literal notranslate"><span class="pre">Dog</span></code> class because we also want to keep track of the breed. However, on line 3, we want to take advantage of the __init__ method in the parent to make sure the name is set up correctly, so we use the syntax &lt;parent_class_name&gt;.__init__(self, &lt;other_parameters&gt;). Then we set the breed, which will only be a property of dogs, not of pets in general or rabbits. (Yes, I know: rabbits have breeds, too. But my poor little sample bunnies don’t have that feature.)</p>
+<p>Next, we move on to the Rabbit class on line 6. Again we put the parent class in parentheses. Here we inherit the constructor from Pet, but on line 7, we override the move method to make it unique for rabbits.</p>
+<p>In the output section, we see the results. Spirit knows how to move because he’s a pet. We didn’t have to do anything extra. We did set up a new constructor, however, and as a result, Spirit has a breed, too. Because we also used the Pet class to set his name, we can now show his name and breed on one line.</p>
+<p>In our discussion of object orientation, we said polymorphism allows us to call the correct object based on the object type. If we add the following code to our Dog and Rabbit example, we can see this in action:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pets</span> <span class="o">=</span> <span class="p">[</span><span class="n">spirit</span><span class="p">,</span> <span class="n">fluffy</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">pet</span> <span class="ow">in</span> <span class="n">pets</span><span class="p">:</span>
+    <span class="n">pet</span><span class="o">.</span><span class="n">move</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Spirit<span class="w"> </span>is<span class="w"> </span>moving!
+Hop,<span class="w"> </span>hop,<span class="w"> </span>HOP!
+</pre></div>
+</div>
+</section>
+<section id="when-to-use-inheritance-in-python-and-when-not-to">
+<h1>When To Use Inheritance in Python, and When Not To<a class="headerlink" href="#when-to-use-inheritance-in-python-and-when-not-to" title="Link to this heading"></a></h1>
+<p>As powerful as inheritance is, newcomers to object-oriented programming sometimes tend to overuse it. Inheritance is not always the first tool you want to choose.</p>
+<p>Inheritance is most useful in cases where you need to have a set of objects to expose one or more methods that allow them to do some basic operation “polymorphically,” i.e., they are called the same way, but they do different things depending on the actual class of the object.</p>
+<p>We’ve already given the example of a Shape class, which might implement the draw method differently for an Elipse, Rectangle, Line, Text, etc. If we think about what a drawing program might need to do with a set of shapes, we can develop many more examples that should be treated differently for each object type. For instance, it might implement <code class="docutils literal notranslate"><span class="pre">load</span></code> and <code class="docutils literal notranslate"><span class="pre">save</span></code> to store and retrieve the shape from a file, or other drawing and manipulation primitives such as <code class="docutils literal notranslate"><span class="pre">resize</span></code>, <code class="docutils literal notranslate"><span class="pre">rotate</span></code>, <code class="docutils literal notranslate"><span class="pre">flip</span></code>, etc. Or consider a generic Configuration tool, which might <code class="docutils literal notranslate"><span class="pre">read</span></code>, <code class="docutils literal notranslate"><span class="pre">write</span></code>, and <code class="docutils literal notranslate"><span class="pre">parse</span></code> ini files, XML, JSON, Yaml, or other file formats.</p>
+<p>In all these cases, it’s clear that the child objects can be treated polymorphically. Part of the reason these all work gets us into one of our core tests for when to use inheritance. In the case of a Shape, it makes perfect sense to say that a Circle or Elipse is a Shape, as is a Rectangle or even a line. Admittedly, “Text” may strike us as a borderline case, but in terms of being able to be resized, drawn on the screen, saved or loaded from a file, we realize that yes, in that respect, it’s a Shape, too!</p>
+<p>In contrast to relationships where one object <em><strong>is</strong></em> another object, there are many cases where an object <em><strong>has</strong></em> another object. In object-oriented design, you’ll frequently encounter the advice that “is-a” relationships should be modeled with inheritance, but composition is the appropriate tool for “has-a” relationships.</p>
+<p>Let’s begin with an obvious case where confusing an is-a and a has-a relationship can lead to trouble. Consider a person and their email address(es). Here’s some bad code for how that might be modeled:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># BAD CODE. Don&#39;t do this</span>
+
+<span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">last_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">first_name</span> <span class="o">=</span> <span class="n">first_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">las_name</span> <span class="o">=</span> <span class="n">last_name</span>
+
+<span class="k">class</span> <span class="nc">Email</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">last_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">email</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">email</span>
+        <span class="n">Person</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">)</span>
+        
+<span class="n">example</span> <span class="o">=</span> <span class="n">Email</span><span class="p">(</span><span class="s1">&#39;Ben&#39;</span><span class="p">,</span> <span class="s1">&#39;Franklin&#39;</span><span class="p">,</span> <span class="s1">&#39;postmaster@usps.com&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you saw this code outside of an example of what-not-to-do, you might suppose that the author was trying to associate a person with their email somehow. They indeed achieved that, but the implementation is loaded with problems.</p>
+<ol class="arabic simple">
+<li><p>An email address is not a person.</p></li>
+<li><p>Trying to model it this way meant we now need a first_name and last_name to create an EmailAddress object.</p></li>
+<li><p>It’s frequently true that an email address uniquely identifies a person. (Certainly, many web apps behave as if that were true, even though husbands and wives will sometimes share an email address for their accounts). However, the person who has multiple email addresses is far more common. From that perspective, we can say that a person <em><strong>has</strong></em> zero or more email addresses.</p></li>
+</ol>
+<p>Given what we discussed above, here is a reasonable implementation for Person and “EmailAddress.”</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+
+<span class="k">class</span> <span class="nc">Email</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">is_confirmed</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">email</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_confirmed</span> <span class="o">=</span> <span class="n">is_confirmed</span>
+        
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;Email(&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">email</span><span class="si">}</span><span class="s1">&quot;, is_confirmed=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">is_confirmed</span><span class="si">}</span><span class="s1">)&#39;</span>        
+        
+<span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">last_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">emails</span><span class="p">:</span> <span class="n">List</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">first_name</span> <span class="o">=</span> <span class="n">first_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_name</span> <span class="o">=</span> <span class="n">last_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">emails</span> <span class="o">=</span> <span class="n">emails</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">emails</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">emails</span> <span class="o">=</span> <span class="p">[]</span>
+            
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">emails</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">email</span><span class="p">)</span> <span class="k">for</span> <span class="n">email</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">emails</span><span class="p">]</span> 
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">first_name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">last_name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">emails</span><span class="si">}</span><span class="s2">&quot;</span>
+            
+        
+<span class="n">ben</span>  <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s1">&#39;Ben&#39;</span><span class="p">,</span> <span class="s1">&#39;Franklin&#39;</span><span class="p">)</span>
+<span class="n">me</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;Lockwood&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">Email</span><span class="p">(</span><span class="s1">&#39;john@example.com&#39;</span><span class="p">)])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ben</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">me</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Ben<span class="w"> </span>Franklin:<span class="w"> </span><span class="o">[]</span>
+John<span class="w"> </span>Lockwood:<span class="w"> </span><span class="o">[</span><span class="s1">&#39;Email(&quot;john@example.com&quot;, is_confirmed=False)&#39;</span>
+</pre></div>
+</div>
+<p>As you can see, this implementation models our real-world understanding of people and their emails. Ben Franklin didn’t have one, but I do. Actually, I have several, but the model works for that, too.</p>
+<p>The “<code class="docutils literal notranslate"><span class="pre">__str__</span></code>” and “<code class="docutils literal notranslate"><span class="pre">__repr__</span></code>” methods, incidentally, are Python magic methods. Implementing these is optional, but having one or both means you can customize how the object looks when it’s converted to a string, for example, by the print method. (To see why, try running the code above but without the __str__ or __repr__ methods.). Generally speaking, __str__ is meant to be human-readable and less formal while <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> should output a machine-readable string that could be used to reconstruct the object. The <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> method is also called by Python when displaying the contents of a list, which is why we needed to implement that instead of <code class="docutils literal notranslate"><span class="pre">__str__</span></code> for the Email class.</p>
+<p>The object-oriented design maxim we’re employing here is a <a class="reference external" href="https://en.wikipedia.org/wiki/Composition_over_inheritance">well-known one</a>:</p>
+<blockquote>
+<div><p>Prefer composition to inheritance.</p>
+<p>Original author unknown. In Design Patterns book and others.</p>
+</div></blockquote>
+<p>I know it seems like a bit of a cheat: teaching inheritance, then telling you not to use it very much. However, in my experience, this maxim is a good one. I’ve seen many real-world examples where a developer used inheritance where composition would have made more sense.</p>
+<p>One final beginner object-oriented programming pitfall I feel is worth mentioning is using inheritance on basic types such as strings or containers, which is rarely a good idea. For example, one might be tempted to implement email as a subclass of string, but as we saw with is_confirmed, Email can equally well be a string with additional methods. This allows us, for example, to raise an exception in the init method if the email address doesn’t match our expectation of what a valid email address should be.</p>
+<p>If you feel like you need to subclass the str, list, or dict type, the python collections package has three wrapper classes you can use, but composition works just fine for most purposes.</p>
+</section>
+<section id="python-abstract-base-classes">
+<h1>Python Abstract Base Classes<a class="headerlink" href="#python-abstract-base-classes" title="Link to this heading"></a></h1>
+<p>As in other languages, abstract base classes allow certain methods to be defined as signatures only, with no implementation. Such methods are called abstract. A subclass needs to be created to implement the abstract method to create an instance based on an abstract class.</p>
+<p>This is easiest to see with an example. Let’s go back to the animal class that we discussed earlier. Suppose we know that different animals eat and move differently. We want to make sure that every Animal can move and sleep, though we don’t want to make any assumptions about how they do it in our base class. Here’s how we can do this with an abstract class:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+
+<span class="k">class</span> <span class="nc">Animal</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+     
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+    
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">sleep</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+</pre></div>
+</div>
+<p>At this stage, if you try to create an object based on Animal, you’ll get an error:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fluffy</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="ne">TypeError</span><span class="p">:</span> <span class="n">Can</span><span class="s1">&#39;t instantiate abstract class Animal with abstract methods move, sleep</span>
+</pre></div>
+</div>
+<p>The point of an abstract class is to have our cake and eat it, too. We want to force subclasses to implement certain methods, but we don’t want to tell them how to do it. In order to create instances based on an abstract class, we must first subclass it and override the methods, for example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Bird</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Flying...&quot;</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">sleep</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Snoozing in my nest...&quot;</span><span class="p">)</span>
+    
+<span class="n">tweetie</span> <span class="o">=</span> <span class="n">Bird</span><span class="p">()</span>
+<span class="n">tweetie</span><span class="o">.</span><span class="n">move</span><span class="p">()</span>
+<span class="n">tweetie</span><span class="o">.</span><span class="n">sleep</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Flying...
+Snoozing<span class="w"> </span><span class="k">in</span><span class="w"> </span>my<span class="w"> </span>nest...
+</pre></div>
+</div>
+</section>
+<section id="is-python-an-object-oriented-language">
+<h1>Is Python an Object-Oriented Language?<a class="headerlink" href="#is-python-an-object-oriented-language" title="Link to this heading"></a></h1>
+<p>If you speak to a system administrator or DevOps engineer, they may tell you that Python is a scripting language. That’s because Python is a very effective tool for writing short, simple automation tasks. But the more you learn about Python, the more you discover that Python is a very object-oriented language.</p>
+<p>Almost everything in Python is an object. So unlike Java, which makes a distinction between “primitive types” like numbers, and reference types (or objects), in Python, even numeric literals are objects.</p>
+<p>Python operators are the exception to the “everything is an object rule,” but even Python operators are implemented as syntactic sugar around methods on objects. Of course, this is very useful syntactic sugar – it’s a lot clearer to write four = 2 + 2 in Python than it does to write: four = (2).__add__(2), but the result is the same.</p>
+<p>That __add__ function is another “magic method.” These are sometimes called “dunder” methods (from the double-underbar at the beginning and end). We called it on the object created by the int literal, 2. We had to wrap the first <code class="docutils literal notranslate"><span class="pre">2</span></code> in parentheses so Python wouldn’t think we were trying to deal with a floating-point number when we typed the period.</p>
+<p>It’s hard to get away from objects in Python. Even those simple functions we think we’re creating in a script are wrapped in an object of the function type.</p>
+</section>
+<section id="practice-exercises-for-python-classes-and-objects">
+<h1>Practice Exercises for Python Classes and Objects<a class="headerlink" href="#practice-exercises-for-python-classes-and-objects" title="Link to this heading"></a></h1>
+<p>The exercises for this article are below, but they’re also available as a downloadable Jupyter Notebook, or you can develop them online.</p>
+<p><a class="reference external" href="https://github.com/CodeSolid/CodeSolid.github.io/blob/main/booksource/exercises/PythonClassesExercises.ipynb">Download</a></p>
+<p><a class="reference external" href="https://colab.research.google.com/github/CodeSolid/CodeSolid.github.io/blob/main/booksource/exercises/PythonClassesExercises.ipynb">Run Online</a></p>
+<ol class="arabic simple">
+<li><p>The code below has two bugs. Can you spot them? Try to do it without running the code.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Pet</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="k">def</span> <span class="nf">move</span><span class="p">():</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> is moving...&quot;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Rewrite the code from the last question so that the test below works and prints “Fritz is moving…”</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Paste and fix the code here:</span>
+
+<span class="c1"># Leave this code</span>
+<span class="n">dog</span> <span class="o">=</span> <span class="n">Pet</span><span class="p">(</span><span class="s2">&quot;Fritz&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dog</span><span class="o">.</span><span class="n">move</span><span class="p">())</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Write a simple Tag class to encapsulate HTML tags, for example:</p></li>
+</ol>
+<div class="highlight-markup notranslate"><div class="highlight"><pre><span></span>&lt;p&gt;I am a paragraph.&lt;/p&gt;
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>For the tag class hierarchy, can you think of how this might be implemented as a function? Which way would you think is simpler and more maintainable?</p></li>
+<li><p>Create an abstract base class, <code class="docutils literal notranslate"><span class="pre">Shape</span></code>, with a single abstract method, <code class="docutils literal notranslate"><span class="pre">draw</span></code>. Implement two child classes, <code class="docutils literal notranslate"><span class="pre">Elipse</span></code> and <code class="docutils literal notranslate"><span class="pre">Rectangle</span></code>, that override the draw method. For the implementation, you can substitute a stub (a simple string printout saying what the class is drawing).</p></li>
+<li><p>You will need to create an __init__ method with some data for this task. For the Rectangle class that you defined above, print a rectangle using characters and the code to test it, for example:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ... Implementation code above:</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+<span class="o">*****</span>
+<span class="o">*****</span>
+<span class="o">*****</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="7">
+<li><p>Modify the Rectangle class to make the character that gets printed configurable, but with a default of <code class="docutils literal notranslate"><span class="pre">X</span></code>. Write code to test it.</p></li>
+<li><p>Create Square as a subclass of Rectangle, which does the right thing for a square. Change the default value of the character to <code class="docutils literal notranslate"><span class="pre">%</span></code>But continue to allow it to be overridden.</p></li>
+<li><p>For each of the classes created above in exercises 5-8, implement a reasonable __str__ method and test.</p></li>
+<li><p>For each of the classes created above in exercises 5-8, implement a reasonable __repr__ method and test.</p></li>
+</ol>
+</section>
+<section id="additional-topics-to-explore">
+<h1>Additional Topics to Explore<a class="headerlink" href="#additional-topics-to-explore" title="Link to this heading"></a></h1>
+<p>If you’re new to Python classes and have gotten through the article and the exercises, that’s awesome! We’ve covered a lot of material in one admittedly rather long article.</p>
+<p>If you’re still thirsty for more, naturally there’s a lot more to Python classes and objects than we’ve covered here. For example, we haven’t covered two somewhat related types of methods, given by the decorators <a class="reference external" href="https://docs.python.org/3/library/functions.html#classmethod">&#64;classmethod</a> and <a class="reference external" href="https://docs.python.org/3/library/functions.html#staticmethod">&#64;staticmethod</a>.</p>
+<p>The literature on object-oriented design principles is vast, but a good introduction is the so-called “Gang of Four” <a class="reference external" href="https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612/ref=sr_1_1?keywords=gang+of+four+design+patterns&amp;amp;qid=1648570029&amp;amp;sprefix=Gang+of+four%252Caps%252C66&amp;amp;sr=8-1&amp;amp;_encoding=UTF8&amp;amp;tag=codesolid-20&amp;amp;linkCode=ur2&amp;amp;linkId=af4c0cf365baa3f945e23b008a817b01&amp;amp;camp=1789&amp;amp;creative=9325">Design Patterns</a> book. Though some of this work may still apply, in Python a better approach to object design is to first consider whether objects are needed at all, and if so, to ensure those objects that we write are well integrated with the Python data model. By far the best book I’ve found in this space is Luciano Ramalho’s <a class="reference external" href="https://www.amazon.com/Fluent-Python-Concise-Effective-Programming/dp/1491946008/ref=sr_1_2?crid=6MB6CL75D5JB&amp;amp;keywords=Fluent+Python&amp;amp;qid=1648570375&amp;amp;sprefix=fluent+python%252Caps%252C76&amp;amp;sr=8-2&amp;amp;_encoding=UTF8&amp;amp;tag=codesolid-20&amp;amp;linkCode=ur2&amp;amp;linkId=9e0c7858e1da770a9c0013dac1febbc4&amp;amp;camp=1789&amp;amp;creative=9325">Fluent Python</a>.</p>
+</section>
+<section id="you-may-also-enjoy">
+<h1>You May Also Enjoy<a class="headerlink" href="#you-may-also-enjoy" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="https://codesolid.com/python-dataclasses/">Python Dataclass: Easily Automate Class Best Practices</a></p>
+<p><a class="reference external" href="https://codesolid.com/python-operators/">Python Operators: The Building Blocks of Successful Code</a></p>
+<p><a class="reference external" href="https://codesolid.com/python-format-strings/">Python Format Strings: Beginner to Expert</a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>&lt;no title&gt; &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=19645805"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/images/python-function-exercises/index.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>One of the first things to master as a newcomer to Python is the skill of writing functions. Like everything else in programming, skills are developed through practicing. These beginner-focused exercises contain complete solutions to help you if you get stuck and to show you how we would approach the problem.</p>
+<p>It’s strongly recommended that you try these exercises out first before looking at the solutions. If you want to try these out in Jupyter notebook, we’ve include an <a class="reference external" href="https://jupyter.codesolid.com/lab/index.html?path=exercises/FunctionExercises.ipynb">online notebook</a> that contains only the exercises – you can work on these online without installing anything.</p>
+<ol class="arabic simple">
+<li><p>Using a loop (that is, without using a slice), write a function “reverse_list” and takes a list as input and returns a copy of the list in which all the elements have been swapped (the first element with the last, the second with the next to last, etc.) Test that it works correctly for the following lists:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">odd_length</span> <span class="o">=</span> <span class="p">[</span><span class="mi">23</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">18</span><span class="p">]</span>
+<span class="n">even_length</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
+<span class="n">empty_list</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+</div>
+<p>Solution:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">reverse_list</span><span class="p">(</span><span class="nb">input</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;returns a reversed copy of list, leaving original list unchanged&quot;&quot;&quot;</span>
+    <span class="n">half_list</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">half_list</span><span class="p">):</span>
+        <span class="n">output</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">idx</span><span class="p">]</span>
+        <span class="n">output</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">output</span>
+
+<span class="c1"># Test as instructed</span>
+<span class="n">odd_length</span> <span class="o">=</span> <span class="p">[</span><span class="mi">23</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">18</span><span class="p">]</span>
+<span class="n">even_length</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
+<span class="n">empty_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">assert</span> <span class="n">reverse_list</span><span class="p">(</span><span class="n">odd_length</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">23</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">reverse_list</span><span class="p">(</span><span class="n">even_length</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">reverse_list</span><span class="p">(</span><span class="n">empty_list</span><span class="p">)</span> <span class="o">==</span> <span class="n">empty_list</span>
+
+<span class="c1"># Ensure orginal unchanged</span>
+<span class="k">assert</span> <span class="n">odd_length</span> <span class="o">==</span> <span class="p">[</span><span class="mi">23</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">18</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>2. Write a function that takes in a string and returns the string with all the vowels<br />
+removed. Test it using the following code (you should see no output):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">remove_vowels</span><span class="p">(</span><span class="s2">&quot;We all love Python!&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;W ll lv Pythn!&quot;</span>
+</pre></div>
+</div>
+<p>Solution:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">remove_vowels</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns a string with the vowels removed.&quot;&quot;&quot;</span>
+    <span class="n">vowels</span> <span class="o">=</span> <span class="s2">&quot;aeiouAEIOU&quot;</span>
+    <span class="n">new_string</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">char</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">vowels</span><span class="p">:</span>
+            <span class="n">new_string</span> <span class="o">+=</span> <span class="n">char</span>
+    <span class="k">return</span> <span class="n">new_string</span>
+
+<span class="k">assert</span> <span class="n">remove_vowels</span><span class="p">(</span><span class="s2">&quot;We all love Python!&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;W ll lv Pythn!&quot;</span>
+</pre></div>
+</div>
+<p>3. Write a function that takes in a list of integers or floats and returns True if the list contains duplicates and False if the list does not contain duplicates. Use a type hint to “enforce” the correct type.</p>
+<p>Solution:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">has_duplicates</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="o">|</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Checks the list and returns true if there are duplicate values.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">items</span><span class="p">))</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+
+<span class="c1"># Test</span>
+<span class="k">assert</span> <span class="ow">not</span> <span class="n">has_duplicates</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="k">assert</span> <span class="n">has_duplicates</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.3</span><span class="p">,</span> <span class="mf">3.3</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>4. Write a function to print all the powers of two, up to and including the twelfth power. The output should look like this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">2</span><span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>power<span class="w"> </span>of<span class="w"> </span><span class="nv">0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+<span class="m">2</span><span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>power<span class="w"> </span>of<span class="w"> </span><span class="nv">1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span>
+<span class="c1"># ...</span>
+</pre></div>
+</div>
+<p>Use a while loop to control the iteration and printing.</p>
+<p>Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_powers_of_two</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Print two raised to a number, for numbers in range 0 to 12, inclusive&quot;&quot;&quot;</span>
+    <span class="n">exponent</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">LAST</span> <span class="o">=</span> <span class="mi">12</span>
+    <span class="k">while</span> <span class="n">exponent</span> <span class="o">&lt;=</span> <span class="n">LAST</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;2 to the power of </span><span class="si">{</span><span class="n">exponent</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="mi">2</span><span class="o">**</span><span class="n">exponent</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">exponent</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="n">print_powers_of_two</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>5. Write a new function to calculate the same values as we did in #4. This time, write a function named calculate_values to return numbers raised to a power of two in a list, again beginning at 2 to the zero power and ending at 2 to the 12th power as before. Call the function and test the returned list this way:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="n">calculate_values</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="k">assert</span> <span class="n">values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4096</span>
+</pre></div>
+</div>
+<p>You should see the list values and no other output.</p>
+<p>Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_values</span><span class="p">():</span>
+    <span class="n">LAST</span> <span class="o">=</span> <span class="mi">12</span>
+    <span class="k">return</span> <span class="p">[</span><span class="mi">2</span><span class="o">**</span><span class="n">exponent</span> <span class="k">for</span> <span class="n">exponent</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">LAST</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+
+<span class="n">values</span> <span class="o">=</span> <span class="n">calculate_values</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="k">assert</span> <span class="n">values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4096</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p>6. Write a function with the following signature:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">display_box</span><span class="p">(</span><span class="n">width</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">character</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This function will draw a simple ASCII-art rectangle (non-filled) of the given height and width, using <code class="docutils literal notranslate"><span class="pre">character</span></code> to print the lines. For example, <code class="docutils literal notranslate"><span class="pre">display_box(5,</span> <span class="pre">4,</span> <span class="pre">'x')</span></code> should output the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">xxxxx</span>
+<span class="n">x</span>   <span class="n">x</span>
+<span class="n">x</span>   <span class="n">x</span>
+<span class="n">xxxxx</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p>The function should raise an exception if the dimensions are less than 2 wide by two high.</p>
+<p>Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">display_box</span><span class="p">(</span><span class="n">width</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">character</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">width</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">height</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Box dimensions must be at least 2 x 2&quot;</span><span class="p">)</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">line</span> <span class="o">&lt;</span> <span class="n">height</span><span class="p">:</span>
+        <span class="c1"># First or last line</span>
+        <span class="k">if</span> <span class="n">line</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">line</span> <span class="o">==</span> <span class="n">height</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">character</span> <span class="o">*</span> <span class="n">width</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">character</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">*</span> <span class="p">(</span><span class="n">width</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">character</span><span class="p">)</span>
+        <span class="n">line</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="c1"># Try testing with different values, e.g.</span>
+<span class="n">display_box</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>7. This exercise is famous, and a perhaps one of the most popular “can you handle basic programming” interview questions. Write a function, fizzbuzz, with a single integer argument named value. If the value is evenly divisible by three, return the string “fizz”. It the value is evenly divisible by five, return the string “buzz”. If the value is evenly divisible by both three and five, return fizzbuzz. Finally, if none of these apply, return an empty string.</p>
+<p>Test it with the following code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">60</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fizzbuzz</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fizzbuzz</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">+=</span> <span class="s2">&quot;fizz&quot;</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">+=</span> <span class="s2">&quot;buzz&quot;</span>
+    <span class="k">return</span> <span class="n">result</span>
+    
+<span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">60</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fizzbuzz</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Test output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fizz
+fizz
+fizz
+
+buzz
+buzz
+buzz
+
+fizzbuzz
+fizzbuzz
+fizzbuzz
+</pre></div>
+</div>
+<p>8. There are six New England states: Rhode Island, Connecticut, Massachusetts, Maine, Vermont, and New Hampshire. Their postal abbreviations are RI, CT, MA, ME, VT, and NH, respectively.</p>
+<p>Write a function that takes a New England state code as a string and returns a string with the longer name as shown above. Return None if no mapping is found.</p>
+<p>Solution</p>
+<p>Whenever an exercise calls for mapping one value to another, think “dictionary”! Once you realize that, the function boils down to creating the dictionary and passing the key (in this case, the state code), to the get function. (Get is convenient since it will return None by default if the key is not found rather than throwing an exception).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_state_full_name</span><span class="p">(</span><span class="n">state_code</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Maps a state code to a full name for New England States only&quot;&quot;&quot;</span>
+    <span class="n">states</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;RI&quot;</span><span class="p">:</span> <span class="s2">&quot;Rhode Island&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;CT&quot;</span><span class="p">:</span> <span class="s2">&quot;Connecticut&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;MA&quot;</span><span class="p">:</span> <span class="s2">&quot;Massachusetts&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ME&quot;</span><span class="p">:</span> <span class="s2">&quot;Maine&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;NH&quot;</span><span class="p">:</span> <span class="s2">&quot;New Hampshire&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;VT&quot;</span><span class="p">:</span> <span class="s2">&quot;Vermont&quot;</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">states</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">state_code</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>9. Speaking of interview questions, here’s another fairly simple one we used to ask developers who interviewed for our small team. We were doing Java, but the question works equally well in Python, so I’ve translated it here.</p>
+<p>Suppose you have a list of movie objects, which are defined as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Movie</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">director</span><span class="p">,</span> <span class="n">year_released</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="n">title</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">director</span> <span class="o">=</span> <span class="n">director</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">year_released</span> <span class="o">=</span> <span class="n">year_released</span>
+</pre></div>
+</div>
+<p>Write a function that takes a list of movies and displays the title and director of each movie in the list.</p>
+<p>Solution</p>
+<p>Here’s a reasonable solution one could code in an interview that includes an informal test to demonstrate the function.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>  <span class="k">class</span> <span class="nc">Movie</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">director</span><span class="p">,</span> <span class="n">year_released</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="n">title</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">director</span> <span class="o">=</span> <span class="n">director</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">year_released</span> <span class="o">=</span> <span class="n">year_released</span>
+        
+<span class="k">def</span> <span class="nf">display_movies</span><span class="p">(</span><span class="n">movies</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Movie</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Displays movie title and director, one per line&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">movie</span> <span class="ow">in</span> <span class="n">movies</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">movie</span><span class="o">.</span><span class="n">title</span><span class="si">}</span><span class="s2">&#39;. Directed by </span><span class="si">{</span><span class="n">movie</span><span class="o">.</span><span class="n">director</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+<span class="n">movies</span> <span class="o">=</span> <span class="p">[</span><span class="n">Movie</span><span class="p">(</span><span class="s2">&quot;Full Metal Jacket&quot;</span><span class="p">,</span> <span class="s2">&quot;Stanley Kubrick&quot;</span><span class="p">,</span> <span class="mi">1987</span><span class="p">),</span> 
+          <span class="n">Movie</span><span class="p">(</span><span class="s2">&quot;Star Trek II: The Wrath of Khan&quot;</span><span class="p">,</span> <span class="s2">&quot;Nicholas Meyer&quot;</span><span class="p">,</span> <span class="mi">1982</span><span class="p">)]</span>
+
+<span class="n">display_movies</span><span class="p">(</span><span class="n">movies</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;Full Metal Jacket&#39;</span>.<span class="w"> </span>Directed<span class="w"> </span>by<span class="w"> </span>Stanley<span class="w"> </span>Kubrick.
+<span class="s1">&#39;Star Trek II: The Wrath of Khan&#39;</span>.<span class="w"> </span>Directed<span class="w"> </span>by<span class="w"> </span>Nicholas<span class="w"> </span>Meyer.
+</pre></div>
+</div>
+<ol class="arabic simple" start="10">
+<li><p>A certain print order costs <span class="math notranslate nohighlight">\(3.00 per copy for orders of less than ten copies, \)</span>1.25 for for orders of 10-99 copies, and $0.90 per copy for orders of 100 copies or more. Write a function that returns a total price for the order.</p></li>
+</ol>
+<p>Solution</p>
+<p>Note that in the solution below, we use descriptive names to clarify the pricing and price cutoffs. This makes the function longer but clarifies our intent and makes it easier to change prices or cutoffs if the business requirements change.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_price</span><span class="p">(</span><span class="n">copies</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate price of a print order based on cutoffs&quot;&quot;&quot;</span>
+    <span class="n">small_order_rate</span> <span class="o">=</span> <span class="mf">3.00</span>
+    <span class="n">medium_order_rate</span> <span class="o">=</span> <span class="mf">1.25</span>
+    <span class="n">large_order_rate</span> <span class="o">=</span> <span class="mf">.90</span>
+    
+    <span class="n">minimum_medium_order</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">minimum_large_order</span> <span class="o">=</span> <span class="mi">100</span>
+        
+    <span class="k">if</span> <span class="n">copies</span> <span class="o">&lt;</span> <span class="n">minimum_medium_order</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">copies</span> <span class="o">*</span> <span class="n">small_order_rate</span>
+    <span class="k">elif</span> <span class="n">copies</span> <span class="o">&lt;</span> <span class="n">minimum_large_order</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">copies</span> <span class="o">*</span> <span class="n">medium_order_rate</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">copies</span> <span class="o">*</span> <span class="n">large_order_rate</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="11">
+<li><p>The velocity of an object falling near the earth is given as -9.81 meters per second squared. (It’s negative because the object is falling downwards, so it’s relative to where it started). Write a function that takes two arguments, a whole number of seconds since the object was released and a starting height in meters. Return a boolean value that’s True if the object would still be accelerating, or False it it already hit the ground.</p></li>
+</ol>
+<p>Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">still_falling</span><span class="p">(</span><span class="n">seconds_ago</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">starting_height</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns true if an object dropped so many seconds ago would still be falling&quot;&quot;&quot;</span>
+    <span class="n">distance</span> <span class="o">=</span> <span class="o">-</span><span class="mf">9.81</span> <span class="o">*</span> <span class="n">seconds_ago</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">return</span> <span class="n">starting_height</span> <span class="o">+</span> <span class="n">distance</span> <span class="o">&gt;</span> <span class="mi">0</span>
+</pre></div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

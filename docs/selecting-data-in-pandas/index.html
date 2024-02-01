@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Selecting Data in Pandas &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=19645805"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Selecting Data in Pandas</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/selecting-data-in-pandas.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="selecting-data-in-pandas">
+<h1>Selecting Data in Pandas<a class="headerlink" href="#selecting-data-in-pandas" title="Link to this heading"></a></h1>
+<p>Unlike SQL, where a single “SELECT” statement can be used in many different ways, Pandas provides several methods to select data from a data frame, including the following:</p>
+<ul class="simple">
+<li><p>Indexing and slicing: Selecting rows and columns by index position, using df.iloc[] for index-based selection and df.loc[] for label-based selection.</p></li>
+<li><p>Boolean indexing: Selecting rows based on a condition, using df[condition] or df.loc[condition].</p></li>
+<li><p>Query method: Selecting rows based on a condition, using df.query(condition).</p></li>
+<li><p>at() and iat() methods: Selecting a single value at a specific row and column, using df.at[row, col] and df.iat[row, col] respectively.</p></li>
+<li><p>Apply method: Applying a function to a DataFrame, using df.apply(func, axis).</p></li>
+<li><p>Mask method: Select rows and columns based on a condition, using df.mask(condition).</p></li>
+</ul>
+<p>It is important to choose the appropriate method for selecting data based on the specific task and the type of data being used. By understanding the different methods for selecting data in Pandas, data scientists can efficiently manipulate and analyze their data.</p>
+<section id="introduction-to-selecting-data-in-pandas">
+<h2>Introduction to Selecting Data in Pandas<a class="headerlink" href="#introduction-to-selecting-data-in-pandas" title="Link to this heading"></a></h2>
+<p>Pandas is a powerful library for data manipulation and analysis in Python. One of the most important tasks in data analysis is selecting specific data from a dataset. This article will explore different techniques for selecting data from pandas. We will start by covering the basics of selecting data using the [] operator, the .loc[] and .iloc[] attributes, and boolean indexing. Then, we will dive into more advanced techniques such as using the query() method, the at() and iat() methods, the apply() method, and the mask() method.</p>
+<p>Let us first import the dataset, and then use various techniques for selecting data. For this article, we will be using the iris dataset. The code below will load it from an online file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://gist.githubusercontent.com/JohnLockwood/256c7e3d37f132ff23f9b49b4ea34f71/raw/4d938fd1f81b8d2a6d44b26f6e0b5563104f5cbf/iris-revised.csv&quot;</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="Importing dataset" src="../_images/importing-dataset1.png" /></p>
+<p>As you can see, the dataset contains information about different types of flowers. Using this data set, let’s discuss various methods for selecting data from a Pandas DataFrame.</p>
+<section id="using-the-operator">
+<h3>Using the [] Operator<a class="headerlink" href="#using-the-operator" title="Link to this heading"></a></h3>
+<p>The most basic way to select data in pandas is by using the square brackets operator, []. You can use this operator to select a single column or multiple columns from a DataFrame. The simple syntax to access specific columns using the [] operator is given below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Syntax of [] operator to select data</span>
+<span class="n">DataFrame</span><span class="p">[</span><span class="s1">&#39;column name&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>This will select all the elements in the given column</p>
+<p>Now let us select the species column using the [] operator:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># selecting species column</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>         <span class="n">Iris</span><span class="o">-</span><span class="n">setosa</span>
+<span class="mi">1</span>         <span class="n">Iris</span><span class="o">-</span><span class="n">setosa</span>
+<span class="mi">2</span>         <span class="n">Iris</span><span class="o">-</span><span class="n">setosa</span>
+<span class="mi">3</span>         <span class="n">Iris</span><span class="o">-</span><span class="n">setosa</span>
+<span class="mi">4</span>         <span class="n">Iris</span><span class="o">-</span><span class="n">setosa</span>
+            <span class="o">...</span>      
+<span class="mi">145</span>    <span class="n">Iris</span><span class="o">-</span><span class="n">virginica</span>
+<span class="mi">146</span>    <span class="n">Iris</span><span class="o">-</span><span class="n">virginica</span>
+<span class="mi">147</span>    <span class="n">Iris</span><span class="o">-</span><span class="n">virginica</span>
+<span class="mi">148</span>    <span class="n">Iris</span><span class="o">-</span><span class="n">virginica</span>
+<span class="mi">149</span>    <span class="n">Iris</span><span class="o">-</span><span class="n">virginica</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">species</span><span class="p">,</span> <span class="n">Length</span><span class="p">:</span> <span class="mi">150</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="nb">object</span>
+</pre></div>
+</div>
+<p>Notice that the [] operators have returned a Pandas series as output. If you want to select one column as a pandas data frame, then you need to use double square brackets.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># selecting species column</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;species&#39;</span><span class="p">]]</span>
+
+<span class="c1"># printing the type</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">pandas</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">series</span><span class="o">.</span><span class="n">Series</span><span class="s1">&#39;&gt;</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">pandas</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span><span class="s1">&#39;&gt;</span>
+</pre></div>
+</div>
+<p>As you can see, the data type of the y is pandas data frame because we have used double square brackets.</p>
+<p>We can also use the [] operators to select multiple columns. Let us now select the petal length and petal width columns.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># selecting multiple columns</span>
+<span class="n">data</span><span class="p">[[</span><span class="s1">&#39;petal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;petal_width&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="selecting data in pandas" src="../_images/selecting-data-in-pandas1.png" /></p>
+<p>Notice that we have selected the petal length and petal width columns.</p>
+</section>
+<section id="the-iloc-and-loc-methods">
+<h3>The iloc[] and loc[] methods<a class="headerlink" href="#the-iloc-and-loc-methods" title="Link to this heading"></a></h3>
+<p>The .loc[] and .iloc[] attributes are used to select rows and columns from a data frame in the Python library pandas. They are both used to select specific rows and columns from a data frame, but they have some key differences in how they are used.</p>
+<p>The .loc[] attribute is used to select rows and columns by their label. In other words, you select a specific row or column by its index or column name. The row you want comes first, followed by the column.</p>
+<p>For example, if you want to select the first row, you would use the following code: <code class="docutils literal notranslate"><span class="pre">data.loc[0]</span></code>. This would return the first row of the DataFrame since we’ve omitted the column selector. Similarly, if you wanted to select the column called “name,” you would use the following code: <code class="docutils literal notranslate"><span class="pre">data.loc[:,</span> <span class="pre">&quot;name&quot;]</span></code>. This would return the entire column of “name.” Here we need to pass a slice operator in the first position as a placeholder.</p>
+<p>On the other hand, the .iloc[] attribute is used to select rows and columns by their integer position. This means you can select a specific row or column by its numerical index, rather than its label. For example, if you want to select the first row, you would use the following code: <code class="docutils literal notranslate"><span class="pre">data.iloc[0]</span></code>. This would return the first row of the data frame. Similarly, if you wanted to select the third column, you would use the following code: <code class="docutils literal notranslate"><span class="pre">data.iloc[:,</span> <span class="pre">2]</span></code>. This would return the third column of the DataFrame.</p>
+<p>Let’s take an example and see how we can select the first five rows using the iloc[] method.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select the first 5 rows</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="five rows" src="../_images/five-rows1.png" /></p>
+<p>As you can see, we have selected the first five elements.</p>
+<p>We know that in Python, we can also use negative indexing. The -1 shows the last element, the -2 second last element, and so on. We can use the negative indexing with iloc[] method to get access to the last elements as well. Let us print the last five rows from the dataset using the negative indexing.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select the last 5 rows</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="" src="../_images/image-613.png" /></p>
+<p>Another important feature is the multiple-row selection. Now, let us select the first three rows in only the sepal_length and petal_length columns:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select multiple rows and columns by index position</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="multiple columns" src="../_images/mutliple-columns1.png" /></p>
+<p>We can also use the loc[] method to select the data based on specific conditions. For example, now we will select the five rows where the species name is “Iris-setosa.”</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select the first 5 rows where target_names is setosa</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Iris-setosa&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="loc[] method" src="../_images/loc-method1.png" /></p>
+<p>Let us also take an example, of how we can use the loc[] method to select the first five rows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select a five row by label</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="five rows" src="../_images/five-rows1.png" /></p>
+<p>Here is another example that shows how to select multiple rows and columns by label.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select multiple rows and columns by label</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;petal_length&#39;</span><span class="p">]])</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="multiple columns" src="../_images/multiple-columns1.png" /></p>
+<p>As you can see, we selected multiple columns and rows using loc[] method.</p>
+</section>
+<section id="using-boolean-indexing">
+<h3>Using boolean indexing<a class="headerlink" href="#using-boolean-indexing" title="Link to this heading"></a></h3>
+<p>In Pandas, boolean indexing is a way of filtering data in a DataFrame by evaluating a boolean expression. The expression is evaluated for each element in the DataFrame, and only the rows where the expression evaluates to True are kept. The resulting DataFrame contains only the rows that match the specified condition.</p>
+<p>In order to use boolean indexing, we need to create a boolean expression that evaluates to True or False for each row in the DataFrame. For example, we can create an expression to select only the rows where the sepal width is greater than 3</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># selecting specific width of sepal</span>
+<span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;sepal_width&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="boolean indexing" src="../_images/boolean-indexing1.png" /></p>
+<p>The expression <code class="docutils literal notranslate"><span class="pre">data['sepal_width']</span> <span class="pre">&gt;</span> <span class="pre">3</span></code> returns a boolean array where each element is True if the corresponding value in the ‘sepal width (cm)’ column is greater than 3, and False otherwise.</p>
+<p>We can also use multiple conditions in a boolean expression. For example, we can select only the rows where the sepal width is greater than 3, and the petal width is less than 3.2:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># multiple conditions</span>
+<span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;sepal_width&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;sepal_width&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">3.2</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="selection multiple" src="../_images/multiple-selection1.png" /></p>
+<p>Note that we need to wrap each condition in parentheses, and use the &amp; operator to combine the conditions.</p>
+<p>We learned that Boolean indexing is a powerful technique in Pandas for filtering data in a data frame. It allows us to select only the rows that match a specified condition, making extracting and analyzing relevant data easy. Using boolean expressions, we can create complex filters that match multiple conditions, making it a useful tool for data analysis.</p>
+</section>
+<section id="the-query-method-for-selecting-data">
+<h3>The query() method for selecting data<a class="headerlink" href="#the-query-method-for-selecting-data" title="Link to this heading"></a></h3>
+<p>The Pandas query() method allows us to filter a DataFrame by passing a string containing a boolean expression. The expression is evaluated for each element in the DataFrame, and only the rows where the expression evaluates to True are kept. The resulting data frame contains only the rows that match the specified condition. This method is similar to boolean indexing but allows us to use a more natural and readable syntax.</p>
+<p>The query() method takes a string containing a boolean expression as an argument. For example, we can use the following expression to select only the rows where the sepal width is greater than 3:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># query method</span>
+<span class="n">data</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;sepal_width &gt; 3&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="boolean indexing" src="../_images/boolean-indexing1.png" /></p>
+<p>The expression <code class="docutils literal notranslate"><span class="pre">&quot;sepal_width</span> <span class="pre">&gt;</span> <span class="pre">3&quot;</span></code> is evaluated for each element in the DataFrame, and only the rows where the expression evaluates to True are kept.</p>
+<p>We can also use multiple conditions in the query expression. For example, we can select only the rows where the sepal width is greater than 3 and the petal width is less than 3.2:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># multiple columns</span>
+<span class="n">data</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;sepal_width &gt; 3 and sepal_width &lt; 3.2&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="selection multiple" src="../_images/multiple-selection1.png" /></p>
+<p>Here we use the more natural “and” keyword to combine conditions.</p>
+<p>As we’ve seen, Pandas’s query() method lets us use a more natural and readable syntax than boolean indexing, making extracting and analyzing relevant data easy.</p>
+</section>
+<section id="using-the-at-and-iat-methods-for-data-selection">
+<h3>Using the at() and iat() methods for data selection<a class="headerlink" href="#using-the-at-and-iat-methods-for-data-selection" title="Link to this heading"></a></h3>
+<p>The at() and iat() methods in Pandas are used to access a single value in a DataFrame by providing its index and column labels. The at() method provides fast access to the values in a data frame by taking both the row and column labels as arguments. On the other hand, the iat() method provides fast access to the values in a data frame by taking the row and column index positions as arguments. Both methods return a scalar value representing the data in the specified row and column.</p>
+<p>The at() method takes two arguments: the row label and the column label. For example, we can use the following code to get the value of the sepal length in the first row:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># using at method</span>
+<span class="n">data</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;sepal_length&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p>5.1</p>
+<p>The at() method is faster than using the loc[] method for single values because it does not have to return a data frame.</p>
+<p>The iat() method takes two arguments: the row and column indexes. For example, we can use the following code to get the value of the sepal length in the first row:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># selecting the first element of the first column</span>
+<span class="n">data</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p>5.1</p>
+<p>As you can see, we got the first element of the first column.</p>
+</section>
+<section id="using-the-apply-method-to-select-data">
+<h3>Using the apply() method to select data<a class="headerlink" href="#using-the-apply-method-to-select-data" title="Link to this heading"></a></h3>
+<p>The apply() method in Pandas is a powerful tool that allows you to apply a function to one or more columns in a DataFrame. It is a versatile method that can be used for a wide variety of tasks, such as data cleaning, data transformation, and feature engineering. The apply() method takes the function as its first argument and the columns to apply the function as its second argument.</p>
+<p>We can use the apply() method with built-in Python functions to perform various operations on the columns of the DataFrame. For example, we can use the round() function to round the values in the ‘sepal_length’ column to the nearest whole number:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># applying the apply method</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">round</span><span class="p">)</span>
+
+<span class="c1"># data heading</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="sepal length" src="../_images/sepal-length1.png" /></p>
+<p>As you can see, the length of the sepals is no more floating points.</p>
+<p>We can use the apply() method with lambda functions to perform more complex operations on the columns of the DataFrame. For example, we can use a lambda function to calculate the square of the values in the ‘sepal length (cm)’ column:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># finding the square of the length</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;squared&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># heading </span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="squared" src="../_images/squared1.png" /></p>
+<p>As you can see, we added a new column that contains the squares of the sepal_length column.</p>
+</section>
+<section id="using-the-mask-method-to-select-data">
+<h3>Using the mask() method to select data<a class="headerlink" href="#using-the-mask-method-to-select-data" title="Link to this heading"></a></h3>
+<p>The mask() method in Pandas is used to query data using a Boolean mask for a DataFrame. The mask itself is a series of True and False values that determine which values in the DataFrame should be changed or kept unchanged. The mask() method takes a condition as its argument and returns a DataFrame containing only the values that satisfy the condition.</p>
+<p>We can use the mask() method to create a Boolean mask for a DataFrame by specifying a condition. For example, we can create a mask that selects only the rows where the ‘sepal_length’ column is greater than 5:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># mast method</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">5</span>
+
+<span class="c1"># filtering</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">mask</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span>
+
+<span class="c1"># data </span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="mask method" src="../_images/mask-method1.png" /></p>
+<p>Notice that the output contains only the rows where the ‘sepal_length’ column is less than or equal to 5.</p>
+</section>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading"></a></h2>
+<p>In summary, Pandas provides a variety of methods to select data from a DataFrame, including indexing and slicing, boolean indexing, query method, at() and iat() methods, apply method, and mask method. These methods allow data scientists to efficiently select and manipulate data based on specific conditions and requirements. Understanding the different methods and their use cases is essential for effectively working with data in Pandas.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

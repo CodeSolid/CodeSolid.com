@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data cleaning in Pandas &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=19645805"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Data cleaning in Pandas</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/data-cleaning-in-pandas.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="data-cleaning-in-pandas">
+<h1>Data cleaning in Pandas<a class="headerlink" href="#data-cleaning-in-pandas" title="Link to this heading"></a></h1>
+<p>Data cleaning in Pandas, also known as data cleansing or scrubbing, identifies and fixes errors, and removes duplicates, and irrelevant data from a raw dataset. Data cleaning is a part of data preparation that helps to have clean data to generate reliable visualizations, models, and business decisions.</p>
+<p>In this article, we will learn how we can use Pandas to remove null values, and duplicates, and delete rows and columns. Moreover, we will discuss how we can standardize and normalize the dataset using the Pandas module.</p>
+<p>The Pandas Python module has very useful methods for data cleaning, as well as methods for general data selection and manipulation that can be used for data cleaning.</p>
+<section id="getting-started-with-data-cleaning-in-pandas">
+<h2>Getting Started with Data cleaning in Pandas<a class="headerlink" href="#getting-started-with-data-cleaning-in-pandas" title="Link to this heading"></a></h2>
+<p>For demonstration purposes, we will use a dataset about the price of houses in Dushanbe city. The dataset contains the location of houses, with some other details which include the number of rooms, number of floors, and price. You can download the dataset from this <a class="reference external" href="https://github.com/CodeSolid/pandas-series/tree/main/Data%20Cleaning%20in%20pandas">link</a>.</p>
+<p>Let us load the dataset using the Pandas module.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing pandas module</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># loading dataset</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Dushanbe_house.csv&#39;</span><span class="p">)</span>
+
+<span class="c1"># heading of dataset</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="dataset-loading" src="../_images/dataset-loading-.png" /></p>
+<p>As you can see that the data is not cleaned. There is one unnecessary column and some null values as well. We can get more information about the dataset using the describe() and info() methods. The describe() method will return the descriptive analysis of the dataset.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># describe method</span>
+<span class="n">data</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="data-description" src="../_images/data-description-.png" /></p>
+<p>As shown above, the describe() method has provided the descriptive analysis of each column. But remember that we cannot trust these findings as the data is not yet clean. The values can change after cleaning data.</p>
+<p>The info() method gives us some extra information about the dataset which includes the total number of rows and the data type of each column.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># info method</span>
+<span class="n">data</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="info-method-of-the-dataset" src="../_images/info-method-of-the-dataset.png" /></p>
+<p>Notice that there are a total of 5579 observations and 7 columns in our dataset.</p>
+<section id="dropping-column-from-data-frame-in-pandas">
+<h3>Dropping column from data frame in Pandas<a class="headerlink" href="#dropping-column-from-data-frame-in-pandas" title="Link to this heading"></a></h3>
+<p>As we have observed, our dataset has one unnecessary column named ‘Unnamed:0’. Let us remove this column from the dataset.</p>
+<p>There are various methods available in Pandas that can help us to remove a column from the data frame. One of the popular methods is the drop() method. It can be used to drop both rows and columns, so we need to specify the axis. By default, the axis is 0 which means it will drop the row, but if we specify the axis as 1, then it will drop the specified column as shown below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># copying the dataset</span>
+<span class="n">data1</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># droping the first column</span>
+<span class="n">data1</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># heading</span>
+<span class="n">data1</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="dropping-the-column" src="../_images/dropping-the-column.png" /></p>
+<p>First, we copied the dataset so that we can use the original one later. Then we used the drop() method to drop the specified column. If we specify the value of inplace as False, then the column will not be removed permanently.</p>
+<p>Another method to remove the column from the data frame is to use the del keyword. We have to specify the name of a column after del as shown below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># copying the dataset</span>
+<span class="n">data2</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># deleting the column</span>
+<span class="k">del</span> <span class="n">data2</span><span class="p">[</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">]</span>
+
+<span class="c1"># heading</span>
+<span class="n">data2</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="dropping-the-column" src="../_images/dropping-the-column.png" /></p>
+<p>We can also use the pop() method in pandas to drop the specified column.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># droping column</span>
+<span class="n">data</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">)</span>
+
+<span class="c1"># data heading</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="dropping-the-column" src="../_images/dropping-the-column.png" /></p>
+<p>As you can see, we have dropped the first column from the dataset.</p>
+</section>
+<section id="dropping-rows-from-the-data-frame-in-pandas">
+<h3>Dropping rows from the data frame in pandas<a class="headerlink" href="#dropping-rows-from-the-data-frame-in-pandas" title="Link to this heading"></a></h3>
+<p>Let us assume that there are some errors or unrelated observations in the dataset and we want to drop them. Again, various methods are available to drop the rows from the data frame.</p>
+<p>As we discussed earlier, the drop() method can be used to drop both columns and rows. Let us now use this method to drop the first row from the dataset.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># dropping rows from the dataset</span>
+<span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="dropping-the-row-in-pandas" src="../_images/dropping-the-row-in-pandas.png" /></p>
+<p>As you can see, the first row has been deleted from the dataset, but it has not been deleted permanently, because by default the value of inplace is False.</p>
+<p>We can also drop the range of rows using the indexing number. For example, we will drop everything after index 2.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># dropping ramge of rows</span>
+<span class="n">df</span> <span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>
+
+<span class="c1"># df heading</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="dropping-range-of-values" src="../_images/dropping-range-of-values.png" /></p>
+<p>As you can see, we have only two rows left, because we have removed all others using the drop method.</p>
+<p>Let us say that we want to remove the rows based on some conditions. We can do that by specifying the condition for the rows we want to keep as shown below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># dropping rows based on condition</span>
+<span class="n">df1</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;price&quot;</span><span class="p">]</span> <span class="o">&gt;=</span><span class="mi">5000000</span> <span class="p">]</span>
+
+<span class="c1"># head</span>
+<span class="n">df1</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="dropping-rows-based-on-condition" src="../_images/dropping-rows-based-on-condition.png" /></p>
+<p>As shown above, now we have a dataset where the price is above then the specified range.</p>
+</section>
+<section id="renaming-column-names-in-pandas">
+<h3>Renaming column names in Pandas<a class="headerlink" href="#renaming-column-names-in-pandas" title="Link to this heading"></a></h3>
+<p>Sometimes, we may have a dataset where the names of the columns are not clear or not in the desired language. In such cases, we can use Pandas to change the name of the columns in our data frame.</p>
+<p>One of the simplest ways to change the name of the columns is to use the rename() method. This method is useful when we need to rename some selected columns, rather than resetting all the column names.</p>
+<p>Let us change the name of ‘number_of_rooms’ to ‘Room Count’ using the rename() method.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># renaming the column name in pandas</span>
+<span class="n">data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span><span class="p">{</span><span class="s1">&#39;number_of_rooms&#39;</span><span class="p">:</span><span class="s1">&#39;Room Count&#39;</span><span class="p">},</span> <span class="n">inplace</span> <span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># data heading</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="change-name-of-one-column" src="../_images/change-name-of-one-column.png" /></p>
+<p>As you can see, we changed the name of the column. In a similar way, you can change the names of multiple columns by adding more items to the dictionary.</p>
+<p>You can also change the column names by assigning a list of new names to the columns. One of the disadvantages of this method is that we have to provide the names of all columns even if we have to change only one column name.</p>
+<p>Because we’re changing all the names, the length of the list which contains the new names of the columns should be equal to the total number of columns in the dataset.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># changing the names of the columns</span>
+<span class="n">data</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Room Count&#39;</span><span class="p">,</span> <span class="s1">&#39;Floor&#39;</span><span class="p">,</span> <span class="s1">&#39;Total Area&#39;</span><span class="p">,</span> <span class="s1">&#39;latitude&#39;</span><span class="p">,</span> <span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">]</span>
+
+<span class="c1"># heading of the columns</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="change-multiple-column-name" src="../_images/change-multiple-column-name.png" /></p>
+<p>As shown above, we have assigned new names to some of the columns.</p>
+<p>Another way to change the name of columns in Pandas is to use the set_axis() method. Here we have to pass the new names of columns and axis that should be replaced with a new name in the column as a parameter.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># changing the names of columns</span>
+<span class="n">data</span><span class="o">.</span><span class="n">set_axis</span><span class="p">([</span><span class="s1">&#39;Room Count&#39;</span><span class="p">,</span> <span class="s1">&#39;Floor&#39;</span><span class="p">,</span> <span class="s1">&#39;Total Area&#39;</span><span class="p">,</span> <span class="s1">&#39;Lat&#39;</span><span class="p">,</span> <span class="s1">&#39;Lon&#39;</span><span class="p">,</span> <span class="s1">&#39;Price&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># data heading</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="renaming-dataframe-set-index" src="../_images/renaming-dataframe-set-index.png" /></p>
+<p>Notice that the new names have been assigned to the columns.</p>
+</section>
+<section id="handling-null-values-in-pandas">
+<h3>Handling NULL values in Pandas<a class="headerlink" href="#handling-null-values-in-pandas" title="Link to this heading"></a></h3>
+<p>Null values or missing values occur when there is no information. Pandas provide various useful methods to check and handle null values in our dataset.</p>
+<p>For example, isnull() is used to check if there are null values in our dataset or not. Let us use this method to find how many values are null in each column.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># checking for null values</span>
+<span class="n">data</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p>Room Count       0
+Floor            0
+Total Area       0
+Lat           1849
+Lon           1849
+Price            0
+dtype: int64</p>
+<p>As shown above, there are null values in the latitude and longitude. We can also check for null values using notnull() method. This will count all the values which are not null.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># checking for null values</span>
+<span class="n">data</span><span class="o">.</span><span class="n">notnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p>Room Count    5579
+Floor         5579
+Total Area    5579
+Lat           3730
+Lon           3730
+Price         5579
+dtype: int64</p>
+<p>Again, we get fewer values for latitude and longitude because those columns have null values.</p>
+<p>Once we know that there are missing values in our dataset, the next step is to learn how we can handle those values. Again, there are various methods available in panadas to deal with null values.</p>
+<p>For example, the fillna() method is used to fill the null values with any other given value. Let us first create a copy of the dataset. We will use fillna() to fill the null values with zero values.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># copying the dataset</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># filling the null values</span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># dataset checking null values</span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p>Room Count    0
+Floor         0
+Total Area    0
+Lat           0
+Lon           0
+Price         0
+dtype: int64</p>
+<p>As you can see now there are no null values in the dataset as we have filled the null values with zeros. You can fill them with other values, depending on the dataset. You can try to fill the null values in the dataset by filling them with the mean or median of the values.</p>
+<p>Another way to fill null values with other values is to use replace() method as shown below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing nupmy</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># copying the original dataset</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># replacing the null values</span>
+<span class="n">data</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span> <span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># data null checking</span>
+<span class="n">data</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p>Room Count    0
+Floor         0
+Total Area    0
+Lat           0
+Lon           0
+Price         0
+dtype: int64</p>
+<p>Again, you can see that there are no more null values because we have replaced the null values with zeros. Another exercise for you is to replace the null values with the previous values in the columns.</p>
+<p>Sometimes, we don’t want to replace the null values with any dataset. For example, in our case, we cannot replace latitude and longitude with other values. In such cases, it is better to remove the null values from the dataset. In Pandas, we use the dropna() method to drop the null values from the dataset. By default, the dropna() method will remove the whole row which has a null value in it.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># dropping null values</span>
+<span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span> <span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># data null value count</span>
+<span class="n">data</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p>Room Count    0
+Floor         0
+Total Area    0
+Lat           0
+Lon           0
+Price         0
+dtype: int64</p>
+<p>As you can see, now there are no null values in our dataset because we have removed all the observations with null values.</p>
+</section>
+<section id="changing-the-indexing-of-the-data-frame">
+<h3>Changing the indexing of the data frame<a class="headerlink" href="#changing-the-indexing-of-the-data-frame" title="Link to this heading"></a></h3>
+<p>Pandas Index is an immutable sequence used for indexing DataFrame and Series. Sometimes, our dataset may not have proper indexing, or we may want to use the columns as the indexing for the data frame. We can do that by using various methods available in Pandas.</p>
+<p>We can set one of the columns as the index of the data frame using the set_index() method. For example, just for demonstration purposes, let us set the latitude column as the indexing column of the data frame.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="n">dataset</span> <span class="n">copying</span>
+<span class="n">dataset</span><span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># setting the index column</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Lat&#39;</span><span class="p">)</span>
+
+<span class="c1"># data heading</span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="changing-the-index-to-lat" src="../_images/changing-the-index-to-lat.png" /></p>
+<p>As you can see, we have set the latitude column as the indexing column of the data frame. We can also set multiple columns as indexing columns as shown below;</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># dataset copying</span>
+<span class="n">dataset</span><span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># setting the index column</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;Lat&#39;</span><span class="p">,</span> <span class="s1">&#39;Lon&#39;</span><span class="p">])</span>
+
+<span class="c1"># data heading</span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="index-changing-" src="../_images/index-changing-.png" /></p>
+<p>As shown above, we have set multiple indexing using two columns.</p>
+<p>We can also set the columns by providing a list of values. For example, now we will set the index column using a range of values.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># dataset copying</span>
+<span class="n">dataset</span><span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># indexing values</span>
+<span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)))</span>
+
+<span class="c1"># setting the index column</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+
+<span class="c1"># data heading</span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="change-the-index-of-the-data-frame" src="../_images/change-the-index-of-the-data-frame.png" /></p>
+<p>Notice that this time we have set the index column using a range of values.</p>
+</section>
+<section id="finding-duplicate-elements-in-the-data-frame">
+<h3>Finding duplicate elements in the data frame<a class="headerlink" href="#finding-duplicate-elements-in-the-data-frame" title="Link to this heading"></a></h3>
+<p>Sometime we may have duplicate observations. In Pandas, we can find duplicate observations by using duplicated() method.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># duplicates in data frame</span>
+<span class="n">duplicate</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()]</span>
+
+<span class="c1"># heading of duplicates</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">duplicate</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p>109</p>
+<p>As you can see, we have 109 observations that are duplicated. The duplicated elements that we get above are based on the whole dataset. However, we can get duplicate elements based on specific columns as well.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># duplicated elements based on price</span>
+<span class="n">duplicate</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="s1">&#39;Price&#39;</span><span class="p">)]</span>
+
+<span class="c1"># print</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">duplicate</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p>3732</p>
+<p>As shown above, there are a lot of houses with the same prices. You can also find the duplicate elements based on more than one column by providing a list of columns as shown below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># duplicated elements based on price</span>
+<span class="n">duplicate</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">duplicated</span><span class="p">([</span><span class="s1">&#39;Total Area&#39;</span><span class="p">,</span> <span class="s1">&#39;Price&#39;</span><span class="p">])]</span>
+
+<span class="c1"># print</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">duplicate</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p>1139</p>
+<p>As shown above, we have 1139 duplicate elements based on two columns.</p>
+<p>Here is an exercise for you. So far we have learned how to drop the rows and how to find the duplicate elements from the data frame. You can use these functions (drop() and duplicated()) to drop the duplicate observations from the dataset.</p>
+</section>
+</section>
+<section id="cleaning-strings-in-pandas-data-frame">
+<h2>Cleaning strings in Pandas data frame<a class="headerlink" href="#cleaning-strings-in-pandas-data-frame" title="Link to this heading"></a></h2>
+<p>Sometimes the dataset contains information in a very unusual way and contains many letters or symbols which does not make any sense. For demonstration purposes, we will create a data frame using Pandas and apply various methods to clean the strings.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#creating a dataframe</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;Date&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;10-03-2022&quot;</span><span class="p">,</span> <span class="s2">&quot;11-03-2022&quot;</span><span class="p">,</span> <span class="s2">&quot;11-04-2022&quot;</span><span class="p">,</span> <span class="s2">&quot;11-05-2022&quot;</span><span class="p">],</span>
+        <span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;aZia&#39;</span><span class="p">,</span> <span class="s1">&#39;baHIr&#39;</span><span class="p">,</span> <span class="s1">&#39;AlAm&#39;</span><span class="p">,</span> <span class="s1">&#39;ERlan&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;Status&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39; Married&#39;</span><span class="p">,</span> <span class="s1">&#39;  Single&#39;</span><span class="p">,</span> <span class="s1">&#39;Sing   le&#39;</span><span class="p">,</span> <span class="s1">&#39;Married&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;working&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Yes()&#39;</span><span class="p">,</span> <span class="s1">&#39;No-&#39;</span><span class="p">,</span> <span class="s1">&#39;Yes!&#39;</span><span class="p">,</span> <span class="s1">&#39;Yes&#39;</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+
+
+<span class="c1"># data heading</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="creating-dataframe" src="../_images/creating-dataframe.png" /></p>
+<p>As you can see that there are white spaces, unnecessary symbols, and capitalization. We can check the data type of each column by using the info() method.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># info() method</span>
+<span class="n">data</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="info-method" src="../_images/info-method.png" /></p>
+<p>As you can see that all the columns are object types (strings). Now let us apply various methods to clean the data.</p>
+<section id="removing-unnecessary-capitalization">
+<h3>Removing unnecessary capitalization<a class="headerlink" href="#removing-unnecessary-capitalization" title="Link to this heading"></a></h3>
+<p>As you can see, there is some unnecessary capitalization in the Name column. We can remove this capitalization either by creating our own function or by using apply() method.</p>
+<p>Let us first create a user-defined function that will remove these unnecessary capitalizations.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># copy the dataset</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># user defined </span>
+<span class="k">def</span> <span class="nf">capitalization</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    
+    <span class="c1"># iterate over all the rows</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+  
+        <span class="c1">#using strip function with</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+
+<span class="c1">#head of the function</span>
+<span class="n">capitalization</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+
+
+<span class="c1"># printing dataset</span>
+<span class="n">dataset</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="capitalizations" src="../_images/capitalizations.png" /></p>
+<p>Notice that now there is no more unnecessary capitalization in our dataset.</p>
+<p>A more concise method to remove capitalization is using the apply() method. This method allows us to apply a function along one of the axes of the DataFrame. Let us use this method to remove unnecessary capitalization.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># the apply method - data cleaning in pandas</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">capitalize</span><span class="p">())</span>
+
+<span class="c1"># heading of data</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="capitalizations" src="../_images/capitalizations.png" /></p>
+<p>As shown above, there is no more unnecessary capitalization.</p>
+</section>
+<section id="remove-whitespace-in-a-dataframe">
+<h3>Remove Whitespace in a DataFrame<a class="headerlink" href="#remove-whitespace-in-a-dataframe" title="Link to this heading"></a></h3>
+<p>As you can see that there is some unnecessary whitespace in the Status column. Pandas provide various methods to remove whitespace from the DataFrame.</p>
+<p>The strip() method in pandas removes the whitespace from the string. Using the strip() function We can easily remove extra whitespace from leading and trailing whitespace from starting. If your data has whitespaces at the start or at the end, you can use this method. The basic syntax of using this function is shown below where we have applied the strip() method on the Status column.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># the apply method - data cleaning in pandas</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">capitalize</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>However, in our case, the whitespace is in between the letters. So, we will use replace() method. This method allows us to replace whitespace or any other letter with anything.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># replacing white spaces</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;Status&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Status&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+<span class="c1"># data heading</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="replace-whitespaces" src="../_images/replace-whitespaces.png" /></p>
+<p>Once we’ve done this, the dataset no longer has any unnecessary whitespace.</p>
+</section>
+<section id="removing-characters-from-the-columns">
+<h3>Removing characters from the columns<a class="headerlink" href="#removing-characters-from-the-columns" title="Link to this heading"></a></h3>
+<p>Removing special characters from the columns is similar to removing whitespace. We can use the replace() method to remove special characters from the column. For example, the ‘working’ column in our dataset contains some special characters. First, let us use the replace() method to remove some of the characters.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># dataset removing symbols</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;working&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;working&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s1">&#39;-&#39;</span><span class="p">:</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;!&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">},</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># dataset</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="replacing-the-speical-characters" src="../_images/replacing-the-speical-characters.png" /></p>
+<p>As you can see, we have used replace method to replace multiple characters. We can also use the replace method along with the apply method. Here we show this using a lambda function to replace special characters to remove the parentheses from the working column.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># removing brackets</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;working&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="n">data</span><span class="p">[</span><span class="s1">&#39;working&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;(&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;)&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">))</span> 
+
+<span class="c1"># data heading</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="cleaning-data-in-pandas" src="../_images/cleaning-data-in-pandas.png" /></p>
+<p>As you can see, now our data is clean.</p>
+<p>As an exercise, you can try to remove the sub-strings from the columns using the replace method.</p>
+</section>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading"></a></h2>
+<p>In this article, we learned about data cleaning in Pandas using various methods. We covered how to handle null values, drop columns, find duplicate values, and set indexing. Moreover, we also learned how we can replace and remove special characters from the dataset using various examples.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

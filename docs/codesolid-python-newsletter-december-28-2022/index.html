@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CodeSolid Python Newsletter: December 28, 2022 &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=19645805"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">CodeSolid Python Newsletter:  December 28, 2022</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/codesolid-python-newsletter-december-28-2022.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="codesolid-python-newsletter-december-28-2022">
+<h1>CodeSolid Python Newsletter:  December 28, 2022<a class="headerlink" href="#codesolid-python-newsletter-december-28-2022" title="Link to this heading"></a></h1>
+<p>Happy Holidays from CodeSolid!</p>
+<p>I hope your holiday season is filled with all the good stuff – being with family and friends, and staying warm – and none of the bad stuff, like Seasonal Affective Disorder or being stuck in a snowbank.</p>
+<p>As usual, we’ll share a quick roundup of what’s new on CodeSolid and some goodies we found elsewhere on the interwebs.</p>
+<section id="new-and-featured-on-codesolid">
+<h2>New and Featured on CodeSolid<a class="headerlink" href="#new-and-featured-on-codesolid" title="Link to this heading"></a></h2>
+<p><a class="reference external" href="https://codesolid.com/understanding-python-types-and-type-hints/">Understanding Python Types and Type Hints</a><br />
+When considering types in Python, two things come to mind for me.  The first thing is the Python type system’s excellent support for exploring and learning about your code interactively (using type, dir, and help).  The second thing that comes to mind is the type hint system, formally supported in Python 3.5 (though some of its syntax works in earlier Python versions as well).  In this article, I treat both these features, which are favorites of mine.</p>
+<p><a class="reference external" href="https://codesolid.com/python-functions/">Python Functions</a> (Series)<br />
+I’ve written a few longer posts about Python functions, but I wasn’t happy with how many readers found them.  It turns out that the difficulty when writing about Python functions is not that there’s nothing to write about – it’s that there’s too much to write about!  Because of this, the central problem is how to organize it all.  With this in mind, I am putting together a series of short articles on various function topics, partly by breaking up some existing articles, and partly by creating new, short pieces.</p>
+<p><a class="reference external" href="https://codesolid.com/python-chemistry/">Python Chemistry</a><br />
+Guest author and retired chemist, Tim Hockswender, has provided us with this interesting look at how to use SymPy and ChemPy for chemistry.  ChemPy is a specialized tool for chemistry, but our readers may remember SymPy from our earlier, introductory <a class="reference external" href="https://codesolid.com/sympy-solving-math-equations-in-python/">SymPy article</a>. This is one of those topics I would never have been able to do on my own, so it was great having Tim pitch in on it.</p>
+<p><a class="reference external" href="https://codesolid.com/dunder-methods-in-python-the-ugliest-awesome-sauce/">Python Dunder Methods:  The Ugliest Awesome Sauce</a><br />
+I was honored this week to have this article featured in PyCoders’ yearly <a class="reference external" href="https://pycoders.com/issues/557">roundup</a> of the year’s most popular articles.  It’s always a treat for me when PyCoders or Twitter’s PythonHub take an interest in my work, so being a top article this year is like a special holiday treat.</p>
+</section>
+<section id="python-around-the-web">
+<h2>Python Around the Web<a class="headerlink" href="#python-around-the-web" title="Link to this heading"></a></h2>
+<p><a class="reference external" href="https://tryolabs.com/blog/2022/12/26/top-python-libraries-2022">Top Python Libraries of 2022</a><br />
+Speaking of yearly roundups, this list of top Python libraries has been published regularly over the last few years.  I found several interesting tidbits on this year’s list.</p>
+<p><a class="reference external" href="https://nuitka.net/index.html">Nuitka - Python Compiler, New Release</a><br />
+One of the questions I see from Python newcomers is compiling their applications.  Though technically speaking Python’s interpreter has a “compiler” step, it doesn’t produce a standalone executable as we’d expect from a language like C or Rust.  Nuitka is an optimizing compiler that produces standalone executables from Python files.</p>
+<p><a class="reference external" href="https://github.com/jupyter-server/jupyter-scheduler/">Jupyter Scheduler</a><br />
+OK, I have to admit – even as a big fan of Jupyter notebooks, I’ve never thought of them in terms of something I’d like to schedule to run regularly as a job.  Nevertheless, now that I’ve seen that I can, I think it’s pretty cool and worth trying out!</p>
+<p><a class="reference external" href="https://gto76.github.io/python-cheatsheet/">Comprehensive Python Cheatsheet</a><br />
+I’m not usually a big fan of cheat sheets, since the combination of Python’s built-in code exploration tools and the official docs are usually my go-to resources for looking things up.  Nevertheless, I saw this cheat sheet had a lot of attention on the Python Reddit channel, so I took a look.  Sure enough, I was impressed with the sheer scope of this cheat sheet.</p>
+<p><a class="reference external" href="https://dev.to/alexomeyer/10-must-know-patterns-for-writing-clean-code-with-python-56bf">Clean Code in Python</a><br />
+Lawrence Eagles has written this excellent, concise article on how to improve your Python code.  This article was also featured in PyCoders as a best of 2022.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

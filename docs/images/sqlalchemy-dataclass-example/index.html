@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python Dataclasses Overview &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=19645805"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Python Dataclasses Overview</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/images/sqlalchemy-dataclass-example/index.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>One of the features of SQLAlchemy 2.0 was improved support for Python dataclasses. This new feature allows you to convert a SQLAlchemy declarative table mapping into a Python dataclass with a single decorator.</p>
+<p>If you’re not an old hand at SQLAlchemy, don’t worry. Neither was I when I encountered this feature. That’s why this article walks you step by step, first explaining why this is something you might want to use and how to use it by means of a simple example. Some of the topics we’ll cover are:</p>
+<ul class="simple">
+<li><p>A high-level review of dataclasses and SQLAlchemy.</p></li>
+<li><p>Using the SQLAlchemy Object-Relational-Mapping (ORM) declarative table mappings with a dataclass.</p></li>
+<li><p>Creating a few such Python/SQLAlchemy dataclasses.</p></li>
+<li><p>Connecting to a database and using the SQLAlchemy metadata feature to automatically create tables based on our Python classes. (To keep things simple, we’ll use SQLLite3, so we won’t have to set up an external database).</p></li>
+<li><p>Inserting some real data into the tables.</p></li>
+</ul>
+<p>Table of Contents</p>
+<ul class="simple">
+<li><p>Python Dataclasses Overview</p></li>
+<li><p>SQLAlchemy Overview</p></li>
+<li><p>The Data for Our Example</p></li>
+<li><p>Creating the Basic SQLAlchemy Dataclasses</p></li>
+<li><p>Implementing a Many-to-Many Relationship</p></li>
+<li><p>Creating the Tables and Loading the Data</p></li>
+<li><p>Closing Thoughts</p></li>
+</ul>
+<section id="python-dataclasses-overview">
+<h1>Python Dataclasses Overview<a class="headerlink" href="#python-dataclasses-overview" title="Link to this heading"></a></h1>
+<p>As we discussed in <a class="reference external" href="https://codesolid.com/python-dataclasses/">Python Dataclass: Easily Automate Class Best Practices</a>, the Python dataclass annotation allows you to quickly create a class using Python type hints for the instance variables. The dataclass annotation will then automatically create several useful methods, including __init__, __repr__, and __eq__. That article provides much more detail about how to do this, but in general, using the dataclass annotation will do two things:</p>
+<ul class="simple">
+<li><p>It will ensure that the types of your instance variables use Python type hints, making your code more clear.</p></li>
+<li><p>It will save a lot of time writing boilerplate code.</p></li>
+</ul>
+</section>
+<section id="sqlalchemy-overview">
+<h1>SQLAlchemy Overview<a class="headerlink" href="#sqlalchemy-overview" title="Link to this heading"></a></h1>
+<p>SQLAlchemy is a popular tool that combines a SQL expressions library that can be used on its own with an ORM that uses the expressions library. For many years, SQLAlchemy has been the most popular ORM for Python. The only exception to this popularity is among the Django community since the Django web framework contains and is integrated with its own Object Relational Mapping classes.</p>
+</section>
+<section id="the-data-for-our-example">
+<h1>The Data for Our Example<a class="headerlink" href="#the-data-for-our-example" title="Link to this heading"></a></h1>
+<p>I’m not that vain in the sense of taking endless selfies and posting them on social media, but I do have a similar quirk when it comes to the data from this blog, which I like to download and manipulate. Since the blog runs on WordPress, it features a built-in API I can use to download posts, the categories to which they belong, and other data. Fair warning, if you use this data, it’s fairly large since it includes the contents of the posts. However, the dataclasses we’ll create will only map a subset of the JSON data that the WordPress API exposes.</p>
+<p>With that caveat out of the way, here are the links to the data that we’ll use with the code examples:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://codesolid.com/wp-json/wp/v2/posts?orderby=date&amp;amp;order=desc">Post Data</a></p></li>
+<li><p><a class="reference external" href="https://codesolid.com/wp-json/wp/v2/categories">Post Categories</a></p></li>
+</ul>
+</section>
+<section id="creating-the-basic-sqlalchemy-dataclasses">
+<h1>Creating the Basic SQLAlchemy Dataclasses<a class="headerlink" href="#creating-the-basic-sqlalchemy-dataclasses" title="Link to this heading"></a></h1>
+<p>Before we get started, we can install the dependencies we need into a virtual environment using the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>sqlalchemy&gt;<span class="o">=</span><span class="m">2</span>.0.0
+pip<span class="w"> </span>install<span class="w"> </span>ipython
+</pre></div>
+</div>
+<p>(IPython is just here so we can easily run some experiments as we go along).</p>
+<p>As we can see from the data we’re dealing with, we will need at least two entities, Categories and Posts. Setting aside for the moment the issue of the relationship between them, the code below defines a base class for all our SQLAlchemy dataclass objects, then creates the two classes that we need:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># post_tables.py</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+
+<span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">DeclarativeBase</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">Mapped</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">mapped_column</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">MappedAsDataclass</span>
+
+<span class="k">class</span> <span class="nc">Base</span><span class="p">(</span><span class="n">MappedAsDataclass</span><span class="p">,</span> <span class="n">DeclarativeBase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;subclasses will be converted to dataclasses&quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">Category</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s2">&quot;category&quot;</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="n">Mapped</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">mapped_column</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">name</span><span class="p">:</span> <span class="n">Mapped</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+
+<span class="k">class</span> <span class="nc">Post</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s2">&quot;post&quot;</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="n">Mapped</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">mapped_column</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">title</span><span class="p">:</span> <span class="n">Mapped</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="n">url</span><span class="p">:</span> <span class="n">Mapped</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>As you can see, when it comes to defining the columns, we’ve used two different styles. For the primary keys, we use the mapped_column function in order to be able to specify first of all that it’s a primary key and, secondly, that we want the key added to the __init__ method. This is a bit unusual, but in our case, we want to use the original primary keys from WordPress, not create new ones, so adding it to init is what we want. For the remaining fields, we use the type annotated form of mapped_column, which will add the fields to the __init__ method by default. Both of these forms are <a class="reference external" href="https://docs.sqlalchemy.org/en/20/orm/declarative_tables.html">described in detail</a> in the SQLAlchemy documentation.</p>
+<p>Inside IPython, we can load this code using <code class="docutils literal notranslate"><span class="pre">%load</span> <span class="pre">post_tables.py</span></code> . (You’ll need to press enter a couple of times to get back to a prompt.</p>
+<p>Once this is done, we can try creating a Post. Let’s verify that our init method has the fields we want, which we can prove to ourselves by omitting them and seeing the error:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">7</span><span class="p">]:</span> <span class="n">post</span> <span class="o">=</span> <span class="n">Post</span><span class="p">()</span>
+<span class="o">-------------------------------------------------------</span>
+<span class="o">...</span>
+<span class="ne">TypeError</span><span class="p">:</span> <span class="fm">__init__</span><span class="p">()</span> <span class="n">missing</span> <span class="mi">3</span> <span class="n">required</span> <span class="n">positional</span> <span class="n">arguments</span><span class="p">:</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="ow">and</span> <span class="s1">&#39;url&#39;</span>
+</pre></div>
+</div>
+<p>Supplying the correct arguments, we can create the post object now:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">post</span> <span class="o">=</span> <span class="n">Post</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="s2">&quot;Flipping Pancakes in Python&quot;</span><span class="p">,</span> <span class="s2">&quot;https://codesolid.com/flapjack&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Because the Post class is a dataclass, we also get a __repr__ method for free to display our post object neatly. Here we do that and verify that __repr__ is the method that’s being used:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">11</span><span class="p">]:</span> <span class="n">post</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">11</span><span class="p">]:</span> <span class="n">Post</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Flipping Pancakes in Python&#39;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://codesolid.com/flapjack&#39;</span><span class="p">)</span>
+
+<span class="n">In</span> <span class="p">[</span><span class="mi">12</span><span class="p">]:</span> <span class="n">post</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">()</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">12</span><span class="p">]:</span> <span class="s2">&quot;Post(id=42, title=&#39;Flipping Pancakes in Python&#39;, url=&#39;https://codesolid.com/flapjack&#39;)&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="implementing-a-many-to-many-relationship">
+<h1>Implementing a Many-to-Many Relationship<a class="headerlink" href="#implementing-a-many-to-many-relationship" title="Link to this heading"></a></h1>
+<p>In WordPress, a post can have more than one category, and categories can, of course, apply to more than one post. We can model such a many-to-many relationship with a third table that contains the ID of the two tables we’re joining as foreign keys. We must also relate each of the two tables back to the join table.</p>
+<p>Here is the posts_tables.py file with these new features added:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># post_tables.py</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+
+<span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">DeclarativeBase</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">Mapped</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">mapped_column</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">MappedAsDataclass</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">relationship</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">Table</span><span class="p">,</span> <span class="n">Column</span><span class="p">,</span> <span class="n">ForeignKey</span>
+
+<span class="k">class</span> <span class="nc">Base</span><span class="p">(</span><span class="n">MappedAsDataclass</span><span class="p">,</span> <span class="n">DeclarativeBase</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;subclasses will be converted to dataclasses&quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+    
+<span class="n">posts_to_category</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span>
+    <span class="s2">&quot;posts_to_category&quot;</span><span class="p">,</span>
+    <span class="n">Base</span><span class="o">.</span><span class="n">metadata</span><span class="p">,</span>
+    <span class="n">Column</span><span class="p">(</span><span class="s2">&quot;category_id&quot;</span><span class="p">,</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="s2">&quot;category.id&quot;</span><span class="p">)),</span>
+    <span class="n">Column</span><span class="p">(</span><span class="s2">&quot;post_id&quot;</span><span class="p">,</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="s2">&quot;post.id&quot;</span><span class="p">)),</span>
+<span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Category</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s2">&quot;category&quot;</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="n">Mapped</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">mapped_column</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">posts</span><span class="p">:</span> <span class="n">Mapped</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="s2">&quot;Post&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">relationship</span><span class="p">(</span><span class="n">secondary</span><span class="o">=</span><span class="n">posts_to_category</span><span class="p">,</span> 
+        <span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">back_populates</span><span class="o">=</span><span class="s2">&quot;categories&quot;</span><span class="p">)</span>
+    <span class="n">name</span><span class="p">:</span> <span class="n">Mapped</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+
+<span class="k">class</span> <span class="nc">Post</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s2">&quot;post&quot;</span>
+    <span class="n">categories</span><span class="p">:</span> <span class="n">Mapped</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="s2">&quot;Category&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">relationship</span><span class="p">(</span><span class="n">secondary</span><span class="o">=</span><span class="n">posts_to_category</span><span class="p">,</span> 
+        <span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">back_populates</span><span class="o">=</span><span class="s2">&quot;posts&quot;</span><span class="p">)</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="n">Mapped</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">mapped_column</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">title</span><span class="p">:</span> <span class="n">Mapped</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="n">url</span><span class="p">:</span> <span class="n">Mapped</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Getting ahead of ourselves somewhat, once our data is populated, this will allow us to join and select posts in a given category, for example, using the query below:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">post</span><span class="p">.</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="n">url</span><span class="w"> </span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">post</span>
+<span class="w">    </span><span class="k">LEFT</span><span class="w"> </span><span class="k">OUTER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">posts_to_category</span><span class="w"> </span>
+<span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="n">post</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">posts_to_category</span><span class="p">.</span><span class="n">post_id</span>
+<span class="w">    </span><span class="k">LEFT</span><span class="w"> </span><span class="k">OUTER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">category</span>
+<span class="w">    </span><span class="k">ON</span><span class="w"> </span><span class="n">posts_to_category</span><span class="p">.</span><span class="n">category_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">category</span><span class="p">.</span><span class="n">id</span>
+<span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">category</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Python Practice&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Running queries outside Python requires a separate client executable such as SQLLite3 (see <a class="reference external" href="https://www.sqlite.org/download.html">downloads</a>). Before we get to that point, however, we need to see how we can use the classes we’ve developed so far to create and populate the actual SQL tables.</p>
+</section>
+<section id="creating-the-tables-and-loading-the-data">
+<h1>Creating the Tables and Loading the Data<a class="headerlink" href="#creating-the-tables-and-loading-the-data" title="Link to this heading"></a></h1>
+<p>In the following code, we’ll use the ORM dataclasses and the join table we’ve already defined. Here are the tasks that remain to be done:</p>
+<ul class="simple">
+<li><p>Connect to a database using the SQLAlchemy create_engine method. Again, we’ll use SQLLite since it’s simple, runs in-process, and comes with Python.</p></li>
+<li><p>Create the tables based on the code we have so far.</p></li>
+<li><p>Read the JSON for the categories and posts, and populate the data appropriately.</p></li>
+</ul>
+<p>Here’s the code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#run.py</span>
+
+<span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
+<span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">Session</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">post_tables</span> <span class="kn">import</span> <span class="n">Post</span><span class="p">,</span> <span class="n">Category</span><span class="p">,</span> <span class="n">posts_to_category</span>
+
+<span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s2">&quot;sqlite+pysqlite:///./posts.db&quot;</span><span class="p">,</span> <span class="n">echo</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">create_tables</span><span class="p">():</span>
+    <span class="n">Category</span><span class="o">.</span><span class="n">__table__</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">checkfirst</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">Post</span><span class="o">.</span><span class="n">__table__</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">checkfirst</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">posts_to_category</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">checkfirst</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">get_categories_from_json</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Loads the categories JSON file and converts the id (key)&quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;categories.json&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+        <span class="n">loaded</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+        <span class="n">categories</span> <span class="o">=</span> <span class="p">{</span><span class="nb">int</span><span class="p">(</span><span class="n">k</span><span class="p">):</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">loaded</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="k">return</span> <span class="n">categories</span>
+
+<span class="k">def</span> <span class="nf">get_posts_from_json</span><span class="p">():</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;posts.json&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">save_categories</span><span class="p">():</span>
+    <span class="n">categories</span> <span class="o">=</span> <span class="n">get_categories_from_json</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">Session</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+        <span class="k">for</span> <span class="nb">id</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">categories</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">session</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">Category</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>        
+        <span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">save_posts</span><span class="p">():</span>
+    <span class="n">posts</span> <span class="o">=</span> <span class="n">get_posts_from_json</span><span class="p">()</span>
+    <span class="n">categories</span> <span class="o">=</span> <span class="n">get_categories_from_json</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">Session</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">post</span> <span class="ow">in</span> <span class="n">posts</span><span class="p">:</span>
+            <span class="n">post_categories</span> <span class="o">=</span> <span class="p">[</span><span class="n">Category</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">categories</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="p">))</span> <span class="k">for</span> <span class="nb">id</span> <span class="ow">in</span> <span class="n">post</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;categories&quot;</span><span class="p">)]</span>
+            <span class="n">current</span> <span class="o">=</span> <span class="n">Post</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">post</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="n">post</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;title&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;rendered&quot;</span><span class="p">),</span> <span class="n">url</span><span class="o">=</span><span class="n">post</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;link&quot;</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;A post </span><span class="si">{</span><span class="n">current</span><span class="si">}</span><span class="s1"> with categories </span><span class="si">{</span><span class="n">post_categories</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">current</span><span class="o">.</span><span class="n">categories</span> <span class="o">=</span> <span class="n">post_categories</span>
+            <span class="n">session</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">current</span><span class="p">)</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">create_tables</span><span class="p">()</span>
+    <span class="n">save_categories</span><span class="p">()</span>
+    <span class="n">save_posts</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>On line 8, we create a SQLAlchemy “engine,” which is how we connect to the database. The <code class="docutils literal notranslate"><span class="pre">create_tables</span></code> function (beginning on line 10) uses the engine to create each of the three database tables we need to create. The “<code class="docutils literal notranslate"><span class="pre">checkFirst</span></code>” argument is needed to make our Python program re-entrant – without it, we could only run it once.</p>
+<p>On lines 16-25, our two JSON loading functions are relatively straightforward. In the case of categories, however, we convert the primary keys from strings into integers.</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">save_categories()</span></code> method (lines 27-32), we call the load method to get the categories as a list of key/value pairs. We then use a SQLAlchemy Session object to control the transaction. For each of the categories, we call the <code class="docutils literal notranslate"><span class="pre">Session.merge</span></code> function, passing a new Category class constructed from the information we loaded from the JSON file.</p>
+<p>As we did when we created the tables, we needed to find a way to make our saves “re-entrant” To accomplish this, we use <code class="docutils literal notranslate"><span class="pre">Session.merge</span></code> rather than <code class="docutils literal notranslate"><span class="pre">Session.add</span></code> to overwrite whatever is actually in the table already, if anything.</p>
+<p>Beginning on line 34 save_posts() is similar to save_categories(). However, since each post contains a list of categories to which it belongs, there’s on line 39, we use a list comprehension to turn this list of category IDs into a list of category objects. We create the post object on line 40, and add the categories on line 42. Finally, we’re ready to call Session.merge on line 43. As with save_categrories(), our last step is to call commit to save our data while still within the context manager for the session.</p>
+</section>
+<section id="closing-thoughts">
+<h1>Closing Thoughts<a class="headerlink" href="#closing-thoughts" title="Link to this heading"></a></h1>
+<p>Even though this example was somewhat short and perhaps a bit contrived, we’ve covered quite a lot of ground. In particular, we learned that creating a SQLAlchemy ORM object as a Python dataclass is as simple as adding MappedAsDataclass as a parent (grandparent, etc.) of the class. We saw how to create classes declaratively and two methods for defining fields on the class.</p>
+<p>Finally, we learned how to create a database connection, create tables based on our dataclass definitions, and use the classes in lieu of raw SQL to save data to the database.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

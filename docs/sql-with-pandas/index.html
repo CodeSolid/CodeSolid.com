@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Using SQL With Pandas: PandasSQL and IPython-SQL &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=19645805"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Using SQL With Pandas:  PandasSQL and IPython-SQL</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/sql-with-pandas.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="using-sql-with-pandas-pandassql-and-ipython-sql">
+<h1>Using SQL With Pandas:  PandasSQL and IPython-SQL<a class="headerlink" href="#using-sql-with-pandas-pandassql-and-ipython-sql" title="Link to this heading"></a></h1>
+<p>As popular as Pandas is to those doing Data Analysis in Python, there’s no question that SQL is an even more important tool. Invented in 1970, the SQL language and database products based on this standard serve as the backbone of most businesses.</p>
+<p>To give you an idea of how much more popular SQL is, as of today the job board, Indeed.com, lists over fourteen jobs in SQL for every one job in Pandas. Also, despite the growing popularity of alternatives, so-called NoSQL databases still only account for about one-sixth of the mindshare of SQL.</p>
+<p>However, using SQL for data analysis doesn’t mean you have to give up using Pandas DataFrames. Quite, the contrary – Pandas and SQL work quite well together. Let’s next consider two ways that we can use Pandas and SQL together:</p>
+<ul class="simple">
+<li><p>We can read and write data from Pandas to SQL, using a SQL database as a simple data store.</p></li>
+<li><p>We can use the SQL language to query data stored in a Pandas DataFrame.</p></li>
+</ul>
+<section id="sql-databases-as-a-storage-medium">
+<h2>SQL Databases as a “Storage Medium”<a class="headerlink" href="#sql-databases-as-a-storage-medium" title="Link to this heading"></a></h2>
+<p>Although SQL is a language – Structured Query Language – and not a storage format, Pandas users can treat it as though it were a storage format with no additional tools. That is to say, Pandas can directly read or write data using any SQLAlchemy-compatible data sources using DataFrame.read_sql and DataFrame.to_sql.</p>
+<p>Again can think of these APIs as a way to treat “SQL” as a storage medium. Once you have a database connection, you can read and write data in much the same way as you can use Pandas to read and write to CSV or Excel. With read_sql and to_sql, the format of the “storage medium” will be different, depending on what the database connection points to. It’s even possible for the same vendor to support different storage formats, for example, MyISAM vs. InnoDB in MySQL.</p>
+</section>
+<section id="sql-as-a-query-language">
+<h2>SQL As a Query Language<a class="headerlink" href="#sql-as-a-query-language" title="Link to this heading"></a></h2>
+<p>In addition to treating SQL as a kind of flexible storage medium, there are at least two libraries you can use that enable you to begin to take advantage of SQL as a language for querying DataFrames.</p>
+<ul class="simple">
+<li><p><strong>PandasSQL</strong> - PandasSQL is a simple tool with few dependencies, that allows you to query Pandas DataFrames using the dialect of SQL that SQLite uses. However, PandasSQL has not been revised in several years and provides limited functionality.</p></li>
+<li><p><strong>IPython-SQL</strong> <strong>and DuckDB</strong>. Using IPython-SQL and DuckDb together lets you move fairly seamlessly between Pandas DataFrames and SQL. You can query Pandas DataFrames using SQL and convert the result sets to a Pandas DataFrame (either automatically or via a separate step). The results can then be persisted back to the database if desired.</p></li>
+</ul>
+<p>For the remainder of this article, we want to take a closer look at these two options.</p>
+</section>
+<section id="pandas-with-sql-option-1-pandassql">
+<h2>Pandas With SQL Option 1: PandasSQL<a class="headerlink" href="#pandas-with-sql-option-1-pandassql" title="Link to this heading"></a></h2>
+<p>Let’s first look at our simpler option, using PandasSQL to query Pandas DataFrames.</p>
+<p>Our setup for this is fairly straightforward in Conda:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">pandasql</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.11</span> <span class="n">jupyterlab</span> <span class="n">seaborn</span> <span class="n">pandasql</span>
+<span class="n">conda</span> <span class="n">activate</span> <span class="n">pandasql</span>
+</pre></div>
+</div>
+<p>We can now run JupyterLab, and, in a new Jupyter Notebook, get started with only two imports.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">pandasql</span>
+</pre></div>
+</div>
+<p>Because the pandasql function <code class="docutils literal notranslate"><span class="pre">sqldf</span></code> takes a call to either <code class="docutils literal notranslate"><span class="pre">locals()</span></code> or <code class="docutils literal notranslate"><span class="pre">globals()</span></code> that is inconvenient to supply each time, the documentation recommends creating a lambda function to essentially create an alias it, for example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sqldf</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">q</span><span class="p">:</span> <span class="n">pandasql</span><span class="o">.</span><span class="n">sqldf</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="nb">globals</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>We’re now ready to begin querying Pandas DataFrame objects using SQL. Let’s begin by loading one of the Seaborn datasets into a DataFrame:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">taxis</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;taxis&#39;</span><span class="p">)</span>
+<span class="n">taxis</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="" src="../_images/image-6-1024x1921.png" /></p>
+<p>Now that we have the dataset loaded, querying it is quite simple. We just call the lambda function we created earlier with the query we want to run. For example, let’s take a look at what our driver did earn his top five all time tips:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sqldf</span><span class="p">(</span><span class="s2">&quot;SELECT pickup, dropoff, distance, fare, tip from taxis order by tip desc limit 5&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="" src="../_images/image-711.png" /></p>
+<p>Well, that’s certainly an unexpected result. Either we’re dealing with missing data, or two of the top tips our driver earned was for letting the meter run, sometimes only for a few seconds. The data is a bit of a mystery, but the query we ran to get it was extremely straightforward.</p>
+<p>We didn’t save the result of the last query, but if you do, you’ll see it is returned as a DataFrame</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">top_tips</span> <span class="o">=</span> <span class="n">sqldf</span><span class="p">(</span><span class="s2">&quot;SELECT pickup, dropoff, distance, fare, tip from taxis order by tip desc limit 5&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">top_tips</span><span class="p">))</span>
+
+<span class="c1"># Outputs:  &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="pandas-with-sql-option-2-using-ipython-sql-and-duckdb">
+<h2>Pandas With SQL Option 2: Using IPython-SQL and DuckDB<a class="headerlink" href="#pandas-with-sql-option-2-using-ipython-sql-and-duckdb" title="Link to this heading"></a></h2>
+<p>Although IPython-SQL can be used to query any SQLAlchemy-compatible data source, if we’re using Pandas, we’re probably more interested in databases that are geared toward analytic work. To put that in the form of a buzzword, we’re interested in an OLAP database (one that specializes in Online Analytic Processing, as opposed to OLTP, Online Transaction Processing).</p>
+<p>One popular database tool for this kind of work is DuckDB, an in-process OLAP Database Management System. In-process means it’s serverless, so we can install a Python package (for example), and work with it either in memory, or persisted to a database file.</p>
+<p>The really big advantage that DuckDB has, however, is the ability to query Pandas DataFrames directly as though they were native DuckDB tables.</p>
+<p>For this tutorial, we’ll again use Seaborn because it comes with several datasets we can use immediately as DataFrames.</p>
+</section>
+<section id="using-duckdb-and-pandas-conda-or-pip">
+<h2>Using DuckDB and Pandas: Conda or Pip<a class="headerlink" href="#using-duckdb-and-pandas-conda-or-pip" title="Link to this heading"></a></h2>
+<p>If you’re using Conda, you can install what you need as shown below. One thing to note about Conda and ipython-sql, however, is that we’ve noticed that the conda-forge ipython-sql version is behind that of the PyPi version.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>-n<span class="w"> </span>duckdb<span class="w">  </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11<span class="w"> </span>python-duckdb<span class="w"> </span>jupyterlab<span class="w"> </span>ipython-sql<span class="w"> </span>SQLAlchemy<span class="w"> </span>duckdb-engine<span class="w"> </span>seaborn
+conda<span class="w"> </span>activate<span class="w"> </span>duckdb
+</pre></div>
+</div>
+<p>Using pip, you can create a virtual environment and activate it (<a class="reference external" href="https://codesolid.com/what-is-a-python-package/#htoc-i">learn more</a>), then install the following requirements.txt file using <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyterlab</span>
+<span class="n">pandasql</span>
+<span class="n">duckdb</span><span class="o">-</span><span class="n">engine</span>
+<span class="n">duckdb</span>
+<span class="n">ipython</span><span class="o">-</span><span class="n">sql</span>
+<span class="n">sqlalchemy</span>
+<span class="n">seaborn</span>
+</pre></div>
+</div>
+<p>With the environment set up, we can now run Jupyter Lab.</p>
+<p>To get started in a new notebook, let’s import what we need and load the ipython_sql magic (which we’ll use as <code class="docutils literal notranslate"><span class="pre">%sql</span></code>):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">duckdb</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="c1"># Import ipython-sql Jupyter extension to create SQL cells</span>
+<span class="o">%</span><span class="n">load_ext</span> <span class="n">sql</span>
+</pre></div>
+</div>
+<p>Note that although we installed duckdb-engine (the SQLAlchemy driver for DuckDb), we didn’t need to import it directly. The %sql cell magic will load the correct driver based on the connection string.</p>
+<p>Before setting up the connection itself, we can optionally set some configuration options on the ipython-sql magic function. A full set of the available options can be found in the <a class="reference external" href="https://pypi.org/project/ipython-sql/">ipython-sql documentation</a>. Here we say we want to always get results as Pandas DataFrames, and suppress reporting on how many rows were affected when we run a query:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">config</span> <span class="n">SqlMagic</span><span class="o">.</span><span class="n">autopandas</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="o">%</span><span class="n">config</span> <span class="n">SqlMagic</span><span class="o">.</span><span class="n">feedback</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="o">%</span><span class="n">config</span> <span class="n">SqlMagic</span><span class="o">.</span><span class="n">displaycon</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># Omit this line if you used conda; again, Conda&#39;s ipython-sql lags behind.</span>
+</pre></div>
+</div>
+<p>Next, we need to create a database connection. Here we have a choice. We can use DuckDB as an in-memory SQL engine, without persisting anything to disk:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">sql</span> <span class="n">duckdb</span><span class="p">:</span><span class="o">///</span><span class="p">:</span><span class="n">memory</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>Alternatively, we can persist results to disk using this syntax:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">sql</span> <span class="n">duckdb</span><span class="p">:</span><span class="o">///./</span><span class="n">somefile</span><span class="o">.</span><span class="n">db</span>
+</pre></div>
+</div>
+<p>In the above connection string, everything after the <code class="docutils literal notranslate"><span class="pre">///</span></code> is a file path, so we’re using somefile.db in the current directory. The extension .db is completely optional and for documentation purposes, by the way.</p>
+</section>
+<section id="querying-a-pandas-dataframe-using-sql-with-ipython-sql-and-duckdb">
+<h2>Querying a Pandas DataFrame Using SQL with IPython-SQL and DuckDB<a class="headerlink" href="#querying-a-pandas-dataframe-using-sql-with-ipython-sql-and-duckdb" title="Link to this heading"></a></h2>
+<p>That’s all the setup we needed to do. From this point on we can use SQL to query Pandas DataFrames. Let’s first load some data into a DataFrame as we normally might. We’ll use the “titanic” dataset that comes with Seaborn, and verify that this returns a DataFrame:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">get_dataset_names</span><span class="p">()</span>
+<span class="n">titanic</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;titanic&#39;</span><span class="p">)</span>
+<span class="n">titanic</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="" src="../_images/image-1-1024x2001.png" /></p>
+<p>Well, that’s interesting, we have some data that tells us who survived, along with their age, sex, and the type of passage they booked (“class”).</p>
+<p>We all would like to think that when disaster strikes, everyone gets treated fairly, class distinctions magically disappear, and a sort of camaraderie of catastrophe makes us all equal. Let’s see what the data says. Using SQL, we can easily query the class, how many passengers were traveling, and how many survived, and then calculate a percentage based on that.</p>
+<p>Here’s how it looks:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">sql</span> <span class="n">survivors_by_fare</span> <span class="o">&lt;&lt;</span> <span class="n">SELECT</span> <span class="n">class</span><span class="p">,</span> \
+    <span class="nb">sum</span><span class="p">(</span><span class="n">survived</span><span class="p">)</span> <span class="k">as</span> <span class="s1">&#39;survived&#39;</span><span class="p">,</span> <span class="n">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">as</span> <span class="s1">&#39;all_passengers&#39;</span><span class="p">,</span> \
+    <span class="nb">round</span><span class="p">(</span><span class="n">cast</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">survived</span><span class="p">)</span> <span class="k">as</span> <span class="nb">float</span><span class="p">)</span> <span class="o">/</span> <span class="n">cast</span><span class="p">(</span><span class="n">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">as</span> <span class="nb">float</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span> <span class="k">as</span> <span class="s1">&#39;percent_survived&#39;</span> \
+    <span class="kn">from</span> <span class="nn">titanic</span> \
+    <span class="n">group</span> <span class="n">by</span> <span class="k">class</span> \
+    <span class="nc">order</span> <span class="n">by</span> <span class="k">class</span>
+
+<span class="nc">survivors_by_fare</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="" src="../_images/image-327.png" /></p>
+<p>Oh, dear. That wasn’t very egalitarian at all, was it?</p>
+<p>This result may not be all that surprising, really, but let’s point out two things about the code. First, we used a redirect operator, &lt;&lt;, rather than the usual assignment operator, <code class="docutils literal notranslate"><span class="pre">=</span></code>, to capture the results to a variable. Second, we were able to format the query somewhat by adding a backslash at the end of each continued line. That’s optional, of course, but it does help with the readability of the query.</p>
+<p>Since we had earlier used the setting <code class="docutils literal notranslate"><span class="pre">&quot;SqlMagic.autopandas</span> <span class="pre">=</span> <span class="pre">True</span></code>”, the type of our query result, survivors_by_fare is a Pandas DataFrame, so we can call the usual methods on it, for example, to list the columns:</p>
+<p><img alt="" src="../_images/image-417.png" /></p>
+<p>Incidentally, even if you don’t have autopandas set, you can still get a DataFrame from the ResultSet object that would be returned by calling the DataFrame() method on it. The following code sequence demonstrates this.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">config</span> <span class="n">SqlMagic</span><span class="o">.</span><span class="n">autopandas</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="o">%</span><span class="n">sql</span> <span class="n">survivors_by_fare_rs</span> <span class="o">&lt;&lt;</span> <span class="n">SELECT</span> <span class="n">class</span><span class="p">,</span> \
+    <span class="nb">sum</span><span class="p">(</span><span class="n">survived</span><span class="p">)</span> <span class="k">as</span> <span class="s1">&#39;survived&#39;</span><span class="p">,</span> <span class="n">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">as</span> <span class="s1">&#39;all_passengers&#39;</span><span class="p">,</span> \
+    <span class="nb">round</span><span class="p">(</span><span class="n">cast</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">survived</span><span class="p">)</span> <span class="k">as</span> <span class="nb">float</span><span class="p">)</span> <span class="o">/</span> <span class="n">cast</span><span class="p">(</span><span class="n">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">as</span> <span class="nb">float</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span> <span class="k">as</span> <span class="s1">&#39;percent_survived&#39;</span> \
+    <span class="kn">from</span> <span class="nn">titanic</span> \
+    <span class="n">group</span> <span class="n">by</span> <span class="k">class</span> \
+    <span class="nc">order</span> <span class="n">by</span> <span class="k">class</span>
+<span class="nc">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Query returned type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">survivors_by_fare_rs</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">df_survivors</span> <span class="o">=</span> <span class="n">survivors_by_fare_rs</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;After conversion, we have type: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">df_survivors</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Returning<span class="w"> </span>data<span class="w"> </span>to<span class="w"> </span><span class="nb">local</span><span class="w"> </span>variable<span class="w"> </span>survivors_by_fare_rs
+Query<span class="w"> </span>returned<span class="w"> </span>type:<span class="w"> </span>&lt;class<span class="w"> </span><span class="s1">&#39;sql.run.ResultSet&#39;</span>&gt;
+After<span class="w"> </span>conversion,<span class="w"> </span>we<span class="w"> </span>have<span class="w"> </span>type:<span class="w"> </span>&lt;class<span class="w"> </span><span class="s1">&#39;pandas.core.frame.DataFrame&#39;</span>&gt;
+</pre></div>
+</div>
+<section id="persisting-dataframes-back-to-duckdb">
+<h3>Persisting DataFrames back to DuckDB.<a class="headerlink" href="#persisting-dataframes-back-to-duckdb" title="Link to this heading"></a></h3>
+<p>If you’re connected to a file database, given a DataFrame – whether created by a SQL query or not – you can also persist it back to a DuckDB table using the %sql magic. For example, given the df_survivors DataFrame created in the last section, the following code persists the DataFrame to a database table, clears the DataFrame from memory, and reads it back:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Persist the DataFrame</span>
+<span class="o">%</span><span class="n">sql</span> <span class="o">--</span><span class="n">persist</span> <span class="n">df_survivors</span>
+
+<span class="c1"># Clear the DataFrame so there&#39;s no confusion</span>
+<span class="n">df_survivors</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="c1"># Query the database table by the same name</span>
+<span class="o">%</span><span class="n">sql</span> <span class="n">select</span> <span class="o">*</span> <span class="kn">from</span> <span class="nn">df_survivors</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="" src="../_images/image-59.png" /></p>
+<p>One thing to keep in mind when using <code class="docutils literal notranslate"><span class="pre">%sql</span> <span class="pre">--persist</span></code> like this is that it’s the equivalent of a create table plus the necessary insert statements. This means it’s non-reentrant, so if you need to run it again, you first need to drop the table first, as in this sequence:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">sql</span> <span class="n">DROP</span> <span class="n">table</span> <span class="n">df_survivors</span>
+<span class="o">%</span><span class="n">sql</span> <span class="o">--</span><span class="n">persist</span> <span class="n">df_survivors</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="closing-database-connections">
+<h2>Closing Database Connections<a class="headerlink" href="#closing-database-connections" title="Link to this heading"></a></h2>
+<p>As with any database, it’s important to close the Database connection when you are through with it. With an in-process database like DuckDB, you need to close the database so that other processes can use the file.</p>
+<p>Earlier we opened the connection with the following command:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">sql</span> <span class="n">duckdb</span><span class="p">:</span><span class="o">///./</span><span class="n">somefile</span><span class="o">.</span><span class="n">db</span>
+</pre></div>
+</div>
+<p>To close the connection, we use the same string and use <code class="docutils literal notranslate"><span class="pre">%sql</span> <span class="pre">close</span></code>, as shown here:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">sql</span> <span class="o">--</span><span class="n">close</span> <span class="n">duckdb</span><span class="p">:</span><span class="o">///./</span><span class="n">somefile</span><span class="o">.</span><span class="n">db</span>
+</pre></div>
+</div>
+<p>There seems to be a bug in the earlier (conda) version, of IPython-SQL, so if you’re using that version, you may find that you need to shut down the Python kernel before you can read the database from a different process on your machine.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boolean Expressions in Python: Beginner to Expert &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=19645805"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Boolean Expressions in Python: Beginner to Expert</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/boolean-expressions-python.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="boolean-expressions-in-python-beginner-to-expert">
+<h1>Boolean Expressions in Python: Beginner to Expert<a class="headerlink" href="#boolean-expressions-in-python-beginner-to-expert" title="Link to this heading"></a></h1>
+<p>We often talk about two different kinds of control flow in programming courses: branching and looping. A program branches when it goes down one path or another based on a condition. Both of these types of control flow are essential features of the vast majority of programming languages.</p>
+<p>We discuss some common ways to loop in detail in our article <a class="reference external" href="https://codesolid.com/python-lists/">Python Lists for Beginners</a>. Here we want to concern ourselves with basic branching, a simple but fundamental concept that you’ll quickly master with just a little practice. Setting aside some advanced techniques for the moment, at the heart of most branching statements you’ll find a Boolean expression.</p>
+<p>A Boolean expression in Python is a combination of values or values and functions that can be interpreted by the Python compiler to return a value that is either true or false. It often consists of at least two terms separated by a comparison operator, such as <code class="docutils literal notranslate"><span class="pre">&quot;price</span> <span class="pre">&gt;</span> <span class="pre">0</span></code>”. However, it can also be any expression or function call that returns a boolean result, such as <code class="docutils literal notranslate"><span class="pre">&quot;'error'</span> <span class="pre">in</span> <span class="pre">msg</span></code>”.</p>
+<section id="a-simple-boolean-example-in-python">
+<h2>A Simple Boolean Example in Python<a class="headerlink" href="#a-simple-boolean-example-in-python" title="Link to this heading"></a></h2>
+<p>Let’s take a simple example of determining whether a number is odd or even. Perhaps we want to print a formatted string including “odd” if a number is odd and “even” if it’s even. We know that a number that’s evenly divisible by two is even – that is to say, the remainder of the division will be zero. We use the modulo operator, “%,” to calculate the remainder of a division:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">4</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">11</span> <span class="o">%</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">0</span>
+<span class="m">1</span>
+<span class="m">2</span>
+</pre></div>
+</div>
+<p>We see that the remainder of 4 modulo 2 is 0, which tells us it divides evenly or is an even number. 5 % 2 does not divide evenly, so this does not return a zero. We show that you can use other numbers with the modulo operator on line three.</p>
+<p>So now we know how to tell if a number is odd or even. However before writing the code for it, we need to take a fun side trip to the hardware store to pick up some other tools for the job. I promise we’ll come back and build the code, but it’ll be easier if we pack our toolkit first.</p>
+</section>
+<section id="boolean-constants-and-expressions-in-python">
+<h2>Boolean Constants and Expressions in Python<a class="headerlink" href="#boolean-constants-and-expressions-in-python" title="Link to this heading"></a></h2>
+<p>The word Boolean is capitalized out of deference to Charles Boole, a 19th-century mathematician and philosopher who wanted to apply mathematical principles to logic. He worked out precise rules for expressions that are either entirely true or completely false. In Python, there are two Boolean constants that are capitalized: True and False. It’s possible and acceptable to set a variable to one of these values, but what’s even more common than Boolean variables are Boolean expressions, which are any expression that returns a True or False value. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Is three greater than two?</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Is the number of characters in the string &quot;Hello&quot; equal to one?</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Is 5 equal to 3 + 2?</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">==</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Is four greater than or equal to nine?</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">&gt;=</span> <span class="mi">9</span><span class="p">)</span>
+
+<span class="c1"># Is seven not equal to twelve?</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">7</span> <span class="o">!=</span> <span class="mi">12</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>True
+False
+True
+False
+True
+</pre></div>
+</div>
+<p>Note that the double equals of a Boolean expression (<code class="docutils literal notranslate"><span class="pre">==</span></code>) are different from the single equals sign that we used to assign a value to a variable:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assign a string variable to message.</span>
+<span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Hello, world!&quot;</span>
+
+<span class="c1"># Test for equality.  This returns True.</span>
+<span class="n">message</span> <span class="o">==</span> <span class="s2">&quot;Hello, world!&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="python-comparison-operators">
+<h2>Python Comparison Operators<a class="headerlink" href="#python-comparison-operators" title="Link to this heading"></a></h2>
+<p>Frequently, Boolean expressions are expressions that use comparison operators. Another way to describe Boolean expressions in Python (or other languages) is to say that they are expressions that make a comparison. We’ve seen a lot of this already in our example, but here are the Python comparison operators and what they mean.</p>
+<table><tbody><tr><td><strong>Operator</strong></td><td><strong>How to Read It</strong></td></tr><tr><td>x == y</td><td>x equals y</td></tr><tr><td>x != y</td><td>x does not equal y, x is not equal to y</td></tr><tr><td>x &gt;= y</td><td>x is greater than or equal to y</td></tr><tr><td>x &lt;= y</td><td>x is less than or equal to y</td></tr></tbody></table>
+</section>
+<section id="negation-using-not">
+<h2>Negation Using Not<a class="headerlink" href="#negation-using-not" title="Link to this heading"></a></h2>
+<p>Just like in English, we can negate any boolean expression by using the keyword <code class="docutils literal notranslate"><span class="pre">not</span></code> in front of it. The keyword <code class="docutils literal notranslate"><span class="pre">not</span></code> is like a polarity reverser – it makes a true expression false and a false expression true.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">9</span> <span class="o">==</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span> <span class="c1"># True</span>
+<span class="nb">print</span><span class="p">(</span><span class="ow">not</span> <span class="mi">9</span> <span class="o">==</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span> <span class="c1"># False</span>
+<span class="nb">print</span><span class="p">(</span><span class="ow">not</span> <span class="kc">True</span><span class="p">)</span> <span class="c1"># False</span>
+<span class="nb">print</span><span class="p">(</span><span class="ow">not</span> <span class="kc">False</span><span class="p">)</span> <span class="c1"># True</span>
+</pre></div>
+</div>
+</section>
+<section id="if-and-else-in-python">
+<h2>If and Else In Python<a class="headerlink" href="#if-and-else-in-python" title="Link to this heading"></a></h2>
+<p>Now that we have some basic Boolean tools to work with, we’re ready to return to our “odd” vs. “even” example and start doing some branching logic. We use the <code class="docutils literal notranslate"><span class="pre">if</span></code> keyword followed by a Boolean expression and a colon; then we indent the following one or more lines that will run only <code class="docutils literal notranslate"><span class="pre">if</span></code> the expression evaluates to true. (Most Python editors will seamlessly convert the tab key to four spaces for us, so I always indent using the tab key).</p>
+<p>We can then optionally use <code class="docutils literal notranslate"><span class="pre">else</span></code> and a colon followed by one or more indented lines, and that code will be executed if the Boolean expression evaluates to false.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_number</span> <span class="o">=</span> <span class="mi">24</span>
+<span class="k">if</span> <span class="n">my_number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="n">my_number</span><span class="p">,</span> <span class="s2">&quot;is even.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">my_number</span><span class="p">,</span> <span class="s2">&quot;is odd.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="handling-more-than-two-cases-in-python-elif">
+<h2>Handling More Than Two Cases in Python: Elif<a class="headerlink" href="#handling-more-than-two-cases-in-python-elif" title="Link to this heading"></a></h2>
+<p>We can run code conditionally with just an <code class="docutils literal notranslate"><span class="pre">if</span></code> clause. The <code class="docutils literal notranslate"><span class="pre">else</span></code> clause is optional – we may not do anything if the Boolean checked by else is <code class="docutils literal notranslate"><span class="pre">False</span></code>. Another optional clause that can be useful in cases where there are more than two possibilities is an <code class="docutils literal notranslate"><span class="pre">elif</span></code> clause, which combines “<code class="docutils literal notranslate"><span class="pre">else</span></code>” and “<code class="docutils literal notranslate"><span class="pre">if</span></code>”. As always, it’s easiest to show with an example.</p>
+<p>I was going to write an example where we sort people into heights based on short, average, and tall, but out of sensitivity to those who might have body issues, I decided to work with potatoes instead. A quick search uncovered a reasonable example where <code class="docutils literal notranslate"><span class="pre">elif</span></code> might be used:</p>
+<blockquote>
+<div><p>Potatoes sold at grocery stores are typically: size A potatoes (2.5 inches in diameter) size B potatoes (1.5 to 2.25 inches in diameter) size C potatoes (less than 1.5 inches in diameter); we’ve seen C-sized potatoes described as the smallest ones available.</p>
+<p>https://www.chefs-garden.com/blog/november-2017/insights-into-potato-sizes-and-the-beauty-of-small</p>
+</div></blockquote>
+<p>Here’s how we could build and test a basic potato sorter.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">potato_size_inches</span> <span class="o">=</span> <span class="mf">1.6</span>
+
+<span class="k">if</span> <span class="n">potato_size_inches</span> <span class="o">&gt;=</span> <span class="mf">2.5</span><span class="p">:</span>
+    <span class="n">size</span> <span class="o">=</span> <span class="s2">&quot;A&quot;</span>
+<span class="k">elif</span> <span class="n">potato_size_inches</span> <span class="o">&gt;=</span> <span class="mf">1.5</span> <span class="ow">and</span> <span class="n">potato_size_inches</span> <span class="o">&lt;=</span> <span class="mf">2.25</span><span class="p">:</span>
+    <span class="n">size</span> <span class="o">=</span> <span class="s2">&quot;B&quot;</span>
+<span class="k">elif</span> <span class="n">potato_size_inches</span> <span class="o">&lt;</span> <span class="mf">1.5</span><span class="p">:</span>
+   <span class="n">size</span> <span class="o">=</span> <span class="s2">&quot;C&quot;</span>
+<span class="k">else</span><span class="p">:</span> 
+    <span class="n">size</span> <span class="o">=</span> <span class="s2">&quot;UNKNOWN&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">B</span>
+</pre></div>
+</div>
+<p>I’m no potato expert, so I can’t tell you what’s supposed to become of potatoes between 2.25 inches and 2.5 inches. However, our code handles that case for now by assigning the label “UNKNOWN”.</p>
+</section>
+<section id="equality-checks-and-checking-for-none">
+<h2>Equality Checks and Checking for None<a class="headerlink" href="#equality-checks-and-checking-for-none" title="Link to this heading"></a></h2>
+<p>In the last section, we used <code class="docutils literal notranslate"><span class="pre">==</span></code> and <code class="docutils literal notranslate"><span class="pre">!=</span></code> to say that two numbers are equal or not equal, respectively. Unlike many of the other operators we’ve seen, these operators can be used to compare numbers and various other Python types.</p>
+<p>For example, using “<code class="docutils literal notranslate"><span class="pre">==</span></code>”, we can check that two lists contain the same elements or that two strings are identical. In the string case, by the way, the comparison is case-sensitive. To do a case insensitive comparison, we can convert both strings to the same case and then make the comparison:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s1</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="s2">&quot;HELLO&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s1</span> <span class="o">==</span> <span class="n">s2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s1</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="n">s2</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>False
+True
+</pre></div>
+</div>
+<p>As consistent as Python is in general, there is one case in which “<code class="docutils literal notranslate"><span class="pre">==</span></code>” and “<code class="docutils literal notranslate"><span class="pre">!=</span></code>” are not recommended, and that’s the case of checking for <code class="docutils literal notranslate"><span class="pre">None</span></code>. Python’s <code class="docutils literal notranslate"><span class="pre">None</span></code> keyword is used when we want to declare a variable but not set it to a value just yet. <code class="docutils literal notranslate"><span class="pre">None</span></code> is a special type that represents the absence of a value. To test for “None”, the recommended procedure is to use “<code class="docutils literal notranslate"><span class="pre">is&quot;</span></code> and “<code class="docutils literal notranslate"><span class="pre">is</span> <span class="pre">not</span></code>” instead of “<code class="docutils literal notranslate"><span class="pre">==</span></code>” and “<code class="docutils literal notranslate"><span class="pre">!=</span></code>”.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">some_variable</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">some_number</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">some_string</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">some_variable</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="c1"># True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">some_number</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="c1"># False</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">some_number</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span> <span class="c1"># True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">some_string</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="c1"># False</span>
+
+<span class="n">some_string</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">some_string</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="c1"># False</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>True
+False
+True
+False
+False
+</pre></div>
+</div>
+<p>The reason for this suggestion is that there is only one <code class="docutils literal notranslate"><span class="pre">None</span></code> object in Python, so we’re testing that a variable is set to this one <code class="docutils literal notranslate"><span class="pre">None</span></code> object. Another reason to do it is simply to avoid editor warnings.</p>
+</section>
+<section id="what-are-compound-boolean-expressions-in-python">
+<h2>What Are Compound Boolean Expressions in Python?<a class="headerlink" href="#what-are-compound-boolean-expressions-in-python" title="Link to this heading"></a></h2>
+<p>So far in our discussion, we’ve been mainly dealing with simple Boolean expressions. However, both in code and in real life, it’s often the case that we want to make decisions based on more than one factor. We take an umbrella with us if it’s raining or cloudy. That is to say, we’ll take this action if either thing is true – they don’t have to both be true. Other times we need both things to be true to make a decision. We’ll go out with friends after work if we have time and money. Finally, we often want to do something if something is <strong>not</strong> true.</p>
+<p>Because Python was designed with simplicity in mind, the English words in bold in the last paragraph are also Python keywords we can use to create compound Boolean expressions. That said, we’ve already discussed the behavior of “<code class="docutils literal notranslate"><span class="pre">not</span></code>” in an earlier section, so let’s focus on the behavior of “<code class="docutils literal notranslate"><span class="pre">and</span></code>” and “<code class="docutils literal notranslate"><span class="pre">or</span></code>”.</p>
+<p>The way <code class="docutils literal notranslate"><span class="pre">&quot;and</span></code>” and “<code class="docutils literal notranslate"><span class="pre">or&quot;</span></code> work is that “<code class="docutils literal notranslate"><span class="pre">and</span></code>” evaluates to true if and only if both expressions that it joins are true. On the other hand, “<code class="docutils literal notranslate"><span class="pre">or</span></code>” returns true if at least one of the expressions that it joins is true.</p>
+<p>For example, here’s a program where one of the expressions (<code class="docutils literal notranslate"><span class="pre">time_available_minutes</span> <span class="pre">&gt;</span> <span class="pre">120</span></code>) is true. Because we’re using “<code class="docutils literal notranslate"><span class="pre">and</span></code>” and not “<code class="docutils literal notranslate"><span class="pre">or</span></code>”, the compound expression evaluates to false, so the else clause is executed.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">money_available_dollars</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">time_avaialble_minutes</span> <span class="o">=</span> <span class="mi">180</span>
+
+<span class="k">if</span> <span class="n">money_available_dollars</span> <span class="o">&gt;</span> <span class="mi">10</span> <span class="ow">and</span> <span class="n">time_available_minutes</span> <span class="o">&gt;</span> <span class="mi">120</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Go out with friends&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Stay home&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Stay<span class="w"> </span>home
+</pre></div>
+</div>
+<p>Since one of the expressions is true, changing the “<code class="docutils literal notranslate"><span class="pre">and</span></code>” to “<code class="docutils literal notranslate"><span class="pre">or</span></code>” in the example above changes the output to “Go out with friends.” On the other hand, if both expressions are false, then the “<code class="docutils literal notranslate"><span class="pre">else</span></code>” clause will run either way.</p>
+<p>Both “<code class="docutils literal notranslate"><span class="pre">and</span></code>” and “<code class="docutils literal notranslate"><span class="pre">or</span></code>” are said to be “short-circuit expressions”. What this means is that for “<code class="docutils literal notranslate"><span class="pre">and</span></code>”, if the first expression (on the left side of <code class="docutils literal notranslate"><span class="pre">&quot;and</span></code>”) is false, the right-hand side is never evaluated. The Python compiler “knows” that it can’t get a <code class="docutils literal notranslate"><span class="pre">True</span></code> result for “<code class="docutils literal notranslate"><span class="pre">and</span></code>” if the first expression is <code class="docutils literal notranslate"><span class="pre">False</span></code>, so it skips it. Therefore, if each of these sides is a function that returns a Boolean result, if the first returns False, the second one will never be executed! For the “<code class="docutils literal notranslate"><span class="pre">or</span></code>” keyword, the right-hand side is not evaluated if the left-hand side evaluates to “True”. In this case, we already know that the result is “True”, so the right-hand side is ignored.</p>
+<p>Some students find it helpful to construct a truth table when learning about Boolean values. Results marked with a * are those results that are the result of short-circuit expressions.</p>
+</section>
+<section id="a-truth-table-for-python-boolean-expressions">
+<h2>A Truth Table for Python Boolean Expressions<a class="headerlink" href="#a-truth-table-for-python-boolean-expressions" title="Link to this heading"></a></h2>
+<table><tbody><tr><td>Expression 1</td><td>Connector</td><td>Expression 2</td><td>Result</td></tr><tr><td>True</td><td>and</td><td>True</td><td>True</td></tr><tr><td>False</td><td>and</td><td>True</td><td>False *</td></tr><tr><td>True</td><td>and</td><td>False</td><td>False</td></tr><tr><td>False</td><td>and</td><td>False</td><td>False *</td></tr><tr><td>True</td><td>or</td><td>True</td><td>True *</td></tr><tr><td>False</td><td>or</td><td>True</td><td>True</td></tr><tr><td>True</td><td>or</td><td>False</td><td>True *</td></tr><tr><td>False</td><td>or</td><td>False</td><td>False</td></tr></tbody></table>
+</section>
+<section id="what-are-the-precedence-rules-for-python-boolean-expressions">
+<h2>What Are the Precedence Rules For Python Boolean Expressions?<a class="headerlink" href="#what-are-the-precedence-rules-for-python-boolean-expressions" title="Link to this heading"></a></h2>
+<p>When reading or writing Boolean expressions, it’s important to understand the order in which the expression will be evaluated. The Python documentation lists the <a class="reference external" href="https://docs.python.org/3/reference/expressions.html?highlight=precedence#operator-precedence">precedence rules</a> for the entire language, but here our focus is on Boolean expressions and the related issue of comparison operators.</p>
+<p>As the name suggests, Python precedence rules determine which operators are evaluated first. Because of precedence rules, we’re allowed allow us to combine expressions in a way that makes sense. Expressions are chained using operators with higher precedence, using component parts that have operators with lower precedence.</p>
+<p>We’ve been relying on one important rule in our discussion of compound boolean expressions. The comparison operators, <code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">is</span></code>, <code class="docutils literal notranslate"><span class="pre">is</span> <span class="pre">not</span></code>, etc. all have higher precedence than <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code> or <code class="docutils literal notranslate"><span class="pre">not</span></code>. Here is the precedence order, from highest to lowest:</p>
+<ul class="simple">
+<li><p>Comparison operators</p></li>
+<li><p>not</p></li>
+<li><p>and</p></li>
+<li><p>or</p></li>
+<li><p>if/else</p></li>
+<li><p>…</p></li>
+<li><p>Assignment</p></li>
+</ul>
+<p>Because comparison operators are evaluated first, for example, we’re able to evaluate expressions like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">&gt;</span> <span class="mi">5</span> <span class="ow">or</span> <span class="mi">9</span> <span class="o">&gt;</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<p>Because comparison operators have the highest precedence, Python first evaluates <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">&gt;</span> <span class="pre">5</span></code> to <code class="docutils literal notranslate"><span class="pre">False</span></code> and <code class="docutils literal notranslate"><span class="pre">9</span> <span class="pre">&gt;</span> <span class="pre">2</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<p>So at this stage, the evaluation looks like this internally:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="kc">False</span> <span class="ow">or</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>At this stage, “<code class="docutils literal notranslate"><span class="pre">or</span></code>” has higher precedence than assignment, so it gets evaluated, leaving us with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>In the case of “not”, remember that it has higher precedence than “<code class="docutils literal notranslate"><span class="pre">and</span></code>” or “<code class="docutils literal notranslate"><span class="pre">or</span></code>”, so in this expression:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ow">not</span> <span class="kc">False</span> <span class="ow">or</span> <span class="kc">False</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">not</span></code> gets applied to <code class="docutils literal notranslate"><span class="pre">False</span></code> first not to <code class="docutils literal notranslate"><span class="pre">False</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>. (In this case, the result is the same, but that won’t always be true).</p>
+<p>Another key precedence rule to remember is that “<code class="docutils literal notranslate"><span class="pre">and</span></code>” comes before “<code class="docutils literal notranslate"><span class="pre">or&quot;</span></code>. In the following operation, changing the precedence changes the result:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kc">False</span> <span class="ow">and</span> <span class="kc">False</span> <span class="ow">or</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>This works out to <code class="docutils literal notranslate"><span class="pre">True</span></code> because “<code class="docutils literal notranslate"><span class="pre">and</span></code>” is evaluated first, like this: <code class="docutils literal notranslate"><span class="pre">(False</span> <span class="pre">and</span> <span class="pre">False)</span> <span class="pre">or</span> <span class="pre">True</span></code><br />
+If we evaluate it the other way, “<code class="docutils literal notranslate"><span class="pre">False</span> <span class="pre">and</span> <span class="pre">(True</span> <span class="pre">or</span> <span class="pre">False)</span></code>”, the result would be False. In fact, we can use parentheses like this in Python if that’s what we mean to do.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="kc">False</span> <span class="ow">and</span> <span class="kc">False</span> <span class="ow">or</span> <span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="kc">False</span> <span class="ow">and</span> <span class="p">(</span><span class="kc">True</span> <span class="ow">or</span> <span class="kc">False</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>True
+False
+</pre></div>
+</div>
+<p>I have found that the best way to understand the precedence rules in a language is not by memorizing lists of them, but by hands-on practice. Remember that you can always change the order of precedence to be whatever you really mean to do using parentheses</p>
+</section>
+<section id="python-if-else-and-booleans-examples-and-practice-questions">
+<h2>Python If/Else and Booleans: Examples and Practice Questions<a class="headerlink" href="#python-if-else-and-booleans-examples-and-practice-questions" title="Link to this heading"></a></h2>
+<p>Note that the following practice questions are meant to challenge you based on the information in the article. Do your best to try these exercises without running them in Python.</p>
+<p>Of course, as with everything else in programming, there’s no substitute for doing lots of hands-on practice, so you might want to try out similar code in Python once you’ve finished with these example questions.</p>
+<p>Online Exercises</p>
+<p><a class="reference external" href="https://github.com/CodeSolid/CodeSolid.github.io/blob/main/booksource/exercises/BooleanExpressionsExercises.ipynb">Download Exercises</a></p>
+<p>Links to the solutions are after the article. Good luck!</p>
+<p><strong>1.</strong> The following Python code contains one or more errors. How would you correct them?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">water_level</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">if</span> <span class="n">water_level</span> <span class="o">&gt;</span> <span class="mi">3</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Open flood gates&quot;</span><span class="p">)</span>
+<span class="k">else</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Normal operations&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Which of the following is not a boolean expression, and why?</p>
+<ol class="arabic simple">
+<li><p>5 &lt; 2</p></li>
+<li><p>2 &lt; 3</p></li>
+<li><p>3.5 &lt;= 7</p></li>
+<li><p>3 = 7</p></li>
+<li><p>my_variable is not None</p></li>
+<li><p>What does the following print?</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">noise_level</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">heat_output_percent</span> <span class="o">=</span> <span class="mi">98</span>
+
+<span class="k">if</span> <span class="n">noise_level</span> <span class="o">&gt;</span> <span class="mi">4</span> <span class="ow">or</span> <span class="n">heat_output_percent</span> <span class="o">&lt;</span> <span class="mi">95</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Call technician&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Normal operation&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>What does the following print?</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">to_be</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">to_be</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">to_be</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">to_be</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">to_be</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>What does the following print?</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">water_level</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">time_of_day</span> <span class="o">=</span> <span class="s2">&quot;PM&quot;</span>
+<span class="n">heat_ouput_percent</span> <span class="o">=</span> <span class="mi">75</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">water_level</span> <span class="o">&gt;</span> <span class="mi">5</span> <span class="ow">and</span> <span class="n">time_of_day</span> <span class="o">==</span> <span class="s2">&quot;PM&quot;</span> <span class="ow">or</span> <span class="n">heat_output_percent</span> <span class="o">&lt;</span> <span class="mi">90</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>The following code works OK, but what if anything is wrong with it?</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="mi">3</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="mf">4.5</span> <span class="o">&gt;</span> <span class="mi">9</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gotcha!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="7">
+<li><p>How might the following code be improved?</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rebounds</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="k">if</span> <span class="n">rebounds</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Got some rebounds!&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No rebounds&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="8">
+<li><p>In the following code, which expressions are evaluated?</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">light_level</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">decibel_level</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">decibel_level</span> <span class="o">&gt;</span> <span class="mi">50</span> <span class="ow">or</span> <span class="n">light_level</span> <span class="o">==</span> <span class="mi">10</span>
+</pre></div>
+</div>
+<p>A) decibel_level &gt; 50<br />
+B) light_level == 10<br />
+C) Both A and B<br />
+D) Neither A nor B</p>
+<ol class="arabic simple" start="9">
+<li><p>Which of the following statements is false? There may be more than one.</p></li>
+</ol>
+<p>A) An else clause must be preceded by an if clause.
+B) An if clause must be followed by an else clause.
+C) Usually, a Boolean expression contains one or more comparison operations.
+D) Boolean expressions can appear outside of an if statement.
+E) Boolean expressions must include a Boolean literal (i.e. one of the the keywords “True” or “False”)</p>
+<ol class="arabic simple" start="10">
+<li><p>What is the error in the following code? How would you fix it?</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">water_level</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">if</span> <span class="n">water_level</span> <span class="ow">and</span> <span class="n">water_level</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Normal operations&quot;</span><span class="p">)</span>
+<span class="k">else</span> <span class="k">if</span> <span class="n">water_level</span> <span class="o">&gt;=</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">water_level</span> <span class="o">&lt;=</span> <span class="mf">4.5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Call City Manager&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Open flood gates and call City Manager&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://colab.research.google.com/github/CodeSolid/CodeSolid.github.io/blob/main/booksource/solutions/BooleanExpressionsExercises.ipynb">Solutions to Exercises</a></p>
+</section>
+<section id="you-may-also-like">
+<h2>You May Also Like<a class="headerlink" href="#you-may-also-like" title="Link to this heading"></a></h2>
+<p><a class="reference external" href="https://codesolid.com/python-operators/">Python Operators: The Building Blocks of Successful Code</a></p>
+<p><a class="reference external" href="https://codesolid.com/python-format-strings/">Python Format Strings: Beginner to Expert</a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

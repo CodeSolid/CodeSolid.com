@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python Dunder Methods: The Ugliest Awesome Sauce &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=19645805"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Python Dunder Methods:  The Ugliest Awesome Sauce</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/dunder-methods-in-python-the-ugliest-awesome-sauce.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="python-dunder-methods-the-ugliest-awesome-sauce">
+<h1>Python Dunder Methods:  The Ugliest Awesome Sauce<a class="headerlink" href="#python-dunder-methods-the-ugliest-awesome-sauce" title="Link to this heading"></a></h1>
+<p><img alt="" src="../_images/pexels-kaique-rocha-48013.jpg" /></p>
+<p>If you’ve ever created a Python class, you are probably already familiar with dunder methods, though you may not yet know you are. If you don’t yet know that you are, you’re probably waiting for me to clarify: What is a dunder method?</p>
+<p>I’m glad you asked.</p>
+<p>A dunder method – also known as a magic method – gets its name from the double underscores that begin and end the method name. Dunder methods allow you to build classes that overload Python operators and interact beautifully and seamlessly with Python functions.</p>
+<section id="python-constructors-are-dunder-methods">
+<h2>Python Constructors are Dunder Methods<a class="headerlink" href="#python-constructors-are-dunder-methods" title="Link to this heading"></a></h2>
+<p>I’m able to make the bold claim that you’re familiar with these if you’ve ever created a class because the most common dunder method of all is a Python constructor. Consider a simple two-dimensional point class.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+        
+<span class="n">p</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Constructors in Python are dunder methods. You can even see the magic happening already. Where did “self” go when we created “p”? It disappeared into the class.</p>
+<p><em>Abracadabra.</em></p>
+<p>I have a true confession to make about dunder methods. I hinted at it in the title, but now it’s time to unburden myself explicitly: I think dunder methods are ugly. My background in object-oriented programming began with C++ and Java, two languages where constructors are just methods with the same name as the class. The <code class="docutils literal notranslate"><span class="pre">this</span></code> pointer (C++ and Javaspeak for “self”) was not something you needed to add to your signatures. It just existed, magically. Of course, we were burdened with type declarations and semi-colons and other misfortunes, but at least we had pretty constructors.</p>
+<p>However, the more I learned about Python, the more I learned that these “ugly” double underbars are the gateway to the consistency and ease of use that I love so much about Python. For Python magic functions, the ugly is only syntax-deep. The more ugly double-underbars our class has, the more inner beauty they develop.</p>
+</section>
+<section id="ugly-is-beautiful-repr-and-str">
+<h2>Ugly is Beautiful: __repr__ and __str__<a class="headerlink" href="#ugly-is-beautiful-repr-and-str" title="Link to this heading"></a></h2>
+<p>Let’s take the simple case of examining the contents of a point using the Point class we developed above. Here’s how that point above would look if you viewed it in Jupyter Notebook:</p>
+<p><img alt="" src="../_images/image-33.png" /></p>
+<p>Seriously, “<code class="docutils literal notranslate"><span class="pre">&lt;__main__.Point</span> <span class="pre">at</span> <span class="pre">0x110fb0af0&gt;</span></code>”? Talk about ugly! Paradoxically, we can beautify the output by adding an somewhat less ugly dunder method. Let’s do that now.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>    
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+        
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Point(x=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="si">}</span><span class="s2">, y=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="si">}</span><span class="s2">)&quot;</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Point<span class="o">(</span><span class="nv">x</span><span class="o">=</span><span class="m">10</span>,<span class="w"> </span><span class="nv">y</span><span class="o">=</span><span class="m">5</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>When implementing <code class="docutils literal notranslate"><span class="pre">__repr__</span></code>, it’s important to have code that can be used to reconstruct the object. As you see here, this code accomplishes both that goal and makes the code human-readable as well.</p>
+<p>A related method, <code class="docutils literal notranslate"><span class="pre">__str__</span></code>, can be implemented to provide a slightly different human-readable representation that needn’t also be machine-readable. However, I prefer <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> for two reasons. First, now str(p) will default to <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> if str is not defined, so if you’re only going to define one, <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> gives you more functionality. Secondly, other Python sequences display their output by calling the <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> method on the contained objects, so we get the following behavior for free by implementing __repr__ on the Point class:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lists and dicts using an object that implements __repr__ </span>
+
+<span class="n">points_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">Point</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">points_list</span><span class="p">)</span>
+
+<span class="n">points_dict</span> <span class="o">=</span> <span class="p">{</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">):</span> <span class="n">Point</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="o">*</span><span class="mi">3</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">)}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">points_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>Point<span class="o">(</span><span class="nv">x</span><span class="o">=</span><span class="m">1</span>,<span class="w"> </span><span class="nv">y</span><span class="o">=</span><span class="m">2</span><span class="o">)</span>,<span class="w"> </span>Point<span class="o">(</span><span class="nv">x</span><span class="o">=</span><span class="m">2</span>,<span class="w"> </span><span class="nv">y</span><span class="o">=</span><span class="m">4</span><span class="o">)</span>,<span class="w"> </span>Point<span class="o">(</span><span class="nv">x</span><span class="o">=</span><span class="m">3</span>,<span class="w"> </span><span class="nv">y</span><span class="o">=</span><span class="m">6</span><span class="o">)</span>,<span class="w"> </span>Point<span class="o">(</span><span class="nv">x</span><span class="o">=</span><span class="m">4</span>,<span class="w"> </span><span class="nv">y</span><span class="o">=</span><span class="m">8</span><span class="o">)]</span>
+<span class="o">{</span><span class="s1">&#39;1&#39;</span>:<span class="w"> </span>Point<span class="o">(</span><span class="nv">x</span><span class="o">=</span><span class="m">1</span>,<span class="w"> </span><span class="nv">y</span><span class="o">=</span><span class="m">3</span><span class="o">)</span>,<span class="w"> </span><span class="s1">&#39;2&#39;</span>:<span class="w"> </span>Point<span class="o">(</span><span class="nv">x</span><span class="o">=</span><span class="m">2</span>,<span class="w"> </span><span class="nv">y</span><span class="o">=</span><span class="m">6</span><span class="o">)</span>,<span class="w"> </span><span class="s1">&#39;3&#39;</span>:<span class="w"> </span>Point<span class="o">(</span><span class="nv">x</span><span class="o">=</span><span class="m">3</span>,<span class="w"> </span><span class="nv">y</span><span class="o">=</span><span class="m">9</span><span class="o">)</span>,<span class="w"> </span><span class="s1">&#39;4&#39;</span>:<span class="w"> </span>Point<span class="o">(</span><span class="nv">x</span><span class="o">=</span><span class="m">4</span>,<span class="w"> </span><span class="nv">y</span><span class="o">=</span><span class="m">12</span><span class="o">)}</span>
+</pre></div>
+</div>
+<p>Now the output for lists and dicts is not only readable, but it can be passed back in using Python eval or pasted into a source file to reconstruct the original list or dict, because as we discussed before, __repr__ should output a string that can be used to reconstruct the object.</p>
+</section>
+<section id="operator-overloading-and-dunder-methods">
+<h2>Operator Overloading and Dunder Methods<a class="headerlink" href="#operator-overloading-and-dunder-methods" title="Link to this heading"></a></h2>
+<p>Some of our users are happy now that they can print our points and reconstruct lists of them from the output of <code class="docutils literal notranslate"><span class="pre">print(points_list)</span></code>. But there’s always that one user – in our case it’s Marty Mathmajor – who’s unimpressed with what we’ve done and clamors for more. Can we make any kind of an impression on Marty?</p>
+<p>Well, we recall that although the sum of two points doesn’t make sense mathematically, there are a couple of ways to think about the difference between the two points, let’s call them p and q. One approach is to consider it a vector, a direction one would have to travel to get from p and q. Formally, the vector from p to q is given by q−p. But we can’t yet subtract q and p yet. Let’s see how that method would look (given the above Point class)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="fm">__sub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">Point</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">other</span><span class="o">.</span><span class="n">x</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">other</span><span class="o">.</span><span class="n">y</span>
+        <span class="k">return</span> <span class="n">Point</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Let’s see if we can test it with the simplest case we can think of. Starting from point p at origin (0,0), to get to point q at (1,2), we have to go +1 on the x-axis and +2 on the y-axis, or in other words, (1,2) again. Sure enough, from our definition above it looks like q-p = (1,2) - (0,0) equals (1,2). Let’s see if that works given our point class in Python</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">q</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">q</span> <span class="o">-</span> <span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Point<span class="o">(</span><span class="nv">x</span><span class="o">=</span><span class="m">1</span>,<span class="w"> </span><span class="nv">y</span><span class="o">=</span><span class="m">2</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>Now we have the workings of something Marty’s sure to be proud of! Normally we’d run to him excitedly to show off our work, but what with the pandemic and all, we’re remote now. So we call Marty on Zoom excitedly to screen-share our work.</p>
+</section>
+<section id="dunder-methods-to-integrate-other-python-functions">
+<h2>Dunder Methods to Integrate Other Python Functions<a class="headerlink" href="#dunder-methods-to-integrate-other-python-functions" title="Link to this heading"></a></h2>
+<p>We show Marty how we can calculate vectors by subtracting points, and he’s mildly impressed with us (which is pretty good, if you know Marty). But then he tells us that given a point, p, he wants len(p) to return the distance of the point from the origin. That strikes us as a fairly oddball request, but, well, we’re used to Marty by now, so we pour another coffee and give it some thought.</p>
+<p>We may not be math majors like Marty – not since that unfortunate incident with Mrs. Chagnon in 11th grade – but we remember enough about points to recall we can calculate distances using the Pythagorean theorem. So given origin at p again, the distance of q from the origin is given by the square root of (q.x - 0)2 + (q.y - 0)2. So let’s see if we can make this work with the len function.</p>
+<p>A quick trip to Google lets us confirm what we suspected, that the len function in python calls the <code class="docutils literal notranslate"><span class="pre">__len__</span></code> method on a class if it’s implemented. We happen to recall we can get an even answer of 5 for a hypotenuse if our other two sides are 3 and 4, so in TDD fashion, we jot down our test case:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span> <span class="o">==</span> <span class="mi">5</span>
+</pre></div>
+</div>
+<p>Now let’s have a hand at implementing our <code class="docutils literal notranslate"><span class="pre">__len__</span></code> method:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span> 
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+        
+    <span class="c1"># ...</span>
+    
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>When we run a quick check on our work, we discover a problem. <code class="docutils literal notranslate"><span class="pre">print(len(Point(3,4)))</span></code> gives us an error: “<code class="docutils literal notranslate"><span class="pre">'float'</span> <span class="pre">object</span> <span class="pre">cannot</span> <span class="pre">be</span> <span class="pre">interpreted</span> <span class="pre">as</span> <span class="pre">an</span> <span class="pre">integer</span></code>”. Of course! Marty was a math major and all, but it slipped by both him and us that len wants an integer result (think the number of items in a list), while sqrt has to return a float. Let’s see if we can implement the spirit of Marty’s request while giving our users something reasonable:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">class</span> <span class="nc">Point</span><span class="p">:</span> 
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+        
+    <span class="c1"># ...</span>
+    
+    <span class="k">def</span> <span class="nf">magnitude</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;gives a more precise distance from origin&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">))</span>
+    
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;returns the approximate distance from origin&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">magnitude</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">5</span>
+</pre></div>
+</div>
+<p>There. That’s better. Users like Marty who think the length of a Point object is a reasonable request can get a rounded version of the more precise, floating-point distance from the origin, which we’re calling magnitude (because it sounds cool, though “distance_from_origin” would also work).</p>
+<p>Sure, Marty knows his math, but <em>we’re</em> speaking the language of science and engineering: Python. (Yes, I really said that).</p>
+</section>
+<section id="are-dunder-methods-in-python-a-good-design">
+<h2>Are Dunder Methods in Python a Good Design?<a class="headerlink" href="#are-dunder-methods-in-python-a-good-design" title="Link to this heading"></a></h2>
+<p>Based on our examples so far, you may be wondering if using dunder methods is a good design.</p>
+<p>Dunder methods are an excellent tool that leads to good designs that let your code integrate well with Python operators, loops, and debugging output. However, it’s important to make sure that the usage of a dunder method for a given case makes sense given the types involved and clarifies the code rather than obscures it.</p>
+<p>There’s a good lesson learned from our encounter with our imaginary friend, Marty. Sometimes you certainly <em>can</em> implement some functionality in terms of a dunder method, but it doesn’t mean you should. Is having a rounded square-root value useful, and is it obvious that the length of a point is the distance from the origin? All of these are valid design considerations. Honestly, I would answer a firm “no” to those questions for production code, but as a sample of how to implement length, it’s a perfectly serviceable example, so I’ll leave it at that.</p>
+<p>Going back to our Point class again for a moment, we overloaded the subtraction operation to return a directional vector, and this worked out well. For other operators we might overload, the meaning of the operation would be less clear-cut if we overloaded a math operator. Mathematically, adding two points together doesn’t really make sense. Multiplying and dividing similarly wouldn’t work, though you could certainly do all these things with <code class="docutils literal notranslate"><span class="pre">__add__</span></code>, <code class="docutils literal notranslate"><span class="pre">__mul__</span></code>, and <code class="docutils literal notranslate"><span class="pre">__div__</span></code>. One could perhaps implement multiplying by a number, but in that case, does the number scale the point relative to the origin, or does it create a list of copies?</p>
+<p>Some dunder methods that would make sense for points would be <code class="docutils literal notranslate"><span class="pre">__eq__</span> <span class="pre">a</span></code>nd <code class="docutils literal notranslate"><span class="pre">__ne__</span></code>, overloading “<code class="docutils literal notranslate"><span class="pre">==</span></code>” and “<code class="docutils literal notranslate"><span class="pre">!=</span></code>’, respectively. Other comparison operators are more problematic. What would “greater than” mean, for example? Further away from the origin? That gets weird. By that reasoning:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Point(-4,-4)</span> <span class="pre">&gt;</span> <span class="pre">Point(1,1)</span></code></p>
+<p>I’m not sure I’m happy with that.</p>
+<p>It also probably doesn’t make sense to implement <code class="docutils literal notranslate"><span class="pre">__hash__</span></code> for our Point class as it’s currently implemented since hashable objects should generally be immutable as well so the hash value won’t change.</p>
+<p>As you can see, except for dunder methods that are almost always worth implementing, like <code class="docutils literal notranslate"><span class="pre">__repr__</span></code>, we generally need to consider whether a given dunder method makes sense on a case-by-case basis.</p>
+</section>
+<section id="implementing-python-iterators-using-dunder-methods">
+<h2>Implementing Python Iterators Using Dunder Methods<a class="headerlink" href="#implementing-python-iterators-using-dunder-methods" title="Link to this heading"></a></h2>
+<p>For our next example, let’s suppose we work for HyperMegaGiantCarSales.com, and our team has been dealing with lists of lists of car data. A simplified list might look like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cars</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;6300&quot;</span><span class="p">,</span> <span class="s2">&quot;toyota&quot;</span><span class="p">,</span> <span class="s2">&quot;cruiser&quot;</span><span class="p">,</span> <span class="s2">&quot;2008&quot;</span><span class="p">,</span> <span class="s2">&quot;274117.0&quot;</span><span class="p">,</span> <span class="s2">&quot;black&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;2899&quot;</span><span class="p">,</span> <span class="s2">&quot;ford&quot;</span><span class="p">,</span> <span class="s2">&quot;se&quot;</span><span class="p">,</span> <span class="s2">&quot;2011&quot;</span><span class="p">,</span> <span class="s2">&quot;190552.0&quot;</span><span class="p">,</span> <span class="s2">&quot;silver&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;5350&quot;</span><span class="p">,</span> <span class="s2">&quot;dodge&quot;</span><span class="p">,</span> <span class="s2">&quot;mpv&quot;</span><span class="p">,</span> <span class="s2">&quot;2018&quot;</span><span class="p">,</span> <span class="s2">&quot;39590.0&quot;</span><span class="p">,</span> <span class="s2">&quot;silver&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;25000&quot;</span><span class="p">,</span> <span class="s2">&quot;ford&quot;</span><span class="p">,</span> <span class="s2">&quot;door&quot;</span><span class="p">,</span> <span class="s2">&quot;2014&quot;</span><span class="p">,</span> <span class="s2">&quot;64146.0&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>Clients everywhere are writing for loops to read the inner list variables, and there’s a lot of duplicate code. We know we could each element of the inner list could have been an immutable object, but we never got around to doing it. We could look everywhere we read the inner list variables and do a list comprehension to modify the inner list, but then we’d still have duplicate code, and we really want to consolidate the solution into an easy-to-use class.</p>
+<p>One approach would be to create an iterable class that wraps a list of lists. Since we know the format and what the fields represent, we don’t need to support those as parameters, we’ll just build a simple list-to-named-tuple class that’s purpose-built for our code.</p>
+<p>Here is the code that accomplishes this, which we’ll discuss below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+
+<span class="k">class</span> <span class="nc">CarList</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">cars</span><span class="p">:</span> <span class="n">List</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set up a hard-coded namedtuple class we can use&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cars</span> <span class="o">=</span> <span class="n">cars</span>
+        <span class="n">tuple_name</span> <span class="o">=</span> <span class="s2">&quot;Car&quot;</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;price&quot;</span><span class="p">,</span> <span class="s2">&quot;brand&quot;</span><span class="p">,</span> <span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;mileage&quot;</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tuple_class</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="n">tuple_name</span><span class="p">,</span> <span class="n">fields</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Start the iterator on the list of lists&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">list_iterator</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cars</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span>
+        
+    <span class="k">def</span> <span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert each element to a named tuple&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">row</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list_iterator</span><span class="o">.</span><span class="fm">__next__</span><span class="p">()</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tuple_class</span><span class="p">(</span><span class="o">*</span><span class="n">row</span><span class="p">)</span>
+       <span class="c1"># Redunancy explained in text below.</span>
+        <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">StopIteration</span>
+</pre></div>
+</div>
+<p>In the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method, on lines 8-9, we’ve hard-coded the namedtuple class name and the keys for the fields, since we know what the inner list contains in all cases. On line 9, we’re creating a namedtuple class that we can use to construct objects.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">__iter__</span></code> method gets called to begin an iteration. For example, this will be called in the first step in a for loop that uses consumes a <code class="docutils literal notranslate"><span class="pre">CarList</span></code> object. We simply set up an iterator on the list variable, and return a reference to our <code class="docutils literal notranslate"><span class="pre">self</span></code> (lines 14-15)</p>
+<p>Are we an iterator? Yes, because we implement <code class="docutils literal notranslate"><span class="pre">__next__</span></code> beginning on line 16. Python iterators return either an object (if they still have one), or raise a <code class="docutils literal notranslate"><span class="pre">StopIteration</span></code> exception when they don’t have another object to return. On lines 20-21, we simply call __next__ on the lists iterator, then convert that to a named tuple and return it. We catch the StopIteration and re-raise it, which strictly speaking is unnecessary and redundant, but we wanted to show what’s happening explicitly for the purposes of the example. When our list is exhausted, we’re done.</p>
+<p>Now instead of clients having to unpack the variables of the inner list everywhere, they can simply wrap the list in a <code class="docutils literal notranslate"><span class="pre">CarList</span></code> object and loop directly on a series of Car named tuple objects. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cars</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;6300&quot;</span><span class="p">,</span> <span class="s2">&quot;toyota&quot;</span><span class="p">,</span> <span class="s2">&quot;cruiser&quot;</span><span class="p">,</span> <span class="s2">&quot;2008&quot;</span><span class="p">,</span> <span class="s2">&quot;274117.0&quot;</span><span class="p">,</span> <span class="s2">&quot;black&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;2899&quot;</span><span class="p">,</span> <span class="s2">&quot;ford&quot;</span><span class="p">,</span> <span class="s2">&quot;se&quot;</span><span class="p">,</span> <span class="s2">&quot;2011&quot;</span><span class="p">,</span> <span class="s2">&quot;190552.0&quot;</span><span class="p">,</span> <span class="s2">&quot;silver&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;5350&quot;</span><span class="p">,</span> <span class="s2">&quot;dodge&quot;</span><span class="p">,</span> <span class="s2">&quot;mpv&quot;</span><span class="p">,</span> <span class="s2">&quot;2018&quot;</span><span class="p">,</span> <span class="s2">&quot;39590.0&quot;</span><span class="p">,</span> <span class="s2">&quot;silver&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;25000&quot;</span><span class="p">,</span> <span class="s2">&quot;ford&quot;</span><span class="p">,</span> <span class="s2">&quot;door&quot;</span><span class="p">,</span> <span class="s2">&quot;2014&quot;</span><span class="p">,</span> <span class="s2">&quot;64146.0&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">]]</span>
+
+<span class="n">car_tuples</span> <span class="o">=</span> <span class="n">CarList</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">car</span> <span class="ow">in</span> <span class="n">car_tuples</span><span class="p">:</span>    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found a car with brand = </span><span class="si">{</span><span class="n">car</span><span class="o">.</span><span class="n">brand</span><span class="si">}</span><span class="s2"> and model = </span><span class="si">{</span><span class="n">car</span><span class="o">.</span><span class="n">model</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Found<span class="w"> </span>a<span class="w"> </span>car<span class="w"> </span>with<span class="w"> </span><span class="nv">brand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>toyota<span class="w"> </span>and<span class="w"> </span><span class="nv">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>cruiser
+Found<span class="w"> </span>a<span class="w"> </span>car<span class="w"> </span>with<span class="w"> </span><span class="nv">brand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>ford<span class="w"> </span>and<span class="w"> </span><span class="nv">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>se
+Found<span class="w"> </span>a<span class="w"> </span>car<span class="w"> </span>with<span class="w"> </span><span class="nv">brand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>dodge<span class="w"> </span>and<span class="w"> </span><span class="nv">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>mpv
+Found<span class="w"> </span>a<span class="w"> </span>car<span class="w"> </span>with<span class="w"> </span><span class="nv">brand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>ford<span class="w"> </span>and<span class="w"> </span><span class="nv">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>door
+</pre></div>
+</div>
+</section>
+<section id="what-are-all-the-available-dunder-methods">
+<h2>What Are All the Available Dunder Methods?<a class="headerlink" href="#what-are-all-the-available-dunder-methods" title="Link to this heading"></a></h2>
+<p>As a language nerd, one of the features of Python that I love the most is the fact that Python gives so many built-in tools for exploring the language itself. Because of this, for example, you can get the methods on any Python object (including the dunder methods) using the <code class="docutils literal notranslate"><span class="pre">dir</span></code> function. You can then explore those methods using the <code class="docutils literal notranslate"><span class="pre">help</span></code> function, which in turn relies in part on yet another __dunder__ method, the __doc__ method, which represents the docstring for a module, class, or function.</p>
+<p>Because Python exposes so many tools for inspection and understanding the language, I thought it would be fun to build a short function that can list the dunder methods and their documentation for any Python object.</p>
+<p>Here then is the code listing for explore_dunder. We’ll show some representative output after a brief discussion of the code.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Color</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Make function name stand out&quot;&quot;&quot;</span>
+    <span class="n">BOLD</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[1m&#39;</span>
+    <span class="n">END</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[0m&#39;</span>
+
+<span class="k">def</span> <span class="nf">explore_dunder</span><span class="p">(</span><span class="n">any_var</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;prints the dunder methods (magic methods) of any variable, along with documentation&quot;&quot;&quot;</span>
+        
+    <span class="n">dir_list</span> <span class="o">=</span> <span class="nb">dir</span><span class="p">(</span><span class="n">any_var</span><span class="p">)</span>
+    <span class="n">dunders</span> <span class="o">=</span> <span class="p">[</span><span class="n">fn</span> <span class="k">for</span> <span class="n">fn</span> <span class="ow">in</span> <span class="n">dir_list</span> <span class="k">if</span> <span class="n">fn</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;__&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">fn</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;__&quot;</span><span class="p">)]</span>
+    <span class="k">for</span> <span class="n">fn</span> <span class="ow">in</span> <span class="n">dunders</span><span class="p">:</span>    
+        <span class="nb">print</span><span class="p">(</span><span class="n">Color</span><span class="o">.</span><span class="n">BOLD</span> <span class="o">+</span> <span class="n">fn</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span> <span class="o">+</span> <span class="n">Color</span><span class="o">.</span><span class="n">END</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">any_var</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span><span class="o">.</span><span class="vm">__doc__</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We begin by declaring a Color class with two ANSI escape codes we can use to print our dunder methods in bold. The explore_dunder function itself begins on line 6. We massage the list of strings returned from the dir method on lines 9-10, with a list comprehension to only return the magic methods and nothing else. Finally, on lines 11-12, we begin printing each dunder method on a line by itself. On the next line, we call __getattribute__ on the name of the original variable, passing it the name of the function. This returns the dunder method itself, and by referencing the attribute __doc__, we’re able to print out the documentation string for the dunder method.</p>
+<p>We note in passing that __doc__ is not a method, so not everything in Python with double underbars is necessarily a function you can call. Other examples in this category are things like __init__.py, a filename for marking packages, and __name__, which gives a module’s name or “__main__” if the module is being executed.</p>
+<p>You’ll find that calling explore_dunder on an object will give you a wealth of information about the dunder methods that are available and some basic documentation about each method. This output will be both fairly lengthy and fairly high-level, to get further documentation about specific methods, you can paste the name into the <a class="reference external" href="https://docs.python.org/3/">Python 3 Documentation</a>.</p>
+<p>To give you an idea of the type of information that’s available here’s the complete output of the function on a simple string:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span>
+<span class="n">explore_dunder</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>__add__:
+Return<span class="w"> </span>self+value.
+
+__class__:
+str<span class="o">(</span><span class="nv">object</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="o">)</span><span class="w"> </span>-&gt;<span class="w"> </span>str
+str<span class="o">(</span>bytes_or_buffer<span class="o">[</span>,<span class="w"> </span>encoding<span class="o">[</span>,<span class="w"> </span>errors<span class="o">]])</span><span class="w"> </span>-&gt;<span class="w"> </span>str
+
+Create<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>string<span class="w"> </span>object<span class="w"> </span>from<span class="w"> </span>the<span class="w"> </span>given<span class="w"> </span>object.<span class="w"> </span>If<span class="w"> </span>encoding<span class="w"> </span>or
+errors<span class="w"> </span>is<span class="w"> </span>specified,<span class="w"> </span><span class="k">then</span><span class="w"> </span>the<span class="w"> </span>object<span class="w"> </span>must<span class="w"> </span>expose<span class="w"> </span>a<span class="w"> </span>data<span class="w"> </span>buffer
+that<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>decoded<span class="w"> </span>using<span class="w"> </span>the<span class="w"> </span>given<span class="w"> </span>encoding<span class="w"> </span>and<span class="w"> </span>error<span class="w"> </span>handler.
+Otherwise,<span class="w"> </span>returns<span class="w"> </span>the<span class="w"> </span>result<span class="w"> </span>of<span class="w"> </span>object.__str__<span class="o">()</span><span class="w"> </span><span class="o">(</span><span class="k">if</span><span class="w"> </span>defined<span class="o">)</span>
+or<span class="w"> </span>repr<span class="o">(</span>object<span class="o">)</span>.
+encoding<span class="w"> </span>defaults<span class="w"> </span>to<span class="w"> </span>sys.getdefaultencoding<span class="o">()</span>.
+errors<span class="w"> </span>defaults<span class="w"> </span>to<span class="w"> </span><span class="s1">&#39;strict&#39;</span>.
+
+__contains__:
+Return<span class="w"> </span>key<span class="w"> </span><span class="k">in</span><span class="w"> </span>self.
+
+__delattr__:
+Implement<span class="w"> </span>delattr<span class="o">(</span>self,<span class="w"> </span>name<span class="o">)</span>.
+
+__dir__:
+Default<span class="w"> </span>dir<span class="o">()</span><span class="w"> </span>implementation.
+
+__doc__:
+str<span class="o">(</span><span class="nv">object</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="o">)</span><span class="w"> </span>-&gt;<span class="w"> </span>str
+str<span class="o">(</span>bytes_or_buffer<span class="o">[</span>,<span class="w"> </span>encoding<span class="o">[</span>,<span class="w"> </span>errors<span class="o">]])</span><span class="w"> </span>-&gt;<span class="w"> </span>str
+
+Create<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>string<span class="w"> </span>object<span class="w"> </span>from<span class="w"> </span>the<span class="w"> </span>given<span class="w"> </span>object.<span class="w"> </span>If<span class="w"> </span>encoding<span class="w"> </span>or
+errors<span class="w"> </span>is<span class="w"> </span>specified,<span class="w"> </span><span class="k">then</span><span class="w"> </span>the<span class="w"> </span>object<span class="w"> </span>must<span class="w"> </span>expose<span class="w"> </span>a<span class="w"> </span>data<span class="w"> </span>buffer
+that<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>decoded<span class="w"> </span>using<span class="w"> </span>the<span class="w"> </span>given<span class="w"> </span>encoding<span class="w"> </span>and<span class="w"> </span>error<span class="w"> </span>handler.
+Otherwise,<span class="w"> </span>returns<span class="w"> </span>the<span class="w"> </span>result<span class="w"> </span>of<span class="w"> </span>object.__str__<span class="o">()</span><span class="w"> </span><span class="o">(</span><span class="k">if</span><span class="w"> </span>defined<span class="o">)</span>
+or<span class="w"> </span>repr<span class="o">(</span>object<span class="o">)</span>.
+encoding<span class="w"> </span>defaults<span class="w"> </span>to<span class="w"> </span>sys.getdefaultencoding<span class="o">()</span>.
+errors<span class="w"> </span>defaults<span class="w"> </span>to<span class="w"> </span><span class="s1">&#39;strict&#39;</span>.
+
+__eq__:
+Return<span class="w"> </span><span class="nv">self</span><span class="o">==</span>value.
+
+__format__:
+Return<span class="w"> </span>a<span class="w"> </span>formatted<span class="w"> </span>version<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>string<span class="w"> </span>as<span class="w"> </span>described<span class="w"> </span>by<span class="w"> </span>format_spec.
+
+__ge__:
+Return<span class="w"> </span>self&gt;<span class="o">=</span>value.
+
+__getattribute__:
+Return<span class="w"> </span>getattr<span class="o">(</span>self,<span class="w"> </span>name<span class="o">)</span>.
+
+__getitem__:
+Return<span class="w"> </span>self<span class="o">[</span>key<span class="o">]</span>.
+
+__getnewargs__:
+None
+
+__gt__:
+Return<span class="w"> </span>self&gt;value.
+
+__hash__:
+Return<span class="w"> </span>hash<span class="o">(</span>self<span class="o">)</span>.
+
+__init__:
+Initialize<span class="w"> </span>self.<span class="w">  </span>See<span class="w"> </span>help<span class="o">(</span>type<span class="o">(</span>self<span class="o">))</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>accurate<span class="w"> </span>signature.
+
+__init_subclass__:
+This<span class="w"> </span>method<span class="w"> </span>is<span class="w"> </span>called<span class="w"> </span>when<span class="w"> </span>a<span class="w"> </span>class<span class="w"> </span>is<span class="w"> </span>subclassed.
+
+The<span class="w"> </span>default<span class="w"> </span>implementation<span class="w"> </span>does<span class="w"> </span>nothing.<span class="w"> </span>It<span class="w"> </span>may<span class="w"> </span>be
+overridden<span class="w"> </span>to<span class="w"> </span>extend<span class="w"> </span>subclasses.
+
+
+__iter__:
+Implement<span class="w"> </span>iter<span class="o">(</span>self<span class="o">)</span>.
+
+__le__:
+Return<span class="w"> </span>self&lt;<span class="o">=</span>value.
+
+__len__:
+Return<span class="w"> </span>len<span class="o">(</span>self<span class="o">)</span>.
+
+__lt__:
+Return<span class="w"> </span>self&lt;value.
+
+__mod__:
+Return<span class="w"> </span>self%value.
+
+__mul__:
+Return<span class="w"> </span>self*value.
+
+__ne__:
+Return<span class="w"> </span>self!<span class="o">=</span>value.
+
+__new__:
+Create<span class="w"> </span>and<span class="w"> </span><span class="k">return</span><span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>object.<span class="w">  </span>See<span class="w"> </span>help<span class="o">(</span><span class="nb">type</span><span class="o">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>accurate<span class="w"> </span>signature.
+
+__reduce__:
+Helper<span class="w"> </span><span class="k">for</span><span class="w"> </span>pickle.
+
+__reduce_ex__:
+Helper<span class="w"> </span><span class="k">for</span><span class="w"> </span>pickle.
+
+__repr__:
+Return<span class="w"> </span>repr<span class="o">(</span>self<span class="o">)</span>.
+
+__rmod__:
+Return<span class="w"> </span>value%self.
+
+__rmul__:
+Return<span class="w"> </span>value*self.
+
+__setattr__:
+Implement<span class="w"> </span>setattr<span class="o">(</span>self,<span class="w"> </span>name,<span class="w"> </span>value<span class="o">)</span>.
+
+__sizeof__:
+Return<span class="w"> </span>the<span class="w"> </span>size<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>string<span class="w"> </span><span class="k">in</span><span class="w"> </span>memory,<span class="w"> </span><span class="k">in</span><span class="w"> </span>bytes.
+
+__str__:
+Return<span class="w"> </span>str<span class="o">(</span>self<span class="o">)</span>.
+
+__subclasshook__:
+Abstract<span class="w"> </span>classes<span class="w"> </span>can<span class="w"> </span>override<span class="w"> </span>this<span class="w"> </span>to<span class="w"> </span>customize<span class="w"> </span>issubclass<span class="o">()</span>.
+
+This<span class="w"> </span>is<span class="w"> </span>invoked<span class="w"> </span>early<span class="w"> </span>on<span class="w"> </span>by<span class="w"> </span>abc.ABCMeta.__subclasscheck__<span class="o">()</span>.
+It<span class="w"> </span>should<span class="w"> </span><span class="k">return</span><span class="w"> </span>True,<span class="w"> </span>False<span class="w"> </span>or<span class="w"> </span>NotImplemented.<span class="w">  </span>If<span class="w"> </span>it<span class="w"> </span>returns
+NotImplemented,<span class="w"> </span>the<span class="w"> </span>normal<span class="w"> </span>algorithm<span class="w"> </span>is<span class="w"> </span>used.<span class="w">  </span>Otherwise,<span class="w"> </span>it
+overrides<span class="w"> </span>the<span class="w"> </span>normal<span class="w"> </span>algorithm<span class="w"> </span><span class="o">(</span>and<span class="w"> </span>the<span class="w"> </span>outcome<span class="w"> </span>is<span class="w"> </span>cached<span class="o">)</span>.
+</pre></div>
+</div>
+</section>
+<section id="you-may-also-enjoy">
+<h2>You May Also Enjoy<a class="headerlink" href="#you-may-also-enjoy" title="Link to this heading"></a></h2>
+<p><a class="reference external" href="https://codesolid.com/python-format-strings/">Python Format Strings: Beginner to Expert</a></p>
+<p><a class="reference external" href="https://codesolid.com/python-dataclasses/">Python Dataclass: Easily Automate Class Best Practices</a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

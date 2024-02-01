@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python Lists vs. Arrays: How to Choose Between Them &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=19645805"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Python Lists vs. Arrays:  How to Choose Between Them</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/python-lists-vs-arrays.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="python-lists-vs-arrays-how-to-choose-between-them">
+<h1>Python Lists vs. Arrays:  How to Choose Between Them<a class="headerlink" href="#python-lists-vs-arrays-how-to-choose-between-them" title="Link to this heading"></a></h1>
+<p>When newcomers think of arrays, they may have an idea that this is implemented in Python as the built-in list type. However, as in other languages, Python lists and arrays are actually quite different. Even experienced Python developers often reach for the list type first when they need a sequence type, and for most cases, this is definitely the right choice. There are some special cases where arrays make more sense, but for everyday programming tasks, Python lists are more efficient.</p>
+<p>As with most things in Python, the language’s consistency means that you can often easily replace the one with the other, or at least, their APIs are very similar. Let’s look at arrays and lists in turn. Finally, we’ll also take a brief look at how NumPy fits into the picture in terms of performance at the end.</p>
+<section id="python-lists-101">
+<h2>Python Lists 101<a class="headerlink" href="#python-lists-101" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="c1"># A list initialized with a literal</span>
+<span class="n">short_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;first&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()]</span>
+
+<span class="c1"># Define a list using a list comprehension</span>
+<span class="n">long_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">101</span><span class="p">)]</span>
+
+<span class="c1"># Lists grow dynamically.</span>
+<span class="n">long_list_2</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">101</span><span class="p">):</span>
+    <span class="n">long_list_2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">long_list</span> <span class="o">==</span> <span class="n">long_list_2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+<p>From the first example above (<code class="docutils literal notranslate"><span class="pre">short_list</span></code>), we see that lists in Python are able to hold elements of disparate types. The second example (<code class="docutils literal notranslate"><span class="pre">long_list</span></code>) shows a list comprehension to generate a list. The third example creates a list identical to the one in the second example. This time we use a simple loop, as one might do in another language. The other thing this demonstrates is that the list grows dynamically, and mutated in place. We call append to add each element in turn, and the list grows in size to accommodate this.</p>
+<p>Despite the name and the ability to grow dynamically, Python lists are not implemented internally as a linked list. Rather, they are an array of references to objects. When you call “<code class="docutils literal notranslate"><span class="pre">append</span></code>”, on a list, Python allocates more memory than it needs to append a single item to be more efficient. Because Python lists are implemented as an array, indexing any object in the list is efficient, no matter where in the array the object is located.</p>
+<p>Let’s turn next to Python arrays;</p>
+</section>
+<section id="python-arrays">
+<h2>Python Arrays<a class="headerlink" href="#python-arrays" title="Link to this heading"></a></h2>
+<p>There are a few differences between lists and arrays that we should go over up front.</p>
+<p>First, let’s discuss some of the types that are available. The list type is always available as part of Python’s built-ins. With arrays, there are several types we can talk about. Two built-in types are the <code class="docutils literal notranslate"><span class="pre">bytes</span></code> type, an immutable sequence of bytes, and the <code class="docutils literal notranslate"><span class="pre">bytearray</span></code> type, a mutable array. Other arrays can also be created where the item size is not just a single byte, but matches well known C types. These arrays are created using the array module, which must be imported.</p>
+<p>Lists of course have a literal syntax: <code class="docutils literal notranslate"><span class="pre">[item1,</span> <span class="pre">item2,</span> <span class="pre">...,</span> <span class="pre">itemN]</span></code>, as we saw in the example above. For array types, only the immutable <code class="docutils literal notranslate"><span class="pre">bytes</span></code> built-in type has a literal syntax, prepending “b” to a string. As with regular Python strings, <code class="docutils literal notranslate"><span class="pre">bytes</span></code> literals can also have an “r” to mean the “raw” case where we want to treat the escape character, <code class="docutils literal notranslate"><span class="pre">&quot;\n&quot;</span></code>, as a literal. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b1</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;123</span><span class="se">\n</span><span class="s2">4&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Bytes of length: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">b1</span><span class="p">)</span><span class="si">}</span><span class="s2">:  </span><span class="si">{</span><span class="n">b1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">b2</span> <span class="o">=</span> <span class="sa">br</span><span class="s2">&quot;123\n4&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Raw bytes of length: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">b2</span><span class="p">)</span><span class="si">}</span><span class="s2">:  </span><span class="si">{</span><span class="n">b2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p>Bytes of length: 5:  b’123\n4’
+Raw bytes of length: 6:  b’123\n4’</p>
+<p>Objects of type <code class="docutils literal notranslate"><span class="pre">bytes</span></code> be indexed or sliced as with most sequences, but indexing and slicing can’t be used to assign a value.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b1</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;Hello, Python fans!&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b1</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">13</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b1</span><span class="p">[</span><span class="mi">7</span><span class="p">])</span>
+
+<span class="c1"># This code would give raise an exception:</span>
+<span class="c1"># TypeError: &#39;bytes&#39; object does not support item assignment</span>
+<span class="c1"># b1[7] = &#39;J&#39;</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>b<span class="s1">&#39;Python&#39;</span>
+<span class="m">80</span>
+</pre></div>
+</div>
+<p>The mutable array types do not have a literal syntax like the <code class="docutils literal notranslate"><span class="pre">[item1,</span> <span class="pre">item2,</span> <span class="pre">...,</span> <span class="pre">itemN]</span></code> syntax that can be used to initialize a list. For these, an array constructor must be used.</p>
+<p>Arrays must always contain objects of the same type. For those in the “array” module, the type must be specified when the object is initialized. For the built-in <code class="docutils literal notranslate"><span class="pre">bytearray</span></code> type, of course, the underlying type for each individual item is a byte. However, Python doesn’t have a byte type, so it reports the type as an int and returns this type if indexed.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bytes_object</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;Python&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">bytes_object</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&lt;class<span class="w"> </span><span class="s1">&#39;int&#39;</span>&gt;
+</pre></div>
+</div>
+<p>Another built-in array type is the <code class="docutils literal notranslate"><span class="pre">bytearray</span></code>. The <a class="reference external" href="https://docs.python.org/3/library/functions.html#func-bytearray">constructor</a> for this class takes different types of values, when passed an integer it allocates an array of that many bytes, initialized to zero. Unlike the <code class="docutils literal notranslate"><span class="pre">bytes</span></code> type, <code class="docutils literal notranslate"><span class="pre">bytearray</span></code> objects are mutable, as we show below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bytearray_object</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bytearray_object</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">bytearray_object</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;Hello&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bytearray_object</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bytearray<span class="o">(</span>b<span class="s1">&#39;\x00\x00\x00\x00\x00&#39;</span><span class="o">)</span>
+bytearray<span class="o">(</span>b<span class="s1">&#39;Hello&#39;</span><span class="o">)</span>
+</pre></div>
+</div>
+</section>
+<section id="arrays-may-use-less-memory-than-lists">
+<h2>Arrays May Use Less Memory Than Lists<a class="headerlink" href="#arrays-may-use-less-memory-than-lists" title="Link to this heading"></a></h2>
+<p>For smaller types like bytes, arrays may more compactly store their values than lists do, since arrays can store the object itself, while in the list case there is both an object and a structure with a reference to it.</p>
+<p>Some examples from the array module will make this clear.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">array</span> <span class="kn">import</span> <span class="n">array</span>
+
+<span class="c1"># Build an array of unicode characters (strings) from a single larger string.</span>
+<span class="n">string_elements</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="s2">&quot;Hello, array lovers everywhere!&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">string_elements</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string_elements</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string_elements</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">string_elements</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string_elements</span><span class="o">.</span><span class="n">itemsize</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">31</span>
+H
+array<span class="o">(</span><span class="s1">&#39;u&#39;</span>,<span class="w"> </span><span class="s1">&#39;Hello&#39;</span><span class="o">)</span>
+&lt;class<span class="w"> </span><span class="s1">&#39;str&#39;</span>&gt;
+<span class="m">4</span>
+</pre></div>
+</div>
+<p>In the example above, the first parameter to the array constructor is a type code, in this case saying we’re dealing with Unicode characters. The second parameter is a string, which according to the Python documentation is converted into an array of type <code class="docutils literal notranslate"><span class="pre">wchar_t</span></code> internally in C. This can be either 2 bytes wide or 4 bytes wide depending on the platform, according to the documentation. (I’d expect 4 to be a bit more common, since utf-8 characters can be up to 4 bytes wide, and I imagine this would make the underlying code simpler).</p>
+<p>Either way, when we access an element of the list, Python converts the character to the Python string type, as we see in the last line. It does the same thing for slices in this case.</p>
+<p>We get a very different result if we change the type to an array of unsigned char (basically a byte array).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">array</span> <span class="kn">import</span> <span class="n">array</span>
+
+<span class="c1"># Build an array of bytes (unsigned chars)</span>
+<span class="n">string_elements</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="sa">b</span><span class="s2">&quot;Hello, array lovers everywhere!&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">string_elements</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string_elements</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string_elements</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">string_elements</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">string_elements</span><span class="o">.</span><span class="n">itemsize</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">31</span>
+<span class="m">72</span>
+array<span class="o">(</span><span class="s1">&#39;B&#39;</span>,<span class="w"> </span><span class="o">[</span><span class="m">72</span>,<span class="w"> </span><span class="m">101</span>,<span class="w"> </span><span class="m">108</span>,<span class="w"> </span><span class="m">108</span>,<span class="w"> </span><span class="m">111</span><span class="o">])</span>
+&lt;class<span class="w"> </span><span class="s1">&#39;int&#39;</span>&gt;
+<span class="m">1</span>
+</pre></div>
+</div>
+<p>Here, the “b” prefix before the string means to treat the string as an array of bytes, and it’s represented internally as an unsigned char. Because the string is in English, the length Python returns is the same in both cases, because it’s the length of the array, not the underlying byte representation. This works out because the first 128 ASCII characters in UTF-8 use the same 1-byte value that ASCII uses.</p>
+<p>So this representation is quite compact. Depending on the type, of course, it’s possible you’ll need more space in memory. An array of double-precision floating point values, for example, uses 8 bytes per item.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">double_array</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mf">42.42</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">double_array</span><span class="o">.</span><span class="n">itemsize</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">8</span>
+</pre></div>
+</div>
+</section>
+<section id="id1">
+<h2><a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p>For Large Amounts of Data, Use Generators Instead of Lists or Arrays</p>
+<p>Although arrays may store their values more compactly than lists, memory can still be a constraint for very large arrays. In this case, a Python generator may be a more appropriate choice. Let’s say we wanted a class to iterate through the lines of a file. For short files, we could even read the whole file into a list and process the list. If we wanted to do this with a longer file, we could of course read and process a line at a time directly in Python. However, this case also lets us demo a basic generator:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">FileIterator</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filename</span> <span class="o">=</span> <span class="n">filename</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file_handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">readline</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">while</span> <span class="n">line</span> <span class="o">:=</span> <span class="bp">self</span><span class="o">.</span><span class="n">file_handle</span><span class="o">.</span><span class="n">readline</span><span class="p">():</span>
+            <span class="k">yield</span> <span class="n">line</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file_handle</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        
+<span class="n">contents</span> <span class="o">=</span> <span class="n">FileIterator</span><span class="p">(</span><span class="s1">&#39;giant_file.txt&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">contents</span><span class="o">.</span><span class="n">readline</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In addition to creating an iterable generator with the yield keyword, Python also supports concise generator expressions, which have a similar syntax to list comprehensions. Let’s say for example that you wanted to sum up all the odd numbers between below 10. For such a small list of numbers, using a list comprehension would be fine and quite concise. Indeed, if you’re new to list comprehensions, you may find this syntax <em>too</em> concise, but bear with me:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">25</span>
+</pre></div>
+</div>
+<p>Again, too concise or not, that code works fine for a short list. But what if you wanted to try the same thing for all the numbers under some multiple of a print(sum((x for x in range(10) if x %2 == 1)))print(sum((x for x in range(10) if x %2 == 1)))billion or more. Well, in addition to taking a lot more time, such a list would start to use up too much memory. However, we can change the list comprehension to a generator expression so that it would work fine even if we change 10 to a much larger number. All that’s involved is to change the brackets around the list to parentheses:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">((</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p>Again we get the output of 25, but here we can safely change range(10) to range(1000000000). I’ve actually done it. You won’t run out of memory. (But be prepared to wait awhile anyway!)</p>
+</section>
+<section id="performance-timers-array-and-list-loop-performance">
+<h2>Performance Timers: Array and List Loop Performance<a class="headerlink" href="#performance-timers-array-and-list-loop-performance" title="Link to this heading"></a></h2>
+<p>As we’ve seen, there are some space-saving benefits to arrays, but for really large sequences, generators provide a better option. However, setting aside the issue of space savings, it’s possible that Python arrays may have better loop efficiency than lists. Until we test this, we really have no way of knowing.</p>
+<p>To test this out, we used the <code class="docutils literal notranslate"><span class="pre">timeit</span></code> function to see if the iteration time differs significantly between arrays and lists. We expected the times to be about equal or perhaps a little faster in the non-object array case. The actual result then was quite surprising. In each case, we’ll looped through a list or array of 10,000 numbers 10,000 times.</p>
+<p>The list case first</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">timeit</span> <span class="kn">import</span> <span class="n">timeit</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">timeit</span><span class="p">(</span><span class="n">setup</span><span class="o">=</span><span class="s2">&quot;num_list = [x for x in range(0,10000)]&quot;</span><span class="p">,</span> 
+                          <span class="n">stmt</span><span class="o">=</span><span class="s2">&quot;for i in num_list: x = i&quot;</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">0</span>.6914394581690431
+</pre></div>
+</div>
+<p>Now the array case, using signed integers:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">timeit</span> <span class="kn">import</span> <span class="n">timeit</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">timeit</span><span class="p">(</span><span class="n">setup</span><span class="o">=</span><span class="s2">&quot;from array import array; num_array = array(&#39;i&#39;, [x for x in range(0,10000)])&quot;</span><span class="p">,</span> <span class="n">stmt</span><span class="o">=</span><span class="s2">&quot;for i in num_array: x = i&quot;</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">1</span>.3694779579527676
+</pre></div>
+</div>
+<p>Admittedly, this result still seems a bit strange to me. One possible place for the slowdown I considered was the conversion of the underlying object to a Python object reference, but even when I reworked the Python code to ignore the loop values, the slowness persisted, though both loops became slightly faster. For Python loops, the winner is clearly the list type.</p>
+</section>
+<section id="tip-use-arrays-for-low-level-buffer-access">
+<h2>Tip: Use Arrays For Low Level Buffer Access<a class="headerlink" href="#tip-use-arrays-for-low-level-buffer-access" title="Link to this heading"></a></h2>
+<p>As we’ve seen, although arrays may offer some space savings over Python lists in certain cases, for truly large sequences, the preferred technique to iterate over them is either to read each item individually or to use a generator. Also, although some space may be saved by using an array, we showed that this will negatively impact loop performance for long sequences.</p>
+<p>So what, then, is the point of ever using an array at all? Arrays, unlike lists, support accessing the memory that contains them directly. This can be used to interface with the C language, or to use Python libraries to do fast IO without dipping into C. One main mechanism used to support this is Python’s <a class="reference external" href="https://docs.python.org/3/c-api/buffer.html#bufferobjects">buffer protocol</a>, which is a way of exposing the contents of a memory buffer to a low-level IO function such as <a class="reference external" href="https://docs.python.org/3/library/io.html#io.RawIOBase.readinto">readinto</a>. This would allow pre-allocating and re-using the buffer to efficiently read data from a socket, for example.</p>
+<p>In addition to one-time memory allocation, which can be an optimization where many reads are involved, the buffer protocol also supports zero-copy slicing. To demonstrate this, we can use a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#memoryview">memoryview</a> object, which allows obtaining a wrapper around this raw buffer. Let’s compare how slicing works for this case with how it works for a list. In the example below, we see that creating a slice in the array returns a copy of the array:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">list_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list_numbers</span><span class="p">)</span>
+
+<span class="c1"># Try to mutate the list by changing a slice of the list</span>
+<span class="n">first_three</span> <span class="o">=</span> <span class="n">list_numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">first_three</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">first_three</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">99</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list_numbers</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="m">0</span>,<span class="w"> </span><span class="m">0</span>,<span class="w"> </span><span class="m">0</span>,<span class="w"> </span><span class="m">0</span>,<span class="w"> </span><span class="m">0</span><span class="o">]</span>
+<span class="o">[</span><span class="m">0</span>,<span class="w"> </span><span class="m">0</span>,<span class="w"> </span><span class="m">0</span>,<span class="w"> </span><span class="m">0</span>,<span class="w"> </span><span class="m">0</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>Note that for a list, creating a variable for the slice is treated differently than treating the slice as an L-value (i.e., the target of an assignment expression). In that case, the slice is mutable.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">list_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list_numbers</span><span class="p">)</span>
+<span class="n">list_numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>  <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list_numbers</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>If we use a memoryview object instead to show the same operations, we see that slicing simply returns a view into the original buffer, not a copy of it. In Effective Python, Brett Slatkin gives the example of returning streaming video data to a consumer, and being able to efficiently grab a slice of data to return to the user in response to skipping ahead in the video, for example.</p>
+<p>The example below simply reworks our list example on a small scale to demonstrate that for memoryview, a returned slice is not a copy, but exposes the original list.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">memoryview_numbers</span> <span class="o">=</span> <span class="nb">memoryview</span><span class="p">(</span><span class="nb">bytearray</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">memoryview_numbers</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+<span class="n">first_three</span> <span class="o">=</span> <span class="n">memoryview_numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">first_three</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">first_three</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">99</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">memoryview_numbers</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="m">0</span>,<span class="w"> </span><span class="m">0</span>,<span class="w"> </span><span class="m">0</span>,<span class="w"> </span><span class="m">0</span>,<span class="w"> </span><span class="m">0</span><span class="o">]</span>
+<span class="o">[</span><span class="m">100</span>,<span class="w"> </span><span class="m">99</span>,<span class="w"> </span><span class="m">0</span>,<span class="w"> </span><span class="m">0</span>,<span class="w"> </span><span class="m">0</span><span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="numpy-arrays-and-performance">
+<h2>NumPy Arrays and Performance<a class="headerlink" href="#numpy-arrays-and-performance" title="Link to this heading"></a></h2>
+<p>Although our focus on this article has been on the array types that are part of the standard library, we should probably mention NumPy arrays, given that this library is almost as popular! In NumPy, the <code class="docutils literal notranslate"><span class="pre">array</span></code> type is an alias for the <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> class, an n-dimensional array. These arrays feature a number of aggregation and matrix algebra functions that are written in C with a Python wrapper.</p>
+<p>In addition to adding matrix support, for the operations they support, NumPy arrays are extremely fast compared to their standard library counterparts. However, the caveat is that this is true only when using the methods that NumPy provides. Mixing Python’s standard library calls with NumPy’s arrays can actually decrease performance.</p>
+<p>Here are the timings we ran earlier, with two additional comparisons at the end, one using the standard library (the “wrong” way), and one using an equivalent NumPy function. I apologize for the low readability of these timeit expressions; feel free to skim ahead to the output.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">timeit</span> <span class="kn">import</span> <span class="n">timeit</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">iterations</span> <span class="o">=</span> <span class="mi">500</span>
+
+<span class="k">def</span> <span class="nf">display</span><span class="p">(</span><span class="n">elapsed_time</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">rounding</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">elapsed_time</span><span class="p">,</span><span class="w"> </span><span class="n">rounding</span><span class="p">)</span><span class="si">}</span><span class="s2"> seconds -- </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">timeit</span><span class="p">(</span><span class="n">setup</span><span class="o">=</span><span class="s2">&quot;num_list = [n for n in range(0,256)] * 1000&quot;</span><span class="p">,</span> 
+                <span class="n">stmt</span><span class="o">=</span><span class="s2">&quot;sum(num_list)&quot;</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="n">iterations</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="s2">&quot;Python sum function on a list of numbers&quot;</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">timeit</span><span class="p">(</span><span class="n">setup</span><span class="o">=</span><span class="s2">&quot;l = [n for n in range(0,256)] * 1000; num_array = bytearray(l)&quot;</span><span class="p">,</span> 
+                <span class="n">stmt</span><span class="o">=</span><span class="s2">&quot;sum(num_array)&quot;</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="n">iterations</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="s2">&quot;Python sum function on a bytearray of numbers&quot;</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">timeit</span><span class="p">(</span><span class="n">setup</span><span class="o">=</span><span class="s2">&quot;import numpy as np; l = [n for n in range(0,256)] * 1000; np_array = np.array(l)&quot;</span><span class="p">,</span> 
+                <span class="n">stmt</span><span class="o">=</span><span class="s2">&quot;sum(np_array)&quot;</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="n">iterations</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="s2">&quot;Python sum function on a NumPy array&quot;</span><span class="p">,</span> <span class="n">rounding</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">timeit</span><span class="p">(</span><span class="n">setup</span><span class="o">=</span><span class="s2">&quot;import numpy as np; l = [n for n in range(0,256)] * 1000; np_array = np.array(l)&quot;</span><span class="p">,</span> 
+                <span class="n">stmt</span><span class="o">=</span><span class="s2">&quot;np_array.sum()&quot;</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="n">iterations</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="s2">&quot;NumPy sum method on a NumPy array&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">0</span>.597<span class="w"> </span>seconds<span class="w"> </span>--<span class="w"> </span>Python<span class="w"> </span>sum<span class="w"> </span><span class="k">function</span><span class="w"> </span>on<span class="w"> </span>a<span class="w"> </span>list<span class="w"> </span>of<span class="w"> </span>numbers.
+<span class="m">0</span>.729<span class="w"> </span>seconds<span class="w"> </span>--<span class="w"> </span>Python<span class="w"> </span>sum<span class="w"> </span><span class="k">function</span><span class="w"> </span>on<span class="w"> </span>a<span class="w"> </span>bytearray<span class="w"> </span>of<span class="w"> </span>numbers.
+<span class="m">6</span>.585<span class="w"> </span>seconds<span class="w"> </span>--<span class="w"> </span>Python<span class="w"> </span>sum<span class="w"> </span><span class="k">function</span><span class="w"> </span>on<span class="w"> </span>a<span class="w"> </span>NumPy<span class="w"> </span>array.
+<span class="m">0</span>.051<span class="w"> </span>seconds<span class="w"> </span>--<span class="w"> </span>NumPy<span class="w"> </span>sum<span class="w"> </span>method<span class="w"> </span>on<span class="w"> </span>a<span class="w"> </span>NumPy<span class="w"> </span>array.
+</pre></div>
+</div>
+<p>So, in this case at least, NumPy is an order of magnitude slower when interfacing with the Python standard library, but an order of magnitude faster on its own!</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

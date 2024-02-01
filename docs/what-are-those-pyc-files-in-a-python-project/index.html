@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What Are pyc Files and pycache folders In Python ? &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=19645805"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">What Are pyc Files and <strong>pycache</strong> folders In Python ?</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/what-are-those-pyc-files-in-a-python-project.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="what-are-pyc-files-and-pycache-folders-in-python">
+<h1>What Are pyc Files and <strong>pycache</strong> folders In Python ?<a class="headerlink" href="#what-are-pyc-files-and-pycache-folders-in-python" title="Link to this heading"></a></h1>
+<p>One of those questions that every Python developer wonders about at some point are those weird extra directories and files they’ll see crop up from time to time. Setting aside __init__.py for a moment, sometimes you’ll see directories you didn’t create: <code class="docutils literal notranslate"><span class="pre">__pycache__</span></code>, filled with files with a <code class="docutils literal notranslate"><span class="pre">.pyc</span></code> extension that have the same root filename as your source code. What are these pycache files, and what do you do about them? Or sometimes you’ll see those <code class="docutils literal notranslate"><span class="pre">.pyc</span></code> files outside of a <code class="docutils literal notranslate"><span class="pre">__pycache__</span></code> directory as well.</p>
+<p><strong>Files with the “pyc” extension are the cached, compiled bytecode that Python creates the first time you run your program, or whenever the source file has changed. You should generally ignore these files, but they should not be checked into version control systems like git.</strong></p>
+<p>In this article, we discuss some questions that arise about why these files are there. We also go over some simple techniques for ensuring these files are not checked in and for deleting them recursively should you wish to do so. We’ll cover both problems you can have locally and problems that may come up when dealing with version-controlled files.</p>
+<section id="why-does-python-compile-files-isn-t-it-interpreted">
+<h2>Why does Python Compile Files? Isn’t It Interpreted?<a class="headerlink" href="#why-does-python-compile-files-isn-t-it-interpreted" title="Link to this heading"></a></h2>
+<p>A common misunderstanding about Python cache files is why they’re even there, given that Python is supposed to be an “interpreted” language. However, if we take the time to more clearly understand what’s meant when we talk about compilation and interpretation, this confusion largely disappears.</p>
+<p>A good example of a compiled language is the C language. The most common way that C programs are run is that they are compiled from C directly into machine code, then linked with other C files and startup code to create standalone executables. Once the executable is produced, it runs on the machine directly – you don’t need to ship the C compiler you used to produce the program to your users.</p>
+<p>An interpreted language like Python, in contrast, requires you to have the interpreter present to run the program, because it’s not run by the machine directly. Instead, it’s run by the interpreter, which typically translates the program into an intermediate thing, called bytecode. Where things get confusing is that interpreted languages also call the built-in or standalone tool that translates source files into bytecode a “compiler”. In standard Python (CPython), a single executable serves as both the source-code “compiler” and as the interpreter of the compiled bytecode (which can sometimes be cached to disk in the form of “pyc” files).</p>
+<p>In other languages, such as Java, the compiler and interpreter are separate programs. Java programs are first compiled to Java Virtual Machine bytecode using the “javac” executable, then the compiled java bytecode is run using the “java” executable.</p>
+<p>So even though Python is compiled to bytecode in certain cases (e.g., imported packages), the compiled bytecode still can’t be run directly by the machine – it needs an interpreter.</p>
+</section>
+<section id="ignoring-python-cache-files-in-version-control">
+<h2>Ignoring Python Cache Files in Version Control<a class="headerlink" href="#ignoring-python-cache-files-in-version-control" title="Link to this heading"></a></h2>
+<p>Python cache files – like most binary files that depend on other source files – should not usually be checked in to version control. If you’re working with GitHub, one easy thing you can do is to have GitHub automatically configure a <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file for Python when you start a project. Simply select Python from the “Add <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>” dropdown as shown below, and GitHub will add this to your repository when you start your project.</p>
+<p><img alt="" src="../_images/gitignore_github-1024x5241.png" /></p>
+<p>As you can see in <a class="reference external" href="https://github.com/github/gitignore/blob/main/Python.gitignore">the template</a> for the file that GitHub installs into your repository, the lines relevant to the Python cache are right at the top:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Byte-compiled / optimized / DLL files</span>
+__pycache__/
+*.py<span class="o">[</span>cod<span class="o">]</span>
+*<span class="nv">$py</span>.class
+</pre></div>
+</div>
+</section>
+<section id="dealing-with-existing-code-repositories">
+<h2>Dealing With Existing Code Repositories<a class="headerlink" href="#dealing-with-existing-code-repositories" title="Link to this heading"></a></h2>
+<p>If you’re not creating your project from scratch, you can add those lines to your .gitignore file in the root of the repository. This will prevent checking in these files going from that point forward. This won’t affect files that are already committed to the repository, however, so you may want to clean those up as well. To do this, run these commands, then commit and push your code as you normally would.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">rm</span> <span class="o">**/*.</span><span class="n">pyc</span>
+<span class="n">git</span> <span class="n">rm</span> <span class="o">-</span><span class="n">r</span> <span class="o">-</span><span class="n">f</span> <span class="o">**/</span><span class="n">__pycache__</span>
+</pre></div>
+</div>
+</section>
+<section id="how-to-remove-cached-python-files-recursively">
+<h2>How to Remove Cached Python Files Recursively<a class="headerlink" href="#how-to-remove-cached-python-files-recursively" title="Link to this heading"></a></h2>
+<p>From time to time, you may also need to get your local project files into a clean state by removing the *.pyc files and the __pycache__ directories. There are different ways to accomplish this depending on your operating system. For example, on Mac or Linux based systems you can add the following to ~/.bashrc or ~/.zshrc, as appropriate.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pyclean</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="n">find</span> <span class="o">.</span> <span class="o">-</span><span class="nb">type</span> <span class="n">f</span> <span class="o">-</span><span class="n">name</span> <span class="s2">&quot;*.py[co]&quot;</span> <span class="o">-</span><span class="n">delete</span>
+        <span class="n">find</span> <span class="o">.</span> <span class="o">-</span><span class="nb">type</span> <span class="n">d</span> <span class="o">-</span><span class="n">name</span> <span class="s2">&quot;__pycache__&quot;</span> <span class="o">-</span><span class="n">delete</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If you’re still in the same terminal window, you’ll need to run <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">~/.bashrc</span></code> (for example). Once this bash function is loaded, you can simply go to the directory and run <code class="docutils literal notranslate"><span class="pre">pyclean</span></code>. This is the solution that I use.</p>
+<p>My Windows mojo is a bit more rusty, but for the pyc files you can simply go to the directory and run <code class="docutils literal notranslate"><span class="pre">del</span> <span class="pre">/s</span> <span class="pre">*.pyc</span></code>.</p>
+<p>Another tool that aims to simplify this across all platforms is the <a class="reference external" href="https://pypi.org/project/pyclean/">pyclean</a> package. To use this package, you install it using pip, make sure you’re in the directory you want to clean, and run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pyclean<span class="w"> </span>-v<span class="w"> </span>.
+</pre></div>
+</div>
+<p>I tend to prefer the OS-specific solutions, but if you do use pyclean, you might consider making it a development time only package. That is to say, if you maintain separate requirements.txt files for general program requirements and additional dev requirements, you’ll definitely want to include this in requirements-dev.txt, since this is likely not something your production code will need. On the contrary, the whole point of pre-compiled bytecode files is to speed the execution of python code when it’s run a second time.</p>
+</section>
+<section id="you-may-also-like">
+<h2>You May Also Like<a class="headerlink" href="#you-may-also-like" title="Link to this heading"></a></h2>
+<p><a class="reference external" href="https://codesolid.com/how-do-i-profile-python-code/">How to Profile Python Code</a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

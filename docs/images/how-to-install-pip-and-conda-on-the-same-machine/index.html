@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Basics First: Pip, Pyenv, Anaconda and Miniconda &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=19645805"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">The Basics First: Pip, Pyenv, Anaconda and Miniconda</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/images/how-to-install-pip-and-conda-on-the-same-machine/index.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>Installing Pip and Conda on the same machine is easy to do with pyenv. Maybe you work on testing a product for different environments, or maybe you just want to try out the two packaging tools to see which one you like best. Either way, pyenv lets you install and manage both with no conflicts.</p>
+<p>Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#the-basics-first-pip-pyenv-anaconda-and-miniconda"><span class="std std-ref">The Basics First: Pip, Pyenv, Anaconda and Miniconda</span></a></p></li>
+<li><p><a class="reference internal" href="#using-pyenv-to-support-both-pip-and-miniconda"><span class="std std-ref">Using Pyenv to Support Both Pip and Miniconda</span></a></p></li>
+<li><p><a class="reference internal" href="#closing-thoughts-on-pyenv"><span class="std std-ref">Closing Thoughts on Pyenv</span></a></p></li>
+</ul>
+<section id="the-basics-first-pip-pyenv-anaconda-and-miniconda">
+<h1>The Basics First: Pip, Pyenv, Anaconda and Miniconda<a class="headerlink" href="#the-basics-first-pip-pyenv-anaconda-and-miniconda" title="Link to this heading"></a></h1>
+<p>For the benefit of those who may not be deeply entrenched Python nerds like me, I should probably back up a bit here and give an overview first. Feel free to skip this section if this is old hat to you. With that, here’s an overview of what these tools are:</p>
+<ul class="simple">
+<li><p><strong>Pip</strong> is probably the best known tool on the list. It is the Package Installer for Python. Pip is how most Python developers third party packages, that is to say, libraries that don’t come with Python by default.</p></li>
+<li><p><strong>Anaconda</strong> is a very heavyweight Python distribution, that includes Python, a tool called conda for installing third party packages, and many, many Python packages, especially those that relate to data science. Those who like Anaconda don’t mind installing the Internet on their computers in exchange for the convenience of getting straight to work. But for many other folks, Anaconda is a form of bloatware that’s unnecessary.</p></li>
+<li><p><strong>Miniconda</strong> is a more lightweight distribution for people who want the benefits of using the conda tool without all the bloat that Anaconda installs. Miniconda installs a Python version, pip, and the minimal libraries needed to run conda.</p></li>
+<li><p><strong>Pyenv</strong> is a tool for managing multiple Python installations. Unlike the <code class="docutils literal notranslate"><span class="pre">venv</span></code> tool, which creates isolated environments for different sets of packages using the default python3 installation, for example, with <code class="docutils literal notranslate"><span class="pre">pyenv</span></code> you can install multiple versions of Python itself. Let’s say you have one project that you work on that’s on Python 3.6.2, and another that’s on 3.10.1, and you need to be able to switch easily between the two. Pyenv lets you do this.</p></li>
+</ul>
+</section>
+<section id="using-pyenv-to-support-both-pip-and-miniconda">
+<h1>Using Pyenv to Support Both Pip and Miniconda<a class="headerlink" href="#using-pyenv-to-support-both-pip-and-miniconda" title="Link to this heading"></a></h1>
+<p>Assuming you have a reason to want to support having some projects on your machine based on pip and others based on conda, this can easily be done using pyenv. For more information on pyenv, see our article, <a class="reference external" href="https://codesolid.com/installing-pyenv-on-a-mac/">Installing Pyenv on a Mac</a>. Windows users should follow the <a class="reference external" href="https://github.com/pyenv-win/pyenv-win#installation">installation instructions for the pyenv-win project</a>.</p>
+<p>Assuming you have pyenv installed and configured, you likely have a pyenv global configuration already set up. For example, on my case in a directory without a local python configuration set up, I can query the python version and what pyenv is managing locally like this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>%<span class="w"> </span>python<span class="w"> </span>--version
+Python<span class="w"> </span><span class="m">3</span>.10.1
+%<span class="w"> </span>pyenv<span class="w"> </span>global
+<span class="m">3</span>.10.1
+</pre></div>
+</div>
+<p>I wanted to be able to work with conda, so first I created a directory for conda to manage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">conda</span>
+<span class="n">cd</span> <span class="n">conda</span>
+</pre></div>
+</div>
+<p>Next, I queried pyenv using <code class="docutils literal notranslate"><span class="pre">pyenv</span> <span class="pre">install</span> <span class="pre">-l</span></code> to see if I could narrow down the latest miniconda versions.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pyenv</span> <span class="n">install</span> <span class="o">-</span><span class="n">l</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">miniconda</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">latest</span>
+
+<span class="n">miniconda</span><span class="o">-</span><span class="n">latest</span>
+<span class="n">miniconda2</span><span class="o">-</span><span class="n">latest</span>
+<span class="n">miniconda3</span><span class="o">-</span><span class="n">latest</span>
+</pre></div>
+</div>
+<p>As a side note, I later learned that the Python version for miniconda that was marked as “latest” in pyenv was not the most recent. It was about two point revisions behind the latest stable release, but this did not impact me. If you leave off the <code class="docutils literal notranslate"><span class="pre">&quot;|</span> <span class="pre">grep</span> <span class="pre">latest&quot;</span></code> pipe above, of course, you can choose any version more precisely.</p>
+<p>The next step is to install the version you want and to activate it locally.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pyenv<span class="w"> </span>install<span class="w"> </span>miniconda3-latest
+...
+pyenv<span class="w"> </span><span class="nb">local</span><span class="w"> </span>miniconda3-latest
+</pre></div>
+</div>
+<p>At this point, conda is installed, and you can start using it. (Note, that for certain commands below, you maybe be prompted to run <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">init</span></code> and re-start the shell first).</p>
+<p>To use conda, we can create a shell and install some starter packages at the same time. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span> <span class="n">datasci</span> <span class="n">pandas</span> <span class="n">matplotlib</span> <span class="n">jupyterlab</span> <span class="n">jupyter</span>
+</pre></div>
+</div>
+<p>This creates an environment called “datasci” and installs several packages into it. You’ll be prompted to continue, and when the installation completes, you’ll see something like this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+<span class="c1"># To activate this environment, use</span>
+<span class="c1">#</span>
+<span class="c1">#     $ conda activate datasci</span>
+<span class="c1">#</span>
+<span class="c1"># To deactivate an active environment, use</span>
+<span class="c1">#</span>
+<span class="c1">#     $ conda deactivate</span>
+</pre></div>
+</div>
+<p>You can now activate the environment as shown, and then run “<code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code>” for example to launch a Jupyter lab environment and start coding in Jupyter notebooks.</p>
+<p>Of course, there’s a lot more that you can do with conda than this – for a more complete list, a good starting point is the <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/commands.html">conda commands reference page</a>.</p>
+</section>
+<section id="closing-thoughts-on-pyenv">
+<h1>Closing Thoughts on Pyenv<a class="headerlink" href="#closing-thoughts-on-pyenv" title="Link to this heading"></a></h1>
+<p>The more I work with pyenv, the more I like how cleanly it separates environments, and now that I’ve learned that being able to control conda and pip environments separately, I’m even more of a fan.</p>
+<p>For example, given the example above, from the conda environment, when you’re done, simply run “<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">deactivate</span></code>” to deactivate the conda environment. At that point, move out of the conda directory (where miniconda is active locally for pyenv), and you’re back to a “regular” Python world that you can manage with pip and the venv module.</p>
+<p>This gives you complete freedom to try out both tools, and if it turns out you really love conda’s way of doing things, you can always install it as the default with “<code class="docutils literal notranslate"><span class="pre">pyenv</span> <span class="pre">global</span></code>”.</p>
+<p>One limitation I’m aware of with this approach is that conda also has the ability to manage complete Python environments – including different Python versions – so there’s some overlap between what it does and what pyenv does. I suppose if I came from a conda “tradition” that would seem natural to me, but for now I’ll manage the global environment – including miniconda – using pyenv.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

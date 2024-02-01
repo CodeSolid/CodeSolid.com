@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intro to Kaggle and its Datasets &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=19645805"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Intro to Kaggle and its Datasets</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/images/kaggle-datasets/index.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>Have you ever wondered how data scientists or machine learning developers find data for their projects to improve their skills? Several popular libraries like Seaborn and Scikit-Learn contain so-called toy datasets, but perhaps the most complete such repository of data is on Kaggle.com.</p>
+<p>Fortunately, Kaggle.com features a Python API we can use to explore and load this data. In this article, we’ll look at using the Kaggle API to load datasets and how to use them in different cases.</p>
+<p>We will also look at advanced uses of the Kaggle API, including uploading multiple datasets at once and accessing different versions of datasets or competition files. We’ll give code examples in Python and explain the results in each step.</p>
+<p>Table of Contents</p>
+<ul class="simple">
+<li><p>Intro to Kaggle and its Datasets</p></li>
+<li><p>Setting up the Kaggle API</p></li>
+<li><p>Downloading Kaggle Datasets Using the API</p></li>
+<li><p>Downloading Multiple Datasets at Once</p></li>
+<li><p>Using Kaggle Datasets in Various Cases</p></li>
+<li><p>Conclusion</p></li>
+</ul>
+<section id="intro-to-kaggle-and-its-datasets">
+<h1>Intro to Kaggle and its Datasets<a class="headerlink" href="#intro-to-kaggle-and-its-datasets" title="Link to this heading"></a></h1>
+<p>Kaggle is a popular platform for data science and machine learning competitions and a place to find and publish datasets. Kaggle hosts a variety of data sets in various formats, including tabular data, images, and text.</p>
+<p>One of Kaggle’s handy features is the ability to upload datasets using the Kaggle API. This allows us to access datasets from the command line without uploading them through the website manually.</p>
+<p>The Kaggle API can be especially useful for automating data entry and integration tasks.</p>
+</section>
+<section id="setting-up-the-kaggle-api">
+<h1>Setting up the Kaggle API<a class="headerlink" href="#setting-up-the-kaggle-api" title="Link to this heading"></a></h1>
+<p>In this section, we’ll show you how to set up the Kaggle API in a Jupyter notebook so you can easily access and download datasets and competitions from Kaggle. Here are the steps to set up the Kaggle API in a Jupyter notebook:</p>
+<ul class="simple">
+<li><p>Go to the <a class="reference external" href="https://www.kaggle.com/" title="Kaggle website">Kaggle website</a>, sign in, or sign up for your Kaggle account.</p></li>
+<li><p>Go to your account settings by clicking on your avatar in the top right corner and selecting “Account” from the dropdown menu.</p></li>
+<li><p>Scroll down on the page on the right to the “API” section and click on the “Create New API Token” button. This will download a file called “kaggle.json” to your computer, which contains your API key and secret.</p></li>
+<li><p>Move the “kaggle.json” file to the location a .kaggle directory underneath your user home directory. This is typically the root of your user directory (e.g., <code class="docutils literal notranslate"><span class="pre">~/.kaggle/kaggle.json</span></code> on Linux or <code class="docutils literal notranslate"><span class="pre">C:\Users\[Username]\.kaggle\kaggle.json</span></code> on Windows).</p></li>
+<li><p>Install the kaggle Python package using the following code in a Jupyter notebook cell:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">kaggle</span>
+</pre></div>
+</div>
+<p>Now that we have set up the Kaggle API, we can use the Kaggle command line tool or the Kaggle Python module to access Kaggle datasets and competitions.</p>
+<p>Here’s an example of how to use the Kaggle API to list all the datasets available on Kaggle in a Jupyter notebook:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">kaggle</span>
+
+<span class="c1"># List of all datasets available on Kaggle</span>
+<span class="n">kaggle</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">dataset_list</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="" src="../../_images/list-of-datasets.png" /></p>
+<p>Example of the list of datasets</p>
+<p>With these simple steps, we can set up Kaggle API and now can access and download a wide range of datasets and competition data directly from your Jupyter Notebook.</p>
+<p>Sometimes we have an idea in our head, and to implement it, we need a dataset on a certain topic. We can use the Kaggle datasets_list function with the search argument to search for datasets.</p>
+<p>Let’s take a closer look at examples of how to use these methods:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">kaggle</span>
+
+<span class="c1"># searching for datasets on Kaggle about air quality</span>
+<span class="n">datasets</span> <span class="o">=</span> <span class="n">kaggle</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">datasets_list</span><span class="p">(</span><span class="n">search</span><span class="o">=</span><span class="s2">&quot;air quality&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">datasets</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="" src="../../_images/air-quality-1.png" /></p>
+<p>The <strong><code class="docutils literal notranslate"><span class="pre">datasets_list</span></code></strong> function of the Kaggle API client to search for datasets related to “air quality”. The function takes the parameter search, which specifies the search query, in our case it is <strong><code class="docutils literal notranslate"><span class="pre">&quot;air</span> <span class="pre">quality&quot;</span></code></strong>.</p>
+<p>The function returns a list of Dataset objects that match our query. Each Dataset object represents a dataset on Kaggle and has different properties, such as name, description and dataset creation date.</p>
+<p>To make this easier to read, we have a couple of options. First, we can run the query using the Kaggle command line interface from within Jupyter Notebook.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">kaggle</span> <span class="n">datasets</span> <span class="nb">list</span> <span class="o">-</span><span class="n">s</span> <span class="s2">&quot;air quality&quot;</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="" src="../../_images/air-quality-2.png" /></p>
+<p>This will return a list of air quality-related datasets, along with information about the datasets, such as their names, creators, and sizes.</p>
+<p>We can also use additional options in the Kaggle datasets list command to further refine the search results, such as sorting results by relevance or date and limiting the number of results returned.</p>
+<p>Another option to make the list easier to deal with is to return the results of the datasets_list call to a Pandas DataFrame constructor.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">pandas</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">datasets</span> <span class="o">=</span> <span class="n">kaggle</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">datasets_list</span><span class="p">(</span><span class="n">search</span><span class="o">=</span><span class="s2">&quot;air quality&quot;</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">datasets</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The output is rather wide so we won’t display it here, but you can scroll to see all of it or otherwise work with it.</p>
+</section>
+<section id="downloading-kaggle-datasets-using-the-api">
+<h1>Downloading Kaggle Datasets Using the API<a class="headerlink" href="#downloading-kaggle-datasets-using-the-api" title="Link to this heading"></a></h1>
+<p>One of the main benefits of the Kaggle API is the ability to download datasets directly from your Jupyter Notebook. This eliminates the need to download datasets from the Kaggle website manually and can save us time and effort.</p>
+<p>This section will discuss several ways of downloading Kaggle datasets using the API in a Jupyter Notebook, along with code examples and explanations.</p>
+<p>Let’s download the dataset named “senapatirajesh/netflix-tv-shows-and-movies”:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!kaggle datasets download -d senapatirajesh/netflix-tv-shows-and-movies
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="" src="../../_images/downloading-dataset.png" /></p>
+<p>The Kaggle API will download the dataset as a zip file to the Jupyter Notebook’s current working directory. We can then unzip the file and use the data in our notebooks and analysis.</p>
+<p>Here is an example of how to unzip the downloaded file and read it into a Pandas DataFrame:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing modules</span>
+<span class="kn">import</span> <span class="nn">zipfile</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="s2">&quot;netflix-tv-shows-and-movies.zip&quot;</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zip_ref</span><span class="p">:</span>
+    
+    <span class="c1"># extracting content in the zipfile</span>
+    <span class="n">zip_ref</span><span class="o">.</span><span class="n">extractall</span><span class="p">()</span>
+
+<span class="c1"># reading the contents of the &quot;NetFlix.csv&quot;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;NetFlix.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># printing first 6 raws of the dataframe</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The code above first imports the <strong><code class="docutils literal notranslate"><span class="pre">zipfile</span></code></strong> module, which provides tools for working with ZIP archives.</p></li>
+<li><p>Then, it uses the <code class="docutils literal notranslate"><span class="pre">**zipfile.ZipFile**</span></code> function to open the “netflix-tv-shows-and-movies.zip” file for reading (<code class="docutils literal notranslate"><span class="pre">**&quot;r&quot;**</span></code>).</p></li>
+<li><p>The <strong><code class="docutils literal notranslate"><span class="pre">with</span></code></strong> statement ensures that the ZIP file will be closed automatically after executing the code inside the block.</p></li>
+<li><p>Next, the <strong><code class="docutils literal notranslate"><span class="pre">zip_ref.extractall()</span></code></strong> method is used to extract the contents of the ZIP archive to the current working directory.</p></li>
+<li><p>Finally, the code uses the <strong><code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code></strong> function from the Pandas library to read the contents of the “NetFlix.csv” file into a Pandas dataframe, which is stored in the variable <strong><code class="docutils literal notranslate"><span class="pre">df</span></code></strong>.</p></li>
+<li><p>This allows us to easily work with the data in the file using the powerful tools provided by the Pandas library.</p></li>
+</ul>
+<p>Output:</p>
+<p><img alt="" src="../../_images/printing-dataframe.png" /></p>
+<p>This was one of the methods of downloading datasets from Kaggle using Kaggle API. Let’s look at other methods for downloading the same dataset.</p>
+<p>The <strong><code class="docutils literal notranslate"><span class="pre">kaggle.api.dataset_download_files</span></code></strong> function is another way to download datasets from Kaggle using the API.<br />
+This function allows us to download specific files within a dataset, rather than the entire dataset.</p>
+<p>Here’s how to use the <strong><code class="docutils literal notranslate"><span class="pre">kaggle.api.dataset_download_files</span></code></strong> function to download a specific file from a Kaggle dataset in Jupyter Notebook:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">kaggle</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">dataset_download_files</span><span class="p">(</span><span class="s2">&quot;senapatirajesh/netflix-tv-shows-and-movies&quot;</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s2">&quot;./&quot;</span><span class="p">,</span> <span class="n">unzip</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="" src="../../_images/another-method-of-downloading.png" /></p>
+<p>As you can see in this example, the dataset_download_files function takes three arguments:</p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">&quot;senapatirajesh/netflix-tv-shows-and-movies&quot;</span></code></strong> is the identifier for the dataset “NetFlix”.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">path=&quot;./&quot;</span></code></strong> specifies the directory where the file will be loaded.<br />
+“./” argument loads the file into the current working directory.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">unzip</span></code></strong>=True specifies that the file must be unzipped after downloading.</p></li>
+<li><p>If <strong><code class="docutils literal notranslate"><span class="pre">unzip=False</span></code></strong>, the file will be downloaded in its original format.</p></li>
+</ul>
+<p>The function kaggle.api.dataset_download_files will download the specified file to the specified directory and unzip it if unzip=True. We can then use the file in Jupyter Notebook just like any other file.</p>
+<p>Now, let’s open the downloaded dataset:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing pandas to open the dataset</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+  
+<span class="c1"># reading the cvs file</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;NetFlix.csv&quot;</span><span class="p">)</span>
+  
+<span class="c1"># displaying the 6 raws of contents of the cvs file</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p><img alt="" src="../../_images/dataset-downloading.png" /></p>
+<p>These were two methods that we can use to download specific files from Kaggle datasets using the <strong><code class="docutils literal notranslate"><span class="pre">kaggle.api.dataset_download_files</span></code></strong> function or the <strong><code class="docutils literal notranslate"><span class="pre">!kaggle</span> <span class="pre">datasets</span> <span class="pre">download</span> <span class="pre">-d</span> <span class="pre">dataset_identifier</span></code></strong>. So with just a few lines of code, we can easily access and use certain files in the Kaggle dataset in your projects.</p>
+</section>
+<section id="downloading-multiple-datasets-at-once">
+<h1>Downloading Multiple Datasets at Once<a class="headerlink" href="#downloading-multiple-datasets-at-once" title="Link to this heading"></a></h1>
+<p>Downloading multiple datasets at once using the Kaggle API in Python is a handy way to save time when you need to load multiple datasets from Kaggle for your projects.</p>
+<p>Here’s how we can get multiple datasets at once using the Kaggle API in Python:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">kaggle</span>
+
+<span class="c1"># list of dataset IDs to download</span>
+<span class="n">dataset_ids</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;themrityunjaypathak/imdb-top-100-movies&#39;</span><span class="p">,</span> <span class="s1">&#39;ahbab911/top-250-korean-dramas-kdrama-dataset&#39;</span><span class="p">,</span> <span class="s1">&#39;senapatirajesh/netflix-tv-shows-and-movies&#39;</span><span class="p">]</span>
+
+<span class="c1"># downloading the datasets</span>
+<span class="k">for</span> <span class="n">dataset_id</span> <span class="ow">in</span> <span class="n">dataset_ids</span><span class="p">:</span>
+    <span class="n">kaggle</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">dataset_download_files</span><span class="p">(</span><span class="n">dataset_id</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s2">&quot;./&quot;</span><span class="p">,</span> <span class="n">unzip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>So, to load multiple datasets, we just need to create a list with identifiers - author and dataset name - and then loop them. To access these datasets, you can use <strong><code class="docutils literal notranslate"><span class="pre">pandas.read_csv()</span></code></strong> for cvs files and <strong><code class="docutils literal notranslate"><span class="pre">pandas.read_excel()</span></code></strong> for xls, xlsx, xlsm, xlsb files.</p>
+</section>
+<section id="using-kaggle-datasets-in-various-cases">
+<h1>Using Kaggle Datasets in Various Cases<a class="headerlink" href="#using-kaggle-datasets-in-various-cases" title="Link to this heading"></a></h1>
+<p>Kaggle is a platform that hosts a variety of data sets for different use cases:</p>
+<ul class="simple">
+<li><p><strong>Machine Learning</strong><br />
+Kaggle datasets are valuable for machine learning enthusiasts, data scientists, and researchers. The datasets available on Kaggle range from simple to large-scale datasets used in industry and academia.</p></li>
+<li><p><strong>Data Exploration</strong><br />
+Kaggle datasets can be used for data exploration and analysis. This includes data cleaning and preprocessing tasks, exploring patterns and relationships in the data, and creating visualizations to help gain insights into the data.</p></li>
+<li><p><strong>Data visualization</strong><br />
+Kaggle data sets can also be used to visualize data, such as creating charts, graphs, and maps to help convey insights and conclusions.</p></li>
+<li><p><strong>Competitions</strong><br />
+Kaggle also runs machine learning competitions where participants can use Kaggle datasets to build models and compete against others to see who achieves the best results.</p></li>
+</ul>
+<p>The variety of datasets available on Kaggle and the ability to use them for many purposes make Kaggle a valuable resource for anyone who works with data.</p>
+</section>
+<section id="conclusion">
+<h1>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading"></a></h1>
+<p>Using the Kaggle API, you can easily access datasets and competition files from the command line, making your data science and machine learning workflow more streamlined and efficient.</p>
+<p>This tutorial covered what Kaggle is, the Kaggle API, how to use it, and why. We learned different methods of downloading datasets directly from Jupiter notebook, including how to download multiple datasets at once, search certain topic-related datasets, and many more.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

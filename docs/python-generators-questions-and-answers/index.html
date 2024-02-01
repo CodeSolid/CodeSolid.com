@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python Generator Functions: The Complete Guide &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=19645805"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Python Generator Functions: The Complete Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/python-generators-questions-and-answers.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="python-generator-functions-the-complete-guide">
+<h1>Python Generator Functions: The Complete Guide<a class="headerlink" href="#python-generator-functions-the-complete-guide" title="Link to this heading"></a></h1>
+<p>Many Python developers consider generators an advanced topic because they are less well known than sequence types such as lists, arrays, and strings.</p>
+<p>Also, because the syntax for generator functions can appear strange at first, many developers don’t take the time to learn about them at all. That’s a shame, really, because, in some instances, generators are not just a curiosity but an essential developer tool. In addition, generators are very simple to write. Indeed, for generator expressions, if you know how to write a list comprehension, you’re practically an expert already.</p>
+<p>In this article, we answer several questions that you may have about generators. We’ll talk about what generators are and what problems they solve. We will also dive into the various ways there are to create them. Because there are so many questions folks have about using generators, we wrote the article in a question and answer format, so feel free to skip ahead to your top concerns. (However, reading it straight through also makes it a good introduction to Python generators).</p>
+<section id="what-are-python-generators">
+<h2>What are Python Generators?<a class="headerlink" href="#what-are-python-generators" title="Link to this heading"></a></h2>
+<p>When people think of a generator in Python, they often think of a function that behaves like a sequence type – something you can iterate through. Unlike common sequence types like lists, however, generators only return each value as you ask for it, where a list stores everything you’ve put in it in memory.</p>
+<p>More precisely, a generator is a Python object. It is an expression, function, or class that – strictly speaking – can return an iterator. An iterator, in turn, is with which you can write a loop. Common ways to consume an iterator are a for-loop and a list comprehension.</p>
+<p>We use iterators all the time in Python, even though we may not know we are doing so. Sequence types like lists, strings, tuples, and range objects have a magic method, “__iter__,” which returns an iterator. Generator objects also have this magic method. However, as with most magic methods, you rarely need to implement them directly.</p>
+<p>In a later section, we’ll get into the precise details of what iterators are and how they work. But just as you don’t need to write the magic methods, you rarely need to work directly with an iterator. Instead, you write a for loop or a list comprehension, and Python will handle the iterator for you.</p>
+</section>
+<section id="what-are-python-generators-used-for">
+<h2>What are Python Generators Used For?<a class="headerlink" href="#what-are-python-generators-used-for" title="Link to this heading"></a></h2>
+<p>Python generators are used in cases where you need to be able to consume some data in a loop, but the size of the data set is potentially large enough to crash your program if you load it into memory. Generators allow the set of things to be iterated to be unbounded.</p>
+<p>Data sets like a year’s worth of access log entries from a high traffic website or the luminosity of stars visible through a light telescope are good candidates for a generator.</p>
+</section>
+<section id="are-generators-faster-than-lists-in-python">
+<h2>Are Generators Faster Than Lists in Python?<a class="headerlink" href="#are-generators-faster-than-lists-in-python" title="Link to this heading"></a></h2>
+<p>In general, generators are not faster than normal functions because they perform their operations on each iteration. Generators can sometimes <em>appear</em> to be faster than lists, but this performance depends partly on factors like a CPU cache.</p>
+<p>The reason for this qualified answer is that in our tests, we found at first that generators were faster even when the generator had to perform some task for each iteration. In that case, we expected the list could be faster because the result would already be calculated and stored.</p>
+<p>As we ran the tests several times, what became clear was that we were running into cases where the result of the first run was being cached in the generator case. Once we accounted for this, we compared first-run performance, and at that point, it became clear that the lists were faster.</p>
+<p>Here, for example, is a straightforward case of returning a number based on a range object (note that the %time function is available in NumPy and Jupyter notebooks):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10000000</span><span class="p">)]</span>
+<span class="n">num_generator</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10000000</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;List time:&quot;</span><span class="p">)</span>
+<span class="o">%</span><span class="n">time</span> <span class="n">_</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">num_list</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Generator time:&quot;</span><span class="p">)</span>
+<span class="o">%</span><span class="n">time</span> <span class="n">_</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">num_generator</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>List<span class="w"> </span>time:
+CPU<span class="w"> </span>times:<span class="w"> </span>user<span class="w"> </span><span class="m">90</span>.7<span class="w"> </span>ms,<span class="w"> </span>sys:<span class="w"> </span><span class="m">27</span>.3<span class="w"> </span>ms,<span class="w"> </span>total:<span class="w"> </span><span class="m">118</span><span class="w"> </span>ms
+Wall<span class="w"> </span>time:<span class="w"> </span><span class="m">119</span><span class="w"> </span>ms
+
+Generator<span class="w"> </span>time:
+CPU<span class="w"> </span>times:<span class="w"> </span>user<span class="w"> </span><span class="m">330</span><span class="w"> </span>ms,<span class="w"> </span>sys:<span class="w"> </span><span class="m">84</span>.4<span class="w"> </span>ms,<span class="w"> </span>total:<span class="w"> </span><span class="m">414</span><span class="w"> </span>ms
+Wall<span class="w"> </span>time:<span class="w"> </span><span class="m">437</span><span class="w"> </span>ms
+</pre></div>
+</div>
+<p>Running the test using %timeit gives a very different result. Still, we frequently ran into messages suggesting that the result was being cached (because the first run performance was an order of magnitude for subsequent runs).</p>
+<p>As we increased the complexity of the task from just returning a number to something like creating a string of random letters, the difference in the time for first-run performance became even more striking.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">string</span>
+<span class="k">def</span> <span class="nf">rand_string</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+    <span class="n">letters</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">ascii_lowercase</span>
+    <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_lowercase</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">))</span>
+
+<span class="n">str_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">rand_string</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">)]</span>
+<span class="n">str_generator</span> <span class="o">=</span> <span class="p">(</span><span class="n">rand_string</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;List time:&quot;</span><span class="p">)</span>
+<span class="o">%</span><span class="n">time</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">str_list</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Generator time:&quot;</span><span class="p">)</span>
+<span class="o">%</span><span class="n">time</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">str_generator</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">List</span> <span class="n">time</span><span class="p">:</span>
+<span class="n">CPU</span> <span class="n">times</span><span class="p">:</span> <span class="n">user</span> <span class="mi">39</span> <span class="n">µs</span><span class="p">,</span> <span class="n">sys</span><span class="p">:</span> <span class="mi">2</span> <span class="n">µs</span><span class="p">,</span> <span class="n">total</span><span class="p">:</span> <span class="mi">41</span> <span class="n">µs</span>
+<span class="n">Wall</span> <span class="n">time</span><span class="p">:</span> <span class="mf">40.8</span> <span class="n">µs</span>
+
+<span class="n">Generator</span> <span class="n">time</span><span class="p">:</span>
+<span class="n">CPU</span> <span class="n">times</span><span class="p">:</span> <span class="n">user</span> <span class="mi">301</span> <span class="n">ms</span><span class="p">,</span> <span class="n">sys</span><span class="p">:</span> <span class="mf">3.56</span> <span class="n">ms</span><span class="p">,</span> <span class="n">total</span><span class="p">:</span> <span class="mi">305</span> <span class="n">ms</span>
+<span class="n">Wall</span> <span class="n">time</span><span class="p">:</span> <span class="mi">305</span> <span class="n">ms</span>
+</pre></div>
+</div>
+</section>
+<section id="how-do-i-write-a-python-generator">
+<h2>How Do I Write a Python Generator?<a class="headerlink" href="#how-do-i-write-a-python-generator" title="Link to this heading"></a></h2>
+<p>Python generators come in a few different forms. In the following sections, we discuss generator functions, generator expressions, and classes as generators. We’ll also discuss a problem that trips up many Python developers who are beginning to work with generators.</p>
+</section>
+<section id="what-is-a-generator-function">
+<h2>What Is a Generator Function?<a class="headerlink" href="#what-is-a-generator-function" title="Link to this heading"></a></h2>
+<p>A generator function is relatively simple to write because it looks just like a normal python function with a <code class="docutils literal notranslate"><span class="pre">yield</span></code> statement instead of a return value. Yield is a Python keyword that lets a program call a function repeatedly while maintaining the function’s internal state.</p>
+<p>Let’s take a simple illustration to show how this works. We’ll implement a function that works somewhat like a Python range object. To keep the example simple, however, we’ll only allow positive step values:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a generator function:</span>
+
+<span class="k">def</span> <span class="nf">counter</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A simplified range-like function for positive numbers only&quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">step</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">end</span> <span class="o">&gt;=</span> <span class="n">start</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">start</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">i</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">step</span>  
+
+<span class="c1"># Use the generator function</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;For loop demo&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">counter</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;List comprehension demo&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">counter</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">)])</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>For<span class="w"> </span>loop<span class="w"> </span>demo
+<span class="m">1</span>
+<span class="m">2</span>
+<span class="m">3</span>
+List<span class="w"> </span>comprehension<span class="w"> </span>demo
+<span class="o">[</span><span class="m">1</span>,<span class="w"> </span><span class="m">2</span>,<span class="w"> </span><span class="m">3</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>As we’ve seen, creating a generator function is not difficult in itself. Simply yield a value from the function and call it from inside a for loop or comprehension, and Python will do the right thing.</p>
+<p>If you’re satisfied that you understand generators enough to write them, you might practice the technique by modifying the function above, so it does the right thing in the presence of negative step values.</p>
+<p>However, one issue we’ve glossed over is <em>how</em> Python “knows” when to stop calling the generator that we’ve created. If you’re curious about that, the next section is for you!</p>
+</section>
+<section id="how-do-python-generators-work">
+<h2>How do Python Generators Work?<a class="headerlink" href="#how-do-python-generators-work" title="Link to this heading"></a></h2>
+<p>Writing a generator is one thing – they’re relatively simple. But how do Python generators work under the hood?</p>
+<p>Generators work by exposing a method, <code class="docutils literal notranslate"><span class="pre">__iter__()</span></code>, that Python can call from the context of a loop or comprehension expression. Calling next on the value returned from <code class="docutils literal notranslate"><span class="pre">__iter__()</span></code> will either return the next value that the function yields or raise a <code class="docutils literal notranslate"><span class="pre">StopIteration</span></code> exception.</p>
+<p>We can show how this works using the counter generator we created in the last section.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get a generaor and return its iterator</span>
+<span class="n">my_generator</span> <span class="o">=</span> <span class="n">counter</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">iterator</span> <span class="o">=</span> <span class="n">my_generator</span><span class="o">.</span><span class="fm">__iter__</span><span class="p">()</span>
+
+<span class="c1"># Call next on the iterator until we get a StopIteration exception</span>
+<span class="k">while</span><span class="p">(</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">iterator</span><span class="p">)</span>  <span class="c1"># Same as iterator.__next__()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No more elements&quot;</span><span class="p">)</span>
+        <span class="k">break</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">1</span>
+<span class="m">2</span>
+<span class="m">3</span>
+No<span class="w"> </span>more<span class="w"> </span>elements
+</pre></div>
+</div>
+</section>
+<section id="what-is-a-generator-expression">
+<h2>What Is a Generator Expression?<a class="headerlink" href="#what-is-a-generator-expression" title="Link to this heading"></a></h2>
+<p>A generator expression is a more concise way to write a generator than a function with a yield statement. The syntax of a generator expression is the same as that for a list comprehension, except that instead of square brackets, we enclose a generator expression in parentheses.</p>
+<p>Like generator functions, generator expressions are only iterated when they are consumed. We can demonstrate this by comparing the results of a generator expression and a list comprehension:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">demo_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Demo list: &quot;</span><span class="p">,</span> <span class="n">demo_list</span><span class="p">)</span>
+
+<span class="n">demo_generator</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Demo generator: &quot;</span><span class="p">,</span> <span class="n">demo_generator</span><span class="p">)</span>
+
+<span class="c1"># Now we consume the generator</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">demo_generator</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Demo<span class="w"> </span>list:<span class="w">  </span><span class="o">[</span><span class="m">1</span>,<span class="w"> </span><span class="m">2</span>,<span class="w"> </span><span class="m">3</span>,<span class="w"> </span><span class="m">4</span>,<span class="w"> </span><span class="m">5</span><span class="o">]</span>
+Demo<span class="w"> </span>generator:<span class="w">  </span>&lt;generator<span class="w"> </span>object<span class="w"> </span>&lt;genexpr&gt;<span class="w"> </span>at<span class="w"> </span>0x107ef2500&gt;
+<span class="m">1</span>
+<span class="m">2</span>
+<span class="m">3</span>
+<span class="m">4</span>
+<span class="m">5</span>
+</pre></div>
+</div>
+<p>As with all generators, before we consume it, the generator is just an object, the results aren’t stored anywhere. We use a for loop to iterate through it.</p>
+<p>As with list comprehensions, generator expressions also support not just iterating but also filtering results. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">words</span> <span class="o">=</span> <span class="s2">&quot;Is there any place in this town where we could find a shrubbery&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="n">gen</span> <span class="o">=</span> <span class="p">(</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">gen</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">gen</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&lt;class<span class="w"> </span><span class="s1">&#39;generator&#39;</span>&gt;
+there
+place
+where
+could
+shrubbery
+</pre></div>
+</div>
+</section>
+<section id="can-a-python-class-be-a-generator">
+<h2>Can a Python Class Be a Generator?<a class="headerlink" href="#can-a-python-class-be-a-generator" title="Link to this heading"></a></h2>
+<p>So far, we’ve looked at generators as Python functions using the yield method. We’ve also discussed generator expressions, which you get if you take a list comprehension and replace the square brackets with parentheses.</p>
+<p>We turn next to the issue of Python classes.</p>
+<p>Python classes can be generators. One advantage of doing so is that exposing a generator as a Python class often makes the generator simpler to reason about and may also make the generator re-usable without exhausting the underlying iterator.</p>
+<p>Let’s improve our implementation of a range-like generator in Python to see this in action. To be sure, this is still just a toy example since Python already supports a range object, but it will give us some practice in setting up a generator class.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Ranger</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="n">start</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">end</span> <span class="o">=</span> <span class="n">end</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">step</span> <span class="o">=</span> <span class="n">step</span> <span class="ow">or</span> <span class="mi">1</span> <span class="c1"># Prevent zero</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">direction</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">step</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+    
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">direction</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">pos_counter</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">neg_counter</span><span class="p">()</span>
+    
+    <span class="k">def</span> <span class="nf">pos_counter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;A simplified range-like function for positive numbers only&quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">step</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">end</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span>
+        <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">i</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">step</span>
+    
+    <span class="k">def</span> <span class="nf">neg_counter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;A simplified range-like function for negative numbers only&quot;&quot;&quot;</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">step</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">end</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span>
+        <span class="k">while</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">end</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">i</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">step</span>  <span class="c1"># self.step is negative, so subtracting</span>
+
+        
+<span class="n">r</span> <span class="o">=</span> <span class="n">Ranger</span><span class="p">()</span>
+<span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">r</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span>
+
+<span class="n">r2</span> <span class="o">=</span> <span class="n">Ranger</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">l2</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">r2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">l2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p>[1, 2, 3, 4, 5]
+[-5, -6, -7, -8, -9]</p>
+<p>Moving our original range clone to a class implementation allowed us to naturally encapsulate and decompose the two different use cases we had (iterating forward and backward). We rely on the <code class="docutils literal notranslate"><span class="pre">__iter__</span></code> – the magic method that Python calls at the start of each loop – to choose between the two based on the step value.</p>
+<p>Although we didn’t show it in this example, implementing the __iter__ function also allowed us to solve a subtle bug in our original generator-as-function. To learn why this is so, please see the next section.</p>
+</section>
+<section id="why-does-my-generator-only-work-once">
+<h2>Why Does My Generator Only Work Once?<a class="headerlink" href="#why-does-my-generator-only-work-once" title="Link to this heading"></a></h2>
+<p>One problem you may bump into with generators you write is that – unlike a list or a range object, for example – you can only iterate them once. After that, if you try to iterate through them, nothing happens.</p>
+<p>A generator will only work once if the iterator behind it has been exhausted. The solution is to return the generator from a class that implements the __iter__ function. Python loops and comprehensions will call the __iter__ function each time they run an iteration.</p>
+<p>Let’s look at the problem first, and then we’ll show the solution:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;We can iterate a range twice:&quot;</span><span class="p">)</span>
+<span class="n">demo_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">demo_range</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">demo_range</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Same with a list:&quot;</span><span class="p">)</span>
+<span class="n">demo_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">demo_range</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">demo_list</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">demo_list</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">NOT SO with a generator!&quot;</span><span class="p">)</span>
+<span class="c1"># Note the parentheses here to construct a generator</span>
+<span class="n">demo_generator</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">demo_range</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">demo_generator</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">demo_generator</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>We<span class="w"> </span>can<span class="w"> </span>iterate<span class="w"> </span>a<span class="w"> </span>range<span class="w"> </span>twice:
+<span class="o">[</span><span class="m">1</span>,<span class="w"> </span><span class="m">2</span>,<span class="w"> </span><span class="m">3</span>,<span class="w"> </span><span class="m">4</span>,<span class="w"> </span><span class="m">5</span><span class="o">]</span>
+<span class="o">[</span><span class="m">1</span>,<span class="w"> </span><span class="m">2</span>,<span class="w"> </span><span class="m">3</span>,<span class="w"> </span><span class="m">4</span>,<span class="w"> </span><span class="m">5</span><span class="o">]</span>
+
+Same<span class="w"> </span>with<span class="w"> </span>a<span class="w"> </span>list:
+<span class="o">[</span><span class="m">1</span>,<span class="w"> </span><span class="m">2</span>,<span class="w"> </span><span class="m">3</span>,<span class="w"> </span><span class="m">4</span>,<span class="w"> </span><span class="m">5</span><span class="o">]</span>
+<span class="o">[</span><span class="m">1</span>,<span class="w"> </span><span class="m">2</span>,<span class="w"> </span><span class="m">3</span>,<span class="w"> </span><span class="m">4</span>,<span class="w"> </span><span class="m">5</span><span class="o">]</span>
+
+NOT<span class="w"> </span>SO<span class="w"> </span>with<span class="w"> </span>a<span class="w"> </span>generator!
+<span class="o">[</span><span class="m">1</span>,<span class="w"> </span><span class="m">2</span>,<span class="w"> </span><span class="m">3</span>,<span class="w"> </span><span class="m">4</span>,<span class="w"> </span><span class="m">5</span><span class="o">]</span>
+<span class="o">[]</span>
+</pre></div>
+</div>
+<p>Being non-re-entrant is not a problem only for generator expressions, as shown here – it’s also a bug in our toy implementation of the range object as a generator function (see the section above on generator functions).</p>
+<p>We need to wrap the generator in a class that implements the __iter__ protocol to fix this problem. Here’s a class that shows how we might do this in the simplest way, by returning a generator expression from the __iter__ function():</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">FiveNumbers</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">gen_exp</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">gen_exp</span>
+
+<span class="c1"># Can we call it twice now?   </span>
+<span class="n">numbers</span> <span class="o">=</span> <span class="n">FiveNumbers</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">])</span> 
+<span class="nb">print</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">])</span> 
+</pre></div>
+</div>
+<p>Spoiler alert: it works this time!</p>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>For a more detailed example where we show a Python class wrapping a generator, see the section, <a class="reference external" href="https://codesolid.com/python-generators-questions-and-answers/#htoc-can-a-python-class-be-a-generator">Can a Python Class Be a Generator?</a></p>
+</section>
+<section id="what-s-the-equivalent-of-iterable-in-python">
+<h2>What’s the Equivalent of Iterable in Python?<a class="headerlink" href="#what-s-the-equivalent-of-iterable-in-python" title="Link to this heading"></a></h2>
+<p>Although there is no direct equivalent of a Java iterable in Python, the closest match in Python would be any class that implements the magic method, <code class="docutils literal notranslate"><span class="pre">__iter__()</span></code>. <code class="docutils literal notranslate"><span class="pre">__iter__()</span></code> is the method that is most closely analogous to <code class="docutils literal notranslate"><span class="pre">Iterable.iterator()</span></code> in Java.</p>
+<p>In Python, however, there is no need for a functional equivalent of Java’s <code class="docutils literal notranslate"><span class="pre">Iterable.forEach</span></code>. Magic methods in Python are more closely integrated with the core language, so the idiomatic use of a class that implements <code class="docutils literal notranslate"><span class="pre">__iter__()</span></code> would simply be to write a for loop expression with an instance of the class.</p>
+</section>
+<section id="what-are-the-advantages-of-generators-in-python">
+<h2>What Are the Advantages of Generators in Python?<a class="headerlink" href="#what-are-the-advantages-of-generators-in-python" title="Link to this heading"></a></h2>
+<p>Generators provide two main advantages over lists, arrays, or other data structures. First, generators use less memory, so they are the right choice for large data sets. Secondly, a generator only uses memory when iterated (lazy evaluation), whereas a list uses memory whether iterated or not.</p>
+<p>Generators are a good choice whenever the quantity of data to be iterated is large enough that memory becomes a constraint. I think the tradeoffs of generators are like those you consider when processing a file. If you know a file will be small (a configuration file, for example), go ahead and load it into memory. If, on the other hand, you expect the size of the file to be arbitrary, you’re better off reading the file line by line, byte by byte, or using a fixed-length buffer.</p>
+<p>You can demonstrate that generators are evaluated when iterated if you try to print one without iterating it. You won’t see the values you’ll expect; you’ll see something that looks like you’re examining a Python object (as indeed, you are).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_generator</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_generator</span><span class="p">)</span>               
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&lt;generator<span class="w"> </span>object<span class="w"> </span>&lt;genexpr&gt;<span class="w"> </span>at<span class="w"> </span>0x1078cf4c0&gt;
+</pre></div>
+</div>
+</section>
+<section id="what-is-an-asynchronous-generator">
+<h2>What Is an Asynchronous Generator?<a class="headerlink" href="#what-is-an-asynchronous-generator" title="Link to this heading"></a></h2>
+<p>An asynchronous generator is a generator defined with the async keyword. In general, one would implement an asynchronous generator to efficiently handle asynchronous input and output.</p>
+<p>We can simulate an asynchronous process by returning a value after a random time rather than create an example of a socket or database call or the like. We’ll process these values as they arrive asynchronously using an async for-loop.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">get_random</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return random numbers, and sleep for value returned in seconds&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">):</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+        <span class="k">yield</span> <span class="n">value</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        
+<span class="k">async</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">get_random</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;get_random is sleeping for </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Finished&quot;</span><span class="p">)</span>     
+</pre></div>
+</div>
+<p>Output (actual values will vary):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>get_random<span class="w"> </span>is<span class="w"> </span>sleeping<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="m">2</span><span class="w"> </span>seconds
+get_random<span class="w"> </span>is<span class="w"> </span>sleeping<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="m">2</span><span class="w"> </span>seconds
+get_random<span class="w"> </span>is<span class="w"> </span>sleeping<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="m">3</span><span class="w"> </span>seconds
+get_random<span class="w"> </span>is<span class="w"> </span>sleeping<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="m">4</span><span class="w"> </span>seconds
+get_random<span class="w"> </span>is<span class="w"> </span>sleeping<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="m">3</span><span class="w"> </span>seconds
+Finished
+</pre></div>
+</div>
+</section>
+<section id="you-may-also-like">
+<h2>You May Also Like<a class="headerlink" href="#you-may-also-like" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://codesolid.com/random-python-secrets-and-random-values-made-easy/">Random Python: Secrets and Random Values Made Easy</a></p></li>
+<li><p><a class="reference external" href="https://codesolid.com/random-python-secrets-and-random-values-made-easy/">Python Format Strings: Beginner to Expert</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

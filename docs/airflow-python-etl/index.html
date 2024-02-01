@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apache Airflow: Python ETL and Scheduling Made Easy &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=19645805"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Apache Airflow:  Python ETL and Scheduling Made Easy</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/airflow-python-etl.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="apache-airflow-python-etl-and-scheduling-made-easy">
+<h1>Apache Airflow:  Python ETL and Scheduling Made Easy<a class="headerlink" href="#apache-airflow-python-etl-and-scheduling-made-easy" title="Link to this heading"></a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<p>Apache’s Airflow project is a popular tool for scheduling Python jobs and pipelines, which can be used for “ETL jobs” (I.e., to Extract, Transform, and Load data), building machine learning models, updating data warehouses, or other scheduled tasks.</p>
+<p>Airflow is an excellent choice for Python developers. Unlike other solutions in this space, such as AWS step functions, in Airflow, you define the entire pipeline in Python, not just the code for the steps. Conveniently, however, you can also integrate bash scripts easily through Airflow’s bash “operator” (plugin).</p>
+<p>Though an open-source project, Apache Airflow has wide industry support. Two major cloud providers, AWS and Google, have managed products built on Airflow (Amazon Managed Workflows for Apache Airflow, or MWAA) and Google Cloud Composer, respectively. Although there is no comparable solution on Azure, there is a <a class="reference external" href="https://github.com/savjani-zz/azure-quickstart-templates/tree/master/101-webapp-linux-airflow-postgresql" title="quick-start template">quickstart template</a> for deploying Docker-based Airflow and PostgreSQL.</p>
+<p>Getting started with Apache Airflow development on your local machine is generally straightforward. Still, you may encounter many questions about the behavior of Airflow along the way.</p>
+<p>In this article, I walk you through the steps involved and answer some of the questions I had when I first tried this exercise myself. I hope by working through this in a slightly different order than I did, I can help you address some of the issues I had when I went along.</p>
+</section>
+<section id="system-requirements-and-installing-airflow">
+<h2>System Requirements and Installing Airflow<a class="headerlink" href="#system-requirements-and-installing-airflow" title="Link to this heading"></a></h2>
+<p>Airflow is straightforward to install and run on Linux or Mac. For Windows, it needs to be run on <a class="reference external" href="https://pypi.org/project/apache-airflow/" title="WSL2 or in Linux containers">WSL2 or in Linux containers</a>. Airflow’s default database for testing is SQLite 3.15.0+, so you may need to have that binary installed before beginning. As of the time of this writing, Airflow supports Python 3.7 through 3.10. I used Miniconda to set up an environment with Python 3.10, but you can also use PyEnv to manage Python versions. (See <a class="reference external" href="https://codesolid.com/conda-vs-pip/#htoc-conda-vs-pyenv">Conda vs. PyEnv</a> for some of the tradeoffs). Here’s the conda version:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Using Conda to create an isolated environment for airflowb</span>
+conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>airflow<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.10<span class="w">  </span>
+conda<span class="w"> </span>activate<span class="w"> </span>airflow
+</pre></div>
+</div>
+<p>Once this is done, airflow is installed using pip:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>apache-airflow
+</pre></div>
+</div>
+<p>From this point, you can explore the Apache Airflow quickstart and tutorials on the main documentation page. I especially recommend spending additional time on the quickstart, which I glossed over somewhat in my rush to get my hands dirty with code. With Airflow installed as above, an important shortcut you can run is the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>airflow<span class="w"> </span>standalone
+</pre></div>
+</div>
+</section>
+<section id="the-airflow-web-interface">
+<h2>The Airflow Web Interface<a class="headerlink" href="#the-airflow-web-interface" title="Link to this heading"></a></h2>
+<p>This initializes the database, creates a user, and starts both the web server and the scheduler. If we navigate to the web browser run by the command above (It should be at <a class="reference external" href="http://localhost:8080/">http://localhost:8080/</a>), we land by default on the DAGs view, a portion of which is shown here:</p>
+<p><img alt="Apache Airflow web interface, main page." src="../_images/image.png" /></p>
+<p>A DAG is a Directed Acyclic Graph, in other words, a graph in which nodes don’t lead to paths that loop back to other nodes (though they can branch, and individual nodes can, of course, contain loops in their Python code). So you can think of the DAG as your workflow or pipeline, and the nodes of it are the steps.</p>
+<p>In the view above, we see two active tasks which you likely won’t have when your first start. The tutorials ship in a paused state, but you try one by navigating to the paused tab, then scrolling down to the DAG named “Tutorial,” for example. If you look to the right, you’ll see a start button that looks promising, and clicking on it shows this popup:</p>
+<p><img alt="Apache Airflow -- Triggering a DAG" src="../_images/image-1.png" /></p>
+<p>Since we don’t need to modify the config, we can click on Trigger DAG. This should start the DAG, and you should now see it appear on the active tab. If we click on the DAG name itself, we get a wealth of information available through this navbar:</p>
+<p><img alt="Apache Airflow DAG navigation bar." src="../_images/image-2-1024x113.png" /></p>
+<p>The Grid view shows us the results of each run, which should be green (successful) at this point:</p>
+<p><img alt="Apache Airflow grid view." src="../_images/image-3.png" /></p>
+<p>The boxes below represent the status of each step.</p>
+<p>Under the “Graph” tab, we can see a graphical representation of the steps (nodes) of the DAG and how they relate to one another:</p>
+<p><img alt="Apache Airflow graph view." src="../_images/image-4.png" /></p>
+<p>As you can see, after print_date, the steps labeled sleep and templated are called.</p>
+</section>
+<section id="understanding-how-dag-tasks-are-related">
+<h2>Understanding How DAG Tasks Are Related<a class="headerlink" href="#understanding-how-dag-tasks-are-related" title="Link to this heading"></a></h2>
+<p>To see how that’s accomplished in code, click on the Code tab of the navbar. Here we see three tasks defined with the somewhat cryptic names, t1, t2, and t3 (print_date, sleep, and templated, respectfully). For example, t1 looks like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="n">t1</span> <span class="o">=</span> <span class="n">BashOperator</span><span class="p">(</span>
+        <span class="n">task_id</span><span class="o">=</span><span class="s2">&quot;print_date&quot;</span><span class="p">,</span>
+        <span class="n">bash_command</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>(As an aside, by way of code review, I’d recommend making the variable names consistent with the task_id names since this would make the code more clear).</p>
+<p>We define the task in this case by instantiating an operator, a BashOperator. We give it an ID and something to do in bash: print the date. (Note that the task_id is also the name as it appears in the Graph view).</p>
+<p>With three such operators defined, we must scroll down to see how they’re wired together. What we find is both pretty concise and pretty strange:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">t1</span> <span class="o">&gt;&gt;</span> <span class="p">[</span><span class="n">t2</span><span class="p">,</span> <span class="n">t3</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Well, If we’d named our variables after their task IDs, the code above would look like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">print_date</span> <span class="o">&gt;&gt;</span> <span class="p">[</span><span class="n">sleep</span><span class="p">,</span> <span class="n">templated</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>This should remind you of the graphical representation of the DAG above. It may look like magic, but what’s happening is that Airflow overloads the bit shift operators for certain objects (using the __lshift__ and __rshift__ special methods). For example, the right_shift operator called here calls set_downstream on the operator or the list of operators given in the list, so clarified still further, this is equivalent to:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">print_date</span><span class="o">.</span><span class="n">set_downstream</span><span class="p">([</span><span class="n">sleep</span><span class="p">,</span> <span class="n">templated</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Don’t worry; those leftshift and rightshift operators eventually grow on you. In case they haven’t yet, Googling “Operator overloading cautions” will provide you with this consolation that you’re not alone:</p>
+<p><img alt="Operator overloading cautions" src="../_images/image-5.png" /></p>
+</section>
+<section id="apache-airflow-2-0-and-the-taskflow-api">
+<h2>Apache Airflow 2.0 and the TaskFlow API<a class="headerlink" href="#apache-airflow-2-0-and-the-taskflow-api" title="Link to this heading"></a></h2>
+<p>Going again through the tutorials, we learn that as of Apache 2.0, there’s a new API that makes writing and wiring up tasks easier and more like writing “regular” Python code. One of the things that TaskFlow made easier and was designed to address was the issue of how to pass data from one step to another. The tutorial for this API has a great example of how to do this and how much easier it is to accomplish this using TaskFlow than the pre-2.0 solution.</p>
+<p>Glossing over the details somewhat, rather than creating a key-value pair at the end of a task and retrieving it in a subsequent task, with TaskFlow, you can simply return data and then pass it to the next function.</p>
+<p>This also changes how tasks are wired up. Looking at the Graph for this tutorial, we get the following simple flow process:</p>
+<p><img alt="" src="../_images/image-6.png" /></p>
+<p>Looking at how those tasks are wired up, we see the following code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="c1"># [START main_flow]</span>
+    <span class="n">order_data</span> <span class="o">=</span> <span class="n">extract</span><span class="p">()</span>
+    <span class="n">order_summary</span> <span class="o">=</span> <span class="n">transform</span><span class="p">(</span><span class="n">order_data</span><span class="p">)</span>
+    <span class="n">load</span><span class="p">(</span><span class="n">order_summary</span><span class="p">[</span><span class="s2">&quot;total_order_value&quot;</span><span class="p">])</span>
+    <span class="c1"># [END main_flow]</span>
+</pre></div>
+</div>
+<p>Aside from making it easier to return data, one nice thing that falls out of the API is that the tasks now match the function name. The naming mismatch (“t1” for “print_date”) that we quibbled with earlier now goes away. You can see this in the functions’ names in the last snippet.</p>
+<p>That’s because the tasks are now set up as plain Python functions with an <code class="docutils literal notranslate"><span class="pre">&#64;task()</span></code> annotation added. For example, here’s the code for the <code class="docutils literal notranslate"><span class="pre">extract</span></code> task.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="nd">@task</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">extract</span><span class="p">():</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        #### Extract task</span>
+<span class="sd">        A simple Extract task to get data ready for the rest of the data</span>
+<span class="sd">        pipeline. In this case, getting data is simulated by reading from a</span>
+<span class="sd">        hardcoded JSON string.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">data_string</span> <span class="o">=</span> <span class="s1">&#39;{&quot;1001&quot;: 301.27, &quot;1002&quot;: 433.21, &quot;1003&quot;: 502.22}&#39;</span>
+
+        <span class="n">order_data_dict</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">data_string</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">order_data_dict</span>
+</pre></div>
+</div>
+<p>One caveat about this tutorial is that even though it seems like we’re now dealing with more simple return values, under the hood, this still uses the same key-value pair mechanism from the pre-2.0 days, which were called XComs (for Cross-Communication). This mechanism was designed for passing small amounts of data only, so a more realistic ETL example would perhaps save the extract values to a temporary table, Parquet file, or the like and return a string representing the table or filename.</p>
+<p>A few questions occurred to me when I first encountered these tutorials and began working with them.</p>
+<p>First, as a proof of concept, I wanted to see some scheduled tasks run. So far, I had been invoking them from the command line. Two handy CLI commands are worth mentioning at this point.</p>
+<ul class="simple">
+<li><p>To run a workflow (DAG): <code class="docutils literal notranslate"><span class="pre">airflow</span> <span class="pre">dags</span> <span class="pre">test</span> <span class="pre">&lt;dag_name&gt;</span></code></p></li>
+<li><p>To run a single task in a DAG: <code class="docutils literal notranslate"><span class="pre">airflow</span> <span class="pre">tasks</span> <span class="pre">test</span> <span class="pre">&lt;dag_name&gt;</span> <span class="pre">&lt;task_name&gt;</span></code></p></li>
+</ul>
+<p>Before I revisited the Airflow web interface using <code class="docutils literal notranslate"><span class="pre">airflow</span> <span class="pre">standalone</span></code> as described above, I was running the scheduler using <code class="docutils literal notranslate"><span class="pre">airflow</span> <span class="pre">scheduler</span></code>. To see a task get picked up, I needed to set the scheduled interval more aggressively – unrealistically so if running in production. To do this, I specified the DAG options as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@dag</span><span class="p">(</span>
+    <span class="c1"># Note:  &quot;schedule_interval&quot; is deprecated</span>
+    <span class="n">schedule</span><span class="o">=</span><span class="s2">&quot;* * * * *&quot;</span><span class="p">,</span>
+    <span class="n">start_date</span><span class="o">=</span><span class="n">pendulum</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">tz</span><span class="o">=</span><span class="s2">&quot;UTC&quot;</span><span class="p">),</span>
+    <span class="n">catchup</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;example&quot;</span><span class="p">,</span> <span class="s2">&quot;CodeSolid&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>This leverages the fact that one way to specify a schedule in Airflow is with a CRON specification; using five asterisks here amounts to saying, “run this every minute.”</p>
+<p>Getting a job to run in the scheduler led me to my second question. I noticed that the scheduler output was relatively sparse and did not include the output of any Python print statements or echo statements in bash. Because of this, I decided to add a custom logger to my example. It turns out a much simpler approach is to use the Web interface. We’ll look at this later on.</p>
+<p>Finally, one thing that interested me was how compatible the new TaskFlow API was with the earlier way of instantiating operators and wiring them up using overloaded shift operators. Although this might not be important for new code, it did seem like an essential concern if one was dealing with legacy code and migrating it forward.</p>
+</section>
+<section id="mixing-apache-airflow-2-0-style-tasks-with-legacy-tasks-an-example">
+<h2>Mixing Apache Airflow 2.0 Style Tasks with Legacy Tasks - An Example<a class="headerlink" href="#mixing-apache-airflow-2-0-style-tasks-with-legacy-tasks-an-example" title="Link to this heading"></a></h2>
+<p>So with these motivating questions in mind, here is the code for Yet Another Apache Airflow Tutorial, <code class="docutils literal notranslate"><span class="pre">scheduled.py</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># scheduled.py</span>
+
+<span class="kn">import</span> <span class="nn">pendulum</span>
+<span class="kn">from</span> <span class="nn">airflow.decorators</span> <span class="kn">import</span> <span class="n">dag</span><span class="p">,</span> <span class="n">task</span>
+<span class="kn">from</span> <span class="nn">airflow.operators.bash</span> <span class="kn">import</span> <span class="n">BashOperator</span>
+<span class="kn">import</span> <span class="nn">pathlib</span>
+
+<span class="k">def</span> <span class="nf">get_log_info</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;returns the log directory and logfile name&quot;&quot;&quot;</span>    
+    <span class="n">airflow_home</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;airflow&#39;</span><span class="p">)</span>
+    <span class="n">log_dir</span> <span class="o">=</span> <span class="n">airflow_home</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;task_logs&quot;</span><span class="p">)</span>
+    <span class="n">log_file</span> <span class="o">=</span> <span class="n">log_dir</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;scheduled_task.log&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">log_dir</span><span class="p">,</span> <span class="n">log_file</span>
+
+<span class="nd">@dag</span><span class="p">(</span>
+    <span class="c1"># Note:  &quot;schedule_interval&quot; is deprecated</span>
+    <span class="n">schedule</span><span class="o">=</span><span class="s2">&quot;* * * * *&quot;</span><span class="p">,</span>
+    <span class="n">start_date</span><span class="o">=</span><span class="n">pendulum</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">tz</span><span class="o">=</span><span class="s2">&quot;UTC&quot;</span><span class="p">),</span>
+    <span class="n">catchup</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;example&quot;</span><span class="p">,</span> <span class="s2">&quot;CodeSolid&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+<span class="k">def</span> <span class="nf">scheduled_task</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    ### Record the date every minute. </span>
+<span class="sd">    An example task combining @task decorators with tasks </span>
+<span class="sd">    defined as operators</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nd">@task</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">setup</span><span class="p">():</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        #### Setup task</span>
+<span class="sd">        Creates a task_logs directory if it doesn&#39;t exist.  </span>
+<span class="sd">        Note that manual logging this way turned out to be </span>
+<span class="sd">        overkill and the wrong way to do task logging, </span>
+<span class="sd">        as the Apache logs will capture this for simple </span>
+<span class="sd">        &quot;print&quot; or echo commands. </span>
+<span class="sd">        </span>
+<span class="sd">        However, we illustrate some other concepts in </span>
+<span class="sd">        this example, so we&#39;re leaving it in.</span>
+
+<span class="sd">        See the discussion here:</span>
+<span class="sd">        https://codesolid.com/airflow-python-etl/</span>
+<span class="sd">       &quot;&quot;&quot;</span>
+        <span class="n">log_dir</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">get_log_info</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">log_dir</span><span class="p">):</span>
+            <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">log_dir</span><span class="p">)</span>
+
+    <span class="nd">@task</span> 
+    <span class="k">def</span> <span class="nf">prove_python_task</span><span class="p">():</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Making sure I can log from Python as well as bash.</span>
+<span class="sd">        Another TaskFlow style task</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">log_file</span> <span class="o">=</span> <span class="n">get_log_info</span><span class="p">()</span>   
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">log_file</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;The Python task worked OK</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Echoing the date using a pre-TaskFlow style operator&quot;&quot;&quot;</span>
+    <span class="n">echo_date</span> <span class="o">=</span> <span class="n">BashOperator</span><span class="p">(</span>
+        <span class="n">task_id</span><span class="o">=</span><span class="s2">&quot;echo_date&quot;</span><span class="p">,</span>
+        <span class="n">bash_command</span><span class="o">=</span><span class="s1">&#39;echo &quot;Printing the date to the console $(date)&quot;&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Log the date to the custom log, also in pre-2.0 style&quot;&quot;&quot;</span>
+    <span class="n">log_date</span> <span class="o">=</span> <span class="n">BashOperator</span><span class="p">(</span>
+        <span class="n">task_id</span><span class="o">=</span><span class="s2">&quot;log_date&quot;</span><span class="p">,</span>
+        <span class="n">bash_command</span><span class="o">=</span><span class="s1">&#39;echo &quot;Logging the date to the log $(date)&quot; &gt;&gt; ~/airflow/task_logs/scheduled_task.log&#39;</span><span class="p">,</span>
+    <span class="p">)</span>    
+
+    <span class="c1"># Set up the flow, mixing pre-2.0 shift operators </span>
+    <span class="c1"># with calls to TaskFlow methods</span>
+    <span class="n">setup</span><span class="p">()</span> <span class="o">&gt;&gt;</span> <span class="n">prove_python_task</span><span class="p">()</span> <span class="o">&gt;&gt;</span> <span class="n">echo_date</span> <span class="o">&gt;&gt;</span> <span class="n">log_date</span>
+    
+<span class="n">scheduled_tasks</span> <span class="o">=</span> <span class="n">scheduled_task</span><span class="p">()</span>
+</pre></div>
+</div>
+<section id="discussion">
+<h3>Discussion<a class="headerlink" href="#discussion" title="Link to this heading"></a></h3>
+<p>Following the imports, we first define a simple Python function to return a directory and logfile name for our custom log. Next, we annotate the function that defines the DAG with the <code class="docutils literal notranslate"><span class="pre">&#64;dag</span></code> decorator. Here we schedule our dag to run every minute and set some other properties, especially telling it not to catch up to all jobs since the arbitrary start_date we provide.</p>
+<p>The function name, “scheduled_task”, will be how our DAG appears in the user interface. We begin with two TaskFlow-style tasks:</p>
+<ul class="simple">
+<li><p>Our first task, <code class="docutils literal notranslate"><span class="pre">setup</span></code>, creates the log directory if it doesn’t exist.</p></li>
+<li><p>With logging in place, we demonstrate we can use it in our next TaskFlow style task, <code class="docutils literal notranslate"><span class="pre">prove_python_task</span></code>.</p></li>
+</ul>
+<p>Finally, we add two tasks in the “old” way, selecting BashOperator as the operator type. Our first echos the date, and our second task logs it.</p>
+<p>Finally, we show how we can use our dag-styled rightshift operator in conjunction with both new-style and old-style tasks.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="c1"># Set up the flow, mixing pre-2.0 shift operators </span>
+    <span class="c1"># with calls to TaskFlow methods</span>
+    <span class="n">setup</span><span class="p">()</span> <span class="o">&gt;&gt;</span> <span class="n">prove_python_task</span><span class="p">()</span> <span class="o">&gt;&gt;</span> <span class="n">echo_date</span> <span class="o">&gt;&gt;</span> <span class="n">log_date</span>
+</pre></div>
+</div>
+<p>There are no doubt many other ways to structure this code. Importantly, however, the DAG task is set up not by the bare function name but by calling the decorated function. Calling the decorated function returns an XComArg object, which like an operator, contains the set_upstream and set_downstream methods on which this trick relies.</p>
+</section>
+</section>
+<section id="scheduling-the-dags-directory-and-configuration">
+<h2>Scheduling, The Dags Directory, and Configuration<a class="headerlink" href="#scheduling-the-dags-directory-and-configuration" title="Link to this heading"></a></h2>
+<p>Before running our scheduled job, I wanted to take a moment to clear up some issues that may not be obvious when you first start going through the Airflow tutorial material. One of the first things the tutorial instructs us to do is to run our files in the directory <code class="docutils literal notranslate"><span class="pre">~/airflow/dags</span></code> directory. Thus, for example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">airflow</span><span class="o">/</span><span class="n">dags</span>
+<span class="n">python</span> <span class="n">scheduled</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>You may notice, however, that the task starts in a paused state even if you do that, as shown here:</p>
+<p><img alt="Toggling the paused / unpaused status of an Apache Airflow DAG." src="../_images/image-7.png" /></p>
+<p>As you can see, toggling that switch will unpause it, or from the command line, you can run this to accomplish the same thing:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>airflow<span class="w"> </span>dags<span class="w"> </span>unpause<span class="w"> </span>scheduled_task
+</pre></div>
+</div>
+<p>If you want your dags to start up once you drop them in the directory, you can edit the <code class="docutils literal notranslate"><span class="pre">dags_are_paused_at_creation</span></code> setting in the airflow.cfg file (It will be located in <code class="docutils literal notranslate"><span class="pre">~/airflow</span></code> or wherever you installed Airflow). I haven’t needed to change this setting, so fair warning, I’m not sure if it also unpauses all the tutorial dags or not.</p>
+<p>Here’s another surprise you may encounter as you make your way up the learning curve. You’ll notice that if you edit a file with the scheduler running, your changes will be picked up any time you save the file, even if you don’t re-run the file in Python. So if your schedule is set aggressively, you will see a DAG Grid view in the web console that looks something like as you save changes that don’t yet work:</p>
+<p><img alt="DAG grid view showing a DAG being edited in real time." src="../_images/image-8.png" /></p>
+<p>Two solutions to this are to either pause the job or develop the file iteratively outside the dags directory and then copy or move it in.</p>
+<p>Since clearly Airflow is watching this folder, this begs the question of whether we needed to run it through Python ourselves in the first place. If you’re running <code class="docutils literal notranslate"><span class="pre">airflow</span> <span class="pre">dags</span> <span class="pre">test</span></code> or the like, the answer is yes, but for purposes of the web interface and the scheduler, things get a bit murkier.</p>
+<p>If you try just moving a DAG file into the dags directory, you won’t see it in the web interface right away, which may lead you to conclude that that’s not sufficient. Clicking the refresh button on the DAGs UI is no help for that, either</p>
+<p>What’s going on is that the behavior is once again controlled by the configuration file, in this case, this setting:</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="c1"># How often (in seconds) to scan the DAGs directory for new files. Default to 5 minutes.</span>
+<span class="n">dag_dir_list_interval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">300</span>
+</pre></div>
+</div>
+<p>Changing this to a somewhat lower number will allow your new DAG files to show up more quickly.</p>
+</section>
+<section id="revisiting-airflow-logging">
+<h2>Revisiting Airflow Logging<a class="headerlink" href="#revisiting-airflow-logging" title="Link to this heading"></a></h2>
+<p>I mentioned earlier that the scheduled_task custom logging turned out to be unnecessary, since Airflow will capture simple print and echo statements to the logs. If you’re looking for a single logfile, however, you won’t find it. Instead, Airflow arranges the files heirarchically, by dag_id / run_id / and task_id. Altough tree structure makes sesnse, it’s not pretty, for example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>airflow
+<span class="w">    </span>/logs
+<span class="w">        </span>/dag_id<span class="o">=</span>scheduled_task
+<span class="w">            </span>/run_id<span class="o">=</span>scheduled__2023-03-09T17:39:00+00:00
+<span class="w">                </span>/task_id<span class="o">=</span>echo_date
+</pre></div>
+</div>
+<p>Using the web console is a more convenient way to see the logs for a given run and event. Let’s say we want to see the output of echo_date for a given run. Clicking on the Graph tab in the DAG window, we see an interface like this:</p>
+<p><img alt="Apache Airflow DAG graph view" src="../_images/image-9-1024x471.png" /></p>
+<p>We can select the run we want in the dropdown in the middle of the screen. Clicking on the echo_date task now will bring up a detail view for that run and task:</p>
+<p><img alt="Apache Airflow web task detail." src="../_images/image-10.png" /></p>
+<p>Note that there’s a log button at the top of this view, which allows us to drill down into the output for this task. It’ll be pretty verbose, but we can find what we’re looking for toward the bottom:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="m">2023</span>-03-10,<span class="w"> </span><span class="m">18</span>:32:05<span class="w"> </span>UTC<span class="o">]</span><span class="w"> </span><span class="o">{</span>subprocess.py:75<span class="o">}</span><span class="w"> </span>INFO<span class="w"> </span>-<span class="w"> </span>Running<span class="w"> </span>command:<span class="w"> </span><span class="o">[</span><span class="s1">&#39;/bin/bash&#39;</span>,<span class="w"> </span><span class="s1">&#39;-c&#39;</span>,<span class="w"> </span><span class="s1">&#39;echo &quot;Printing the date to the console $(date)&quot;&#39;</span><span class="o">]</span>
+<span class="o">[</span><span class="m">2023</span>-03-10,<span class="w"> </span><span class="m">18</span>:32:05<span class="w"> </span>UTC<span class="o">]</span><span class="w"> </span><span class="o">{</span>subprocess.py:86<span class="o">}</span><span class="w"> </span>INFO<span class="w"> </span>-<span class="w"> </span>Output:
+<span class="o">[</span><span class="m">2023</span>-03-10,<span class="w"> </span><span class="m">18</span>:32:05<span class="w"> </span>UTC<span class="o">]</span><span class="w"> </span><span class="o">{</span>subprocess.py:93<span class="o">}</span><span class="w"> </span>INFO<span class="w"> </span>-<span class="w"> </span>Printing<span class="w"> </span>the<span class="w"> </span>date<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>console<span class="w"> </span>Fri<span class="w"> </span>Mar<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="m">13</span>:32:05<span class="w"> </span>EST<span class="w"> </span><span class="m">2023</span>
+<span class="o">[</span><span class="m">2023</span>-03-10,<span class="w"> </span><span class="m">18</span>:32:05<span class="w"> </span>UTC<span class="o">]</span><span class="w"> </span><span class="o">{</span>subprocess.py:97<span class="o">}</span><span class="w"> </span>INFO<span class="w"> </span>-<span class="w"> </span>Command<span class="w"> </span>exited<span class="w"> </span>with<span class="w"> </span><span class="k">return</span><span class="w"> </span>code<span class="w"> </span><span class="m">0</span>
+<span class="o">[</span><span class="m">2023</span>-03-10,<span class="w"> </span><span class="m">18</span>:32:05<span class="w"> </span>UTC<span class="o">]</span><span class="w"> </span><span class="o">{</span>taskinstance.py:1318<span class="o">}</span><span class="w"> </span>INFO<span class="w"> </span>-<span class="w"> </span>Marking<span class="w"> </span>task<span class="w"> </span>as<span class="w"> </span>SUCCESS.<span class="w"> </span><span class="nv">dag_id</span><span class="o">=</span>scheduled_task,<span class="w"> </span><span class="nv">task_id</span><span class="o">=</span>echo_date,<span class="w"> </span><span class="nv">execution_date</span><span class="o">=</span>20230310T183100,<span class="w"> </span><span class="nv">start_date</span><span class="o">=</span>20230310T183205,<span class="w"> </span><span class="nv">end_date</span><span class="o">=</span>20230310T183205
+</pre></div>
+</div>
+<p>Granted, in this case, that was a long way to go to watch ourselves print the date to the console, but once you get used to the user interface, you’ll find it beats writing custom logging code for every DAG.</p>
+</section>
+<section id="closing-thoughts">
+<h2>Closing Thoughts<a class="headerlink" href="#closing-thoughts" title="Link to this heading"></a></h2>
+<p>As we’ve seen, getting started with Apache Airflow is relatively straightforward, though occasionally a bit quirky. On balance, however, it’s a powerful tool for scheduling ETL and other Data Engineering jobs, so once you get past some of the issues covered here, you’ll find it’s a valuable addition to your Python toolkit.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

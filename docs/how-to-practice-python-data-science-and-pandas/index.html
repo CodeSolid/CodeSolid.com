@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Practice Python: Data Science and Pandas &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=19645805"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">How to Practice Python: Data Science and Pandas</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/how-to-practice-python-data-science-and-pandas.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="how-to-practice-python-data-science-and-pandas">
+<h1>How to Practice Python: Data Science and Pandas<a class="headerlink" href="#how-to-practice-python-data-science-and-pandas" title="Link to this heading"></a></h1>
+<p>For this week’s How to Practice Python series, I wanted to go over the basics for practicing Python Pandas and other tools in the Python data science stack. This is for those who are new to Python data science and also as a refresher for me, since I’ve been doing more Python for cloud and AWS development lately. However, I’ve been itching to revisit the tools I was working with heavily a few years ago, so I thought I’d share some of the resources I used then and will use again to freshen up my skills in this area.</p>
+<section id="core-packages-for-python-data-science">
+<h2>Core Packages for Python Data Science<a class="headerlink" href="#core-packages-for-python-data-science" title="Link to this heading"></a></h2>
+<p>In this section, we discuss the packages you’ll need to practice Python data science on your local machine, and what tools those packages also include. However, working online is a reasonable choice as well, since there are many free resources to do this. We discuss some online resources in a later section, but you may want to read through this to learn what the core packages are, even if you don’t install them locally.</p>
+<p>If you don’t already have a technique for installing Python packages, a lot of folks get started with something called Anaconda. Personally, I prefer <a class="reference external" href="https://codesolid.com/what-is-a-python-package/#htoc-i">pip and a virtual environment</a>. A core set of packages to get you started consists of JupyterLab, Pandas and Seaborn. Here are a couple of bash aliases I wrote recently that you might find useful.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">alias</span><span class="w"> </span><span class="nv">venv</span><span class="o">=</span><span class="s1">&#39;python -m venv .venv &amp;&amp; source .venv/bin/activate &amp;&amp; \ </span>
+<span class="s1">   python -m pip install --upgrade pip&#39;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">datasci</span><span class="o">=</span><span class="s1">&#39;pip install jupyterlab pandas seaborn&#39;</span>
+</pre></div>
+</div>
+<p>The resources in the next section go over many of these tools in depth (and we need more resources here that cover them as well) but, very briefly:</p>
+<ul class="simple">
+<li><p>JupyterLab allows you to run “jupyter lab” to get a web-based, multi-pane IDE based on Jupyter Notebook. It also includes IPython, a popular advanced Python shell. For a more complete introduction to Jupyter Lab, check out our article</p></li>
+<li><p>The Pandas package implements the DataFrames object, a two-dimensional table of values that can be used to load, transform, select, and analyze various forms of data sets.</p></li>
+<li><p>Seaborn is a popular data-visualization library based on Matplotlib (which it also includes). It extends matplotlib by adding themes. In addition, Seaborn also includes several sample pandas data sets you can use to get started. We’ll discuss this briefly below.</p></li>
+</ul>
+</section>
+<section id="online-tools-for-practicing-python-data-science">
+<h2>Online Tools for Practicing Python Data Science<a class="headerlink" href="#online-tools-for-practicing-python-data-science" title="Link to this heading"></a></h2>
+<p>As an alternative to installing JupyterLab, Pandas, and Seaborn locally, we’ll discuss <a class="reference external" href="https://www.kaggle.com/">Kaggle</a> in the context of finding data sets to work with, but Kaggle also supports running Jupyter notebooks online. Some other sites we should mention in this category are <a class="reference external" href="https://cocalc.com/">CoCalc</a>, which has a free version and a paid upgrade option. CoCalc supports not only Jupyter Notebook, but notebooks running in R or Julia, as well as two open source symbolic math tools, Octave and SageMath.</p>
+<p>Another site worth investigating is Google’s <a class="reference external" href="https://colab.research.google.com/">CoLab</a>. CoLab notebooks are based on Jupyter, but also feature an interactive table display for DataFrames. Once you’re ready to go beyond “just” using Pandas, CoLab also offers a free <a class="reference external" href="https://developers.google.com/machine-learning/crash-course/">15-hour machine learning crash course</a> that you can work through, as well as <a class="reference external" href="https://ai.google/education">other Machine Learning courses</a>.</p>
+</section>
+<section id="books-for-python-data-science">
+<h2>Books for Python Data Science<a class="headerlink" href="#books-for-python-data-science" title="Link to this heading"></a></h2>
+<p>Let’s start with what I was doing when I first learned these tools. I was fortunate to learn Pandas directly from the fellow who wrote it (well, from his book, at any rate). Wes McKinney’s <a class="reference external" href="https://www.amazon.com/gp/product/1491957662/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=1491957662&amp;amp;linkCode=as2&amp;amp;tag=codesolid-20&amp;amp;linkId=c3049409a5ab11ca885993c39d7cbc16">Python for Data Analysis: Data Wrangling with Pandas, NumPy, and IPython</a> is a book worth re-reading, and I’ve started doing that this week. This is a great starting place for diving into Python’s data science stack.</p>
+<p>Another book I read after McKinney’s – which I really should [buy](http://<a target="_blank" href="https://www.amazon.com/gp/product/1491912057/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1491912057&linkCode=as2&tag=codesolid-20&linkId=e486243406a0ee7672f6576d081e0b33">Python Data Science Handbook: Essential Tools for Working with Data</a>) this time around – is the Python Data Science Handbook, which Jake VanderPlas was good enough to make available in a <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/">free online version</a> as well. There’s a fair amount of overlap with McKinney’s book, but it treats both machine learning with scikit-learn and the Seaborn imaging library in greater depth.</p>
+</section>
+<section id="a-free-online-pandas-course">
+<h2>A Free Online Pandas Course<a class="headerlink" href="#a-free-online-pandas-course" title="Link to this heading"></a></h2>
+<p>Want a quick and easy, <a class="reference external" href="https://www.kaggle.com/learn/pandas">four-hour Pandas course</a> with a certificate? Who wouldn’t? Me, apparently – I just looked up the one I was working through four years ago, and it seems I left off at 67%. Wow, talk about your “spaced repetition”. I should finish that. It was a good course. The phone must have rung, or someone came by with dessert.</p>
+<p>Kaggle also features many other <a class="reference external" href="https://www.kaggle.com/learn">free courses</a> on various aspects of data science and machine learning.</p>
+</section>
+<section id="sample-data-sets-you-can-work-with">
+<h2>Sample Data Sets You Can Work With<a class="headerlink" href="#sample-data-sets-you-can-work-with" title="Link to this heading"></a></h2>
+<p>When I first started learning about data science, I took some Coursera courses in R, and really enjoyed working with it in R-Studio. One feature I really missed when I first started with Python data tools was the lack of built-in data sets like in R. As a software developer, I was used to being able to get started on a project easily.</p>
+<p>Code = caffeine + time.</p>
+<p>To get even marginally proficient in data analysis, however, I needed some data sets to work with, and I found that the DataFrames that many authors included based on NumPy arrays were less clear than working with real data (even if they were easy to set up).</p>
+<p>That’s one of the reasons I like and recommend Seaborn, because it allows you to load a few good sample data sets without much effort at all. This makes exploring Pandas much easier than it would be otherwise.</p>
+<p>For example, here is a modified version of the <a class="reference external" href="https://seaborn.pydata.org/introduction.html">Seaborn Introduction</a>, where we use Seaborn’s <code class="docutils literal notranslate"><span class="pre">load_dataset</span></code> function to get a small data set showing tips left by diners.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import seaborn</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="c1"># For improved formatting</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+
+<span class="c1"># Load an example seaborn dataset</span>
+<span class="n">tips</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;tips&quot;</span><span class="p">)</span>
+
+<span class="c1"># Show a summary of the data</span>
+<span class="n">HTML</span><span class="p">(</span><span class="n">tips</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">to_html</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>total_bill</p></th>
+<th class="head"><p>tip</p></th>
+<th class="head"><p>sex</p></th>
+<th class="head"><p>smoker</p></th>
+<th class="head"><p>day</p></th>
+<th class="head"><p>time</p></th>
+<th class="head"><p>size</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>16.99</p></td>
+<td><p>1.01</p></td>
+<td><p>Female</p></td>
+<td><p>No</p></td>
+<td><p>Sun</p></td>
+<td><p>Dinner</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>10.34</p></td>
+<td><p>1.66</p></td>
+<td><p>Male</p></td>
+<td><p>No</p></td>
+<td><p>Sun</p></td>
+<td><p>Dinner</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>21.01</p></td>
+<td><p>3.50</p></td>
+<td><p>Male</p></td>
+<td><p>No</p></td>
+<td><p>Sun</p></td>
+<td><p>Dinner</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>23.68</p></td>
+<td><p>3.31</p></td>
+<td><p>Male</p></td>
+<td><p>No</p></td>
+<td><p>Sun</p></td>
+<td><p>Dinner</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>24.59</p></td>
+<td><p>3.61</p></td>
+<td><p>Female</p></td>
+<td><p>No</p></td>
+<td><p>Sun</p></td>
+<td><p>Dinner</p></td>
+<td><p>4</p></td>
+</tr>
+</tbody>
+</table>
+<p>244 rows × 7 columns</p>
+<p>Plotting this with Seaborn is simple:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply the default theme</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">()</span>
+
+<span class="c1"># Create a visualization using Seaborn</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>
+    <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;smoker&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;smoker&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="Sample plot showing a built-in Seaborn data set." src="../_images/seaborn_example.png" /></p>
+<p>As shown above, Seaborn’s <code class="docutils literal notranslate"><span class="pre">load_dataset</span></code> function takes a name as a string of the dataset you want to load, which is not much help without a list of valid dataset names. For the list of names you can use, you can call <code class="docutils literal notranslate"><span class="pre">get_dataset_names</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">get_dataset_names</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>As you load the data sets, they’re downloaded from the <a class="reference external" href="https://github.com/mwaskom/seaborn-data">Seaborn dataset repository</a> and cached locally.</p>
+<p>The ready availability and ease of loading the Seaborn datasets make them a great first step for learning pandas. Once you get beyond that point and want to try your hand at some other data sets, some top resources include:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.kaggle.com/datasets">Data on Kaggle</a>. We’ve already mentioned Kaggle in the context of free courses and running your code online, but Kaggle is a great all-around resource featuring a large, searchable body of datasets. You can also run notebooks online, ask questions in the community, and take part in machine learning competitions.</p></li>
+<li><p>The <a class="reference external" href="https://github.com/awesomedata/awesome-public-datasets">Awesome Public Datasets</a> repository is a large, curated list of public data sets, organized by topic.</p></li>
+<li><p>Government datasets. National, regional, and state governments often have interesting data publically available for the price of a search of “<Location name> public datasets”. For example, the United States maintains <a class="reference external" href="https://www.data.gov/">data.gov</a> for federal level public datasets.</p></li>
+<li><p>Cloud provider datasets. The major cloud providers all provide public datasets. Some of these are large scale and more useful if you’re working with specific cloud technologies, but here for your convenience are the dataset pages for <a class="reference external" href="https://registry.opendata.aws/">AWS</a>, <a class="reference external" href="https://cloud.google.com/solutions/datasets">Google</a>, and <a class="reference external" href="https://docs.microsoft.com/en-us/azure/open-datasets/dataset-catalog">Azure</a>.</p></li>
+<li><p><a class="reference external" href="https://datasetsearch.research.google.com/">Google Dataset Search</a> indexes some 25-million publically available datasets. If you’re a data nerd, don’t start searching here if you have something important to do.</p></li>
+</ul>
+</section>
+<section id="build-your-own-dataset">
+<h2>Build Your Own Dataset<a class="headerlink" href="#build-your-own-dataset" title="Link to this heading"></a></h2>
+<p>New datasets and tools for searching them are appearing all the time, and it’s easy to feel a bit overwhelmed or distracted. Also, you might not be interested in “the share of adults who can relate to characters in superhero movies in the United States as of February 2018”. One thing you might try once you’re feeling comfortable with the basics is to work up some data for something meaningful in your life.</p>
+<p>In fact, I blame Python and Pandas for moving across country! In 2017, when I was learning Pandas, I was interested in finding locations where there were lots of tech jobs and low housing costs. My wife and I were living in California at the time, which was (and is) a pricey market. My solution was to run queries on a job board for major cities for programming languages I knew to find areas with lots of likely jobs, and merge that with home price data from Zillow to create a custom data set. Some job searches later, my wife and I found ourselves driving a yellow Penske truck with the contents of our apartment from California to North Carolina.</p>
+</section>
+<section id="final-thoughts">
+<h2>Final Thoughts<a class="headerlink" href="#final-thoughts" title="Link to this heading"></a></h2>
+<p>Those of us who come to Python from system administration or software development may or not need to master the intricacies of Machine Learning at some point. But short of that, the basic tools of Python data science can be as much fun to learn and experiment with as an automation script, an AWS Lambda function, or a web server. This is a very exciting field, and as I discuss in <a class="reference external" href="https://codesolid.com/why-is-python-popular/">Why Is Python Popular?</a>, data science is probably the single biggest use case that’s responsible for the #1 position Python finds itself in these days.</p>
+<p>As always, if you know of other resources you find helpful for practicing Python or want us to share a cool project with our readers, let us know! I’d love to hear from you.</p>
+</section>
+<section id="you-may-also-like">
+<h2>You May Also Like<a class="headerlink" href="#you-may-also-like" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://codesolid.com/how-do-i-profile-python-code/">How to Profile Python Code</a></p></li>
+<li><p><a class="reference external" href="https://codesolid.com/python-format-strings/">Python Format Strings: Beginner to Expert</a></p></li>
+<li><p><a class="reference external" href="https://codesolid.com/python-operators/">Python Operators: The Building Blocks of Successful Code</a></p></li>
+<li><p><a class="reference external" href="https://codesolid.com/pandas-groupby/">How to Use the Pandas GroupBy Method</a></p></li>
+<li><p><a class="reference external" href="https://codesolid.com/python-format-strings/">Pandas Practice Questions</a></p></li>
+<li><p><a class="reference external" href="https://codesolid.com/large-data-sets-in-python-pandas-and-the-alternatives/" title="Large Data Sets in Python: Pandas and the Alternatives">Large Data Sets in Python: Pandas and the Alternatives</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

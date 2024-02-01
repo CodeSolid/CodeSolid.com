@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=19645805"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/images/python-lists/index.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>Python lists are one of its most flexible and widely used data types. This article is a beginner’s guide to Python lists, but like everything in programming, remembering what you learned requires sufficient early practice. With this in mind, in addition to the lesson, we also feature several exercises at the end that you can use to review and reinforce what you’ve learned. These lessons come with links to live Jupyter notebooks you can run both for the exercises themselves and the solution set (in case you get stuck).</p>
+<section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h1>
+<p>The basic idea of a list is straightforward because most people already know how to use a list in real life. We might have a list of things to do, for example:</p>
+<ul class="simple">
+<li><p>Finish work project</p></li>
+<li><p>Stop at the pharmacy</p></li>
+<li><p>Return parrot to the pet store</p></li>
+</ul>
+</section>
+<section id="creating-a-list-in-python">
+<h1>Creating a list in Python<a class="headerlink" href="#creating-a-list-in-python" title="Link to this heading"></a></h1>
+<p>Here’s how easy it is to create a Python list with those items:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">todo_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Finish work project&quot;</span><span class="p">,</span> <span class="s2">&quot;Stop at the pharmacy&quot;</span><span class="p">,</span> <span class="s2">&quot;Return parrot to the pet store&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">todo_list</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="s1">&#39;Finish work project&#39;</span>,<span class="w"> </span><span class="s1">&#39;Stop at pharmacy&#39;</span>,<span class="w"> </span><span class="s1">&#39;Return parrot to pet store&#39;</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>Square brackets tell Python we’re dealing with a list. It’s also possible to use a list constructor – <code class="docutils literal notranslate"><span class="pre">&quot;list()&quot;</span></code>. But it’s more common to use square brackets, as we’ve done here. We can even create an empty list that way:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">empty</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">empty</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;list&#39;=&quot;&quot;&gt;
+</pre></div>
+</div>
+<p>In the case of our to-do list example, we wanted to populate the list in advance, so we included three strings. Inside the list, we separate each list item with a comma.</p>
+</section>
+<section id="lists-can-contain-items-of-any-python-type">
+<h1>Lists can contain items of any Python type<a class="headerlink" href="#lists-can-contain-items-of-any-python-type" title="Link to this heading"></a></h1>
+<p>We can add any Python object to a list – numbers, strings, dates, user-defined classes, dictionaries – even other lists.</p>
+<p>We can even mix and match types in a single list, but just as in real life, this isn’t something you usually want to do unless the items are related somehow. It would make the meaning of the list unclear, and it would be hard to write valid code to process the list.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># A list of numbers</span>
+<span class="n">prime_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
+
+<span class="c1"># The three stooges</span>
+<span class="n">stooges</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Moe&#39;</span><span class="p">,</span> <span class="s1">&#39;Larry&#39;</span><span class="p">,</span> <span class="s1">&#39;Curly&#39;</span><span class="p">]</span>
+
+<span class="c1"># A list of lists</span>
+<span class="n">all_my_lists</span> <span class="o">=</span> <span class="p">[</span><span class="n">prime_numbers</span><span class="p">,</span> <span class="n">stooges</span><span class="p">]</span>
+
+<span class="c1"># An unclear list of mixed types -- bad idea!</span>
+<span class="n">some_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">42</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="s2">&quot;Make some soup&quot;</span><span class="p">,</span> <span class="s2">&quot;Yugoslavia&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="python-lists-are-ordered">
+<h1>Python Lists are Ordered<a class="headerlink" href="#python-lists-are-ordered" title="Link to this heading"></a></h1>
+<p>The elements in a Python list are ordered with numbers beginning with zero. This numbering scheme may seem odd for new programmers, but it’s standard. Most programming languages start counting from zero rather than one, so this is also how C, Java, JavaScript, and many other languages do it.</p>
+<p>The fact that lists maintain their items in order means we can retrieve or change an element in the list if we know where it appears.</p>
+<p>Let’s look at several things we can do with lists in the following code segment. We’ll start with a small list of countries to see what we can do.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">countries</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;United States&#39;</span><span class="p">,</span> <span class="s1">&#39;Colombia&#39;</span><span class="p">,</span> <span class="s1">&#39;Japan&#39;</span><span class="p">,</span> <span class="s1">&#39;Kenya&#39;</span><span class="p">]</span>
+
+<span class="c1"># Get the first country into a variable.  </span>
+<span class="c1"># Use the list name, the [] operator, and the zero-based index in the list.</span>
+<span class="n">usa</span> <span class="o">=</span> <span class="n">countries</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">usa</span><span class="p">)</span>
+
+<span class="c1"># Find the zero based-index of Japan</span>
+<span class="n">location</span> <span class="o">=</span> <span class="n">countries</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;Japan&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Japan is at index: &quot;</span><span class="p">,</span> <span class="n">location</span><span class="p">)</span>
+
+<span class="c1"># Find out how many countries are in the list</span>
+<span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">countries</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;There are&quot;</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="s2">&quot;countries in the list.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Change the last item in the list.</span>
+<span class="c1"># Since the list counting is zero based, the index of the last </span>
+<span class="c1"># item is the list&#39;s length - 1</span>
+<span class="n">countries</span><span class="p">[</span><span class="n">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Republic of Kenya&#39;</span>
+
+<span class="c1"># Print the list</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">countries</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">United</span> <span class="n">States</span>
+<span class="n">Japan</span> <span class="ow">is</span> <span class="n">at</span> <span class="n">index</span><span class="p">:</span>  <span class="mi">2</span>
+<span class="n">There</span> <span class="n">are</span> <span class="mi">4</span> <span class="n">countries</span> <span class="ow">in</span> <span class="n">the</span> <span class="nb">list</span><span class="o">.</span>
+<span class="p">[</span><span class="s1">&#39;United States&#39;</span><span class="p">,</span> <span class="s1">&#39;Colombia&#39;</span><span class="p">,</span> <span class="s1">&#39;Japan&#39;</span><span class="p">,</span> <span class="s1">&#39;Republic of Kenya&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>To review, we learned several basic operations that work on lists in the last section.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">list_name[SOME_NUMBER]</span></code>. Given a list’s name, add a number in square brackets after it either to return the item (for example, to set it to a variable), or to set the item (by using an assignment expression after it). The numbering of list items starts at zero.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">len(list_name)</span></code>. The <code class="docutils literal notranslate"><span class="pre">len</span></code> function returns the number of elements in the list. The index of the last list item is at len(list_name)</p></li>
+</ul>
+</section>
+<section id="iterating-a-list-with-a-for-loop">
+<h1>Iterating a list with a for loop<a class="headerlink" href="#iterating-a-list-with-a-for-loop" title="Link to this heading"></a></h1>
+<p>Iterating a list with a for loop is a simple technique you’ll use again and again in your Python code. Here’s how to do it:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">countries</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;United States&#39;</span><span class="p">,</span> <span class="s1">&#39;Colombia&#39;</span><span class="p">,</span> <span class="s1">&#39;Japan&#39;</span><span class="p">,</span> <span class="s1">&#39;Kenya&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">country</span> <span class="ow">in</span> <span class="n">countries</span><span class="p">:</span>
+   <span class="nb">print</span><span class="p">(</span><span class="n">country</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>United<span class="w"> </span>States
+Colombia
+Japan
+Kenya
+</pre></div>
+</div>
+<p>A for loop with a list is very simple. It consists of the word “for,” a variable to hold each element as we iterate through the list, the word “in,” the name of the list, and a colon. You indent the statements you want to run “inside the loop” underneath the main body of the loop. (The tab key is usually the best way to do this). We only have one statement in the loop above, but you can have more than one indented line beneath the for loop’s first line. For example, here, we print out the country’s name on one line and print out the number of characters in the country’s name.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">country</span> <span class="ow">in</span> <span class="n">countries</span><span class="p">:</span>
+   <span class="nb">print</span><span class="p">(</span><span class="n">country</span><span class="p">)</span>
+   <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">country</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>United<span class="w"> </span>States
+<span class="m">13</span>
+Colombia
+<span class="m">8</span>
+Japan
+<span class="m">5</span>
+Kenya
+<span class="m">5</span>
+</pre></div>
+</div>
+</section>
+<section id="modifying-the-list-elements">
+<h1>Modifying the List Elements<a class="headerlink" href="#modifying-the-list-elements" title="Link to this heading"></a></h1>
+<p>Lists are considered a mutable data structure. Not only can you change the value of a list element (as we saw above for ‘Republic of Kenya’), but you can also modify the list members in other ways.</p>
+<p>Three list methods for accomplishing this are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">list.append</span></code> - Adds an item to the end of the list.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list.remove</span></code> - Removes the first item with the specified value</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list.insert</span></code> - Adds a new item at the specified index, moving the other elements over.</p></li>
+</ul>
+<p>Let’s see these methods in action on our countries list.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">countries</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;United States&#39;</span><span class="p">,</span> <span class="s1">&#39;Colombia&#39;</span><span class="p">,</span> <span class="s1">&#39;Japan&#39;</span><span class="p">,</span> <span class="s1">&#39;Kenya&#39;</span><span class="p">]</span>
+
+<span class="c1"># Remove Japan, list will now have three items</span>
+<span class="n">countries</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;Japan&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add two new countries at the end of the list</span>
+<span class="n">countries</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;China&#39;</span><span class="p">)</span>
+<span class="n">countries</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Belgium&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add a new country at index 1</span>
+<span class="n">countries</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Canada&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">countries</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="s1">&#39;United States&#39;</span>,<span class="w"> </span><span class="s1">&#39;Canada&#39;</span>,<span class="w"> </span><span class="s1">&#39;Colombia&#39;</span>,<span class="w"> </span><span class="s1">&#39;Kenya&#39;</span>,<span class="w"> </span><span class="s1">&#39;China&#39;</span>,<span class="w"> </span><span class="s1">&#39;Belgium&#39;</span><span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="creating-a-list-dynamically-first-method-loops">
+<h1>Creating a List Dynamically - First Method (Loops)<a class="headerlink" href="#creating-a-list-dynamically-first-method-loops" title="Link to this heading"></a></h1>
+<p>We can combine a for loop with the append method to dynamically create a list. Suppose we had a list of words and wanted to return a new list with the length of each one. One common approach to a problem like this is to create a new empty list before we loop through the list of words, then append a length for each word we process inside the loop.</p>
+<p>Suppose we wanted to print the lengths of several words in a list, then return an array consisting of the lengths of each at the end.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># We use the split method to create a list from a sentence</span>
+<span class="n">words</span> <span class="o">=</span> <span class="s1">&#39;a short list of words of different lengths&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+
+<span class="n">lengths</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+    <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">word</span><span class="p">)</span>
+    <span class="n">lengths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">))</span>
+   
+<span class="nb">print</span><span class="p">(</span><span class="n">lengths</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">1</span><span class="w"> </span>:<span class="w"> </span>a
+<span class="m">5</span><span class="w"> </span>:<span class="w"> </span>short
+<span class="m">4</span><span class="w"> </span>:<span class="w"> </span>list
+<span class="m">2</span><span class="w"> </span>:<span class="w"> </span>of
+<span class="m">5</span><span class="w"> </span>:<span class="w"> </span>words
+<span class="m">2</span><span class="w"> </span>:<span class="w"> </span>of
+<span class="m">9</span><span class="w"> </span>:<span class="w"> </span>different
+<span class="m">7</span><span class="w"> </span>:<span class="w"> </span>lengths
+<span class="o">[</span><span class="m">1</span>,<span class="w"> </span><span class="m">5</span>,<span class="w"> </span><span class="m">4</span>,<span class="w"> </span><span class="m">2</span>,<span class="w"> </span><span class="m">5</span>,<span class="w"> </span><span class="m">2</span>,<span class="w"> </span><span class="m">9</span>,<span class="w"> </span><span class="m">7</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>In this case, it makes sense to build the list of lengths in the loop because printing the length of each word is another task we have to do simultaneously. However, if all we’re doing is building the list, there’s a much more concise and efficient way to do it in Python.</p>
+<p>By the way, you may have noticed that we use the same function, “<code class="docutils literal notranslate"><span class="pre">len</span></code>”to return the length of either a string or a list. The <code class="docutils literal notranslate"><span class="pre">len</span></code> function also works on other Python types, such as tuples and dictionaries.</p>
+</section>
+<section id="creating-a-list-dynamically-list-comprehensions">
+<h1>Creating A List Dynamically (List Comprehensions)<a class="headerlink" href="#creating-a-list-dynamically-list-comprehensions" title="Link to this heading"></a></h1>
+<p>For times when you don’t have another task to perform when you’re creating the list, Python has a much more concise and elegant syntax, called a “list comprehension.” Here’s our example above, now reworked to use a list comprehension:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">words</span> <span class="o">=</span> <span class="s1">&#39;a short list of words of different lengths&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+<span class="n">lengths</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lengths</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="m">1</span>,<span class="w"> </span><span class="m">5</span>,<span class="w"> </span><span class="m">4</span>,<span class="w"> </span><span class="m">2</span>,<span class="w"> </span><span class="m">5</span>,<span class="w"> </span><span class="m">2</span>,<span class="w"> </span><span class="m">9</span>,<span class="w"> </span><span class="m">7</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>As with loops, list comprehensions can also include conditions to use as filters. For example, let’s say we want to filter a list of words, including only those with more than five characters. Here’s how we can do it with a list comprehension:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Long&#39;</span><span class="p">,</span> <span class="s1">&#39;words&#39;</span><span class="p">,</span> <span class="s1">&#39;include&#39;</span><span class="p">,</span> <span class="s1">&#39;grammarian&#39;</span><span class="p">,</span> <span class="s1">&#39;programmer&#39;</span><span class="p">,</span> <span class="s1">&#39;prestigious&#39;</span><span class="p">,</span> <span class="s1">&#39;and&#39;</span><span class="p">,</span> <span class="s1">&#39;beautiful&#39;</span><span class="p">]</span>
+
+<span class="c1"># Filter</span>
+<span class="n">long_words</span> <span class="o">=</span> <span class="p">[</span> <span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">long_words</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="s1">&#39;include&#39;</span>,<span class="w"> </span><span class="s1">&#39;grammarian&#39;</span>,<span class="w"> </span><span class="s1">&#39;programmer&#39;</span>,<span class="w"> </span><span class="s1">&#39;prestigious&#39;</span>,<span class="w"> </span><span class="s1">&#39;beautiful&#39;</span><span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="slicing">
+<h1>Slicing<a class="headerlink" href="#slicing" title="Link to this heading"></a></h1>
+<p>We’ve already seen how to select a single list element with an index. Python also has a related mechanism for obtaining a subset of several list elements at once. Slices are ranges of elements that Python will select from the list. You may find this syntax a little challenging at first, but I guarantee that if you get some experience with it, you’ll come to love what it can do!</p>
+<p>Some examples will help to demonstrate how slicing works.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+
+<span class="n">first_four</span> <span class="o">=</span> <span class="n">numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;first_four =&quot;</span><span class="p">,</span> <span class="n">first_four</span><span class="p">)</span>
+
+<span class="n">last_three</span> <span class="o">=</span> <span class="n">numbers</span><span class="p">[</span><span class="mi">8</span><span class="p">:]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;last_three =&quot;</span><span class="p">,</span> <span class="n">last_three</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">first_four</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="m">0</span>,<span class="w"> </span><span class="m">1</span>,<span class="w"> </span><span class="m">2</span>,<span class="w"> </span><span class="m">3</span><span class="o">]</span>
+<span class="nv">last_three</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="m">8</span>,<span class="w"> </span><span class="m">9</span>,<span class="w"> </span><span class="m">10</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>To create our array, “<code class="docutils literal notranslate"><span class="pre">first_four</span></code>”we sliced numbers using two numbers, zero and four. Python slices <em>include</em> the starting index but <em>exclude</em> the ending one, so this slice gave us the numbers from index zero to index three. Our second example shows that if we omit the last index, it defaults to the end of the list. Similarly, if we leave out the first index, it defaults to the beginning of the list. Because of this behavior, we could make a copy of the whole list with the slice: “<code class="docutils literal notranslate"><span class="pre">numbers[:]</span></code>”.</p>
+<p>So far, we’ve seen how the first index and the last work, but slices also have an optional third part that we haven’t discussed yet. The third term of a slice represents a step value, which by default is +1. Setting it to a different value causes it to skip elements, and setting it to a negative value reverses the order of the returned elements.</p>
+<p>Let’s see some examples of this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">last_three_again</span> <span class="o">=</span> <span class="n">numbers</span><span class="p">[:</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;last_three_again =&quot;</span><span class="p">,</span> <span class="n">last_three</span><span class="p">)</span>
+
+<span class="n">every_other_number</span> <span class="o">=</span> <span class="n">numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;every_other_number =&quot;</span><span class="p">,</span> <span class="n">every_other_number</span><span class="p">)</span>
+
+<span class="nb">reversed</span> <span class="o">=</span> <span class="n">numbers</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;reversed = &quot;</span><span class="p">,</span> <span class="nb">reversed</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">last_three_again</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="m">8</span>,<span class="w"> </span><span class="m">9</span>,<span class="w"> </span><span class="m">10</span><span class="o">]</span>
+<span class="nv">every_other_number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="m">0</span>,<span class="w"> </span><span class="m">2</span>,<span class="w"> </span><span class="m">4</span>,<span class="w"> </span><span class="m">6</span>,<span class="w"> </span><span class="m">8</span>,<span class="w"> </span><span class="m">10</span><span class="o">]</span>
+<span class="nv">reversed</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="o">[</span><span class="m">10</span>,<span class="w"> </span><span class="m">9</span>,<span class="w"> </span><span class="m">8</span>,<span class="w"> </span><span class="m">7</span>,<span class="w"> </span><span class="m">6</span>,<span class="w"> </span><span class="m">5</span>,<span class="w"> </span><span class="m">4</span>,<span class="w"> </span><span class="m">3</span>,<span class="w"> </span><span class="m">2</span>,<span class="w"> </span><span class="m">1</span>,<span class="w"> </span><span class="m">0</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>In the first example, we slice “three elements beginning at the end,” using a negative index for our end value. In the second example, stepping by two has the effect of selecting only even numbers from the list. In the final example, we use the same slice we used to copy all the elements but add a -1 as the third term. Doing this causes the slice to operate backward, effectively reversing the list.</p>
+</section>
+<section id="python-list-exercises-for-beginners">
+<h1>Python List Exercises for Beginners<a class="headerlink" href="#python-list-exercises-for-beginners" title="Link to this heading"></a></h1>
+<p>If you’re a beginner and you’ve made it this far, congratulations! You’ve learned a lot. However, most new programmers find they need a lot of practice to remember what they’ve learned. Taking the lesson above and reworking it is a great way to do this. When you’re ready, here are more exercises that you can work through based on this lesson. It’s best to try these out on your own, using the lesson above as a reference. However, there’s also a link to the solutions after the exercises.</p>
+<p><a class="reference external" href="https://github.com/CodeSolid/CodeSolid.github.io/blob/main/booksource/exercises/ListExercises.ipynb">Source Code</a></p>
+<p><a class="reference external" href="https://colab.research.google.com/github/CodeSolid/CodeSolid.github.io/blob/main/booksource/exercises/ListExercises.ipynb">Code Exercises Online</a></p>
+<ol class="arabic simple">
+<li><p>Create a list of three of your favorite foods.</p></li>
+<li><p>From your list of favorite foods, select the second item.</p></li>
+<li><p>Using a slice, create a reversed copy of your list of favorite foods.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;my</span> <span class="pre">name</span> <span class="pre">is</span> <span class="pre">john&quot;.upper()</span></code> returns the string “MY NAME IS JOHN”. Given that fact, create an uppercase list of your favorite foods using a for loop.</p></li>
+<li><p>Create a second uppercase list of your favorite foods, using a list comprehension.</p></li>
+</ol>
+<p>For exercises 6-14, use the following list as your starting point.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">letters</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>Use a function to get the length of the letters list. Display it.</p></li>
+<li><p>Get the last item in the list, using a positive index.</p></li>
+<li><p>Get the last item in the list, using a negative index.</p></li>
+<li><p>Write a slice expression to return the letters D through F (inclusive)</p></li>
+<li><p>Write a slice expression that returns the following list: [‘A’, ‘D’, ‘G’]</p></li>
+<li><p>Based on what you learned in exercise 4, can you guess how to write a program to return a list of lowercase letters based on the <code class="docutils literal notranslate"><span class="pre">letters</span></code> list?</p></li>
+<li><p>For #11, did you iterate the list using a list comprehension or a for loop? Why?</p></li>
+<li><p>How could you return a copy of the list using a slice expression?</p></li>
+<li><p>How could you return a list that looks like the list below:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="15">
+<li><p>The range function returns a sequence – that is to say, it can be used as you would use a list inside a for-loop or list comprehension. For example:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">num_list</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="m">1</span>,<span class="w"> </span><span class="m">2</span>,<span class="w"> </span><span class="m">3</span>,<span class="w"> </span><span class="m">4</span>,<span class="w"> </span><span class="m">5</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>Based on what you know about slice syntax, what would you expect the output of the following code to be?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">26</span><span class="p">,</span><span class="mi">5</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">num_list</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="16">
+<li><p>What do you predict will be printed by the code below?</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">num_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)]</span>
+<span class="n">num_list</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">99</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">num_list</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>17. Here’s a slight variation on the code from #16. What do you expect will be printed by the following code?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)]</span>
+<span class="n">other_list</span> <span class="o">=</span> <span class="n">num_list</span><span class="p">[:]</span>
+<span class="n">other_list</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">99</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">num_list</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>View Solutions</p>
+</section>
+<section id="you-may-also-like">
+<h1>You May Also Like<a class="headerlink" href="#you-may-also-like" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="https://codesolid.com/learning-c-and-python-the-perfect-duo-for-success/">Learning C++ and Python: The Perfect Duo for Success</a></p>
+<p><a class="reference external" href="https://codesolid.com/python-operators/">Python Operators: The Building Blocks of Successful Code</a></p>
+<p><a class="reference external" href="https://codesolid.com/python-indexing-slicing-exercises/">Python Indexing and Slicing: Complete Tutorial With Hands-on Exercises</a></p>
+<p><a class="reference external" href="https://codesolid.com/finding-duplicates-in-a-list-in-python/">How to Find Duplicates in a List in Python</a></p>
+<p><a class="reference external" href="https://codesolid.com/python-string-examples-tutorial-and-practice-exercises/">Python String Examples: Tutorial and Practice Exercises</a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How I Learned the Unit Circle &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=19645805"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">How I Learned the Unit Circle</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/math/LearningTheUnitCircle.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="how-i-learned-the-unit-circle">
+<h1>How I Learned the Unit Circle<a class="headerlink" href="#how-i-learned-the-unit-circle" title="Link to this heading"></a></h1>
+<section id="some-background">
+<h2>Some Background<a class="headerlink" href="#some-background" title="Link to this heading"></a></h2>
+<p>Sooner or later in your math career, someone will tell you that you need to memorize the Unit Circle – a circle with the origin at 0,0 and a radius of 1 – along with many measurements and coordinates for angles you’ll find along the circumference.  The first person to tell me I needed to memorize this was Miss Chagnon, back in Algebra 2 and Trigonometry, which I took as a junior in high school.  Some of the other experiences I had in that class were awful enough that I swore I’d never take another math class for the rest of my life – a vow I was to break later in my twenties (with pre-Calculus) and now again in my sixties, as I’m preparing to finally take Calculus for a grade (having studied it a fair amount informally online).</p>
+</section>
+<section id="the-method">
+<h2>The Method<a class="headerlink" href="#the-method" title="Link to this heading"></a></h2>
+<p>Like anything else in math, I found the secret to finally making headway on “things thou shalt learn” is a combination of two things, a teacher who can teach you and a way to practice.  What I found that fit the bill perfectly were these two things:</p>
+<ul class="simple">
+<li><p>For a teacher to teach it to me, the best resource I found for remembering the unit circle was Christa King Math’s aptly titled <a class="reference external" href="https://www.youtube.com/watch?v=RS6qmQXP8fc&amp;amp;t=672s">How to Remember the Unit Circle</a>, which demonstrates a memory-friendly way to fill in a unit circle with these values:</p>
+<ul>
+<li><p>Coordinates.</p></li>
+<li><p>Angle in degrees</p></li>
+<li><p>Angle in radians</p></li>
+</ul>
+</li>
+<li><p>A way to practice what you’ve learned.  What I did in this case was print out a few of these <a class="reference external" href="http://www.embeddedmath.com/downloads/files/unitcircle/blankunitcircle-letter.pdf">Unit Circle Worksheets</a>, and the associated <a class="reference external" href="http://www.embeddedmath.com/downloads/files/unitcircle/unitcircle-letter.pdf">filled-in version</a>, which basically were a dead ringer for Christa’s video.</p></li>
+</ul>
+<p>I found these two resources about a year ago.  After watching the video I filled out the worksheet several times, waiting a week each time to see if I could do it from memory.  This week I decided to review it once again.  Actually what I first tried to do was to show you how to print some nice unit circles in Matplotlib (see the “Historical Note”, below), but a better tool for jogging my memory was to <a class="reference external" href="https://www.desmos.com/calculator/ebdbfuxeh7">make a copy</a> of a neat Desmos graph I found. (You can click that link or see it in the IFrame below – the live version on Desmos actually plots the angles, which the I find the IFrame supresses for some reason).</p>
+<p>When I entered 45 degrees for the value of <span class="math notranslate nohighlight">\( \alpha \)</span> (the angle), the values for <span class="math notranslate nohighlight">\( \cos{\alpha} \)</span> and <span class="math notranslate nohighlight">\( \sin{\alpha} \)</span> were the same at 0.707106781187.  I seemed to recall from watching Christa’s video (a year ago – it pays to do the worksheets!), that that should end up being the same as <span class="math notranslate nohighlight">\( \frac{\sqrt{2}}{2} \)</span>. As a check, I demonstrate that below using Python’s math library, along with the values for 30 degrees and 60 degrees.</p>
+<p>One tip I’ll point out that I needed to keep in mind when doing the worksheet is that on the unit circle, the coordinate values (x,y) along the circumference of the circle correspond to (cos, sin) values for the angle in question – so it’s the <em>opposite</em> of the way that would seem intuitive.</p>
+<p>Finally, if you’re allowed to use a calculator as you likely will on your Calculus exam, for any positive or negative values for the degree in radians that is some whole-number multiple of <span class="math notranslate nohighlight">\( \frac{\pi}{6} \)</span>, <span class="math notranslate nohighlight">\( \frac{\pi}{4} \)</span>, there are a limited number of calculator results to remember.  0, 1, and 1/2 are of course pretty obvious, and 0.707106781187 works out to approximately <span class="math notranslate nohighlight">\( \frac{\sqrt{2}}{2} \)</span>, just as 0.8660254037844386 works out to approximately <span class="math notranslate nohighlight">\( \frac{\sqrt{3}}{2} \)</span>, as we demonstrate below.  I wouldn’t try to memorize too much decimal precision for these, of course.</p>
+</section>
+<section id="jogging-my-memory-with-a-neat-desmos-unit-circle">
+<h2>Jogging My Memory With a Neat Desmos Unit Circle<a class="headerlink" href="#jogging-my-memory-with-a-neat-desmos-unit-circle" title="Link to this heading"></a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
+<span class="n">IFrame</span><span class="p">(</span><span class="n">src</span><span class="o">=</span><span class="s1">&#39;https://www.desmos.com/calculator/ebdbfuxeh7&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s2">&quot;100%&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">700</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="100%"
+            height="700"
+            src="https://www.desmos.com/calculator/ebdbfuxeh7"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
+</div>
+</section>
+<section id="recalling-some-properties-using-matplotlib">
+<h2>Recalling Some Properties Using Matplotlib<a class="headerlink" href="#recalling-some-properties-using-matplotlib" title="Link to this heading"></a></h2>
+<p>Show that of <span class="math notranslate nohighlight">\(\sin{45^\text{o}} = \frac{\sqrt{2}}{2} \)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">radians</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">,</span> <span class="n">pi</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">radians</span><span class="p">(</span><span class="mi">45</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7071067811865475
+0.7071067811865476
+</pre></div>
+</div>
+</div>
+</div>
+<p>Show that of <span class="math notranslate nohighlight">\(\sin{60^\text{o}} = \frac{\sqrt{3}}{2} \)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">radians</span><span class="p">(</span><span class="mi">60</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8660254037844386
+0.8660254037844386
+</pre></div>
+</div>
+</div>
+</div>
+<p>Show that of <span class="math notranslate nohighlight">\(\sin{30^\text{o}} = \frac{\sqrt{1}}{2} = \frac{1}{2} \)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">radians</span><span class="p">(</span><span class="mi">30</span><span class="p">)),</span> <span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="historical-note">
+<h2>Historical Note<a class="headerlink" href="#historical-note" title="Link to this heading"></a></h2>
+<p>Some time ago I wrote a CodeSolid article on <a class="reference external" href="https://codesolid.com/matplotlib-coordinates-toward-a-python-graphing-calculator/">graphing math functions in Matplotlib</a> – which mainly focused on getting the aspect ratio looking more like a piece of standard graph paper, and less like what your computer wants to do by default (hint:  1024x768 is not 1000x1000, or what have you). Since then I tried spending some time in that rabbit hole, and I won’t litter this page with it, but if you’re interested in the litter here’s a commit that has the <a class="reference external" href="https://github.com/JohnLockwood/johnlockwood.github.io/blob/954dcfdca20ddab5e2da518c39cf7bd3862d26bd/src/math/UnitCircleSymPy.ipynb">draft page</a>.</p>
+<p>The upshot of the CodeSolid article really is apt: use Desmos and other tools if your goal is learning math.  Use Matplotlib if your goal is learning Matplotlib.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

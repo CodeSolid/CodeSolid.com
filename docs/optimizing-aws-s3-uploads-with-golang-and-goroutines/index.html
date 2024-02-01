@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fast S3 Updates with Golang and Goroutines &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=19645805"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Fast S3 Updates with Golang and Goroutines</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/optimizing-aws-s3-uploads-with-golang-and-goroutines.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="fast-s3-updates-with-golang-and-goroutines">
+<h1>Fast S3 Updates with Golang and Goroutines<a class="headerlink" href="#fast-s3-updates-with-golang-and-goroutines" title="Link to this heading"></a></h1>
+<p>I recently wrote a go program to optimize my S3 uploads for this blog. The idea was to write a program that would only upload the files that have changed (rather like RSync) rather than bulk uploading the whole site each time. Although there are third-party tools to do this, I wanted to learn more about the golang AWS API while at the same time getting a chance to run some goroutine benchmarks. To see the code and the benchmarks I did, read on!</p>
+<section id="is-this-trip-necessary">
+<h2>Is This Trip Necessary?<a class="headerlink" href="#is-this-trip-necessary" title="Link to this heading"></a></h2>
+<p>After writing this article, I discovered that a simpler approach to this is to use the AWS CLI. The AWS CLI has a “sync” command which allows you to sync files and directories. I’m leaving this article here, however, as it still shows some interesting techniques in Go.</p>
+</section>
+<section id="some-preliminaries">
+<h2>Some Preliminaries<a class="headerlink" href="#some-preliminaries" title="Link to this heading"></a></h2>
+<p>The AWS API for golang exposes an S3 service that we’ll use both for querying the files already in the Amazon cloud and uploading the new or changed files. Let’s see that and quickly look at all the imports we’ll be using:</p>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="c1">// main.go</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">&quot;bytes&quot;</span>
+<span class="w">    </span><span class="s">&quot;crypto/md5&quot;</span>
+<span class="w">    </span><span class="s">&quot;fmt&quot;</span>
+<span class="w">    </span><span class="s">&quot;io/ioutil&quot;</span>
+<span class="w">    </span><span class="s">&quot;log&quot;</span>
+<span class="w">    </span><span class="s">&quot;net/http&quot;</span>
+<span class="w">    </span><span class="s">&quot;os&quot;</span>
+<span class="w">    </span><span class="s">&quot;path/filepath&quot;</span>
+<span class="w">    </span><span class="s">&quot;strings&quot;</span>
+
+<span class="w">    </span><span class="s">&quot;github.com/aws/aws-sdk-go/aws&quot;</span>
+<span class="w">    </span><span class="s">&quot;github.com/aws/aws-sdk-go/aws/credentials&quot;</span>
+<span class="w">    </span><span class="s">&quot;github.com/aws/aws-sdk-go/aws/session&quot;</span>
+<span class="w">    </span><span class="s">&quot;github.com/aws/aws-sdk-go/service/s3&quot;</span>
+<span class="p">)</span>
+
+<span class="cm">/* getS3Session returns the AWS session with our configuration.</span>
+<span class="cm">   For our purposes this could have gone in getS3Service,</span>
+<span class="cm">   but in case we end up relying on other AWS clients</span>
+<span class="cm">   it&#39;s handy to have the session available separately.</span>
+<span class="cm">*/</span><span class="w"> </span>
+<span class="kd">func</span><span class="w"> </span><span class="nx">getS3Session</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="nx">session</span><span class="p">.</span><span class="nx">Session</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Use shared credentials ($HOME/.aws/credentials),</span>
+<span class="w">    </span><span class="c1">// but set the region</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">session</span><span class="p">.</span><span class="nx">Must</span><span class="p">(</span><span class="nx">session</span><span class="p">.</span><span class="nx">NewSession</span><span class="p">(</span>
+<span class="w">        </span><span class="o">&amp;</span><span class="nx">aws</span><span class="p">.</span><span class="nx">Config</span><span class="p">{</span>
+<span class="w">            </span><span class="nx">Region</span><span class="p">:</span><span class="w">      </span><span class="nx">aws</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="nx">getConfiguration</span><span class="p">().</span><span class="nx">region</span><span class="p">),</span>
+<span class="w">            </span><span class="nx">Credentials</span><span class="p">:</span><span class="w"> </span><span class="nx">credentials</span><span class="p">.</span><span class="nx">NewSharedCredentials</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;default&quot;</span><span class="p">),</span>
+<span class="w">        </span><span class="p">}))</span>
+<span class="p">}</span>
+
+<span class="cm">/*</span>
+<span class="cm">    getS3Service returns a service we use to query our bucket </span>
+<span class="cm">    and to put new / changed files.</span>
+<span class="cm">*/</span>
+<span class="kd">func</span><span class="w"> </span><span class="nx">getS3Service</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="nx">s3</span><span class="p">.</span><span class="nx">S3</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">s3</span><span class="p">.</span><span class="nx">New</span><span class="p">(</span><span class="nx">getS3Session</span><span class="p">())</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The function getS3Session relies on a configuration function to set up our program. This is simply a struct to keep whatever settings we need, which you’d need to change up to match your local path and S3 bucket name. Since this was a personal project, we chose a configuration object over a set of command-line parameters. Here’s the code for our configuration type/function.</p>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">type</span><span class="w"> </span><span class="nx">config</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">region</span><span class="w">         </span><span class="kt">string</span><span class="w"> </span><span class="cm">/* AWS region to use for session */</span>
+<span class="w">    </span><span class="nx">bucket</span><span class="w">         </span><span class="kt">string</span><span class="w"> </span><span class="cm">/* S3 bucket where are files are stored */</span>
+<span class="w">    </span><span class="nx">localDirectory</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="cm">/* Local files to sync with S3 bucket */</span>
+<span class="p">}</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">getConfiguration</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="nx">config</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">configuration</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">config</span><span class="p">{</span>
+<span class="w">        </span><span class="nx">region</span><span class="p">:</span><span class="w">         </span><span class="s">&quot;us-east-2&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">bucket</span><span class="p">:</span><span class="w">         </span><span class="s">&quot;codesolid.com&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">localDirectory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/home/john/source/codesolid/public/&quot;</span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">configuration</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="program-design">
+<h2>Program Design<a class="headerlink" href="#program-design" title="Link to this heading"></a></h2>
+<p>Our strategy will be simple. If we can build a map of remote S3 object (file) names to file checksums, any local files that either aren’t in the map or who are in the map but have a different checksum need to be uploaded. We’re concerned with new or updated files – any deletes are ignored, and we can handle them separately.</p>
+<p>So our first function builds the map of remote files to checksums.</p>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">getAwsS3ItemMap constructs and returns a map of keys (relative filenames)</span>
+<span class="cm">to checksums for the given bucket-configured s3 service.  </span>
+<span class="cm">It is assumed  that the objects have not been multipart-uploaded, </span>
+<span class="cm">which will change the checksum.</span>
+<span class="cm">*/</span>
+<span class="kd">func</span><span class="w"> </span><span class="nx">getAwsS3ItemMap</span><span class="p">(</span><span class="nx">s3Service</span><span class="w"> </span><span class="o">*</span><span class="nx">s3</span><span class="p">.</span><span class="nx">S3</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">loi</span><span class="w"> </span><span class="nx">s3</span><span class="p">.</span><span class="nx">ListObjectsInput</span>
+<span class="w">    </span><span class="nx">loi</span><span class="p">.</span><span class="nx">SetBucket</span><span class="p">(</span><span class="nx">getConfiguration</span><span class="p">().</span><span class="nx">bucket</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nx">obj</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">s3Service</span><span class="p">.</span><span class="nx">ListObjects</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">loi</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// Uncomment this to see what AWS returns for ListObjects</span>
+<span class="w">    </span><span class="c1">// fmt.Printf(&quot;%s\n&quot;, obj)</span>
+
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">items</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// Based on response from aws API, map relative filenames to checksums</span>
+<span class="w">    </span><span class="c1">// The &quot;Key&quot; in S3 is the filename, while the ETag contains the </span>
+<span class="w">    </span><span class="c1">// checksum</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">s3obj</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">obj</span><span class="p">.</span><span class="nx">Contents</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">eTag</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">strings</span><span class="p">.</span><span class="nx">Trim</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="nx">s3obj</span><span class="p">.</span><span class="nx">ETag</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;\&quot;&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="nx">items</span><span class="p">[</span><span class="o">*</span><span class="p">(</span><span class="nx">s3obj</span><span class="p">.</span><span class="nx">Key</span><span class="p">)]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">eTag</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">items</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kc">nil</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Next, we need to walk our local directory that contains the corresponding files we’ll want to check for updates. Since we’ll be walking the directory tree and opening each file, in turn, to run a checksum on it, there’s a lot of file input going on that makes the task a good fit for optimizing with GoRoutines.</p>
+<p>I confess that I did it wrong in an early draft of this approach. By using shared memory which needed to be synchronized to add the files to a list, I made the program slower than without the goroutines (as my benchmarks showed)! Once I used channels and moved the building of the list to the main goroutine, the benchmarks improved significantly for the goroutine version compared to the same code without goroutines and channels.</p>
+<p>I paid the price for ignoring the <a class="reference external" href="https://blog.golang.org/share-memory-by-communicating">Go Blog’s</a> advice:</p>
+<p><strong>**</strong><em>*”Do not communicate by sharing memory; instead, share memory by communicating.”*</em><strong>**</strong></p>
+<p>Before we get to the benchmarks, let’s look at the final version of the code. Let’s start our discussion with the traditional, synchronous version without go-routines or channels.</p>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm">fileWalkWithoutGoroutine walks the local directory using golang&#39;s</span>
+<span class="cm">filepath.Walk.  Ignoring directories, for each file we get </span>
+<span class="cm">the checksum of the relative file path from the awsItems map.</span>
+<span class="cm">We then pass the full filename and checksum to testFileNoGoroutine,</span>
+<span class="cm">which returns either an empty string if the file doesn&#39;t need to be </span>
+<span class="cm">uploaded, or a non-empty string if there&#39;s no checksum (file not on the remote) </span>
+<span class="cm">or if the checksum doesn&#39;t match the local file (file has changed).</span>
+
+<span class="cm">Return the list of files to be uploaded as a list.</span>
+<span class="cm">*/</span>
+<span class="kd">func</span><span class="w"> </span><span class="nx">fileWalkWithoutGoroutine</span><span class="p">(</span><span class="nx">awsItems</span><span class="w"> </span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">[]</span><span class="kt">string</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">files</span><span class="w"> </span><span class="kt">int</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">filesToUpload</span><span class="w"> </span><span class="p">[]</span><span class="kt">string</span>
+<span class="w">    </span><span class="nx">blogDir</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">getConfiguration</span><span class="p">().</span><span class="nx">localDirectory</span>
+<span class="w">    </span><span class="nx">filepath</span><span class="p">.</span><span class="nx">Walk</span><span class="p">(</span><span class="nx">blogDir</span><span class="p">,</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="nx">path</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">info</span><span class="w"> </span><span class="nx">os</span><span class="p">.</span><span class="nx">FileInfo</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="kt">error</span><span class="p">)</span><span class="w">   </span><span class="kt">error</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nx">err</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">!</span><span class="nx">info</span><span class="p">.</span><span class="nx">IsDir</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">files</span><span class="o">++</span>
+<span class="w">            </span><span class="nx">relativeFile</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">strings</span><span class="p">.</span><span class="nx">Replace</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span><span class="w"> </span><span class="nx">blogDir</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">            </span><span class="nx">checksumRemote</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">awsItems</span><span class="p">[</span><span class="nx">relativeFile</span><span class="p">]</span>
+
+<span class="w">            </span><span class="nx">filename</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">testFileNoGoroutine</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span><span class="w"> </span><span class="nx">checksumRemote</span><span class="p">)</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">filesToUpload</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">filesToUpload</span><span class="p">,</span><span class="w"> </span><span class="nx">filename</span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">nil</span>
+<span class="w">    </span><span class="p">})</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">filesToUpload</span>
+<span class="p">}</span>
+
+<span class="cm">/**</span>
+<span class="cm">    testFileNoGoroutine returns a blank string if the given </span>
+<span class="cm">    filename does not need to be updated (checksum blank or does </span>
+<span class="cm">    not match local file), or a non-blank filename if the </span>
+<span class="cm">    </span>
+<span class="cm">*/</span>
+<span class="kd">func</span><span class="w"> </span><span class="nx">testFileNoGoroutine</span><span class="p">(</span><span class="nx">filename</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">checksumRemote</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">checksumRemote</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">filename</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">contents</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">ioutil</span><span class="p">.</span><span class="nx">ReadFile</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="nx">sum</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">md5</span><span class="p">.</span><span class="nx">Sum</span><span class="p">(</span><span class="nx">contents</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">sumString</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot;%x&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">sum</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">// checksums don&#39;t match, mark for upload</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">sumString</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nx">checksumRemote</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">filename</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Now, let’s look at the same code using goroutines and channels. This time, as we walk the local directory, we call <code class="docutils literal notranslate"><span class="pre">testFile</span></code> repeatedly as a goroutine. In <code class="docutils literal notranslate"><span class="pre">testFile</span></code>, instead of returning a string as in our earlier program, we pass the filename or a blank string back on the channel that we passed from <code class="docutils literal notranslate"><span class="pre">fileWalk</span></code>.</p>
+<p>In fileWalk, we keep a count of the files we walked in <code class="docutils literal notranslate"><span class="pre">numfiles</span></code>, and when we’re done walking the files, we read from the channel we passed to <code class="docutils literal notranslate"><span class="pre">testFiles</span></code> <code class="docutils literal notranslate"><span class="pre">numfiles</span></code> times to build our list of files to return.</p>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span><span class="w"> </span><span class="nx">fileWalk</span><span class="p">(</span><span class="nx">awsItems</span><span class="w"> </span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">[]</span><span class="kt">string</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">blogDir</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">getConfiguration</span><span class="p">().</span><span class="nx">localDirectory</span>
+<span class="w">    </span><span class="nx">ch</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="kd">chan</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">numfiles</span><span class="w"> </span><span class="kt">int</span>
+<span class="w">    </span><span class="nx">filepath</span><span class="p">.</span><span class="nx">Walk</span><span class="p">(</span><span class="nx">blogDir</span><span class="p">,</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="nx">path</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">info</span><span class="w"> </span><span class="nx">os</span><span class="p">.</span><span class="nx">FileInfo</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="kt">error</span><span class="p">)</span><span class="w"> </span><span class="kt">error</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nx">err</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">!</span><span class="nx">info</span><span class="p">.</span><span class="nx">IsDir</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">numfiles</span><span class="o">++</span>
+<span class="w">            </span><span class="nx">relativeFile</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">strings</span><span class="p">.</span><span class="nx">Replace</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span><span class="w"> </span><span class="nx">blogDir</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">            </span><span class="nx">checksumRemote</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">awsItems</span><span class="p">[</span><span class="nx">relativeFile</span><span class="p">]</span>
+
+<span class="w">            </span><span class="k">go</span><span class="w"> </span><span class="nx">testFile</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span><span class="w"> </span><span class="nx">checksumRemote</span><span class="p">,</span><span class="w"> </span><span class="nx">ch</span><span class="p">)</span>
+<span class="w">            </span><span class="c1">//fmt.Println(path, info.Size())</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">nil</span>
+<span class="w">    </span><span class="p">})</span>
+
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">filesToUpload</span><span class="w"> </span><span class="p">[]</span><span class="kt">string</span>
+
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">f</span><span class="w"> </span><span class="kt">string</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nx">numfiles</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">f</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">&lt;-</span><span class="nx">ch</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">f</span><span class="p">)</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">filesToUpload</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">filesToUpload</span><span class="p">,</span><span class="w"> </span><span class="nx">f</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">filesToUpload</span>
+<span class="p">}</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">testFile</span><span class="p">(</span><span class="nx">filename</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">checksumRemote</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">ch</span><span class="w"> </span><span class="kd">chan</span><span class="o">&lt;-</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">checksumRemote</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">ch</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nx">filename</span>
+<span class="w">        </span><span class="k">return</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">contents</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">ioutil</span><span class="p">.</span><span class="nx">ReadFile</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">sum</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">md5</span><span class="p">.</span><span class="nx">Sum</span><span class="p">(</span><span class="nx">contents</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">sumString</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot;%x&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">sum</span><span class="p">)</span>
+<span class="w">        </span><span class="c1">// checksums don&#39;t match, mark for upload</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">sumString</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nx">checksumRemote</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">ch</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nx">filename</span>
+<span class="w">            </span><span class="k">return</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Files matched</span>
+<span class="w">            </span><span class="nx">ch</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;&quot;</span>
+<span class="w">            </span><span class="k">return</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="benchmarking-the-two-versions">
+<h2>Benchmarking the Two Versions<a class="headerlink" href="#benchmarking-the-two-versions" title="Link to this heading"></a></h2>
+<p>We’ll leave aside the main method and the code to upload the files for the time being, but at this point we have code that tells us just what files need to be uploaded.</p>
+<p>To see how much of a performance boost we get from the goroutine version, we write some simple benchmarks in main_test.go. Here’s our main_test.go file, with some non-benchmark tests we wrote excluded.</p>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="c1">// main_test.go</span>
+<span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">	</span><span class="s">&quot;log&quot;</span>
+<span class="w">	</span><span class="s">&quot;os&quot;</span>
+<span class="w">	</span><span class="s">&quot;testing&quot;</span>
+<span class="p">)</span>
+
+<span class="kd">var</span><span class="w"> </span><span class="nx">awsItems</span><span class="w"> </span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span>
+
+<span class="cm">/* Set up the awsItems map that we&#39;ll need */</span>
+<span class="kd">func</span><span class="w"> </span><span class="nx">TestMain</span><span class="p">(</span><span class="nx">m</span><span class="w"> </span><span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">M</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">	</span><span class="nx">s3Service</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">getS3Service</span><span class="p">()</span>
+<span class="w">	</span><span class="kd">var</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="kt">error</span>
+<span class="w">	</span><span class="nx">awsItems</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">getAwsS3ItemMap</span><span class="p">(</span><span class="nx">s3Service</span><span class="p">)</span>
+<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">		</span><span class="nx">log</span><span class="p">.</span><span class="nx">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+<span class="w">	</span><span class="p">}</span>
+
+<span class="w">	</span><span class="c1">// call flag.Parse() here if TestMain uses flags</span>
+<span class="w">	</span><span class="nx">os</span><span class="p">.</span><span class="nx">Exit</span><span class="p">(</span><span class="nx">m</span><span class="p">.</span><span class="nx">Run</span><span class="p">())</span>
+<span class="p">}</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">BenchmarkFilewalkGoroutine</span><span class="p">(</span><span class="nx">b</span><span class="w"> </span><span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">B</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">N</span><span class="p">;</span><span class="w"> </span><span class="nx">n</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
+<span class="w">		</span><span class="nx">fileWalk</span><span class="p">(</span><span class="nx">awsItems</span><span class="p">)</span>
+<span class="w">	</span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">BenchmarkFilewalkWithoutGoroutine</span><span class="p">(</span><span class="nx">b</span><span class="w"> </span><span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">B</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">N</span><span class="p">;</span><span class="w"> </span><span class="nx">n</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
+<span class="w">		</span><span class="nx">fileWalkWithoutGoroutine</span><span class="p">(</span><span class="nx">awsItems</span><span class="p">)</span>
+<span class="w">	</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>I stumbled on the <a class="reference external" href="https://github.com/cespare/prettybench">prettybench</a> utility one time, which I like to use to improve the output of Go benchmark tests. Using that tool to format the output gives:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>go<span class="w"> </span><span class="nb">test</span><span class="w"> </span>-v<span class="w"> </span>-bench<span class="o">=</span>.<span class="w"> </span><span class="p">|</span><span class="w"> </span>prettybench
+goos:<span class="w"> </span>linux
+goarch:<span class="w"> </span>amd64
+pkg:<span class="w"> </span>aws
+PASS
+benchmark<span class="w">                             </span>iter<span class="w">     </span>time/iter
+---------<span class="w"> </span>----<span class="w"> </span>---------
+<span class="c1"># Fast S3 Updates with Golang and GoroutinesBenchmarkFilewalkGoroutine-4            50   27.26 ms/op</span>
+BenchmarkFilewalkWithoutGoroutine-4<span class="w">     </span><span class="m">50</span><span class="w">   </span><span class="m">32</span>.82<span class="w"> </span>ms/op
+ok<span class="w">  	</span>aws<span class="w">	</span><span class="m">3</span>.543s
+</pre></div>
+</div>
+<p>Of course, we’re running an SSD drive here, and Go is hecka fast to begin with, but even with that, the goroutine version improves the performance by about 20%. I’ll publish an update to this article or a link to the GitHub version with the upload code and the rest of the program soon, but for now, it’s late, so I think I’ll use my AWS go file upload utility one last time to push this article to the cloud! Cheers.</p>
+</section>
+<section id="you-may-also-enjoy">
+<h2>You May Also Enjoy<a class="headerlink" href="#you-may-also-enjoy" title="Link to this heading"></a></h2>
+<p><a class="reference external" href="https://codesolid.com/python-format-strings/">Python Format Strings: Beginner to Expert</a></p>
+<p><a class="reference external" href="https://codesolid.com/vagrant-ansible-local/">Simple Vagrant Ansible Local Example</a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

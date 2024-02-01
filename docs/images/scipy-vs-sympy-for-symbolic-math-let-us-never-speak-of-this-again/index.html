@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why SymPy is Superior for Symbolic Math &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=19645805"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Jupyter:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../beautiful-documentation-with-jupyterbook/">My Journey to Beautiful Documentation With JupyterBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-lite-python-in-the-browser-with-serverless-jupyter/">Jupyter Lite:  Python in the Browser with Serverless Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Why SymPy is Superior for Symbolic Math</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/images/scipy-vs-sympy-for-symbolic-math-let-us-never-speak-of-this-again/index.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>In a recent article about <a class="reference external" href="https://codesolid.com/sympy-solving-math-equations-in-python/">SymPy</a>, I included a section on SymPy vs. SciPy. In it, I made the claim that SciPy where I said that it has excellent support for functionality that overlaps SymPy. I also made the qualified prediction in the conclusion that <em>“Although I also resolved to spend more time researching and using SciPy, I’m not sure it will measure up to SymPy for the kind of interactive, educational, and exploratory work that I usually spend my time on.”</em></p>
+<p>I want to make a much stronger statement in this article. Don’t use SciPy for symbolic math. Just don’t.</p>
+<p>If you need to solve systems of linear equations, or if you have other tasks for which you think SciPy might be a good fit, then go ahead and use it. However, as a general computer algebra system for symbolic math, I strongly encourage you to find another solution: SymPy works well. SageMath also fits the bill nicely despite its quirky installer.</p>
+<section id="why-sympy-is-superior-for-symbolic-math">
+<h1>Why SymPy is Superior for Symbolic Math<a class="headerlink" href="#why-sympy-is-superior-for-symbolic-math" title="Link to this heading"></a></h1>
+<p>Let’s drill down into why SciPy may not be the ideal choice for symbolic math. When I first got the ultimately wrong-headed idea to treat it as such a tool, I had managed to integrate and differentiate a function. However, what I sought to do next was to compare it point for point with the tasks I’d done in my SymPy article and quickly came to grief along the way. Let’s take a look at some things I tried to do.</p>
+<p>In the SymPy article, I showed several operations one could do on a simple function – a difference of squares. I began by solving it. In SymPy, that’s simply a matter of passing the function to the solve method along with the variable for which you’re solving.</p>
+<p><img alt="" src="../../_images/image-363.png" /></p>
+<p>It almost couldn’t be simpler, but if you prefer a one-liner, here it is:</p>
+<p><img alt="" src="../../_images/image-372.png" /></p>
+<p>Now let’s try to do the same thing using the SciPy function, <code class="docutils literal notranslate"><span class="pre">fsolve</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fsolve</span>
+
+<span class="k">def</span> <span class="nf">f_scipy_difference_of_squares</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A simple difference of squares in Python&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">9</span>
+
+<span class="n">fsolve</span><span class="p">(</span><span class="n">f_scipy_difference_of_squares</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>array<span class="o">([</span><span class="w"> </span><span class="m">3</span>.,<span class="w"> </span>-3.<span class="o">])</span>
+</pre></div>
+</div>
+<p>We had to define the function here as a standard python function instead of an expression assigned to a variable, but that’s not too much onerous. However, we have to pass an array of estimated values to the <code class="docutils literal notranslate"><span class="pre">fsolve</span></code> function, so we need to think about how many roots we’re expecting in advance. Just passing a single zero will give you the wrong answer and only return one of the roots:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fsolve</span><span class="p">(</span><span class="n">f_scipy_difference_of_squares</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p>array([3.])</p>
+<p>OK, that required a little more thought up front than SymPy, which just figured out the number of roots and returned them. Still, a difference of squares is quadratic, so we should expect two roots. This isn’t a significant hurdle so far.</p>
+<p>Our first non-linear function solved with SciPy worked out OK, so I tried a slightly more complex quadratic. I found this problem on Paul’s Notes when heading over to my favorite source for math problems with solutions.</p>
+<p><img alt="" src="../../_images/image-382.png" /></p>
+<p>This problem turns out to have the following two roots:</p>
+<p><img alt="" src="../../_images/image-403.png" /></p>
+<p>Imagining I could solve this with SciPy’s <code class="docutils literal notranslate"><span class="pre">fsolve</span></code> function as readily as I solved the simple difference of squares, I set it up as shown below. I used x as the single variable instead of u, and since both SymPy and SciPy’s solvers want the “zeroed” form of the equation (i.e., f(x) == 0), I canceled out the right-hand terms to arrive at this expression:</p>
+<p><img alt="" src="../../_images/image-412.png" /></p>
+<p>Implementing it in Python and using <code class="docutils literal notranslate"><span class="pre">fsolve</span></code> gave the following code and result:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f_scipy_quadratic</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A quadadratic-formula solvable quadratic&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="mi">8</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">12</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">65</span> 
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">fsolve</span><span class="p">(</span><span class="n">f_scipy_quadratic</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p>[-0.75361538 -0.75361533]</p>
+<p>The real part of the root, -3/4, is pretty close to the floating point values returned here. It’s possible, <a class="reference external" href="https://stackoverflow.com/questions/21885093/comparing-fsolve-results-in-python-and-matlab">as suggested here</a>, to get even closer by using <code class="docutils literal notranslate"><span class="pre">scipy.optimize.root</span></code> and passing “lm” as the method. This chooses an algorithm based on Levenberg-Marquardt. However, the complex portion of the value is not returned in any case.</p>
+<p>Like <code class="docutils literal notranslate"><span class="pre">fsolve</span></code> in SciPy, Octave’s also only returned the real component of the root, but in Octave, the number converges much more closely to the correct value. In addition, the value returned in Octave does not depend on the starting input.</p>
+<p><img alt="" src="../../_images/image-432.png" /></p>
+<p>Even using the <code class="docutils literal notranslate"><span class="pre">root</span></code> function with the Levenberg-Marquardt algorithm specified, what you get still depends to some extent on what you specify as an initial value:</p>
+<p><img alt="" src="../../_images/image-441.png" /></p>
+<p>However, at least here the result is not as bad as SciPy’s <code class="docutils literal notranslate"><span class="pre">fsolve</span></code>:</p>
+<p><img alt="" src="../../_images/image-45.png" /></p>
+<p>That last one is way off, and there are cases where the function doesn’t even finish, depending on the estimate passed to it.</p>
+</section>
+<section id="the-law-of-the-instrument-revisited">
+<h1>The Law of the Instrument, Revisited<a class="headerlink" href="#the-law-of-the-instrument-revisited" title="Link to this heading"></a></h1>
+<p>I recently looked up an expression and found what I was looking for in this 1966 formulation by <a class="reference external" href="https://en.wikipedia.org/wiki/Law_of_the_instrument">Abraham Maslow</a>: “If the only tool you have is a hammer, it is tempting to treat everything as if it were a nail.” To keep my self-esteem intact, I’m going to suggest that my misbegotten journey of treating SciPy as a symbolic math tool stems from this corollary: “If you’ve been reviewing lots of hammers, everything starts to look like a hammer after a while.”</p>
+<p>The cure of course in the case of a real nail is to use a real hammer. Both SageMath and SymPy give me an unequivocal right answer for my Paul’s Online Notes problem. Here it is in the sage terminal:</p>
+<p><img alt="" src="../../_images/image-461.png" /></p>
+<p>And here’s the same solution shown in SymPy:</p>
+<p><img alt="" src="../../_images/image-471.png" /></p>
+</section>
+<section id="why-this-isn-t-an-anti-scipy-post">
+<h1>Why This Isn’t An Anti-SciPy Post<a class="headerlink" href="#why-this-isn-t-an-anti-scipy-post" title="Link to this heading"></a></h1>
+<p>I know it seems like I set out in this post to be critical of SciPy, but that certainly wasn’t my intent. SciPy is an awesome collection of tools and using a small sample drawn from the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module is really not fair. For example, SciPy handles linear algebra tasks quite competently, as <a class="reference external" href="https://towardsdatascience.com/how-do-you-use-numpy-scipy-and-sympy-to-solve-systems-of-linear-equations-9afed2c388af">this article</a> shows.</p>
+<p>Also, for the tasks it does well, it’s likely to do them much more quickly than the other alternatives discussed here. For example, returning to our difference of squares example that “everyone got right” from earlier, the %timeit benchmarks for solving that function are as follows:</p>
+<table><tbody><tr><td>SciPy</td><td>32 µs ± 438 ns per loop (mean ± std. dev. of 7 runs, 10,000 loops each)</td></tr><tr><td>SymPy</td><td>427 µs ± 10.2 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)</td></tr><tr><td>SageMath</td><td>835 µs ± 11 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)</td></tr></tbody></table>
+<p>Although I haven’t demonstrated it yet, I’d expect that for SciPy’s <code class="docutils literal notranslate"><span class="pre">linalg</span></code> module, the clear SciPy performance advantage would continue to hold true.</p>
+<p>Note: for a good criticism of some finer points that I still missed in <em>this</em> article, see this <a class="reference external" href="https://www.reddit.com/r/Python/comments/x0ty3l/comment/imdn39m/?utm_source=share&amp;amp;utm_medium=web2x&amp;amp;context=3">Reddit comment</a>.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3KNPRGQ15C', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>
