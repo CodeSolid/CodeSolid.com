@@ -1,6 +1,6 @@
 
 
-CodeSolid.com
+Math ∩ Programming
 ================
 .. toctree::
    :caption: Featured Articles:
@@ -30,5 +30,7 @@ CodeSolid.com
    #math/index
    #cognitive_science/index
    #socialmedia/index
+
+CodeSolid features articles at the intersection of Math and Programming.  It is written by a retired programmer who fancies himself `The World's Oldest Math Major <./worlds-oldest-math-major>`_.
 
 
