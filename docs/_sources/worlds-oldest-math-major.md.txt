@@ -31,6 +31,10 @@ That calculator, by the way, was responsible for a significant portion of the le
 
 Nothing that the world's oldest math major can't handle.
 
+The test results are in. Including the bonus question, I scored 103 points on a 100-point scale.  
+
+Not bad for an old guy.
+
 
 
 
