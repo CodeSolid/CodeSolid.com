@@ -12,8 +12,6 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=19645805"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -56,6 +54,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">More:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../all_files/">Site Index</a></li>
+</ul>
 
         </div>
       </div>
@@ -93,28 +95,28 @@
 </ul>
 <p>With that brief introduction out of the way, let’s dive right in!</p>
 <section id="is-python-good-for-shell-scripting">
-<h1>Is Python Good for Shell Scripting?<a class="headerlink" href="#is-python-good-for-shell-scripting" title="Link to this heading"></a></h1>
+<h1>Is Python Good for Shell Scripting?<a class="headerlink" href="#is-python-good-for-shell-scripting" title="Link to this heading">¶</a></h1>
 <p>Strictly speaking, Python is not a shell programming language, so it does not create shell scripts in the same sense as Bash scripts, batch files, or PowerShell scripts. However, Python does allow you to easily create simple and readable scripts that will work across different platforms.</p>
 <section id="the-strengths-of-shell-scripts">
-<h2>The Strengths of Shell Scripts<a class="headerlink" href="#the-strengths-of-shell-scripts" title="Link to this heading"></a></h2>
+<h2>The Strengths of Shell Scripts<a class="headerlink" href="#the-strengths-of-shell-scripts" title="Link to this heading">¶</a></h2>
 <p>To better understand this, let’s first discuss what a shell is, which will help us understand what shell scripts are and where they excel. A shell is simply a tool that provides an abstract or high-level interface to an operating system. This interface can be anything, really, but generally, what we mean by a system shell is a command-line program. So we don’t usually use “shell” to refer to a graphical user interface. However, that command line “shell” can run inside a graphical user interface as a “terminal window.”</p>
 <p>This definition is not exact because Bash has been ported to Windows, and you can even run PowerShell from a Mac or Linux machine. But generally speaking, shell scripts work best as glue for other operating system utilities. For example, Bash is easy enough to run on Windows. Still, unless you do it in the Windows Subsystem for Linux, you may need several other Linux utilities to “port” a Bash script successfully.</p>
 <p>System Administrators are often great fans and experts in shell scripting. A tool that can “script” tasks they’d otherwise type by hand is a substantial win for this community. However, this same reliance on operating system utilities makes shell scripts somewhat less portable than Python.</p>
 </section>
 <section id="python-as-a-shell-scripting-tool">
-<h2>Python as a Shell Scripting Tool<a class="headerlink" href="#python-as-a-shell-scripting-tool" title="Link to this heading"></a></h2>
+<h2>Python as a Shell Scripting Tool<a class="headerlink" href="#python-as-a-shell-scripting-tool" title="Link to this heading">¶</a></h2>
 <p>In contrast to operating system shell scripting languages, Python has several advantages.</p>
 <p>From the perspective of a beginner wondering where to invest their time, Python has a clear advantage in being a more general-purpose tool. It’s hard to imagine using Bash to handle web requests or data science tasks, but both these use cases are well-supported in Python.</p>
 <p>Python is also more portable than shell scripting tools. As we mentioned earlier, most of the valuable work you do in Bash consists of wiring up and integrating other programs. In Python, in contrast, the standard runtime library provides many tools for a variety of tasks that don’t rely on other dependencies being available. Though there are portions of the standard library that are non-portable, such as pipes (Unix only) and <code class="docutils literal notranslate"><span class="pre">winreg</span></code> (for working with the Windows registry), the great majority of Python libraries work equally well without further dependencies on Windows, Mac, or Linux. Of course, as with any language that supports a portable runtime such as Java, the tradeoff is that Python must be available on the target machine.</p>
 </section>
 </section>
 <section id="how-can-i-run-shell-commands-from-python">
-<h1>How can I Run Shell Commands from Python?<a class="headerlink" href="#how-can-i-run-shell-commands-from-python" title="Link to this heading"></a></h1>
+<h1>How can I Run Shell Commands from Python?<a class="headerlink" href="#how-can-i-run-shell-commands-from-python" title="Link to this heading">¶</a></h1>
 <p>This section has two main goals.</p>
 <p>The first goal is to introduce several packages and places to look for general shell programming tasks. Because Python’s runtime libraries provide so many built-in utilities that do the sorts of things you can also do in shell scripts by launching a program, you may not need to execute a separate process as routinely as you would in Bash.</p>
 <p>The second goal is to discuss how to use the subprocess module. Even though you won’t need to use separate processes as often as you do in Bash, you’ll still find you need to do this from time to time. We’ll walk through some ways you can use the subprocess module’s run function and the more flexible Popen constructor to call shell commands or other external applications.</p>
 <section id="the-top-nineteen-modules-for-python-shell-programming">
-<h2>The Top Nineteen Modules for Python Shell Programming<a class="headerlink" href="#the-top-nineteen-modules-for-python-shell-programming" title="Link to this heading"></a></h2>
+<h2>The Top Nineteen Modules for Python Shell Programming<a class="headerlink" href="#the-top-nineteen-modules-for-python-shell-programming" title="Link to this heading">¶</a></h2>
 <p>This section is for you if you’re new to Python and wondering where the shell script toolset is to let you accomplish what you could in Bash or another tool. Python support for shell scripts falls into two main categories:</p>
 <ul class="simple">
 <li><p>Built-in functions (i.e., functions you can call without an import).</p></li>
@@ -145,11 +147,11 @@
 </ul>
 </section>
 <section id="the-subprocess-module-run-external-programs-in-python">
-<h2>The Subprocess Module: Run External Programs In Python<a class="headerlink" href="#the-subprocess-module-run-external-programs-in-python" title="Link to this heading"></a></h2>
+<h2>The Subprocess Module: Run External Programs In Python<a class="headerlink" href="#the-subprocess-module-run-external-programs-in-python" title="Link to this heading">¶</a></h2>
 <p>Because shell scripts are so often called upon to run other programs, the <code class="docutils literal notranslate"><span class="pre">subprocess</span></code> module is a crucial tool for writing a shell script in Python. This is even still true in Python, though as we discussed in the last section, many standard library tools make it slightly less necessary to glue other programs together than in Bash.</p>
 </section>
 <section id="python-s-subprocess-module-basic-example">
-<h2>Python’s Subprocess Module: Basic Example<a class="headerlink" href="#python-s-subprocess-module-basic-example" title="Link to this heading"></a></h2>
+<h2>Python’s Subprocess Module: Basic Example<a class="headerlink" href="#python-s-subprocess-module-basic-example" title="Link to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">subprocess</span></code> module’s documentation recommends using <code class="docutils literal notranslate"><span class="pre">subprocess.run</span></code> for most uses. This is a simplified method that uses the more flexible <code class="docutils literal notranslate"><span class="pre">subprocess.Popen</span></code> class, which can be used if you have more advanced use cases.</p>
 <p>Let’s take a look at a simple program that uses the <code class="docutils literal notranslate"><span class="pre">subprocess</span></code> module and another module. In order to demonstrate how you might adapt your shell script for different environments, we detect the platform using the <code class="docutils literal notranslate"><span class="pre">platform</span></code> module we discussed earlier. One caveat about this example is that intentionally making this program accessible also is a double-edged sword because as written, you could much more easily accomplish the results of this program in Python without the <code class="docutils literal notranslate"><span class="pre">subprocess</span></code> module. However, I wanted the example program to be easy to run so you wouldn’t have more to set up before trying it out.</p>
 <p><strong>subprocess_demo.py</strong>:</p>
@@ -195,7 +197,7 @@
 </ul>
 </section>
 <section id="subprocess-run-return-values-and-error-handling">
-<h2>Subprocess Run: Return Values and Error Handling<a class="headerlink" href="#subprocess-run-return-values-and-error-handling" title="Link to this heading"></a></h2>
+<h2>Subprocess Run: Return Values and Error Handling<a class="headerlink" href="#subprocess-run-return-values-and-error-handling" title="Link to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">supbrocess.run</span></code> function returns a CompletedProcess object, with only a few attributes. The <code class="docutils literal notranslate"><span class="pre">args</span></code> attribute contains the same arguments we passed to the run method. The <code class="docutils literal notranslate"><span class="pre">returncode</span></code> will be zero on success, or non-zero if the process fails. You can’t count on all programs doing this, but in general, if the <code class="docutils literal notranslate"><span class="pre">returncode</span></code> is zero and you captured the output, then <code class="docutils literal notranslate"><span class="pre">stdout</span></code> will contain the output, and <code class="docutils literal notranslate"><span class="pre">stderr</span></code> will be an empty string. The reverse will be true for a non-zero exit code.</p>
 <p>In terms of error handling, as we mentioned earlier, passing check=True will return an exception. We can test this by changing the args line to this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">args</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">file_lister</span><span class="p">()</span><span class="si">}</span><span class="s2"> NO_SUCH_FILE&quot;</span>
@@ -277,7 +279,7 @@ subprocess.CalledProcessError:<span class="w"> </span>Command<span class="w"> </
 </section>
 </section>
 <section id="python-command-line-tools-that-work-with-bash">
-<h1>Python Command-Line Tools That Work with Bash<a class="headerlink" href="#python-command-line-tools-that-work-with-bash" title="Link to this heading"></a></h1>
+<h1>Python Command-Line Tools That Work with Bash<a class="headerlink" href="#python-command-line-tools-that-work-with-bash" title="Link to this heading">¶</a></h1>
 <p>If you are familiar with Bash or other shell scripting tools, you likely have noticed that our Python “shell scripts” have become a bit more verbose than you may be used to. This is especially true when it comes to launching subprocesses.</p>
 <p>In addition, you may want a tool where you have all the language features and libraries of Python without giving up the convenience of being able to list and manipulate files and directories easily as you can in Bash. Two tools that let you have your cake and eat it, too, are IPython and Xonsh.</p>
 <p>I mention Xonsh for completeness here – it is an ambitious project that features a new Bash-like language overlaid on a Python shell. Xonsh certainly has attracted a few fans who use it routinely, but after trying it out for some time, I found it to be a bit quirky and hard to learn, and if I’m going to work on something like that, I prefer mathematics!</p>
@@ -324,13 +326,13 @@ subprocess.CalledProcessError:<span class="w"> </span>Command<span class="w"> </
       });
   </script>
     <!-- Theme Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QX7KGT4YPE"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-3KNPRGQ15C', {
+      gtag('config', 'G-QX7KGT4YPE', {
           'anonymize_ip': false,
       });
     </script> 

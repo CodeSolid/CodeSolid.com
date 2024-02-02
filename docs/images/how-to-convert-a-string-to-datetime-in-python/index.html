@@ -12,8 +12,6 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=19645805"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -55,6 +53,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../all_files/">Site Index</a></li>
 </ul>
 
         </div>
@@ -117,13 +119,13 @@
 <p>The dates and times can be represented in various forms, and one of the most convenient is strings. However, we need to convert this string data into DateTime objects to work with these dates and times for arithmetic manipulations like finding time differences, adding or subtracting time, and more.</p>
 <p>This tutorial will look at converting a string date and time to a DateTime object in Python using the Datetime module. In addition, we’ll also understand the behavior of date and time in different time zones and learn about different output types of date and time objects.</p>
 <section id="what-is-python-datetime">
-<h1>What is Python Datetime?<a class="headerlink" href="#what-is-python-datetime" title="Link to this heading"></a></h1>
+<h1>What is Python Datetime?<a class="headerlink" href="#what-is-python-datetime" title="Link to this heading">¶</a></h1>
 <p>The primary method we will use is the <a class="reference external" href="https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior" title="DateTime Module Documentation">DateTime</a> module. Datetime is a built-in Python module that provides functions to handle many complex functions related to date and time.</p>
 <p>The DateTime module has three basic types of objects: date, time, and datetime.<br />
 Date works with dates, time works with time, and datetime works with both dates and times.</p>
 </section>
 <section id="converting-strings-to-datetime-objects">
-<h1>Converting Strings to Datetime Objects<a class="headerlink" href="#converting-strings-to-datetime-objects" title="Link to this heading"></a></h1>
+<h1>Converting Strings to Datetime Objects<a class="headerlink" href="#converting-strings-to-datetime-objects" title="Link to this heading">¶</a></h1>
 <p>Python strptime() is a built-in method of the DateTime class that converts a string of date and time into DateTime objects.</p>
 <p>Its syntax is as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">date_string</span><span class="p">,</span> <span class="nb">format</span><span class="p">)</span>
@@ -138,7 +140,7 @@ Date works with dates, time works with time, and datetime works with both dates 
 If the input string does not match the provided format, the ValueError occurs.</p>
 </section>
 <section id="python-datetime-format-codes">
-<h1>Python Datetime Format Codes<a class="headerlink" href="#python-datetime-format-codes" title="Link to this heading"></a></h1>
+<h1>Python Datetime Format Codes<a class="headerlink" href="#python-datetime-format-codes" title="Link to this heading">¶</a></h1>
 <p>Before converting the date and time string to DateTime, let’s look at a fundamental concept: formatting codes.</p>
 <p>Dates have a default representation - DD/MM/YYYY, for example, but we can output them in a particular format using different format codes.</p>
 <p>Each formatting code represents a different part of the date/time, such as day, month, year, day of the month or week, and so on.</p>
@@ -147,7 +149,7 @@ If the input string does not match the provided format, the ValueError occurs.</
 <p>We’ve already looked at formatting codes, so let’s get down to converting strings into the date, time, and datetime objects.</p>
 </section>
 <section id="string-to-datetime-object">
-<h1>String to Datetime Object<a class="headerlink" href="#string-to-datetime-object" title="Link to this heading"></a></h1>
+<h1>String to Datetime Object<a class="headerlink" href="#string-to-datetime-object" title="Link to this heading">¶</a></h1>
 <p>Let’s look at an example where the string representing the date and time is in standard format (dd/mm/yyyy hh:mm:ss).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#importing module</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
@@ -168,7 +170,7 @@ If the input string does not match the provided format, the ValueError occurs.</
 <p><img alt="" src="../../_images/datetime.datetime-1024x1451.png" /></p>
 <p>As you can see, before the conversion, the variable type was a string, which is later a datetime object.</p>
 <section id="accessing-datetime-objects-elements">
-<h2>Accessing Datetime Objects’ Elements<a class="headerlink" href="#accessing-datetime-objects-elements" title="Link to this heading"></a></h2>
+<h2>Accessing Datetime Objects’ Elements<a class="headerlink" href="#accessing-datetime-objects-elements" title="Link to this heading">¶</a></h2>
 <p>Using different methods, it is possible to use the datetime object elements individually.<br />
 Let’s look at the example of accessing separate parts:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># using &#39;.now()&#39; to get current date and time</span>
@@ -210,7 +212,7 @@ Let’s look at the example of accessing separate parts:</p>
 <p><img alt="" src="../../_images/addition-1024x1091.png" /></p>
 </section>
 <section id="datetime-and-time-zones">
-<h2>Datetime and Time Zones<a class="headerlink" href="#datetime-and-time-zones" title="Link to this heading"></a></h2>
+<h2>Datetime and Time Zones<a class="headerlink" href="#datetime-and-time-zones" title="Link to this heading">¶</a></h2>
 <p>Python has a built-in pytz module to get information about the world’s different time zones.</p>
 <p>Below is an example showing how to get the current date and time in Berlin:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing time zones module</span>
@@ -237,7 +239,7 @@ Let’s look at the example of accessing separate parts:</p>
 </section>
 </section>
 <section id="string-to-date-object">
-<h1>String to Date Object<a class="headerlink" href="#string-to-date-object" title="Link to this heading"></a></h1>
+<h1>String to Date Object<a class="headerlink" href="#string-to-date-object" title="Link to this heading">¶</a></h1>
 <p>Let’s now look at how to convert the same string only to a date object, that is, without the time part.</p>
 <p>To convert a string date to a date object, we first needed to convert the string to a datetime object using strptime(), as we have already did in the example above.<br />
 Then we have to use datetime.date() to extract only the date object part from the datetime instance.</p>
@@ -260,7 +262,7 @@ Then we have to use datetime.date() to extract only the date object part from th
 <p><img alt="" src="../../_images/datetime.date_-1024x1891.png" /></p>
 <p>We got a result where only the date is displayed.</p>
 <section id="presenting-date-objects-in-different-formats">
-<h2>Presenting Date Objects in Different Formats<a class="headerlink" href="#presenting-date-objects-in-different-formats" title="Link to this heading"></a></h2>
+<h2>Presenting Date Objects in Different Formats<a class="headerlink" href="#presenting-date-objects-in-different-formats" title="Link to this heading">¶</a></h2>
 <p>Using the formatting codes of the datetime module, we can represent date objects in different formats. For example, YYYY/DD/MM, DD-MM-YYYY, or in text form.</p>
 <p>Let’s look at an example of presenting a date in the form of text:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
@@ -285,7 +287,7 @@ Then we have to use datetime.date() to extract only the date object part from th
 </section>
 </section>
 <section id="string-to-time-object">
-<h1>String to Time Object<a class="headerlink" href="#string-to-time-object" title="Link to this heading"></a></h1>
+<h1>String to Time Object<a class="headerlink" href="#string-to-time-object" title="Link to this heading">¶</a></h1>
 <p>We can also use the datetime.time class to convert a string containing the time to a time object.</p>
 <p>As with the date object, we first need to convert the string to a datetime object. Then use the datetime.time() function (constructor) to extract only the time object from the datetime object.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#importing module</span>
@@ -307,7 +309,7 @@ Then we have to use datetime.date() to extract only the date object part from th
 <p><img alt="" src="../../_images/datetime.time_-1024x1861.png" /></p>
 <p>As we can see in this example, we only got 21:30:15 - the time part of the string.</p>
 <section id="presenting-time-objects-in-different-formats">
-<h2>Presenting Time Objects in Different Formats<a class="headerlink" href="#presenting-time-objects-in-different-formats" title="Link to this heading"></a></h2>
+<h2>Presenting Time Objects in Different Formats<a class="headerlink" href="#presenting-time-objects-in-different-formats" title="Link to this heading">¶</a></h2>
 <p>Like the date object, we can convert the time object into different formats.</p>
 <p>Let’s see how to format time objects to represent the time in 12 or 24-hour or AM/PM formats:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
@@ -339,7 +341,7 @@ Then we have to use datetime.date() to extract only the date object part from th
 </section>
 </section>
 <section id="converting-a-pandas-column-to-datetime">
-<h1>Converting a Pandas Column to Datetime<a class="headerlink" href="#converting-a-pandas-column-to-datetime" title="Link to this heading"></a></h1>
+<h1>Converting a Pandas Column to Datetime<a class="headerlink" href="#converting-a-pandas-column-to-datetime" title="Link to this heading">¶</a></h1>
 <p>Pandas has a built-in to_datetime() function to convert a column to datetime.<br />
 Let’s convert this data frame to a datetime object:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -384,12 +386,12 @@ Let’s convert this part into a datetime object.</p>
 <p>The output above shows the difference between the two dates as days.</p>
 </section>
 <section id="converting-a-string-to-datetime-using-other-python-libraries">
-<h1>Converting a String to Datetime Using Other Python Libraries<a class="headerlink" href="#converting-a-string-to-datetime-using-other-python-libraries" title="Link to this heading"></a></h1>
+<h1>Converting a String to Datetime Using Other Python Libraries<a class="headerlink" href="#converting-a-string-to-datetime-using-other-python-libraries" title="Link to this heading">¶</a></h1>
 <p>The datetime module in Python can convert all the different types of strings into datetime objects. However, it is time and energy-consuming to create a corresponding line of formatting code each time using strptime().</p>
 <p>Other third-party libraries can be used to convert strings to datetime objects. In some cases, these third-party libraries may do a better job manipulating dates and times.</p>
 <p>Let’s look at some of these libraries for converting strings to datetime objects.</p>
 <section id="string-to-datetime-with-dateutil">
-<h2>String to Datetime with Dateutil<a class="headerlink" href="#string-to-datetime-with-dateutil" title="Link to this heading"></a></h2>
+<h2>String to Datetime with Dateutil<a class="headerlink" href="#string-to-datetime-with-dateutil" title="Link to this heading">¶</a></h2>
 <p>The dateutil module is an extension of the datetime module. While using it, we don’t need to pass any formatting code to convert a string into a datetime object.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing dateutil</span>
 <span class="kn">from</span> <span class="nn">dateutil.parser</span> <span class="kn">import</span> <span class="n">parse</span>
@@ -417,7 +419,7 @@ Let’s convert this part into a datetime object.</p>
 <p>As you can see, the parse function of dateutil library makes converting strings into datetime objects much easier and faster.</p>
 </section>
 <section id="string-to-datetime-with-maya">
-<h2>String to Datetime with Maya<a class="headerlink" href="#string-to-datetime-with-maya" title="Link to this heading"></a></h2>
+<h2>String to Datetime with Maya<a class="headerlink" href="#string-to-datetime-with-maya" title="Link to this heading">¶</a></h2>
 <p>Like dateutil, Maya makes it easy to parse the string. However, before we can use this library, we must first download it.</p>
 <p>Use ‘pip install maya’ to install it.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing maya</span>
@@ -436,7 +438,7 @@ Let’s convert this part into a datetime object.</p>
 <p>Maya will automatically convert it to UTC if we don’t provide time zone information.</p>
 </section>
 <section id="string-to-datetime-with-arrow">
-<h2>String to Datetime with Arrow<a class="headerlink" href="#string-to-datetime-with-arrow" title="Link to this heading"></a></h2>
+<h2>String to Datetime with Arrow<a class="headerlink" href="#string-to-datetime-with-arrow" title="Link to this heading">¶</a></h2>
 <p>Arrow is another library for dealing with datetime in Python. It returns a Python datetime object from the arrow object after interpretation.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing arrow</span>
 <span class="kn">import</span> <span class="nn">arrow</span>
@@ -454,7 +456,7 @@ Let’s convert this part into a datetime object.</p>
 </section>
 </section>
 <section id="converting-datetime-back-into-integer-float-or-strings">
-<h1>Converting Datetime Back into Integer, Float, or Strings<a class="headerlink" href="#converting-datetime-back-into-integer-float-or-strings" title="Link to this heading"></a></h1>
+<h1>Converting Datetime Back into Integer, Float, or Strings<a class="headerlink" href="#converting-datetime-back-into-integer-float-or-strings" title="Link to this heading">¶</a></h1>
 <p>We have looked at how to display strings as datetime objects. But we can also convert these datetime objects to integers, float, or strings.</p>
 <p>To do this, we will use the strftime() method with functions to convert, such as int() or float().</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
@@ -478,7 +480,7 @@ Let’s convert this part into a datetime object.</p>
 <p><img alt="" src="../../_images/back-to-edited1.png" /></p>
 </section>
 <section id="conclusion">
-<h1>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading"></a></h1>
+<h1>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">¶</a></h1>
 <p>In this article, we have looked at different ways of converting a string into datetime, date, and time objects in Python. You can use either the default Python datetime library or any third-party libraries mentioned in the article, such as maya, dateutil, or arrow, to do this. Sometimes the third-party libraries add value and make it easier to parse, at the cost of introducing a new dependency.</p>
 <p>We looked at the different methods of formatting strings to convert them into a datetime object.<br />
 However, we have found that a significant problem with the default datetime package is that for almost all datetime string formats, we need to specify parsing code manually, which is not an optimal process.</p>
@@ -512,13 +514,13 @@ However, we have found that a significant problem with the default datetime pack
       });
   </script>
     <!-- Theme Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QX7KGT4YPE"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-3KNPRGQ15C', {
+      gtag('config', 'G-QX7KGT4YPE', {
           'anonymize_ip': false,
       });
     </script> 

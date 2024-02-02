@@ -12,8 +12,6 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=19645805"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -56,6 +54,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">More:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../all_files/">Site Index</a></li>
+</ul>
 
         </div>
       </div>
@@ -82,11 +84,11 @@
            <div itemprop="articleBody">
              
   <section id="introduction-what-is-a-for-loop-in-python">
-<h1>Introduction: What is a For Loop In Python<a class="headerlink" href="#introduction-what-is-a-for-loop-in-python" title="Link to this heading"></a></h1>
+<h1>Introduction: What is a For Loop In Python<a class="headerlink" href="#introduction-what-is-a-for-loop-in-python" title="Link to this heading">¶</a></h1>
 <p>The for loop is a fundamental construct in Python. It allows you to iterate through a sequence of items, such as a list or a range. In this tutorial, we will discuss the for loop in detail and provide several examples along the way and a set of exercises at the end so that you can practice using it. We will also compare the for loop with while loops and demonstrate several techniques, including how to build a list using a for loop, best practices for naming and other techniques, iterating through Python dictionaries, and several more techniques.</p>
 </section>
 <section id="python-for-loop-syntax-iterating-through-a-list">
-<h1>Python For Loop Syntax: Iterating Through a List<a class="headerlink" href="#python-for-loop-syntax-iterating-through-a-list" title="Link to this heading"></a></h1>
+<h1>Python For Loop Syntax: Iterating Through a List<a class="headerlink" href="#python-for-loop-syntax-iterating-through-a-list" title="Link to this heading">¶</a></h1>
 <p>We can use the for loop to iterate through any sequence of items, but our first example will use a list. The syntax for a for loop is as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">:</span>
     <span class="n">statement</span>
@@ -113,14 +115,14 @@
 </pre></div>
 </div>
 <section id="a-for-loop-best-practice">
-<h2>A For Loop Best Practice<a class="headerlink" href="#a-for-loop-best-practice" title="Link to this heading"></a></h2>
+<h2>A For Loop Best Practice<a class="headerlink" href="#a-for-loop-best-practice" title="Link to this heading">¶</a></h2>
 <p>Note that part of what makes the example above so simple and readable is that we have named are variables according to a loop naming best practice. The list (sequence) is named with a plural name that describes what each element is (in this case, “numbers”). For the variable we use to store the name of each item as we go through each iteration, we use the singular form of the name in the list.</p>
 <p>So, it’s “for number in numbers” in this case. If you had a list of people, you could use “for person in people.” And so forth.</p>
 <p>Newcomers to programming will sometimes use an “i” for this item variable. However, I think this is based on confusion with other languages. In other languages, a for loop contains an index into the list, not the item from the list itself.</p>
 </section>
 </section>
 <section id="python-for-loop-example-building-a-list-using-the-range-function">
-<h1>Python For Loop Example: Building a List Using the Range Function<a class="headerlink" href="#python-for-loop-example-building-a-list-using-the-range-function" title="Link to this heading"></a></h1>
+<h1>Python For Loop Example: Building a List Using the Range Function<a class="headerlink" href="#python-for-loop-example-building-a-list-using-the-range-function" title="Link to this heading">¶</a></h1>
 <p>In our second example, we’ll see how we can use a for loop to build a list dynamically. This example will show a popular programming pattern in which we use a Python for loop to iterate through a sequence of values and transform it into something else.</p>
 <p>We’ll start with an empty list and then add items to it using a for loop. Our example will use the range function to generate a sequence of values from 1 to 10. The range function returns an iterable sequence of numbers that is often used to iterate a specific number of times in a for loop. We start at the first number passed to the range function (which defaults to zero), and we end just before the second number we pass to the range function. So range(1, 6) counts from 1 to 5, not 1 to 6.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[]</span>
@@ -134,13 +136,13 @@
 <p>Note we must always create the empty list outside the code block that the loop controls. Then we call append inside the block of code controlled by the loop to add each element.</p>
 </section>
 <section id="for-loops-vs-comprehensions">
-<h1>For Loops vs. Comprehensions<a class="headerlink" href="#for-loops-vs-comprehensions" title="Link to this heading"></a></h1>
+<h1>For Loops vs. Comprehensions<a class="headerlink" href="#for-loops-vs-comprehensions" title="Link to this heading">¶</a></h1>
 <p>If you’re new to Python and just learning about it, you may hear at some point that creating a list, as we’ve shown above, is somehow “not as good” as making a list using a list comprehension. Without discussing list comprehensions in detail, there is some truth to that. However, knowing the pattern shown above is still very helpful because sometimes, the loop needs to do more than just build the list.</p>
 <p>We focus on simple examples in tutorials such as this one. Still, as your skill progresses, you will find yourself writing for loops that need to not just iterate through a sequence. They may also have to construct strings dynamically, print values, or save results to a database in addition to creating a new sequence and returning it.</p>
 <p>If the only thing you’re doing is creating a sequence, a list comprehension is more concise. However, as a beginner, using a loop is also perfectly valid. Moreover, avoiding a list comprehension is also what you’ll need if your code is doing more than simply creating a sequence.</p>
 </section>
 <section id="using-a-for-loop-with-a-python-dictionary">
-<h1>Using a For Loop With a Python Dictionary<a class="headerlink" href="#using-a-for-loop-with-a-python-dictionary" title="Link to this heading"></a></h1>
+<h1>Using a For Loop With a Python Dictionary<a class="headerlink" href="#using-a-for-loop-with-a-python-dictionary" title="Link to this heading">¶</a></h1>
 <p>Recall that you can use the for loop on any sequence. So far, we’ve seen lists and ranges as sequences, but dictionaries are also iterable this way. In Python, a for loop iterates through the keys of a dictionary. The syntax for this is as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dictionary</span><span class="p">:</span>
     <span class="n">statements</span>
@@ -170,7 +172,7 @@ d<span class="w"> </span>is<span class="w"> </span><span class="k">for</span><sp
 </div>
 </section>
 <section id="for-loops-vs-while-loops">
-<h1>For Loops vs. While Loops<a class="headerlink" href="#for-loops-vs-while-loops" title="Link to this heading"></a></h1>
+<h1>For Loops vs. While Loops<a class="headerlink" href="#for-loops-vs-while-loops" title="Link to this heading">¶</a></h1>
 <p>Loops using “for” and “while” are two of Python’s most basic control structures. They both allow you to iterate through a sequence of items, but they have different purposes and uses.</p>
 <p>Generally speaking, the Python for loop is used to implement a definite loop, one that will execute a number of times that’s known in advance. Iterating through a list, for example, it will loop once for each element, or “len(list)”.</p>
 <p>The while loop, on the other hand, is most often used for what’s called an indefinite loop. This type of loop will execute until some condition is met.</p>
@@ -201,7 +203,7 @@ d<span class="w"> </span>is<span class="w"> </span><span class="k">for</span><sp
 <p>Generally speaking, then, the for loop is better suited for situations where you know how many times it will need to run, and the while loop is for when you don’t. That said, there are often ways to rewrite for loops as indefinite loops and while loops as definite loops</p>
 </section>
 <section id="using-the-enumerate-function">
-<h1>Using the Enumerate Function<a class="headerlink" href="#using-the-enumerate-function" title="Link to this heading"></a></h1>
+<h1>Using the Enumerate Function<a class="headerlink" href="#using-the-enumerate-function" title="Link to this heading">¶</a></h1>
 <p>The enumerate function is a useful built-in function in Python that allows you to iterate through a sequence of items and also keep track of the index for each item. The syntax for using the enumerate function in a for loop is as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sequence</span><span class="p">):</span>
     <span class="n">statements</span>
@@ -222,7 +224,7 @@ The<span class="w"> </span>letter<span class="w"> </span>at<span class="w"> </sp
 </div>
 </section>
 <section id="for-loop-practice-exercises">
-<h1>For Loop Practice Exercises<a class="headerlink" href="#for-loop-practice-exercises" title="Link to this heading"></a></h1>
+<h1>For Loop Practice Exercises<a class="headerlink" href="#for-loop-practice-exercises" title="Link to this heading">¶</a></h1>
 <p>To practice what you’ve learned, here are some things you can try:</p>
 <ol class="arabic simple">
 <li><p>For the first exercise, create a list of numbers from 1 to 20 using the range function, and print it.</p></li>
@@ -262,7 +264,7 @@ x:<span class="w"> </span><span class="m">5</span>,<span class="w"> </span>y:<sp
 <p>10. Write your own exercise and solve it. Bonus: Post your exercise and solution it in the comments section!</p>
 </section>
 <section id="you-may-also-enjoy">
-<h1>You May Also Enjoy<a class="headerlink" href="#you-may-also-enjoy" title="Link to this heading"></a></h1>
+<h1>You May Also Enjoy<a class="headerlink" href="#you-may-also-enjoy" title="Link to this heading">¶</a></h1>
 <p><a class="reference external" href="https://codesolid.com/python-format-strings/">Python Format Strings: From Beginner to Expert</a></p>
 <p><a class="reference external" href="https://codesolid.com/python-operators/">Python Operators: The Building Blocks of Successful Code</a></p>
 <p><a class="reference external" href="https://codesolid.com/python-dataclasses/">Python Dataclass: Easily Automate Class Best Practices</a></p>
@@ -296,13 +298,13 @@ x:<span class="w"> </span><span class="m">5</span>,<span class="w"> </span>y:<sp
       });
   </script>
     <!-- Theme Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QX7KGT4YPE"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-3KNPRGQ15C', {
+      gtag('config', 'G-QX7KGT4YPE', {
           'anonymize_ip': false,
       });
     </script> 

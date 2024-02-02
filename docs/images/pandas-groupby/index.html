@@ -12,8 +12,6 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=19645805"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -56,6 +54,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">More:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../all_files/">Site Index</a></li>
+</ul>
 
         </div>
       </div>
@@ -82,7 +84,7 @@
            <div itemprop="articleBody">
              
   <section id="contents">
-<h1>Contents<a class="headerlink" href="#contents" title="Link to this heading"></a></h1>
+<h1>Contents<a class="headerlink" href="#contents" title="Link to this heading">¶</a></h1>
 <ul class="simple">
 <li><p>What is The Pandas Groupby Function?</p></li>
 <li><p>Sample Data We’ll Be Using</p></li>
@@ -116,13 +118,13 @@
 </ul>
 </section>
 <section id="what-is-the-pandas-groupby-function">
-<h1>What is The Pandas Groupby Function?<a class="headerlink" href="#what-is-the-pandas-groupby-function" title="Link to this heading"></a></h1>
+<h1>What is The Pandas Groupby Function?<a class="headerlink" href="#what-is-the-pandas-groupby-function" title="Link to this heading">¶</a></h1>
 <p>The groupby function in Pandas is a powerful and versatile tool in Python. Using this method, we may split our data, apply different operations to different subsets, and then merge the final results. This may be used to process enormous amounts of data for various computations.</p>
 <p>This tutorial will cover splitting, grouping, and selecting data from Pandas groupby. By the end, you will have a solid knowledge of Pandas groupby. You can easily apply this method to your dataset and save it as CSV and Excel files.</p>
 <p>As part of this tutorial, we will use a CSV file with not so much data for training purposes. You can <a class="reference external" href="https://raw.githubusercontent.com/CodeSolid/CodeSolid.github.io/main/booksource/data/AQ.csv">download</a> this file later and practice on your own.</p>
 </section>
 <section id="sample-data-we-ll-be-using">
-<h1>Sample Data We’ll Be Using<a class="headerlink" href="#sample-data-we-ll-be-using" title="Link to this heading"></a></h1>
+<h1>Sample Data We’ll Be Using<a class="headerlink" href="#sample-data-we-ll-be-using" title="Link to this heading">¶</a></h1>
 <p>Our dataset csv file (AQ.csv) contains the following data:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Country</span><span class="p">,</span><span class="n">Air</span> <span class="n">Quality</span> <span class="n">Index</span><span class="p">,</span><span class="n">Year</span><span class="p">,</span><span class="n">Status</span><span class="p">,</span><span class="n">Continent</span>
 <span class="n">Bangladesh</span><span class="p">,</span><span class="mi">173</span><span class="p">,</span><span class="mi">2021</span><span class="p">,</span><span class="n">Poor</span><span class="p">,</span><span class="n">South</span> <span class="n">Asia</span>
@@ -156,11 +158,11 @@
 Description automatically generated](https://lh5.googleusercontent.com/Yz_G_OM2Rz9P7lHSPdmlol4fA4V2lW6otWmBBYzxx6lhXtWajbMuszs6kcfNyF9grlVHudEm2oZNXRSvwnuEgF-3lZF8LhU_AxwMGVny-hVvCay3a68nWrRVSx0vf7Cn5a7JytoKTlmmJ6MDmjKu3-fmVqGwpIZjpnb8PPtfxeWeT5TyapaTS8ND0Q)
 </section>
 <section id="splitting-data-into-groups-using-pandas-groupby">
-<h1>Splitting Data into Groups Using Pandas Groupby<a class="headerlink" href="#splitting-data-into-groups-using-pandas-groupby" title="Link to this heading"></a></h1>
+<h1>Splitting Data into Groups Using Pandas Groupby<a class="headerlink" href="#splitting-data-into-groups-using-pandas-groupby" title="Link to this heading">¶</a></h1>
 <p>In the result above, we can see that we have at least three categories by which we can group our data: “Year”, “Status” and “Continent”. To group our data by, for instance, the continent, we can type <code class="docutils literal notranslate"><span class="pre">df.groupby('Continent')</span></code> given that your DataFrame is called “df” and that the column is called “Continent”.</p>
 <p>We are going to use the groupby method to group a DataFrame based on one, two, three, or more columns.</p>
 <section id="creating-a-group-based-on-one-column">
-<h2>Creating a Group Based on One Column<a class="headerlink" href="#creating-a-group-based-on-one-column" title="Link to this heading"></a></h2>
+<h2>Creating a Group Based on One Column<a class="headerlink" href="#creating-a-group-based-on-one-column" title="Link to this heading">¶</a></h2>
 <p>Now let’s start with the simplest example – grouping data by one column.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># grouping data by one column</span>
 <span class="n">cont</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Continent&#39;</span><span class="p">)</span>
@@ -195,7 +197,7 @@ Description automatically generated](https://lh4.googleusercontent.com/qJufc7IcM
 <p>This was all about how to group DataFrame based on one column. Let’s proceed with the grouping based on multiple columns.</p>
 </section>
 <section id="creating-groups-based-on-two-columns">
-<h2>Creating Groups Based on Two Columns<a class="headerlink" href="#creating-groups-based-on-two-columns" title="Link to this heading"></a></h2>
+<h2>Creating Groups Based on Two Columns<a class="headerlink" href="#creating-groups-based-on-two-columns" title="Link to this heading">¶</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># grouping data by two columns &#39;Status&#39; and &#39;Continent&#39;</span>
 <span class="n">AQ</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Status&#39;</span><span class="p">,</span><span class="s1">&#39;Continent&#39;</span><span class="p">])</span>
 
@@ -218,7 +220,7 @@ Description automatically generated](https://lh4.googleusercontent.com/qJufc7IcM
 Description automatically generated](https://lh5.googleusercontent.com/POCM5YVdku0TeUk2KDEI6FpC-Fe8LLsjsVsdYC_8tJw4DrgYiR3-BI6ZkhT72UX9Kw5qQtOXYVMJx7gQ9TFXYL2sUfD4necpExGhPMR7Z8kky5gSio8Wam-J0pEhvr1EgJGxMPOBBM18_vl_n5ZxajANttdgv00qiBRZDETYkf_fwkLH2W2V4GHppA)
 </section>
 <section id="grouping-by-three-columns">
-<h2>Grouping By Three Columns<a class="headerlink" href="#grouping-by-three-columns" title="Link to this heading"></a></h2>
+<h2>Grouping By Three Columns<a class="headerlink" href="#grouping-by-three-columns" title="Link to this heading">¶</a></h2>
 <p>Use the same idea for grouping by three columns and showing the grouped data in a table.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># grouping data by three columns &#39;Status&#39;,&#39;Continent&#39; and &#39;Country&#39;</span>
 <span class="n">AQ</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Status&#39;</span><span class="p">,</span><span class="s1">&#39;Continent&#39;</span><span class="p">,</span><span class="s1">&#39;Country&#39;</span><span class="p">])</span>
@@ -234,7 +236,7 @@ Description automatically generated with medium confidence](https://lh5.googleus
 </section>
 </section>
 <section id="getting-a-specific-group">
-<h1>Getting a Specific Group<a class="headerlink" href="#getting-a-specific-group" title="Link to this heading"></a></h1>
+<h1>Getting a Specific Group<a class="headerlink" href="#getting-a-specific-group" title="Link to this heading">¶</a></h1>
 <p>If we have multiple groups, we can select one of these groups as shown below.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># calling &#39;get_group&#39; method to access a specific group from all the groups</span>
 <span class="n">groups</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="s1">&#39;Asia&#39;</span><span class="p">)</span>
@@ -275,7 +277,7 @@ Description automatically generated](https://lh3.googleusercontent.com/Q2GSHQXuv
 <p><img alt="" src="https://lh3.googleusercontent.com/dDXL74qKGhpyw0WJB43cRMIcphcYZbpJs0eOLbj7yefGMZlAnSkWyHLMu-h3BcO1kTTMnaHpiJu3b_5LbA17V04698AQZ87LT0O8SZDXwKxn8Qa-Nj4kZjouuwukB3fw8ssqDzBTIi9PKxCzyyIBCaxcRdca4AXORGg5qyg2IoV6A69Er0CFgRsVgA" /></p>
 </section>
 <section id="pandas-groupby-output-format">
-<h1>Pandas Groupby Output Format<a class="headerlink" href="#pandas-groupby-output-format" title="Link to this heading"></a></h1>
+<h1>Pandas Groupby Output Format<a class="headerlink" href="#pandas-groupby-output-format" title="Link to this heading">¶</a></h1>
 <p>The output of groupby and aggregate operations differs between Pandas Series and Pandas DataFrames, which can be confusing.</p>
 <p>Typically, if you compute the result with more than one column, your result will be a DataFrame. For single-column results, aggregation functions will generate a Series by default. We can change this setting by selecting a different operation column:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># producing Pandas Series</span>
@@ -305,7 +307,7 @@ Description automatically generated](https://lh5.googleusercontent.com/DMDBChdUI
 <p>This way we can get different output formats depending on our request.</p>
 </section>
 <section id="iterating-through-groups-in-pandas-groupby">
-<h1>Iterating Through Groups in Pandas Groupby<a class="headerlink" href="#iterating-through-groups-in-pandas-groupby" title="Link to this heading"></a></h1>
+<h1>Iterating Through Groups in Pandas Groupby<a class="headerlink" href="#iterating-through-groups-in-pandas-groupby" title="Link to this heading">¶</a></h1>
 <p>We already know how to use Pandas groupby function with one and multiple groups (columns), which is returning pandas object, which is iterable.</p>
 <p>Now let’s iterate through the objects using the for loop and print the data.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># impoting pandas</span>
@@ -358,7 +360,7 @@ Description automatically generated with medium confidence](https://lh6.googleus
 <p>That was all about using for loop through one and multiple columns.</p>
 </section>
 <section id="finding-the-percentage-of-grouped-data">
-<h1>Finding the Percentage of Grouped Data<a class="headerlink" href="#finding-the-percentage-of-grouped-data" title="Link to this heading"></a></h1>
+<h1>Finding the Percentage of Grouped Data<a class="headerlink" href="#finding-the-percentage-of-grouped-data" title="Link to this heading">¶</a></h1>
 <p>Moreover, we can use different functions over our grouped data. For example, let’s use a lambda function to see the percentage of the grouped data.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># creating groups by three columns</span>
 
@@ -378,7 +380,7 @@ Description automatically generated with medium confidence](https://lh6.googleus
 Description automatically generated](https://lh3.googleusercontent.com/g0keTahtmN3mbWM5anK9ly0PamrNdGXTe3In64cRQ64ccq3_6PavfSytVHy7OgAWwNu7aA8_vBodWKwpkmsRH8LcwoStv1Rj-J_YdxY1uW94AQ7u1nm2KHbupBLndh_qg3DPPijYhgbtfcEw0LaLjJVsWVg_42p8IGxcZ4b0qvKImuREPCnsqHq4yg)
 </section>
 <section id="different-built-in-functions">
-<h1>Different Built-in Functions<a class="headerlink" href="#different-built-in-functions" title="Link to this heading"></a></h1>
+<h1>Different Built-in Functions<a class="headerlink" href="#different-built-in-functions" title="Link to this heading">¶</a></h1>
 <p>Up to this point, we used <code class="docutils literal notranslate"><span class="pre">mean</span></code>, <code class="docutils literal notranslate"><span class="pre">count</span></code>, and other functions, which are built-in Pandas aggregation, but they’re not the only ones.</p>
 <p>The following table summarizes some other built-in Pandas aggregations:</p>
 <table><tbody><tr><td><strong>Aggregation</strong></td><td><strong>Description</strong></td></tr><tr><td><code>count()</code></td><td>Total number of items</td></tr><tr><td><code>first(),&nbsp;last()</code></td><td>First and last item</td></tr><tr><td><code>mean(),&nbsp;median()</code></td><td>Mean and median</td></tr><tr><td><code>min(),&nbsp;max()</code></td><td>Minimum and maximum</td></tr><tr><td><code>std(),&nbsp;var()</code></td><td>Standard deviation and variance</td></tr><tr><td><code>mad()</code></td><td>Mean absolute deviation</td></tr><tr><td><code>prod()</code></td><td>Product of all items</td></tr><tr><td><code>sum()</code></td><td>Sum of all items</td></tr></tbody></table>
@@ -395,7 +397,7 @@ Description automatically generated](https://lh3.googleusercontent.com/g0keTahtm
 Description automatically generated](https://lh5.googleusercontent.com/TNFzvs9FdIRNDqBHgHYUqZjDl5sAYXt_dMCKW6oQ-0R0_9-34J485HCvaMAKedch2n5BSSjb7zpz-trsT8w0t9YkxMqUn-QClYGELaDqTlCETF3wJFiajqiMCygBC2LghsJz3wd2fqiZigHBUPy0y8zzl3ObO1qty1R4km5ggYdvjloglFOwKXkKtA)
 <p>Before it, we mainly used built-in functions separately like <code class="docutils literal notranslate"><span class="pre">mean()</span></code>, <code class="docutils literal notranslate"><span class="pre">sum()</span></code>, etc. Still, groupby objects have <code class="docutils literal notranslate"><span class="pre">aggregate()</span></code>, <code class="docutils literal notranslate"><span class="pre">filter()</span></code>, <code class="docutils literal notranslate"><span class="pre">transform()</span></code>, and <code class="docutils literal notranslate"><span class="pre">apply()</span></code> methods that easily execute a bunch of useful operations before combining the grouped data.</p>
 <section id="aggregation">
-<h2>Aggregation<a class="headerlink" href="#aggregation" title="Link to this heading"></a></h2>
+<h2>Aggregation<a class="headerlink" href="#aggregation" title="Link to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">aggregate()</span></code> method allows us to use several different aggregations and compute all of them at once.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing pandas </span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -417,7 +419,7 @@ Description automatically generated with medium confidence](https://lh5.googleus
 <p>In the output, we see that we implemented three functions at once to get each continent’s minimum, mean, and maximum values of the air quality index.</p>
 </section>
 <section id="filtering">
-<h2>Filtering<a class="headerlink" href="#filtering" title="Link to this heading"></a></h2>
+<h2>Filtering<a class="headerlink" href="#filtering" title="Link to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">filter()</span></code> operation allows us to discard data based on group properties. For example, we may want to keep only one needed group with some needed properties.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing pandas </span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -438,7 +440,7 @@ Description automatically generated with medium confidence](https://lh5.googleus
 Description automatically generated](https://lh6.googleusercontent.com/jNDpfxSM8DjCWq-0CxxdlgIu7Hjeo2MpNY4vWu6qGSY9UfvcBp7OzZEVYZIPuHFyjk9grSZgtilzrh1m5TfIMSTrLAUg-cm2Xb7I9m5o0tFXK9mdczlJhjfOGnHYkNYL3eHbwxI_ZIBJDvPjLsAKOZJt80p3c_A2xV5Ucswa0IuYOr6evRRGmFw08w)
 </section>
 <section id="transformation">
-<h2>Transformation<a class="headerlink" href="#transformation" title="Link to this heading"></a></h2>
+<h2>Transformation<a class="headerlink" href="#transformation" title="Link to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">transform()</span></code> function returns a transformed version of the entire data for the recombination. The output result has the same form as the input before.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># defining function of square </span>
 <span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -457,7 +459,7 @@ Description automatically generated](https://lh6.googleusercontent.com/jNDpfxSM8
 Description automatically generated with medium confidence](https://lh5.googleusercontent.com/jn8KseUc3jUCrxBbxjhxxa_YyqZBP-0l_v0-EbmIqMQASWdVcX_zVkCkHSe7zbJarMf-ilfJwEaU35MV7lEBgTeuXosuSFSJmyCfteMfIPC52PTrITr61Ikj0cOdUMQWdzZ7lbEGwfjc7P9cGKYkIVSbX7UCw2h4O7S5qglKJg463-EZT4QKoev5hg)
 </section>
 <section id="apply">
-<h2>Apply<a class="headerlink" href="#apply" title="Link to this heading"></a></h2>
+<h2>Apply<a class="headerlink" href="#apply" title="Link to this heading">¶</a></h2>
 <p>Apply() function allows us to apply various other functions to the groups.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># applying lambda function </span>
 <span class="n">AQI</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Continent&#39;</span><span class="p">])[</span><span class="s1">&#39;Air Quality Index&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
@@ -473,10 +475,10 @@ Description automatically generated](https://lh3.googleusercontent.com/jG3wLGuvS
 </section>
 </section>
 <section id="saving-grouped-pandas-dataframe-in-different-formats">
-<h1>Saving Grouped Pandas DataFrame in Different Formats<a class="headerlink" href="#saving-grouped-pandas-dataframe-in-different-formats" title="Link to this heading"></a></h1>
+<h1>Saving Grouped Pandas DataFrame in Different Formats<a class="headerlink" href="#saving-grouped-pandas-dataframe-in-different-formats" title="Link to this heading">¶</a></h1>
 <p>In the last section of this tutorial, we’re going to learn how to convert our groupby to CSV and Excel files. However, do not forget that we must reset our indexes for both types of data savings.</p>
 <section id="saving-a-pandas-dataframe-as-a-csv-file">
-<h2>Saving a Pandas DataFrame As a CSV File<a class="headerlink" href="#saving-a-pandas-dataframe-as-a-csv-file" title="Link to this heading"></a></h2>
+<h2>Saving a Pandas DataFrame As a CSV File<a class="headerlink" href="#saving-a-pandas-dataframe-as-a-csv-file" title="Link to this heading">¶</a></h2>
 <p>To save our data as a CSV file, we will use <code class="docutils literal notranslate"><span class="pre">to_csv</span></code> method. See the example below:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing pandas</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -504,7 +506,7 @@ Description automatically generated](https://lh3.googleusercontent.com/jG3wLGuvS
 Description automatically generated](https://lh6.googleusercontent.com/6U4XJjNFbdSepLZnaq9jxrOcs0eAL1uImW9nFUlWcL_W_5mfy1hgZAoqr6Q2cl2pRSYs8E4lFRKeszS1Ki5mzhr0V95wGorSsJJ9eIoNs-L6MFsd8ClbAhn5FXhR0zeiDSe-tJZ1DRFDjuCpKXsrc4mskdCxtHFqtgLvmhIvcQYP7m0PPec9D-B7dQ)
 </section>
 <section id="saving-pandas-dataframe-as-an-excel-file">
-<h2>Saving Pandas DataFrame as an Excel file<a class="headerlink" href="#saving-pandas-dataframe-as-an-excel-file" title="Link to this heading"></a></h2>
+<h2>Saving Pandas DataFrame as an Excel file<a class="headerlink" href="#saving-pandas-dataframe-as-an-excel-file" title="Link to this heading">¶</a></h2>
 <p>To save our data as an Excel file we will use <code class="docutils literal notranslate"><span class="pre">to_excel</span></code> method.</p>
 <p>See the example below:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing pandas</span>
@@ -534,11 +536,11 @@ Description automatically generated](https://lh4.googleusercontent.com/ztJfBT2aE
 </section>
 </section>
 <section id="summary">
-<h1>Summary<a class="headerlink" href="#summary" title="Link to this heading"></a></h1>
+<h1>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h1>
 <p>In this tutorial, we looked at the groupby function, which divides our data into different groups by category. The result of the groupby function is iterable, indicating that we can iterate the groups independently, using various functions at each step of the process. We’ve looked at how to select a particular group and how to work with them. We also learned how to apply different aggregations to one or more groups and finally learned how to save our data as CSV or Excel files.</p>
 </section>
 <section id="you-may-also-enjoy">
-<h1>You May Also Enjoy<a class="headerlink" href="#you-may-also-enjoy" title="Link to this heading"></a></h1>
+<h1>You May Also Enjoy<a class="headerlink" href="#you-may-also-enjoy" title="Link to this heading">¶</a></h1>
 <ul class="simple">
 <li><p><a class="reference external" href="https://codesolid.com/pandas-practice-examples/">Pandas Examples and Review Questions to Make You an Expert</a></p></li>
 </ul>
@@ -571,13 +573,13 @@ Description automatically generated](https://lh4.googleusercontent.com/ztJfBT2aE
       });
   </script>
     <!-- Theme Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QX7KGT4YPE"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-3KNPRGQ15C', {
+      gtag('config', 'G-QX7KGT4YPE', {
           'anonymize_ip': false,
       });
     </script> 

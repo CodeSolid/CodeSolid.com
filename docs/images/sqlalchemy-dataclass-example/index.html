@@ -12,8 +12,6 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=19645805"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -55,6 +53,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../all_files/">Site Index</a></li>
 </ul>
 
         </div>
@@ -101,7 +103,7 @@
 <li><p>Closing Thoughts</p></li>
 </ul>
 <section id="python-dataclasses-overview">
-<h1>Python Dataclasses Overview<a class="headerlink" href="#python-dataclasses-overview" title="Link to this heading"></a></h1>
+<h1>Python Dataclasses Overview<a class="headerlink" href="#python-dataclasses-overview" title="Link to this heading">¶</a></h1>
 <p>As we discussed in <a class="reference external" href="https://codesolid.com/python-dataclasses/">Python Dataclass: Easily Automate Class Best Practices</a>, the Python dataclass annotation allows you to quickly create a class using Python type hints for the instance variables. The dataclass annotation will then automatically create several useful methods, including __init__, __repr__, and __eq__. That article provides much more detail about how to do this, but in general, using the dataclass annotation will do two things:</p>
 <ul class="simple">
 <li><p>It will ensure that the types of your instance variables use Python type hints, making your code more clear.</p></li>
@@ -109,11 +111,11 @@
 </ul>
 </section>
 <section id="sqlalchemy-overview">
-<h1>SQLAlchemy Overview<a class="headerlink" href="#sqlalchemy-overview" title="Link to this heading"></a></h1>
+<h1>SQLAlchemy Overview<a class="headerlink" href="#sqlalchemy-overview" title="Link to this heading">¶</a></h1>
 <p>SQLAlchemy is a popular tool that combines a SQL expressions library that can be used on its own with an ORM that uses the expressions library. For many years, SQLAlchemy has been the most popular ORM for Python. The only exception to this popularity is among the Django community since the Django web framework contains and is integrated with its own Object Relational Mapping classes.</p>
 </section>
 <section id="the-data-for-our-example">
-<h1>The Data for Our Example<a class="headerlink" href="#the-data-for-our-example" title="Link to this heading"></a></h1>
+<h1>The Data for Our Example<a class="headerlink" href="#the-data-for-our-example" title="Link to this heading">¶</a></h1>
 <p>I’m not that vain in the sense of taking endless selfies and posting them on social media, but I do have a similar quirk when it comes to the data from this blog, which I like to download and manipulate. Since the blog runs on WordPress, it features a built-in API I can use to download posts, the categories to which they belong, and other data. Fair warning, if you use this data, it’s fairly large since it includes the contents of the posts. However, the dataclasses we’ll create will only map a subset of the JSON data that the WordPress API exposes.</p>
 <p>With that caveat out of the way, here are the links to the data that we’ll use with the code examples:</p>
 <ul class="simple">
@@ -122,7 +124,7 @@
 </ul>
 </section>
 <section id="creating-the-basic-sqlalchemy-dataclasses">
-<h1>Creating the Basic SQLAlchemy Dataclasses<a class="headerlink" href="#creating-the-basic-sqlalchemy-dataclasses" title="Link to this heading"></a></h1>
+<h1>Creating the Basic SQLAlchemy Dataclasses<a class="headerlink" href="#creating-the-basic-sqlalchemy-dataclasses" title="Link to this heading">¶</a></h1>
 <p>Before we get started, we can install the dependencies we need into a virtual environment using the following:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>sqlalchemy&gt;<span class="o">=</span><span class="m">2</span>.0.0
 pip<span class="w"> </span>install<span class="w"> </span>ipython
@@ -178,7 +180,7 @@ pip<span class="w"> </span>install<span class="w"> </span>ipython
 </div>
 </section>
 <section id="implementing-a-many-to-many-relationship">
-<h1>Implementing a Many-to-Many Relationship<a class="headerlink" href="#implementing-a-many-to-many-relationship" title="Link to this heading"></a></h1>
+<h1>Implementing a Many-to-Many Relationship<a class="headerlink" href="#implementing-a-many-to-many-relationship" title="Link to this heading">¶</a></h1>
 <p>In WordPress, a post can have more than one category, and categories can, of course, apply to more than one post. We can model such a many-to-many relationship with a third table that contains the ID of the two tables we’re joining as foreign keys. We must also relate each of the two tables back to the join table.</p>
 <p>Here is the posts_tables.py file with these new features added:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># post_tables.py</span>
@@ -232,7 +234,7 @@ pip<span class="w"> </span>install<span class="w"> </span>ipython
 <p>Running queries outside Python requires a separate client executable such as SQLLite3 (see <a class="reference external" href="https://www.sqlite.org/download.html">downloads</a>). Before we get to that point, however, we need to see how we can use the classes we’ve developed so far to create and populate the actual SQL tables.</p>
 </section>
 <section id="creating-the-tables-and-loading-the-data">
-<h1>Creating the Tables and Loading the Data<a class="headerlink" href="#creating-the-tables-and-loading-the-data" title="Link to this heading"></a></h1>
+<h1>Creating the Tables and Loading the Data<a class="headerlink" href="#creating-the-tables-and-loading-the-data" title="Link to this heading">¶</a></h1>
 <p>In the following code, we’ll use the ORM dataclasses and the join table we’ve already defined. Here are the tasks that remain to be done:</p>
 <ul class="simple">
 <li><p>Connect to a database using the SQLAlchemy create_engine method. Again, we’ll use SQLLite since it’s simple, runs in-process, and comes with Python.</p></li>
@@ -299,7 +301,7 @@ pip<span class="w"> </span>install<span class="w"> </span>ipython
 <p>Beginning on line 34 save_posts() is similar to save_categories(). However, since each post contains a list of categories to which it belongs, there’s on line 39, we use a list comprehension to turn this list of category IDs into a list of category objects. We create the post object on line 40, and add the categories on line 42. Finally, we’re ready to call Session.merge on line 43. As with save_categrories(), our last step is to call commit to save our data while still within the context manager for the session.</p>
 </section>
 <section id="closing-thoughts">
-<h1>Closing Thoughts<a class="headerlink" href="#closing-thoughts" title="Link to this heading"></a></h1>
+<h1>Closing Thoughts<a class="headerlink" href="#closing-thoughts" title="Link to this heading">¶</a></h1>
 <p>Even though this example was somewhat short and perhaps a bit contrived, we’ve covered quite a lot of ground. In particular, we learned that creating a SQLAlchemy ORM object as a Python dataclass is as simple as adding MappedAsDataclass as a parent (grandparent, etc.) of the class. We saw how to create classes declaratively and two methods for defining fields on the class.</p>
 <p>Finally, we learned how to create a database connection, create tables based on our dataclass definitions, and use the classes in lieu of raw SQL to save data to the database.</p>
 </section>
@@ -331,13 +333,13 @@ pip<span class="w"> </span>install<span class="w"> </span>ipython
       });
   </script>
     <!-- Theme Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QX7KGT4YPE"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-3KNPRGQ15C', {
+      gtag('config', 'G-QX7KGT4YPE', {
           'anonymize_ip': false,
       });
     </script> 

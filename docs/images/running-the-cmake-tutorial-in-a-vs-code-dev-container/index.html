@@ -12,8 +12,6 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=19645805"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -56,6 +54,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">More:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../all_files/">Site Index</a></li>
+</ul>
 
         </div>
       </div>
@@ -96,24 +98,24 @@
 <li><p>Using VS Code’s Dev Container Extension</p></li>
 </ul>
 <section id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h1>
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h1>
 <p>Though frequent readers of this blog will know that it’s been focused largely on Python until now, I recently decided to revisit the two languages I started my career with some thirty-three years ago: C and C++. Even after many years, C and C++ are still quite popular languages. As of July 2023, Python, C, and C++ are the three most popular languages in the TIOBE index. Though I’m impressed with Rust, and its popularity is rising, as a blogger, I hesitate to commit too much time to a language that is still relatively unpopular.</p>
 <p>Moreover, C and C++ complement the Python focus of this blog very nicely. What we usually think of as Python – CPython – is written in C, and many familiar C extensions, such as NumPy, make heavy use of optimized C code. (The same is beginning to be true of Rust with libraries such as PolaRS, but the use of C extensions in Python is much more widespread).</p>
 <p>Broadly speaking, compared to Python, C/C++ are two languages that are significantly faster than Python and much more widely used in system programming and embedded programming. The cost for this runtime speed is a steeper learning curve and greater programmer responsibility for memory management and other “low-level” concerns that Python handles automatically.</p>
 </section>
 <section id="limits-of-c-c-for-cross-platform-development">
-<h1>Limits of C/C++ for Cross-Platform Development<a class="headerlink" href="#limits-of-c-c-for-cross-platform-development" title="Link to this heading"></a></h1>
+<h1>Limits of C/C++ for Cross-Platform Development<a class="headerlink" href="#limits-of-c-c-for-cross-platform-development" title="Link to this heading">¶</a></h1>
 <p>One such concern that strikes you right away is that C/C++ programs need to be explicitly compiled and linked in a separate step, tasks that take place transparently when you run Python scripts through the interpreter. Unlike in Python, moreover, the tools to do this are different depending on your environment. With rare exceptions, the Python executable works pretty much the same across all platforms, whereas in the C/C++ world, this is not the case. Linux developers use gcc to compile their programs along with other third-party make tools to build their programs. Since GCC does not work on Apple Silicon, developers there are locked in for now to a choice between Clang or XCode. On Windows, developers frequently use Visual Studio, Microsoft’s development tool for C/C++, and other languages.</p>
 <p>As you might have guessed already, this variety of different tools would be something of a disadvantage to developers targeting multiple platforms. To mitigate this disadvantage, a number of cross-platform build tools have been created over the years that attempt to automatically do the right thing for whatever target platform you’re on. One of the most popular of these tools is CMake, which is widely used for many open-source packages and widely supported across a number of IDEs, including Visual Studio, XCode, and CLion.</p>
 </section>
 <section id="a-special-use-case">
-<h1>A Special Use Case<a class="headerlink" href="#a-special-use-case" title="Link to this heading"></a></h1>
+<h1>A Special Use Case<a class="headerlink" href="#a-special-use-case" title="Link to this heading">¶</a></h1>
 <p>In addition to wanting to explore and master CMake, I also wanted to be in a position to try some simple embedded programming projects, especially using a Microbit processor. From my earlier explorations with Rust, I discovered that this really would be <a class="reference external" href="https://rustassured.com/embedded-rust-development-on-apple-silicon-mac-m1/" title="much easier to do if the gdb debugger were available">much easier to do if GDB were available</a> (it’s not on Apple silicon, i.e., M1/M2-based systems).</p>
 <p>With this in mind, even though I could run the CMake tutorial (without GDB, of course) on a Mac without issues, I decided to try my hand at building CMake from source in a Docker container. This would – in principle – allow me to use the same development setup to eventually work on embedded projects directly from the Mac without spring for an expensive upgrade for my aging Windows and Linux hardware.</p>
 <p>The rest of this article details how I did this, which you may find useful as a refresher on some Docker techniques. For those of you who’d rather cut to the chase and already know your way around Docker, you can use the containers we’ll build here directly if you wish. I’ve pushed the final container to Dockerhub as codesolid/gcc_make_tutorial, so you can pull it from there directly. The code for this article is located in the repository <a class="reference external" href="https://github.com/codesolid/c">https://github.com/codesolid/c</a>.</p>
 </section>
 <section id="first-steps-building-cmake-from-source-in-docker">
-<h1>First Steps: Building CMake from Source in Docker<a class="headerlink" href="#first-steps-building-cmake-from-source-in-docker" title="Link to this heading"></a></h1>
+<h1>First Steps: Building CMake from Source in Docker<a class="headerlink" href="#first-steps-building-cmake-from-source-in-docker" title="Link to this heading">¶</a></h1>
 <p>My first step was to locate a Linux-based container with the gcc compiler already installed and add CMake to that container. One of the more reliable ways to install CMake is to build and install it from the source. Though somewhat slower than installing a package, this method has the advantage of also picking up the tutorial source that we want to use in a subsequent step. Rather than have a long series of run commands in the Dockerfile, I decided to move a lot of the install steps to a shell script and simply call it. Here’s the shell script I used:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 
@@ -155,7 +157,7 @@ cmake<span class="w"> </span>--version
 </div>
 </section>
 <section id="isolating-the-tutorial-source-with-a-multi-stage-build">
-<h1>Isolating the Tutorial Source With a Multi-Stage Build<a class="headerlink" href="#isolating-the-tutorial-source-with-a-multi-stage-build" title="Link to this heading"></a></h1>
+<h1>Isolating the Tutorial Source With a Multi-Stage Build<a class="headerlink" href="#isolating-the-tutorial-source-with-a-multi-stage-build" title="Link to this heading">¶</a></h1>
 <p>Now that we’ve worked through the basics of installing CMake only, we decided to rewrite (ahem: “iteratively enhance”) our project to use a multi-stage Docker build that also installs the source.</p>
 <p>In our install_cmake shell script, the only change we need is to remove the hard-coded CMake version. Instead, we now accept the version number as an argument, as follows:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$#</span><span class="w"> </span>-eq<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span>
@@ -197,9 +199,9 @@ docker<span class="w"> </span>buildx<span class="w"> </span>build<span class="w"
 </div>
 </section>
 <section id="accessing-the-tutorial-from-the-container-and-the-host">
-<h1>Accessing the Tutorial from the Container and the Host<a class="headerlink" href="#accessing-the-tutorial-from-the-container-and-the-host" title="Link to this heading"></a></h1>
+<h1>Accessing the Tutorial from the Container and the Host<a class="headerlink" href="#accessing-the-tutorial-from-the-container-and-the-host" title="Link to this heading">¶</a></h1>
 <section id="creating-a-volume-in-a-local-directory-and-mounting-it">
-<h2>Creating a Volume in a Local Directory and Mounting It<a class="headerlink" href="#creating-a-volume-in-a-local-directory-and-mounting-it" title="Link to this heading"></a></h2>
+<h2>Creating a Volume in a Local Directory and Mounting It<a class="headerlink" href="#creating-a-volume-in-a-local-directory-and-mounting-it" title="Link to this heading">¶</a></h2>
 <p>In order to access the source code and keep it available from one run to the next, even if we stop the container, we need to do more than pass a simple volume to the run command. Instead, we create a permanent volume mapped to a local “source” directory. This is a one-time operation:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>./source
 docker<span class="w"> </span>volume<span class="w"> </span>create<span class="w"> </span>--driver<span class="w"> </span><span class="nb">local</span><span class="w"> </span><span class="se">\</span>
@@ -235,7 +237,7 @@ CMakeLists.txt<span class="w">          </span>MathFunctions<span class="w">    
 </section>
 </section>
 <section id="using-vs-code-s-dev-container-extension">
-<h1>Using VS Code’s Dev Container Extension<a class="headerlink" href="#using-vs-code-s-dev-container-extension" title="Link to this heading"></a></h1>
+<h1>Using VS Code’s Dev Container Extension<a class="headerlink" href="#using-vs-code-s-dev-container-extension" title="Link to this heading">¶</a></h1>
 <p>Rather than be limited to editing the code from VS Code on the host, the VS Code “Dev Containers” extension lets you connect to either a pre-existing Dev Container developed by Microsoft or attach to a running container you’ve developed yourself. We’ll show the latter case here, but it’s worth mentioning that the Visual Studio Dev Container for C++ includes CMake (though not the tutorial source, as far as I’m aware).</p>
 <p>With the Dev Container extension installed, as with most extensions, you use the Command Pallete (CMD-SHIFT-P or CTRL-SHIFT-P) to access the extension’s features. If you start typing “Dev”, you can search for and run the command labeled “Dev Containers: Attach to Running Container”:</p>
 <p><img alt="" src="../../_images/image8.png" /></p>
@@ -326,13 +328,13 @@ cmake<span class="w"> </span>--build<span class="w"> </span>.
       });
   </script>
     <!-- Theme Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QX7KGT4YPE"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-3KNPRGQ15C', {
+      gtag('config', 'G-QX7KGT4YPE', {
           'anonymize_ip': false,
       });
     </script> 

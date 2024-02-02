@@ -12,8 +12,6 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=19645805"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -55,6 +53,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../all_files/">Site Index</a></li>
 </ul>
 
         </div>
@@ -121,7 +123,7 @@
 <li><p>Conclusion</p></li>
 </ul>
 <section id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h1>
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h1>
 <p>One of Python’s beginner-friendly features is that newcomers don’t need to declare or think about data types very much, at least not at first. Variables are never declared. They pop into existence as if by magic when you first assign them.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Hello world.&quot;</span>
 </pre></div>
@@ -146,9 +148,9 @@
 <p>Before moving onto those topics, let’s begin by examining what happens when a variable is created and discussing the common misconception that Python is weakly typed.</p>
 </section>
 <section id="is-python-weakly-typed">
-<h1>Is Python Weakly-Typed?<a class="headerlink" href="#is-python-weakly-typed" title="Link to this heading"></a></h1>
+<h1>Is Python Weakly-Typed?<a class="headerlink" href="#is-python-weakly-typed" title="Link to this heading">¶</a></h1>
 <section id="weakly-typed-vs-dynamically-typed">
-<h2>Weakly Typed vs. Dynamically Typed<a class="headerlink" href="#weakly-typed-vs-dynamically-typed" title="Link to this heading"></a></h2>
+<h2>Weakly Typed vs. Dynamically Typed<a class="headerlink" href="#weakly-typed-vs-dynamically-typed" title="Link to this heading">¶</a></h2>
 <p>We saw above that we create Python variables by assigning them, not by declaring them. On the surface, this appears similar to the type inference supported in some languages like Rust and later versions of C# and Java. Unlike those languages, however, Python variable types are not yet fixed at that point for the length of the program.</p>
 <p>If we ignore that bad practice of a poorly named and ambiguous variable for a moment, the following is a perfectly valid Python program:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>
@@ -176,7 +178,7 @@ Hello
 <p>Python, then, is dynamically typed, not weakly typed.</p>
 </section>
 <section id="behind-the-scenes-of-variable-assignment-using-python-s-disassembler">
-<h2>Behind the Scenes of Variable Assignment Using Python’s Disassembler<a class="headerlink" href="#behind-the-scenes-of-variable-assignment-using-python-s-disassembler" title="Link to this heading"></a></h2>
+<h2>Behind the Scenes of Variable Assignment Using Python’s Disassembler<a class="headerlink" href="#behind-the-scenes-of-variable-assignment-using-python-s-disassembler" title="Link to this heading">¶</a></h2>
 <p>If you’re curious about what Python’s doing behind the scenes when a variable gets assigned or reassigned, you can get explore the bytecode that Python generates when it happens. We can use Python’s dis (disassembly) module for this. (Note that this is part of the standard runtime, and does not need to be installed using Pip).</p>
 <p>Let’s see what happens when we assign a variable to a numerical constant, a string constant, and another variable.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dis</span> <span class="kn">import</span> <span class="n">dis</span>
@@ -206,12 +208,12 @@ Hello
 </section>
 </section>
 <section id="exploring-python-variables-and-types-a-guide-for-beginners">
-<h1>Exploring Python Variables and Types: A Guide for Beginners<a class="headerlink" href="#exploring-python-variables-and-types-a-guide-for-beginners" title="Link to this heading"></a></h1>
+<h1>Exploring Python Variables and Types: A Guide for Beginners<a class="headerlink" href="#exploring-python-variables-and-types-a-guide-for-beginners" title="Link to this heading">¶</a></h1>
 <p>Before we begin, if objects are new to you, you might want to read P<a class="reference external" href="https://codesolid.com/getting-started-with-python-classes/">ython Classes Zero to Expert: A Tutorial With Exercises</a>.</p>
 <p>Unlike languages like Java and C#, there are no “primitive types” in Python, only references to objects. That means things like numerical literals are also objects. So are functions and almost anything you can write in Python except operator symbols like +, -, etc. (Soapbox: for a language that some people unfairly criticize as “just a scripting language”, Python is one of the most thoroughly object-oriented languages I’ve ever used).</p>
 <p>Python objects and the types they’re based on have excellent support for inspection. You can inspect their type and what functions they support, and get interactive help based on the docstrings in the code. Suppose we have a variable, user_id, and we want to know if it’s stored as an integer or a string. We could print it, but if it’s an integer value stored as a string, the output will be the same, as we saw above.</p>
 <section id="the-python-type-function-displaying-the-object-class-of-a-variable">
-<h2>The Python Type Function: Displaying the Object Class of a Variable<a class="headerlink" href="#the-python-type-function-displaying-the-object-class-of-a-variable" title="Link to this heading"></a></h2>
+<h2>The Python Type Function: Displaying the Object Class of a Variable<a class="headerlink" href="#the-python-type-function-displaying-the-object-class-of-a-variable" title="Link to this heading">¶</a></h2>
 <p>The most common approach to discovering a variable’s type in Python is the simplest: use the <code class="docutils literal notranslate"><span class="pre">type</span></code> function:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">user_id</span><span class="p">))</span>
 
@@ -221,7 +223,7 @@ Hello
 </div>
 </section>
 <section id="listing-the-available-functions-in-python-with-dir">
-<h2>Listing the Available Functions in Python with Dir<a class="headerlink" href="#listing-the-available-functions-in-python-with-dir" title="Link to this heading"></a></h2>
+<h2>Listing the Available Functions in Python with Dir<a class="headerlink" href="#listing-the-available-functions-in-python-with-dir" title="Link to this heading">¶</a></h2>
 <p>Python’s <code class="docutils literal notranslate"><span class="pre">dir</span></code> function returns the methods on an object as a list.</p>
 <p>Now suppose need to manipulate the user_id a bit. For example, let’s say we’ve been asked to trim the whitespace only on the left side of the user_id. Before writing some code to do that, let’s see if there’s a method available on the string class. We can display the available functions as a list using <code class="docutils literal notranslate"><span class="pre">print(dir(greeting))</span></code>. This will print a rather long list, but scanning through it quickly, we see a section that looks like this:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>...<span class="s1">&#39;lower&#39;</span>,<span class="w"> </span><span class="s1">&#39;lstrip&#39;</span>,<span class="w"> </span><span class="s1">&#39;maketrans&#39;</span>,<span class="w"> </span><span class="s1">&#39;partition&#39;</span>...
@@ -230,16 +232,16 @@ Hello
 <p>We don’t see anything like trim_left, but <code class="docutils literal notranslate"><span class="pre">lstrip</span></code> looks promising.</p>
 </section>
 <section id="getting-help-reading-the-function-documentation">
-<h2>Getting Help: Reading the Function Documentation<a class="headerlink" href="#getting-help-reading-the-function-documentation" title="Link to this heading"></a></h2>
+<h2>Getting Help: Reading the Function Documentation<a class="headerlink" href="#getting-help-reading-the-function-documentation" title="Link to this heading">¶</a></h2>
 <p>Let’s print out what it does with the help function. The screenshot below shows the output we’re interested in:</p>
 <p><img alt="The python help function displays " src="../../_images/image-317.png" /></p>
 <p>Sure enough, lstrip is exactly the function we want in this case. By the way, if you’re working in Jupyter Notebook, you can get the same information using <code class="docutils literal notranslate"><span class="pre">user_id.lstrip?</span></code></p>
 </section>
 </section>
 <section id="python-type-hints-making-types-explicit">
-<h1>Python Type Hints: Making Types Explicit<a class="headerlink" href="#python-type-hints-making-types-explicit" title="Link to this heading"></a></h1>
+<h1>Python Type Hints: Making Types Explicit<a class="headerlink" href="#python-type-hints-making-types-explicit" title="Link to this heading">¶</a></h1>
 <section id="why-python-introduced-type-hints">
-<h2>Why Python Introduced Type Hints<a class="headerlink" href="#why-python-introduced-type-hints" title="Link to this heading"></a></h2>
+<h2>Why Python Introduced Type Hints<a class="headerlink" href="#why-python-introduced-type-hints" title="Link to this heading">¶</a></h2>
 <p>Although Python’s dynamic types make it beginner friendly, it has some unintended consequences.</p>
 <p>The first consequence has to do with performance. As a rule, statically typed languages can take advantage of compile-time optimizations and have less overhead at runtime, so their performance is generally better than dynamically typed languages. C, C++, and Rust are all more performant than Python or Ruby, for example.</p>
 <p>The second consequence of dynamic typing is that, although it’s beginner-friendly, there is no way to do static checking to ensure that arguments to functions have the correct type, or that what’s returned from the function is correct. As we’ll see shortly, this is the problem that type hints solve, but first, let’s look at an example to illustrate the problem.</p>
@@ -251,7 +253,7 @@ Hello
 <p>With the above information, we don’t really know how to call the function without reading it. Is user_id a string? An int? Perhaps it’s a uuid (a unique identifier object)? Also, what’s returned from the function? We might guess that It’s a user object, but it could just as well be a dictionary or a string with the user’s first and last name. By convention, the has a docstring to help so you can use help on it, but it would be nice if we could both understand it at a glance and have a tool to validate the results.</p>
 </section>
 <section id="type-hint-typing-module-and-basic-syntax">
-<h2>Type Hint Typing Module and Basic Syntax<a class="headerlink" href="#type-hint-typing-module-and-basic-syntax" title="Link to this heading"></a></h2>
+<h2>Type Hint Typing Module and Basic Syntax<a class="headerlink" href="#type-hint-typing-module-and-basic-syntax" title="Link to this heading">¶</a></h2>
 <p>To address this second consequence, Python 3.5 introduced a new module, typing, which formally added many new, related classes to help make type hints available to the Python language. (For completeness, we should point out that although type hints were officially available in 3.5, the syntax it relies on is somewhat backward compatible).</p>
 <p>Python’s type hints make it easy to rework the function above. For example, suppose we replaced it this way:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">models</span> <span class="kn">import</span> <span class="n">User</span>
@@ -276,7 +278,7 @@ Hello
 </ul>
 </section>
 <section id="static-type-checking-in-python">
-<h2>Static Type Checking in Python<a class="headerlink" href="#static-type-checking-in-python" title="Link to this heading"></a></h2>
+<h2>Static Type Checking in Python<a class="headerlink" href="#static-type-checking-in-python" title="Link to this heading">¶</a></h2>
 <p>Type hints are optional and will remain so – this is by design. So you don’t need to add them. Nor does adding them change the behavior of your program in any way. This is even true of cases where your program calls a function “incorrectly.” Consider the following program, which we’ll call bug.py:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># bug.py </span>
 <span class="c1"># Don&#39;t do this.  Violate the greet_user type hint</span>
@@ -296,9 +298,9 @@ Hello
 </section>
 </section>
 <section id="using-mypy-for-static-type-checking">
-<h1>Using MyPy for Static Type Checking<a class="headerlink" href="#using-mypy-for-static-type-checking" title="Link to this heading"></a></h1>
+<h1>Using MyPy for Static Type Checking<a class="headerlink" href="#using-mypy-for-static-type-checking" title="Link to this heading">¶</a></h1>
 <section id="getting-started">
-<h2>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h2>
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading">¶</a></h2>
 <p>You can install mypy easily using either pip or conda. Once installed, you can run it on either a package or a single file. The screenshot below shows the result of running the following command on the program above:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mypy<span class="w"> </span>bug.py
 </pre></div>
@@ -308,7 +310,7 @@ Hello
 <p>For day-to-day development, however, it’s better to correct these errors as soon as we make them. With this in mind, let’s consider integrating mypy with VS Code or Jupyter.</p>
 </section>
 <section id="using-mypy-with-vs-code">
-<h2>Using MyPy with VS Code<a class="headerlink" href="#using-mypy-with-vs-code" title="Link to this heading"></a></h2>
+<h2>Using MyPy with VS Code<a class="headerlink" href="#using-mypy-with-vs-code" title="Link to this heading">¶</a></h2>
 <p>Assuming you installed mypy as above into the environment that’s set as your current Python interpreter in VS Code, you can easily enable mypy in two steps:</p>
 <ol class="arabic simple">
 <li><p>In the command palette (Shift-Alt-P / Shift-Cmd-P), search for lining and select “Python: Enable/Disable Linting,” then click on “Enable.”</p></li>
@@ -318,7 +320,7 @@ Hello
 <p><img alt="Mypy error displayed in Visual Studio Code.  Argument 1 to &quot;greet_user&quot; has incompatible type &quot;int&quot;; expected &quot;str&quot;" src="../../_images/image-6-1024x294.png" /></p>
 </section>
 <section id="using-mypy-with-jupyter-notebook-jupyter-lab">
-<h2>Using MyPy with Jupyter Notebook / Jupyter Lab<a class="headerlink" href="#using-mypy-with-jupyter-notebook-jupyter-lab" title="Link to this heading"></a></h2>
+<h2>Using MyPy with Jupyter Notebook / Jupyter Lab<a class="headerlink" href="#using-mypy-with-jupyter-notebook-jupyter-lab" title="Link to this heading">¶</a></h2>
 <p>If you’re using Jupyter, the nb-mypy package provides excellent support for validating type hints with mypy. To get started with nb-mypy, install it using pip. (As far as I know, no Conda packages are available for it in the main Conda channels). Once it’s installed, you enable it in Jupyter using the following command:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">load_ext</span> <span class="n">nb_mypy</span>
 </pre></div>
@@ -328,10 +330,10 @@ Hello
 </section>
 </section>
 <section id="advanced-type-hints-and-the-python-typing-module">
-<h1>Advanced Type Hints and the Python Typing Module<a class="headerlink" href="#advanced-type-hints-and-the-python-typing-module" title="Link to this heading"></a></h1>
+<h1>Advanced Type Hints and the Python Typing Module<a class="headerlink" href="#advanced-type-hints-and-the-python-typing-module" title="Link to this heading">¶</a></h1>
 <p>So far, the examples we’ve shown have all been pretty simple, using built-in and user-defined types. In this section, we want to cover a few slightly more advanced techniques and some of the features of the typing module.</p>
 <section id="collections-types-and-type-aliases">
-<h2>Collections Types and Type Aliases<a class="headerlink" href="#collections-types-and-type-aliases" title="Link to this heading"></a></h2>
+<h2>Collections Types and Type Aliases<a class="headerlink" href="#collections-types-and-type-aliases" title="Link to this heading">¶</a></h2>
 <p>We’ve covered how to work with simple types, but next, let’s consider how to work with collection types. There are two ways you might want to specify a collection type. You might want to enforce that a function accepts or returns a collection containing any element. In this case, you can simply use the collection type name:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_list</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
     <span class="k">return</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
@@ -372,7 +374,7 @@ Hello
 </div>
 </section>
 <section id="union-types">
-<h2>Union Types<a class="headerlink" href="#union-types" title="Link to this heading"></a></h2>
+<h2>Union Types<a class="headerlink" href="#union-types" title="Link to this heading">¶</a></h2>
 <p>A union type allows you to specify that a function will accept or return one of two or more types. For example, suppose you were writing a function that accepts a date, and you want to specify that it will either take a date in a known format (for example, “2015-03-15”) or a Python date object. You could do it like this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
@@ -398,7 +400,7 @@ Hello
 </section>
 </section>
 <section id="literal-types">
-<h1>Literal Types<a class="headerlink" href="#literal-types" title="Link to this heading"></a></h1>
+<h1>Literal Types<a class="headerlink" href="#literal-types" title="Link to this heading">¶</a></h1>
 <p>Generally speaking, type hints are aptly named because they don’t let you check anything <em>except</em> the type. Literal types are an exception to this general rule, however, since they let you check that a parameter is a given value, or within a range of values.</p>
 <p>Suppose we’re writing a comparison function for a sort operation. We’re passed two strings, and have to return 1 if the first would come before the second in a language dictionary, zero if they’re the same, or -1 if the first comes after the second. Here is how the function might be written to make the return value clear:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Literal</span>
@@ -409,7 +411,7 @@ Hello
 </div>
 </section>
 <section id="conclusion">
-<h1>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading"></a></h1>
+<h1>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">¶</a></h1>
 <p>If you made it this far, thank you for hanging in there! There was a lot to digest. Even with all that, we haven’t covered everything there is to learn about the typing module. For more detailed information, the following Google query will fetch you the most current official documentation: “docs.python.org typing.”</p>
 <p>Type hints are a great feature in Python 3 that can make your code easier to understand and therefore easier to use. It also enables automatic checking, meaning your code is more likely to be correct. Having the types specified explicitly also makes it easier to navigate in an IDE.</p>
 <p>Best of all, it’s optional. If you just need to write a quick script, you can still write your functions as you always did. However, type hints are definitely the way to go for larger projects and especially for libraries. With type hints, your users will know exactly how to call your code with the correct arguments and can use automated tools to help them improve their own code.</p>
@@ -442,13 +444,13 @@ Hello
       });
   </script>
     <!-- Theme Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QX7KGT4YPE"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-3KNPRGQ15C', {
+      gtag('config', 'G-QX7KGT4YPE', {
           'anonymize_ip': false,
       });
     </script> 

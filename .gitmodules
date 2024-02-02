@@ -4,3 +4,6 @@
 [submodule "themes/stack"]
 	path = themes/stack
 	url = https://github.com/CaiJimmy/hugo-theme-stack/
+[submodule "themes/sphinx_rtd_theme"]
+	path = themes/sphinx_rtd_theme
+	url = git@github.com:readthedocs/sphinx_rtd_theme.git

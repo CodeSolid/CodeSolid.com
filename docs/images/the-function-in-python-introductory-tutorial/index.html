@@ -12,8 +12,6 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=19645805"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -55,6 +53,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../all_files/">Site Index</a></li>
 </ul>
 
         </div>
@@ -100,12 +102,12 @@
 <li><p>You May Also Enjoy</p></li>
 </ul>
 <section id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h1>
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h1>
 <p>Welcome to this tutorial on functions in Python! In this tutorial, you will learn how to define and use functions in Python.</p>
 <p>Functions are essential to any programming language, as they allow you to reuse code and compartmentalize your program into logical blocks. In Python, functions are defined using the <code class="docutils literal notranslate"><span class="pre">def</span></code> keyword, and are called using the function name followed by parentheses.</p>
 <p>Writing good functions is a crucial first step to becoming an effective Python programmer.</p>
 <section id="what-is-a-function-in-python">
-<h2>What Is a Function in Python?<a class="headerlink" href="#what-is-a-function-in-python" title="Link to this heading"></a></h2>
+<h2>What Is a Function in Python?<a class="headerlink" href="#what-is-a-function-in-python" title="Link to this heading">¶</a></h2>
 <p>As with everything in programming, the best way to understand functions is by example, but before we get to those, let’s begin with a formal definition.</p>
 <p>A Python function is named, callable group of statements. Functions accept zero or more arguments and may return a result. This very broad definition captures what the language allows.</p>
 <p>More strictly speaking, a function is a subroutine that returns a result. Still, Python is like most other languages, in that it doesn’t distinguish between “subroutines” (or procedures), which don’t return a result, and functions, which do return a result. They are defined the same in Python and called in roughly the same way.</p>
@@ -113,7 +115,7 @@
 <p>In addition to functions as defined here, Python also supports unnamed, anonymous lambda functions and callable objects that can serve as functions but are defined differently. There are also different types of methods that one can define on Python clases. (See <a class="reference external" href="https://codesolid.com/getting-started-with-python-classes/">Python Classes Zero To Expert: A Tutorial With Exercises</a>, for more on this topic). For the purposes of this article, however, we’ll focus primarily on simple functions declared outside of a class.</p>
 </section>
 <section id="python-functions-some-examples">
-<h2>Python Functions: Some Examples<a class="headerlink" href="#python-functions-some-examples" title="Link to this heading"></a></h2>
+<h2>Python Functions: Some Examples<a class="headerlink" href="#python-functions-some-examples" title="Link to this heading">¶</a></h2>
 <p>You define a function in Python with the following syntax:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">function_name</span><span class="p">(</span><span class="n">parameter_1</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">parameter_n</span><span class="p">):</span>
     <span class="n">statement_1</span>
@@ -157,7 +159,7 @@ INFO: What if a function returns no result?
 INFO: log_result is None? True</p>
 </section>
 <section id="keyword-arguments-and-positional-arguments">
-<h2>Keyword Arguments and Positional Arguments<a class="headerlink" href="#keyword-arguments-and-positional-arguments" title="Link to this heading"></a></h2>
+<h2>Keyword Arguments and Positional Arguments<a class="headerlink" href="#keyword-arguments-and-positional-arguments" title="Link to this heading">¶</a></h2>
 <p>Python has a very rich and flexible syntax for passing arguments to a function. In fact, it’s so rich and flexible that we’ve published a whole separate article on <a class="reference external" href="https://codesolid.com/python-function-arguments-and-parameters-examples/">Python Function Arguments</a> that goes over all the rules and special cases.</p>
 <p>To briefly summarize some of the main points without getting into all the detailed syntax and special cases, if you have a plain function with a set of parameters, you can in general specify those parameters either by keyword or by position.</p>
 <p>Let’s suppose for example that you’re tired of looking up string formatting codes for displaying different numbers in base 2, base 16, and so forth. You decide to write a function that takes a decimal number and a string representing a base you want to display it as, and returns a string. The bases you want to be able to pass to it are “hex” for hexadecimal, “bin” for binary, “oct” for octal, and “dec” for decimal.</p>
@@ -191,7 +193,7 @@ INFO: log_result is None? True</p>
 <p>You can also mix positional arguments and keyword arguments, but the rule for that is that if you do so, any positional arguments must come first. This is as you might expect, since in that case, order matters!</p>
 </section>
 <section id="default-parameters">
-<h2>Default Parameters<a class="headerlink" href="#default-parameters" title="Link to this heading"></a></h2>
+<h2>Default Parameters<a class="headerlink" href="#default-parameters" title="Link to this heading">¶</a></h2>
 <p>Later parameters in a function parameter list can be created as default parameters. For example, maybe we designed <code class="docutils literal notranslate"><span class="pre">int_to_string</span></code> to be flexible, but since we deal with hexadecimal values a lot, we really wanted to make that a default. To do this, place the default value in an equals sign after the parameter definition, for example:</p>
 <p><code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">int_to_string(number:</span> <span class="pre">int,</span> <span class="pre">target_base:</span> <span class="pre">str**=&quot;hex&quot;**)</span></code> …</p>
 <p>With this change in place, we can still override the default to get octal or other formats, but if we leave off the parameter, we get hex:</p>
@@ -206,7 +208,7 @@ INFO: log_result is None? True</p>
 </div>
 </section>
 <section id="return-values">
-<h2>Return Values<a class="headerlink" href="#return-values" title="Link to this heading"></a></h2>
+<h2>Return Values<a class="headerlink" href="#return-values" title="Link to this heading">¶</a></h2>
 <p>As we saw above in <code class="docutils literal notranslate"><span class="pre">int_to_string</span></code>, values can be returned from a function using the “return” keyword, followed by a variable or expression. The return value can then be set to a variable or used in another expression. Function calls can also be nested, with the innermost call’s return value passed to the next innermost, and so forth. In practice, you should avoid having too much nesting because after awhile the code starts to become unclear, but the choice of when an intermediate variable improves readability is somewhat arbitrary. Here’s an example where we nest the return of <code class="docutils literal notranslate"><span class="pre">str</span></code> to the <code class="docutils literal notranslate"><span class="pre">len</span></code> function, and print that value.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="mi">12345</span><span class="p">)))</span> <span class="c1"># Prints 5</span>
 </pre></div>
@@ -224,7 +226,7 @@ INFO: log_result is None? True</p>
 <p>When to keep things concise and when to make them explicit is often a judgment call, but usually, if there’s any complexity in the code that would make it difficult to understand otherwise, splitting it out into separate steps is a good idea. When in doubt, err on the side of clarity. The goal always should be to make the code readable, not clever.</p>
 </section>
 <section id="early-returns-from-a-function">
-<h2>Early Returns from a Function<a class="headerlink" href="#early-returns-from-a-function" title="Link to this heading"></a></h2>
+<h2>Early Returns from a Function<a class="headerlink" href="#early-returns-from-a-function" title="Link to this heading">¶</a></h2>
 <p>A function can have more than one return statement. There’s some debate as to whether that’s a good idea or not, but many developers feel it makes sense if you already know the answer. Let’s suppose you have a function that takes a list of sales objects and counts those with a total value greater than $100.00. If the list is either null or empty, it makes no sense to continue, since the answer has to be zero. In that case, an early return at the top of the function might make perfect sense:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count_sales_over_one_hundred</span><span class="p">(</span><span class="n">sales</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Assert example&quot;&quot;&quot;</span>
@@ -236,13 +238,13 @@ INFO: log_result is None? True</p>
 <p>We’ll show another way we could have handled this condition a bit later in our discussion of asserts.</p>
 </section>
 <section id="multiple-return-values-from-a-python-function">
-<h2>Multiple Return Values from a Python Function<a class="headerlink" href="#multiple-return-values-from-a-python-function" title="Link to this heading"></a></h2>
+<h2>Multiple Return Values from a Python Function<a class="headerlink" href="#multiple-return-values-from-a-python-function" title="Link to this heading">¶</a></h2>
 <p>You can easily return multiple values from a Python function by separating them with a comma. Strictly speaking, you’re really returning one Python tuple this way, and the comma serves as an operator that creates the tuple.</p>
 <p>Let’s say you wanted to modify your <code class="docutils literal notranslate"><span class="pre">count_sales_over_one_hundered</span></code> function to return both the total count of sales over one hundred dollars, as well as the count of sales under ten dollars. Once you’ve gone through the list, your return statement might look like this:</p>
 <p><code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">count_high_dollar,</span> <span class="pre">count_low_dollar</span></code></p>
 </section>
 <section id="functions-with-no-return-value">
-<h2>Functions with No Return Value<a class="headerlink" href="#functions-with-no-return-value" title="Link to this heading"></a></h2>
+<h2>Functions with No Return Value<a class="headerlink" href="#functions-with-no-return-value" title="Link to this heading">¶</a></h2>
 <p>When your program calls a function in Python, generally speaking, one of three things will happen:</p>
 <ul class="simple">
 <li><p>The function will return a value to the caller. If it returns a value, that value should (generally) be handled by the caller in some way.</p></li>
@@ -252,7 +254,7 @@ INFO: log_result is None? True</p>
 </section>
 </section>
 <section id="you-may-also-enjoy">
-<h1>You May Also Enjoy<a class="headerlink" href="#you-may-also-enjoy" title="Link to this heading"></a></h1>
+<h1>You May Also Enjoy<a class="headerlink" href="#you-may-also-enjoy" title="Link to this heading">¶</a></h1>
 <p><a class="reference external" href="https://codesolid.com/python-format-strings/">Python Format Strings: From Beginner to Expert</a></p>
 <p><a class="reference external" href="https://codesolid.com/python-dataclasses/">Python Dataclass: Easily Automate Class Best Practices</a></p>
 <p><a class="reference external" href="https://codesolid.com/python-indexing-slicing-exercises/">Python Indexing and Slicing</a></p>
@@ -286,13 +288,13 @@ INFO: log_result is None? True</p>
       });
   </script>
     <!-- Theme Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QX7KGT4YPE"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-3KNPRGQ15C', {
+      gtag('config', 'G-QX7KGT4YPE', {
           'anonymize_ip': false,
       });
     </script> 

@@ -12,8 +12,6 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=19645805"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -83,6 +81,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">More:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../all_files/">Site Index</a></li>
+</ul>
 
         </div>
       </div>
@@ -109,26 +111,26 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="conda-vs-pip-venv-and-pyenv-simplicity-wins">
-<h1>Conda vs. Pip, Venv, and Pyenv – Simplicity Wins<a class="headerlink" href="#conda-vs-pip-venv-and-pyenv-simplicity-wins" title="Link to this heading"></a></h1>
+<h1>Conda vs. Pip, Venv, and Pyenv – Simplicity Wins<a class="headerlink" href="#conda-vs-pip-venv-and-pyenv-simplicity-wins" title="Link to this heading">¶</a></h1>
 <p>If you spend time on Python forums, you’ll find that even people who love Python think its package management tools are somewhat clunky compared to other languages. For example, I recently promoted my [SymPy post](http://SymPy is a Python library for symbolic mathematics. It’s free and open source, and because it’s written entirely in Python, it’s easy to install and use.) in such a place. In response, someone had some good-natured fun at my expense because I wrote that because SymPy is “written entirely in Python, it’s easy to install and use.”</p>
 <p>Let me give you another symptom of Python’s tooling. More than one person has told me that they don’t use virtual environments; they just install packages using pip into their global Python environment.</p>
 <p>In all fairness to them, that’s what I did first when I started using Python, too, even though, at the time, I already had over a decade of software development experience. In contrast, as an experienced Java developer, I would have been horrified to download jar files (Java packages) and drop them into the system-wide Java lib directory. In Java, one used Maven (at least for a time before Gradle and other Ivy-based tools muddied the waters).</p>
 <p>Later, and for years since, I’ve used the Python venv module. Now a veteran of many requirements.txt files, I have system aliases that help me quickly create and activate virtual environments. Flushed with the pride of thinking one has ceased to do it wrong, I wrote about <a class="reference external" href="https://codesolid.com/what-is-a-python-package/#htoc-how-to-install-python-packages">How to Install Python Packages the Right Way</a>.</p>
 <p>As any cat skinner will tell you, however, there’s more than one right way to do it. This post will share the way I prefer now and why.</p>
 <section id="moving-to-conda">
-<h2>Moving to Conda<a class="headerlink" href="#moving-to-conda" title="Link to this heading"></a></h2>
+<h2>Moving to Conda<a class="headerlink" href="#moving-to-conda" title="Link to this heading">¶</a></h2>
 <blockquote>
 <div><p>“The nice thing about standards is that you have so many to choose from; furthermore, if you do not like any of them, you can just wait for next year’s model.”</p>
 <p><a class="reference external" href="https://wiki.c2.com/?AndrewTanenbaum">Andrew S. Tanenbaum</a></p>
 </div></blockquote>
 </section>
 <section id="getting-started-with-conda">
-<h2>Getting Started With Conda<a class="headerlink" href="#getting-started-with-conda" title="Link to this heading"></a></h2>
+<h2>Getting Started With Conda<a class="headerlink" href="#getting-started-with-conda" title="Link to this heading">¶</a></h2>
 <p>If you’re interested in trying out Conda, I recommend <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a> unless you have a strong need to get Anaconda. The difference is that Anaconda is a massive Python distribution with a huge set of tools pre-installed. Miniconda lets you select which of those tools you need, based on the same “conda” command line tool that Anaconda uses. Once Miniconda is successfully installed, you should be able to run “<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">info</span></code>” or “<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">--version</span></code>” to verify you can see it on your path.</p>
 <p>Incidentally, you don’t already need Python installed to do this (but it’s OK if you do). Miniconda comes with a version of Python along with the libraries it needs to run. It also lets you install Python (and other tools), in addition to installing Python packages. Conda will isolate these from your “global” Python, so you won’t have to worry about conflicts.</p>
 </section>
 <section id="conda-vs-other-tools">
-<h2>Conda vs. Other Tools<a class="headerlink" href="#conda-vs-other-tools" title="Link to this heading"></a></h2>
+<h2>Conda vs. Other Tools<a class="headerlink" href="#conda-vs-other-tools" title="Link to this heading">¶</a></h2>
 <p>In the title, I told you this post would be a comparison of Conda with Pip, Venv, and Pyenv. This may seem like an unfair fight, three against one and all, but let me assure you, this match is more balanced than it looks.</p>
 <ul class="simple">
 <li><p>Like Pip, Conda can install packages, and as we go forward, we will discuss the pros and cons of each as a package management tool.</p></li>
@@ -142,9 +144,9 @@
 <p>The first tool I want to discuss is the one whose quirks led me to consider Conda in the first place, PyEnv.</p>
 </section>
 <section id="conda-vs-pyenv">
-<h2>Conda vs. PyEnv<a class="headerlink" href="#conda-vs-pyenv" title="Link to this heading"></a></h2>
+<h2>Conda vs. PyEnv<a class="headerlink" href="#conda-vs-pyenv" title="Link to this heading">¶</a></h2>
 <section id="some-background">
-<h3>Some Background<a class="headerlink" href="#some-background" title="Link to this heading"></a></h3>
+<h3>Some Background<a class="headerlink" href="#some-background" title="Link to this heading">¶</a></h3>
 <p>Like Conda, pyenv lets you manage multiple Python versions. For example, if you have a project on an older Python version, let’s say 3.4, but you want to experiment with the later features of 3.10, pyenv lets you switch between them.  In this respect, a helpful feature of pyenv is that you can set a version globally (let’s say you usually want 3.10), but then for the project that uses Python 3.4, you can create a file with the name, “.python_version”. With that file containing the correct version, you’ll use that version when you run Python from anywhere underneath that project root folder.</p>
 <p>Before moving to Conda, I had used pyenv for some time and was pretty happy with it. However, the pain point that finally led me to explore Anaconda was an annoying problem with pyenv. At the time, I had several JupyterLab environments available on my machine, with the packages installed with pip and the virtual environments managed with venv. What I often noticed is that I would try to run <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code> with a virtual environment activated, and I would get an error, even though I knew it was available in that environment.</p>
 <p>It turned out that a shell script named “jupyter” inside the pyenv shims directory was the culprit. This file was taking precedence over my virtual environment. Deleting it from the shims directory or even deleting the whole directory didn’t help. Pyenv recreated the shims directory, presumably every time the shell re-evaluated my <code class="docutils literal notranslate"><span class="pre">.profile</span></code> file and ran init. I like my zombies in the movies; I like them far less in my development tools.</p>
@@ -157,9 +159,9 @@
 </div>
 </section>
 <section id="conda-vs-pyenv-pros-and-cons">
-<h3>Conda vs Pyenv: Pros and Cons<a class="headerlink" href="#conda-vs-pyenv-pros-and-cons" title="Link to this heading"></a></h3>
+<h3>Conda vs Pyenv: Pros and Cons<a class="headerlink" href="#conda-vs-pyenv-pros-and-cons" title="Link to this heading">¶</a></h3>
 <section id="pros-of-pyenv-compared-to-conda">
-<h4>Pros of Pyenv Compared to Conda<a class="headerlink" href="#pros-of-pyenv-compared-to-conda" title="Link to this heading"></a></h4>
+<h4>Pros of Pyenv Compared to Conda<a class="headerlink" href="#pros-of-pyenv-compared-to-conda" title="Link to this heading">¶</a></h4>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># From your terminal</span>
 docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>python:3.11.0rc2-bullseye<span class="w"> </span>bash
 <span class="c1"># ...</span>
@@ -171,7 +173,7 @@ python<span class="w"> </span>--version
 </div>
 </section>
 <section id="pros-of-conda-compared-to-pyenv">
-<h4>Pros of Conda Compared to Pyenv<a class="headerlink" href="#pros-of-conda-compared-to-pyenv" title="Link to this heading"></a></h4>
+<h4>Pros of Conda Compared to Pyenv<a class="headerlink" href="#pros-of-conda-compared-to-pyenv" title="Link to this heading">¶</a></h4>
 <p>Unlike pyenv, Conda is more than just a tool for managing Python versions. It also handles virtual environments and installing packages. Because of this, the kind of conflict that could happen with those pyenv shims is impossible in Conda or at least far less likely.</p>
 <p>I hesitated to conclude that a monolithic tool can be superior to a collection of small tools that each does one thing well. But having shims that repeatedly broke what should be a simple virtual environment configuration was finally too much of a mess.</p>
 <p>You have to be a die-hard tool-lover to appreciate pyenv and the plugins for it. Consider, for example, the following excerpt from the pyenv-virtualenv README on GitHub:</p>
@@ -181,9 +183,9 @@ python<span class="w"> </span>--version
 </section>
 </section>
 <section id="conda-vs-venv">
-<h2>Conda vs. Venv<a class="headerlink" href="#conda-vs-venv" title="Link to this heading"></a></h2>
+<h2>Conda vs. Venv<a class="headerlink" href="#conda-vs-venv" title="Link to this heading">¶</a></h2>
 <section id="pros-and-cons-of-conda-vs-venv">
-<h3>Pros and Cons of Conda vs Venv<a class="headerlink" href="#pros-and-cons-of-conda-vs-venv" title="Link to this heading"></a></h3>
+<h3>Pros and Cons of Conda vs Venv<a class="headerlink" href="#pros-and-cons-of-conda-vs-venv" title="Link to this heading">¶</a></h3>
 <p>Having a tool that comes with Python is a significant advantage. The biggest strength of Python’s venv module is that it has been part of core Python since 3.3. Venv allows you to create and manage virtual environments so that the packages you install (typically using pip) remain separate from your global Python environment.</p>
 <p>One difference between Venv and Conda is that they store environments in different places (by default). Conda creates environments as named folders in a shared location. (You can discover where that is with the command <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">info</span> <span class="pre">--base</span></code>).</p>
 <p>In venv, on the other hand, these environments are generally stored along with your project files in a separate folder, commonly named .venv or venv. This makes it easy to find the root of the installed libraries if you want to browse through the code. On the negative side, however, it has several minor disadvantages:</p>
@@ -203,7 +205,7 @@ python<span class="w"> </span>--version
 </section>
 </section>
 <section id="installing-python-packages-conda-and-pip">
-<h2>Installing Python Packages: Conda and Pip<a class="headerlink" href="#installing-python-packages-conda-and-pip" title="Link to this heading"></a></h2>
+<h2>Installing Python Packages: Conda and Pip<a class="headerlink" href="#installing-python-packages-conda-and-pip" title="Link to this heading">¶</a></h2>
 <p>Of all the tools we’ve been discussing, the one that Conda does not eliminate the need for is pip. Once you start using Conda, you’ll find you can easily manage Python versions (except for the prerelease case we mentioned before), so the need for pyenv disappears. Similarly, Conda easily manages isolated environments, so you’ll find you may not need venv much – though you still might want to document its use for users of your library, tutorial, or other work product.</p>
 <p>In the case of pip, however, there are several reasons why you may be unable to replace it with Conda completely.</p>
 <ul class="simple">
@@ -217,13 +219,13 @@ python<span class="w"> </span>--version
 <p>Either way, when you export your current environment to a file, conda will export both the conda packages (in the “dependencies” section) and any pip dependencies (under “pip”). You can also use <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">freeze</span></code> to capture just the pip dependencies, but this won’t show the conda environment details.</p>
 </section>
 <section id="a-brief-conda-tutorial">
-<h2>A Brief Conda Tutorial<a class="headerlink" href="#a-brief-conda-tutorial" title="Link to this heading"></a></h2>
+<h2>A Brief Conda Tutorial<a class="headerlink" href="#a-brief-conda-tutorial" title="Link to this heading">¶</a></h2>
 <p>This tutorial will take you through the steps to create and use a conda environment, including how to export and recreate it. First, make sure that you have <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">miniconda</a> installed. You should see an informational screen rather than an error when you enter the following command at the terminal:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>info
 </pre></div>
 </div>
 <section id="creating-environments-and-installing-packages">
-<h3>Creating Environments and Installing Packages<a class="headerlink" href="#creating-environments-and-installing-packages" title="Link to this heading"></a></h3>
+<h3>Creating Environments and Installing Packages<a class="headerlink" href="#creating-environments-and-installing-packages" title="Link to this heading">¶</a></h3>
 <p>For this example, we will create a JupyterLab environment that you can use for a number of projects in data science and mathematics. Our first step is to create and activate the environment:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>shared<span class="w"> </span>--yes<span class="w"> </span>
 conda<span class="w"> </span>activate<span class="w"> </span>shared
@@ -268,7 +270,7 @@ python<span class="w"> </span>--version
 </div>
 </section>
 <section id="saving-sharing-and-re-creating-saved-environments">
-<h3>Saving, Sharing, and Re-Creating Saved Environments<a class="headerlink" href="#saving-sharing-and-re-creating-saved-environments" title="Link to this heading"></a></h3>
+<h3>Saving, Sharing, and Re-Creating Saved Environments<a class="headerlink" href="#saving-sharing-and-re-creating-saved-environments" title="Link to this heading">¶</a></h3>
 <p>In pip, we often use the following sequence to save and restore an environment. Generally, this is done within the context of a virtual environment, but we’re simplifying here:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save the list of currently installed packages:</span>
 pip<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </span>requirements.txt
@@ -321,7 +323,7 @@ conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> <
 </section>
 </section>
 <section id="final-thoughts">
-<h2>Final Thoughts<a class="headerlink" href="#final-thoughts" title="Link to this heading"></a></h2>
+<h2>Final Thoughts<a class="headerlink" href="#final-thoughts" title="Link to this heading">¶</a></h2>
 <p>The tutorial above represents only a small fraction of what you can do with conda, but it’s easy to learn more about the available features. In addition to the interactive help we mentioned earlier, the Anaconda team maintains a <a class="reference external" href="https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf" title="Conda cheat sheet">conda cheat sheet</a> you can use. There’s even a cheat sheet extension for VS Code you can install if you do a lot of work there.</p>
 <p>The fact that venv and pip are integrated with Python has made them a de-facto standard for creating isolated environments and installing packages. Because of that, if you are working on an open-source library, it’s definitely worth supporting these for your users. That means publishing to PyPI and including a requirements.txt file in your repository.</p>
 <p>Although most software teams also standardize on these tools as well, at the very least, conda is well worth considering for personal projects and for sharing in a team as well. It’s great to have a single command line tool that correctly handles installing software tools like Python, R, and even Rust, as well as allowing for isolating Python environments and installing Python packages. Conda is generally intuitive and much easier to learn and use than the many tools it replaces.</p>
@@ -358,13 +360,13 @@ conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> <
       });
   </script>
     <!-- Theme Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QX7KGT4YPE"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-3KNPRGQ15C', {
+      gtag('config', 'G-QX7KGT4YPE', {
           'anonymize_ip': false,
       });
     </script> 

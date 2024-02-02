@@ -12,8 +12,6 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=19645805"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -65,6 +63,10 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">More:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../all_files/">Site Index</a></li>
+</ul>
 
         </div>
       </div>
@@ -91,7 +93,7 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="jupyter-password-easy-notebook-and-lab-configuration">
-<h1>Jupyter Password: Easy Notebook and Lab Configuration<a class="headerlink" href="#jupyter-password-easy-notebook-and-lab-configuration" title="Link to this heading"></a></h1>
+<h1>Jupyter Password: Easy Notebook and Lab Configuration<a class="headerlink" href="#jupyter-password-easy-notebook-and-lab-configuration" title="Link to this heading">¶</a></h1>
 <p>In general, getting started launching Jupyter is not that hard. You generally run one of your preferred commands from the terminal; most people settle on one of these commands after a while:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span></code></p></li>
@@ -106,7 +108,7 @@
 <p>The solution to this is to set up a known password. Once you do that, you won’t need a username, but you will need to enter that password once for each browser session (not each window or tab). Since doing this, I rarely have to re-enter it, but it’s nice that when I do, I know the password and don’t have to go hunting for a token URL.</p>
 <p>Before setting up our Jupyter password, however, and by way of explaining why I’m going to ask you to do so twice, we need a brief introduction to Jupyter’s configuration.</p>
 <section id="jupyter-notebook-password-or-jupyter-server-password">
-<h2>Jupyter Notebook Password or Jupyter Server Password?<a class="headerlink" href="#jupyter-notebook-password-or-jupyter-server-password" title="Link to this heading"></a></h2>
+<h2>Jupyter Notebook Password or Jupyter Server Password?<a class="headerlink" href="#jupyter-notebook-password-or-jupyter-server-password" title="Link to this heading">¶</a></h2>
 <p>Like any successful software project, the Jupyter project has evolved, and that evolution is continuing today. That’s generally good news, but it does mean that depending on what version of Jupyter you’re running and how you launch it, the configuration may be stored in one of two places:</p>
 <ul class="simple">
 <li><p>~/.jupyter/jupyter_notebook_config.json</p></li>
@@ -120,7 +122,7 @@
 <p>Note that you may not see these files if you’ve never set a password or done other configurations, but one or both of them should be there after you’ve stored your password (by default it will be hashed using argon2, so you won’t see it in plain text).</p>
 </section>
 <section id="setting-the-password">
-<h2>Setting the Password<a class="headerlink" href="#setting-the-password" title="Link to this heading"></a></h2>
+<h2>Setting the Password<a class="headerlink" href="#setting-the-password" title="Link to this heading">¶</a></h2>
 <p>Because there are now two places where your Jupyter configuration might be stored, we need to try to set our password twice. This is done as shown below. In each case, you’ll be prompted to type the password once and then confirm it.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter<span class="w"> </span>notebook<span class="w"> </span>password
 jupyter<span class="w"> </span>server<span class="w"> </span>password<span class="w"> </span>
@@ -132,11 +134,11 @@ jupyter<span class="w"> </span>server<span class="w"> </span>password<span class
 <p>Again, you only have to enter your password once per browser session and won’t need to re-enter it for every tab you might want to launch.</p>
 </section>
 <section id="if-you-forget-the-password">
-<h2>If You Forget The Password<a class="headerlink" href="#if-you-forget-the-password" title="Link to this heading"></a></h2>
+<h2>If You Forget The Password<a class="headerlink" href="#if-you-forget-the-password" title="Link to this heading">¶</a></h2>
 <p>If you forget the password, don’t panic. The procedure from the last section also allows you to reset the password to a new value, and it doesn’t prompt you for the old password to do so. As an alternative, if you just decide you’d rather remove password authentication altogether, see the following section.</p>
 </section>
 <section id="removing-the-password">
-<h2>Removing The Password<a class="headerlink" href="#removing-the-password" title="Link to this heading"></a></h2>
+<h2>Removing The Password<a class="headerlink" href="#removing-the-password" title="Link to this heading">¶</a></h2>
 <p>If you ever decide you want to go back to token authentication for whatever reason, you can remove the password in several ways.</p>
 <p>The safest thing to do is simply to rename or move the configuration files (see the configuration section above for their locations). This is just a precaution, in case you have other configurations stored in them. You can safely delete them after making sure everything works as you expect. (You should no longer have to enter a password the first time, but you’ll need to scroll through the ugly for tokens if you open a different browser or restart the same browser).</p>
 <p>If you do need to keep the configuration files and edit the password out of them, here are the relevant sections:</p>
@@ -154,7 +156,7 @@ jupyter<span class="w"> </span>server<span class="w"> </span>password<span class
 <p>Removing just the line beginning with “password” will get you back to token authentication. (By the way, those hashes look different, but they represent the same password in both cases. And of course, I’ve reset them after writing this.)</p>
 </section>
 <section id="closing-thoughts">
-<h2>Closing Thoughts<a class="headerlink" href="#closing-thoughts" title="Link to this heading"></a></h2>
+<h2>Closing Thoughts<a class="headerlink" href="#closing-thoughts" title="Link to this heading">¶</a></h2>
 <p>I am definitely a fan of password authentication for Jupyter. Token authentication is great for the simple case since the app will just launch, but if you find yourself closing your browser or changing browsers while leaving the server up, you then have to hunt for the token, which is generated each time randomly.</p>
 </section>
 </section>
@@ -189,13 +191,13 @@ jupyter<span class="w"> </span>server<span class="w"> </span>password<span class
       });
   </script>
     <!-- Theme Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QX7KGT4YPE"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-3KNPRGQ15C', {
+      gtag('config', 'G-QX7KGT4YPE', {
           'anonymize_ip': false,
       });
     </script> 

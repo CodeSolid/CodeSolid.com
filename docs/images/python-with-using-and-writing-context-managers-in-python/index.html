@@ -12,8 +12,6 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=19645805"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -56,6 +54,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">More:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../all_files/">Site Index</a></li>
+</ul>
 
         </div>
       </div>
@@ -92,7 +94,7 @@
 <p>Well, as with most of Python’s “simple” features, you can look at them in at least two different ways. Of course, you can use the features when you need them on Python classes that already implement them, as we did above in our example. On the other hand, with a little more digging, you can generally find that there’s a mechanism you can use to write your own classes in such a way that they look like they “came with” the language.</p>
 <p>We saw many examples of this ability to make custom code appear seamless in our discussion of <a class="reference external" href="https://codesolid.com/dunder-methods-in-python-the-ugliest-awesome-sauce/">Python Dunder Methods</a>. Sure enough, we’ll be encountering such “magic” methods here as well, along with a Python module, contextlib, that will let us easily create “context managers” (classes that can be used with the “with” statement).</p>
 <section id="basic-features-of-the-with-statement-in-python">
-<h1>Basic Features of The With Statement in Python<a class="headerlink" href="#basic-features-of-the-with-statement-in-python" title="Link to this heading"></a></h1>
+<h1>Basic Features of The With Statement in Python<a class="headerlink" href="#basic-features-of-the-with-statement-in-python" title="Link to this heading">¶</a></h1>
 <p>To understand what’s going on under the hood when we use a Python <code class="docutils literal notranslate"><span class="pre">with</span></code> statement, let’s begin by comparing what it does at a high level, then get into more detail. Simply put, a <code class="docutils literal notranslate"><span class="pre">with</span></code> statement allows us to ensure that a resource always gets freed. In this way, it gives you a slightly more concise way to handle the allocation and de-allocation of a resource that you’d usually manage in a try and finally block. Earlier we showed a sample program that displays its own source code:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="vm">__file__</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
@@ -109,7 +111,7 @@
 <p>Before getting into other uses of the <code class="docutils literal notranslate"><span class="pre">with</span></code> statement in Python and how you can write custom classes that allow this syntax, let’s deal with a question you may have in mind already.</p>
 </section>
 <section id="handling-exceptions-in-a-with-statement-code-block">
-<h1>Handling Exceptions In a With Statement Code Block<a class="headerlink" href="#handling-exceptions-in-a-with-statement-code-block" title="Link to this heading"></a></h1>
+<h1>Handling Exceptions In a With Statement Code Block<a class="headerlink" href="#handling-exceptions-in-a-with-statement-code-block" title="Link to this heading">¶</a></h1>
 <p>When using a <code class="docutils literal notranslate"><span class="pre">with</span></code> statement, the functionality of a try / finally pair comes for free. In terms of the except clause, however, we still need to code this ourselves. An exception can be raised either when evaluating the “with” line itself or during the block of code it controls.</p>
 <p>For example, the open function in Python will raise an OSError (FileNotFoundError) when reading a filename that doesn’t exist. It will raise some other OSError for other cases (such as trying to open a directory).</p>
 <p>In addition, an exception might be raised in the block of the open expression, so it’s best to wrap the whole thing in a try block with an except clause, for example:</p>
@@ -127,7 +129,7 @@
 <p>Well, who could have predicted that “not_present.txt” would end up not being present? Filename humor aside, the important thing to remember about the <em>with</em> statement is that the file will be closed even if we don’t write an exception handler and an exception is thrown.</p>
 </section>
 <section id="other-uses-of-the-context-manager-in-python">
-<h1>Other Uses of the Context Manager in Python<a class="headerlink" href="#other-uses-of-the-context-manager-in-python" title="Link to this heading"></a></h1>
+<h1>Other Uses of the Context Manager in Python<a class="headerlink" href="#other-uses-of-the-context-manager-in-python" title="Link to this heading">¶</a></h1>
 <p>The Python standard library provides many context manager types that are not only valuable in themselves but also serve as illustrative use cases that help us understand when they’re appropriate for our own code. The use cases for Python context managers include:</p>
 <ul class="simple">
 <li><p>Managing resources that need to be closed. We’ll look at another example of this.</p></li>
@@ -135,7 +137,7 @@
 <li><p>Managing long-running thread-based contexts where a temporary override might be needed.</p></li>
 </ul>
 <section id="managing-resources-that-need-to-be-closed">
-<h2>Managing Resources that Need to Be Closed<a class="headerlink" href="#managing-resources-that-need-to-be-closed" title="Link to this heading"></a></h2>
+<h2>Managing Resources that Need to Be Closed<a class="headerlink" href="#managing-resources-that-need-to-be-closed" title="Link to this heading">¶</a></h2>
 <p>In the case of resources that need to be closed, the file example we’ve already looked at is the most common. Let’s take another example showing the socket module in use.</p>
 <p>To do this, we’ll send a simple HTTP request and read only the first few bytes that come back. That should be enough to show the response was successful. We’ll handle the request with just a socket, which is definitely “the long way”, but it’s an interesting example. For an easier-to-use and much more robust implementation, something like urllib or the requests library is definitely preferred as an HTTP client.</p>
 <p>he main point for our purposes is that the socket returned by <code class="docutils literal notranslate"><span class="pre">create_connection</span></code> will be automatically closed when the <code class="docutils literal notranslate"><span class="pre">with</span></code> block exits. We can show this by printing the value of the private member, _close, both within the block and afterward.</p>
@@ -171,7 +173,7 @@ Closed<span class="w"> </span>when<span class="w"> </span>block<span class="w"> 
 </div>
 </section>
 <section id="managing-locks-in-multi-threaded-code">
-<h2>Managing Locks in Multi-Threaded Code<a class="headerlink" href="#managing-locks-in-multi-threaded-code" title="Link to this heading"></a></h2>
+<h2>Managing Locks in Multi-Threaded Code<a class="headerlink" href="#managing-locks-in-multi-threaded-code" title="Link to this heading">¶</a></h2>
 <p>Context managers can also be used to automatically manage a thread lock in Python, as an alternative to calling acquire and release. Let’s see how we might safely increment a global variable. Of course, once again, there are simpler ways to write our example, but we want to show the use of a with expression with Python locks to show they are implemented as a context manager type.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
 <span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Thread</span><span class="p">,</span> <span class="n">Lock</span>
@@ -202,7 +204,7 @@ Closed<span class="w"> </span>when<span class="w"> </span>block<span class="w"> 
 <p>Using a with statement ensures that the lock will be reliably released even if an exception is thrown while using it.</p>
 </section>
 <section id="temporarily-change-a-thread-local-context">
-<h2>Temporarily Change a Thread-Local Context<a class="headerlink" href="#temporarily-change-a-thread-local-context" title="Link to this heading"></a></h2>
+<h2>Temporarily Change a Thread-Local Context<a class="headerlink" href="#temporarily-change-a-thread-local-context" title="Link to this heading">¶</a></h2>
 <p>Python’s standard library also uses a context manager to temporarily override a thread-local context, specifically, the settings that impact the behavior of the Python Decimal class. The Python Decimal type allows you to do arithmetic on numbers that contain a decimal value that is more precise than the default behavior. CPython’s float type is based on the double-precision floating-point values as implemented in C and defined in the <a class="reference external" href="https://en.wikipedia.org/wiki/IEEE_754">IEEE 754</a> (floating-point) standard. One of the awkward limitations of this standard is that it does not prevent weird rounding issues, even in cases where you wouldn’t expect them.</p>
 <p>We all know that 1.1 plus 2.7 is 3.8, right? Well, yes and no. Because of the way floating-point numbers behave, here’s how it looks in Python:</p>
 <p><img alt="" src="../../_images/image-125.png" /></p>
@@ -257,7 +259,7 @@ Outside<span class="w"> </span>the<span class="w"> </span>block,<span class="w">
 </section>
 </section>
 <section id="adding-support-for-with-to-your-classes-with-a-context-manager">
-<h1>Adding Support for With to Your Classes With a Context Manager<a class="headerlink" href="#adding-support-for-with-to-your-classes-with-a-context-manager" title="Link to this heading"></a></h1>
+<h1>Adding Support for With to Your Classes With a Context Manager<a class="headerlink" href="#adding-support-for-with-to-your-classes-with-a-context-manager" title="Link to this heading">¶</a></h1>
 <p>In this section, we want to accomplish two goals:</p>
 <ul class="simple">
 <li><p>First, we want to show you a fully worked “tutorial” context manager that shows how to implement one by hand. This is so we can demonstrate several things about how context managers behave, including where resources are allocated, how exception handling behaves by default, and how you can override the default to implement an exception handler in behavior.</p></li>
@@ -265,7 +267,7 @@ Outside<span class="w"> </span>the<span class="w"> </span>block,<span class="w">
 </ul>
 </section>
 <section id="a-fully-worked-python-context-manager-example">
-<h1>A Fully Worked Python Context Manager Example<a class="headerlink" href="#a-fully-worked-python-context-manager-example" title="Link to this heading"></a></h1>
+<h1>A Fully Worked Python Context Manager Example<a class="headerlink" href="#a-fully-worked-python-context-manager-example" title="Link to this heading">¶</a></h1>
 <p>The following example is somewhat long, but we’ll discuss it after the code listing. Meantime, keep an eye out for the context manager itself, which consists of two methods:</p>
 <ul class="simple">
 <li><p>__enter__: This is called on entry to the block of code controlled by with.</p></li>
@@ -314,7 +316,7 @@ Outside<span class="w"> </span>the<span class="w"> </span>block,<span class="w">
 </ul>
 <p>Let’s see how this code behaves under various scenarios:</p>
 <section id="using-the-defaults-with-no-exceptions">
-<h2>Using the Defaults With No Exceptions<a class="headerlink" href="#using-the-defaults-with-no-exceptions" title="Link to this heading"></a></h2>
+<h2>Using the Defaults With No Exceptions<a class="headerlink" href="#using-the-defaults-with-no-exceptions" title="Link to this heading">¶</a></h2>
 <p>Here’s a short example showing the parts in action, with no exceptions raised:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">DemoContextManager</span><span class="p">()</span> <span class="k">as</span> <span class="n">dcm</span><span class="p">:</span>
     <span class="n">dcm</span><span class="o">.</span><span class="n">do_something</span><span class="p">()</span>
@@ -351,7 +353,7 @@ Logging<span class="w"> </span>an<span class="w"> </span>exception<span class="w
 </section>
 </section>
 <section id="python-context-managers-made-easy-with-contextlib">
-<h1>Python Context Managers Made Easy With Contextlib<a class="headerlink" href="#python-context-managers-made-easy-with-contextlib" title="Link to this heading"></a></h1>
+<h1>Python Context Managers Made Easy With Contextlib<a class="headerlink" href="#python-context-managers-made-easy-with-contextlib" title="Link to this heading">¶</a></h1>
 <p>Although writing a context manager by hand can be illuminating, it is somewhat tedious, especially if you have many uses for simple resource closers. The contextlib module provides many easier-to-use solutions, and there are several interesting examples in the <a class="reference external" href="https://docs.python.org/3/library/contextlib.html">contextlib module documentation</a>. I don’t want to get into repeating the documentation here wholesale, but I do want to summarize a few points.</p>
 <p>First, the module supports the same kind of synchronous context managers we’ve been dealing with here, as well as something we haven’t looked at yet, asynchronous contact managers.</p>
 <p>Asynchronous context managers can be used with an “<code class="docutils literal notranslate"><span class="pre">async</span> <span class="pre">with</span></code>” expression, to allow things like long io-bound resources to suspend their operation. Their method signatures are declared differently, as shown in the following pseudocode:</p>
@@ -434,7 +436,7 @@ Exiting<span class="w"> </span>context<span class="w"> </span>manager<span class
 </div>
 </section>
 <section id="an-asynchronous-context-manager-example">
-<h1>An Asynchronous Context Manager Example<a class="headerlink" href="#an-asynchronous-context-manager-example" title="Link to this heading"></a></h1>
+<h1>An Asynchronous Context Manager Example<a class="headerlink" href="#an-asynchronous-context-manager-example" title="Link to this heading">¶</a></h1>
 <p>I wrote a basic asynchronous context manager example, and I was able to get it working, but let me issue a few caveats before you go off and rely on it as anything more than a tutorial.</p>
 <ul class="simple">
 <li><p>Asynchronous code in Python becomes somewhat unmanageable quickly because you find that otherwise Pythonic code gets littered with await calls.</p></li>
@@ -497,7 +499,7 @@ Exiting<span class="w"> </span>context<span class="w"> </span>manager<span class
 <p><img alt="" src="../../_images/image-314.png" /></p>
 </section>
 <section id="other-contextlib-utilities">
-<h1>Other Contextlib Utilities<a class="headerlink" href="#other-contextlib-utilities" title="Link to this heading"></a></h1>
+<h1>Other Contextlib Utilities<a class="headerlink" href="#other-contextlib-utilities" title="Link to this heading">¶</a></h1>
 <p>Beyond the generator-based functions, the contextlib module has a lot more interesting decorators and functions that you can use.</p>
 <p>For example, here’s a simple website-checker I wrote using the closing function, which takes whatever you want to automatically close even if all else goes wrong.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">closing</span>
@@ -530,12 +532,12 @@ Exiting<span class="w"> </span>context<span class="w"> </span>manager<span class
 </div></blockquote>
 </section>
 <section id="closing-thoughts">
-<h1>Closing Thoughts<a class="headerlink" href="#closing-thoughts" title="Link to this heading"></a></h1>
+<h1>Closing Thoughts<a class="headerlink" href="#closing-thoughts" title="Link to this heading">¶</a></h1>
 <p>As always, I hope you found reading this article to be as interesting as I found writing it to be. Our journey to write a context manager by hand showed us a lot about how context managers behave. The core of it was quite easy to implement, an <code class="docutils literal notranslate"><span class="pre">__enter__</span></code> method that returns a resource, and an <code class="docutils literal notranslate"><span class="pre">__exit__</span></code> method that frees it.</p>
 <p>To make things even simpler, the contextlib module makes creating code to work with the Python <code class="docutils literal notranslate"><span class="pre">with</span></code> statement quite easy to do. The contextmanager annotation in that module is especially useful.</p>
 </section>
 <section id="you-may-also-enjoy">
-<h1>You May Also Enjoy<a class="headerlink" href="#you-may-also-enjoy" title="Link to this heading"></a></h1>
+<h1>You May Also Enjoy<a class="headerlink" href="#you-may-also-enjoy" title="Link to this heading">¶</a></h1>
 <p><a class="reference external" href="https://codesolid.com/python-format-strings/">Python Format Strings: From Beginner to Expert</a></p>
 <p><a class="reference external" href="https://codesolid.com/python-operators/">Python Operators: The Building Blocks of Successful Code</a></p>
 <p><a class="reference external" href="https://codesolid.com/python-dataclasses/">Python Dataclass: Easily Automate Class Best Practices</a></p>
@@ -570,13 +572,13 @@ Exiting<span class="w"> </span>context<span class="w"> </span>manager<span class
       });
   </script>
     <!-- Theme Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QX7KGT4YPE"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-3KNPRGQ15C', {
+      gtag('config', 'G-QX7KGT4YPE', {
           'anonymize_ip': false,
       });
     </script> 

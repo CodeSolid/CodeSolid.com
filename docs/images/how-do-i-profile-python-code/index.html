@@ -12,8 +12,6 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=19645805"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -56,6 +54,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">More:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../all_files/">Site Index</a></li>
+</ul>
 
         </div>
       </div>
@@ -87,7 +89,7 @@
 <p>This blog post will show examples of these different profiling methods. We’ll develop some easy-to-understand scenarios to cover the basics of profiling and the various tools. The idea is that once you have the tools, you’ll be able to apply them to other functions and Python programs you may need to profile.</p>
 <p>We’ll begin with an overview of the tools we’ll be working with and some key profiling concepts. Next, we’ll develop a simple scenario to demonstrate how to profile, and we’ll use it to show some hands-on examples using cProfile. Most developers also explore how to benchmark code in Jupyter notebooks using the %time and %timeit functions and profile using the IPython extensions provided by the line_profiler and memory_profiler modules. Finally, we’ll look at two other very popular third-party modules, Scalene and Yappi.</p>
 <section id="python-profiling-tool-overview">
-<h1>Python Profiling Tool Overview<a class="headerlink" href="#python-profiling-tool-overview" title="Link to this heading"></a></h1>
+<h1>Python Profiling Tool Overview<a class="headerlink" href="#python-profiling-tool-overview" title="Link to this heading">¶</a></h1>
 <p>The following is a short overview of some of the tools we’ll be discussing here. For further information about a specific tool, please see the appropriate section.</p>
 <ul class="simple">
 <li><p><strong>cProfile</strong> - One of the most widely used profiling modules, cProfile is a C extension included in the Python standard library.</p></li>
@@ -100,16 +102,16 @@
 </ul>
 </section>
 <section id="id1">
-<h1><a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
+<h1><a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
 <p>Some Profiling Terms and Key Concepts</p>
 <section id="profiling-is-a-late-stage-activity">
-<h2>Profiling is a Late-Stage Activity<a class="headerlink" href="#profiling-is-a-late-stage-activity" title="Link to this heading"></a></h2>
+<h2>Profiling is a Late-Stage Activity<a class="headerlink" href="#profiling-is-a-late-stage-activity" title="Link to this heading">¶</a></h2>
 <p>Python developers often say that profiling is a “late-stage” activity. In other words, you should only profile your code after you have written the code and tested it to ensure you have the correct behavior. This is not to say that you shouldn’t try to write your code efficiently and optimize it as you go along. The famous dictum that “premature optimization is the root of all evil” did not mean that you shouldn’t optimize at all, but rather that you shouldn’t optimize the wrong things – which you’re likely to do if you don’t know where the bottlenecks are.</p>
 <p>Profiling happens late in the software development lifecycle because it may be challenging to understand where the bottlenecks will be in a complex program while the program is still in development. The whole point of profiling, after all, is to understand precisely where those bottlenecks are so you can optimize effectively. If you’ve profiled your program, there’s a good chance the optimization is not premature.</p>
 <p>I’m not entirely convinced by this argument. As we’ll see below in our discussion of the %prun magic method, it’s entirely possible to integrate profiling into your regular programming workflow.</p>
 </section>
 <section id="profiling-vs-benchmarking">
-<h2>Profiling vs. Benchmarking<a class="headerlink" href="#profiling-vs-benchmarking" title="Link to this heading"></a></h2>
+<h2>Profiling vs. Benchmarking<a class="headerlink" href="#profiling-vs-benchmarking" title="Link to this heading">¶</a></h2>
 <p>Profiling and benchmarking are two different ways of evaluating the performance of a program.</p>
 <p>Benchmarking is running a program or set of programs multiple times and measuring how long it takes to complete each run of the entire program. This information can then be used to compare the performance of different implementations of the same code or other programming languages.</p>
 <p>On the other hand, profiling is the process of analyzing a program to understand where it spends most of its time. You can then use this information to optimize the code to run faster.</p>
@@ -119,11 +121,11 @@
 <p>Our focus here in this article is on profiling, not benchmarking, but we’ll also discuss the use of Python’s timeit module and the IPython %time and %timeit magic function. A little benchmarking never hurt anyone, except maybe the bench.</p>
 </section>
 <section id="deterministic-profiling-vs-statistical-profiling">
-<h2>Deterministic Profiling vs. Statistical Profiling<a class="headerlink" href="#deterministic-profiling-vs-statistical-profiling" title="Link to this heading"></a></h2>
+<h2>Deterministic Profiling vs. Statistical Profiling<a class="headerlink" href="#deterministic-profiling-vs-statistical-profiling" title="Link to this heading">¶</a></h2>
 <p>The profilers included in the Python standard library do deterministic profiling. Deterministic profiling is trying to precisely measure the relative time for function calls, returns, and exception events. In contrast, statistical profiling samples code execution at various times and, on that basis, tries to deduce time spent in various functions. On balance, statistical profiling is less accurate, but it also impacts the code’s overall execution time less than deterministic profiling. For more information on this subject, see the <a class="reference external" href="https://docs.python.org/3/library/profile.html#what-is-deterministic-profiling">deterministic profiling</a> section of the standard library documentation.</p>
 </section>
 <section id="wall-clock-time-vs-cpu-time">
-<h2>Wall clock time vs. CPU Time<a class="headerlink" href="#wall-clock-time-vs-cpu-time" title="Link to this heading"></a></h2>
+<h2>Wall clock time vs. CPU Time<a class="headerlink" href="#wall-clock-time-vs-cpu-time" title="Link to this heading">¶</a></h2>
 <p>When measuring the performance of a program, you might want to consider two different types of time: wall clock time and CPU time.</p>
 <p>Wall clock time is the amount of time that passes from when you start running a program to when it finishes. On the other hand, CPU time is the amount of time that the CPU spends executing your code.</p>
 <p>Wall time and CPU time can be pretty similar in programs that do a lot of number crunching, analysis, or have recursive functions. Many data science tools manipulate data internally, so these likewise may give the CPU something to think about. Similarly, although perhaps it’s an exaggeration to say that mining cryptocurrency is a good way to fry an egg on your CPU, it is the sort of thing that uses the CPU/GPU quite extensively.</p>
@@ -131,7 +133,7 @@
 </section>
 </section>
 <section id="a-profiling-scenario">
-<h1>A Profiling Scenario<a class="headerlink" href="#a-profiling-scenario" title="Link to this heading"></a></h1>
+<h1>A Profiling Scenario<a class="headerlink" href="#a-profiling-scenario" title="Link to this heading">¶</a></h1>
 <p>To have something simple to profile, let’s imagine you’ve recently moved to a new job. You’ve been busy filling out HR paperwork and getting familiar with the codebase.</p>
 <p>After being there a few days, you notice that someone on your team has checked in some Python code that looks pretty inefficient. You come across a function that looks up a state code by looping through a list until it finds a match for the state name. The states_list looks like this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">states_list</span> <span class="o">=</span> <span class="p">[</span>
@@ -174,12 +176,12 @@
 <p>Admittedly, this is a contrived profiling scenario because generally, when you’re profiling your code, you don’t know where the slowdown is. In this case, we know the answer in advance. That said, let’s see how we might profile it to get familiar with that process, then we’ll see how we could have approached it using benchmarking instead.</p>
 </section>
 <section id="profiling-using-python-s-cprofile-module">
-<h1>Profiling using Python’s cProfile Module<a class="headerlink" href="#profiling-using-python-s-cprofile-module" title="Link to this heading"></a></h1>
+<h1>Profiling using Python’s cProfile Module<a class="headerlink" href="#profiling-using-python-s-cprofile-module" title="Link to this heading">¶</a></h1>
 <p>The profile and cProfile modules are two of the most popular methods of profiling Python code. cProfile is written as a C extension and imposes less overhead on the Python application you are profiling than the profile module does. The Python docs recommend cProfile for most users who aren’t trying to extend the Python profiler somehow. Since profile and cProfile share a common interface, we’ll take cProfile as representative.</p>
 <p>The cProfile module works in conjunction with the pstats module. The way these responsibilities break down is that the cProfile module is responsible for measuring the program’s execution time, and the pstats module is responsible for outputting these outputting profiling statistics and doing fundamental analysis and manipulation on them, such as sorting by the call count, or different measures of the time spent in the function.</p>
 <p>To profile Python code using cProfile, you have two choices. You can create a simple Python script or use the command-line interface that cProfile provides. Even for the command line, you’ll still need to have a main method that runs what you need, and I’ve found that the output is more verbose than I like, but let’s quickly show this method and then move on to the more flexible way of writing a small Python program that uses cProfile to do the work.</p>
 <section id="running-the-cprofile-python-profiler-at-the-command-line">
-<h2>Running the cProfile Python profiler at the command line<a class="headerlink" href="#running-the-cprofile-python-profiler-at-the-command-line" title="Link to this heading"></a></h2>
+<h2>Running the cProfile Python profiler at the command line<a class="headerlink" href="#running-the-cprofile-python-profiler-at-the-command-line" title="Link to this heading">¶</a></h2>
 <p>python -m cProfile -s ‘cumulative’ lookup.py</p>
 <p>Given the test_lookups function we looked at earlier, we can write a simple file “main method” like this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
@@ -215,7 +217,7 @@
 <p>To be sure, this was a simple example where we knew in advance what we expected to find, but knowing where the time is spent in your program is often the first step in fixing a troublesome performance issue.</p>
 </section>
 <section id="running-cprofile-python-profiler-in-a-short-program">
-<h2>Running cProfile Python profiler in a short program<a class="headerlink" href="#running-cprofile-python-profiler-in-a-short-program" title="Link to this heading"></a></h2>
+<h2>Running cProfile Python profiler in a short program<a class="headerlink" href="#running-cprofile-python-profiler-in-a-short-program" title="Link to this heading">¶</a></h2>
 <p>Running cProfile in a Python program results in a lot cleaner profiling data output than running cProfile from the terminal. One very convenient way to do this relies on the fact that cProfile’s Profile class can be used as a context manager – that is to say, you can use a “with” expression to manage the lifecycle of the Profile class.</p>
 <p>The context manager implementation is convenient, as it saves you from having to start collecting profiling data with <code class="docutils literal notranslate"><span class="pre">enable</span></code> and stop collecting profiling data with <code class="docutils literal notranslate"><span class="pre">disable</span></code>.</p>
 <p>Here’s a simple main method we can use to run cProfile from Python directly:</p>
@@ -237,11 +239,11 @@
 </section>
 </section>
 <section id="benchmarking-in-python-using-timeit">
-<h1>Benchmarking in Python using timeit<a class="headerlink" href="#benchmarking-in-python-using-timeit" title="Link to this heading"></a></h1>
+<h1>Benchmarking in Python using timeit<a class="headerlink" href="#benchmarking-in-python-using-timeit" title="Link to this heading">¶</a></h1>
 <p>As we mentioned earlier, in the scenario above, we knew in a general way what the outcome would be, so another approach to this example would be to use benchmarking instead of profiling. The built-in timeit module could be used for this task.</p>
 <p>As with cProfile, we can use the timeit module either as a program from the terminal or load the module programmatically. Let’s look at the running it as a command first:</p>
 <section id="running-timeit-as-a-command">
-<h2>Running Timeit as a Command<a class="headerlink" href="#running-timeit-as-a-command" title="Link to this heading"></a></h2>
+<h2>Running Timeit as a Command<a class="headerlink" href="#running-timeit-as-a-command" title="Link to this heading">¶</a></h2>
 <p>By default, it will try to run the command we give it several times, or we can specify a precise number. (Use ```python -m timeit –help``` to see all the options available).</p>
 <p>The command to run is given as a string, and we can import the file that contains the function we’re benchmarking using an import statement in the setup string, which we can pass with -s. To get something of average performance, let’s take a state that’s more or less in the middle of the list, New York. Here’s how we can get the performance for dict_lookup:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>timeit<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;from lookup import dict_lookup&quot;</span><span class="w"> </span><span class="s2">&quot;dict_lookup(&#39;New York&#39;)&quot;</span>
@@ -258,7 +260,7 @@ $ python -m timeit -s &quot;from lookup import list_lookup&quot; &quot;list_look
 </div>
 </section>
 <section id="using-the-timeit-module-in-a-program">
-<h2>Using the Timeit Module in a Program<a class="headerlink" href="#using-the-timeit-module-in-a-program" title="Link to this heading"></a></h2>
+<h2>Using the Timeit Module in a Program<a class="headerlink" href="#using-the-timeit-module-in-a-program" title="Link to this heading">¶</a></h2>
 <p>As with cProfile, we use the timeit module programmatically or from the terminal. For example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Timeit example to benchmark the compare functions function&quot;&quot;&quot;</span>
 <span class="kn">from</span> <span class="nn">timeit</span> <span class="kn">import</span> <span class="n">timeit</span>
@@ -269,7 +271,7 @@ $ python -m timeit -s &quot;from lookup import list_lookup&quot; &quot;list_look
 </div>
 </section>
 <section id="benchmarking-in-ipython-and-jupyter-notebook-time-and-timeit">
-<h2>Benchmarking in IPython and Jupyter Notebook: %time and %timeit<a class="headerlink" href="#benchmarking-in-ipython-and-jupyter-notebook-time-and-timeit" title="Link to this heading"></a></h2>
+<h2>Benchmarking in IPython and Jupyter Notebook: %time and %timeit<a class="headerlink" href="#benchmarking-in-ipython-and-jupyter-notebook-time-and-timeit" title="Link to this heading">¶</a></h2>
 <p>The two built-in magic methods you can use with Jupyter Notebook and IPython are both benchmarking functions.</p>
 <p>The %timeit magic function is quite a handy tool for getting the average time it takes to run a given function. If the Python Python package is imported, it’s as simple as running %timeit and calling the function as you usually would. This is what the output will look like:</p>
 <p><img alt="%timeit magic function output" src="../../_images/image-31.jpeg" /></p>
@@ -279,7 +281,7 @@ $ python -m timeit -s &quot;from lookup import list_lookup&quot; &quot;list_look
 </section>
 </section>
 <section id="getting-more-detail-than-cprofile-the-line-profiler-project">
-<h1>Getting More Detail than cProfile: The line_profiler Project<a class="headerlink" href="#getting-more-detail-than-cprofile-the-line-profiler-project" title="Link to this heading"></a></h1>
+<h1>Getting More Detail than cProfile: The line_profiler Project<a class="headerlink" href="#getting-more-detail-than-cprofile-the-line-profiler-project" title="Link to this heading">¶</a></h1>
 <p>The line_profiler module is available on PyPi.org so that you can install it with ```pip install line_profiler.```. What is meant by line profiling makes this module subtly different from cProfile. In the case of cProfile, the profiler focuses on function calls. It tends to miss lines that may be running inefficiently but still have no explicit function call in them, such as large array copies, list comprehensions, and the like.</p>
 <p>Installing the <a class="reference external" href="https://github.com/pyutils/line_profiler">line_profiler module</a> also installs a Python profiling script, kernprof. This will provide excellent detail, but the downside of using kernprof is that you must instrument your code with an &#64;profile decorator on the functions you want to profile. In addition to needing to modify your code, this also means that you already have to know something about where the bottlenecks are, either by moving &#64;profile declarations down the call stack or perhaps by using cProfile or timeit in the early stages.</p>
 <p>With &#64;profile added to our test_lookups and list_lookup methods, we can run kernprof this way: <code class="docutils literal notranslate"><span class="pre">kernprof</span> <span class="pre">-l</span> <span class="pre">lookup.py</span></code>. Kernprof will then save a file, lookup.py.lprof, which can be examined with this command: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">line_profiler</span> <span class="pre">-u</span> <span class="pre">.001</span> <span class="pre">lookup.py.lprof</span></code>. As you can see, we’re running the line_profiler module and passing it the name of the output file.</p>
@@ -290,10 +292,10 @@ $ python -m timeit -s &quot;from lookup import list_lookup&quot; &quot;list_look
 <p>If you’re using IPython or Jupyter, there’s a much more convenient method of using the line_profiler module, and we’ll discuss that next.</p>
 </section>
 <section id="line-profiling-in-jupyter">
-<h1>Line Profiling in Jupyter<a class="headerlink" href="#line-profiling-in-jupyter" title="Link to this heading"></a></h1>
+<h1>Line Profiling in Jupyter<a class="headerlink" href="#line-profiling-in-jupyter" title="Link to this heading">¶</a></h1>
 <p>With line_profiler installed, we can load the extension for it in either IPython or Jupyter notebook with the command <code class="docutils literal notranslate"><span class="pre">%load_ext</span> <span class="pre">line_profiler</span></code>. This will give us access to two very useful magic methods, <code class="docutils literal notranslate"><span class="pre">%prun</span></code> and <code class="docutils literal notranslate"><span class="pre">%lprun</span></code>. We’ll go over some examples of each of these, but you can get complete docstring information about these magic methods by running them in a cell and adding the usual IPython question mark for help: <code class="docutils literal notranslate"><span class="pre">%lprun?</span></code></p>
 <section id="profile-python-function-calls-as-you-go-using-the-prun-magic-method">
-<h2>Profile Python Function Calls as You Go: Using the %prun magic method<a class="headerlink" href="#profile-python-function-calls-as-you-go-using-the-prun-magic-method" title="Link to this heading"></a></h2>
+<h2>Profile Python Function Calls as You Go: Using the %prun magic method<a class="headerlink" href="#profile-python-function-calls-as-you-go-using-the-prun-magic-method" title="Link to this heading">¶</a></h2>
 <p>I said earlier that profiling is usually a late-stage activity, but %prun is a welcome exception to this general rule. Like <code class="docutils literal notranslate"><span class="pre">%time</span></code>, you can use <code class="docutils literal notranslate"><span class="pre">%prun</span></code> to quickly understand the performance of short snippets of code. Suppose we want to understand whether constructing a large array containing a series of numbers is faster using NumPy’s <code class="docutils literal notranslate"><span class="pre">arange</span></code> method or a regular Python list comprehension. The %time magic method will do this for us, but %prun will also show us some of the “why” behind the numbers. Here we construct an array of 10 million numbers:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">count</span> <span class="o">=</span> <span class="mi">10_000_000</span>
@@ -334,7 +336,7 @@ $ python -m timeit -s &quot;from lookup import list_lookup&quot; &quot;list_look
 <p>As we expected, the Python list comprehension version ran more slowly, but there’s also some interesting detail in this case. At 260 milliseconds, there’s some overhead for the Python list comprehension, but there’s even more overhead involved in converting the Python list to a NumPy array at 411 milliseconds. Beyond what’s usually involved in an array copy (already an expensive operation), there’s no doubt a type conversion from Python numbers to a NumPy data type (it gets converted to a <code class="docutils literal notranslate"><span class="pre">numpy.n64</span></code>).</p>
 </section>
 <section id="using-lprun-more-convenient-than-kernprof">
-<h2>Using %lprun: More Convenient than Kernprof<a class="headerlink" href="#using-lprun-more-convenient-than-kernprof" title="Link to this heading"></a></h2>
+<h2>Using %lprun: More Convenient than Kernprof<a class="headerlink" href="#using-lprun-more-convenient-than-kernprof" title="Link to this heading">¶</a></h2>
 <p>The other magic method doing a <code class="docutils literal notranslate"><span class="pre">%load_ext</span> <span class="pre">line_profiler</span></code> will make available to you is <code class="docutils literal notranslate"><span class="pre">%lprun</span></code>. We’ve already seen how getting significant detail from the line_profiler using kernprof requires us to annotate our code with <code class="docutils literal notranslate"><span class="pre">&#64;profile</span></code>. <code class="docutils literal notranslate"><span class="pre">%lprun</span></code> gives us essentially the same output but lets us pass the functions we want to profile when we’re calling the function.</p>
 <p>Here’s an example that echos what we did with kernprof, but much more conveniently:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lookup</span> <span class="kn">import</span> <span class="n">test_lookups</span><span class="p">,</span> <span class="n">list_lookup</span><span class="p">,</span> <span class="n">dict_lookup</span>
@@ -346,11 +348,11 @@ $ python -m timeit -s &quot;from lookup import list_lookup&quot; &quot;list_look
 </section>
 </section>
 <section id="understanding-memory-usage-with-the-memory-profiler-package">
-<h1>Understanding Memory Usage with the memory_profiler Package<a class="headerlink" href="#understanding-memory-usage-with-the-memory-profiler-package" title="Link to this heading"></a></h1>
+<h1>Understanding Memory Usage with the memory_profiler Package<a class="headerlink" href="#understanding-memory-usage-with-the-memory-profiler-package" title="Link to this heading">¶</a></h1>
 <p>Our discussion has been largely concerned with Python profiling tools that measure the time spent in various parts of our code. Memory usage is another critical measurement we may need to consider as part of our optimization effort. No matter how fast our code might run otherwise, high memory usage will be a drag on performance.</p>
 <p>Enter the memory_profiler module. Like line_profiler, memory_profiler allows you to annotate your code using &#64;profile, but a more convenient approach is to use the available IPython magic commands from IPython or Jupyter. As with line_profiler, we have commands to quickly evaluate short snippets of code and others to profile multiple functions at once.</p>
 <section id="memory-profiling-for-single-lines-of-python-code-with-memit">
-<h2>Memory Profiling for Single Lines of Python Code with %memit<a class="headerlink" href="#memory-profiling-for-single-lines-of-python-code-with-memit" title="Link to this heading"></a></h2>
+<h2>Memory Profiling for Single Lines of Python Code with %memit<a class="headerlink" href="#memory-profiling-for-single-lines-of-python-code-with-memit" title="Link to this heading">¶</a></h2>
 <p>Just as we could use %prun to profile a single line of Python code (which may resolve to multiple calls under the hood), the <code class="docutils literal notranslate"><span class="pre">%memit</span></code> magic function can be used to display an estimate of the memory consumed or freed by a single line of Python code. I stress that this is an estimate – as the module’s <a class="reference external" href="https://github.com/pythonprofilers/memory_profiler">documentation points</a> out, results are not 100% accurate due to the behavior of the garbage collector.</p>
 <p>Once again, we developed a class to consume some memory to have a small amount of code to profile. Since this is for demonstration purposes, the methods are purposely somewhat asymmetrical between allocations and deallocations.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -402,7 +404,7 @@ peak<span class="w"> </span>memory:<span class="w"> </span><span class="m">584</
 <p>When dealing with the memory_profiler, peak memory is showing the memory used by the whole process, so in this Jupyter notebook example, it’s not especially interesting. In any case, it would at least include the Python interpreter overhead. The value that we most care about is the increment, which, as you can see, displayed our allocations and deallocations at least roughly as positive or negative increments. Again, however, note that freeing the whole class didn’t release the same amount of memory as it appeared we allocated along the way.</p>
 </section>
 <section id="memory-profiling-functions-mprun">
-<h2>Memory Profiling Functions %mprun<a class="headerlink" href="#memory-profiling-functions-mprun" title="Link to this heading"></a></h2>
+<h2>Memory Profiling Functions %mprun<a class="headerlink" href="#memory-profiling-functions-mprun" title="Link to this heading">¶</a></h2>
 <p>In addition to profiling single lines of python calls, we can also profile more extended code runs consisting of one or more functions by using the memory_profiler module. In this case, the magic function that gets loaded is called %mprun.</p>
 <p>The syntax for %mprun is very similar to line_profiler’s magic function, <code class="docutils literal notranslate"><span class="pre">%lprun</span></code> in that it takes one or more functions to profile (passed as -f options) followed by a function call to serve as an entry point.</p>
 <p>One difference is worth noting, however. Unlike <code class="docutils literal notranslate"><span class="pre">%lprun</span></code>, the functions to be profiled in <code class="docutils literal notranslate"><span class="pre">%mprun</span></code> need to be imported from a file, not run interactively. It’s unclear why this limitation exists, as <code class="docutils literal notranslate"><span class="pre">%memit</span></code> it can be used on interactive code without a problem.</p>
@@ -417,7 +419,7 @@ peak<span class="w"> </span>memory:<span class="w"> </span><span class="m">584</
 </section>
 </section>
 <section id="profiling-cpu-and-memory-graphically-with-scalene">
-<h1>Profiling CPU and Memory Graphically With Scalene<a class="headerlink" href="#profiling-cpu-and-memory-graphically-with-scalene" title="Link to this heading"></a></h1>
+<h1>Profiling CPU and Memory Graphically With Scalene<a class="headerlink" href="#profiling-cpu-and-memory-graphically-with-scalene" title="Link to this heading">¶</a></h1>
 <p>Scalene offers a compelling package of features along with a web-based GUI. According to the <a class="reference external" href="https://github.com/plasma-umass/scalene">project README</a>, Scalene is “a high-performance CPU, GPU <em>and</em> memory profiler for Python that does a number of things that other Python profilers do not and cannot do. It runs orders of magnitude faster than other profilers while delivering far more detailed information.” I wasn’t able to validate the performance claim – to profile the profiler, so to speak – but I can attest that Scalene is easy to use and different enough from the other offerings we’ve discussed to be well worth investigating.</p>
 <p>The first thing where Scalene stands out is that it does full-program profiling by default. This means you can skip the &#64;profile annotations unless you only want to profile certain functions.</p>
 <p>The next default that makes Scalene different than the other tools we’ve examined is that it features a web interface. Here’s how it displays the output of the lookup.py sample we’ve been using:</p>
@@ -433,13 +435,13 @@ peak<span class="w"> </span>memory:<span class="w"> </span><span class="m">584</
 <p>Unfortunately, I could not verify that these worked well (at least in Jupyter Notebook). Importing our test_lookups method displayed a result cell but did not show any line-by-line information that you could use to profile the function.</p>
 </section>
 <section id="a-brief-honorable-mention-yappi">
-<h1>A Brief Honorable Mention: Yappi<a class="headerlink" href="#a-brief-honorable-mention-yappi" title="Link to this heading"></a></h1>
+<h1>A Brief Honorable Mention: Yappi<a class="headerlink" href="#a-brief-honorable-mention-yappi" title="Link to this heading">¶</a></h1>
 <p>I spent some time looking at yappi, the profiler that PyCharm will use by default if it’s available, but I found the results puzzling. For example, using Yappi in PyCharm, the profiler reported that dict_lookup actually took <em><strong>more</strong></em> time than list_lookup:</p>
 <p><img alt="" src="../../_images/yappi_screenshot-1024x971.png" /></p>
 <p>I’m not at all sure what to make of that weird result. I also tried yappi on some simple multi-threaded code (at which it’s documented to excel), but I couldn’t see any noticeable difference profiling it in Python vs. Yappi.</p>
 </section>
 <section id="closing-thoughts">
-<h1>Closing Thoughts<a class="headerlink" href="#closing-thoughts" title="Link to this heading"></a></h1>
+<h1>Closing Thoughts<a class="headerlink" href="#closing-thoughts" title="Link to this heading">¶</a></h1>
 <p>If you’ve made it this far, you’ve learned a lot about different tools for profiling and benchmarking Python code.</p>
 <p>Python is a programming language that has gained massive popularity – but this popularity stems from its readability and ease of use rather than raw performance. Because of this, it can sometimes be even more critical to optimize for performance in Python than in other languages. Profiling is a tool that can help developers accomplish this.</p>
 </section>
@@ -471,13 +473,13 @@ peak<span class="w"> </span>memory:<span class="w"> </span><span class="m">584</
       });
   </script>
     <!-- Theme Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QX7KGT4YPE"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-3KNPRGQ15C', {
+      gtag('config', 'G-QX7KGT4YPE', {
           'anonymize_ip': false,
       });
     </script> 

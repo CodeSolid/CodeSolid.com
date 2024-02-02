@@ -12,8 +12,6 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=19645805"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -55,6 +53,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../all_files/">Site Index</a></li>
 </ul>
 
         </div>
@@ -106,7 +108,7 @@
 <li><p>Summary</p></li>
 </ul>
 <section id="getting-started-with-data-cleaning-in-pandas">
-<h1>Getting Started with Data cleaning in Pandas<a class="headerlink" href="#getting-started-with-data-cleaning-in-pandas" title="Link to this heading"></a></h1>
+<h1>Getting Started with Data cleaning in Pandas<a class="headerlink" href="#getting-started-with-data-cleaning-in-pandas" title="Link to this heading">¶</a></h1>
 <p>For demonstration purposes, we will use a dataset about the price of houses in Dushanbe city. The dataset contains the location of houses, with some other details which include the number of rooms, number of floors, and price. You can download the dataset from this <a class="reference external" href="https://github.com/CodeSolid/pandas-series/tree/main/Data%20Cleaning%20in%20pandas">link</a>.</p>
 <p>Let us load the dataset using the Pandas module.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing pandas module</span>
@@ -138,7 +140,7 @@
 <p><img alt="info-method-of-the-dataset" src="../../_images/info-method-of-the-dataset1.png" /></p>
 <p>Notice that there are a total of 5579 observations and 7 columns in our dataset.</p>
 <section id="dropping-column-from-data-frame-in-pandas">
-<h2>Dropping column from data frame in Pandas<a class="headerlink" href="#dropping-column-from-data-frame-in-pandas" title="Link to this heading"></a></h2>
+<h2>Dropping column from data frame in Pandas<a class="headerlink" href="#dropping-column-from-data-frame-in-pandas" title="Link to this heading">¶</a></h2>
 <p>As we have observed, our dataset has one unnecessary column named ‘Unnamed:0’. Let us remove this column from the dataset.</p>
 <p>There are various methods available in Pandas that can help us to remove a column from the data frame. One of the popular methods is the drop() method. It can be used to drop both rows and columns, so we need to specify the axis. By default, the axis is 0 which means it will drop the row, but if we specify the axis as 1, then it will drop the specified column as shown below:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># copying the dataset</span>
@@ -180,7 +182,7 @@
 <p>As you can see, we have dropped the first column from the dataset.</p>
 </section>
 <section id="dropping-rows-from-the-data-frame-in-pandas">
-<h2>Dropping rows from the data frame in pandas<a class="headerlink" href="#dropping-rows-from-the-data-frame-in-pandas" title="Link to this heading"></a></h2>
+<h2>Dropping rows from the data frame in pandas<a class="headerlink" href="#dropping-rows-from-the-data-frame-in-pandas" title="Link to this heading">¶</a></h2>
 <p>Let us assume that there are some errors or unrelated observations in the dataset and we want to drop them. Again, various methods are available to drop the rows from the data frame.</p>
 <p>As we discussed earlier, the drop() method can be used to drop both columns and rows. Let us now use this method to drop the first row from the dataset.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># dropping rows from the dataset</span>
@@ -214,7 +216,7 @@
 <p>As shown above, now we have a dataset where the price is above then the specified range.</p>
 </section>
 <section id="renaming-column-names-in-pandas">
-<h2>Renaming column names in Pandas<a class="headerlink" href="#renaming-column-names-in-pandas" title="Link to this heading"></a></h2>
+<h2>Renaming column names in Pandas<a class="headerlink" href="#renaming-column-names-in-pandas" title="Link to this heading">¶</a></h2>
 <p>Sometimes, we may have a dataset where the names of the columns are not clear or not in the desired language. In such cases, we can use Pandas to change the name of the columns in our data frame.</p>
 <p>One of the simplest ways to change the name of the columns is to use the rename() method. This method is useful when we need to rename some selected columns, rather than resetting all the column names.</p>
 <p>Let us change the name of ‘number_of_rooms’ to ‘Room Count’ using the rename() method.</p>
@@ -253,7 +255,7 @@
 <p>Notice that the new names have been assigned to the columns.</p>
 </section>
 <section id="handling-null-values-in-pandas">
-<h2>Handling NULL values in Pandas<a class="headerlink" href="#handling-null-values-in-pandas" title="Link to this heading"></a></h2>
+<h2>Handling NULL values in Pandas<a class="headerlink" href="#handling-null-values-in-pandas" title="Link to this heading">¶</a></h2>
 <p>Null values or missing values occur when there is no information. Pandas provide various useful methods to check and handle null values in our dataset.</p>
 <p>For example, isnull() is used to check if there are null values in our dataset or not. Let us use this method to find how many values are null in each column.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># checking for null values</span>
@@ -345,7 +347,7 @@ dtype: int64</p>
 <p>As you can see, now there are no null values in our dataset because we have removed all the observations with null values.</p>
 </section>
 <section id="changing-the-indexing-of-the-data-frame">
-<h2>Changing the indexing of the data frame<a class="headerlink" href="#changing-the-indexing-of-the-data-frame" title="Link to this heading"></a></h2>
+<h2>Changing the indexing of the data frame<a class="headerlink" href="#changing-the-indexing-of-the-data-frame" title="Link to this heading">¶</a></h2>
 <p>Pandas Index is an immutable sequence used for indexing DataFrame and Series. Sometimes, our dataset may not have proper indexing, or we may want to use the columns as the indexing for the data frame. We can do that by using various methods available in Pandas.</p>
 <p>We can set one of the columns as the index of the data frame using the set_index() method. For example, just for demonstration purposes, let us set the latitude column as the indexing column of the data frame.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="n">dataset</span> <span class="n">copying</span>
@@ -393,7 +395,7 @@ dtype: int64</p>
 <p>Notice that this time we have set the index column using a range of values.</p>
 </section>
 <section id="finding-duplicate-elements-in-the-data-frame">
-<h2>Finding duplicate elements in the data frame<a class="headerlink" href="#finding-duplicate-elements-in-the-data-frame" title="Link to this heading"></a></h2>
+<h2>Finding duplicate elements in the data frame<a class="headerlink" href="#finding-duplicate-elements-in-the-data-frame" title="Link to this heading">¶</a></h2>
 <p>Sometime we may have duplicate observations. In Pandas, we can find duplicate observations by using duplicated() method.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># duplicates in data frame</span>
 <span class="n">duplicate</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()]</span>
@@ -429,7 +431,7 @@ dtype: int64</p>
 </section>
 </section>
 <section id="cleaning-strings-in-pandas-data-frame">
-<h1>Cleaning strings in Pandas data frame<a class="headerlink" href="#cleaning-strings-in-pandas-data-frame" title="Link to this heading"></a></h1>
+<h1>Cleaning strings in Pandas data frame<a class="headerlink" href="#cleaning-strings-in-pandas-data-frame" title="Link to this heading">¶</a></h1>
 <p>Sometimes the dataset contains information in a very unusual way and contains many letters or symbols which does not make any sense. For demonstration purposes, we will create a data frame using Pandas and apply various methods to clean the strings.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#creating a dataframe</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
@@ -457,7 +459,7 @@ dtype: int64</p>
 <p><img alt="info-method" src="../../_images/info-method1.png" /></p>
 <p>As you can see that all the columns are object types (strings). Now let us apply various methods to clean the data.</p>
 <section id="removing-unnecessary-capitalization">
-<h2>Removing unnecessary capitalization<a class="headerlink" href="#removing-unnecessary-capitalization" title="Link to this heading"></a></h2>
+<h2>Removing unnecessary capitalization<a class="headerlink" href="#removing-unnecessary-capitalization" title="Link to this heading">¶</a></h2>
 <p>As you can see, there is some unnecessary capitalization in the Name column. We can remove this capitalization either by creating our own function or by using apply() method.</p>
 <p>Let us first create a user-defined function that will remove these unnecessary capitalizations.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># copy the dataset</span>
@@ -496,7 +498,7 @@ dtype: int64</p>
 <p>As shown above, there is no more unnecessary capitalization.</p>
 </section>
 <section id="remove-whitespace-in-a-dataframe">
-<h2>Remove Whitespace in a DataFrame<a class="headerlink" href="#remove-whitespace-in-a-dataframe" title="Link to this heading"></a></h2>
+<h2>Remove Whitespace in a DataFrame<a class="headerlink" href="#remove-whitespace-in-a-dataframe" title="Link to this heading">¶</a></h2>
 <p>As you can see that there is some unnecessary whitespace in the Status column. Pandas provide various methods to remove whitespace from the DataFrame.</p>
 <p>The strip() method in pandas removes the whitespace from the string. Using the strip() function We can easily remove extra whitespace from leading and trailing whitespace from starting. If your data has whitespaces at the start or at the end, you can use this method. The basic syntax of using this function is shown below where we have applied the strip() method on the Status column.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># the apply method - data cleaning in pandas</span>
@@ -516,7 +518,7 @@ dtype: int64</p>
 <p>Once we’ve done this, the dataset no longer has any unnecessary whitespace.</p>
 </section>
 <section id="removing-characters-from-the-columns">
-<h2>Removing characters from the columns<a class="headerlink" href="#removing-characters-from-the-columns" title="Link to this heading"></a></h2>
+<h2>Removing characters from the columns<a class="headerlink" href="#removing-characters-from-the-columns" title="Link to this heading">¶</a></h2>
 <p>Removing special characters from the columns is similar to removing whitespace. We can use the replace() method to remove special characters from the column. For example, the ‘working’ column in our dataset contains some special characters. First, let us use the replace() method to remove some of the characters.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># dataset removing symbols</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;working&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;working&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s1">&#39;-&#39;</span><span class="p">:</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;!&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">},</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -542,7 +544,7 @@ dtype: int64</p>
 </section>
 </section>
 <section id="summary">
-<h1>Summary<a class="headerlink" href="#summary" title="Link to this heading"></a></h1>
+<h1>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h1>
 <p>In this article, we learned about data cleaning in Pandas using various methods. We covered how to handle null values, drop columns, find duplicate values, and set indexing. Moreover, we also learned how we can replace and remove special characters from the dataset using various examples.</p>
 </section>
 
@@ -573,13 +575,13 @@ dtype: int64</p>
       });
   </script>
     <!-- Theme Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QX7KGT4YPE"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-3KNPRGQ15C', {
+      gtag('config', 'G-QX7KGT4YPE', {
           'anonymize_ip': false,
       });
     </script> 

@@ -12,8 +12,6 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=19645805"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -55,6 +53,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../all_files/">Site Index</a></li>
 </ul>
 
         </div>
@@ -100,10 +102,10 @@
 <p>In addition to the support provided by Jupyter, Python Computer Algebra systems also boast LaTeX features. SymPy and SageMath, the two major ones, support displaying mathematical expressions using LaTeX. They also allow you to access the underlying LaTeX code itself. In both cases, there are some options for controlling the LaTeX output.</p>
 <p>In addition to Jupyter and the Python symbolic math tools, there are third-party Python packages that work with LaTeX. We’ll examine one of the more practical and well-maintained of these, Latexifier.</p>
 <section id="latex-in-jupyter-markdown">
-<h1>LaTeX in Jupyter Markdown<a class="headerlink" href="#latex-in-jupyter-markdown" title="Link to this heading"></a></h1>
+<h1>LaTeX in Jupyter Markdown<a class="headerlink" href="#latex-in-jupyter-markdown" title="Link to this heading">¶</a></h1>
 <p>In one respect, Jupyter lets you start integrating math expressions into Markdown cells easily and quickly. This section will show you how to do this and some basic “alignment” tricks.</p>
 <section id="centering-math-output">
-<h2>Centering Math Output<a class="headerlink" href="#centering-math-output" title="Link to this heading"></a></h2>
+<h2>Centering Math Output<a class="headerlink" href="#centering-math-output" title="Link to this heading">¶</a></h2>
 <p>Suppose you have a math expression that you want to display neatly formatted and centered. In this case, you can begin a block using two dollar signs, <code class="docutils literal notranslate"><span class="pre">$$</span></code>, insert the LaTeX code for the expression, and end the block again with two dollar signs. For example:</p>
 <div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>$$
 \lim_{x\to0} \frac{\sin{x}}{x} = 1
@@ -115,7 +117,7 @@ $$
 <p>Our purpose here does not leave us space for a comprehensive LaTeX tutorial, but if we look at the source, we can get a basic feel for how it works. Here we have a <code class="docutils literal notranslate"><span class="pre">\lim</span></code>_ directive, which we follow with an underscore and brackets containing what we want to appear underneath the limit. Next, we declare the function, beginning with a fraction, which takes two bracket pairs (numerator and denominator). You’ll find this basic pattern of <code class="docutils literal notranslate"><span class="pre">\directive{parameter...}</span></code> everywhere in LaTeX.</p>
 </section>
 <section id="left-aligning-and-inline-latex-blocks">
-<h2>Left-Aligning and Inline LaTeX Blocks<a class="headerlink" href="#left-aligning-and-inline-latex-blocks" title="Link to this heading"></a></h2>
+<h2>Left-Aligning and Inline LaTeX Blocks<a class="headerlink" href="#left-aligning-and-inline-latex-blocks" title="Link to this heading">¶</a></h2>
 <p>If we want the same block to appear left-aligned, we can keep the core limit line the same as before, but we need to do two things. First, we need to change the double dollar signs to single. That alone will left align the output, as shown below:</p>
 <p><img alt="" src="../../_images/image-414.png" /></p>
 <p>Notice, however, that the term of the limit “as x approaches zero” no longer appears underneath the limit as we expect, and the rest of the expression looks slightly different as well. To fix this and make the output consistent with the centered version, we need to add the second piece of the puzzle, an alignment directive. Here’s how the code and output will look:</p>
@@ -136,7 +138,7 @@ $
 </div>
 </section>
 <section id="an-important-caveat-mathjax-vs-latex">
-<h2>An Important Caveat: MathJax vs. LaTeX<a class="headerlink" href="#an-important-caveat-mathjax-vs-latex" title="Link to this heading"></a></h2>
+<h2>An Important Caveat: MathJax vs. LaTeX<a class="headerlink" href="#an-important-caveat-mathjax-vs-latex" title="Link to this heading">¶</a></h2>
 <p>Before leaving this section, we should mention one “issue” with Jupyter’s “LaTeX” support that you may encounter. Jupyter adds LaTeX support to Markdown via MathJax, a JavaScript library for formatting and displaying math expressions. What this means is that for math expressions and a very small subset of formatting and other non-math expressions, Jupyter works flawlessly. So although you’re using a subset of the LaTeX language that works quite well, this is not actually a LaTeX build environment.</p>
 <p>Because of this, often you’ll find that if you try to search for how to do something in LaTeX, you’ll find a technique that is not supported by MathJax. Most of the reference material online is not for MathJax, but for LaTeX itself. For example, you may often find documentation for solutions that rely on importing some library using the <code class="docutils literal notranslate"><span class="pre">\usepackage</span></code> directive, or perhaps on creating a LaTeX table.</p>
 <p>You don’t really get an error <em>per se</em> in such cases – you’ll just get weird-looking results. Consider the following LaTeX source and output.</p>
@@ -162,13 +164,13 @@ $$
 </section>
 </section>
 <section id="latex-files-in-jupyterlab">
-<h1>LaTeX Files in JupyterLab<a class="headerlink" href="#latex-files-in-jupyterlab" title="Link to this heading"></a></h1>
+<h1>LaTeX Files in JupyterLab<a class="headerlink" href="#latex-files-in-jupyterlab" title="Link to this heading">¶</a></h1>
 <p>In addition to the MathJax support that’s available from the classic notebook and forward, in the case of JupyterLab, that tools extension support means that you can use JupyterLab as an editor for “real” LaTeX files. To do this, you’ll need to have a compiler that can convert .tex files to PDFs, which is generally available in many <a class="reference external" href="https://www.latex-project.org/get/">TeX distributions</a>. In addition, you’ll need to install the jupyterlab_latex extension, for example, by running <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">jupyterlab_latex</span> <span class="pre">-y</span></code> or <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">jupyterlab_latex</span></code>.</p>
 <p>Once you have these installed, you can click right-click on a LaTeX document in a file with the .tex extension to bring up a LaTeX preview window. This window will update every time the corresponding source is changed. The screenshot below shows how this might look for some of the directives that failed earlier when we tried them in Markdown. At this point, we’re no longer dealing with MathJax, but LaTeX itself.</p>
 <p><img alt="" src="../../_images/image-96.png" /></p>
 </section>
 <section id="latex-in-sagemath-and-sympy">
-<h1>LaTeX in SageMath and SymPy<a class="headerlink" href="#latex-in-sagemath-and-sympy" title="Link to this heading"></a></h1>
+<h1>LaTeX in SageMath and SymPy<a class="headerlink" href="#latex-in-sagemath-and-sympy" title="Link to this heading">¶</a></h1>
 <p>In addition to working with LaTeX directly in Jupyter, Python’s two popular symbolic math tools, SageMath and SymPy, both support viewing their expressions in LaTeX. There are, however, some differences in how they approach this:</p>
 <ul class="simple">
 <li><p>For SageMath, displaying the expressions using MathJax in the browser requires a separate call to the <code class="docutils literal notranslate"><span class="pre">show</span></code> function, whereas in SymPy, the output is formatted via MathJax by default.</p></li>
@@ -207,7 +209,7 @@ $$
 </div>
 </section>
 <section id="other-packages-in-python">
-<h1>Other Packages in Python<a class="headerlink" href="#other-packages-in-python" title="Link to this heading"></a></h1>
+<h1>Other Packages in Python<a class="headerlink" href="#other-packages-in-python" title="Link to this heading">¶</a></h1>
 <p>There are a number of LaTeX utilities that are published as third-party Python packages (on PyPi). One interesting one, latexify-py, converts math-oriented Python functions into LaTeX. However, this package only supports a narrow range of Python versions and does not appear to be maintained currently.</p>
 <p>A more up-to-date package in this space is latexifier. The latexifier module supports a few different Python types including plain lists, tuples, and SymPy expressions. One really great feature is its ability to handle NumPy arrays directly In this section we’ll show how to do this. Along the way, we’ll also discuss how you can take any MathJax-compatible string and display it in Jupyter.</p>
 <p>With latexifier installed, the code below does the following:</p>
@@ -249,7 +251,7 @@ $$
 <p><img alt="" src="../../_images/image-202.png" /></p>
 </section>
 <section id="source-code-and-additional-resources">
-<h1>Source Code and Additional Resources<a class="headerlink" href="#source-code-and-additional-resources" title="Link to this heading"></a></h1>
+<h1>Source Code and Additional Resources<a class="headerlink" href="#source-code-and-additional-resources" title="Link to this heading">¶</a></h1>
 <p>You can get the source for this article in the associated <a class="reference external" href="https://github.com/Codesolid/latex-in-python">GitHub repository</a>, or <a class="reference external" href="https://github.com/CodeSolid/latex-in-python/archive/refs/heads/main.zip">download it</a> (zip file). The README contains a resources section with some other links you may find helpful for getting started in LaTeX.</p>
 <p>The image for this article was just for fun and was created using the techniques we’ve covered here. That business underneath the Python logo tells you what you can use in MathJax, and can be read as “the set of all elements such that the element is a subset of LaTeX and the element is in the set of math expressions.”</p>
 </section>
@@ -281,13 +283,13 @@ $$
       });
   </script>
     <!-- Theme Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QX7KGT4YPE"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-3KNPRGQ15C', {
+      gtag('config', 'G-QX7KGT4YPE', {
           'anonymize_ip': false,
       });
     </script> 

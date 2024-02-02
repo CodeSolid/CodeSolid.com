@@ -12,8 +12,6 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=19645805"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -56,6 +54,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">More:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../all_files/">Site Index</a></li>
+</ul>
 
         </div>
       </div>
@@ -83,20 +85,20 @@
              
   <p>If you’ve studied math and then learned to program, or if you’re a programmer studying math, you may have been amused (or perhaps confused) by the interesting language similarities and differences between the two fields.</p>
 <section id="vexed-by-vectors">
-<h1>Vexed by Vectors<a class="headerlink" href="#vexed-by-vectors" title="Link to this heading"></a></h1>
+<h1>Vexed by Vectors<a class="headerlink" href="#vexed-by-vectors" title="Link to this heading">¶</a></h1>
 <p>Most of us first encounter geometric vectors in public school, as those interesting little arrows that include a magnitude and direction. The word stems from the Latin word for “carrier”. A magnitude and direction “<a class="reference external" href="https://en.wikipedia.org/wiki/Euclidean_vector">carry</a>” one point to another.</p>
 <p>The term vector appeared again in a computing context in the 1990s, when the authors of the C++ Standard Template Library included a dynamic array implementation in the library called a vector, which almost made sense in the linear algebra sense of the word vector. In this case, we’re referring to an ordered set of numbers, which (unlike a geometric vector) might just be a set or a tuple of numbers.</p>
 <p>The authors of the library needed a term that wasn’t “list” (since a linked list structure was not how it was implemented) and wasn’t “array”, which was a fixed-length (non-growable) area of contiguous memory, which C and C++ developers had already been using for years.</p>
 </section>
 <section id="soothed-by-scalars">
-<h1>Soothed by Scalars<a class="headerlink" href="#soothed-by-scalars" title="Link to this heading"></a></h1>
+<h1>Soothed by Scalars<a class="headerlink" href="#soothed-by-scalars" title="Link to this heading">¶</a></h1>
 <p>If you managed to learn to program before you took a lot of math, you might have wondered why scalars are called scalars. In programming, the term applies to single values, as opposed to composites. Floats and integers are scalars, for example, while lists and dictionaries are not.</p>
 <p>The term becomes a bit loose and fuzzy for certain values, however. Is a string or an object of a class a scalar? The answer very much depends on the context and how you’re thinking about it. A string is a scalar if you’re thinking about putting it in a list. If you’re slicing it, however, it starts to behave more like a vector now.</p>
 <p>The heading promised something soothing, so here it is. In mathematics, a scalar has a more precise meaning. It’s something that scales something else. The number 3 is a scalar, for example, so whatever our good friend, <strong><em>x</em></strong>, turns out to be, you can be sure that <strong><em>3x</em></strong> means there are three of them. (I offer for your consideration: x = “blind mice”, x = “stooges”, or x = “musketeers”). In linear algebra and Euclidean geometry, multiplying a scalar by a vector gets you a vector that’s scaled. It grows or shrinks, or maybe it flips but stays in the same line.</p>
 <p>Again, be of good cheer. In general, scalars scale, they don’t flip. Besides, we couldn’t call them “flippers”, for fear of offending the dolphin community.</p>
 </section>
 <section id="you-re-about-to-enter-another-dimension">
-<h1>You’re About to Enter Another Dimension<a class="headerlink" href="#you-re-about-to-enter-another-dimension" title="Link to this heading"></a></h1>
+<h1>You’re About to Enter Another Dimension<a class="headerlink" href="#you-re-about-to-enter-another-dimension" title="Link to this heading">¶</a></h1>
 <p>“… a dimension not only of sight and sound but of mind. A journey into a wondrous land of imagination. Next stop, the Twilight Zone!” So began the 1950s/1960s TV series “The Twilight Zone”, narrated by the best voice in the history of television, Rod Serling. Each week’s episode featured something weird and mind-blowing.</p>
 <p>Programmers think they know what a dimension is. Certainly, I did until recently. A one-dimensional array is indexed by a single integer. A two-dimensional array models something like a database table or a spreadsheet, or in Python, a Pandas DataFrame. NumPy arrays can have any number of dimensions, and you can create contiguous multi-dimensional arrays in most other languages, too.</p>
 <p>My Twilight Zone moment came recently in a Linear Algebra course, where the instructor made a surprising assertion was made about the following vector (or one very like it):</p>
@@ -109,7 +111,7 @@
 <p><em>“I believe what you are referring to when you say a vector is 1 dimensional is that a vector is a rank 1 tensor. Matrices are, on the other hand, rank 2 tensors, and scalar values are rank 0 tensors.”</em></p>
 </section>
 <section id="bonus-prize-wherein-i-reconcile-science-and-religion">
-<h1>Bonus Prize, Wherein I Reconcile Science and Religion<a class="headerlink" href="#bonus-prize-wherein-i-reconcile-science-and-religion" title="Link to this heading"></a></h1>
+<h1>Bonus Prize, Wherein I Reconcile Science and Religion<a class="headerlink" href="#bonus-prize-wherein-i-reconcile-science-and-religion" title="Link to this heading">¶</a></h1>
 <p>Evolution is real. The earth is round. Vaccines are good for you.</p>
 <p>Wow, that was pretty easy, but here’s one more:</p>
 <p>The study of mathematics is an act of faith for me. I know that if I stay at it long enough, I’ll be able to make at least some educated sense from reading the Wikipedia article on tensors. For now, that article is just the curve in the other-dimensional rabbit hole that began when I wanted to learn some linear algebra.</p>
@@ -144,13 +146,13 @@
       });
   </script>
     <!-- Theme Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QX7KGT4YPE"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-3KNPRGQ15C', {
+      gtag('config', 'G-QX7KGT4YPE', {
           'anonymize_ip': false,
       });
     </script> 

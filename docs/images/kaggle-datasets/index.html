@@ -12,8 +12,6 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=19645805"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -56,6 +54,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">More:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../all_files/">Site Index</a></li>
+</ul>
 
         </div>
       </div>
@@ -94,13 +96,13 @@
 <li><p>Conclusion</p></li>
 </ul>
 <section id="intro-to-kaggle-and-its-datasets">
-<h1>Intro to Kaggle and its Datasets<a class="headerlink" href="#intro-to-kaggle-and-its-datasets" title="Link to this heading"></a></h1>
+<h1>Intro to Kaggle and its Datasets<a class="headerlink" href="#intro-to-kaggle-and-its-datasets" title="Link to this heading">¶</a></h1>
 <p>Kaggle is a popular platform for data science and machine learning competitions and a place to find and publish datasets. Kaggle hosts a variety of data sets in various formats, including tabular data, images, and text.</p>
 <p>One of Kaggle’s handy features is the ability to upload datasets using the Kaggle API. This allows us to access datasets from the command line without uploading them through the website manually.</p>
 <p>The Kaggle API can be especially useful for automating data entry and integration tasks.</p>
 </section>
 <section id="setting-up-the-kaggle-api">
-<h1>Setting up the Kaggle API<a class="headerlink" href="#setting-up-the-kaggle-api" title="Link to this heading"></a></h1>
+<h1>Setting up the Kaggle API<a class="headerlink" href="#setting-up-the-kaggle-api" title="Link to this heading">¶</a></h1>
 <p>In this section, we’ll show you how to set up the Kaggle API in a Jupyter notebook so you can easily access and download datasets and competitions from Kaggle. Here are the steps to set up the Kaggle API in a Jupyter notebook:</p>
 <ul class="simple">
 <li><p>Go to the <a class="reference external" href="https://www.kaggle.com/" title="Kaggle website">Kaggle website</a>, sign in, or sign up for your Kaggle account.</p></li>
@@ -156,7 +158,7 @@
 <p>The output is rather wide so we won’t display it here, but you can scroll to see all of it or otherwise work with it.</p>
 </section>
 <section id="downloading-kaggle-datasets-using-the-api">
-<h1>Downloading Kaggle Datasets Using the API<a class="headerlink" href="#downloading-kaggle-datasets-using-the-api" title="Link to this heading"></a></h1>
+<h1>Downloading Kaggle Datasets Using the API<a class="headerlink" href="#downloading-kaggle-datasets-using-the-api" title="Link to this heading">¶</a></h1>
 <p>One of the main benefits of the Kaggle API is the ability to download datasets directly from your Jupyter Notebook. This eliminates the need to download datasets from the Kaggle website manually and can save us time and effort.</p>
 <p>This section will discuss several ways of downloading Kaggle datasets using the API in a Jupyter Notebook, along with code examples and explanations.</p>
 <p>Let’s download the dataset named “senapatirajesh/netflix-tv-shows-and-movies”:</p>
@@ -227,7 +229,7 @@ This function allows us to download specific files within a dataset, rather than
 <p>These were two methods that we can use to download specific files from Kaggle datasets using the <strong><code class="docutils literal notranslate"><span class="pre">kaggle.api.dataset_download_files</span></code></strong> function or the <strong><code class="docutils literal notranslate"><span class="pre">!kaggle</span> <span class="pre">datasets</span> <span class="pre">download</span> <span class="pre">-d</span> <span class="pre">dataset_identifier</span></code></strong>. So with just a few lines of code, we can easily access and use certain files in the Kaggle dataset in your projects.</p>
 </section>
 <section id="downloading-multiple-datasets-at-once">
-<h1>Downloading Multiple Datasets at Once<a class="headerlink" href="#downloading-multiple-datasets-at-once" title="Link to this heading"></a></h1>
+<h1>Downloading Multiple Datasets at Once<a class="headerlink" href="#downloading-multiple-datasets-at-once" title="Link to this heading">¶</a></h1>
 <p>Downloading multiple datasets at once using the Kaggle API in Python is a handy way to save time when you need to load multiple datasets from Kaggle for your projects.</p>
 <p>Here’s how we can get multiple datasets at once using the Kaggle API in Python:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">kaggle</span>
@@ -243,7 +245,7 @@ This function allows us to download specific files within a dataset, rather than
 <p>So, to load multiple datasets, we just need to create a list with identifiers - author and dataset name - and then loop them. To access these datasets, you can use <strong><code class="docutils literal notranslate"><span class="pre">pandas.read_csv()</span></code></strong> for cvs files and <strong><code class="docutils literal notranslate"><span class="pre">pandas.read_excel()</span></code></strong> for xls, xlsx, xlsm, xlsb files.</p>
 </section>
 <section id="using-kaggle-datasets-in-various-cases">
-<h1>Using Kaggle Datasets in Various Cases<a class="headerlink" href="#using-kaggle-datasets-in-various-cases" title="Link to this heading"></a></h1>
+<h1>Using Kaggle Datasets in Various Cases<a class="headerlink" href="#using-kaggle-datasets-in-various-cases" title="Link to this heading">¶</a></h1>
 <p>Kaggle is a platform that hosts a variety of data sets for different use cases:</p>
 <ul class="simple">
 <li><p><strong>Machine Learning</strong><br />
@@ -258,7 +260,7 @@ Kaggle also runs machine learning competitions where participants can use Kaggle
 <p>The variety of datasets available on Kaggle and the ability to use them for many purposes make Kaggle a valuable resource for anyone who works with data.</p>
 </section>
 <section id="conclusion">
-<h1>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading"></a></h1>
+<h1>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">¶</a></h1>
 <p>Using the Kaggle API, you can easily access datasets and competition files from the command line, making your data science and machine learning workflow more streamlined and efficient.</p>
 <p>This tutorial covered what Kaggle is, the Kaggle API, how to use it, and why. We learned different methods of downloading datasets directly from Jupiter notebook, including how to download multiple datasets at once, search certain topic-related datasets, and many more.</p>
 </section>
@@ -290,13 +292,13 @@ Kaggle also runs machine learning competitions where participants can use Kaggle
       });
   </script>
     <!-- Theme Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QX7KGT4YPE"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-3KNPRGQ15C', {
+      gtag('config', 'G-QX7KGT4YPE', {
           'anonymize_ip': false,
       });
     </script> 

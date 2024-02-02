@@ -9,3 +9,4 @@ vendor
 delme
 .vscode
 legacy_hugo
+themes/sphinx_rtd_theme_from_git/

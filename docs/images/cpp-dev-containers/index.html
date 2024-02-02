@@ -12,8 +12,6 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=19645805"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -56,6 +54,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">More:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../all_files/">Site Index</a></li>
+</ul>
 
         </div>
       </div>
@@ -82,12 +84,12 @@
            <div itemprop="articleBody">
              
   <section id="dev-containers-in-vs-code-an-introduction">
-<h1>Dev Containers in VS Code: An Introduction<a class="headerlink" href="#dev-containers-in-vs-code-an-introduction" title="Link to this heading"></a></h1>
+<h1>Dev Containers in VS Code: An Introduction<a class="headerlink" href="#dev-containers-in-vs-code-an-introduction" title="Link to this heading">¶</a></h1>
 <p>Dev containers are a feature of Visual Studio Code that lets you easily develop and debug your code within a Docker container. The container can be one that “comes with” VS Code, and you can use this to develop code on any folder on your computer. This means you can run and debug code in C++, Python, TypeScript, etc., without ever installing any of the tools you need to do this (because the tools come with the container that VS Code provides).</p>
 <p>Moreover, you’re not limited to the containers that VS Code makes available. You can wrap a dev container around any container you can download from DockerHub or simply point your dev container configuration at a Dockerfile to build it on the fly. Nor are you limited to running the code on your machine. By adding a few files to any repository, anyone with access to your GitHub repository can work on your repository – either locally inside a dev container or online using Visual Studio CodeSpaces. By doing this, you don’t need to document paragraph after paragraph of steps for setting up the development environment – because you’ve already configured it for them! (That was nice of you).</p>
 </section>
 <section id="dev-containers-for-c-a-special-case">
-<h1>Dev Containers for C++: A Special Case<a class="headerlink" href="#dev-containers-for-c-a-special-case" title="Link to this heading"></a></h1>
+<h1>Dev Containers for C++: A Special Case<a class="headerlink" href="#dev-containers-for-c-a-special-case" title="Link to this heading">¶</a></h1>
 <p>As you can see from the discussion above, I’m a big fan of dev containers. In the case of C++, dev containers are especially useful since even those who love C++ admit that their packaging and build tools are a complete mess compared to other languages. The Reddit post, “What’s the hate for CMake all about? Is CMake really that bad?” was upvoted 201 times. Nothing in the C++ world is as useful and simple as Cargo is to Rust developers, or pip for Python, or npm for JavaScript – well, I could go on, but you get the picture.</p>
 <p>For example, I recently wanted to see how to integrate Boost with CMake. In an earlier <a class="reference external" href="https://codesolid.com/cmake-starter-project/" title="CMake Starter Project">CMake Starter Project</a> article, I showed how – for certain packages – one can simply use CMake’s FetchContent module to make CMake behave almost like a real dependency manager (albeit an overengineered one). This technique failed spectacularly for Boost.</p>
 <p>Perhaps I’d been away from C++ so long that I began to romanticize it somewhat. I failed to recall the true horror – the fire and brimstone, the wailing and gnashing of teeth – that awaited me in the hell of C++ dependency management.</p>
@@ -96,7 +98,7 @@
 <p>Hopefully, by now, you’re anxious to learn more about how you can use dev containers in your C++ work, but before we get to the rest of the article, let me caution you that dev containers won’t let you test your code on both Windows and Linux containers. Windows containers are not supported by the VS Code dev containers feature. However, if that’s not a dealbreaker for you, read on to see what dev containers can do.</p>
 </section>
 <section id="two-important-dev-container-extensions-in-vs-code">
-<h1>Two important dev container extensions in VS Code<a class="headerlink" href="#two-important-dev-container-extensions-in-vs-code" title="Link to this heading"></a></h1>
+<h1>Two important dev container extensions in VS Code<a class="headerlink" href="#two-important-dev-container-extensions-in-vs-code" title="Link to this heading">¶</a></h1>
 <p>Before we start working with C++ dev containers, let’s go ahead and grab the Dev Containers and CodeSpaces extensions. You can search for and install these in the extension window, but a quick way to do it is to run this in your terminal:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>code<span class="w"> </span>--install-extension<span class="w"> </span>ms-vscode-remote.remote-containers
 code<span class="w"> </span>--install-extension<span class="w"> </span>GitHub.codespaces
@@ -110,7 +112,7 @@ code<span class="w"> </span>--install-extension<span class="w"> </span>GitHub.co
 </ul>
 </section>
 <section id="quick-start-a-default-c-dev-container">
-<h1>Quick Start: A “Default” C++ Dev Container<a class="headerlink" href="#quick-start-a-default-c-dev-container" title="Link to this heading"></a></h1>
+<h1>Quick Start: A “Default” C++ Dev Container<a class="headerlink" href="#quick-start-a-default-c-dev-container" title="Link to this heading">¶</a></h1>
 <p>Assuming you have both Docker and the dev containers extension installed, you can easily open any folder on your machine in a default C++ dev container. Here are the basic steps you can use to do this. (It’s fairly intuitive once you’ve gone through it once).</p>
 <p>First, in VS Code’s Command Palette (CTRL-SHIFT-P on Windows and Linux / CMD-SHIFT-P on a Mac), start typing “dev” to bring up the dev containers extension option. The selection you want is “Dev Containers: Open Folder in Container”:</p>
 <p><img alt="Opening a folder." src="../../_images/01_open-folder-in-dev-container1.png" /></p>
@@ -146,7 +148,7 @@ code<span class="w"> </span>--install-extension<span class="w"> </span>GitHub.co
 <p><img alt="" src="../../_images/12_re-open1.png" /></p>
 </section>
 <section id="creating-a-custom-dev-container">
-<h1>Creating a Custom Dev Container<a class="headerlink" href="#creating-a-custom-dev-container" title="Link to this heading"></a></h1>
+<h1>Creating a Custom Dev Container<a class="headerlink" href="#creating-a-custom-dev-container" title="Link to this heading">¶</a></h1>
 <p>If you explore what comes with the default C++ dev container, you’ll see it has a number of features. In addition to a basic Linux development environment, it also installed Git and CMake, for example. However, there is room for improvement:</p>
 <ul class="simple">
 <li><p>Chances are the version of CMake and Gcc are not the latest. Both programs are several versions behind the latest. This is likely true of other programs. At the time of this writing, for example, the version of CMake does not yet include the latest CMake experimental features for C++ modules, for example.</p></li>
@@ -227,7 +229,7 @@ code<span class="w"> </span>--install-extension<span class="w"> </span>GitHub.co
 <p>Whether you keep it as is or push an image, you can launch it locally using the dev container extension, as we’ve shown above. Alternatively, you can push the code to GitHub and launch it in GitHub CodeSpaces. We’ll do that next.</p>
 </section>
 <section id="using-a-dev-container-in-github-codespaces">
-<h1>Using a Dev Container in GitHub CodeSpaces<a class="headerlink" href="#using-a-dev-container-in-github-codespaces" title="Link to this heading"></a></h1>
+<h1>Using a Dev Container in GitHub CodeSpaces<a class="headerlink" href="#using-a-dev-container-in-github-codespaces" title="Link to this heading">¶</a></h1>
 <p>Once you’ve pushed your .devcontainer-enabled repository to GitHub, you (or anyone logged into a GitHub account if it’s a public repository) can open it and start developing easily without <em>cloning the repository</em>. To see this in action, simply sign in to GitHub and navigate to <a class="reference external" href="https://github.com/CodeSolid/dev-container-cpp">https://github.com/CodeSolid/dev-container-cpp</a>.</p>
 <p>Once there, click the Code button, then navigate to the Codespaces tab, and use the + button to create a CodeSpace.</p>
 <p><img alt="Launching a custom C++ Dev Container on CodeSpaces." src="../../_images/image-29.png" /></p>
@@ -264,13 +266,13 @@ code<span class="w"> </span>--install-extension<span class="w"> </span>GitHub.co
       });
   </script>
     <!-- Theme Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QX7KGT4YPE"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-3KNPRGQ15C', {
+      gtag('config', 'G-QX7KGT4YPE', {
           'anonymize_ip': false,
       });
     </script> 

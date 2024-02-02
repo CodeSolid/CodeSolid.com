@@ -12,8 +12,6 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=19645805"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -56,6 +54,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">More:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../all_files/">Site Index</a></li>
+</ul>
 
         </div>
       </div>
@@ -94,7 +96,7 @@
 <p>Again, Matplotlib is a low-level tool, and this sort of thing is much easier to accomplish in a tool more dedicated to symbolic math (like SymPy) or a graphing calculator (like Desmos). That said, we’ll learn a great deal about Matplotlib configuration along the way, so it’s worthwhile to understand how to accomplish it there.</p>
 <p>We begin not far from Euclid’s beginning 2,300 years ago. We start with simple points and lines.</p>
 <section id="plotting-a-line-in-matplotlib">
-<h1>Plotting a Line in Matplotlib<a class="headerlink" href="#plotting-a-line-in-matplotlib" title="Link to this heading"></a></h1>
+<h1>Plotting a Line in Matplotlib<a class="headerlink" href="#plotting-a-line-in-matplotlib" title="Link to this heading">¶</a></h1>
 <p>Let’s begin with a simple linear function. We recall from algebra trauma class that a linear function is simply one whose graph is a straight line, in the form:</p>
 <p><img alt="" src="../../_images/image-232.png" /></p>
 <p>In Python, it’s easy to see how we might code such a function, with some defaults for <em>m</em> (the slope) and <em>b</em> (the y-intercept):</p>
@@ -164,7 +166,7 @@
 <p>Now it’s obvious that the slope (the rise over the run, or the ratio of y to each x) is 2, and the y-intercept is -1.</p>
 </section>
 <section id="a-non-linear-plot-in-matplotlib">
-<h1>A Non-Linear Plot in Matplotlib<a class="headerlink" href="#a-non-linear-plot-in-matplotlib" title="Link to this heading"></a></h1>
+<h1>A Non-Linear Plot in Matplotlib<a class="headerlink" href="#a-non-linear-plot-in-matplotlib" title="Link to this heading">¶</a></h1>
 <p>Now that we have most of the code in place to set up the plot, we’re willing to try our hand at a non-linear graph. Non-linear plots introduce a couple of new wrinkles. The first is that for a curve, we’ll need to plot more than two points. This is easy to accommodate using NumPy’s <code class="docutils literal notranslate"><span class="pre">linspace</span></code> function. It’s a little more complex using a Python list (but not too bad). Here we show both versions. We want a range of 100 points in each case, evenly spaced between -5 and 5.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
@@ -205,7 +207,7 @@
 <p><img alt="" src="../../_images/image-281.png" /></p>
 </section>
 <section id="closing-thoughts">
-<h1>Closing Thoughts<a class="headerlink" href="#closing-thoughts" title="Link to this heading"></a></h1>
+<h1>Closing Thoughts<a class="headerlink" href="#closing-thoughts" title="Link to this heading">¶</a></h1>
 <p>At this point, we’ve shown how to use Matplotlib as a sort of “do-it-yourself” graphing calculator. To be sure, as we’ve emphasized, this is not the easiest tool to use for this. Python’s SymPy and other free, non-Python tools such as Desmos and WolframAlpha let you plot mathematical functions far more easily. However, our journey to make it work has taught us a lot about how to size and scale graphs, as well as how to configure Matplotlib coordinates and axes.</p>
 <p>Want to run this code online? You can do that on our Online Python site, with <a class="reference external" href="https://jupyter.codesolid.com/lab/index.html?path=examples/LinearAndNonLinearFunctions.ipynb" title="this notebook">this notebook</a>.</p>
 </section>
@@ -237,13 +239,13 @@
       });
   </script>
     <!-- Theme Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QX7KGT4YPE"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-3KNPRGQ15C', {
+      gtag('config', 'G-QX7KGT4YPE', {
           'anonymize_ip': false,
       });
     </script> 

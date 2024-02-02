@@ -12,8 +12,6 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=19645805"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -55,6 +53,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">More:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../all_files/">Site Index</a></li>
 </ul>
 
         </div>
@@ -101,19 +103,19 @@
 <li><p>You May Also Like</p></li>
 </ul>
 <section id="what-are-python-generators">
-<h1>What are Python Generators?<a class="headerlink" href="#what-are-python-generators" title="Link to this heading"></a></h1>
+<h1>What are Python Generators?<a class="headerlink" href="#what-are-python-generators" title="Link to this heading">¶</a></h1>
 <p>When people think of a generator in Python, they often think of a function that behaves like a sequence type – something you can iterate through. Unlike common sequence types like lists, however, generators only return each value as you ask for it, where a list stores everything you’ve put in it in memory.</p>
 <p>More precisely, a generator is a Python object. It is an expression, function, or class that – strictly speaking – can return an iterator. An iterator, in turn, is with which you can write a loop. Common ways to consume an iterator are a for-loop and a list comprehension.</p>
 <p>We use iterators all the time in Python, even though we may not know we are doing so. Sequence types like lists, strings, tuples, and range objects have a magic method, “__iter__,” which returns an iterator. Generator objects also have this magic method. However, as with most magic methods, you rarely need to implement them directly.</p>
 <p>In a later section, we’ll get into the precise details of what iterators are and how they work. But just as you don’t need to write the magic methods, you rarely need to work directly with an iterator. Instead, you write a for loop or a list comprehension, and Python will handle the iterator for you.</p>
 </section>
 <section id="what-are-python-generators-used-for">
-<h1>What are Python Generators Used For?<a class="headerlink" href="#what-are-python-generators-used-for" title="Link to this heading"></a></h1>
+<h1>What are Python Generators Used For?<a class="headerlink" href="#what-are-python-generators-used-for" title="Link to this heading">¶</a></h1>
 <p>Python generators are used in cases where you need to be able to consume some data in a loop, but the size of the data set is potentially large enough to crash your program if you load it into memory. Generators allow the set of things to be iterated to be unbounded.</p>
 <p>Data sets like a year’s worth of access log entries from a high traffic website or the luminosity of stars visible through a light telescope are good candidates for a generator.</p>
 </section>
 <section id="are-generators-faster-than-lists-in-python">
-<h1>Are Generators Faster Than Lists in Python?<a class="headerlink" href="#are-generators-faster-than-lists-in-python" title="Link to this heading"></a></h1>
+<h1>Are Generators Faster Than Lists in Python?<a class="headerlink" href="#are-generators-faster-than-lists-in-python" title="Link to this heading">¶</a></h1>
 <p>In general, generators are not faster than normal functions because they perform their operations on each iteration. Generators can sometimes <em>appear</em> to be faster than lists, but this performance depends partly on factors like a CPU cache.</p>
 <p>The reason for this qualified answer is that in our tests, we found at first that generators were faster even when the generator had to perform some task for each iteration. In that case, we expected the list could be faster because the result would already be calculated and stored.</p>
 <p>As we ran the tests several times, what became clear was that we were running into cases where the result of the first run was being cached in the generator case. Once we accounted for this, we compared first-run performance, and at that point, it became clear that the lists were faster.</p>
@@ -168,11 +170,11 @@ Wall<span class="w"> </span>time:<span class="w"> </span><span class="m">437</sp
 </div>
 </section>
 <section id="how-do-i-write-a-python-generator">
-<h1>How Do I Write a Python Generator?<a class="headerlink" href="#how-do-i-write-a-python-generator" title="Link to this heading"></a></h1>
+<h1>How Do I Write a Python Generator?<a class="headerlink" href="#how-do-i-write-a-python-generator" title="Link to this heading">¶</a></h1>
 <p>Python generators come in a few different forms. In the following sections, we discuss generator functions, generator expressions, and classes as generators. We’ll also discuss a problem that trips up many Python developers who are beginning to work with generators.</p>
 </section>
 <section id="what-is-a-generator-function">
-<h1>What Is a Generator Function?<a class="headerlink" href="#what-is-a-generator-function" title="Link to this heading"></a></h1>
+<h1>What Is a Generator Function?<a class="headerlink" href="#what-is-a-generator-function" title="Link to this heading">¶</a></h1>
 <p>A generator function is relatively simple to write because it looks just like a normal python function with a <code class="docutils literal notranslate"><span class="pre">yield</span></code> statement instead of a return value. Yield is a Python keyword that lets a program call a function repeatedly while maintaining the function’s internal state.</p>
 <p>Let’s take a simple illustration to show how this works. We’ll implement a function that works somewhat like a Python range object. To keep the example simple, however, we’ll only allow positive step values:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a generator function:</span>
@@ -209,7 +211,7 @@ List<span class="w"> </span>comprehension<span class="w"> </span>demo
 <p>However, one issue we’ve glossed over is <em>how</em> Python “knows” when to stop calling the generator that we’ve created. If you’re curious about that, the next section is for you!</p>
 </section>
 <section id="how-do-python-generators-work">
-<h1>How do Python Generators Work?<a class="headerlink" href="#how-do-python-generators-work" title="Link to this heading"></a></h1>
+<h1>How do Python Generators Work?<a class="headerlink" href="#how-do-python-generators-work" title="Link to this heading">¶</a></h1>
 <p>Writing a generator is one thing – they’re relatively simple. But how do Python generators work under the hood?</p>
 <p>Generators work by exposing a method, <code class="docutils literal notranslate"><span class="pre">__iter__()</span></code>, that Python can call from the context of a loop or comprehension expression. Calling next on the value returned from <code class="docutils literal notranslate"><span class="pre">__iter__()</span></code> will either return the next value that the function yields or raise a <code class="docutils literal notranslate"><span class="pre">StopIteration</span></code> exception.</p>
 <p>We can show how this works using the counter generator we created in the last section.</p>
@@ -236,7 +238,7 @@ No<span class="w"> </span>more<span class="w"> </span>elements
 </div>
 </section>
 <section id="what-is-a-generator-expression">
-<h1>What Is a Generator Expression?<a class="headerlink" href="#what-is-a-generator-expression" title="Link to this heading"></a></h1>
+<h1>What Is a Generator Expression?<a class="headerlink" href="#what-is-a-generator-expression" title="Link to this heading">¶</a></h1>
 <p>A generator expression is a more concise way to write a generator than a function with a yield statement. The syntax of a generator expression is the same as that for a list comprehension, except that instead of square brackets, we enclose a generator expression in parentheses.</p>
 <p>Like generator functions, generator expressions are only iterated when they are consumed. We can demonstrate this by comparing the results of a generator expression and a list comprehension:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">demo_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
@@ -280,7 +282,7 @@ shrubbery
 </div>
 </section>
 <section id="can-a-python-class-be-a-generator">
-<h1>Can a Python Class Be a Generator?<a class="headerlink" href="#can-a-python-class-be-a-generator" title="Link to this heading"></a></h1>
+<h1>Can a Python Class Be a Generator?<a class="headerlink" href="#can-a-python-class-be-a-generator" title="Link to this heading">¶</a></h1>
 <p>So far, we’ve looked at generators as Python functions using the yield method. We’ve also discussed generator expressions, which you get if you take a list comprehension and replace the square brackets with parentheses.</p>
 <p>We turn next to the issue of Python classes.</p>
 <p>Python classes can be generators. One advantage of doing so is that exposing a generator as a Python class often makes the generator simpler to reason about and may also make the generator re-usable without exhausting the underlying iterator.</p>
@@ -331,7 +333,7 @@ shrubbery
 <p>Although we didn’t show it in this example, implementing the __iter__ function also allowed us to solve a subtle bug in our original generator-as-function. To learn why this is so, please see the next section.</p>
 </section>
 <section id="why-does-my-generator-only-work-once">
-<h1>Why Does My Generator Only Work Once?<a class="headerlink" href="#why-does-my-generator-only-work-once" title="Link to this heading"></a></h1>
+<h1>Why Does My Generator Only Work Once?<a class="headerlink" href="#why-does-my-generator-only-work-once" title="Link to this heading">¶</a></h1>
 <p>One problem you may bump into with generators you write is that – unlike a list or a range object, for example – you can only iterate them once. After that, if you try to iterate through them, nothing happens.</p>
 <p>A generator will only work once if the iterator behind it has been exhausted. The solution is to return the generator from a class that implements the __iter__ function. Python loops and comprehensions will call the __iter__ function each time they run an iteration.</p>
 <p>Let’s look at the problem first, and then we’ll show the solution:</p>
@@ -388,12 +390,12 @@ NOT<span class="w"> </span>SO<span class="w"> </span>with<span class="w"> </span
 <p>For a more detailed example where we show a Python class wrapping a generator, see the section, <a class="reference external" href="https://codesolid.com/python-generators-questions-and-answers/#htoc-can-a-python-class-be-a-generator">Can a Python Class Be a Generator?</a></p>
 </section>
 <section id="what-s-the-equivalent-of-iterable-in-python">
-<h1>What’s the Equivalent of Iterable in Python?<a class="headerlink" href="#what-s-the-equivalent-of-iterable-in-python" title="Link to this heading"></a></h1>
+<h1>What’s the Equivalent of Iterable in Python?<a class="headerlink" href="#what-s-the-equivalent-of-iterable-in-python" title="Link to this heading">¶</a></h1>
 <p>Although there is no direct equivalent of a Java iterable in Python, the closest match in Python would be any class that implements the magic method, <code class="docutils literal notranslate"><span class="pre">__iter__()</span></code>. <code class="docutils literal notranslate"><span class="pre">__iter__()</span></code> is the method that is most closely analogous to <code class="docutils literal notranslate"><span class="pre">Iterable.iterator()</span></code> in Java.</p>
 <p>In Python, however, there is no need for a functional equivalent of Java’s <code class="docutils literal notranslate"><span class="pre">Iterable.forEach</span></code>. Magic methods in Python are more closely integrated with the core language, so the idiomatic use of a class that implements <code class="docutils literal notranslate"><span class="pre">__iter__()</span></code> would simply be to write a for loop expression with an instance of the class.</p>
 </section>
 <section id="what-are-the-advantages-of-generators-in-python">
-<h1>What Are the Advantages of Generators in Python?<a class="headerlink" href="#what-are-the-advantages-of-generators-in-python" title="Link to this heading"></a></h1>
+<h1>What Are the Advantages of Generators in Python?<a class="headerlink" href="#what-are-the-advantages-of-generators-in-python" title="Link to this heading">¶</a></h1>
 <p>Generators provide two main advantages over lists, arrays, or other data structures. First, generators use less memory, so they are the right choice for large data sets. Secondly, a generator only uses memory when iterated (lazy evaluation), whereas a list uses memory whether iterated or not.</p>
 <p>Generators are a good choice whenever the quantity of data to be iterated is large enough that memory becomes a constraint. I think the tradeoffs of generators are like those you consider when processing a file. If you know a file will be small (a configuration file, for example), go ahead and load it into memory. If, on the other hand, you expect the size of the file to be arbitrary, you’re better off reading the file line by line, byte by byte, or using a fixed-length buffer.</p>
 <p>You can demonstrate that generators are evaluated when iterated if you try to print one without iterating it. You won’t see the values you’ll expect; you’ll see something that looks like you’re examining a Python object (as indeed, you are).</p>
@@ -407,7 +409,7 @@ NOT<span class="w"> </span>SO<span class="w"> </span>with<span class="w"> </span
 </div>
 </section>
 <section id="what-is-an-asynchronous-generator">
-<h1>What Is an Asynchronous Generator?<a class="headerlink" href="#what-is-an-asynchronous-generator" title="Link to this heading"></a></h1>
+<h1>What Is an Asynchronous Generator?<a class="headerlink" href="#what-is-an-asynchronous-generator" title="Link to this heading">¶</a></h1>
 <p>An asynchronous generator is a generator defined with the async keyword. In general, one would implement an asynchronous generator to efficiently handle asynchronous input and output.</p>
 <p>We can simulate an asynchronous process by returning a value after a random time rather than create an example of a socket or database call or the like. We’ll process these values as they arrive asynchronously using an async for-loop.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
@@ -437,7 +439,7 @@ Finished
 </div>
 </section>
 <section id="you-may-also-like">
-<h1>You May Also Like<a class="headerlink" href="#you-may-also-like" title="Link to this heading"></a></h1>
+<h1>You May Also Like<a class="headerlink" href="#you-may-also-like" title="Link to this heading">¶</a></h1>
 <ul class="simple">
 <li><p><a class="reference external" href="https://codesolid.com/random-python-secrets-and-random-values-made-easy/">Random Python: Secrets and Random Values Made Easy</a></p></li>
 <li><p><a class="reference external" href="https://codesolid.com/random-python-secrets-and-random-values-made-easy/">Python Format Strings: Beginner to Expert</a></p></li>
@@ -471,13 +473,13 @@ Finished
       });
   </script>
     <!-- Theme Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QX7KGT4YPE"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-3KNPRGQ15C', {
+      gtag('config', 'G-QX7KGT4YPE', {
           'anonymize_ip': false,
       });
     </script> 

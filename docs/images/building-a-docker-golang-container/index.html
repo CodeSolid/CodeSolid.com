@@ -12,8 +12,6 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=19645805"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -56,6 +54,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../run-python-online-with-jupyterlite/">Run Python Online: Watch the Video to Learn How</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">More:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../all_files/">Site Index</a></li>
+</ul>
 
         </div>
       </div>
@@ -84,7 +86,7 @@
   <p>One of the main benefits of blogging about software is that it allows me to dust off and improve skills that I otherwise might not get too much opportunity to practice during my day job as a Java peasant. (If you don’t know, Java Peasants work in object factories).</p>
 <p>Along these lines, I’ve set myself a goal of creating a non-trivial build pipeline for Kubernetes, consisting of a Go API server, a front-end server running Nginx, and perhaps an auth server (FusionAuth). The database layer is TBD but may not run in Kubernetes (except perhaps in development).</p>
 <section id="from-simple-to-complex">
-<h1>From Simple to Complex<a class="headerlink" href="#from-simple-to-complex" title="Link to this heading"></a></h1>
+<h1>From Simple to Complex<a class="headerlink" href="#from-simple-to-complex" title="Link to this heading">¶</a></h1>
 <p>There’s an old axiom called Gall’s Law that I’m quite fond of:</p>
 <p><em>A complex system that works is invariably found to have evolved from a simple system that worked.</em></p>
 <p>I like Gall’s Law so much because it reflects how I work. In this case, knowing that I ultimately wanted a bunch of containers running as Kubernetes pods, I started in the simplest way I could, with a basic container build. We’ll need a simple Go app with which to test the build:</p>
@@ -120,7 +122,7 @@
 <p>OK, so now we have an app. You can build it or run it locally if you want, but that’s no fun. We want to put it in a docker container and get it running from there.</p>
 </section>
 <section id="a-naive-approach">
-<h1>A Naive Approach<a class="headerlink" href="#a-naive-approach" title="Link to this heading"></a></h1>
+<h1>A Naive Approach<a class="headerlink" href="#a-naive-approach" title="Link to this heading">¶</a></h1>
 <p>We want a Dockerfile to build a container from our app. Keeping in mind Gall’s Law, we want to start with something simple that works, even if it’s not production-ready at this point. (Don’t worry, we’ll improve it later in the article).</p>
 <div class="highlight-docker notranslate"><div class="highlight"><pre><span></span><span class="c"># Dockerfile</span>
 
@@ -157,7 +159,7 @@
 </div>
 </section>
 <section id="whats-wrong-with-the-naive-approach-and-how-to-fix-it">
-<h1>What’s Wrong with the Naive Approach, and How To Fix It<a class="headerlink" href="#whats-wrong-with-the-naive-approach-and-how-to-fix-it" title="Link to this heading"></a></h1>
+<h1>What’s Wrong with the Naive Approach, and How To Fix It<a class="headerlink" href="#whats-wrong-with-the-naive-approach-and-how-to-fix-it" title="Link to this heading">¶</a></h1>
 <p>So if our gorilla is off in the forest happily greeting visitors with “Hello world,” what’s the problem? Well, honestly, there is no problem for a toy app like this, but for a real production app, we want to solve two issues. First, we’re basing our image on “golang” to build and run our image. That makes the resulting image file much larger and more complex than it needs to be. Once we start storing it in Dockerhub or a similar repository, the download will take longer than it has to.</p>
 <p>Let’s see how bad the problem is. Docker images will tell us some basic facts about an image, including the size:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>images<span class="w"> </span>golang-gorilla
@@ -175,7 +177,7 @@ golang-gorilla<span class="w">      </span>latest<span class="w">              <
 <p>Fortunately, recent versions of docker have an elegant and straightforward solution to this problem.</p>
 </section>
 <section id="multi-stage-builds">
-<h1>Multi-stage Builds<a class="headerlink" href="#multi-stage-builds" title="Link to this heading"></a></h1>
+<h1>Multi-stage Builds<a class="headerlink" href="#multi-stage-builds" title="Link to this heading">¶</a></h1>
 <p>We want to be able to build our application with a first step, then copy only the files we need to the image. Since version 17.05, docker has shipped with a feature called multi-stage builds. This is a feature that allows us to create a build using an initial image, then package the results into a much smaller – and much more secure – final image.</p>
 <p>It works by allowing multiple “FROM” clauses, which can be based on entirely different images. Earlier images can be as large as we want for our build tools, but we can copy the results to a more compact image as a final step. We can give the steps names in the FROM clause to make this process even more accessible.</p>
 <p>To see how this works, let’s take our original code and modify our Dockerfile.</p>
@@ -265,13 +267,13 @@ golang-gorilla<span class="w">      </span>latest<span class="w">              <
       });
   </script>
     <!-- Theme Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3KNPRGQ15C"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QX7KGT4YPE"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-3KNPRGQ15C', {
+      gtag('config', 'G-QX7KGT4YPE', {
           'anonymize_ip': false,
       });
     </script> 
