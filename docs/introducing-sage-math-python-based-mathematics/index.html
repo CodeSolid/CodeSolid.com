@@ -55,21 +55,9 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Categories</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math-and-math-software/">Math and Math Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math/">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Header</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../category-python/">Python</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../category-python/">Python (General)</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../why-is-python-popular/">Why Is Python Popular?# Why Is Python Popular</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../benchmarking-python-and-rust-async-web-server-performance/">Benchmarking Python and Rust Async Web Server Performance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python-date-tutorial/">Python Date and Time Functions: The Complete Tutorial</a></li>
@@ -131,10 +119,18 @@
 <li class="toctree-l2"><a class="reference internal" href="../python-operators/">Python Operators:  The Building Blocks of Successful Code</a></li>
 </ul>
 </li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">More:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../all_files/">Site Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Python Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 </ul>
 
         </div>
@@ -173,7 +169,7 @@
 <section id="running-sage-online">
 <h3>Running Sage Online<a class="headerlink" href="#running-sage-online" title="Link to this heading"></a></h3>
 <p>There are some excellent options for running SageMath online. SageMath.org, for example, hosts a free SageMathCell page that’s handy for running short experiments. Let’s try our hand at a bit of math, solving a quadratic equation. Minus the comment, this is a one-liner in Sage:</p>
-<p><img alt="" src="../_images/image-1112.png" /></p>
+<p><img alt="" src="../_images/image-111.png" /></p>
 <p>For more extensive work with Sage, you might prefer to create a free account on CoCalc, a commercial Jupyter, Sage, and collaborative development and teaching platform developed by William Stein, Sage’s author. CoCalc will give you access to full Sage notebooks and many other <a class="reference external" href="https://cocalc.com/features">cool features</a>. If your needs grow beyond the free account, you can upgrade for a modest monthly or yearly price, depending on how much CPU and disk space you need.</p>
 </section>
 <section id="installing-sage-math-on-your-machine">
@@ -186,11 +182,11 @@ RUN<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"
 <p>As for Windows, the documented approach in the official <a class="reference external" href="https://doc.sagemath.org/html/en/installation/index.html">installation guide</a> is to use WSL, so presumably, that approach works well there, too.</p>
 <p>Though I was able to get Sage working, there were a few things I tried that didn’t work. I realize I should probably spend some time going through those with the Sage community so I can help out in their efforts. For now, let me just note them briefly: I was unable to build SageMath from source on a Mac. (My little Mini is M1 based). In fairness, I used the main branch main instead of grabbing a release tag. On that same machine, I was also unable to get an environment working using MiniConda.</p>
 <p>What did work well for me after trying these approaches was to install SageMath using a Mac <a class="reference external" href="https://github.com/3-manifolds/Sage_macOS/releases">binary package</a> provided by 3-manifolds. After installing this, running the SageMath 9.6 launcher from Launchpad started a Sage tool that you can use out of the box to launch either the SageMath shell or a Sage notebook.</p>
-<p><img alt="" src="../_images/image-611.png" /></p>
+<p><img alt="" src="../_images/image-63.png" /></p>
 <p>Both options worked just fine from this program, but since I’m more at home at the command line, I wanted to be able to launch <code class="docutils literal notranslate"><span class="pre">sage</span></code> from the terminal to get the Sage shell or <code class="docutils literal notranslate"><span class="pre">sage</span> <span class="pre">--notebook</span></code> to run a sage kernel in Jupyter notebook. Doing this was a simple matter of adding this line to the file ~/.zprofile:</p>
 <p><code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">PATH=&quot;$PATH:/Applications/SageMath-9-6.app/Contents/Frameworks/Sage.framework/Versions/Current/venv/bin&quot;</span></code></p>
 <p>In general, the Sage terminal is now my first choice for quick experiments in Sage. Here, for example, I define a function and plot it:</p>
-<p><img alt="" src="../_images/image-7-1024x4151.png" /></p>
+<p><img alt="" src="../_images/image-7-1024x415.png" /></p>
 <p>You may have noticed two things by this point. First, you’ll see that after some false starts, I had to download and install a binary version of Sage. Sage is a non-trivial piece of software so I wouldn’t count on “pip install” for it.</p>
 <p>Secondly, there are things about the code we’ve gone over so far that simply wouldn’t work in Python; Sage is mathematics software built on Python; it’s not just another Python shell.</p>
 <p>We’ll discuss this theme a bit more in the next section.</p>
@@ -207,11 +203,11 @@ RUN<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"
 </li>
 <li><p>Numbers and operators sometimes do different things in Sage. Another interesting feature of the last expression is this part of it: <code class="docutils literal notranslate"><span class="pre">x^3</span></code>. The caret operator is an exponent operator in Sage, though <code class="docutils literal notranslate"><span class="pre">**</span></code> also works as it does in Python. In Python, there is such an operator, but it represents the little-used bitwise exclusive or (xor). Thus, 5^3 == 6 in Python, but 125 in Sage! Number literals, too, often have surprising types, as we see in this screenshot:</p></li>
 </ul>
-<p><img alt="" src="../_images/image-89.png" /></p>
+<p><img alt="" src="../_images/image-82.png" /></p>
 <ul class="simple">
 <li><p>Symbols everywhere! Generally speaking, for symbols like pi or for rational expressions, values are displayed in their symbolic form by default (which makes sense for software doing symbolic math). Thus, <code class="docutils literal notranslate"><span class="pre">1/5</span></code> displays as <code class="docutils literal notranslate"><span class="pre">.2</span></code> in a Python console, but remains <code class="docutils literal notranslate"><span class="pre">1/5</span></code> in Sage, unless we explicitly divide it by casting to a float, as shown here in a Sage notebook:</p></li>
 </ul>
-<p><img alt="" src="../_images/image-107.png" /></p>
+<p><img alt="" src="../_images/image-102.png" /></p>
 </section>
 </section>
 <section id="how-sage-and-python-are-the-same">
@@ -222,7 +218,7 @@ RUN<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"
 <div><p><em>If you use Sage in a mathematics, statistics, physics, or data-science class, you will learn Python along the way</em>.</p>
 </div></blockquote>
 <p>I would say the reverse is true, too. For those of us who are already Python programmers, we now can enjoy an environment where we can still do that <em>and</em> play with some beautiful LaTeX-formatted derivatives along the way:</p>
-<p><img alt="" src="../_images/image-129.png" /></p>
+<p><img alt="" src="../_images/image-121.png" /></p>
 </section>
 </section>
 

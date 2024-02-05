@@ -55,21 +55,9 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Categories</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math-and-math-software/">Math and Math Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math/">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Header</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../category-python/">Python</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../category-python/">Python (General)</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../why-is-python-popular/">Why Is Python Popular?# Why Is Python Popular</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../benchmarking-python-and-rust-async-web-server-performance/">Benchmarking Python and Rust Async Web Server Performance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python-date-tutorial/">Python Date and Time Functions: The Complete Tutorial</a></li>
@@ -139,10 +127,18 @@
 <li class="toctree-l2"><a class="reference internal" href="../python-operators/">Python Operators:  The Building Blocks of Successful Code</a></li>
 </ul>
 </li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">More:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../all_files/">Site Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Python Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 </ul>
 
         </div>
@@ -159,7 +155,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../category-python/">Python</a></li>
+          <li class="breadcrumb-item"><a href="../category-python/">Python (General)</a></li>
       <li class="breadcrumb-item active">Python With: Using and Writing Context Managers in Python</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/python-with-using-and-writing-context-managers-in-python.md.txt" rel="nofollow"> View page source</a>
@@ -296,7 +292,7 @@ Closed<span class="w"> </span>when<span class="w"> </span>block<span class="w"> 
 <h3>Temporarily Change a Thread-Local Context<a class="headerlink" href="#temporarily-change-a-thread-local-context" title="Link to this heading"></a></h3>
 <p>Python’s standard library also uses a context manager to temporarily override a thread-local context, specifically, the settings that impact the behavior of the Python Decimal class. The Python Decimal type allows you to do arithmetic on numbers that contain a decimal value that is more precise than the default behavior. CPython’s float type is based on the double-precision floating-point values as implemented in C and defined in the <a class="reference external" href="https://en.wikipedia.org/wiki/IEEE_754">IEEE 754</a> (floating-point) standard. One of the awkward limitations of this standard is that it does not prevent weird rounding issues, even in cases where you wouldn’t expect them.</p>
 <p>We all know that 1.1 plus 2.7 is 3.8, right? Well, yes and no. Because of the way floating-point numbers behave, here’s how it looks in Python:</p>
-<p><img alt="" src="../_images/image-138.png" /></p>
+<p><img alt="" src="../_images/image-117.png" /></p>
 <p>Python Decimals allow you one way around this, albeit one that relies on a decimal context that allows you to specify how much precision you want to display. In this case, precision includes all the digits involved, so, for example, knowing that we have two-digit numbers to display, we could do this:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>from<span class="w"> </span>decimal<span class="w"> </span>import<span class="w"> </span>*
 getcontext<span class="o">()</span>.prec<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span>
@@ -420,7 +416,7 @@ Inside<span class="w"> </span>__exit__:<span class="w">  </span>deallocating<spa
 </div>
 <p>As you can see, <code class="docutils literal notranslate"><span class="pre">__enter__</span></code> and <code class="docutils literal notranslate"><span class="pre">__exit__</span></code> are called behind the scenes by the <code class="docutils literal notranslate"><span class="pre">with</span></code> statement. Also, <code class="docutils literal notranslate"><span class="pre">__init__</span></code> was called when we constructed the object, as usual. The only method we called explicitly was <code class="docutils literal notranslate"><span class="pre">do_something</span></code>.</p>
 <p>In the presence of an exception, unless we tell the context manager to handle the exception, we get the default behavior, a stack trace. Here’s a screenshot showing how it looks in Jupyter Lab:</p>
-<p><img alt="" src="../_images/image-225.png" /></p>
+<p><img alt="" src="../_images/image-213.png" /></p>
 <p>Notice that even though an exception was raised in <code class="docutils literal notranslate"><span class="pre">do_something</span></code>, the <code class="docutils literal notranslate"><span class="pre">__exit__</span></code> function still ran so the resource was successfully deallocated.</p>
 <p>In the next case, we return True from the context manager to indicate that we handled the exception internally.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">raise_exception</span> <span class="o">=</span> <span class="kc">True</span>
@@ -585,7 +581,7 @@ Exiting<span class="w"> </span>context<span class="w"> </span>manager<span class
 </pre></div>
 </div>
 <p>Whew! That’s a lot for one example. The context manager is handling closing the (underlying) connection here, which the sqlite3’s context manager does not take care of. It also manages the one-time setup of a database table that we need. This context manager is consumed by <code class="docutils literal notranslate"><span class="pre">putvalue</span></code> and <code class="docutils literal notranslate"><span class="pre">getvalue</span></code>, our hecka-simple key-value store interface. (Well, it would be hecka-simple if it weren’t for the fact that, as I mentioned, async code tends to take over the entire codebase.) It even bubbles out to the client, but as I said, it works OK. Here’s a sample session:</p>
-<p><img alt="" src="../_images/image-326.png" /></p>
+<p><img alt="" src="../_images/image-310.png" /></p>
 </section>
 <section id="other-contextlib-utilities">
 <h2>Other Contextlib Utilities<a class="headerlink" href="#other-contextlib-utilities" title="Link to this heading"></a></h2>

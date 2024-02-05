@@ -55,14 +55,14 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Categories</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math-and-math-software/">Math and Math Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math/">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python/">Python (General)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Python Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../category-pandas/">Pandas</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../selecting-data-in-pandas/">Selecting Data in Pandas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python-pyarrow-and-parquet/">Python Parquet and Arrow:  Using PyArrow with Pandas</a></li>
@@ -87,16 +87,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../how-to-visualize-data-using-pandas/">How to Visualize Data Using Pandas</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Header</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python/">Python</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">More:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../all_files/">Site Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 </ul>
 
         </div>
@@ -157,7 +153,7 @@
 </pre></div>
 </div>
 <p>Output:</p>
-<p><img alt="" src="../_images/list-of-datasets1.png" /></p>
+<p><img alt="" src="../_images/list-of-datasets.png" /></p>
 <p>Example of the list of datasets</p>
 <p>With these simple steps, we can set up Kaggle API and now can access and download a wide range of datasets and competition data directly from your Jupyter Notebook.</p>
 <p>Sometimes we have an idea in our head, and to implement it, we need a dataset on a certain topic. We can use the Kaggle datasets_list function with the search argument to search for datasets.</p>
@@ -171,7 +167,7 @@
 </pre></div>
 </div>
 <p>Output:</p>
-<p><img alt="" src="../_images/air-quality-11.png" /></p>
+<p><img alt="" src="../_images/air-quality-1.png" /></p>
 <p>The <strong><code class="docutils literal notranslate"><span class="pre">datasets_list</span></code></strong> function of the Kaggle API client to search for datasets related to “air quality”. The function takes the parameter search, which specifies the search query, in our case it is <strong><code class="docutils literal notranslate"><span class="pre">&quot;air</span> <span class="pre">quality&quot;</span></code></strong>.</p>
 <p>The function returns a list of Dataset objects that match our query. Each Dataset object represents a dataset on Kaggle and has different properties, such as name, description and dataset creation date.</p>
 <p>To make this easier to read, we have a couple of options. First, we can run the query using the Kaggle command line interface from within Jupyter Notebook.</p>
@@ -179,7 +175,7 @@
 </pre></div>
 </div>
 <p>Output:</p>
-<p><img alt="" src="../_images/air-quality-21.png" /></p>
+<p><img alt="" src="../_images/air-quality-2.png" /></p>
 <p>This will return a list of air quality-related datasets, along with information about the datasets, such as their names, creators, and sizes.</p>
 <p>We can also use additional options in the Kaggle datasets list command to further refine the search results, such as sorting results by relevance or date and limiting the number of results returned.</p>
 <p>Another option to make the list easier to deal with is to return the results of the datasets_list call to a Pandas DataFrame constructor.</p>
@@ -200,7 +196,7 @@
 </pre></div>
 </div>
 <p>Output:</p>
-<p><img alt="" src="../_images/downloading-dataset1.png" /></p>
+<p><img alt="" src="../_images/downloading-dataset.png" /></p>
 <p>The Kaggle API will download the dataset as a zip file to the Jupyter Notebook’s current working directory. We can then unzip the file and use the data in our notebooks and analysis.</p>
 <p>Here is an example of how to unzip the downloaded file and read it into a Pandas DataFrame:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing modules</span>
@@ -228,7 +224,7 @@
 <li><p>This allows us to easily work with the data in the file using the powerful tools provided by the Pandas library.</p></li>
 </ul>
 <p>Output:</p>
-<p><img alt="" src="../_images/printing-dataframe1.png" /></p>
+<p><img alt="" src="../_images/printing-dataframe.png" /></p>
 <p>This was one of the methods of downloading datasets from Kaggle using Kaggle API. Let’s look at other methods for downloading the same dataset.</p>
 <p>The <strong><code class="docutils literal notranslate"><span class="pre">kaggle.api.dataset_download_files</span></code></strong> function is another way to download datasets from Kaggle using the API.<br />
 This function allows us to download specific files within a dataset, rather than the entire dataset.</p>
@@ -237,7 +233,7 @@ This function allows us to download specific files within a dataset, rather than
 </pre></div>
 </div>
 <p>Output:</p>
-<p><img alt="" src="../_images/another-method-of-downloading1.png" /></p>
+<p><img alt="" src="../_images/another-method-of-downloading.png" /></p>
 <p>As you can see in this example, the dataset_download_files function takes three arguments:</p>
 <ul class="simple">
 <li><p><strong><code class="docutils literal notranslate"><span class="pre">&quot;senapatirajesh/netflix-tv-shows-and-movies&quot;</span></code></strong> is the identifier for the dataset “NetFlix”.</p></li>
@@ -259,7 +255,7 @@ This function allows us to download specific files within a dataset, rather than
 </pre></div>
 </div>
 <p>Output:</p>
-<p><img alt="" src="../_images/dataset-downloading1.png" /></p>
+<p><img alt="" src="../_images/dataset-downloading.png" /></p>
 <p>These were two methods that we can use to download specific files from Kaggle datasets using the <strong><code class="docutils literal notranslate"><span class="pre">kaggle.api.dataset_download_files</span></code></strong> function or the <strong><code class="docutils literal notranslate"><span class="pre">!kaggle</span> <span class="pre">datasets</span> <span class="pre">download</span> <span class="pre">-d</span> <span class="pre">dataset_identifier</span></code></strong>. So with just a few lines of code, we can easily access and use certain files in the Kaggle dataset in your projects.</p>
 </section>
 <section id="downloading-multiple-datasets-at-once">

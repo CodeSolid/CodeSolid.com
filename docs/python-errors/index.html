@@ -23,8 +23,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" />
-    <link rel="next" title="Python Lists for Beginners: A Complete Lesson With Exercises" href="../python-lists/" />
-    <link rel="prev" title="Boolean Expressions in Python: Beginner to Expert" href="../boolean-expressions-python/" /> 
+    <link rel="next" title="How To Profile Python Code" href="../how-do-i-profile-python-code/" />
+    <link rel="prev" title="Understanding Python Types and Type Hints" href="../understanding-python-types-and-type-hints/" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -55,15 +55,9 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Categories</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math-and-math-software/">Math and Math Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math/">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python/">Python (General)</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../getting-started-with-python-classes/">Python Classes Zero to Expert: A Tutorial with Exercises</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../why-is-python-popular/">Why Is Python Popular?# Why Is Python Popular</a></li>
@@ -105,13 +99,15 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Header</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Python Practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python/">Python</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">More:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../all_files/">Site Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 </ul>
 
         </div>
@@ -128,7 +124,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
+          <li class="breadcrumb-item"><a href="../category-python/">Python (General)</a></li>
       <li class="breadcrumb-item active">Python Errors: Exception Handling from Beginner to Expert</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/python-errors.md.txt" rel="nofollow"> View page source</a>
@@ -155,14 +151,14 @@
 <h2>Syntax Errors in Python<a class="headerlink" href="#syntax-errors-in-python" title="Link to this heading"></a></h2>
 <p>Syntax errors are errors that won’t even let us run our program. In other languages, these are sometimes called “compiler errors,” meaning that the parser doesn’t recognize whatever you typed as valid. Syntax errors are especially common for beginner programmers and even senior engineers who are either learning a new programming language for the first time or “context switching” between languages.</p>
 <p>When the Python interpreter encounters a syntax error will try to point you to where the error appeared. Here’s a screenshot showing one such error:</p>
-<p><img alt="" src="../_images/image-294.png" /></p>
+<p><img alt="" src="../_images/image-291.png" /></p>
 <p>If you’re a beginner, the critical skill to master here is to note that the error message often tells you exactly where and what you need to fix. In this case, changing the first line to <code class="docutils literal notranslate"><span class="pre">&quot;def</span> <span class="pre">greeting()</span></code>:” fixes the error, just as the error message advises.</p>
 <section id="indentation-errors">
 <h3>Indentation Errors<a class="headerlink" href="#indentation-errors" title="Link to this heading"></a></h3>
 <p>Another error newcomers often make (especially if they switch editors a lot) is an indentation error, which is another flavor of syntax error raised when indentation is incorrect.</p>
 <p>This error is somewhat unique to Python since Python uses indentation to identify “block structure” – lines that belong together. Other languages use keywords or curly braces to do the same thing.</p>
 <p>Here’s an example of incorrect indentation that’s relatively easy to fix:</p>
-<p><img alt="" src="../_images/image-3110.png" /></p>
+<p><img alt="" src="../_images/image-311.png" /></p>
 <p>When correctly formatted, the lines after the if and after the else should have an additional level of indent, as shown here:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">name</span><span class="p">:</span>
@@ -214,7 +210,7 @@
 </pre></div>
 </div>
 <p>Because I’m a nice person and I’m not trying to trick you with the file names, you’ve probably already guessed that “not_here.txt” will cause some difficulty. Unhandled exceptions generally look ugly, and this exception (that gets generated) is no exception (to the general rule). Here’s our output (cover your eyes for a minute):</p>
-<p><img alt="" src="../_images/image-324.png" /></p>
+<p><img alt="" src="../_images/image-321.png" /></p>
 <p>Fixing this is straightforward. We show the code we’ve added to the <code class="docutils literal notranslate"><span class="pre">show_contents</span></code> function in bold below:</p>
 <p>def show_contents(filename):
 “””Display the contents of a file”””
@@ -227,7 +223,7 @@ print(contents)
 show_contents(“here.txt”)<br />
 show_contents(“not_here.txt”)</p>
 <p>We now display the error in a much more user-friendly way:</p>
-<p><img alt="" src="../_images/image-334.png" /></p>
+<p><img alt="" src="../_images/image-331.png" /></p>
 <p>Reviewing the syntax for that fix, it was this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
     <span class="n">statements</span> <span class="n">that</span> <span class="n">might</span> <span class="n">throw</span> <span class="n">an</span> <span class="n">exception</span>
@@ -384,8 +380,8 @@ chmod<span class="w"> </span><span class="m">200</span><span class="w"> </span>u
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../boolean-expressions-python/" class="btn btn-neutral float-left" title="Boolean Expressions in Python: Beginner to Expert" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../python-lists/" class="btn btn-neutral float-right" title="Python Lists for Beginners: A Complete Lesson With Exercises" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../understanding-python-types-and-type-hints/" class="btn btn-neutral float-left" title="Understanding Python Types and Type Hints" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../how-do-i-profile-python-code/" class="btn btn-neutral float-right" title="How To Profile Python Code" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

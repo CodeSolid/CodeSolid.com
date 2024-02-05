@@ -55,6 +55,17 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Categories</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../category-math-and-math-software/">Math and Math Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-math/">Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python/">Python (General)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Python Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../category-jupyter/">Jupyter</a><ul class="current">
@@ -83,21 +94,6 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-math-and-math-software/">Math and Math Software</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-math/">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Header</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python/">Python</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">More:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../all_files/">Site Index</a></li>
 </ul>
 
         </div>
@@ -142,20 +138,20 @@
 <section id="creating-the-jupyterlite-repository">
 <h3>Creating the JupyterLite Repository<a class="headerlink" href="#creating-the-jupyterlite-repository" title="Link to this heading"></a></h3>
 <p>We begin by creating a repository based on the <a class="reference external" href="https://github.com/jupyterlite/demo">JupyterLite Demo</a>. You’ll notice there’s a “Use This Template” button there to create a repository of your own that’s not based on a fork, as shown in the lower right of the screenshot below.</p>
-<p><img alt="" src="../_images/image-13-1024x2471.png" /></p>
+<p><img alt="" src="../_images/image-13-1024x247.png" /></p>
 <p>Clicking that button begins the process of creating a new repository in your account, as shown below:</p>
-<p><img alt="" src="../_images/image-145.png" /></p>
+<p><img alt="" src="../_images/image-141.png" /></p>
 <p>An important consideration here is the name of your repository. If you don’t already have a GitHub Pages site associated with your account, I recommend using “YourAccountName.github.io”. This is the default for account-level sites. If you already have an account-level Github pages site, the repository pages site will be deployed to https://account-name.github.io/repository-name.</p>
 <p>In addition to a name, the repository will likely default to being created as Private, but as you can see here I’ve changed it to Public. This is important to do unless you have a paid GitHub account. The reason is that for free accounts, you need a public repository to host public GitHub pages.</p>
 <p>When you’re happy with your settings, go ahead and click the button to create a repository from the template. By the way, my repository is <a class="reference external" href="https://github.com/CodeSolid/python-online">here</a> if you want to visit, say hello, throw me a star, etc.</p>
 <p>Once you have the repository created, click on the settings button (across the top of the repository), then note the left-hand navigation bar, where we’ll make two stops.</p>
-<p><img alt="" src="../_images/image-185.png" /></p>
+<p><img alt="" src="../_images/image-181.png" /></p>
 <p>Under the first, the Actions / General Tab, shown selected above, select “Allow all actions and reusable workflows, and make sure under Workflow permissions that “Read and write permissions” is checked. Click save on each section.</p>
 <p>While still on this left-hand navigation bar, click on Pages. Then under Build and Deployment source, Deploy from a branch is probably selected. We want to change that to select “GitHub Actions”.</p>
 <p>To run the action, we need to commit something to the main branch. You can make a minor change to the README.md and commit it to accomplish this. This will take a few minutes to run. If you wish, you can monitor the progress by clicking on the “Actions” item on the top navigation bar of the repository. When it finishes, you should be able to return to Settings, then click on Pages. It may take a few more minutes, but eventually, you should see a message that looks something like this:</p>
-<p><img alt="" src="../_images/image-194.png" /></p>
+<p><img alt="" src="../_images/image-191.png" /></p>
 <p>I’m going to change that domain name soon, but as I’m writing this, here’s how it looks when I go there.</p>
-<p><img alt="" src="../_images/image-20-1024x6661.png" /></p>
+<p><img alt="" src="../_images/image-20-1024x666.png" /></p>
 <p>You may recognize a look and feel that’s very close to JupyterLab when running on the server, but in this case, the notebooks are running strictly on the client side. (That doesn’t mean you can’t save your work, by the way – we’ll have more on how that works in a future article). There are quite a few choices here like Lua and Wren that I may not want to keep going forward, but it’s fine for now.</p>
 <p>Now that we have the default site up and running, let’s customize it.</p>
 </section>
@@ -176,9 +172,9 @@
 <h3>Configuring Your Subdomain in GitHub Pages<a class="headerlink" href="#configuring-your-subdomain-in-github-pages" title="Link to this heading"></a></h3>
 <p>The next step is to go back to your GitHub repository. In Settings / Pages, enter the full domain from which you want to serve your Jupyter Lite site. As we saw when setting the CNAME, the full domain resolves to jupyter.codesolid.com in my case.</p>
 <p>It will look something like this, but using your domain name of course:</p>
-<p><img alt="" src="../_images/image-22-1024x2971.png" /></p>
+<p><img alt="" src="../_images/image-22-1024x297.png" /></p>
 <p>When working with DNS, remember that it takes time for DNS changes to propagate. How much time? I don’t know in your case – many authors recommend waiting up to a day, but I’ve often found it will generally happen within about a half hour or so. You’re likely to see the DNS check fail several times during that time. If you’re sure you’ve configured everything correctly, you can click the Recheck button on GitHub periodically. At some point during this process, GitHub will also pause for a bit to generate an SSL/TLS certificate. Once it does, you should select Enforce DNS, and your GitHub settings page should look like this:</p>
-<p><img alt="" src="../_images/image-244.png" /></p>
+<p><img alt="" src="../_images/image-241.png" /></p>
 <p>So at this point, I’m excited to announce that CodeSolid supports doing Python online at <a class="reference external" href="https://jupyter.codesolid.com">https://jupyter.codesolid.com</a>.</p>
 </section>
 </section>
@@ -203,7 +199,7 @@
 <section id="adding-a-default-page">
 <h3>Adding a Default Page<a class="headerlink" href="#adding-a-default-page" title="Link to this heading"></a></h3>
 <p>I wanted to be able to serve a page prominently that helps visitors who might not be familiar with Jupyter Lab use the platform, but I was unsuccessful in creating a “default page,” per se. Finally, I realized that I didn’t need one but could accomplish the same thing with a link. For this purpose, the link format is as follows: https://subdomain.example.com/lab/index.html?path=yourpage.ipynb. By doing this, I was able to begin building out a link I could use, for example from a top-level menu: <a class="reference external" href="https://jupyter.codesolid.com/lab/index.html?path=index.ipynb" title="Python Online">Python Online</a> (https://jupyter.codesolid.com/lab/index.html?path=index.ipynb).</p>
-<p><img alt="" src="../_images/image-264.png" /></p>
+<p><img alt="" src="../_images/image-261.png" /></p>
 </section>
 </section>
 <section id="acknowledgments">

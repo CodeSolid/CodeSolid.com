@@ -23,8 +23,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" />
-    <link rel="next" title="Python Funcitons" href="../category-python-functions/" />
-    <link rel="prev" title="Python Format Strings: Beginner to Expert" href="../python-format-strings/" /> 
+    <link rel="next" title="Python for Beginners" href="../category-python-for-beginners-posts/" />
+    <link rel="prev" title="Learning C++ and Python: The Perfect Duo for Success" href="../learning-c-and-python-the-perfect-duo-for-success/" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -55,15 +55,9 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Categories</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math-and-math-software/">Math and Math Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math/">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python/">Python (General)</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../getting-started-with-python-classes/">Python Classes Zero to Expert: A Tutorial with Exercises</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../why-is-python-popular/">Why Is Python Popular?# Why Is Python Popular</a></li>
@@ -120,13 +114,15 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Header</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Python Practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python/">Python</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">More:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../all_files/">Site Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 </ul>
 
         </div>
@@ -143,7 +139,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
+          <li class="breadcrumb-item"><a href="../category-python/">Python (General)</a></li>
       <li class="breadcrumb-item active">Python Operators:  The Building Blocks of Successful Code</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/python-operators.md.txt" rel="nofollow"> View page source</a>
@@ -254,9 +250,9 @@
 <h3>Assignment vs. Comparison: = vs. == in Python<a class="headerlink" href="#assignment-vs-comparison-vs-in-python" title="Link to this heading"></a></h3>
 <p>Like many programming languages, Python makes a distinction between the assignment operator (a single equals sign) and the comparison operator that can be read as “equals” or “is equal to” (two equals signs with no space between them). Confusing the two can be a common source of mistakes for new programmers.</p>
 <p>Confusing the two is a common beginner mistake. If you confuse the two, you’ll see a different error message depending on the context. If you use the equality comparison operator where you meant to do an assignment, you’ll typically see a NameError if the variable is not already assigned:</p>
-<p><img alt="Using == instead of = in Python results in a NameError for a new variable." src="../_images/image-79.png" /></p>
+<p><img alt="Using == instead of = in Python results in a NameError for a new variable." src="../_images/image-73.png" /></p>
 <p>On the other hand, using an assignment operator where you meant to use an equality check gives a SyntaxError, with a helpful error message:</p>
-<p><img alt="Using = instead of == in Python results in a SyntaxError with a helpful message." src="../_images/image-811.png" /></p>
+<p><img alt="Using = instead of == in Python results in a SyntaxError with a helpful message." src="../_images/image-84.png" /></p>
 <p>The “<code class="docutils literal notranslate"><span class="pre">:=</span></code>” symbol in the SyntaxError above is a special recently introduced assignment operator which combines an assignment operator and comparison operator. We discuss it later in the section “What is the Python Walrus Operator?”</p>
 <p>Incidentally, I mention the type of error in both cases, but remembering those names is much less important than knowing that they might point to this common programmer mistake.</p>
 </section>
@@ -448,8 +444,8 @@ True
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../python-format-strings/" class="btn btn-neutral float-left" title="Python Format Strings: Beginner to Expert" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../category-python-functions/" class="btn btn-neutral float-right" title="Python Funcitons" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../learning-c-and-python-the-perfect-duo-for-success/" class="btn btn-neutral float-left" title="Learning C++ and Python: The Perfect Duo for Success" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../category-python-for-beginners-posts/" class="btn btn-neutral float-right" title="Python for Beginners" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

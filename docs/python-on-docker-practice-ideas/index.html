@@ -23,8 +23,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" />
-    <link rel="next" title="Building a Docker Golang Container" href="../building-a-docker-golang-container/" />
-    <link rel="prev" title="How To Use Docker Python Images and Docker Compose With Python" href="../how-to-use-docker-with-python/" /> 
+    <link rel="next" title="How to Practice Python: Data Science and Pandas" href="../how-to-practice-python-data-science-and-pandas/" />
+    <link rel="prev" title="Pandas Examples and Review Questions to Make You an Expert" href="../pandas-practice-examples/" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -55,19 +55,13 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Categories</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math-and-math-software/">Math and Math Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math/">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python/">Python (General)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../category-python-practice/">Header</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../category-python-practice/">Python Practice</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../numpy-practice-questions-to-make-you-an-expert/">NumPy Examples –  Practice Questions Make You an Expert</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting-started-with-python-classes/">Python Classes Zero to Expert: A Tutorial with Exercises</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../zen-of-100-days-of-python/">The Strange Zen of 100 Days of Python</a></li>
@@ -90,11 +84,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python/">Python</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">More:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../all_files/">Site Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 </ul>
 
         </div>
@@ -111,7 +107,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../category-docker/">Docker</a></li>
+          <li class="breadcrumb-item"><a href="../category-python-practice/">Python Practice</a></li>
       <li class="breadcrumb-item active">Python Practice:  More Python on Docker Project Ideas</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/python-on-docker-practice-ideas.md.txt" rel="nofollow"> View page source</a>
@@ -137,7 +133,7 @@
 <p>There are at least two workarounds for this. The first workaround is not to pick an IDE where you’re nickel-and-dimed for features; instead, work through the recently improved VS Code documentation on setting up <a class="reference external" href="https://code.visualstudio.com/docs/containers/debug-python">Python Debugging in Containers</a>.</p>
 <p>If suggesting that PyCharm nickels and dimes you sounds harsh, I should point out that I was much more of a Jetbrains fanboy until learning that my expensive all-products-pack didn’t include pre-release software. So it’s “all-products” except the ones you don’t get.).</p>
 <p>The other workaround is to show a general remote-debugging configuration using the Enhanced Python Debugger, <a class="reference external" href="https://pypi.org/project/epdb/">epdb</a>. The benefit of remote debugging is that it works not only in Docker but also in Kubernetes and anywhere else one might be able to open up a port. Of course, it appears that this other workaround also won’t work for PyCharm, since remote debugging is also a paid feature:</p>
-<p><img alt="" src="../_images/Remote_Debugging_with_PyCharm___PyCharm1.jpg" /></p>
+<p><img alt="" src="../_images/Remote_Debugging_with_PyCharm___PyCharm.jpg" /></p>
 <p>Perhaps the best approach here is to skip PyCharm altogether and limit the discussion to VS Code.</p>
 </section>
 <section id="other-containers-to-help-with-postgres-and-django-development">
@@ -172,8 +168,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../how-to-use-docker-with-python/" class="btn btn-neutral float-left" title="How To Use Docker Python Images and Docker Compose With Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../building-a-docker-golang-container/" class="btn btn-neutral float-right" title="Building a Docker Golang Container" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../pandas-practice-examples/" class="btn btn-neutral float-left" title="Pandas Examples and Review Questions to Make You an Expert" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../how-to-practice-python-data-science-and-pandas/" class="btn btn-neutral float-right" title="How to Practice Python: Data Science and Pandas" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

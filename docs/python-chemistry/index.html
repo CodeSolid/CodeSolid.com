@@ -55,15 +55,9 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Categories</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math-and-math-software/">Math and Math Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math/">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python/">Python (General)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a><ul class="current">
@@ -85,13 +79,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../python-vs-matlab/">Python vs. MATLAB: Price, Performance, Features</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Header</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Python Practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python/">Python</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">More:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../all_files/">Site Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 </ul>
 
         </div>
@@ -168,7 +164,7 @@ Eq<span class="o">(</span><span class="m">2</span>*vCO2<span class="w"> </span>+
 </pre></div>
 </div>
 <p>Output:</p>
-<p><img alt="" src="../_images/image-810.png" /></p>
+<p><img alt="" src="../_images/image-83.png" /></p>
 <p>Here is a complicated equation illustrating the need for an approach to add some chemistry knowledge to Sympy.</p>
 <p>Ca(OH)2 + H3(PO)4 -&gt; Ca3(PO4)2 + H2O</p>
 <p>It is solved in these steps:</p>
@@ -198,7 +194,7 @@ Eq<span class="o">(</span><span class="m">2</span>*vCa3PO4PO4<span class="w"> </
 <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">atomBalances</span> <span class="o">+</span> <span class="n">basis</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><img alt="" src="../_images/image-97.png" /></p>
+<p><img alt="" src="../_images/image-92.png" /></p>
 <p>We will revisit balancing equations in a later section of this post. Following this equation trail, we will discuss some that you can discuss at the next barbecue. The propane grill appears, and immediately someone asks “What is the pressure in that thing?” To answer let’s study a fairly famous equation. That is the equation for an ideal gas, <code class="docutils literal notranslate"><span class="pre">PV=nRT</span></code>.</p>
 <p>Anyone who recognizes the equation for an ideal gas also realizes that 30 minutes after they were introduced to it, they were also taught would be useless in the real world! This annoying condition was corrected over many years by clever chemists introducing many ‘corrections’ to this equation. These corrections were cleverly designed to exasperate generations of chemists and chemical engineers. Of the many, let’s look at the Van Der Waals Equation of state.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Preliminary symbols, constants and equations</span>
@@ -217,7 +213,7 @@ Eq<span class="o">(</span><span class="m">2</span>*vCa3PO4PO4<span class="w"> </
 </pre></div>
 </div>
 <p>Output:</p>
-<p><img alt="" src="../_images/image-108.png" /></p>
+<p><img alt="" src="../_images/image-103.png" /></p>
 <p>As shown above, Sympy’s ability to rearrange equations as needed is a great help and can be used in any setting through the ‘solve’ function.</p>
 <p>The van Der Waals equation can be displayed as a graph of pressure versus volume, and for a given temperature it is called an isotherm. Of interest are the conditions of pressure, volume, and temperature that form a liquid state. Propane, butane, and liquified natural gas(LNG) represent materials that have been widely studied. A key feature of an isotherm is that the critical pressure, volume, and temperature can be found from the equation of the state curve. It’s common to use ‘V’ to represent the molar volume (V/n), and these equations will use this convention.</p>
 <p>Instead of guessing from a plot, however, we can calculate the critical parameters with help from SymPy. We’ll all recall from calculus that a minimum occurs when the first derivative is zero. The critical point is defined where the second derivative is also zero. Instead of reviewing calculus for hours, let Sympy do the work.</p>
@@ -237,7 +233,7 @@ Eq<span class="o">(</span><span class="m">2</span>*vCa3PO4PO4<span class="w"> </
 </pre></div>
 </div>
 <p>The code above displays three equations, one for each variable This will provide three equations, one for each variable (pressure, volume, and temperature).</p>
-<p><img alt="" src="../_images/image-1114.png" /></p>
+<p><img alt="" src="../_images/image-114.png" /></p>
 <p>Now that we have a solution, let’s see how to provide some numbers. Sympy has several methods to convert the symbolic equation into a form that gives a numeric result. One of these, the <code class="docutils literal notranslate"><span class="pre">subs</span></code> method, allows for substitution into an equation using values for one or more variables. For example, we can substitute the value 8.314 for the constant ‘R’ or make other substitutions.</p>
 <p>(A warning about units: the actual value for any equations of state parameters is highly dependent on the unit system. The literature in this area is inconsistent in using the SI standard – International System of Units! SymPy does have provisions to specify units that should be used for critical applications.)</p>
 <p>Here’s an example of how we might substitute variables:</p>
@@ -308,7 +304,7 @@ Eq<span class="o">(</span><span class="m">2</span>*vCa3PO4PO4<span class="w"> </
 </pre></div>
 </div>
 <p>If all goes well, it should look like this:</p>
-<p><img alt="" src="../_images/image-1211.png" /></p>
+<p><img alt="" src="../_images/image-123.png" /></p>
 </section>
 <section id="introducing-chempy">
 <h2>Introducing ChemPy<a class="headerlink" href="#introducing-chempy" title="Link to this heading"></a></h2>
@@ -407,7 +403,7 @@ Eq<span class="o">(</span><span class="m">2</span>*vCa3PO4PO4<span class="w"> </
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;NO&#39;</span><span class="p">,</span> <span class="s1">&#39;Br$_2$&#39;</span><span class="p">,</span> <span class="s1">&#39;NOBr&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
-<p><img alt="" src="../_images/Reaction_Model-13.jpg" /></p>
+<p><img alt="" src="../_images/Reaction_Model-11.jpg" /></p>
 <p>The graph illustrates the equilibrium reaction-each of the components reaches a steady state. This can be a great start to model any number of reaction steps in a mechanism.</p>
 <p>Another interesting feature of ChemPy is that it supports more detailed engineering models such as a Continuous Stirred Tank Reactor (CSTR). For example:</p>
 <p><code class="docutils literal notranslate"><span class="pre">cstr,</span> <span class="pre">extra2</span> <span class="pre">=</span> <span class="pre">get_odesys(new_rsys,</span> <span class="pre">include_params=False,</span> <span class="pre">cstr=True)</span></code></p>

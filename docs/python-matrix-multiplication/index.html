@@ -55,15 +55,9 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Categories</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math-and-math-software/">Math and Math Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math/">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python/">Python (General)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a><ul class="current">
@@ -91,13 +85,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../python-vs-matlab/">Python vs. MATLAB: Price, Performance, Features</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Header</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Python Practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python/">Python</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">More:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../all_files/">Site Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 </ul>
 
         </div>
@@ -136,7 +132,7 @@
 <h2>NumPy Matrix Multiplication: Use &#64; or Matmul<a class="headerlink" href="#numpy-matrix-multiplication-use-or-matmul" title="Link to this heading"></a></h2>
 <p>If you’re new to NumPy, and especially if you have experience with other linear algebra tools such as MatLab, you might expect that the matrix product of two matrices, A and B, would be given by <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">*</span> <span class="pre">B</span></code>. However, NumPy’s asterisk multiplication operator returns the element-wise (Hadamard) product.</p>
 <p>To get the standard matrix product of two matrices A and B in NumPy instead of the Hadamard product, you can either call NumPy’s <code class="docutils literal notranslate"><span class="pre">matmul</span></code> function, or use the overloaded <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> operator, as shown here for the two matrices:</p>
-<p><img alt="" src="../_images/image-275.png" /></p>
+<p><img alt="" src="../_images/image-272.png" /></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="c1"># Matrices in numpy are implemented as NumPy arrays</span>
@@ -154,7 +150,7 @@
 </pre></div>
 </div>
 <p>Output:</p>
-<p><img alt="" src="../_images/image-286.png" /></p>
+<p><img alt="" src="../_images/image-281.png" /></p>
 <p>Note that the <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> operator was added to Python in version 3.5, so if you’re on an earlier version, you’ll need to use <code class="docutils literal notranslate"><span class="pre">matmul</span></code>. However, as discussed in <a class="reference external" href="https://peps.python.org/pep-0465/">PEP 465</a>, the &#64; operator in Python was meant to provide a standard across libraries, so it’s the preferred choice for new code.</p>
 <p>Notice that we used capital letters for A and B rather than the usual Python variable convention of lowercase letters. Mathematicians typically use capitals for matrix variables, so we followed that convention here.</p>
 </section>
@@ -180,7 +176,7 @@
 </pre></div>
 </div>
 <p>Using the display function takes advantage of SymPy’s built-in support for LaTeX formatting, displaying the following output:</p>
-<p><img alt="" src="../_images/image-3111.png" /></p>
+<p><img alt="" src="../_images/image-312.png" /></p>
 <p>Note that as in NumPy, the &#64; operator works here as well.</p>
 <p>The &#64; operator is now so widely supported in Python libraries that we can say the answer to “How do I do matrix multiplication in Python” has a definitive answer: “Use the &#64; operator.” In addition to NumPy and SymPy, for example, TensorFlow also implements this operator. In Tensorflow, it’s equivalent to the <code class="docutils literal notranslate"><span class="pre">matmul</span></code> function from the package <code class="docutils literal notranslate"><span class="pre">tf.linalg</span></code>.</p>
 </section>
@@ -199,7 +195,7 @@
 <span class="n">display</span><span class="p">(</span><span class="n">D</span> <span class="o">*</span> <span class="n">C</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><img alt="" src="../_images/image-325.png" /></p>
+<p><img alt="" src="../_images/image-322.png" /></p>
 <p>Not only will we not get the same answer for two matrices when we change the order of the factors being multiplied – sometimes swapping terms like this means we can no longer multiply them at all! Just because we can multiply A x B, there’s no guarantee that we can multiply B x A. To understand why that is, we need to start exploring matrix dimensions.</p>
 </section>
 <section id="matrix-dimensions">
@@ -207,7 +203,7 @@
 <p>First, a matrix can be any spreadsheet-like table of numbers of any size. (By the way, we’ve been using integers for our examples, but the numbers can be real or even complex numbers).</p>
 <p>The dimensions are always expressed as the numbers of rows first, then the number of columns. We often speak of an M x N matrix, but to me, R x C would be more straightforward – rows first, then columns. But no matter. You’ll have it licked if you remember either “Royal Crown” cola or “Radio Controlled” airplanes.</p>
 <p>So far, we’ve been dealing with square matrices (with the same number of rows and columns) but let’s see how this works with two new matrices that aren’t square:</p>
-<p><img alt="" src="../_images/image-335.png" /></p>
+<p><img alt="" src="../_images/image-332.png" /></p>
 <p>Let’s say we want to multiply J by K. In that case, the dimensions are “4 by 2 times 2 by 3”. In other words, the number of columns of J matches the number of rows in K – or we can say the “inner dimensions” match. The inner dimensions tell us whether we can multiply. When they match, we’re in business, and we can multiply J * K. Winner winner, chicken dinner!</p>
 <p>The outer dimensions determine the size of the resulting matrix. Therefore, we expect our result to have four rows and 3 columns (4 x 3). In other words, it will have the number of rows of the first matrix, and the number of columns from the second.</p>
 <p>What about multiplying K * J? Well, in that case, the dimensions line up as “2 x 3 times 4 x 2”. The inner terms, 3 and 4 don’t match. In other words, K has three columns, but J has four rows. Matrix multiplication is not defined in this case.</p>
@@ -222,7 +218,7 @@
 </pre></div>
 </div>
 <p>Output:</p>
-<p><img alt="" src="../_images/image-344.png" /></p>
+<p><img alt="" src="../_images/image-341.png" /></p>
 <p>That error message could be a bit more clear, certainly, but the last part of it points you in the right direction: “4 is different from 3”.</p>
 <p>Note, too, that the result for the case that did work has the outer dimensions from our two original arrays. The answer has four rows by three columns.</p>
 </section>
@@ -230,16 +226,16 @@
 <h3>Matrix Multiplication By Hand<a class="headerlink" href="#matrix-multiplication-by-hand" title="Link to this heading"></a></h3>
 <p>To do matrix multiplication by hand, we first need back up and define something called a dot product. Let’s say we have two equal-sized vectors, where a vector is just a series of numbers. (In Python, we’d call it a list or a one-dimensional array).</p>
 <p>In addition to creating a list or a one-dimensional array, we can obtain a vector by taking just a single row or column from a matrix. For example, let’s look at our J and K matrices again:</p>
-<p><img alt="" src="../_images/image-335.png" /></p>
+<p><img alt="" src="../_images/image-332.png" /></p>
 <p>What if we took the first row of J, [2, 1], and spun it around so it looked like this:</p>
-<p><img alt="" src="../_images/image-352.png" /></p>
+<p><img alt="" src="../_images/image-351.png" /></p>
 <p>Notice that the two “columns” of this row look like rows now, and they match up with the rows of matrix K. Looking at the first column of K, we have:</p>
-<p><img alt="" src="../_images/image-365.png" /></p>
+<p><img alt="" src="../_images/image-361.png" /></p>
 <p>If we multiply the corresponding cells of the above two vectors and add the result, we get the answer 17, as shown here:</p>
-<p><img alt="" src="../_images/image-373.png" /></p>
+<p><img alt="" src="../_images/image-371.png" /></p>
 <p>When we take two vectors like this and multiply each element, then sum the results, this is called a dot product.</p>
 <p>If we build a row by repeating this procedure by taking our rotated first row of J:</p>
-<p><img alt="" src="../_images/image-352.png" /></p>
+<p><img alt="" src="../_images/image-351.png" /></p>
 <p>times the remaining columns of K, we can create a row of three scalar values, beginning with the 17 we just calculated:</p>
 <p>[17 12 15]</p>
 <p>Now, once again, when we let Python do the multiplication of J and K for us earlier, it produced this result:</p>

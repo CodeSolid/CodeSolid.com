@@ -23,8 +23,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" />
-    <link rel="next" title="Python Operators: The Building Blocks of Successful Code" href="../python-operators/" />
-    <link rel="prev" title="Python Indexing and Slicing: Complete Tutorial With Hands-On Exercises" href="../python-indexing-slicing-exercises/" /> 
+    <link rel="next" title="Find Files in Python: Complete Cookbook for Searching Files and Folders" href="../python-files-from-beginner-to-expert/" />
+    <link rel="prev" title="Is Julia Easy to Learn for Python Developers?" href="../julia-vs-python-now-for-something-completely-different/" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -55,15 +55,9 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Categories</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math-and-math-software/">Math and Math Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math/">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python/">Python (General)</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../getting-started-with-python-classes/">Python Classes Zero to Expert: A Tutorial with Exercises</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../why-is-python-popular/">Why Is Python Popular?# Why Is Python Popular</a></li>
@@ -107,13 +101,15 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Header</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Python Practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python/">Python</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">More:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../all_files/">Site Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 </ul>
 
         </div>
@@ -130,7 +126,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
+          <li class="breadcrumb-item"><a href="../category-python/">Python (General)</a></li>
       <li class="breadcrumb-item active">Python Format Strings: Beginner to Expert</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/python-format-strings.md.txt" rel="nofollow"> View page source</a>
@@ -398,7 +394,7 @@ True
 </pre></div>
 </div>
 <p>You may have noticed a subtle difference here. In the f string version (s1), the pi that appears in the string interpolation expression is already defined (imported from the math module). In the format version, the pi actually refers to that keyword argument name, not the variable. We can show this if we change things the name of the keyword argument, so it no longer matches.</p>
-<p><img alt="" src="../_images/key_error1.png" /></p>
+<p><img alt="" src="../_images/key_error.png" /></p>
 <p>As you can see, if you use keyword arguments in a call to format, the text for the argument must match the text given in the formatting string. However, as with keyword parameters generally, the order is flexible. For example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">weapons</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;fear&quot;</span><span class="p">,</span> <span class="s2">&quot;surprise&quot;</span><span class="p">,</span> <span class="s2">&quot;fanatical dedication to the Pope&quot;</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nobody expects a </span><span class="si">{surprise}</span><span class="s2">!  Our </span><span class="si">{count}</span><span class="s2"> main weapons are</span><span class="se">\n</span><span class="si">{weapons}</span><span class="s2">&quot;</span><span class="o">.</span>
@@ -452,8 +448,8 @@ True
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../python-indexing-slicing-exercises/" class="btn btn-neutral float-left" title="Python Indexing and Slicing: Complete Tutorial With Hands-On Exercises" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../python-operators/" class="btn btn-neutral float-right" title="Python Operators: The Building Blocks of Successful Code" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../julia-vs-python-now-for-something-completely-different/" class="btn btn-neutral float-left" title="Is Julia Easy to Learn for Python Developers?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../python-files-from-beginner-to-expert/" class="btn btn-neutral float-right" title="Find Files in Python: Complete Cookbook for Searching Files and Folders" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

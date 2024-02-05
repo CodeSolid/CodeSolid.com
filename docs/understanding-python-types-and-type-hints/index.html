@@ -23,7 +23,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" />
-    <link rel="next" title="Exploring Python Objects with the dir and type functions" href="../exploring-python-objects-with-the-dir-and-type-functions/" />
+    <link rel="next" title="Python Errors: Exception Handling from Beginner to Expert" href="../python-errors/" />
     <link rel="prev" title="Python Virtual Environments: Video Tutorial" href="../python-virtual-environments-video-tutorial/" /> 
 </head>
 
@@ -55,21 +55,9 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Categories</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math-and-math-software/">Math and Math Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math/">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Header</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../category-python/">Python</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../category-python/">Python (General)</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../why-is-python-popular/">Why Is Python Popular?# Why Is Python Popular</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../benchmarking-python-and-rust-async-web-server-performance/">Benchmarking Python and Rust Async Web Server Performance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python-date-tutorial/">Python Date and Time Functions: The Complete Tutorial</a></li>
@@ -152,10 +140,18 @@
 <li class="toctree-l2"><a class="reference internal" href="../python-operators/">Python Operators:  The Building Blocks of Successful Code</a></li>
 </ul>
 </li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">More:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../all_files/">Site Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Python Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 </ul>
 
         </div>
@@ -172,7 +168,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../category-python/">Python</a></li>
+          <li class="breadcrumb-item"><a href="../category-python/">Python (General)</a></li>
       <li class="breadcrumb-item active">Understanding Python Types and Type Hints</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/understanding-python-types-and-type-hints.md.txt" rel="nofollow"> View page source</a>
@@ -235,9 +231,9 @@ Hello
 </pre></div>
 </div>
 <p>Even if the type of an object can change at runtime, Python never loses sight of the type it contains at any given time. Contrast this with JavaScript, where because of type conversions a special operator, <code class="docutils literal notranslate"><span class="pre">===</span></code>, is used to compare objects while suppressing the type conversion. Without this crutch, in JavaScript:</p>
-<p><img alt="Comparisons in JavaScript are not type-aware." src="../_images/image13.png" /></p>
+<p><img alt="Comparisons in JavaScript are not type-aware." src="../_images/image6.png" /></p>
 <p>In Python, because the types are dynamic, the comparison is still allowed, but because the language is strongly typed, we get a more expected (or at least, more type-aware) answer:</p>
-<p><img alt="Comparisons in Python are type-aware." src="../_images/image-227.png" /></p>
+<p><img alt="Comparisons in Python are type-aware." src="../_images/image-214.png" /></p>
 <p>Python, then, is dynamically typed, not weakly typed.</p>
 </section>
 <section id="behind-the-scenes-of-variable-assignment-using-python-s-disassembler">
@@ -297,7 +293,7 @@ Hello
 <section id="getting-help-reading-the-function-documentation">
 <h3>Getting Help: Reading the Function Documentation<a class="headerlink" href="#getting-help-reading-the-function-documentation" title="Link to this heading"></a></h3>
 <p>Let’s print out what it does with the help function. The screenshot below shows the output we’re interested in:</p>
-<p><img alt="The python help function displays " src="../_images/image-329.png" /></p>
+<p><img alt="The python help function displays " src="../_images/image-315.png" /></p>
 <p>Sure enough, lstrip is exactly the function we want in this case. By the way, if you’re working in Jupyter Notebook, you can get the same information using <code class="docutils literal notranslate"><span class="pre">user_id.lstrip?</span></code></p>
 </section>
 </section>
@@ -368,7 +364,7 @@ Hello
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mypy<span class="w"> </span>bug.py
 </pre></div>
 </div>
-<p><img alt="Example showing an error reported by mypy.  Argument 1 to &quot;greet_user&quot; has incompatible type &quot;int&quot;; expected &quot;str&quot;" src="../_images/image-511.png" /></p>
+<p><img alt="Example showing an error reported by mypy.  Argument 1 to &quot;greet_user&quot; has incompatible type &quot;int&quot;; expected &quot;str&quot;" src="../_images/image-55.png" /></p>
 <p>Running mypy from the command line like this is certainly one way to go, and is commonly used in automation to ensure our code is correct as we go along. For example, git users may want to automate this using a pre-commit hook.</p>
 <p>For day-to-day development, however, it’s better to correct these errors as soon as we make them. With this in mind, let’s consider integrating mypy with VS Code or Jupyter.</p>
 </section>
@@ -380,7 +376,7 @@ Hello
 <li><p>Next, also in the command palette, search for “Python: Select Linter,” and in the list that pops up, select mypy.</p></li>
 </ol>
 <p>Once this is done, the value 1234 in greet_users will have a red wavy line beneath it to signal an error (easier to see on a light theme). If you need more information, you can hover over the error to see details:</p>
-<p><img alt="Mypy error displayed in Visual Studio Code.  Argument 1 to &quot;greet_user&quot; has incompatible type &quot;int&quot;; expected &quot;str&quot;" src="../_images/image-6-1024x2941.png" /></p>
+<p><img alt="Mypy error displayed in Visual Studio Code.  Argument 1 to &quot;greet_user&quot; has incompatible type &quot;int&quot;; expected &quot;str&quot;" src="../_images/image-6-1024x294.png" /></p>
 </section>
 <section id="using-mypy-with-jupyter-notebook-jupyter-lab">
 <h3>Using MyPy with Jupyter Notebook / Jupyter Lab<a class="headerlink" href="#using-mypy-with-jupyter-notebook-jupyter-lab" title="Link to this heading"></a></h3>
@@ -389,7 +385,7 @@ Hello
 </pre></div>
 </div>
 <p>An excellent feature of this extension is how foolproof it is. Nb_mypy checks each cell as you try to run it. For example, here’s what we get when we copy the contents of bug.py into Jupyter:</p>
-<p><img alt="A mypy error in Jupyter Notebook.  Argument 1 to &quot;greet_user&quot; has incompatible type &quot;int&quot;; expected &quot;str&quot;" src="../_images/image-7-1024x2061.png" /></p>
+<p><img alt="A mypy error in Jupyter Notebook.  Argument 1 to &quot;greet_user&quot; has incompatible type &quot;int&quot;; expected &quot;str&quot;" src="../_images/image-7-1024x206.png" /></p>
 </section>
 </section>
 <section id="advanced-type-hints-and-the-python-typing-module">
@@ -486,7 +482,7 @@ Hello
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../python-virtual-environments-video-tutorial/" class="btn btn-neutral float-left" title="Python Virtual Environments: Video Tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../exploring-python-objects-with-the-dir-and-type-functions/" class="btn btn-neutral float-right" title="Exploring Python Objects with the dir and type functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../python-errors/" class="btn btn-neutral float-right" title="Python Errors: Exception Handling from Beginner to Expert" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

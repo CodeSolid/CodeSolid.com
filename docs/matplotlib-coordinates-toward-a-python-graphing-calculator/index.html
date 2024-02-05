@@ -23,7 +23,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" />
-    <link rel="next" title="Header" href="../category-python-practice/" />
+    <link rel="next" title="Python Practice" href="../category-python-practice/" />
     <link rel="prev" title="Chemists Strongly Addicted to Python!" href="../chemists-strongly-addicted-to-python/" /> 
 </head>
 
@@ -55,15 +55,9 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Categories</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math-and-math-software/">Math and Math Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math/">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python/">Python (General)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a><ul class="current">
@@ -84,13 +78,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../python-vs-matlab/">Python vs. MATLAB: Price, Performance, Features</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Header</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Python Practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python/">Python</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">More:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../all_files/">Site Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 </ul>
 
         </div>
@@ -135,7 +131,7 @@
 <section id="plotting-a-line-in-matplotlib">
 <h2>Plotting a Line in Matplotlib<a class="headerlink" href="#plotting-a-line-in-matplotlib" title="Link to this heading"></a></h2>
 <p>Let’s begin with a simple linear function. We recall from algebra trauma class that a linear function is simply one whose graph is a straight line, in the form:</p>
-<p><img alt="" src="../_images/image-234.png" /></p>
+<p><img alt="" src="../_images/image-231.png" /></p>
 <p>In Python, it’s easy to see how we might code such a function, with some defaults for <em>m</em> (the slope) and <em>b</em> (the y-intercept):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">linear</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
 <span class="w">     </span><span class="sd">&quot;&quot;&quot;A function to plot an arbitrary point (x) on a line.&quot;&quot;&quot;</span>
@@ -155,7 +151,7 @@
 </pre></div>
 </div>
 <p>Output:</p>
-<p><img alt="" src="../_images/image-245.png" /></p>
+<p><img alt="" src="../_images/image-242.png" /></p>
 <p>As you can see, the default layout leaves plenty of room for improvement. We’ll need functions to draw the axes, make the grid square, and set the size of the ticks of the grid. All of these will accept a minimum and maximum range to use.</p>
 <p>To select a range to use, let’s just notice by inspecting it visually that 12 x 12 will be “big enough” in this case for the values. But first, let’s define each function.</p>
 <p>To make the grid square, we call the Matplotlib axis function twice.</p>
@@ -199,7 +195,7 @@
 </pre></div>
 </div>
 <p>The output is now much easier to understand than our first graph was:</p>
-<p><img alt="" src="../_images/image-253.png" /></p>
+<p><img alt="" src="../_images/image-251.png" /></p>
 <p>Now it’s obvious that the slope (the rise over the run, or the ratio of y to each x) is 2, and the y-intercept is -1.</p>
 </section>
 <section id="a-non-linear-plot-in-matplotlib">
@@ -214,7 +210,7 @@
 <p>Using <code class="docutils literal notranslate"><span class="pre">linspace</span></code>, we just pass the parameters that we want. To set it up as a list, we used a list comprehension with the range function, but since range deals with integers, we needed to scale “up” to get 100 integers in the correct range, and then divide the result by 10 to get from -5 to +5 in .1 increments.</p>
 <p>The second wrinkle we need to deal with is the possibility of an asymptote – that is to say, a function where f(x) approaches infinity in the limit.</p>
 <p>I happen to have such a function just hanging around in some calculus notes that I took in SymPy:</p>
-<p><img alt="" src="../_images/image-265.png" /></p>
+<p><img alt="" src="../_images/image-262.png" /></p>
 <p>If we implement that as a Python function, we have to be careful to guard against dividing by zero (since that case is what causes the asymptote).</p>
 <p>The following code will work for this purpose. If the denominator evaluates to zero, we return NaN (not a number). Otherwise, we divide x by the denominator as shown in the function above.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">nan</span>
@@ -239,9 +235,9 @@
 <span class="n">line</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_array</span><span class="p">,</span> <span class="n">y_array</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><img alt="" src="../_images/image-274.png" /></p>
+<p><img alt="" src="../_images/image-271.png" /></p>
 <p>That came out reasonably satisfying, though not quite perfect. The vertical asymptotes are at -3 and 1 (the two values that make the denominator work out to be zero). It doesn’t look like they extend to infinity in this plot, but the values are correct. For comparison, here’s how SymPy plotted it:</p>
-<p><img alt="" src="../_images/image-285.png" /></p>
+<p><img alt="" src="../_images/image-28.png" /></p>
 </section>
 <section id="closing-thoughts">
 <h2>Closing Thoughts<a class="headerlink" href="#closing-thoughts" title="Link to this heading"></a></h2>
@@ -255,7 +251,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../chemists-strongly-addicted-to-python/" class="btn btn-neutral float-left" title="Chemists Strongly Addicted to Python!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../category-python-practice/" class="btn btn-neutral float-right" title="Header" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../category-python-practice/" class="btn btn-neutral float-right" title="Python Practice" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

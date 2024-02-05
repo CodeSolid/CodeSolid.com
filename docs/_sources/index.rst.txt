@@ -16,33 +16,23 @@ Math ∩ Programming
    :maxdepth: 0
    :hidden:
 
-   category-c-and-cplusplus
-   category-docker
-   category-jupyter
-   category-learn-to-code
    category-math-and-math-software
    category-math
-   category-miscellaneous
-   category-newsletter
-   category-pandas
+   category-python
    category-python-for-beginners-posts
    category-python-functions
    category-python-math-and-science
    category-python-practice
    category-python-tools
-   category-python
-
-
-.. toctree::
-   :caption: More:
-   :hidden:
-   
-   all_files
-
-   #math/index
-   #cognitive_science/index
-   #socialmedia/index
+   category-pandas
+   category-newsletter
+   category-miscellaneous
+   category-c-and-cplusplus
+   category-docker
+   category-jupyter
+   category-learn-to-code
 
 CodeSolid features articles at the intersection of Math and Programming.  It is written by a retired programmer who fancies himself `The World's Oldest Math Major <./worlds-oldest-math-major>`_.
+
 
 

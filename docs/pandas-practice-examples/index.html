@@ -23,8 +23,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" />
-    <link rel="next" title="How to Work With Google Sheets In Python and Pandas" href="../google-sheets-in-python-and-pandas/" />
-    <link rel="prev" title="Alternatives to Pandas: Python Polars" href="../alternatives-to-pandas-python-polars/" /> 
+    <link rel="next" title="Python Practice: More Python on Docker Project Ideas" href="../python-on-docker-practice-ideas/" />
+    <link rel="prev" title="NumPy Examples – Practice Questions Make You an Expert" href="../numpy-practice-questions-to-make-you-an-expert/" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -55,19 +55,13 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Categories</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math-and-math-software/">Math and Math Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math/">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python/">Python (General)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../category-python-practice/">Header</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../category-python-practice/">Python Practice</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../numpy-practice-questions-to-make-you-an-expert/">NumPy Examples –  Practice Questions Make You an Expert</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting-started-with-python-classes/">Python Classes Zero to Expert: A Tutorial with Exercises</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../zen-of-100-days-of-python/">The Strange Zen of 100 Days of Python</a></li>
@@ -101,11 +95,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python/">Python</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">More:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../all_files/">Site Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 </ul>
 
         </div>
@@ -122,7 +118,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../category-pandas/">Pandas</a></li>
+          <li class="breadcrumb-item"><a href="../category-python-practice/">Python Practice</a></li>
       <li class="breadcrumb-item active">Pandas Examples and Review Questions to Make You an Expert</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/pandas-practice-examples.md.txt" rel="nofollow"> View page source</a>
@@ -216,7 +212,7 @@ dtype:<span class="w"> </span>int64
 </pre></div>
 </div>
 <p>Output (In Jupyter Lab):</p>
-<p><img alt="" src="../_images/image-57.png" /></p>
+<p><img alt="" src="../_images/image-51.png" /></p>
 <p>If you’ve been following the discussion so far, you may notice that what we get for a two-dimensional DataFrame by default is very similar to what we get for a Series – a zero-based numerical index for both the columns (along the top) and the index(along the left-hand side). As with Series, what we get are range indexes by default. With Series, we were also able to provide a custom index. Here, we can provide both a row index (if desired), and an index for the columns (which is even more common).</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -228,7 +224,7 @@ dtype:<span class="w"> </span>int64
 </pre></div>
 </div>
 <p>Output:</p>
-<p><img alt="" src="../_images/image-612.png" /></p>
+<p><img alt="" src="../_images/image-64.png" /></p>
 </section>
 <section id="working-with-sample-seaborn-data-sets">
 <h3>Working With Sample Seaborn Data Sets<a class="headerlink" href="#working-with-sample-seaborn-data-sets" title="Link to this heading"></a></h3>
@@ -239,7 +235,7 @@ dtype:<span class="w"> </span>int64
 </pre></div>
 </div>
 <p>Seaborn’s load_dataset function allows us to load sample data, and head() will show us the first few rows. Here’s a partial view of how it looks in Jupyter Lab:</p>
-<p><img alt="Pandas output for a Seaborn sample data set." src="../_images/image-130.png" /></p>
+<p><img alt="Pandas output for a Seaborn sample data set." src="../_images/image-110.png" /></p>
 <p>If we need to see the column names for the entire table, we can get these with <code class="docutils literal notranslate"><span class="pre">df.columns</span></code>. For our table, <code class="docutils literal notranslate"><span class="pre">df.columns</span></code> shows the following:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Index</span><span class="p">([</span><span class="s1">&#39;pickup&#39;</span><span class="p">,</span> <span class="s1">&#39;dropoff&#39;</span><span class="p">,</span> <span class="s1">&#39;passengers&#39;</span><span class="p">,</span> <span class="s1">&#39;distance&#39;</span><span class="p">,</span> <span class="s1">&#39;fare&#39;</span><span class="p">,</span> <span class="s1">&#39;tip&#39;</span><span class="p">,</span> <span class="s1">&#39;tolls&#39;</span><span class="p">,</span>
        <span class="s1">&#39;total&#39;</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">,</span> <span class="s1">&#39;payment&#39;</span><span class="p">,</span> <span class="s1">&#39;pickup_zone&#39;</span><span class="p">,</span> <span class="s1">&#39;dropoff_zone&#39;</span><span class="p">,</span>
@@ -277,7 +273,7 @@ Name:<span class="w"> </span>pickup,<span class="w"> </span>Length:<span class="
 </pre></div>
 </div>
 <p>Output:</p>
-<p><img alt="" src="../_images/image-219.png" /></p>
+<p><img alt="" src="../_images/image-29.png" /></p>
 <p>To select rows in Pandas, we can use the DataFrame’s <code class="docutils literal notranslate"><span class="pre">loc</span></code> method, passing it a condition. Here are some examples based on the taxis DataFrame.</p>
 <p>Select rows with more than one rider in the cab:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;passengers&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]</span>
@@ -292,7 +288,7 @@ Name:<span class="w"> </span>pickup,<span class="w"> </span>Length:<span class="
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><img alt="" src="../_images/image-319.png" /></p>
+<p><img alt="" src="../_images/image-35.png" /></p>
 </section>
 </section>
 <section id="part-two-pandas-review-questions">
@@ -391,8 +387,8 @@ Name:<span class="w"> </span>pickup,<span class="w"> </span>Length:<span class="
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../alternatives-to-pandas-python-polars/" class="btn btn-neutral float-left" title="Alternatives to Pandas: Python Polars" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../google-sheets-in-python-and-pandas/" class="btn btn-neutral float-right" title="How to Work With Google Sheets In Python and Pandas" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../numpy-practice-questions-to-make-you-an-expert/" class="btn btn-neutral float-left" title="NumPy Examples – Practice Questions Make You an Expert" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../python-on-docker-practice-ideas/" class="btn btn-neutral float-right" title="Python Practice: More Python on Docker Project Ideas" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -55,21 +55,9 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Categories</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math-and-math-software/">Math and Math Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math/">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Header</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../category-python/">Python</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../category-python/">Python (General)</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../why-is-python-popular/">Why Is Python Popular?# Why Is Python Popular</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../benchmarking-python-and-rust-async-web-server-performance/">Benchmarking Python and Rust Async Web Server Performance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python-date-tutorial/">Python Date and Time Functions: The Complete Tutorial</a></li>
@@ -142,10 +130,18 @@
 <li class="toctree-l2"><a class="reference internal" href="../python-operators/">Python Operators:  The Building Blocks of Successful Code</a></li>
 </ul>
 </li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">More:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../all_files/">Site Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Python Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 </ul>
 
         </div>
@@ -162,7 +158,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../category-python/">Python</a></li>
+          <li class="breadcrumb-item"><a href="../category-python/">Python (General)</a></li>
       <li class="breadcrumb-item active">PySpark and Parquet: Elegant Python DataFrames and SQL</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/using-pyspark-and-parquet.md.txt" rel="nofollow"> View page source</a>
@@ -257,14 +253,14 @@ SparkSession available as &#39;spark&#39;.
 </pre></div>
 </div>
 <p>You’ll see some warnings that can be safely ignored.</p>
-<p><img alt="" src="../_images/image-12-1024x1601.png" /></p>
+<p><img alt="" src="../_images/image-12-1024x160.png" /></p>
 <p>By the way, if you’re curious about the extra parentheses before SparkSession and on the last line, this is just a trick in Python, so we can write this “one-liner” as a multi-line expression. Since PySpark makes extensive use of the builder pattern so we can chain expressions, you’ll find this frequently in PySpark code.</p>
 <p>As a final test, you can run a query to ensure everything works correctly. Using SQL in Spark is easy. For example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;select current_date() as today;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Output (example):</p>
-<p><img alt="Output showing current_date() in PySpark" src="../_images/image-1311.png" /></p>
+<p><img alt="Output showing current_date() in PySpark" src="../_images/image-133.png" /></p>
 </section>
 </section>
 <section id="reading-parquet-files-in-pyspark">
@@ -282,7 +278,7 @@ SparkSession available as &#39;spark&#39;.
 </pre></div>
 </div>
 <p>Output:</p>
-<p><img alt="Displaying basic information about a PySpark DataFrame" src="../_images/image-147.png" /></p>
+<p><img alt="Displaying basic information about a PySpark DataFrame" src="../_images/image-143.png" /></p>
 </section>
 <section id="querying-a-file-with-spark-sql">
 <h3>Querying a File with Spark SQL<a class="headerlink" href="#querying-a-file-with-spark-sql" title="Link to this heading"></a></h3>
@@ -292,7 +288,7 @@ SparkSession available as &#39;spark&#39;.
 </pre></div>
 </div>
 <p>Output:</p>
-<p><img alt="Using the show method on PySpark's DataFrame object." src="../_images/image-157.png" /></p>
+<p><img alt="Using the show method on PySpark's DataFrame object." src="../_images/image-153.png" /></p>
 <p>Notice that we’ve still created a DataFrame here as “top_fares,” but now we’ve used far less memory for it than when we loaded the entire file into memory. Of course, we’ve already loaded as df, so we might want to run the same query against it instead. We can’t do that directly, but we can create a temporary “view” of it and query that instead.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">taxis</span><span class="o">.</span><span class="n">createOrReplaceGlobalTempView</span><span class="p">(</span><span class="s2">&quot;taxis&quot;</span><span class="p">)</span>
 <span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;SELECT fare, tip, fare + tip as total, distance, tolls from global_temp.taxis order by fare desc limit 10&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -305,7 +301,7 @@ SparkSession available as &#39;spark&#39;.
 <section id="how-to-improve-pyspark-s-dataframes-display">
 <h2>How To Improve PySpark’s DataFrames Display<a class="headerlink" href="#how-to-improve-pyspark-s-dataframes-display" title="Link to this heading"></a></h2>
 <p>When you start working with PySpark DataFrames, you might try “running” the name of the DataFrame object in a cell as you would for a Pandas DataFrame. If you did that, the result probably surprised you.</p>
-<p><img alt="The output of a PySpark DataFrame looks like a simple repr method." src="../_images/image-165.png" /></p>
+<p><img alt="The output of a PySpark DataFrame looks like a simple repr method." src="../_images/image-162.png" /></p>
 <p>That simple <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> style output was probably not what you wanted to see.</p>
 <p>Also, as we’ve already mentioned, the ASCII-style output of the <code class="docutils literal notranslate"><span class="pre">show</span></code> method on the PySpark DataFrame is not very satisfactory if we’re working in a Notebook.</p>
 <p>There are a couple of options when working in a notebook to get things looking a little more polished. Probably the best option for Notebook work is to use the following configuration setting:</p>
@@ -314,7 +310,7 @@ SparkSession available as &#39;spark&#39;.
 </pre></div>
 </div>
 <p>This changes how the __repr__ method behaves, so just using the name of the DataFrame gives you a result that looks more like what we see in Pandas. The first twenty rows are shown, but here we show the top five.</p>
-<p><img alt="Improving the display of PySpark DataFrames by setting the configuration value spark.sql.repl.eagerEval.enabled." src="../_images/image-17-1024x1661.png" /></p>
+<p><img alt="Improving the display of PySpark DataFrames by setting the configuration value spark.sql.repl.eagerEval.enabled." src="../_images/image-17-1024x166.png" /></p>
 <p>The second option for improving the display of the PySpark DataFrame also has other uses as well. Here we convert the PySpark DataFrame to one that behaves <em>somewhat</em> like a Pandas DataFrame. Doing this relies on having pandas installed:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># One time only:</span>
 <span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">pandas</span>
@@ -323,7 +319,7 @@ SparkSession available as &#39;spark&#39;.
 <span class="n">taxis_pandas</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><img alt="Displaying Spark data using the pandas_api() function." src="../_images/image-18-1024x1401.png" /></p>
+<p><img alt="Displaying Spark data using the pandas_api() function." src="../_images/image-18-1024x140.png" /></p>
 <p>Note that here we saved the result and called the <code class="docutils literal notranslate"><span class="pre">head</span></code> method on it rather than just using the name (<code class="docutils literal notranslate"><span class="pre">taxis_pandas</span></code>) directly. The pandas_api() function doesn’t emulate Pandas perfectly, so using the raw name shows the first 1,000 rows!</p>
 </section>
 <section id="writing-parquet-files">
@@ -333,9 +329,9 @@ SparkSession available as &#39;spark&#39;.
 </pre></div>
 </div>
 <p>If we list the contents of our directory now, we notice that top_fares is not written as a single file but as a folder. If we wait a moment, we can also see this in the sidebar in Jupyter lab.</p>
-<p><img alt="JupyterLab SideBar showing Parquet data written as a folder." src="../_images/image-205.png" /></p>
+<p><img alt="JupyterLab SideBar showing Parquet data written as a folder." src="../_images/image-202.png" /></p>
 <p>PySpark more or less assumes that you’re going to partition your data set, and if it doesn’t need to do so, it still creates a folder with a single partition, as shown below:</p>
-<p><img alt="Structure of a default Pandas file saved by PySpark DataFrame.write.parquet" src="../_images/image-2111.png" /></p>
+<p><img alt="Structure of a default Pandas file saved by PySpark DataFrame.write.parquet" src="../_images/image-216.png" /></p>
 <p>If you really need or want to store this as a single parquet file, you can do so by first converting the DataFrame to Pandas (using <code class="docutils literal notranslate"><span class="pre">toPandas(),</span></code> not <code class="docutils literal notranslate"><span class="pre">pandas_api()</span></code>), then calling the appropriate Pandas method:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">top_fares</span><span class="o">.</span><span class="n">toPandas</span><span class="p">()</span><span class="o">.</span><span class="n">to_parquet</span><span class="p">(</span><span class="s1">&#39;./top_fares_pandas.parquet&#39;</span><span class="p">)</span>
 </pre></div>
@@ -350,11 +346,11 @@ SparkSession available as &#39;spark&#39;.
 </pre></div>
 </div>
 <p>On disk, the structure of the partitioned data looks like this:</p>
-<p><img alt="Structure of a partitioned Parquet data file." src="../_images/image-229.png" /></p>
+<p><img alt="Structure of a partitioned Parquet data file." src="../_images/image-222.png" /></p>
 <p>Let’s see how the performance of the query is affected by this change by comparing it to the same query run against the original <code class="docutils literal notranslate"><span class="pre">taxis.parquet</span></code> file. First, let’s look at the unpartitioned case:</p>
-<p><img alt="Performance of a PySpark.sql query without partitioning." src="../_images/image-288.png" /></p>
+<p><img alt="Performance of a PySpark.sql query without partitioning." src="../_images/image-283.png" /></p>
 <p>Next, we’ll run the same query against our partitioned data:</p>
-<p><img alt="Performance of a PySpark.sql query with partitioning." src="../_images/image-296.png" /></p>
+<p><img alt="Performance of a PySpark.sql query with partitioning." src="../_images/image-293.png" /></p>
 <p>With the partitioned data set, the query took 6.91 microseconds instead of 12.2 microseconds. This sort of savings is noticeable now but even more important as data grows. We have less than 7,000 rows of data in this dataset. It’s enough to prove the case, but it’s hardly “big data.”</p>
 <p>Incidentally, the ORC data format also supports partitioning data, and the syntax for writing and querying it parallels that of Parquet, i.e.:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">taxis</span><span class="o">.</span><span class="n">write</span><span class="o">.</span><span class="n">orc</span><span class="p">(</span><span class="s2">&quot;taxis_by_pickup_borough.orc&quot;</span><span class="p">,</span> <span class="n">partitionBy</span><span class="o">=</span><span class="s2">&quot;pickup_borough&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;overwrite&quot;</span><span class="p">)</span>
@@ -374,7 +370,7 @@ SparkSession available as &#39;spark&#39;.
 </pre></div>
 </div>
 <p>Spark’s tables are stored in the spark-warehouse directory, created automatically when you run PySpark. So we can see our table structure on disk and verify its format as shown below:</p>
-<p><img alt="By default, Spark tables are simply parquet files saved in a special directory." src="../_images/image-303.png" /></p>
+<p><img alt="By default, Spark tables are simply parquet files saved in a special directory." src="../_images/image-301.png" /></p>
 <p>This shows us that the default data structure used by createTable was Parquet. Moreover, the layout and query performance is quite similar to what we showed before for a partitioned Parquet dataset. The main advantages to saving parquet files as tables are to simplify select queries slightly and to enable easy use of other SQL operations, such as “SHOW TABLES” or “DESCRIBE TABLE taxis_by_pickup.”</p>
 </section>
 <section id="closing-thoughts">

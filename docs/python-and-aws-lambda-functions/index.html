@@ -24,7 +24,7 @@
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" />
     <link rel="next" title="Python Dunder Methods: The Ugliest Awesome Sauce" href="../dunder-methods-in-python-the-ugliest-awesome-sauce/" />
-    <link rel="prev" title="Useful Collection Classes in Python You May Not Know" href="../useful-collection-classes-in-python-you-may-not-know/" /> 
+    <link rel="prev" title="Is PyPy a Faster Version of Python?" href="../pypy-first-look-a-faster-version-of-python/" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -55,21 +55,9 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Categories</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math-and-math-software/">Math and Math Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math/">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Header</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../category-python/">Python</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../category-python/">Python (General)</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../why-is-python-popular/">Why Is Python Popular?# Why Is Python Popular</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../benchmarking-python-and-rust-async-web-server-performance/">Benchmarking Python and Rust Async Web Server Performance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python-date-tutorial/">Python Date and Time Functions: The Complete Tutorial</a></li>
@@ -132,10 +120,18 @@
 <li class="toctree-l2"><a class="reference internal" href="../python-operators/">Python Operators:  The Building Blocks of Successful Code</a></li>
 </ul>
 </li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">More:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../all_files/">Site Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Python Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 </ul>
 
         </div>
@@ -152,7 +148,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../category-python/">Python</a></li>
+          <li class="breadcrumb-item"><a href="../category-python/">Python (General)</a></li>
       <li class="breadcrumb-item active">Python for AWS Lambda Functions: A Beginner’s Guide</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/python-and-aws-lambda-functions.md.txt" rel="nofollow"> View page source</a>
@@ -238,10 +234,10 @@
 <section id="publishing-a-lambda-function-from-the-aws-console">
 <h2>Publishing a Lambda Function from the AWS Console<a class="headerlink" href="#publishing-a-lambda-function-from-the-aws-console" title="Link to this heading"></a></h2>
 <p>Now that we have an AWS account, the easiest – though least automated – way to install a lambda function is through the AWS console at <a class="reference external" href="https://aws.amazon.com/">aws.amazon.com</a>. Once you’ve logged in, the easiest way to navigate to any AWS service is via the search bar on the top. Here we’ve searched for Lambda:</p>
-<p><img alt="" src="../_images/services_search_lambda-1024x2231.png" /></p>
+<p><img alt="" src="../_images/services_search_lambda-1024x223.png" /></p>
 <p>Clicking on Lambda will bring us to a page where we can create a function. The view may vary if the account is brand new, but you should see a “Create Function” button on the upper right-hand side. Clicking Create Function will bring you to a page where you can easily create a simple Lambda function from scratch.</p>
 <p>We select “Author from scratch” in the top row (it should be the default). We give our function a name, and under Runtime, select the latest Python version. We can leave architecture at the default x86_64. If we do this through the console, AWS will automatically set up an IAM role, or set of permissions, for our Lambda function to use. That should be the default, so we leave it as it is.</p>
-<p><img alt="" src="../_images/create_lambda_small-1024x4661.jpg" /></p>
+<p><img alt="" src="../_images/create_lambda_small-1024x466.jpg" /></p>
 <p>Scroll down to the bottom of the page and click Create Function. This will bring you to a page that shows a function that looks like a slightly slimmed-down version of the function we wrote above:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
 
@@ -254,11 +250,11 @@
 </pre></div>
 </div>
 <p>Let’s look at what else we have available in this view. As we can see in the image below, the top row gives us several options. Among the most useful of these is the Configuration tab, which lets you configure a lambda much more thoroughly than we’ve done here, including setting environment variables. We also can view Aliases or Versions. At present, we have only one version deployed. If we modify this function and click Deploy on this page, we’ll can then go to the Versions tab if we want to Snapshot the new function as a new version.</p>
-<p><img alt="" src="../_images/image-134.png" /></p>
+<p><img alt="" src="../_images/image-112.png" /></p>
 <p>One feature we can use over and over again, especially as our functions start having more to do, is to test them. From the view above, clicking Test will allow us to create a test event. This will look as shown below. Since we’re not processing the event JSON for now, we can leave that field at the default, and enter a name for the event in the EventName field, as shown below:</p>
-<p><img alt="" src="../_images/image-3-693x10241.png" /></p>
+<p><img alt="" src="../_images/image-3-693x1024.png" /></p>
 <p>This will bring us back to the Code source page, and from there, we can click the dropdown next to the “Test” button to test the function, selecting the event we just saved, then click Test. We’ll see the functions response and the logs for the run, as shown below:</p>
-<p><img alt="" src="../_images/image-4-1024x3991.png" /></p>
+<p><img alt="" src="../_images/image-4-1024x399.png" /></p>
 <p>To get more familiar with this interface, you might try pasting the code we created above in the section “Creating a Lambda Function (Spoiler: It’s Just a Function)”. Click deploy to deploy a new version and Test again to test it out.</p>
 </section>
 <section id="publishing-a-lambda-function-using-the-aws-cli">
@@ -401,13 +397,13 @@ Modified:<span class="w"> </span><span class="m">2022</span>-03-22<span class="w
 <p>Now that we have some Boto3 basics in place, let’s look at two differences we’ll encounter when we try to use it in an AWS Lambda function. We’ll notice that for Lambda, we don’t need to “pip install” anything for boto3. AWS includes boto3 in the Lambda runtime for Python by default. The other thing that’s different is that we won’t be running using a privileged local administrator account using our local AWS CLI credentials. Instead, we’ll need to specify whatever permissions we need in the Lambda execution role.</p>
 <p>The approach we’ll take here is to create a new function in the console and apply the permissions we need to the default execution role. This is the simplest way to ensure we already have the permissions we need to write to the CloudWatch logs. It also lets us add the permissions we need for this current example, but it’s flexible to handle other use cases we may encounter.</p>
 <p>Once again, in the AWS console, we create a new function. Select the “author from scratch” option and the Python 3.9 runtime. For Execution Role, leave the default of “Create a new role with basic Lambda permissions.”.</p>
-<p><img alt="" src="../_images/lambda-create-function-1024x8131.png" /></p>
+<p><img alt="" src="../_images/lambda-create-function-1024x813.png" /></p>
 <p>When the function is created, click on the Configuration tab, and select Permissions on the left. At this point, you should see the execution role that was automatically created. Clicking on the role name will let us modify it.</p>
-<p><img alt="" src="../_images/edit_execution_role-21.png" /></p>
+<p><img alt="" src="../_images/edit_execution_role-2.png" /></p>
 <p>On the next screen under Permissions policies, we want to use the dropdown “Add Permissions” button, and select the menu item for Attach policies</p>
-<p><img alt="" src="../_images/attach_policies-1024x1241.png" /></p>
+<p><img alt="" src="../_images/attach_policies-1024x124.png" /></p>
 <p>This will bring up a search window where we can type AmazonS3 to find S3-related policies to give our Lambda IAM role permission to read from S3. Looking over the returned list, we can view and select AmazonS3ReadOnlyAccess. Click</p>
-<p><img alt="" src="../_images/attach_policies-11.png" /></p>
+<p><img alt="" src="../_images/attach_policies-1.png" /></p>
 <p>At this point, our Lambda function has the permissions it needs, and the function itself is still available in a separate browser tab. We can now modify our function and test it. Click on the Code tab and paste the code below.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Lambda function using boto3 to retrieve a file from S3&quot;&quot;&quot;</span>
 <span class="c1"># bucket_and_file.py</span>
@@ -491,7 +487,7 @@ Request ID
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../useful-collection-classes-in-python-you-may-not-know/" class="btn btn-neutral float-left" title="Useful Collection Classes in Python You May Not Know" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../pypy-first-look-a-faster-version-of-python/" class="btn btn-neutral float-left" title="Is PyPy a Faster Version of Python?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../dunder-methods-in-python-the-ugliest-awesome-sauce/" class="btn btn-neutral float-right" title="Python Dunder Methods: The Ugliest Awesome Sauce" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

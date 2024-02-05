@@ -55,14 +55,14 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Categories</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math-and-math-software/">Math and Math Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math/">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python/">Python (General)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Python Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../category-pandas/">Pandas</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../selecting-data-in-pandas/">Selecting Data in Pandas</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Python Parquet and Arrow:  Using PyArrow with Pandas</a><ul>
@@ -96,16 +96,12 @@ dropoff: timestamp[ns]</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../how-to-visualize-data-using-pandas/">How to Visualize Data Using Pandas</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Header</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python/">Python</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">More:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../all_files/">Site Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 </ul>
 
         </div>
@@ -287,7 +283,7 @@ dropoff: timestamp[ns]<a class="headerlink" href="#pyarrow-table-pickup-timestam
 </pre></div>
 </div>
 <p>As we can see, the Arrow Table takes just under a third of the memory of the Python DataFrame. In addition to being smaller in memory, we’ve found Arrow Tables to be much faster for performing various aggregate or summary operations. Here are some representative results showing Pandas first, then PyArrow:</p>
-<p><img alt="Table showing performance difference in Pandas DataFrames vs Arrow tables." src="../_images/image-137.png" /></p>
+<p><img alt="Table showing performance difference in Pandas DataFrames vs Arrow tables." src="../_images/image-116.png" /></p>
 <section id="parquet-vs-other-storage-formats-for-pandas">
 <h2>Parquet vs. Other Storage Formats for Pandas<a class="headerlink" href="#parquet-vs-other-storage-formats-for-pandas" title="Link to this heading"></a></h2>
 <p>As we’ve seen, Apache Arrow provides better performance than Pandas for many operations. However, the fact that more users are familiar with Pandas and that Arrow data cannot easily be “wrangled” (modified) may mean that many users will want to stick with Pandas DataFrames in many cases. Even if that’s the case for you, however, you may still want to take advantage of the excellent performance and compression characteristics of the Parquet storage format.</p>

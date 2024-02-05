@@ -55,21 +55,9 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Categories</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math-and-math-software/">Math and Math Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math/">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Header</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../category-python/">Python</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../category-python/">Python (General)</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../why-is-python-popular/">Why Is Python Popular?# Why Is Python Popular</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../benchmarking-python-and-rust-async-web-server-performance/">Benchmarking Python and Rust Async Web Server Performance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python-date-tutorial/">Python Date and Time Functions: The Complete Tutorial</a></li>
@@ -124,10 +112,18 @@
 <li class="toctree-l2"><a class="reference internal" href="../python-operators/">Python Operators:  The Building Blocks of Successful Code</a></li>
 </ul>
 </li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">More:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../all_files/">Site Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Python Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 </ul>
 
         </div>
@@ -215,17 +211,17 @@
 </div>
 <p>On line 1, we’re running the container interactively and removing any existing instances on start-up, on line 2 we expose the port we’ll need, line 3 is likely overkill given the container definition, but it doesn’t hurt to be explicit Line 4 is where all our work to set up the user pays off – we map the sage directory relative to the local path to the /sage directory in the container Finally, on the last line, we specify the container name and the fact that we want to work in the bash shell.</p>
 <p>Here’s a screenshot showing how the prompt changes when we’re connected to the container:</p>
-<p><img alt="" src="../_images/image-135.png" /></p>
+<p><img alt="" src="../_images/image-131.png" /></p>
 <p>At this point, we’re connected to the container and a final bash script and we can either run the sage shell using “<code class="docutils literal notranslate"><span class="pre">sage</span></code>”, or use the command <code class="docutils literal notranslate"><span class="pre">./run_lab.sh</span></code> to launch Jupyterlab. This is a very simple script one-line script:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span> <span class="n">lab</span> <span class="o">--</span><span class="n">ip</span><span class="o">=</span><span class="mf">0.0.0.0</span>
 </pre></div>
 </div>
 <p>Note that the ip=0.0.0.0 effectively means that Jupyter Lab and sage will be accessible from any machine. We need this to make it accessible to the host. It’s not optimal from a security perspective, but it’s meant to be used as a development tool, not in a production environment.</p>
 <p>Running this script, <code class="docutils literal notranslate"><span class="pre">./run_lab.sh</span></code>, will launch Jupyter Lab and give you a link beginning with https://127.0.0.1/lab… that you can click on to connect to the Sage-enabled server:</p>
-<p><img alt="" src="../_images/image-14-1024x1251.png" /></p>
+<p><img alt="" src="../_images/image-14-1024x125.png" /></p>
 <p>Again, you want the last one – the other two assume you’re not running in Docker, but won’t work if you are. On a Mac, holding CMD down when hovering over it will make it clickable.</p>
 <p>If all goes well, by this point, you should be running SageMath in Jupyter Lab:</p>
-<p><img alt="" src="../_images/image-15-1024x6271.png" /></p>
+<p><img alt="" src="../_images/image-15-1024x627.png" /></p>
 <p>Notice that on Linux, Jupyter Lab somehow located the SageMath kernel automatically. I expected to have to do more to get this working, but we won’t look a gift horse in the mouth. As it is, we can now run either a notebook or a console and get SageMath working just fine! If you’re working along with the GitHub repository, I put a starter SageExamples notebook you can open and play with to give you a taste.</p>
 </section>
 </section>

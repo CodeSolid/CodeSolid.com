@@ -24,7 +24,7 @@
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" />
     <link rel="next" title="Python Configuration: Top Built-In and Third-Party Libraries" href="../python-configuration/" />
-    <link rel="prev" title="Is PyPy a Faster Version of Python?" href="../pypy-first-look-a-faster-version-of-python/" /> 
+    <link rel="prev" title="Simplicity is your Friend: PyCharm vs. VS Code for Teaching Programming" href="../simplicity-is-your-friend-python-vs-vs-code-for-teaching-software/" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -55,19 +55,13 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Categories</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math-and-math-software/">Math and Math Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math/">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python/">Python (General)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Header</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Python Practice</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../category-python-tools/">Python Tools</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../debugging-python-in-vs-code/">Debugging Python in VS Code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
@@ -102,11 +96,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../pycharm-vs-vs-code/">PyCharm vs. VS Code: Which Is Better and Why?</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python/">Python</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">More:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../all_files/">Site Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 </ul>
 
         </div>
@@ -170,14 +166,14 @@
 <li><p>IPython, which can be installed with “<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">ipython</span></code>”, is an interactive shell that adds several “magic commands” which provide additional features. For example, from within the shell, you can use “<code class="docutils literal notranslate"><span class="pre">%edit</span> <span class="pre">&lt;filename&gt;</span></code>” to quickly open the default text editor on your system for a given file. You can also create aliases for commonly used commands, or list the built-in aliases, which are displayed using the “<code class="docutils literal notranslate"><span class="pre">%alias</span></code>” magic command. I love working at the command line, and when I first learned IPython, I was so intrigued by it that I made a solemn vow to use it for everything forever. Unfortunately, it wasn’t solemn enough, apparently, since I’ve since defaulted to just using the system shell plus the “plain” Python shell for many such tasks.</p></li>
 <li><p>Well, fear not – perhaps I’ll have better luck with a tool with an uglier name. That tool is one that provides even greater Python and shell integration than IPython. It’s called <a class="reference external" href="https://xon.sh/">xonsh</a>, and it was recommended by a colleague of mine. In xonsh, as in IPython, it’s trivial to mix Python expressions and bash commands. To give you just a small taste of that, let’s set a variable Python to the contents of a file that we get using “bash”, and try some Python commands with it.</p></li>
 </ul>
-<p><img alt="The xonsh tool combines bash and Python." src="../_images/xonsh_example1.png" /></p>
+<p><img alt="The xonsh tool combines bash and Python." src="../_images/xonsh_example.png" /></p>
 </section>
 <section id="notebook-style-tools-for-data-science">
 <h2>Notebook Style Tools for Data Science<a class="headerlink" href="#notebook-style-tools-for-data-science" title="Link to this heading"></a></h2>
 <p>I’m sure any data scientists who read the last section on tools you can use to run Python are saying, “Hey! When are you going to get around to mentioning Jupyter Notebook and Jupyter Lab?” Well, here we go, and sorry to keep you waiting.</p>
 <p>Jupyter Notebook began its life as IPython Notebook, which partly accounts for IPython’s popularity. What is Jupyter Notebook, in a few words? It’s an awesome tool for mixing Python, Markdown, and Graphical Libraries (think histograms and other data plots), all within your browser.</p>
 <p>To whet your appetite, here’s a Jupyter Notebook I whipped up that does a random walk in Python and graphs it using matplotlib. The screenshot is below, but here’s the <a class="reference external" href="https://github.com/JohnLockwood/100-days-of-python/tree/main/day-08">notebook source</a>.</p>
-<p><img alt="" src="../_images/JupyterExample1.png" /></p>
+<p><img alt="" src="../_images/JupyterExample.png" /></p>
 <ul>
 <li><p>If Jupyter Notebook was just “kinda cool”, Jupyter Lab is “too cool for school”. (These are technical terms of art in the Python world).</p>
 <p>Here’s a Jupyter Lab screenshot I did showing, clockwise from the top right:</p>
@@ -189,7 +185,7 @@
 </ul>
 </li>
 </ul>
-<p><img alt="Jupyter Lab Screenshot showing a notebook, a Python console, Python module, and a Markdown file preview." src="../_images/JupyterLabExample-1024x4741.png" /></p>
+<p><img alt="Jupyter Lab Screenshot showing a notebook, a Python console, Python module, and a Markdown file preview." src="../_images/JupyterLabExample-1024x474.png" /></p>
 <p>Jupyter Lab Screenshot showing a notebook, a Python console, Python module, and a Markdown file preview.</p>
 </section>
 <section id="python-testing-tools">
@@ -269,7 +265,7 @@ test/test_my_module.py
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../pypy-first-look-a-faster-version-of-python/" class="btn btn-neutral float-left" title="Is PyPy a Faster Version of Python?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../simplicity-is-your-friend-python-vs-vs-code-for-teaching-software/" class="btn btn-neutral float-left" title="Simplicity is your Friend: PyCharm vs. VS Code for Teaching Programming" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../python-configuration/" class="btn btn-neutral float-right" title="Python Configuration: Top Built-In and Third-Party Libraries" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

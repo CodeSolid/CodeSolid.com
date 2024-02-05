@@ -1,6 +1,6 @@
 
-Header
-======
+Python Practice
+===============
 .. toctree::
    :caption: Articles:
    :maxdepth: 1

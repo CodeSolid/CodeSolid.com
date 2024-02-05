@@ -55,6 +55,17 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Categories</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../category-math-and-math-software/">Math and Math Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-math/">Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python/">Python (General)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Python Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../cpp-dev-containers/">C++ Dev Containers:  Custom Environments for VS Code</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Running the CMake Tutorial in a VS Code Dev Container</a><ul>
@@ -77,21 +88,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-math-and-math-software/">Math and Math Software</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-math/">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Header</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python/">Python</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">More:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../all_files/">Site Index</a></li>
 </ul>
 
         </div>
@@ -264,11 +260,11 @@ CMakeLists.txt<span class="w">          </span>MathFunctions<span class="w">    
 <h2>Using VS Code’s Dev Container Extension<a class="headerlink" href="#using-vs-code-s-dev-container-extension" title="Link to this heading"></a></h2>
 <p>Rather than be limited to editing the code from VS Code on the host, the VS Code “Dev Containers” extension lets you connect to either a pre-existing Dev Container developed by Microsoft or attach to a running container you’ve developed yourself. We’ll show the latter case here, but it’s worth mentioning that the Visual Studio Dev Container for C++ includes CMake (though not the tutorial source, as far as I’m aware).</p>
 <p>With the Dev Container extension installed, as with most extensions, you use the Command Pallete (CMD-SHIFT-P or CTRL-SHIFT-P) to access the extension’s features. If you start typing “Dev”, you can search for and run the command labeled “Dev Containers: Attach to Running Container”:</p>
-<p><img alt="" src="../_images/image12.png" /></p>
+<p><img alt="" src="../_images/image5.png" /></p>
 <p>Here you’ll see your running tutorial container in the list of available containers.</p>
-<p><img alt="" src="../_images/image-139.png" /></p>
+<p><img alt="" src="../_images/image-118.png" /></p>
 <p>Selecting it will open a new VS Code window, opening the source folder on the container. From here, if you open a terminal, it will automatically be a terminal in the container, not on the host. If you open a C++ file, it may prompt you to install an additional extension (as you’d expect if you were working on the host).</p>
-<p><img alt="" src="../_images/image-2-1024x7681.png" /></p>
+<p><img alt="" src="../_images/image-2-1024x768.png" /></p>
 <p>Using the Dev Containers plugin with the C++ Extension Pack, I discovered that it does just what I want it to do. That is, it lets me build and debug code on the container from within VS Code. To demonstrate this, I’ve checked the code for the tutorial solutions I’ve worked on so far in <a class="reference external" href="https://github.com/CodeSolid/c/tree/main/cmake_tutorial_solutions">this repository folder</a>. (If you’ve been following along in the gcc_cmake_tutorial folder, that’s fine – simply copy the repository folder’s source to the source folder in gcc_cmake_tutorial).</p>
 <p>If you have the tutorial solution files in place, you can open a terminal prompt in the VS Code window that’s attached to the dev container. Create a source/Step_2 folder if you don’t have one already, and from that directory, run these commands to build the Step 2 project in debug mode:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Debug<span class="w"> </span>../Step2
@@ -317,10 +313,10 @@ cmake<span class="w"> </span>--build<span class="w"> </span>.
 <li><p>The args line, where we pass the number 16 to our square root function. I know you probably already know the answer to the square root of 16, but of course, we’re here to have fun debugging, not to prove the math.</p></li>
 </ul>
 <p>We’re almost there. Let’s open the file Step2/tutorial.cxx in the editor. We’re now should be ready to launch the debugger, and it should prompt you for the launch configuration we just created. If it doesn’t, or you run into errors, try this: select the correct launch configuration manually. To do this, choose the settings button (see the gear icon) in the upper right-hand corner. It should look something like this with the button pressed:</p>
-<p><img alt="Selecting a launch configuration in VS Code." src="../_images/image-4-1024x3371.png" /></p>
+<p><img alt="Selecting a launch configuration in VS Code." src="../_images/image-4-1024x337.png" /></p>
 <p>You may have to scroll, but in the image above, note that the “(gdb) Launch Step 2 Tutorial” configuration is at the bottom, so just select it. Annoyingly, this opens the configuration file again, but it also selects it as current.</p>
 <p>You can now use the debugger as you normally would on your own machine. For example, you can set a breakpoint in the first line of the main method, and clicking the start button (upper right) will land you here:</p>
-<p><img alt="Debugging C++ in a custom container using the VS Code Dev container plugin." src="../_images/image-5-1024x4661.png" /></p>
+<p><img alt="Debugging C++ in a custom container using the VS Code Dev container plugin." src="../_images/image-5-1024x466.png" /></p>
 <p>Of course, you have the usual fun variables, watch, and call stack windows over on the left. If debugging C++ or other languages is new to you and you’d like to see a tutorial on it, drop me a comment, and I’ll add it to my to-do list.</p>
 <p>If you work in VS Code and like to have the flexibility of being able to browse and debug source in pre-built development environments that others can install easily, I urge you to check out the Dev Containers plugin in VS Code. My experience to date shows me it works flawlessly for C++, and unlike the Docker support in some commercial IDEs – it’s 100% free! I’m confident it probably runs well for other languages as well. As for me, I’m off to do more chapters of the CMake tutorial and start experimenting with my own projects using it.</p>
 </section>

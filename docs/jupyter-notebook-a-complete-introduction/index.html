@@ -55,6 +55,17 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Categories</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../category-math-and-math-software/">Math and Math Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-math/">Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python/">Python (General)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Python Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../category-jupyter/">Jupyter</a><ul class="current">
@@ -84,21 +95,6 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-math-and-math-software/">Math and Math Software</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-math/">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Header</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python/">Python</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">More:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../all_files/">Site Index</a></li>
 </ul>
 
         </div>
@@ -141,7 +137,7 @@
 <p>To give you a feel for running Jupyter Notebook, we’ve prepared a starter notebook for you that you can run online. You may want to open it in a new browser tab to switch back to this article. To do this, use CTRL+T on Windows or Linux or CMD-T on a Mac. Here is the online notebook.</p>
 <p>If you look at the URL for the article, you’ll see it’s hosted on Google Colab – perhaps the most popular site for hosting Jupyter Notebooks online.</p>
 <p>Jupyter Notebook files are a set of editable rows called “cells.” Cells have two basic types – markdown cells containing text in markdown format and code cells that contain code. In addition, non-editable cells below the code cells will show the result of running the cell. To edit the cell as the notebook asks you to do, in Colab, you’ll need to “connect” the notebook to a running Python kernel. Click the connect button in the upper-righthand corner.</p>
-<p><img alt="" src="../_images/colab_connect_button1.png" /></p>
+<p><img alt="" src="../_images/colab_connect_button.png" /></p>
 <p>Clicking connect will prompt you to log in using your Gmail account. At this point, you can follow along with the notebook and edit the Python code in the code cell and run it. You likely will see a warning to the effect that Google is not the author of the notebook, but as you can see, the code is relatively straightforward.</p>
 <p>Jupyter Notebook supports many keyboard shortcuts, and you can find links to many cheat sheets online. In addition to Shift-ENTER to run the cell. I’ll satisfy myself here by just listing four of my favorites. For each of these, type escape first and the indicated letter, don’t key them simultaneously.</p>
 <ul class="simple">
@@ -151,7 +147,7 @@
 <li><p>ESC + M Change the curent cell type to MARKDOWN.</p></li>
 </ul>
 <p>I love Colab because it allows my readers to interactively run the coding exercises I publish from time to time. For example, all of the Jupyter Notebook pages on the companion site to this one, <a class="reference external" href="https://codesolid.github.io/intro.html">CodeSolid.github.io</a>, contain a link (look for the rocketship on top) to a live Colab version of the notebook.</p>
-<p><img alt="" src="../_images/colab_githubio_button1.png" /></p>
+<p><img alt="" src="../_images/colab_githubio_button.png" /></p>
 <p>Colab is a great place to share work with others, but until your notebooks are ready for that, you’ll probably want to run Juptyer locally. Moreover, running Jupyter locally will give you access to a more complete Jupyter Lab environment, which offers many more features.</p>
 </section>
 <section id="running-jupyter-lab-locally">
@@ -183,10 +179,10 @@ Or copy and paste one of these URLs:
 </div>
 <p>Unlike Jupyter Notebook, which allows opening up notebook files only, the launcher window enables you to launch a notebook like the one we saw in Colab, a Python Console, terminal windows, and various types of files.</p>
 <p>Here’s how it looks for me. Note that you probably won’t see the Julia selections available on your machine if you followed the steps above unless at some point you also set up Julia for Jupyter Notebook, as <a class="reference external" href="https://codesolid.com/julia-vs-python-now-for-something-completely-different/">I did recently</a>.</p>
-<p><img alt="" src="../_images/image-1024x4861.png" /></p>
+<p><img alt="" src="../_images/image-1024x486.png" /></p>
 <p>If you later close the launcher, you can still launch these items by selecting “File / New” from the menu. Unlike Jupyter Notebook, then, JupyterLab is much more flexible, and supports a wide variety of file types. It’s not as full featured an editor as something like Visual Studio Code, but it’s appropriate for quick editing jobs that need to be done while working on a notebook.</p>
 <p>JupyterLab supports tiled windows. One place where this shines is when editing Markdown files, and using Markdown Preview. Right-click on the Markdown file to show a preview pane.</p>
-<p><img alt="" src="../_images/MarkdownPreviewJupyterLab-1024x6351.png" /></p>
+<p><img alt="" src="../_images/MarkdownPreviewJupyterLab-1024x635.png" /></p>
 <p>Another excellent feature of Jupyter lab that you can take advantage of is one that users of the Spyder IDE are used to – being able to have more than one screen element sharing the same Python kernel. You can, for example, open a notebook then open a Python terminal that shares the same kernel as the notebook.</p>
 <p>To do this, right-click on the notebook and select “New Console for Notebook.” This will open up a new kernel sharing the same variable space as the notebook. In the screenshot below, for example, I followed these steps:</p>
 <ol class="arabic simple">
@@ -195,7 +191,7 @@ Or copy and paste one of these URLs:
 <li><p>In the console, I defined a data_frame.</p></li>
 <li><p>Back in the notebook, I used the data_frame.</p></li>
 </ol>
-<p><img alt="" src="../_images/notebook_and_console-1024x8401.png" /></p>
+<p><img alt="" src="../_images/notebook_and_console-1024x840.png" /></p>
 <p>Of course, that precise sequence isn’t something you’d do outside of a demo – I did it to show that you can go back and forth between the console and the notebook. But one practical real-world application of this would be to run quick experiments in the console to evaluate or explore data in the notebook while keeping the notebook itself in a more pristine state.</p>
 <p>One feature of JupyterLab that I admit I haven’t had much success with are the extensions. The “puzzle-piece” icon on the left brings up the interface to manage JupyterLab extensions. Of the extensions I’ve explored, many of these require additional, manual configuration, and some are incompatible with my current JupyterLab version. Perhaps in the future I’ll have more to say about these after spending more time on them. In the meantime, the takeaway is that they don’t generally install and work as seamlessly as, for example, PyCharm plugins or VS Code extensions.</p>
 <p>As a final note, installing JupyterLab also enables running traditional Jupyter Notebook in the traditional way. To see how this works, simply replace the command <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code> in the instructions above with <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span></code>.</p>

@@ -1,6 +1,6 @@
 
-Python
-======
+Python (General)
+================
 .. toctree::
    :caption: Articles:
    :maxdepth: 1

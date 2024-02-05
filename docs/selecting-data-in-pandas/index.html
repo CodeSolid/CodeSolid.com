@@ -55,14 +55,14 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Categories</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math-and-math-software/">Math and Math Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math/">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python/">Python (General)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Python Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../category-pandas/">Pandas</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Selecting Data in Pandas</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#introduction-to-selecting-data-in-pandas">Introduction to Selecting Data in Pandas</a><ul>
@@ -92,16 +92,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../how-to-visualize-data-using-pandas/">How to Visualize Data Using Pandas</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Header</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python/">Python</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">More:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../all_files/">Site Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 </ul>
 
         </div>
@@ -151,7 +147,7 @@
 </pre></div>
 </div>
 <p>Output:</p>
-<p><img alt="Importing dataset" src="../_images/importing-dataset1.png" /></p>
+<p><img alt="Importing dataset" src="../_images/importing-dataset.png" /></p>
 <p>As you can see, the dataset contains information about different types of flowers. Using this data set, let’s discuss various methods for selecting data from a Pandas DataFrame.</p>
 <section id="using-the-operator">
 <h3>Using the [] Operator<a class="headerlink" href="#using-the-operator" title="Link to this heading"></a></h3>
@@ -203,7 +199,7 @@
 </pre></div>
 </div>
 <p>Output:</p>
-<p><img alt="selecting data in pandas" src="../_images/selecting-data-in-pandas1.png" /></p>
+<p><img alt="selecting data in pandas" src="../_images/selecting-data-in-pandas.png" /></p>
 <p>Notice that we have selected the petal length and petal width columns.</p>
 </section>
 <section id="the-iloc-and-loc-methods">
@@ -218,7 +214,7 @@
 </pre></div>
 </div>
 <p>Output:</p>
-<p><img alt="five rows" src="../_images/five-rows1.png" /></p>
+<p><img alt="five rows" src="../_images/five-rows.png" /></p>
 <p>As you can see, we have selected the first five elements.</p>
 <p>We know that in Python, we can also use negative indexing. The -1 shows the last element, the -2 second last element, and so on. We can use the negative indexing with iloc[] method to get access to the last elements as well. Let us print the last five rows from the dataset using the negative indexing.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select the last 5 rows</span>
@@ -226,35 +222,35 @@
 </pre></div>
 </div>
 <p>Output:</p>
-<p><img alt="" src="../_images/image-613.png" /></p>
+<p><img alt="" src="../_images/image-65.png" /></p>
 <p>Another important feature is the multiple-row selection. Now, let us select the first three rows in only the sepal_length and petal_length columns:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select multiple rows and columns by index position</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<p><img alt="multiple columns" src="../_images/mutliple-columns1.png" /></p>
+<p><img alt="multiple columns" src="../_images/mutliple-columns.png" /></p>
 <p>We can also use the loc[] method to select the data based on specific conditions. For example, now we will select the five rows where the species name is “Iris-setosa.”</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select the first 5 rows where target_names is setosa</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Iris-setosa&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<p><img alt="loc[] method" src="../_images/loc-method1.png" /></p>
+<p><img alt="loc[] method" src="../_images/loc-method.png" /></p>
 <p>Let us also take an example, of how we can use the loc[] method to select the first five rows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select a five row by label</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<p><img alt="five rows" src="../_images/five-rows1.png" /></p>
+<p><img alt="five rows" src="../_images/five-rows.png" /></p>
 <p>Here is another example that shows how to select multiple rows and columns by label.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select multiple rows and columns by label</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;sepal_length&#39;</span><span class="p">,</span> <span class="s1">&#39;petal_length&#39;</span><span class="p">]])</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<p><img alt="multiple columns" src="../_images/multiple-columns1.png" /></p>
+<p><img alt="multiple columns" src="../_images/multiple-columns.png" /></p>
 <p>As you can see, we selected multiple columns and rows using loc[] method.</p>
 </section>
 <section id="using-boolean-indexing">
@@ -266,7 +262,7 @@
 </pre></div>
 </div>
 <p>Output:</p>
-<p><img alt="boolean indexing" src="../_images/boolean-indexing1.png" /></p>
+<p><img alt="boolean indexing" src="../_images/boolean-indexing.png" /></p>
 <p>The expression <code class="docutils literal notranslate"><span class="pre">data['sepal_width']</span> <span class="pre">&gt;</span> <span class="pre">3</span></code> returns a boolean array where each element is True if the corresponding value in the ‘sepal width (cm)’ column is greater than 3, and False otherwise.</p>
 <p>We can also use multiple conditions in a boolean expression. For example, we can select only the rows where the sepal width is greater than 3, and the petal width is less than 3.2:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># multiple conditions</span>
@@ -274,7 +270,7 @@
 </pre></div>
 </div>
 <p>Output:</p>
-<p><img alt="selection multiple" src="../_images/multiple-selection1.png" /></p>
+<p><img alt="selection multiple" src="../_images/multiple-selection.png" /></p>
 <p>Note that we need to wrap each condition in parentheses, and use the &amp; operator to combine the conditions.</p>
 <p>We learned that Boolean indexing is a powerful technique in Pandas for filtering data in a data frame. It allows us to select only the rows that match a specified condition, making extracting and analyzing relevant data easy. Using boolean expressions, we can create complex filters that match multiple conditions, making it a useful tool for data analysis.</p>
 </section>
@@ -287,7 +283,7 @@
 </pre></div>
 </div>
 <p>Output:</p>
-<p><img alt="boolean indexing" src="../_images/boolean-indexing1.png" /></p>
+<p><img alt="boolean indexing" src="../_images/boolean-indexing.png" /></p>
 <p>The expression <code class="docutils literal notranslate"><span class="pre">&quot;sepal_width</span> <span class="pre">&gt;</span> <span class="pre">3&quot;</span></code> is evaluated for each element in the DataFrame, and only the rows where the expression evaluates to True are kept.</p>
 <p>We can also use multiple conditions in the query expression. For example, we can select only the rows where the sepal width is greater than 3 and the petal width is less than 3.2:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># multiple columns</span>
@@ -295,7 +291,7 @@
 </pre></div>
 </div>
 <p>Output:</p>
-<p><img alt="selection multiple" src="../_images/multiple-selection1.png" /></p>
+<p><img alt="selection multiple" src="../_images/multiple-selection.png" /></p>
 <p>Here we use the more natural “and” keyword to combine conditions.</p>
 <p>As we’ve seen, Pandas’s query() method lets us use a more natural and readable syntax than boolean indexing, making extracting and analyzing relevant data easy.</p>
 </section>
@@ -331,7 +327,7 @@
 </pre></div>
 </div>
 <p>Output:</p>
-<p><img alt="sepal length" src="../_images/sepal-length1.png" /></p>
+<p><img alt="sepal length" src="../_images/sepal-length.png" /></p>
 <p>As you can see, the length of the sepals is no more floating points.</p>
 <p>We can use the apply() method with lambda functions to perform more complex operations on the columns of the DataFrame. For example, we can use a lambda function to calculate the square of the values in the ‘sepal length (cm)’ column:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># finding the square of the length</span>
@@ -342,7 +338,7 @@
 </pre></div>
 </div>
 <p>Output:</p>
-<p><img alt="squared" src="../_images/squared1.png" /></p>
+<p><img alt="squared" src="../_images/squared.png" /></p>
 <p>As you can see, we added a new column that contains the squares of the sepal_length column.</p>
 </section>
 <section id="using-the-mask-method-to-select-data">
@@ -360,7 +356,7 @@
 </pre></div>
 </div>
 <p>Output:</p>
-<p><img alt="mask method" src="../_images/mask-method1.png" /></p>
+<p><img alt="mask method" src="../_images/mask-method.png" /></p>
 <p>Notice that the output contains only the rows where the ‘sepal_length’ column is less than or equal to 5.</p>
 </section>
 </section>

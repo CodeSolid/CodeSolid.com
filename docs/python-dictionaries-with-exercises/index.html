@@ -24,7 +24,7 @@
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" />
     <link rel="next" title="The Python For Loop: Complete Tutorial and Practice Exercises" href="../python-for-loop-a-complete-tutorial-with-exercises/" />
-    <link rel="prev" title="Python Lists for Beginners: A Complete Lesson With Exercises" href="../python-lists/" /> 
+    <link rel="prev" title="How To Profile Python Code" href="../how-do-i-profile-python-code/" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -55,19 +55,13 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Categories</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math-and-math-software/">Math and Math Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math/">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python/">Python (General)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../category-python-practice/">Header</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../category-python-practice/">Python Practice</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../numpy-practice-questions-to-make-you-an-expert/">NumPy Examples –  Practice Questions Make You an Expert</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../getting-started-with-python-classes/">Python Classes Zero to Expert: A Tutorial with Exercises</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../zen-of-100-days-of-python/">The Strange Zen of 100 Days of Python</a></li>
@@ -98,11 +92,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python/">Python</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">More:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../all_files/">Site Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 </ul>
 
         </div>
@@ -119,7 +115,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
+          <li class="breadcrumb-item"><a href="../category-python/">Python (General)</a></li>
       <li class="breadcrumb-item active">Python Dictionaries for Beginners:  A Complete Lesson With Exercises</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/python-dictionaries-with-exercises.md.txt" rel="nofollow"> View page source</a>
@@ -218,7 +214,7 @@
 </pre></div>
 </div>
 <p>While this method works if you know the key exists in the dictionary, it raises a KeyError if the key is not in the dictionary:</p>
-<p><img alt="" src="../_images/image-19-1024x2141.png" /></p>
+<p><img alt="" src="../_images/image-19-1024x214.png" /></p>
 <p>The way to avoid this error if you’re unsure what keys the dictionary contains is to use the dictionary’s get method instead. This method takes a key to retrieve, and instead of raising an error if the key is not in the dictionary, it returns none by default. As an option, you can pass a second argument to the <code class="docutils literal notranslate"><span class="pre">get</span></code> method to return a different default.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">grade_map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;G&quot;</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">grade_map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
@@ -441,7 +437,7 @@ isn<span class="err">&#39;</span>t.:<span class="w"> </span><span class="m">1</s
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../python-lists/" class="btn btn-neutral float-left" title="Python Lists for Beginners: A Complete Lesson With Exercises" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../how-do-i-profile-python-code/" class="btn btn-neutral float-left" title="How To Profile Python Code" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../python-for-loop-a-complete-tutorial-with-exercises/" class="btn btn-neutral float-right" title="The Python For Loop: Complete Tutorial and Practice Exercises" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

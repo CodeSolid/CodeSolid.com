@@ -55,14 +55,14 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Categories</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math-and-math-software/">Math and Math Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math/">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python/">Python (General)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Python Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../category-pandas/">Pandas</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../selecting-data-in-pandas/">Selecting Data in Pandas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python-pyarrow-and-parquet/">Python Parquet and Arrow:  Using PyArrow with Pandas</a></li>
@@ -91,16 +91,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../how-to-visualize-data-using-pandas/">How to Visualize Data Using Pandas</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Header</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python/">Python</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">More:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../all_files/">Site Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 </ul>
 
         </div>
@@ -174,13 +170,13 @@
 </pre></div>
 </div>
 <p>Output:</p>
-<p><img alt="" src="../_images/image-6-1024x1921.png" /></p>
+<p><img alt="" src="../_images/image-6-1024x192.png" /></p>
 <p>Now that we have the dataset loaded, querying it is quite simple. We just call the lambda function we created earlier with the query we want to run. For example, let’s take a look at what our driver did earn his top five all time tips:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sqldf</span><span class="p">(</span><span class="s2">&quot;SELECT pickup, dropoff, distance, fare, tip from taxis order by tip desc limit 5&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<p><img alt="" src="../_images/image-711.png" /></p>
+<p><img alt="" src="../_images/image-75.png" /></p>
 <p>Well, that’s certainly an unexpected result. Either we’re dealing with missing data, or two of the top tips our driver earned was for letting the meter run, sometimes only for a few seconds. The data is a bit of a mystery, but the query we ran to get it was extremely straightforward.</p>
 <p>We didn’t save the result of the last query, but if you do, you’ll see it is returned as a DataFrame</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">top_tips</span> <span class="o">=</span> <span class="n">sqldf</span><span class="p">(</span><span class="s2">&quot;SELECT pickup, dropoff, distance, fare, tip from taxis order by tip desc limit 5&quot;</span><span class="p">)</span>
@@ -250,7 +246,7 @@ conda<span class="w"> </span>activate<span class="w"> </span>duckdb
 </pre></div>
 </div>
 <p>Output:</p>
-<p><img alt="" src="../_images/image-1-1024x2001.png" /></p>
+<p><img alt="" src="../_images/image-1-1024x200.png" /></p>
 <p>Well, that’s interesting, we have some data that tells us who survived, along with their age, sex, and the type of passage they booked (“class”).</p>
 <p>We all would like to think that when disaster strikes, everyone gets treated fairly, class distinctions magically disappear, and a sort of camaraderie of catastrophe makes us all equal. Let’s see what the data says. Using SQL, we can easily query the class, how many passengers were traveling, and how many survived, and then calculate a percentage based on that.</p>
 <p>Here’s how it looks:</p>
@@ -265,11 +261,11 @@ conda<span class="w"> </span>activate<span class="w"> </span>duckdb
 </pre></div>
 </div>
 <p>Output:</p>
-<p><img alt="" src="../_images/image-327.png" /></p>
+<p><img alt="" src="../_images/image-313.png" /></p>
 <p>Oh, dear. That wasn’t very egalitarian at all, was it?</p>
 <p>This result may not be all that surprising, really, but let’s point out two things about the code. First, we used a redirect operator, &lt;&lt;, rather than the usual assignment operator, <code class="docutils literal notranslate"><span class="pre">=</span></code>, to capture the results to a variable. Second, we were able to format the query somewhat by adding a backslash at the end of each continued line. That’s optional, of course, but it does help with the readability of the query.</p>
 <p>Since we had earlier used the setting <code class="docutils literal notranslate"><span class="pre">&quot;SqlMagic.autopandas</span> <span class="pre">=</span> <span class="pre">True</span></code>”, the type of our query result, survivors_by_fare is a Pandas DataFrame, so we can call the usual methods on it, for example, to list the columns:</p>
-<p><img alt="" src="../_images/image-417.png" /></p>
+<p><img alt="" src="../_images/image-49.png" /></p>
 <p>Incidentally, even if you don’t have autopandas set, you can still get a DataFrame from the ResultSet object that would be returned by calling the DataFrame() method on it. The following code sequence demonstrates this.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">config</span> <span class="n">SqlMagic</span><span class="o">.</span><span class="n">autopandas</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="o">%</span><span class="n">sql</span> <span class="n">survivors_by_fare_rs</span> <span class="o">&lt;&lt;</span> <span class="n">SELECT</span> <span class="n">class</span><span class="p">,</span> \
@@ -303,7 +299,7 @@ After<span class="w"> </span>conversion,<span class="w"> </span>we<span class="w
 </pre></div>
 </div>
 <p>Output:</p>
-<p><img alt="" src="../_images/image-59.png" /></p>
+<p><img alt="" src="../_images/image-53.png" /></p>
 <p>One thing to keep in mind when using <code class="docutils literal notranslate"><span class="pre">%sql</span> <span class="pre">--persist</span></code> like this is that it’s the equivalent of a create table plus the necessary insert statements. This means it’s non-reentrant, so if you need to run it again, you first need to drop the table first, as in this sequence:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">sql</span> <span class="n">DROP</span> <span class="n">table</span> <span class="n">df_survivors</span>
 <span class="o">%</span><span class="n">sql</span> <span class="o">--</span><span class="n">persist</span> <span class="n">df_survivors</span>

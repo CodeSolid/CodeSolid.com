@@ -23,7 +23,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" />
-    <link rel="next" title="Python" href="../category-python/" />
+    <link rel="next" title="Pandas" href="../category-pandas/" />
     <link rel="prev" title="Pip vs Pipenv: Which is better and which to learn first?" href="../pip-vs-pipenv-which-is-better-and-which-to-learn-first/" /> 
 </head>
 
@@ -55,19 +55,13 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Categories</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math-and-math-software/">Math and Math Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math/">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python/">Python (General)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Header</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Python Practice</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../category-python-tools/">Python Tools</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../debugging-python-in-vs-code/">Debugging Python in VS Code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
@@ -97,11 +91,13 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python/">Python</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">More:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../all_files/">Site Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 </ul>
 
         </div>
@@ -144,9 +140,9 @@
 <h2>Which Is the Better Beginner IDE for Python?<a class="headerlink" href="#which-is-the-better-beginner-ide-for-python" title="Link to this heading"></a></h2>
 <p>Because PyCharm is designed specifically for Python development, it’s much easier to get started with Python development in PyCharm than in VS Code. So if you are brand new to Python and don’t already have some familiarity with VS Code, then PyCharm Community Edition is a clear winner here. Although it’s true that setting up VS Code for Python is mostly just a matter of installing Microsoft’s excellent Python extension, PyCharm still makes many things easier than VS Code.</p>
 <p>For example, in PyCharm, the process of debugging or running the tests in the test directory is as simple as right-clicking on the directory and clicking on the appropriate menu item, as shown here:</p>
-<p><img alt="" src="../_images/running-tests-pycharm1.png" /></p>
+<p><img alt="" src="../_images/running-tests-pycharm.png" /></p>
 <p>The same task in VS Code involves a separate configuration step. To be sure, that step is just a matter of clicking a menu item. However, until you know that the flask icon brings up the testing pane, the process is not quite as intuitive.</p>
-<p><img alt="" src="../_images/running-tests-vscode1.png" /></p>
+<p><img alt="" src="../_images/running-tests-vscode.png" /></p>
 <p>Verdict: For a beginner Python environment, PyCharm Community Edition wins.</p>
 </section>
 <section id="which-is-better-for-general-editing-tasks">
@@ -161,7 +157,7 @@
 <h2>Which is Better for Remote Development?<a class="headerlink" href="#which-is-better-for-remote-development" title="Link to this heading"></a></h2>
 <p>One of the things I’ve been really excited about lately is remote development. I have some experience with such tools. I’ve used <a class="reference external" href="https://aws.amazon.com/cloud9/">AWS’s Cloud9</a> in the past, for example, to spin up a cloud IDE I can access remotely. When I started planning a <a class="reference external" href="https://codesolid.com/new-for-2022-python-git-github-bootcamp-course/">Python course</a> I’d like to offer, for example, it struck me that a standard remote development environment would not only scale well but also would let me easily help individual students when they get stuck.</p>
 <p>Since I believe that programmers should start publishing their code on GitHub as soon as they start programming, I was really excited about <a class="reference external" href="https://www.gitpod.io/">gitpod.io</a>. Gitpod lets you turn any GitHub repository into a development environment, using VS Code (running in the browser) as the front end. The process is as simple as prefixing the GitHub repository with a Gitpod URL. For example, here’s the <a class="reference external" href="https://gitpod.io/#https://github.com/CodeSolid/python-package-example-setuptools">Gitpod URL</a> for the repository for my recent article Python Package Example article. With the Gitpod Chrome extension, finding that URL for you was as simple as navigating to the GitHub repository I wanted to share and looking for the green Gitpod button.</p>
-<p><img alt="" src="../_images/gitpod-extension-demo-1024x6831.png" /></p>
+<p><img alt="" src="../_images/gitpod-extension-demo-1024x683.png" /></p>
 <p>The freemium pricing, convenience and GitHub integration of Gitpod together with the VS Code integration makes this solution really attractive for classrooms or small groups of developers to work together.</p>
 <p>In addition to Gitpod, there are other tools in this space. Microsoft and GitHub, for example, offer remote development for VS Code on a tool that’s admittedly somewhat pricier, <a class="reference external" href="https://docs.github.com/en/codespaces">GitHub Codespaces</a>.</p>
 <p>One of Gitpod’s blog posts does mention that the remote capabilities for JetBrains products (including PyCharm) will offer the ability to connect to Gitpod from multiple IDEs. However, I think this represents more of a case of Gitpod’s marketing staff getting out over their skis than it is a real thing. So far, the documentation I’ve seen for how to do this involves installing a cumbersome client-side connector. And as for JetBrains, most of their marketing around remote development seems to be aimed at promoting their proprietary back-end, Space. There may be seamless integration with GitHub repositories at some point, but given that JetBrains no doubt sees Microsoft as a competitor, I wouldn’t count on it.</p>
@@ -205,7 +201,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../pip-vs-pipenv-which-is-better-and-which-to-learn-first/" class="btn btn-neutral float-left" title="Pip vs Pipenv: Which is better and which to learn first?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../category-python/" class="btn btn-neutral float-right" title="Python" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../category-pandas/" class="btn btn-neutral float-right" title="Pandas" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

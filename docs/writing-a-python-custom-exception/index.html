@@ -55,21 +55,9 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Categories</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math-and-math-software/">Math and Math Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math/">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Header</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../category-python/">Python</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../category-python/">Python (General)</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../why-is-python-popular/">Why Is Python Popular?# Why Is Python Popular</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../benchmarking-python-and-rust-async-web-server-performance/">Benchmarking Python and Rust Async Web Server Performance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python-date-tutorial/">Python Date and Time Functions: The Complete Tutorial</a></li>
@@ -136,10 +124,18 @@
 <li class="toctree-l2"><a class="reference internal" href="../python-operators/">Python Operators:  The Building Blocks of Successful Code</a></li>
 </ul>
 </li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">More:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../all_files/">Site Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Python Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 </ul>
 
         </div>
@@ -156,7 +152,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../category-python/">Python</a></li>
+          <li class="breadcrumb-item"><a href="../category-python/">Python (General)</a></li>
       <li class="breadcrumb-item active">Writing a Python Custom Exception</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/writing-a-python-custom-exception.md.txt" rel="nofollow"> View page source</a>
@@ -194,7 +190,7 @@
 <section id="raising-custom-exceptions">
 <h3>Raising Custom Exceptions<a class="headerlink" href="#raising-custom-exceptions" title="Link to this heading"></a></h3>
 <p>Raising (throwing) such an exception is even easier than creating them. We use the same mechanism (<code class="docutils literal notranslate"><span class="pre">raise</span></code>) as we would for a built-in exception. Here’s how that looks in Jupyter:</p>
-<p><img alt="" src="../_images/image-2210.png" /></p>
+<p><img alt="" src="../_images/image-223.png" /></p>
 </section>
 <section id="further-customizing-exception-behavior-with-init">
 <h3>Further Customizing Exception Behavior with __init__:<a class="headerlink" href="#further-customizing-exception-behavior-with-init" title="Link to this heading"></a></h3>
@@ -259,7 +255,7 @@
 <section id="user-defined-exceptions-vs-built-in-exceptions">
 <h3>User Defined Exceptions vs. Built-In Exceptions<a class="headerlink" href="#user-defined-exceptions-vs-built-in-exceptions" title="Link to this heading"></a></h3>
 <p>As we’ve seen above, when we create user-defined exceptions in Python, we derive our custom class from Exception, not from BaseException. The informal class diagram below gives an overview of how the different classes fit together.</p>
-<p><img alt="" src="../_images/CustomException.drawio-21.png" /></p>
+<p><img alt="" src="../_images/CustomException.drawio-2.png" /></p>
 <p>The Python documentation advises that custom exceptions should derive from Exception, not BaseException. To give you an idea of why this is so, consider two of the other classes derived from BaseException: SystemExit and KeyboardInterrupt. As the names imply, these are very low-level classes that we might handle, but generally wouldn’t need to override.</p>
 <p>As we show here, the Exception class is a bit of a chameleon. It forms the basis of several important built-in classes on the one hand, and on the other, it is the right place to begin to define our user-defined exception classes.</p>
 <p>On the built-in exception side on the left, many classes in Python derive from OSError. Moreover, several earlier classes have been reworked as aliases of OSError as of Python 3.3. For example, in newer versions of Python <code class="docutils literal notranslate"><span class="pre">IOError</span> <span class="pre">==</span> <span class="pre">OSError</span></code> evaluates to <code class="docutils literal notranslate"><span class="pre">True</span></code>! There are other classes here as well, however. Here is a more complete <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#exception-hierarchy">hierarchy chart</a> for the built-in exceptions.</p>

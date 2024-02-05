@@ -55,15 +55,9 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Categories</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math-and-math-software/">Math and Math Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math/">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python/">Python (General)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a><ul class="current">
@@ -100,13 +94,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../python-vs-matlab/">Python vs. MATLAB: Price, Performance, Features</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Header</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Python Practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python/">Python</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">More:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../all_files/">Site Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 </ul>
 
         </div>
@@ -203,7 +199,7 @@ These<span class="w"> </span>commands<span class="w"> </span>were<span class="w"
 <section id="solving-equations-and-working-with-math-functions">
 <h3>Solving Equations and Working With Math Functions<a class="headerlink" href="#solving-equations-and-working-with-math-functions" title="Link to this heading"></a></h3>
 <p>The syntax for defining math functions such as polynomials is quite different in SymPy than it is in SageMath, but still pretty straightforward. Take, for example, this simple difference of squares:</p>
-<p><img alt="" src="../_images/image-1115.png" /></p>
+<p><img alt="" src="../_images/image-119.png" /></p>
 <p>In Sage, we would define this function with:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">9</span>
 </pre></div>
@@ -213,13 +209,13 @@ These<span class="w"> </span>commands<span class="w"> </span>were<span class="w"
 </pre></div>
 </div>
 <p>Now that we have a function defined, we can do several things with it. Let’s enter the variable name in a new cell. We see the function body displayed as nicely formatted LaTeX (in JupyterLab, SymPy uses MathJax to render the output this way).</p>
-<p><img alt="" src="../_images/image-1212.png" /></p>
+<p><img alt="" src="../_images/image-124.png" /></p>
 <p>We can solve the function using the <code class="docutils literal notranslate"><span class="pre">solve</span></code> function. The solve function sets the expression equal to zero and solves for that, i.e., it solves:</p>
-<p><img alt="" src="../_images/image-328.png" /></p>
+<p><img alt="" src="../_images/image-323.png" /></p>
 <p>Once again, the result is nicely formatted:</p>
-<p><img alt="" src="../_images/image-155.png" /></p>
+<p><img alt="" src="../_images/image-151.png" /></p>
 <p>That solution looks pretty good on the face of it, but we can check it by factoring the expression using <code class="docutils literal notranslate"><span class="pre">factor</span></code>:</p>
-<p><img alt="" src="../_images/image-146.png" /></p>
+<p><img alt="" src="../_images/image-142.png" /></p>
 <p>We can also substitute the solution values, 3 and -3, back into the equation and check it that way:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">)</span>
@@ -240,16 +236,16 @@ True
 <span class="n">p</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><img alt="" src="../_images/image-173.png" /></p>
+<p><img alt="" src="../_images/image-171.png" /></p>
 </section>
 <section id="sympy-and-latex">
 <h3>SymPy and LaTeX<a class="headerlink" href="#sympy-and-latex" title="Link to this heading"></a></h3>
 <p>I mentioned how much I like the default formatting you get when you use SymPy in Jupyter Lab. (Incidentally, it also works in Jupyter Notebook, too).</p>
 <p>You may want to view the raw LaTeX output from time to time, as I did earlier when I prepared the screenshot for our “difference of squares” function. To do that, call either <code class="docutils literal notranslate"><span class="pre">latex</span></code> or <code class="docutils literal notranslate"><span class="pre">print_latex</span></code>.</p>
 <p>For example:</p>
-<p><img alt="" src="../_images/image-186.png" /></p>
+<p><img alt="" src="../_images/image-182.png" /></p>
 <p>To get the LaTeX for that, use one of:</p>
-<p><img alt="" src="../_images/image-195.png" /></p>
+<p><img alt="" src="../_images/image-192.png" /></p>
 <p>As you can see, the second function returns an escaped string, so is suitable if you need it for a Python program, while <code class="docutils literal notranslate"><span class="pre">print_latex</span></code> is likely what you want if you’re working interactively. For example, you can paste the output of print_latex into a markdown cell with the following contents:</p>
 <div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>$
 \frac{\sqrt{x}}{1 - x^{2}}
@@ -257,7 +253,7 @@ $
 </pre></div>
 </div>
 <p>Running this in cell Jupyter, you’ll see it neatly formatted and centered.</p>
-<p><img alt="" src="../_images/image-336.png" /></p>
+<p><img alt="" src="../_images/image-333.png" /></p>
 </section>
 <section id="sympy-and-latex-a-caveat">
 <h3>SymPy and LaTeX: A Caveat<a class="headerlink" href="#sympy-and-latex-a-caveat" title="Link to this heading"></a></h3>
@@ -266,9 +262,9 @@ $
 </pre></div>
 </div>
 <p>That square root is in the denominator when we enter it, but not in the output:</p>
-<p><img alt="" src="../_images/image-235.png" /></p>
+<p><img alt="" src="../_images/image-232.png" /></p>
 <p>I thought I’d done something wrong for a minute when I first saw that, until I realized that having the root of a constant in the denominator was low-hanging fruit, so SymPy took the liberty of making it more tractable by multiplying the whole thing by:</p>
-<p><img alt="" src="../_images/image-226.png" /></p>
+<p><img alt="" src="../_images/image-221.png" /></p>
 <p>Incidentally, if you want to get more insight into how SymPy is managing the result, you can use the <code class="docutils literal notranslate"><span class="pre">srepr</span></code> function to see how the function is represented internally. This is a great tool for getting familiar with SymPy internals, but it can sometimes be a bit hard to follow. Therefore, I recommend trying it out on some simple functions first. For example, here we revisit our friend, the difference of squares function:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">9</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">srepr</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
@@ -286,7 +282,7 @@ $
 <section id="limits">
 <h3>Limits<a class="headerlink" href="#limits" title="Link to this heading"></a></h3>
 <p>Let’s start with a relatively simple limits problem (thanks to <a class="reference external" href="https://tutorial.math.lamar.edu/Solutions/CalcI/ComputingLimits/Prob3.aspx">Paul’s Online Math Notes</a> for this one):</p>
-<p><img alt="" src="../_images/image-287.png" /></p>
+<p><img alt="" src="../_images/image-282.png" /></p>
 <p>I say this one is relatively simple because you can’t just substitute for -5 to get the answer, but factoring the numerator and the denominator and canceling terms is fairly straightforward, and yields 5/4. In SymPy, the parameters you need to enter are the expression (we’ll save that as a function), the values you’re solving for (in this case, x), and the limit value:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">25</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">15</span><span class="p">)</span>
 <span class="n">limit</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>
@@ -299,19 +295,19 @@ $
 <section id="differentiation-and-integration">
 <h2>Differentiation and Integration<a class="headerlink" href="#differentiation-and-integration" title="Link to this heading"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">diff</span></code> (i.e., “differentiate”) function takes a derivative of an expression or function. Let’s work on this reasonably simple differentiation problem:</p>
-<p><img alt="" src="../_images/image-295.png" /></p>
+<p><img alt="" src="../_images/image-292.png" /></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">diff</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">19</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<p><img alt="" src="../_images/image-302.png" /></p>
+<p><img alt="" src="../_images/image-30.png" /></p>
 <p>As expected, we get 12 x squared from the power rule, cos(x) based on the “just have to remember that rule,” and the constant value disappears.</p>
 <p>And finally, because the indefinite integral is also known as the “anti-derivative,” let’s recover most of our original function by integrating the derivative of it back:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">integrate</span><span class="p">(</span><span class="mi">12</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<p><img alt="" src="../_images/image-3112.png" /></p>
+<p><img alt="" src="../_images/image-314.png" /></p>
 <p>The lack of the “constant” of integration, usually denoted by a ” + C” at the end of the polynomial, is a bit surprising. However, the SymPy docs mention it, so it’s at least a documented “feature.”</p>
 </section>
 <section id="closing-thoughts">

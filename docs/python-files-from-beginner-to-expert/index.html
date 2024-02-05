@@ -23,8 +23,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" />
-    <link rel="next" title="Is Python Slow? Separating the Myths from the Facts" href="../is-python-slow/" />
-    <link rel="prev" title="What Is a Python Package?" href="../what-is-a-python-package/" /> 
+    <link rel="next" title="Python Shell Programming: Overview and Top Tools" href="../python-shell-programming/" />
+    <link rel="prev" title="Python Format Strings: Beginner to Expert" href="../python-format-strings/" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -55,21 +55,9 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Categories</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math-and-math-software/">Math and Math Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math/">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Header</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../category-python/">Python</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../category-python/">Python (General)</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../why-is-python-popular/">Why Is Python Popular?# Why Is Python Popular</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../benchmarking-python-and-rust-async-web-server-performance/">Benchmarking Python and Rust Async Web Server Performance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python-date-tutorial/">Python Date and Time Functions: The Complete Tutorial</a></li>
@@ -149,10 +137,18 @@
 <li class="toctree-l2"><a class="reference internal" href="../python-operators/">Python Operators:  The Building Blocks of Successful Code</a></li>
 </ul>
 </li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">More:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../all_files/">Site Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Python Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 </ul>
 
         </div>
@@ -169,7 +165,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../category-python/">Python</a></li>
+          <li class="breadcrumb-item"><a href="../category-python/">Python (General)</a></li>
       <li class="breadcrumb-item active">Find Files in Python:  Complete Cookbook for Searching Files and Folders</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/python-files-from-beginner-to-expert.md.txt" rel="nofollow"> View page source</a>
@@ -206,7 +202,7 @@
 </div>
 <p>We pass in a “.” as a starting point to construct the Path. We can then call the glob method on the path object to list all the files in this directory using “*.” The glob expression, *, will expand to mean “all files and directories,” just as it would if we used “ls *” on Linux or “dir *” on Windows.</p>
 <p>Listing the contents of the directory I was working in, I get the following output:</p>
-<p><img alt="" src="../_images/image-136.png" /></p>
+<p><img alt="" src="../_images/image-115.png" /></p>
 <p>I’ve tried to keep this folder pretty minimal. You c n see we list two python files and the subdirectory. By changing<code class="docutils literal notranslate"><span class="pre">&quot;*&quot;</span></code> to <code class="docutils literal notranslate"><span class="pre">&quot;*.py&quot;</span></code>, we could focus on just the Python files, or specify a full filename, etc.</p>
 </section>
 <section id="searching-for-files-recursively-in-python">
@@ -221,7 +217,7 @@
 </pre></div>
 </div>
 <p>This time we see a test file I put in the directory for the purpose and our new Python file.</p>
-<p><img alt="" src="../_images/image-220.png" /></p>
+<p><img alt="" src="../_images/image-210.png" /></p>
 </section>
 <section id="finding-a-single-file-recursively">
 <h2>Finding a Single File Recursively<a class="headerlink" href="#finding-a-single-file-recursively" title="Link to this heading"></a></h2>
@@ -294,7 +290,7 @@ The<span class="w"> </span>absolute<span class="w"> </span>path<span class="w"> 
 <h2>Yes, But Does the File Exist?<a class="headerlink" href="#yes-but-does-the-file-exist" title="Link to this heading"></a></h2>
 <p>In the last example, you may have noticed that we constructed a path that doesn’t exist. Not to worry, we can ask a path to tell us if what it points to exists or not, us ng (no surprises here), the <code class="docutils literal notranslate"><span class="pre">exists</span></code> method.</p>
 <p>Here’s a quick IPython screenshot that demonstrates how it works:</p>
-<p><img alt="" src="../_images/image-320.png" /></p>
+<p><img alt="" src="../_images/image-37.png" /></p>
 <p>Next, let’s turn our attention to two more such “query” methods.</p>
 </section>
 <section id="working-with-files-and-directories">
@@ -454,8 +450,8 @@ Although that way may not be obvious at first unless you’re Dutch.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../what-is-a-python-package/" class="btn btn-neutral float-left" title="What Is a Python Package?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../is-python-slow/" class="btn btn-neutral float-right" title="Is Python Slow? Separating the Myths from the Facts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../python-format-strings/" class="btn btn-neutral float-left" title="Python Format Strings: Beginner to Expert" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../python-shell-programming/" class="btn btn-neutral float-right" title="Python Shell Programming: Overview and Top Tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

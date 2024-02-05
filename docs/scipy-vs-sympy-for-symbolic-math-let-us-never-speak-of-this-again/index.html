@@ -55,21 +55,9 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Categories</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math-and-math-software/">Math and Math Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-math/">Math</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Header</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../category-python/">Python</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../category-python/">Python (General)</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../why-is-python-popular/">Why Is Python Popular?# Why Is Python Popular</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../benchmarking-python-and-rust-async-web-server-performance/">Benchmarking Python and Rust Async Web Server Performance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python-date-tutorial/">Python Date and Time Functions: The Complete Tutorial</a></li>
@@ -124,10 +112,18 @@
 <li class="toctree-l2"><a class="reference internal" href="../python-operators/">Python Operators:  The Building Blocks of Successful Code</a></li>
 </ul>
 </li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">More:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../all_files/">Site Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Funcitons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Python Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
 </ul>
 
         </div>
@@ -164,9 +160,9 @@
 <h2>Why SymPy is Superior for Symbolic Math<a class="headerlink" href="#why-sympy-is-superior-for-symbolic-math" title="Link to this heading"></a></h2>
 <p>Let’s drill down into why SciPy may not be the ideal choice for symbolic math. When I first got the ultimately wrong-headed idea to treat it as such a tool, I had managed to integrate and differentiate a function. However, what I sought to do next was to compare it point for point with the tasks I’d done in my SymPy article and quickly came to grief along the way. Let’s take a look at some things I tried to do.</p>
 <p>In the SymPy article, I showed several operations one could do on a simple function – a difference of squares. I began by solving it. In SymPy, that’s simply a matter of passing the function to the solve method along with the variable for which you’re solving.</p>
-<p><img alt="" src="../_images/image-366.png" /></p>
+<p><img alt="" src="../_images/image-362.png" /></p>
 <p>It almost couldn’t be simpler, but if you prefer a one-liner, here it is:</p>
-<p><img alt="" src="../_images/image-374.png" /></p>
+<p><img alt="" src="../_images/image-372.png" /></p>
 <p>Now let’s try to do the same thing using the SciPy function, <code class="docutils literal notranslate"><span class="pre">fsolve</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fsolve</span>
 
@@ -189,11 +185,11 @@
 <p>array([3.])</p>
 <p>OK, that required a little more thought up front than SymPy, which just figured out the number of roots and returned them. Still, a difference of squares is quadratic, so we should expect two roots. This isn’t a significant hurdle so far.</p>
 <p>Our first non-linear function solved with SciPy worked out OK, so I tried a slightly more complex quadratic. I found this problem on Paul’s Notes when heading over to my favorite source for math problems with solutions.</p>
-<p><img alt="" src="../_images/image-383.png" /></p>
+<p><img alt="" src="../_images/image-381.png" /></p>
 <p>This problem turns out to have the following two roots:</p>
-<p><img alt="" src="../_images/image-405.png" /></p>
+<p><img alt="" src="../_images/image-402.png" /></p>
 <p>Imagining I could solve this with SciPy’s <code class="docutils literal notranslate"><span class="pre">fsolve</span></code> function as readily as I solved the simple difference of squares, I set it up as shown below. I used x as the single variable instead of u, and since both SymPy and SciPy’s solvers want the “zeroed” form of the equation (i.e., f(x) == 0), I canceled out the right-hand terms to arrive at this expression:</p>
-<p><img alt="" src="../_images/image-416.png" /></p>
+<p><img alt="" src="../_images/image-412.png" /></p>
 <p>Implementing it in Python and using <code class="docutils literal notranslate"><span class="pre">fsolve</span></code> gave the following code and result:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f_scipy_quadratic</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A quadadratic-formula solvable quadratic&quot;&quot;&quot;</span>
@@ -207,20 +203,20 @@
 <p>[-0.75361538 -0.75361533]</p>
 <p>The real part of the root, -3/4, is pretty close to the floating point values returned here. It’s possible, <a class="reference external" href="https://stackoverflow.com/questions/21885093/comparing-fsolve-results-in-python-and-matlab">as suggested here</a>, to get even closer by using <code class="docutils literal notranslate"><span class="pre">scipy.optimize.root</span></code> and passing “lm” as the method. This chooses an algorithm based on Levenberg-Marquardt. However, the complex portion of the value is not returned in any case.</p>
 <p>Like <code class="docutils literal notranslate"><span class="pre">fsolve</span></code> in SciPy, Octave’s also only returned the real component of the root, but in Octave, the number converges much more closely to the correct value. In addition, the value returned in Octave does not depend on the starting input.</p>
-<p><img alt="" src="../_images/image-434.png" /></p>
+<p><img alt="" src="../_images/image-431.png" /></p>
 <p>Even using the <code class="docutils literal notranslate"><span class="pre">root</span></code> function with the Levenberg-Marquardt algorithm specified, what you get still depends to some extent on what you specify as an initial value:</p>
-<p><img alt="" src="../_images/image-443.png" /></p>
+<p><img alt="" src="../_images/image-441.png" /></p>
 <p>However, at least here the result is not as bad as SciPy’s <code class="docutils literal notranslate"><span class="pre">fsolve</span></code>:</p>
-<p><img alt="" src="../_images/image-451.png" /></p>
+<p><img alt="" src="../_images/image-45.png" /></p>
 <p>That last one is way off, and there are cases where the function doesn’t even finish, depending on the estimate passed to it.</p>
 </section>
 <section id="the-law-of-the-instrument-revisited">
 <h2>The Law of the Instrument, Revisited<a class="headerlink" href="#the-law-of-the-instrument-revisited" title="Link to this heading"></a></h2>
 <p>I recently looked up an expression and found what I was looking for in this 1966 formulation by <a class="reference external" href="https://en.wikipedia.org/wiki/Law_of_the_instrument">Abraham Maslow</a>: “If the only tool you have is a hammer, it is tempting to treat everything as if it were a nail.” To keep my self-esteem intact, I’m going to suggest that my misbegotten journey of treating SciPy as a symbolic math tool stems from this corollary: “If you’ve been reviewing lots of hammers, everything starts to look like a hammer after a while.”</p>
 <p>The cure of course in the case of a real nail is to use a real hammer. Both SageMath and SymPy give me an unequivocal right answer for my Paul’s Online Notes problem. Here it is in the sage terminal:</p>
-<p><img alt="" src="../_images/image-463.png" /></p>
+<p><img alt="" src="../_images/image-461.png" /></p>
 <p>And here’s the same solution shown in SymPy:</p>
-<p><img alt="" src="../_images/image-473.png" /></p>
+<p><img alt="" src="../_images/image-471.png" /></p>
 </section>
 <section id="why-this-isn-t-an-anti-scipy-post">
 <h2>Why This Isn’t An Anti-SciPy Post<a class="headerlink" href="#why-this-isn-t-an-anti-scipy-post" title="Link to this heading"></a></h2>
