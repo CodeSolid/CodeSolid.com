@@ -8,5 +8,6 @@ vendor
 .venv
 delme
 .vscode
-legacy_hugo
+legacy/
+categories/
 themes/sphinx_rtd_theme_from_git/

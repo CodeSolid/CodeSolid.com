@@ -9,17 +9,29 @@ Math ∩ Programming
    using-latex-in-python
    installing-pyenv-on-a-mac
    conda-vs-pip
-
+   jupyter-password
 
 .. toctree::
-   :caption: Jupyter:
+   :caption: Categories
+   :maxdepth: 0
    :hidden:
 
-   beautiful-documentation-with-jupyterbook
-   jupyter-lite-python-in-the-browser-with-serverless-jupyter
-   jupyter-notebook-a-complete-introduction
-   jupyter-password
-   run-python-online-with-jupyterlite
+   category-c-and-cplusplus
+   category-docker
+   category-jupyter
+   category-learn-to-code
+   category-math-and-math-software
+   category-math
+   category-miscellaneous
+   category-newsletter
+   category-pandas
+   category-python-for-beginners-posts
+   category-python-functions
+   category-python-math-and-science
+   category-python-practice
+   category-python-tools
+   category-python
+
 
 .. toctree::
    :caption: More:

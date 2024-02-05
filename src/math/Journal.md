@@ -175,4 +175,28 @@ For a regular pentagon, $\frac{(5 - 2) * 180}{5}= \frac{540}{5} = \frac{540}{5} 
 	* Go over results of Study guide "exam" on Friday.  Send corrections to Emma Scothorn.
 	* Learn how to work problems involving giving the equation of the line at a point, assuming you have a function and need to find the tangent line at some x value.
 	
+* Tuesday 1/30
+	* Attend class
+	* Meet with Emma Scothorn on misc issues.
+	* Study for exam
+
+* Weds 1/31/24
+	* Work through some problems in Larson, slope of line using def of deriv.  Also work on some Intermediate Value Theorem problems.
+	* Reading Boyer, also look up some conic section material, run into something called differential geometry -- very cool.
+
+* Thursday 2/1
+	* Exam Day Calc 1.  Scored 103 of 100 points.  Sweet.
+
+* Friday 2/2
+	* Begin homework, studying next section. 
+	* Read Boyer
+
+* Saturday 2/3
+	* Reading Boyer
+	* Revisit MatPlotlib
+	* Review some conic section basic equations
+
+* Sunday
+	* Working in SymPy -- more SymPy than math
+	* Reading Clawson's Mathematical Mysteries
 
