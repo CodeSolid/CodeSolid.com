@@ -35,7 +35,7 @@ source_suffix = {
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static', "../images"]
 html_extra_path = ['extras', 'extras/favicon.ico', 'extras/*.js']
-html_theme_path = ['../themes']
+# html_theme_path = ['../themes']
 
 html_theme_options = {
     'analytics_id': 'G-QX7KGT4YPE'
