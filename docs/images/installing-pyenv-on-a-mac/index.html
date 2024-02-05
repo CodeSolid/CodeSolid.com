@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Pyenv Story - A Cleaner Personal Workflow &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=19645805"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -109,7 +113,7 @@
 </ul>
 <p>If you’re working alone, this means you can have different versions of Python running, and you can easily switch between them. Perhaps you want to try out some new Python features, but you have an existing project that you don’t want to upgrade yet. Or perhaps, like me, you just like things neat and tidy. Let me briefly share how I come to be writing about Pyenv today.</p>
 <section id="my-pyenv-story-a-cleaner-personal-workflow">
-<h1>My Pyenv Story - A Cleaner Personal Workflow<a class="headerlink" href="#my-pyenv-story-a-cleaner-personal-workflow" title="Link to this heading">¶</a></h1>
+<h1>My Pyenv Story - A Cleaner Personal Workflow<a class="headerlink" href="#my-pyenv-story-a-cleaner-personal-workflow" title="Link to this heading"></a></h1>
 <p>Because I spend a lot of time in Visual Studio Code and often like to write drafts of Python articles in Jupyter notebook format, I naturally have Microsoft’s excellent <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter">Jupyter Notebook extension</a> installed. When I use this plugin, I’ve noticed that it always prompts me for a Python environment when I create a new notebook. I do this using Cmd-Shift-P and searching for Jupyter:</p>
 <p><img alt="" src="../../_images/CreateNewNotebook-1024x101.png" /></p>
 <p>Creating a new notebook using VS Code’s Jupyter plugin.</p>
@@ -126,12 +130,12 @@
 <p>Since I wanted to start writing several posts here about various Python Tools, and since I had a bit of a mess to clean up, I though Pyenv would be a good place to start.</p>
 </section>
 <section id="using-pyenv-on-a-team">
-<h1>Using Pyenv on a Team<a class="headerlink" href="#using-pyenv-on-a-team" title="Link to this heading">¶</a></h1>
+<h1>Using Pyenv on a Team<a class="headerlink" href="#using-pyenv-on-a-team" title="Link to this heading"></a></h1>
 <p>Having pyenv becomes even more important if you’re working with a team. In this case, it can be used to document and enforce the Python version that the team uses in the git repository (more on this later in the article).</p>
 <p>Let’s say you’re on a team is still chugging along on some early Python, let’s say 3.2.6, or even worse, 2.1.3 As much as you may feel that such a team should bite the bullet and upgrade, already, this may involve a serious regression testing effort that the team is not willing to take on. Meantime, you want to play around like the rest of us cool kids with new features like assignment expressions (which made <a class="reference external" href="https://hub.packtpub.com/why-guido-van-rossum-quit/">Guido ride off in the sunset</a>), or <a class="reference external" href="https://codesolid.com/python-function-arguments-part-2/#htoc-positional-only-parameters">positional only function arguments</a>. But you want to do this in such a way that when you’re serving time in the prison yard with your colleagues on Python 2.1.3, you don’t shoot yourself in the foot by accidentally coding some Python 3 goodness in the wrong codebase.</p>
 </section>
 <section id="enough-motivation-let-s-begin-the-installation">
-<h1>Enough Motivation – Let’s Begin the Installation<a class="headerlink" href="#enough-motivation-let-s-begin-the-installation" title="Link to this heading">¶</a></h1>
+<h1>Enough Motivation – Let’s Begin the Installation<a class="headerlink" href="#enough-motivation-let-s-begin-the-installation" title="Link to this heading"></a></h1>
 <p>To start installing pyenv on Mac, let’s follow the <a class="reference external" href="https://github.com/pyenv/pyenv#homebrew-in-macos">recommended steps</a> and begin by using <a class="reference external" href="https://brew.sh/">Homebrew</a>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>update
 brew<span class="w"> </span>install<span class="w"> </span>pyenv
@@ -158,7 +162,7 @@ ls<span class="w"> </span>~/.zshrc
 <p>Once this is done, to make sure the file is loaded, run “source ~/.zprofile”, or to show you’re one of the cool kids using zsh, you can use “. ~/.zprofile”.</p>
 </section>
 <section id="getting-started-with-pyenv">
-<h1>Getting Started With Pyenv<a class="headerlink" href="#getting-started-with-pyenv" title="Link to this heading">¶</a></h1>
+<h1>Getting Started With Pyenv<a class="headerlink" href="#getting-started-with-pyenv" title="Link to this heading"></a></h1>
 <p>At this point, we have pyenv installed, but it doesn’t yet manage any versions for us. If we ask pyenv to tell us what versions it knows about, it only reports that it knows about “system”:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pyenv<span class="w"> </span>versions
 *<span class="w"> </span>system<span class="w"> </span><span class="o">(</span><span class="nb">set</span><span class="w"> </span>by<span class="w"> </span>/Users/johnlockwood/.pyenv/version<span class="o">)</span>
@@ -178,7 +182,7 @@ pyenv<span class="w"> </span>install<span class="w"> </span><span class="m">3</s
 </div>
 </section>
 <section id="setting-a-python-version-using-pyenv">
-<h1>Setting a Python Version Using Pyenv<a class="headerlink" href="#setting-a-python-version-using-pyenv" title="Link to this heading">¶</a></h1>
+<h1>Setting a Python Version Using Pyenv<a class="headerlink" href="#setting-a-python-version-using-pyenv" title="Link to this heading"></a></h1>
 <p>With the aliases removed, “python –version” now refers to version 2.7.16, the default non-3 Mac version.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>--version
 Python<span class="w"> </span><span class="m">2</span>.7.16
@@ -202,7 +206,7 @@ Python<span class="w"> </span><span class="m">3</span>.10.1
 <p>By committing that “.python_version” file to our source repository, we enable other developers on the team to lock down the version the team has agreed to work on, but still play be able to work on other repositories that might be on a different version.</p>
 </section>
 <section id="setting-a-global-default">
-<h1>Setting a Global Default<a class="headerlink" href="#setting-a-global-default" title="Link to this heading">¶</a></h1>
+<h1>Setting a Global Default<a class="headerlink" href="#setting-a-global-default" title="Link to this heading"></a></h1>
 <p>Of course, outside that folder, we still have the system’s default Python 2.7 version showing when we type “python –version”. We can fix that by making our 3.10.1 the default global version for pyenv. Now we’re free to work anywhere on our machine and have a fresh new version of Python handy. (OK, if you’re reading this from your flying car on Mars and Python is on version 52.3.9, 3.10.1 won’t look fresh and new to you – but you get the idea). In any case, here’s how we do it:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pyenv<span class="w"> </span>global<span class="w"> </span><span class="m">3</span>.10.1
 <span class="nb">cd</span><span class="w"> </span>/
@@ -212,7 +216,7 @@ Python<span class="w"> </span><span class="m">3</span>.10.1
 </div>
 </section>
 <section id="using-pyenv-with-pip">
-<h1>Using Pyenv With Pip<a class="headerlink" href="#using-pyenv-with-pip" title="Link to this heading">¶</a></h1>
+<h1>Using Pyenv With Pip<a class="headerlink" href="#using-pyenv-with-pip" title="Link to this heading"></a></h1>
 <p>Once I had version 3.10.1 installed, I wanted to make sure that pip was using the right version, and running “pip –version” showed me it wasn’t. To fix this, I simply followed the pip installation instructions, and ran them with my “pyenv” version of Python active.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m ensurepip --upgrade
 </pre></div>
@@ -220,7 +224,7 @@ Python<span class="w"> </span><span class="m">3</span>.10.1
 <p>Following this step, “pip –version” showed that pip was associated with the 3.10.1 version of Python, as I expected.</p>
 </section>
 <section id="more-basic-pyenv-commands">
-<h1>More Basic Pyenv Commands<a class="headerlink" href="#more-basic-pyenv-commands" title="Link to this heading">¶</a></h1>
+<h1>More Basic Pyenv Commands<a class="headerlink" href="#more-basic-pyenv-commands" title="Link to this heading"></a></h1>
 <p>Before getting into whether you should do additional cleanup once you have pyenv installed and managing your python versions, let’s look at several more useful commands and features of pyenv.</p>
 <p>First, let’s consider what Pyenv does if it finds a version file that you don’t have installed. In a directory that doesn’t already have a “.python-version” file, for example, you can try this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>echo &quot;3.4&quot; &gt; .python-version
@@ -243,7 +247,7 @@ pyenv<span class="w"> </span>version
 <p>These are a just few of the most useful commands I’ve found to get you started. For more things you can do, you can get to pyenv help by typing “pyenv help” or “pyenv help <command>”.</p>
 </section>
 <section id="should-you-do-other-cleanup-steps">
-<h1>Should You Do Other “Cleanup” Steps?<a class="headerlink" href="#should-you-do-other-cleanup-steps" title="Link to this heading">¶</a></h1>
+<h1>Should You Do Other “Cleanup” Steps?<a class="headerlink" href="#should-you-do-other-cleanup-steps" title="Link to this heading"></a></h1>
 <p>Once I had Pyenv available to install and manage any new versions of Python want, to try out or might need for a project, I wanted to see if there was anything I could remove. You may be able to pare back some things on your machine, but I would urge caution. In my case, for example, most of the cleanup tasks I envisioned at the start of the article turned out to be things I was better off deferring. For example:</p>
 <ul class="simple">
 <li><p>I thought removing the latest 3.10.0 install could wait, since I had installed that from an official Python Mac package, meaning it was now the default 3.x version on my machine. Best to leave that one alone.</p></li>

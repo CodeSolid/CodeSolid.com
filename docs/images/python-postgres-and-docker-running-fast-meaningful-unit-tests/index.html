@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Why Testing Databases Is Hard &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=19645805"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -101,7 +105,7 @@
 <li><p>Unit Testing Apples, Running Apples in Production</p></li>
 </ul>
 <section id="why-testing-databases-is-hard">
-<h1>Why Testing Databases Is Hard<a class="headerlink" href="#why-testing-databases-is-hard" title="Link to this heading">¶</a></h1>
+<h1>Why Testing Databases Is Hard<a class="headerlink" href="#why-testing-databases-is-hard" title="Link to this heading"></a></h1>
 <p>Testing database code can be much more challenging than testing other code. This is because the very techniques we’ve learned to test other code no longer work perfectly well when testing a database.</p>
 <p>There are at least three ways in which database testing is more difficult than testing other types of code.</p>
 <p>First, a fundamental principle of unit testing is that we test some aspect of our code in isolation from other things. More specifically, unit tests should be completely stateless – the result of one test should not impact the results of the next. Yet if unit tests should be stateless, a database, in contrast, is as “stateful” as it gets. That’s the whole job of a database – to allow recording and retrieving of application state.</p>
@@ -109,7 +113,7 @@
 <p>Finally, testing a database can be challenging because the teams may be different. As application developers, we can test non-database-related code fine, because we own that code. In the case of the database, a separate team of DBAs may have more final responsibility for the state of the data as well as more domain specific knowledge that we may not have.</p>
 </section>
 <section id="database-testing-mistakes">
-<h1>Database Testing Mistakes<a class="headerlink" href="#database-testing-mistakes" title="Link to this heading">¶</a></h1>
+<h1>Database Testing Mistakes<a class="headerlink" href="#database-testing-mistakes" title="Link to this heading"></a></h1>
 <p>Because database testing is difficult, it’s an area that’s ripe for mistakes.</p>
 <p>I once worked on a project that made a classic mistake that developers make when running database tests: testing against an in-memory database.</p>
 <p>In this specific case, the team (who worked in Java) had developed an application that ran on MySQL in production, used the Hibernate ORM to access the database, and ran the unit tests against H2 – an in memory database.</p>
@@ -118,7 +122,7 @@
 <p>Sometimes a team will test against SQLite on developer’s machines since it’s “easy to set up and remove”, but use Postgres (for example) in production. This is another flavor of the same mistake.</p>
 </section>
 <section id="unit-testing-apples-running-apples-in-production">
-<h1>Unit Testing Apples, Running Apples in Production<a class="headerlink" href="#unit-testing-apples-running-apples-in-production" title="Link to this heading">¶</a></h1>
+<h1>Unit Testing Apples, Running Apples in Production<a class="headerlink" href="#unit-testing-apples-running-apples-in-production" title="Link to this heading"></a></h1>
 <p>This article takes as a starting point the idea that the more your test environment differs from your production environment, the more likely you are to have a suite of unit tests that provides low value testing that runs incredibly fast. So</p>
 <p>We will develop an example using SQLAlchemy and Postgres, using Docker to set up a baseline database in as little time as possible. Our solution will take have the following features:</p>
 <ul class="simple">

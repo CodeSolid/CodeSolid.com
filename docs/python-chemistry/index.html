@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Python Chemistry: SymPy and ChemPy &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=19645805"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -116,12 +120,12 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="python-chemistry-sympy-and-chempy">
-<h1>Python Chemistry:  SymPy and ChemPy<a class="headerlink" href="#python-chemistry-sympy-and-chempy" title="Link to this heading">¶</a></h1>
+<h1>Python Chemistry:  SymPy and ChemPy<a class="headerlink" href="#python-chemistry-sympy-and-chempy" title="Link to this heading"></a></h1>
 <p>Chemists are strongly addicted to Python. And that’s a good thing!</p>
 <p>The chemistry profession has wholeheartedly embraced the Python language for many applications. From balancing multi-component equations to advances in quantum mechanics, chemists have taken advantage of its utility in numerous aspects of teaching, research, and production. Part of this growth is related to the focus on STEM in many areas of our society while another part is the various Python-based packages and systems that facilitate its ease of use.</p>
 <p>This article will look at some of these packages that can make life easier for chemists and other scientists. The first of these is SymPy, the fascinating implementation of computer algebra. It has applications in many fields including chemistry, The second is ChemPy, a time-saving toolbox created using SymPy and targeted for applications in chemistry. Both are characterized by a focus on equations and provide many methods to apply and manipulate those equations.</p>
 <section id="using-sympy-for-chemistry-in-python">
-<h2>Using SymPy for Chemistry in Python<a class="headerlink" href="#using-sympy-for-chemistry-in-python" title="Link to this heading">¶</a></h2>
+<h2>Using SymPy for Chemistry in Python<a class="headerlink" href="#using-sympy-for-chemistry-in-python" title="Link to this heading"></a></h2>
 <p>A companion article provided a first look at SymPy (<a class="reference external" href="https://codesolid.com/sympy-solving-math-equations-in-python/">SymPy: Solving Math Equations in Python and Jupyter</a>). This article will provide a more focused look into some possible uses of interest to those in chemistry and allied professions. The idea behind SymPy is that it is possible to explore many aspects of mathematics using symbols related to the concept being studied. These symbols are then operated on with well-known techniques to provide not just solutions but also a deeper understanding of the meaning behind the solutions.</p>
 <p>Using a symbolic computation tool for chemistry may seem strange initially, but the idea is no stranger to chemists as much of the science is based on symbols! Consider these two equations:</p>
 <p><code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">mx</span> <span class="pre">+</span> <span class="pre">b</span></code></p>
@@ -307,7 +311,7 @@ Eq<span class="o">(</span><span class="m">2</span>*vCa3PO4PO4<span class="w"> </
 <p><img alt="" src="../_images/image-1211.png" /></p>
 </section>
 <section id="introducing-chempy">
-<h2>Introducing ChemPy<a class="headerlink" href="#introducing-chempy" title="Link to this heading">¶</a></h2>
+<h2>Introducing ChemPy<a class="headerlink" href="#introducing-chempy" title="Link to this heading"></a></h2>
 <p>As we’ve seen, SymPy is a useful tool for many areas in chemistry, Now let’s explore a package that takes advantage of the power of SymPy but adds the ‘language’ of chemistry. A current favorite is ChemPy, available as a package or on GitHub. Installation on Macs and Linux is straightforward using pip, but for Windows, you will need to load each required package by hand. Some required packages related to the Sundials solvers may not load but are not needed for this code.</p>
 <p>We’ll assume ChemPy has been installed and illustrate some code demonstrating the ‘chemistry awareness of the package. The context is in balancing equations, but there is more to it.</p>
 <p>Of interest is the use of Python dictionaries and how one should denote the left-hand side and right-hand side (lhs and rhs) of the equation to be balanced.</p>
@@ -353,11 +357,11 @@ Eq<span class="o">(</span><span class="m">2</span>*vCa3PO4PO4<span class="w"> </
 </section>
 <section id="ch4-1-o2-2-co2-1-h2o-2">
 <h2>{‘CH4’: 1, ‘O2’: 2}
-{‘CO2’: 1, ‘H2O’: 2}<a class="headerlink" href="#ch4-1-o2-2-co2-1-h2o-2" title="Link to this heading">¶</a></h2>
+{‘CO2’: 1, ‘H2O’: 2}<a class="headerlink" href="#ch4-1-o2-2-co2-1-h2o-2" title="Link to this heading"></a></h2>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="python-chemistry-sympy-and-chempy-ca-oh-2-3-h3-po4-2">
-<h1>Python Chemistry:  SymPy and ChemPy{‘Ca(OH)2’: 3, ‘H3(PO4)’: 2}<a class="headerlink" href="#python-chemistry-sympy-and-chempy-ca-oh-2-3-h3-po4-2" title="Link to this heading">¶</a></h1>
+<h1>Python Chemistry:  SymPy and ChemPy{‘Ca(OH)2’: 3, ‘H3(PO4)’: 2}<a class="headerlink" href="#python-chemistry-sympy-and-chempy-ca-oh-2-3-h3-po4-2" title="Link to this heading"></a></h1>
 <p>{‘Ca3(PO4)2’: 1, ‘H2O’: 6}</p>
 <p>This output is a lot simpler, and the result is clear about reactants and products!</p>
 <p>The next section will cover how ChemPy can help generate kinetic models for reaction simulation. This is a very active area of investigation in chemistry, and adequate kinetic models are critical to understanding many important processes.</p>

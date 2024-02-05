@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Python Docker Examples: SageMath in a Container &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=19645805"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -152,16 +156,16 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="python-docker-examples-sagemath-in-a-container">
-<h1>Python Docker Examples:  SageMath in a Container<a class="headerlink" href="#python-docker-examples-sagemath-in-a-container" title="Link to this heading">¶</a></h1>
+<h1>Python Docker Examples:  SageMath in a Container<a class="headerlink" href="#python-docker-examples-sagemath-in-a-container" title="Link to this heading"></a></h1>
 <p>In my recent article Introducing <a class="reference external" href="https://codesolid.com/introducing-sage-math-python-based-mathematics/">SageMath: Symbolic Math Software in Python</a>, I discussed some issues I had encountered with some of SageMath’s installation options, and that I got it installed and working well on a Mac using the binary downloads that are available. I also hinted that I was able to create a Docker container for it, but at the time I hadn’t yet shared that code.</p>
 <p>In this article, I wanted to correct that by sharing what I did and going over the Dockerfile and scripts I used. I’ve shared the code in the <a class="reference external" href="https://github.com/CodeSolid/python-docker-examples">Python Docker Examples</a> repository, in the directory 04-docker-sagemath, but I’ll also walk you through it here. The reason behind the “04-” numbering is that this is the same repository used for the earlier article [How to Use Docker Python Image and Docker Compose With Python](http://How To Use Docker Python Images and Docker Compose With Python).</p>
 <section id="the-rationale-using-sage-with-jupyterlab">
-<h2>The Rationale: Using Sage With JupyterLab<a class="headerlink" href="#the-rationale-using-sage-with-jupyterlab" title="Link to this heading">¶</a></h2>
+<h2>The Rationale: Using Sage With JupyterLab<a class="headerlink" href="#the-rationale-using-sage-with-jupyterlab" title="Link to this heading"></a></h2>
 <p>When I installed SageMath on my Mac, the binary release I had worked well. Both the terminal-based shell and a Sage notebook (i.e., Jupyter Notebook with Sage kernel support) ran just fine. However, when I tried to run Sage in Jupyter Lab using <code class="docutils literal notranslate"><span class="pre">sage</span> <span class="pre">--notebook=&quot;jupyterlab&quot;</span></code>, I learned that I needed to install the Jupyter Lab kernel using <code class="docutils literal notranslate"><span class="pre">sage</span> <span class="pre">-i</span></code>, but doing <em>that</em> gave me the sympathetic message: “Sorry, this binary distribution does not support installing sage packages.”</p>
 <p>“Not to worry”, I thought – “I can probably get this working under Linux using Docker.” I’m pretty spoiled about Jupyter Lab, so knowing I could run it that way was enough of an excuse to spin up a new friend for my “Python Docker Examples” project.</p>
 </section>
 <section id="creating-and-building-the-docker-image">
-<h2>Creating and Building the Docker Image<a class="headerlink" href="#creating-and-building-the-docker-image" title="Link to this heading">¶</a></h2>
+<h2>Creating and Building the Docker Image<a class="headerlink" href="#creating-and-building-the-docker-image" title="Link to this heading"></a></h2>
 <p>I began with a public Python Docker image to be able to install Jupyter Lab easily. I was then able to install SageMath – the more challenging install – using a Linux package manager.</p>
 <p>I wanted to run the process under a user account that shared the same account and group identifiers as my own account on the host machine. In addition to being more secure than running the container as root, another advantage was that any files I saved in Jupyterlab would have the right permissions to make them easily accessible from my host machine.</p>
 <p>Here is the Dockerfile I used to implement this design:</p>
@@ -199,7 +203,7 @@
 <p>I usually set up build, run, etc. as targets in a Makefile, but given that I needed to launch some additional commands to set the build arguments correctly, a shell script was a more convenient way to accomplish this This script passes the host’s user id and group id to the container as build arguments, and tags the container with the name “sage”.</p>
 </section>
 <section id="running-the-container">
-<h2>Running the Container<a class="headerlink" href="#running-the-container" title="Link to this heading">¶</a></h2>
+<h2>Running the Container<a class="headerlink" href="#running-the-container" title="Link to this heading"></a></h2>
 <p>You may have noticed that the Dockerfile contains no “ENTRYPOINT” or “CMD” statement at the end to launch Jupyter Lab at the end This is as designed; Jupyterlab tries to launch a browser when it starts, which doesn’t work from the container That’s not a problem, but the other way to launch it then is to click on the link that shows up in the console To make sure this is visible, I chose to launch the container interactively.</p>
 <p>Here’s the code I use to run the docker image in a container (available in the source directory as run.sh):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>container<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-it<span class="w"> </span><span class="se">\</span>

@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Debugging Python in VS Code &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=19645805"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -128,14 +132,14 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="debugging-python-in-vs-code">
-<h1>Debugging Python in VS Code<a class="headerlink" href="#debugging-python-in-vs-code" title="Link to this heading">¶</a></h1>
+<h1>Debugging Python in VS Code<a class="headerlink" href="#debugging-python-in-vs-code" title="Link to this heading"></a></h1>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
 <p>Using VS Code as a Python IDE has many advantages. It is faster than PyCharm, and it is also a great general editor. That means you can use the same editor and keyboard shortcuts for Python as you use to edit your Bash scripts, JavaScript, and whatever else you may need to do. Unlike PyCharm, you don’t need to pay extra for a “Profession Version” to add support for things like debugging frameworks like Django or working in Docker containers. You also don’t need additional products if you find yourself going off and learning something like C or C++: install the appropriate plugin into VS Code, and you’re good to go.</p>
 <p>However, as I argued in my comparison of <a class="reference external" href="https://codesolid.com/pycharm-vs-vs-code/">PyCharm vs. VS Code</a>, setting up debug configurations is easier in PyCharm. This article aims to level the playing field by exploring how to get started with VS Code debugging for Python.</p>
 </section>
 <section id="outline-and-introducing-the-companion-repository">
-<h2>Outline and Introducing the Companion Repository<a class="headerlink" href="#outline-and-introducing-the-companion-repository" title="Link to this heading">¶</a></h2>
+<h2>Outline and Introducing the Companion Repository<a class="headerlink" href="#outline-and-introducing-the-companion-repository" title="Link to this heading"></a></h2>
 <p>We’ll begin with basic information about general debugging and what you can learn about your code in the debugger. All of this will be in the context of a hands-on coding and debugging exercise in VS Code. For this portion, we’ll use some of VS Code’s built-in support for easily debugging a Python file.</p>
 <p>Later, we will cover some introductory information about VS Code Configuration files. We won’t go into every possible configuration, but we will give you a taste of what’s available.</p>
 <p>This article has a companion <a class="reference external" href="https://github.com/CodeSolid/debugging-python-vs-code">GitHub repository</a> that contains the source for this article. In a separate effort, we may include several full “mini-projects” that will also use this repository. If you have a GitHub account, we highly recommend forking the repository before cloning it, since some of this work will include sections on remote debugging. For those, you’ll want to have your own copy remotely as well.</p>
@@ -145,7 +149,7 @@
 <p><a class="reference external" href="https://github.com/CodeSolid/debugging-python-vs-code/fork">Download Source for this Article</a></p>
 </section>
 <section id="basic-python-debugging-in-vs-code">
-<h2>Basic Python Debugging in VS Code<a class="headerlink" href="#basic-python-debugging-in-vs-code" title="Link to this heading">¶</a></h2>
+<h2>Basic Python Debugging in VS Code<a class="headerlink" href="#basic-python-debugging-in-vs-code" title="Link to this heading"></a></h2>
 <p>Let’s see how we can begin debugging code locally in Visual Studio Code using the repository we got in the last section. In addition to having Visual Studio Code installed, you’ll also need Microsoft’s Python extension installed. Find the extension icon on the left side of VS Code:</p>
 <p><img alt="" src="../_images/image-62.png" /></p>
 <p>Clicking this brings up the extension marketplace, and you can use the search bar to get the Python extension:</p>
@@ -174,7 +178,7 @@ pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </s
 </pre></div>
 </div>
 <section id="debugging-a-simple-python-file">
-<h3>Debugging a Simple Python File<a class="headerlink" href="#debugging-a-simple-python-file" title="Link to this heading">¶</a></h3>
+<h3>Debugging a Simple Python File<a class="headerlink" href="#debugging-a-simple-python-file" title="Link to this heading"></a></h3>
 <p>With that, we’re ready to begin our first debug session. Let’s go over to the directory and open up the file perfect_math.py. Perfect math? Wow, somebody has a high self-opinion. Opening the file, we see who wrote it. It’s our old nemesis Brad Bumblekey!</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">This code is perfect. I, Brad Bumblekey, a senior architect, </span>
@@ -268,7 +272,7 @@ pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </s
 <p>There’s a lot more to debugging than what we’ve covered here, but once you know how to set breakpoints and step through code, you can explore these other features on your own. To give you a taste of what’s available, if you set a breakpoint on the code in “<code class="docutils literal notranslate"><span class="pre">is_number</span></code>” and run to that point, you’ll see several windows on your left.</p>
 </section>
 <section id="visual-studio-code-understanding-the-left-hand-debugging-panel">
-<h3>Visual Studio Code: Understanding the Left-Hand Debugging Panel<a class="headerlink" href="#visual-studio-code-understanding-the-left-hand-debugging-panel" title="Link to this heading">¶</a></h3>
+<h3>Visual Studio Code: Understanding the Left-Hand Debugging Panel<a class="headerlink" href="#visual-studio-code-understanding-the-left-hand-debugging-panel" title="Link to this heading"></a></h3>
 <p><img alt="Debugging Python VS Code: View showing left-hand panel while on a breakpoint." src="../_images/image-29-474x1024.png" /></p>
 <ul class="simple">
 <li><p><strong>Variables:</strong> The variables window lets you evaluate and even temporarily change the value of a variable while the program is running. This is great for temporarily running “what if scenarios”.</p></li>
@@ -278,7 +282,7 @@ pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </s
 </ul>
 </section>
 <section id="vs-code-bottom-debugging-related-panels">
-<h3>VS Code: Bottom Debugging Related Panels<a class="headerlink" href="#vs-code-bottom-debugging-related-panels" title="Link to this heading">¶</a></h3>
+<h3>VS Code: Bottom Debugging Related Panels<a class="headerlink" href="#vs-code-bottom-debugging-related-panels" title="Link to this heading"></a></h3>
 <p>As shown above, while you debug Python in Visual Studio Code, pretty much all of the panels to the left will be related to your debug session. The bottom panel is a bit more of a mixed bag, but let’s briefly go through it.</p>
 <p>Directly below our Python file, we’ll see several tabs representing the panels that are available.</p>
 <p><img alt="VS Code Debugging - Bottom Panel" src="../_images/image-1024x65.png" /></p>
@@ -299,7 +303,7 @@ Instructions:<span class="w"> </span>examine<span class="w"> </span>the<span cla
 </section>
 </section>
 <section id="visual-studio-code-debug-configuration-files">
-<h2>Visual Studio Code Debug Configuration Files<a class="headerlink" href="#visual-studio-code-debug-configuration-files" title="Link to this heading">¶</a></h2>
+<h2>Visual Studio Code Debug Configuration Files<a class="headerlink" href="#visual-studio-code-debug-configuration-files" title="Link to this heading"></a></h2>
 <p>In the last section, we pointed out that the output in the terminal was not very clean. To fix that issue, we need to create a Visual Studio Code configuration and modify it somewhat. We didn’t get that option when we ran our code from the “play” button in the upper right of the screen, but to fix it, all we have to do is look for the equivalent button to the left. Here we show the button selected and the UI that we get as a result:</p>
 <p><img alt="" src="../_images/image-13.png" /></p>
 <p>What we want to do here is click the link that says create a launch.json file. This will bring up a second window, with the option to select a debug configuration.</p>
@@ -340,7 +344,7 @@ Instructions:<span class="w"> </span>examine<span class="w"> </span>the<span cla
 <p>However, one important caveat about launch.json is that it won’t work if you use the play button in the top right-hand corner of the editor or from the command palette. It will work if you use the debug button we used when we originally created the launch.json. Clicking this, we’ll see a new play button appear that references the configuration we created. Alternatively, we can simply press “F5”, which will also work fine.</p>
 </section>
 <section id="closing-thoughts">
-<h2>Closing Thoughts<a class="headerlink" href="#closing-thoughts" title="Link to this heading">¶</a></h2>
+<h2>Closing Thoughts<a class="headerlink" href="#closing-thoughts" title="Link to this heading"></a></h2>
 <p>That was something of a whirlwind introduction to debugging Python with VS Code. Along the way, we discovered a few inconsistencies and issues that belong on the island of misfit toys: an output window that doesn’t output, and a debug button in the upper right that behaves differently from the one on the left-hand toolbar. Along the way, however, we also discovered that the debug configurations for which Jetbrains charges a subscription in Python – Flask, Django, etc. – are ours for free in VS Code.</p>
 <p>There’s more to write and explore about VS Code debugging configurations, but to whet your appetite in the meantime, I’ll show you what’s available if you create a vanilla configuration based on the various “Select a debug configuration” choices. I’ll add those files to the directory 02-config-files in the repository for this article, along with a README to explain what they are.</p>
 </section>

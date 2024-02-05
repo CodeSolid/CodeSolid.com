@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Is This Trip Necessary? &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=19645805"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -96,11 +100,11 @@
              
   <p>I recently wrote a go program to optimize my S3 uploads for this blog. The idea was to write a program that would only upload the files that have changed (rather like RSync) rather than bulk uploading the whole site each time. Although there are third-party tools to do this, I wanted to learn more about the golang AWS API while at the same time getting a chance to run some goroutine benchmarks. To see the code and the benchmarks I did, read on!</p>
 <section id="is-this-trip-necessary">
-<h1>Is This Trip Necessary?<a class="headerlink" href="#is-this-trip-necessary" title="Link to this heading">¶</a></h1>
+<h1>Is This Trip Necessary?<a class="headerlink" href="#is-this-trip-necessary" title="Link to this heading"></a></h1>
 <p>After writing this article, I discovered that a simpler approach to this is to use the AWS CLI. The AWS CLI has a “sync” command which allows you to sync files and directories. I’m leaving this article here, however, as it still shows some interesting techniques in Go.</p>
 </section>
 <section id="some-preliminaries">
-<h1>Some Preliminaries<a class="headerlink" href="#some-preliminaries" title="Link to this heading">¶</a></h1>
+<h1>Some Preliminaries<a class="headerlink" href="#some-preliminaries" title="Link to this heading"></a></h1>
 <p>The AWS API for golang exposes an S3 service that we’ll use both for querying the files already in the Amazon cloud and uploading the new or changed files. Let’s see that and quickly look at all the imports we’ll be using:</p>
 <div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="c1">// main.go</span>
 
@@ -163,7 +167,7 @@
 </div>
 </section>
 <section id="program-design">
-<h1>Program Design<a class="headerlink" href="#program-design" title="Link to this heading">¶</a></h1>
+<h1>Program Design<a class="headerlink" href="#program-design" title="Link to this heading"></a></h1>
 <p>Our strategy will be simple. If we can build a map of remote S3 object (file) names to file checksums, any local files that either aren’t in the map or who are in the map but have a different checksum need to be uploaded. We’re concerned with new or updated files – any deletes are ignored, and we can handle them separately.</p>
 <p>So our first function builds the map of remote files to checksums.</p>
 <div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
@@ -324,7 +328,7 @@
 </div>
 </section>
 <section id="benchmarking-the-two-versions">
-<h1>Benchmarking the Two Versions<a class="headerlink" href="#benchmarking-the-two-versions" title="Link to this heading">¶</a></h1>
+<h1>Benchmarking the Two Versions<a class="headerlink" href="#benchmarking-the-two-versions" title="Link to this heading"></a></h1>
 <p>We’ll leave aside the main method and the code to upload the files for the time being, but at this point we have code that tells us just what files need to be uploaded.</p>
 <p>To see how much of a performance boost we get from the goroutine version, we write some simple benchmarks in main_test.go. Here’s our main_test.go file, with some non-benchmark tests we wrote excluded.</p>
 <div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="c1">// main_test.go</span>
@@ -381,7 +385,7 @@ ok<span class="w">  	</span>aws<span class="w">	</span><span class="m">3</span>.
 <p>Of course, we’re running an SSD drive here, and Go is hecka fast to begin with, but even with that, the goroutine version improves the performance by about 20%. I’ll publish an update to this article or a link to the GitHub version with the upload code and the rest of the program soon, but for now, it’s late, so I think I’ll use my AWS go file upload utility one last time to push this article to the cloud! Cheers.</p>
 </section>
 <section id="you-may-also-enjoy">
-<h1>You May Also Enjoy<a class="headerlink" href="#you-may-also-enjoy" title="Link to this heading">¶</a></h1>
+<h1>You May Also Enjoy<a class="headerlink" href="#you-may-also-enjoy" title="Link to this heading"></a></h1>
 <p><a class="reference external" href="https://codesolid.com/python-format-strings/">Python Format Strings: Beginner to Expert</a></p>
 <p><a class="reference external" href="https://codesolid.com/vagrant-ansible-local/">Simple Vagrant Ansible Local Example</a></p>
 </section>

@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Clearing a Roadblock &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=19645805"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -97,7 +101,7 @@
   <p>I recently did some exploratory coding on how to run Pyodide in a web application. I admit it was (and is) fairly slow going, but I wanted to share some preliminary results. To give you some background, if any of these pieces are new to you, for some time now, it’s been possible to run Python in a browser based on Pyodide, a port of CPython to WebAssembly. Several popular projects are based on this, including Jupyter Lite, which forms the basis of our own <a class="reference external" href="https://jupyter.codesolid.com/lab/index.html?path=index.ipynb">online Python portal</a> based on JupyterLite, and PyScript, a Pyodide add-on that makes it somewhat more accessible for web developers.</p>
 <p>The reason for this is that I’m a firm believer in coding exercises as the best way to 1) learn your first language or 2) come up to speed in a new one. For example, some time ago, I practiced my Node.js through the meme-friendly <a class="reference external" href="https://github.com/workshopper/learnyounode">Learn You The Node.js For Much Win!</a> Similarly, Rust has <a class="reference external" href="https://github.com/rust-lang/rustlings">Rustlings</a>, a tool I found finally broke through the cognitive cloud of O’Reilly’s <em>Programming Rust</em>. Finally, one of the cool things about the <a class="reference external" href="https://exercism.org/">Exercism</a> platform is that the exercises can be downloaded and submitted via the website or a command-line tool.</p>
 <section id="clearing-a-roadblock">
-<h1>Clearing a Roadblock<a class="headerlink" href="#clearing-a-roadblock" title="Link to this heading">¶</a></h1>
+<h1>Clearing a Roadblock<a class="headerlink" href="#clearing-a-roadblock" title="Link to this heading"></a></h1>
 <p>Before working with Pyodide, I wanted to find an online editor plugin with syntax highlighting. In the JavaScript world, one popular library that supports this is Prism. Since I had some experience with Vue.js, I spun up a Vue sample and installed a few Prism plugins without much success, so I decided to try it out on React. My first step was to create a React app based on TypeScript.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npx<span class="w"> </span>create-react-app<span class="w"> </span>my-app<span class="w"> </span>--template<span class="w"> </span>typescript
 </pre></div>

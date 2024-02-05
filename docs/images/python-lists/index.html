@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Introduction &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=19645805"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -96,7 +100,7 @@
              
   <p>Python lists are one of its most flexible and widely used data types. This article is a beginner’s guide to Python lists, but like everything in programming, remembering what you learned requires sufficient early practice. With this in mind, in addition to the lesson, we also feature several exercises at the end that you can use to review and reinforce what you’ve learned. These lessons come with links to live Jupyter notebooks you can run both for the exercises themselves and the solution set (in case you get stuck).</p>
 <section id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h1>
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h1>
 <p>The basic idea of a list is straightforward because most people already know how to use a list in real life. We might have a list of things to do, for example:</p>
 <ul class="simple">
 <li><p>Finish work project</p></li>
@@ -105,7 +109,7 @@
 </ul>
 </section>
 <section id="creating-a-list-in-python">
-<h1>Creating a list in Python<a class="headerlink" href="#creating-a-list-in-python" title="Link to this heading">¶</a></h1>
+<h1>Creating a list in Python<a class="headerlink" href="#creating-a-list-in-python" title="Link to this heading"></a></h1>
 <p>Here’s how easy it is to create a Python list with those items:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">todo_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Finish work project&quot;</span><span class="p">,</span> <span class="s2">&quot;Stop at the pharmacy&quot;</span><span class="p">,</span> <span class="s2">&quot;Return parrot to the pet store&quot;</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">todo_list</span><span class="p">)</span>
@@ -125,7 +129,7 @@
 <p>In the case of our to-do list example, we wanted to populate the list in advance, so we included three strings. Inside the list, we separate each list item with a comma.</p>
 </section>
 <section id="lists-can-contain-items-of-any-python-type">
-<h1>Lists can contain items of any Python type<a class="headerlink" href="#lists-can-contain-items-of-any-python-type" title="Link to this heading">¶</a></h1>
+<h1>Lists can contain items of any Python type<a class="headerlink" href="#lists-can-contain-items-of-any-python-type" title="Link to this heading"></a></h1>
 <p>We can add any Python object to a list – numbers, strings, dates, user-defined classes, dictionaries – even other lists.</p>
 <p>We can even mix and match types in a single list, but just as in real life, this isn’t something you usually want to do unless the items are related somehow. It would make the meaning of the list unclear, and it would be hard to write valid code to process the list.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># A list of numbers</span>
@@ -143,7 +147,7 @@
 </div>
 </section>
 <section id="python-lists-are-ordered">
-<h1>Python Lists are Ordered<a class="headerlink" href="#python-lists-are-ordered" title="Link to this heading">¶</a></h1>
+<h1>Python Lists are Ordered<a class="headerlink" href="#python-lists-are-ordered" title="Link to this heading"></a></h1>
 <p>The elements in a Python list are ordered with numbers beginning with zero. This numbering scheme may seem odd for new programmers, but it’s standard. Most programming languages start counting from zero rather than one, so this is also how C, Java, JavaScript, and many other languages do it.</p>
 <p>The fact that lists maintain their items in order means we can retrieve or change an element in the list if we know where it appears.</p>
 <p>Let’s look at several things we can do with lists in the following code segment. We’ll start with a small list of countries to see what we can do.</p>
@@ -184,7 +188,7 @@
 </ul>
 </section>
 <section id="iterating-a-list-with-a-for-loop">
-<h1>Iterating a list with a for loop<a class="headerlink" href="#iterating-a-list-with-a-for-loop" title="Link to this heading">¶</a></h1>
+<h1>Iterating a list with a for loop<a class="headerlink" href="#iterating-a-list-with-a-for-loop" title="Link to this heading"></a></h1>
 <p>Iterating a list with a for loop is a simple technique you’ll use again and again in your Python code. Here’s how to do it:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">countries</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;United States&#39;</span><span class="p">,</span> <span class="s1">&#39;Colombia&#39;</span><span class="p">,</span> <span class="s1">&#39;Japan&#39;</span><span class="p">,</span> <span class="s1">&#39;Kenya&#39;</span><span class="p">]</span>
 
@@ -218,7 +222,7 @@ Kenya
 </div>
 </section>
 <section id="modifying-the-list-elements">
-<h1>Modifying the List Elements<a class="headerlink" href="#modifying-the-list-elements" title="Link to this heading">¶</a></h1>
+<h1>Modifying the List Elements<a class="headerlink" href="#modifying-the-list-elements" title="Link to this heading"></a></h1>
 <p>Lists are considered a mutable data structure. Not only can you change the value of a list element (as we saw above for ‘Republic of Kenya’), but you can also modify the list members in other ways.</p>
 <p>Three list methods for accomplishing this are:</p>
 <ul class="simple">
@@ -248,7 +252,7 @@ Kenya
 </div>
 </section>
 <section id="creating-a-list-dynamically-first-method-loops">
-<h1>Creating a List Dynamically - First Method (Loops)<a class="headerlink" href="#creating-a-list-dynamically-first-method-loops" title="Link to this heading">¶</a></h1>
+<h1>Creating a List Dynamically - First Method (Loops)<a class="headerlink" href="#creating-a-list-dynamically-first-method-loops" title="Link to this heading"></a></h1>
 <p>We can combine a for loop with the append method to dynamically create a list. Suppose we had a list of words and wanted to return a new list with the length of each one. One common approach to a problem like this is to create a new empty list before we loop through the list of words, then append a length for each word we process inside the loop.</p>
 <p>Suppose we wanted to print the lengths of several words in a list, then return an array consisting of the lengths of each at the end.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># We use the split method to create a list from a sentence</span>
@@ -279,7 +283,7 @@ Kenya
 <p>By the way, you may have noticed that we use the same function, “<code class="docutils literal notranslate"><span class="pre">len</span></code>”to return the length of either a string or a list. The <code class="docutils literal notranslate"><span class="pre">len</span></code> function also works on other Python types, such as tuples and dictionaries.</p>
 </section>
 <section id="creating-a-list-dynamically-list-comprehensions">
-<h1>Creating A List Dynamically (List Comprehensions)<a class="headerlink" href="#creating-a-list-dynamically-list-comprehensions" title="Link to this heading">¶</a></h1>
+<h1>Creating A List Dynamically (List Comprehensions)<a class="headerlink" href="#creating-a-list-dynamically-list-comprehensions" title="Link to this heading"></a></h1>
 <p>For times when you don’t have another task to perform when you’re creating the list, Python has a much more concise and elegant syntax, called a “list comprehension.” Here’s our example above, now reworked to use a list comprehension:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">words</span> <span class="o">=</span> <span class="s1">&#39;a short list of words of different lengths&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
 <span class="n">lengths</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">]</span>
@@ -305,7 +309,7 @@ Kenya
 </div>
 </section>
 <section id="slicing">
-<h1>Slicing<a class="headerlink" href="#slicing" title="Link to this heading">¶</a></h1>
+<h1>Slicing<a class="headerlink" href="#slicing" title="Link to this heading"></a></h1>
 <p>We’ve already seen how to select a single list element with an index. Python also has a related mechanism for obtaining a subset of several list elements at once. Slices are ranges of elements that Python will select from the list. You may find this syntax a little challenging at first, but I guarantee that if you get some experience with it, you’ll come to love what it can do!</p>
 <p>Some examples will help to demonstrate how slicing works.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
@@ -344,7 +348,7 @@ Kenya
 <p>In the first example, we slice “three elements beginning at the end,” using a negative index for our end value. In the second example, stepping by two has the effect of selecting only even numbers from the list. In the final example, we use the same slice we used to copy all the elements but add a -1 as the third term. Doing this causes the slice to operate backward, effectively reversing the list.</p>
 </section>
 <section id="python-list-exercises-for-beginners">
-<h1>Python List Exercises for Beginners<a class="headerlink" href="#python-list-exercises-for-beginners" title="Link to this heading">¶</a></h1>
+<h1>Python List Exercises for Beginners<a class="headerlink" href="#python-list-exercises-for-beginners" title="Link to this heading"></a></h1>
 <p>If you’re a beginner and you’ve made it this far, congratulations! You’ve learned a lot. However, most new programmers find they need a lot of practice to remember what they’ve learned. Taking the lesson above and reworking it is a great way to do this. When you’re ready, here are more exercises that you can work through based on this lesson. It’s best to try these out on your own, using the lesson above as a reference. However, there’s also a link to the solutions after the exercises.</p>
 <p><a class="reference external" href="https://github.com/CodeSolid/CodeSolid.github.io/blob/main/booksource/exercises/ListExercises.ipynb">Source Code</a></p>
 <p><a class="reference external" href="https://colab.research.google.com/github/CodeSolid/CodeSolid.github.io/blob/main/booksource/exercises/ListExercises.ipynb">Code Exercises Online</a></p>
@@ -407,7 +411,7 @@ Kenya
 <p>View Solutions</p>
 </section>
 <section id="you-may-also-like">
-<h1>You May Also Like<a class="headerlink" href="#you-may-also-like" title="Link to this heading">¶</a></h1>
+<h1>You May Also Like<a class="headerlink" href="#you-may-also-like" title="Link to this heading"></a></h1>
 <p><a class="reference external" href="https://codesolid.com/learning-c-and-python-the-perfect-duo-for-success/">Learning C++ and Python: The Perfect Duo for Success</a></p>
 <p><a class="reference external" href="https://codesolid.com/python-operators/">Python Operators: The Building Blocks of Successful Code</a></p>
 <p><a class="reference external" href="https://codesolid.com/python-indexing-slicing-exercises/">Python Indexing and Slicing: Complete Tutorial With Hands-on Exercises</a></p>

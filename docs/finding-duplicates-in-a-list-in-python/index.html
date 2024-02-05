@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>How to Find Duplicates In a List in Python &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=19645805"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -154,7 +158,7 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="how-to-find-duplicates-in-a-list-in-python">
-<h1>How to Find Duplicates In a List in Python<a class="headerlink" href="#how-to-find-duplicates-in-a-list-in-python" title="Link to this heading">¶</a></h1>
+<h1>How to Find Duplicates In a List in Python<a class="headerlink" href="#how-to-find-duplicates-in-a-list-in-python" title="Link to this heading"></a></h1>
 <p>Dealing with messy data is a common task. Data analysts recognize that data cleaning is where they spend a lot of their time, but software engineers also have to contend with it from time to time.</p>
 <p>One typical example of messy data is a list with duplicate entries, so finding the duplicates in a list is a common thing to do. The most common reason for this is that we need to find the copies to return a list that is “pared down,” where each element is unique.</p>
 <p>Like so many programming tasks, Python makes this easy to do. However, the best approach depends on several things. If we are doing this duplicate search to remove duplicates, we may or may not need to preserve the order, so we’ll dive into both solutions here. If we don’t care about the order, there’s an even simpler solution that works across all versions of Python from 2.4 on.</p>
@@ -165,7 +169,7 @@
 </ul>
 <p>But again, let’s start with the simplest cases first!</p>
 <section id="finding-duplicates-in-a-list-when-order-doesn-t-matter">
-<h2>Finding Duplicates in a List When Order Doesn’t Matter<a class="headerlink" href="#finding-duplicates-in-a-list-when-order-doesn-t-matter" title="Link to this heading">¶</a></h2>
+<h2>Finding Duplicates in a List When Order Doesn’t Matter<a class="headerlink" href="#finding-duplicates-in-a-list-when-order-doesn-t-matter" title="Link to this heading"></a></h2>
 <p>If the order of the elements in the Python list doesn’t matter, the trick to eliminating duplicate values is simply to think about a data structure that’s like a list, but guarantees that the items are unique without preserving the order. Go ahead and think about it. I’ll give you a minute…</p>
 <p>If you thought about a Python set type, you get the gold medal in my only guessing game in this article (promise). We can leverage the fact that sets guarantee uniqueness (in Python as in other languages as in mathematics). So all we have to do is convert the list to a set, then back into a list, and return the new list.</p>
 <p>Let’s write the function and a quick test for it.</p>
@@ -188,7 +192,7 @@
 <p>As you can see, all the elements are there, but the order was changed. “Cheese” now comes before “chicken”.</p>
 </section>
 <section id="removing-duplicates-from-a-list-with-order-preserved">
-<h2>Removing Duplicates from a List With Order Preserved<a class="headerlink" href="#removing-duplicates-from-a-list-with-order-preserved" title="Link to this heading">¶</a></h2>
+<h2>Removing Duplicates from a List With Order Preserved<a class="headerlink" href="#removing-duplicates-from-a-list-with-order-preserved" title="Link to this heading"></a></h2>
 <p>To remove duplicates from a list in Python while preserving the order, we use the <code class="docutils literal notranslate"><span class="pre">fromkeys</span></code> function of dict or OrderedDict (depending on the Python version), then convert the result to a list.</p>
 <p>Python dictionaries have preserved the order of inserted elements since Python 3.6, so reworking our example above to preserve the list’s order while removing the duplicates can be done using a dictionary.</p>
 <p>Here’s the code for newer versions of Python:</p>
@@ -215,7 +219,7 @@ print(unique_ordered)</p>
 <p>This gives the same output as above.</p>
 </section>
 <section id="removing-duplicates-in-a-list-of-complex-objects">
-<h2>Removing Duplicates in a List of Complex Objects<a class="headerlink" href="#removing-duplicates-in-a-list-of-complex-objects" title="Link to this heading">¶</a></h2>
+<h2>Removing Duplicates in a List of Complex Objects<a class="headerlink" href="#removing-duplicates-in-a-list-of-complex-objects" title="Link to this heading"></a></h2>
 <p>So far we’ve been looking at solutions that rely on either a Set or a dictionary or OrderedDict to ensure that the object is unique. We then convert that to a new list and return it.</p>
 <p>This works fine for many simple built-in types like numbers and strings. However, when we start to deal with objects, things get a bit more interesting, and we need to do a little more work.</p>
 <p>To see why let’s begin by considering a really simple user-defined function. Suppose we want to save a list of people and their phone numbers. We’ll consider people to be duplicates if both their first name and their phone number are the same.</p>
@@ -293,7 +297,7 @@ print(unique_ordered)</p>
 <p>Of course, if we wanted to, we could implement the hash function differently, in this case comparing only the phone number, for example.</p>
 </section>
 <section id="find-duplicates-in-a-list-to-count-the-entries">
-<h2>Find Duplicates in a List to Count the Entries<a class="headerlink" href="#find-duplicates-in-a-list-to-count-the-entries" title="Link to this heading">¶</a></h2>
+<h2>Find Duplicates in a List to Count the Entries<a class="headerlink" href="#find-duplicates-in-a-list-to-count-the-entries" title="Link to this heading"></a></h2>
 <p>Next to removing duplicates, perhaps the most common reason to find duplicates in a list is to count the number of entries. When analyzing text, for example, you might want to know how often a word occurs.</p>
 <p>You might first think of using a dictionary to do this. This is a reasonable approach since the words could be stored as keys and the counts as values. However, in Python, there’s a Counter class specialized for this purpose that makes the task even easier. All you have to do is pass the list to the constructor to create a dictionary-like object that processes the counts for you automatically.</p>
 <p>Let’s demo this briefly by printing the word count of an important question my father taught me to ask:</p>
@@ -335,7 +339,7 @@ print(unique_ordered)</p>
 <p>By the way, we cheated a bit in our example above and added a space before the question mark. The issue of punctuation and case matching muddies the water a bit. Removing multiple punctuation characters is easy to do but doing it efficiently is a topic that’s a bit bigger than we want to dive into for this article.</p>
 </section>
 <section id="you-may-also-enjoy">
-<h2>You May Also Enjoy<a class="headerlink" href="#you-may-also-enjoy" title="Link to this heading">¶</a></h2>
+<h2>You May Also Enjoy<a class="headerlink" href="#you-may-also-enjoy" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://codesolid.com/python-lists/">Python Lists for Beginners</a></p></li>
 <li><p><a class="reference external" href="https://codesolid.com/python-indexing-slicing-exercises/">Python Indexing and Slicing: Complete Tutorial and Hands-On Exercises</a></p></li>

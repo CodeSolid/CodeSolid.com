@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Creating a Python Interactive Plot Using Matplotlib in Jupyter &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=19645805"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -124,7 +128,7 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="creating-a-python-interactive-plot-using-matplotlib-in-jupyter">
-<h1>Creating a Python Interactive Plot Using Matplotlib in Jupyter<a class="headerlink" href="#creating-a-python-interactive-plot-using-matplotlib-in-jupyter" title="Link to this heading">¶</a></h1>
+<h1>Creating a Python Interactive Plot Using Matplotlib in Jupyter<a class="headerlink" href="#creating-a-python-interactive-plot-using-matplotlib-in-jupyter" title="Link to this heading"></a></h1>
 <p>While static plots tell a story with data, interactive plots let your users explore that story on their own. Simple interactive plots allow for basic operations like scaling or panning a view, which is often necessary to make the data relationships appear at all. More advanced plots allow the user to select features, filter or sort data, or change the variables on which the plot depends.</p>
 <p>The Python community has developed many tools for interactive plotting, so we’ll first briefly discuss the options that are available. As always, this article will:</p>
 <ul class="simple">
@@ -133,23 +137,23 @@
 <li><p>Share the code with you as a starting point for your exploration</p></li>
 </ul>
 <section id="python-libraries-for-interactive-plots">
-<h2>Python Libraries For Interactive Plots<a class="headerlink" href="#python-libraries-for-interactive-plots" title="Link to this heading">¶</a></h2>
+<h2>Python Libraries For Interactive Plots<a class="headerlink" href="#python-libraries-for-interactive-plots" title="Link to this heading"></a></h2>
 <section id="the-road-ahead-what-this-article-covers">
-<h3>The Road Ahead: What This Article Covers<a class="headerlink" href="#the-road-ahead-what-this-article-covers" title="Link to this heading">¶</a></h3>
+<h3>The Road Ahead: What This Article Covers<a class="headerlink" href="#the-road-ahead-what-this-article-covers" title="Link to this heading"></a></h3>
 <p>There is no shortage of software tools and development environments that allow for data visualization, but we begin our discussion with Matplotib and Ipywidgets, two mainstream solutions. We call these solutions mainstream because <a class="reference external" href="https://codesolid.com/jupyter-notebook-a-complete-introduction/">Jupyter Notebook and Jupyter Lab</a> are favorites of the Python data science community and anyone whose task involves publishing results. This makes IPywidgets a natural choice for a control library. For plotting data in Jupyter or IPython, the most widely used tool in the Python community is the time-honored, open-source library, Matplotlib.</p>
 <p>Although most people think of Matplotlib as a tool for static plots, it allows for basic interactivity such as panning, zooming, etc. Moreover, since Seaborn is a superset of Matplotlib, these features are also available there as well.</p>
 <p>To go beyond the basic interactivity that Matplotlib provides out of the box, we can add custom controls using the Jupyter Widgets library (<a class="reference external" href="https://ipywidgets.readthedocs.io/en/stable/index.html">Ipywidgets</a>), which is a set of interactive browser controls (user interface widgets) that work in Jupyter Notebook and Jupyter lab. Using IPyWidgets, you can change the data that’s displayed in the charts, select features to display, or other actions.</p>
 <p>In this article, we’ll develop an example that plots two-dimensional vectors using Matplotlib, and allows changing the contents of the vectors using slider controls.</p>
 </section>
 <section id="the-road-not-taken-other-choices-for-interactive-plots">
-<h3>The Road Not Taken: Other Choices for Interactive Plots<a class="headerlink" href="#the-road-not-taken-other-choices-for-interactive-plots" title="Link to this heading">¶</a></h3>
+<h3>The Road Not Taken: Other Choices for Interactive Plots<a class="headerlink" href="#the-road-not-taken-other-choices-for-interactive-plots" title="Link to this heading"></a></h3>
 <p>A number of other libraries rely on mediating between Python code running on a server and JavaScript code running in the browser, typically via a JSON payload. One such tool is Bokeh, in which the Python code runs in the Bokeh server. You can forego the server and run “standalone Bokeh” in Jupyter, but in this case, you forego interactivity.</p>
 <p>Two other tools in this space are <a class="reference external" href="https://github.com/altair-viz/altair">Vega-Altair</a> and <a class="reference external" href="https://github.com/plotly/plotly.py">Plotly</a>, which also mediate between a Python backend and JavaScript in the browser. We have not yet examined Vega-Altair, but according to its website, it integrates seamlessly with Jupyter Notebook and Jupyter Lab. We may examine Vega Altair in a later article.</p>
 <p>Plotly is a tool that’s often discussed as the graphing library used in a Dash application. Dash is a Python web framework that allows you to code custom controls and respond to events on the server side. Therefore, to add interactive features to your Plotly graph, you can run it from within a Dash application. Dash applications can be run as open source Python applications that launch a Flask-based server or in the commercially available Dash Enterprise. There’s also a third-party tool, JupyterDash, for integrating Dash interactivity into Jupyter Lab. However, we haven’t had success with this library after several attempts, so our opinion as of this writing is that it’s not ready for primetime.</p>
 </section>
 </section>
 <section id="matplotlib-and-in-jupyter-lab-first-steps">
-<h2>Matplotlib and in Jupyter Lab: First Steps<a class="headerlink" href="#matplotlib-and-in-jupyter-lab-first-steps" title="Link to this heading">¶</a></h2>
+<h2>Matplotlib and in Jupyter Lab: First Steps<a class="headerlink" href="#matplotlib-and-in-jupyter-lab-first-steps" title="Link to this heading"></a></h2>
 <p>The code for this article is located in the matplotlib-ipywidgets directory of our repository, <a class="reference external" href="https://github.com/CodeSolid/python-plot-examples">python-plot-examples</a>, or you can follow along below. We begin by installing the necessary libraries in our Python environment using the following requirements.txt:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># To install, use:</span>
 <span class="c1"># pip install -r requirements.txt</span>
@@ -170,7 +174,7 @@
 </div>
 </section>
 <section id="building-the-plot">
-<h2>Building the Plot<a class="headerlink" href="#building-the-plot" title="Link to this heading">¶</a></h2>
+<h2>Building the Plot<a class="headerlink" href="#building-the-plot" title="Link to this heading"></a></h2>
 <p>Our goal is to first plot two vectors in “standard position”. Standard position means the vector tail starts at the origin of the Cartesian X and Y plane, (0,0). Given a two-element vector, for example, <code class="docutils literal notranslate"><span class="pre">vector_1</span> <span class="pre">=</span> <span class="pre">[3,4]</span></code>, we can then interpret those two elements as the X and Y coordinates of the vector head.</p>
 <p>We begin by enabling some our the matplotlib interactive features that we’ll need later, importing what we need at this point, and declaring our two vectors as simple Python lists.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">widget</span>
@@ -250,7 +254,7 @@
 <p><img alt="" src="../_images/image-71.png" /></p>
 </section>
 <section id="displaying-information-in-the-title">
-<h2>Displaying Information in the Title<a class="headerlink" href="#displaying-information-in-the-title" title="Link to this heading">¶</a></h2>
+<h2>Displaying Information in the Title<a class="headerlink" href="#displaying-information-in-the-title" title="Link to this heading"></a></h2>
 <p>Setting a title is simple enough. You simply pass a title as a parameter to the <code class="docutils literal notranslate"><span class="pre">matplotlib.title</span></code> function. However, we wanted to take it a step further to scratch our numerical Python itch a bit. If math isn’t your thing, feel free to skip this section and move onto the Dash section below. Meantime I promise not to spend too much time on it.</p>
 <p>We want to display the angle between the vectors, and the dot product of the two vectors. NumPy gives us the dot product easily, and we’ll write the code to calculate the angle in the <code class="docutils literal notranslate"><span class="pre">vector_angle</span></code> function (below). Finally, the <code class="docutils literal notranslate"><span class="pre">get_title</span></code> function puts it all together into a string. Here are the changes we need to make.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add this code below the vectors_to_dataframe function</span>
@@ -273,7 +277,7 @@
 <p><img alt="" src="../_images/image-81.png" /></p>
 </section>
 <section id="interactive-data-visualization-adding-user-controls-with-ipywidets">
-<h2>Interactive Data Visualization: Adding User Controls With Ipywidets<a class="headerlink" href="#interactive-data-visualization-adding-user-controls-with-ipywidets" title="Link to this heading">¶</a></h2>
+<h2>Interactive Data Visualization: Adding User Controls With Ipywidets<a class="headerlink" href="#interactive-data-visualization-adding-user-controls-with-ipywidets" title="Link to this heading"></a></h2>
 <p>Using the Matplotib defaults, our graph is “interactive” in a very minimal sense, but it doesn’t allow the user to change the display vectors interactively. Of course, in a Jupyter environment like this, a user could also change the code relatively easily, but allowing the user to interact with the data without modifying the code makes it more clear what the user of the notebook is meant to explore. Moreover, we’re keeping our example simple from a data point of view with only two small vectors (lists), but as the source data grows in complexity, so does the value of supporting users of the notebook with interactive controls.</p>
 <p>Let’s first discuss the new code that we need for interactivity. To see how it all fits together in such a way that the controls for the data values and the plot appear in the same cell, you can view or download the <a class="reference external" href="https://github.com/CodeSolid/python-plot-examples/blob/main/matplotlib-ipywidgets/Matplotlib_IPyWidgets_Consolidated.ipynb">full notebook source here</a>. This consolidated code also removes some redundancy that gets introduced in the <code class="docutils literal notranslate"><span class="pre">do_update</span></code> function (see below).</p>
 <p>The IPywidgets library contains a number of intereractive controls including sliders, dropdowns, text fields, and many others. You can see the complete <a class="reference external" href="https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20List.html">list of available controls</a>, but if you have done any user interface programming, you may already be guessing that our task will involve:</p>
@@ -335,7 +339,7 @@
 <p><img alt="" src="../_images/image-9.png" /></p>
 </section>
 <section id="discussion">
-<h2>Discussion<a class="headerlink" href="#discussion" title="Link to this heading">¶</a></h2>
+<h2>Discussion<a class="headerlink" href="#discussion" title="Link to this heading"></a></h2>
 <p>Once we import what we need, we create a <code class="docutils literal notranslate"><span class="pre">do_update</span></code> function, which takes the data passed from the controls and redraws the plot.</p>
 <p>If you were paying very close attention earlier when we displayed the static plot, you may have wondered why we created an unused figure object in the line <code class="docutils literal notranslate"><span class="pre">figure</span> <span class="pre">=</span> <span class="pre">plt.figure()</span></code>. The purpose of that call was to take the plotting calls we were making at the end of our first section and remember them, so we could clear the plot before updating it. We found this to be necessary because setting the data on the lines directly doesn’t work in the case of arrows, so as in most UI work, we find the corner cases pretty quickly.</p>
 <p>The next several lines of <code class="docutils literal notranslate"><span class="pre">do_update</span></code> (lines 14-20) are very close to what we did when we originally drew the plot, with the exception of “draw” instead of “show”. We’re updating the vectors themselves, their labels, and the title of the plot. As mentioned earlier, the consolidated code simply calls both in response to the sliders changing and to display the initial grid.</p>
@@ -344,7 +348,7 @@
 <p>Finally, on lines 41-46, we set up an “<code class="docutils literal notranslate"><span class="pre">interactive</span></code>” object. This ipywidgets class is a kind of container for widgets that can be treated as a group, and which will call the event handler passed to it whenever the value of any of its contained widgets changes. This is exactly what we want in this case since it means we can handle all the user interactions from the slider controls in a single event handler.</p>
 </section>
 <section id="interactive-plots-a-fringe-benefit">
-<h2>Interactive Plots: A Fringe Benefit<a class="headerlink" href="#interactive-plots-a-fringe-benefit" title="Link to this heading">¶</a></h2>
+<h2>Interactive Plots: A Fringe Benefit<a class="headerlink" href="#interactive-plots-a-fringe-benefit" title="Link to this heading"></a></h2>
 <p>Once upon a time as a back-end developer, I spent a lot of time coding unit tests. Unit tests at that level tend to be easier to get right and less brittle than unit tests on the front end. Fortunately, people who spend their time developing user interfaces may be able to get away with somewhat less unit testing, because they get instant feedback from the interface they’re developing.</p>
 <p>Back in the code for <code class="docutils literal notranslate"><span class="pre">vector_angle</span></code>, we left an I.O.U. for a bug fix: <em>“(There’s an issue with this that we’ll fix lat r).”</em> I found this bug while testing out the slider controls, and noticing were getting a math domain error. The cause turned out to be a floating-point rounding conditions leading to cosines outside the range we were expecting. While fixing that, we also noticed a possible divide by zero condition, so we added some defensive code for that, too. Here’s the corrected code:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">vector_angle</span><span class="p">(</span><span class="n">vector1</span><span class="p">,</span> <span class="n">vector2</span><span class="p">):</span>
@@ -372,7 +376,7 @@
 </div>
 </section>
 <section id="matplotlib-plus-ipywidgets-some-final-thoughts">
-<h2>Matplotlib Plus IPywidgets: Some Final Thoughts<a class="headerlink" href="#matplotlib-plus-ipywidgets-some-final-thoughts" title="Link to this heading">¶</a></h2>
+<h2>Matplotlib Plus IPywidgets: Some Final Thoughts<a class="headerlink" href="#matplotlib-plus-ipywidgets-some-final-thoughts" title="Link to this heading"></a></h2>
 <p>When I first began looking at interactive plotting tools in Python, most of the resources I found treated Matplotlib as only a static plotting tool, which is incorrect. Instead, the availble resources mainly focused on writing web applications in Plotly and Dash. Though I may revisit them in a future post, I found that JupyterDash didn’t provide the ease of integration I hoped for between Dash and my favorite environment, Jupyter Lab. Dash really wants to run in a standalone server, not in Jupyter, which itself is a server. This is why in the end I decided to go with IPywidgets, even if this brought with it some styling limitations.</p>
 <p>For example, an outstanding issue you may notice when running the consolidated notebook is that the widgets and the plot do not align perfectly. Passing a small figsize parameter to <code class="docutils literal notranslate"><span class="pre">plt.figure</span></code>(), for example <code class="docutils literal notranslate"><span class="pre">plt.figure(figsize=(4,</span> <span class="pre">4))</span></code> is a workaround here, but we’re leaving aside a more in-depth investigation of the styling options that are available.</p>
 <p>One final note is that when most people think of interactive graphs in Python, the first thing that comes to mind is probably how to do that with a Pandas dataframe. Though we developed a non-Pandas sample here, the same techniques we used would allow you to update a graph from a dataframe. Moreover, since Seaborn is based on Matplotlib, one could use these techniques with a more “Pandas-friendly” library without much trouble.</p>

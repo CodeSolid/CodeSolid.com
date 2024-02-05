@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Python Dunder Methods: The Ugliest Awesome Sauce &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=19645805"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -157,13 +161,13 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="python-dunder-methods-the-ugliest-awesome-sauce">
-<h1>Python Dunder Methods:  The Ugliest Awesome Sauce<a class="headerlink" href="#python-dunder-methods-the-ugliest-awesome-sauce" title="Link to this heading">¶</a></h1>
+<h1>Python Dunder Methods:  The Ugliest Awesome Sauce<a class="headerlink" href="#python-dunder-methods-the-ugliest-awesome-sauce" title="Link to this heading"></a></h1>
 <p><img alt="" src="../_images/pexels-kaique-rocha-48013.jpg" /></p>
 <p>If you’ve ever created a Python class, you are probably already familiar with dunder methods, though you may not yet know you are. If you don’t yet know that you are, you’re probably waiting for me to clarify: What is a dunder method?</p>
 <p>I’m glad you asked.</p>
 <p>A dunder method – also known as a magic method – gets its name from the double underscores that begin and end the method name. Dunder methods allow you to build classes that overload Python operators and interact beautifully and seamlessly with Python functions.</p>
 <section id="python-constructors-are-dunder-methods">
-<h2>Python Constructors are Dunder Methods<a class="headerlink" href="#python-constructors-are-dunder-methods" title="Link to this heading">¶</a></h2>
+<h2>Python Constructors are Dunder Methods<a class="headerlink" href="#python-constructors-are-dunder-methods" title="Link to this heading"></a></h2>
 <p>I’m able to make the bold claim that you’re familiar with these if you’ve ever created a class because the most common dunder method of all is a Python constructor. Consider a simple two-dimensional point class.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
@@ -179,7 +183,7 @@
 <p>However, the more I learned about Python, the more I learned that these “ugly” double underbars are the gateway to the consistency and ease of use that I love so much about Python. For Python magic functions, the ugly is only syntax-deep. The more ugly double-underbars our class has, the more inner beauty they develop.</p>
 </section>
 <section id="ugly-is-beautiful-repr-and-str">
-<h2>Ugly is Beautiful: __repr__ and __str__<a class="headerlink" href="#ugly-is-beautiful-repr-and-str" title="Link to this heading">¶</a></h2>
+<h2>Ugly is Beautiful: __repr__ and __str__<a class="headerlink" href="#ugly-is-beautiful-repr-and-str" title="Link to this heading"></a></h2>
 <p>Let’s take the simple case of examining the contents of a point using the Point class we developed above. Here’s how that point above would look if you viewed it in Jupyter Notebook:</p>
 <p><img alt="" src="../_images/image-33.png" /></p>
 <p>Seriously, “<code class="docutils literal notranslate"><span class="pre">&lt;__main__.Point</span> <span class="pre">at</span> <span class="pre">0x110fb0af0&gt;</span></code>”? Talk about ugly! Paradoxically, we can beautify the output by adding an somewhat less ugly dunder method. Let’s do that now.</p>
@@ -219,7 +223,7 @@
 <p>Now the output for lists and dicts is not only readable, but it can be passed back in using Python eval or pasted into a source file to reconstruct the original list or dict, because as we discussed before, __repr__ should output a string that can be used to reconstruct the object.</p>
 </section>
 <section id="operator-overloading-and-dunder-methods">
-<h2>Operator Overloading and Dunder Methods<a class="headerlink" href="#operator-overloading-and-dunder-methods" title="Link to this heading">¶</a></h2>
+<h2>Operator Overloading and Dunder Methods<a class="headerlink" href="#operator-overloading-and-dunder-methods" title="Link to this heading"></a></h2>
 <p>Some of our users are happy now that they can print our points and reconstruct lists of them from the output of <code class="docutils literal notranslate"><span class="pre">print(points_list)</span></code>. But there’s always that one user – in our case it’s Marty Mathmajor – who’s unimpressed with what we’ve done and clamors for more. Can we make any kind of an impression on Marty?</p>
 <p>Well, we recall that although the sum of two points doesn’t make sense mathematically, there are a couple of ways to think about the difference between the two points, let’s call them p and q. One approach is to consider it a vector, a direction one would have to travel to get from p and q. Formally, the vector from p to q is given by q−p. But we can’t yet subtract q and p yet. Let’s see how that method would look (given the above Point class)</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="fm">__sub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">Point</span><span class="p">):</span>
@@ -241,7 +245,7 @@
 <p>Now we have the workings of something Marty’s sure to be proud of! Normally we’d run to him excitedly to show off our work, but what with the pandemic and all, we’re remote now. So we call Marty on Zoom excitedly to screen-share our work.</p>
 </section>
 <section id="dunder-methods-to-integrate-other-python-functions">
-<h2>Dunder Methods to Integrate Other Python Functions<a class="headerlink" href="#dunder-methods-to-integrate-other-python-functions" title="Link to this heading">¶</a></h2>
+<h2>Dunder Methods to Integrate Other Python Functions<a class="headerlink" href="#dunder-methods-to-integrate-other-python-functions" title="Link to this heading"></a></h2>
 <p>We show Marty how we can calculate vectors by subtracting points, and he’s mildly impressed with us (which is pretty good, if you know Marty). But then he tells us that given a point, p, he wants len(p) to return the distance of the point from the origin. That strikes us as a fairly oddball request, but, well, we’re used to Marty by now, so we pour another coffee and give it some thought.</p>
 <p>We may not be math majors like Marty – not since that unfortunate incident with Mrs. Chagnon in 11th grade – but we remember enough about points to recall we can calculate distances using the Pythagorean theorem. So given origin at p again, the distance of q from the origin is given by the square root of (q.x - 0)2 + (q.y - 0)2. So let’s see if we can make this work with the len function.</p>
 <p>A quick trip to Google lets us confirm what we suspected, that the len function in python calls the <code class="docutils literal notranslate"><span class="pre">__len__</span></code> method on a class if it’s implemented. We happen to recall we can get an even answer of 5 for a hypotenuse if our other two sides are 3 and 4, so in TDD fashion, we jot down our test case:</p>
@@ -291,7 +295,7 @@
 <p>Sure, Marty knows his math, but <em>we’re</em> speaking the language of science and engineering: Python. (Yes, I really said that).</p>
 </section>
 <section id="are-dunder-methods-in-python-a-good-design">
-<h2>Are Dunder Methods in Python a Good Design?<a class="headerlink" href="#are-dunder-methods-in-python-a-good-design" title="Link to this heading">¶</a></h2>
+<h2>Are Dunder Methods in Python a Good Design?<a class="headerlink" href="#are-dunder-methods-in-python-a-good-design" title="Link to this heading"></a></h2>
 <p>Based on our examples so far, you may be wondering if using dunder methods is a good design.</p>
 <p>Dunder methods are an excellent tool that leads to good designs that let your code integrate well with Python operators, loops, and debugging output. However, it’s important to make sure that the usage of a dunder method for a given case makes sense given the types involved and clarifies the code rather than obscures it.</p>
 <p>There’s a good lesson learned from our encounter with our imaginary friend, Marty. Sometimes you certainly <em>can</em> implement some functionality in terms of a dunder method, but it doesn’t mean you should. Is having a rounded square-root value useful, and is it obvious that the length of a point is the distance from the origin? All of these are valid design considerations. Honestly, I would answer a firm “no” to those questions for production code, but as a sample of how to implement length, it’s a perfectly serviceable example, so I’ll leave it at that.</p>
@@ -303,7 +307,7 @@
 <p>As you can see, except for dunder methods that are almost always worth implementing, like <code class="docutils literal notranslate"><span class="pre">__repr__</span></code>, we generally need to consider whether a given dunder method makes sense on a case-by-case basis.</p>
 </section>
 <section id="implementing-python-iterators-using-dunder-methods">
-<h2>Implementing Python Iterators Using Dunder Methods<a class="headerlink" href="#implementing-python-iterators-using-dunder-methods" title="Link to this heading">¶</a></h2>
+<h2>Implementing Python Iterators Using Dunder Methods<a class="headerlink" href="#implementing-python-iterators-using-dunder-methods" title="Link to this heading"></a></h2>
 <p>For our next example, let’s suppose we work for HyperMegaGiantCarSales.com, and our team has been dealing with lists of lists of car data. A simplified list might look like this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cars</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;6300&quot;</span><span class="p">,</span> <span class="s2">&quot;toyota&quot;</span><span class="p">,</span> <span class="s2">&quot;cruiser&quot;</span><span class="p">,</span> <span class="s2">&quot;2008&quot;</span><span class="p">,</span> <span class="s2">&quot;274117.0&quot;</span><span class="p">,</span> <span class="s2">&quot;black&quot;</span><span class="p">],</span>
     <span class="p">[</span><span class="s2">&quot;2899&quot;</span><span class="p">,</span> <span class="s2">&quot;ford&quot;</span><span class="p">,</span> <span class="s2">&quot;se&quot;</span><span class="p">,</span> <span class="s2">&quot;2011&quot;</span><span class="p">,</span> <span class="s2">&quot;190552.0&quot;</span><span class="p">,</span> <span class="s2">&quot;silver&quot;</span><span class="p">],</span>
@@ -363,7 +367,7 @@ Found<span class="w"> </span>a<span class="w"> </span>car<span class="w"> </span
 </div>
 </section>
 <section id="what-are-all-the-available-dunder-methods">
-<h2>What Are All the Available Dunder Methods?<a class="headerlink" href="#what-are-all-the-available-dunder-methods" title="Link to this heading">¶</a></h2>
+<h2>What Are All the Available Dunder Methods?<a class="headerlink" href="#what-are-all-the-available-dunder-methods" title="Link to this heading"></a></h2>
 <p>As a language nerd, one of the features of Python that I love the most is the fact that Python gives so many built-in tools for exploring the language itself. Because of this, for example, you can get the methods on any Python object (including the dunder methods) using the <code class="docutils literal notranslate"><span class="pre">dir</span></code> function. You can then explore those methods using the <code class="docutils literal notranslate"><span class="pre">help</span></code> function, which in turn relies in part on yet another __dunder__ method, the __doc__ method, which represents the docstring for a module, class, or function.</p>
 <p>Because Python exposes so many tools for inspection and understanding the language, I thought it would be fun to build a short function that can list the dunder methods and their documentation for any Python object.</p>
 <p>Here then is the code listing for explore_dunder. We’ll show some representative output after a brief discussion of the code.</p>
@@ -520,7 +524,7 @@ overrides<span class="w"> </span>the<span class="w"> </span>normal<span class="w
 </div>
 </section>
 <section id="you-may-also-enjoy">
-<h2>You May Also Enjoy<a class="headerlink" href="#you-may-also-enjoy" title="Link to this heading">¶</a></h2>
+<h2>You May Also Enjoy<a class="headerlink" href="#you-may-also-enjoy" title="Link to this heading"></a></h2>
 <p><a class="reference external" href="https://codesolid.com/python-format-strings/">Python Format Strings: Beginner to Expert</a></p>
 <p><a class="reference external" href="https://codesolid.com/python-dataclasses/">Python Dataclass: Easily Automate Class Best Practices</a></p>
 </section>

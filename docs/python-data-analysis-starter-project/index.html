@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Python Data Analysis Starter Project &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=19645805"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -125,13 +129,13 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="python-data-analysis-starter-project">
-<h1>Python Data Analysis Starter Project<a class="headerlink" href="#python-data-analysis-starter-project" title="Link to this heading">¶</a></h1>
+<h1>Python Data Analysis Starter Project<a class="headerlink" href="#python-data-analysis-starter-project" title="Link to this heading"></a></h1>
 <section id="installing-the-tools-for-the-pandas-series">
-<h2>Installing the Tools for the Pandas Series<a class="headerlink" href="#installing-the-tools-for-the-pandas-series" title="Link to this heading">¶</a></h2>
+<h2>Installing the Tools for the Pandas Series<a class="headerlink" href="#installing-the-tools-for-the-pandas-series" title="Link to this heading"></a></h2>
 <p>This article contains the instructions for installing the Python modules that you’ll need to run the code in our Pandas Series. If you need to do this, you can skip ahead to the section “Using the Project,” or feel free to read the next section for more background.</p>
 </section>
 <section id="why-a-data-analysis-starter-project">
-<h2>Why A Data Analysis Starter Project?<a class="headerlink" href="#why-a-data-analysis-starter-project" title="Link to this heading">¶</a></h2>
+<h2>Why A Data Analysis Starter Project?<a class="headerlink" href="#why-a-data-analysis-starter-project" title="Link to this heading"></a></h2>
 <p>As someone who not only blogs about Python himself but also reviews and publishes work from other authors, I sometimes struggle with the issue of how much detail to provide about project setup and dependencies. I want newcomers to Python to be able to install what they need easily for any article they find on my website, but ensuring this means repeating the same instructions across multiple articles. Yet advanced readers may not need this information, and can quickly install whatever they need.</p>
 <p>Because of this, I thought it was time to post at least a minimal “starter project” for the community to use. I believe the minimal set of features for this are as follows:</p>
 <ul class="simple">
@@ -141,9 +145,9 @@
 </ul>
 </section>
 <section id="installing-the-project-tools">
-<h2>Installing the Project Tools<a class="headerlink" href="#installing-the-project-tools" title="Link to this heading">¶</a></h2>
+<h2>Installing the Project Tools<a class="headerlink" href="#installing-the-project-tools" title="Link to this heading"></a></h2>
 <section id="using-pip-recommended-if-you-have-python-installed">
-<h3>Using Pip: (Recommended If You Have Python Installed)<a class="headerlink" href="#using-pip-recommended-if-you-have-python-installed" title="Link to this heading">¶</a></h3>
+<h3>Using Pip: (Recommended If You Have Python Installed)<a class="headerlink" href="#using-pip-recommended-if-you-have-python-installed" title="Link to this heading"></a></h3>
 <p>If you already have Python 3.4 or later installed, you can do everything you need with pip and the Python<br />
 “venv” (virtual environment) module.</p>
 <p>There are basically three main steps involved.</p>
@@ -164,7 +168,7 @@ venv<span class="se">\s</span>cripts<span class="se">\a</span>ctivate.bat
 </div>
 </section>
 <section id="using-conda">
-<h3>Using Conda<a class="headerlink" href="#using-conda" title="Link to this heading">¶</a></h3>
+<h3>Using Conda<a class="headerlink" href="#using-conda" title="Link to this heading"></a></h3>
 <p>Conda users may prefer using it to the pip instructions above. Also, if you don’t yet have Python installed, I’ve found that <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">miniconda</a> is a great way to manage complete Python environments (even including being able to run different versions of Python).</p>
 <p>To use conda to install and activate our data science starter, start by downloading and saving the <a class="reference external" href="https://raw.githubusercontent.com/CodeSolid/data-analysis-starter/main/environment.yml">environment.yml</a> file.</p>
 <p>Next, run the following two commands to create and activate the environment:</p>
@@ -175,19 +179,19 @@ conda<span class="w"> </span>activate<span class="w"> </span>data-analysis
 </section>
 </section>
 <section id="running-and-using-jupyter-lab">
-<h2>Running and Using Jupyter Lab<a class="headerlink" href="#running-and-using-jupyter-lab" title="Link to this heading">¶</a></h2>
+<h2>Running and Using Jupyter Lab<a class="headerlink" href="#running-and-using-jupyter-lab" title="Link to this heading"></a></h2>
 <p>At this point, you’re ready to start coding any notebook in the Panda Series. You can launch an interactive notebook to do this with the following command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter<span class="w"> </span>lab
 </pre></div>
 </div>
 </section>
 <section id="what-s-included-in-the-starter-project">
-<h2>What’s Included in the Starter Project<a class="headerlink" href="#what-s-included-in-the-starter-project" title="Link to this heading">¶</a></h2>
+<h2>What’s Included in the Starter Project<a class="headerlink" href="#what-s-included-in-the-starter-project" title="Link to this heading"></a></h2>
 <p>In addition to Jupyter, the starter project includes Seaborn, which also gets you access to Pandas, NumPy, and Matplotlib. We’ve also included scikit-learn, the popular machine learning package for Python with many built-in tools for data preparation beyond those provided by Pandas alone.</p>
 <p>If you try to import something and get an error “ModuleNotFoundError: No module named (whatever)” you may need to install an additional module. You should stop Jupyter Notebook, then install the module, then re-run it. Use <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">[package-name]</span></code> or <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">[package-name]</span></code>, as appropriate.</p>
 </section>
 <section id="next-steps">
-<h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading">¶</a></h2>
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading"></a></h2>
 <p>If you’re new to Jupyter Notebook and want to read more about getting started with the tool, you might check out <a class="reference external" href="https://codesolid.com/jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a>.</p>
 <p>Our <a class="reference external" href="https://codesolid.com/python/pandas/">Pandas category page</a> features many articles about various aspects of using Pandas to get you started, while the <a class="reference external" href="https://codesolid.com/learn-python/">Learn Python</a> page indexes not just our Data Science articles, but many more general Python articles you may find useful.</p>
 </section>

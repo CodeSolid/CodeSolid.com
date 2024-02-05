@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Simple Vagrant Ansible Local Example &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=19645805"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -118,7 +122,7 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="simple-vagrant-ansible-local-example">
-<h1>Simple Vagrant Ansible Local Example<a class="headerlink" href="#simple-vagrant-ansible-local-example" title="Link to this heading">¶</a></h1>
+<h1>Simple Vagrant Ansible Local Example<a class="headerlink" href="#simple-vagrant-ansible-local-example" title="Link to this heading"></a></h1>
 <p>I recently worked on a project showing how to install and configure a complete Pentaho Server instance with a back-end data repository housed in Postgresql. I wanted to select a provisioner for this work that would be easy to use to deploy the server either as a single instance VM, as an Amazon AMI, or as a set of docker containers.</p>
 <p>As I was setting up the first such target I wanted to support – a VirtualBox VM – I noticed that the examples and documentation for using Vagrant’s ansible-local provisioner were a bit sparse. Because of this, once I had my proof of concept working I decided to make a copy of the repository so I could share it with my adoring public. Well, with the public, anyway!</p>
 <p>I’ve shared the code on <a class="reference external" href="https://github.com/CodeSolid/vagrant-ansible-local-example">Github</a>. It’s pretty straightforward, but let’s walk through it briefly. The code consists of four files, which together launch a simple Centos VM with Nginx installed:</p>
@@ -149,11 +153,11 @@
 <p>Note we still give the IP even though we’ve specified “ansible_connection=local.” I ran into some issues at one point using localhost.</p>
 <p>Finally, our Vagrantfile sets “<code class="docutils literal notranslate"><span class="pre">ansible.limit</span> <span class="pre">=</span> <span class="pre">‘all’</span></code>”, which tells ansible to connect to “all the machines in our inventory” (that’s right all one of them)!</p>
 <section id="vagrant-up">
-<h2>Vagrant Up<a class="headerlink" href="#vagrant-up" title="Link to this heading">¶</a></h2>
+<h2>Vagrant Up<a class="headerlink" href="#vagrant-up" title="Link to this heading"></a></h2>
 <p>To try it out, run “vagrant up” from the directory containing the Vagrantfile. It’ll take a few minutes to download the Centos VM and configure the VM, then you can try to connect to Nginx from your web browser: <a class="reference external" href="http://localhost:8080/">http://localhost:8080</a>.</p>
 </section>
 <section id="you-may-also-enjoy">
-<h2>You May Also Enjoy<a class="headerlink" href="#you-may-also-enjoy" title="Link to this heading">¶</a></h2>
+<h2>You May Also Enjoy<a class="headerlink" href="#you-may-also-enjoy" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://codesolid.com/building-a-docker-golang-container/">Building a Docker Golang Container</a></p></li>
 <li><p><a class="reference external" href="https://codesolid.com/how-to-use-docker-with-python/">How to Use Docker Python Images and Docker Compose with Python</a></p></li>

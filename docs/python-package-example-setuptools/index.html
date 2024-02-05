@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Python Package Example: Setuptools &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=19645805"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -130,11 +134,11 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="python-package-example-setuptools">
-<h1>Python Package Example: Setuptools<a class="headerlink" href="#python-package-example-setuptools" title="Link to this heading">¶</a></h1>
+<h1>Python Package Example: Setuptools<a class="headerlink" href="#python-package-example-setuptools" title="Link to this heading"></a></h1>
 <p>Have you ever wondered about how to create a package like the ones you can install into your python environment using tools like <a class="reference external" href="https://codesolid.com/pip-vs-pipenv-which-is-better-and-which-to-learn-first/">pip or pipenv</a>?</p>
 <p>This article starts with the complete source code plus a how-to guide to publishing a minimal Python package to PyPi. The source is also available on <a class="reference external" href="https://github.com/CodeSolid/python-package-example-setuptools">GitHub</a>. Once we have “Hello Setuptools” working, we create a new branch where we show how to add more features to a setuptools package.</p>
 <section id="creating-a-virtual-environment">
-<h2>Creating a Virtual Environment<a class="headerlink" href="#creating-a-virtual-environment" title="Link to this heading">¶</a></h2>
+<h2>Creating a Virtual Environment<a class="headerlink" href="#creating-a-virtual-environment" title="Link to this heading"></a></h2>
 <p>As we normally do when we start a new Python project, we create and activate a virtual environment.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># On windows replace the second line with:</span>
 <span class="c1"># .venv\Scripts\activate.bat</span>
@@ -145,7 +149,7 @@ python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </
 </div>
 </section>
 <section id="pyproject-toml">
-<h2>Pyproject.toml<a class="headerlink" href="#pyproject-toml" title="Link to this heading">¶</a></h2>
+<h2>Pyproject.toml<a class="headerlink" href="#pyproject-toml" title="Link to this heading"></a></h2>
 <p>At the root of our repository, we create a pyproject.toml file:</p>
 <div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[build-system]</span>
 <span class="n">requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;setuptools&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;wheel&quot;</span><span class="p">]</span>
@@ -157,7 +161,7 @@ python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </
 <p>OK, that’s enough of the history channel – let’s create a package.</p>
 </section>
 <section id="creating-the-package">
-<h2>Creating the Package<a class="headerlink" href="#creating-the-package" title="Link to this heading">¶</a></h2>
+<h2>Creating the Package<a class="headerlink" href="#creating-the-package" title="Link to this heading"></a></h2>
 <p>Next, let’s create the package we’re going to install. We’ll call our package hellosetup. I realize that “hello_setuptools” would be a bit more clear, but since PEP 8 says that package names should be short and should avoid underscores, we’ll follow that advice. We begin by giving the package and the tests for the package a place to live.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create directories</span>
 mkdir<span class="w"> </span>src
@@ -183,7 +187,7 @@ mkdir<span class="w"> </span><span class="nb">test</span>
 </div>
 </section>
 <section id="adding-some-tests">
-<h2>Adding Some Tests<a class="headerlink" href="#adding-some-tests" title="Link to this heading">¶</a></h2>
+<h2>Adding Some Tests<a class="headerlink" href="#adding-some-tests" title="Link to this heading"></a></h2>
 <p>Even though our project has very humble beginnings, we want to add some tests. That’s because here at “Hello Setuptools Industries”, quality is Job #1.</p>
 <p>Making sure we’re in the shell with our virtual environment activated, we can simply type <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pytest</span></code>. We create a file in our editor and start typing…</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># test/test_hellosetup.py</span>
@@ -194,7 +198,7 @@ mkdir<span class="w"> </span><span class="nb">test</span>
 <p>But wait a minute, this is ugly. We created a Python module with the name module1, which is maybe OK for a tutorial, but we don’t want the cool kids to know we have dumb module names. How can we fix this?</p>
 </section>
 <section id="fixing-package-names">
-<h2>Fixing Package Names<a class="headerlink" href="#fixing-package-names" title="Link to this heading">¶</a></h2>
+<h2>Fixing Package Names<a class="headerlink" href="#fixing-package-names" title="Link to this heading"></a></h2>
 <p>Until our modules have sensible names, we can work around this a bit for now. Let’s open up our __init__.py file and add some imports to it.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># src/hellosetup/__init__.py</span>
 
@@ -228,7 +232,7 @@ mkdir<span class="w"> </span><span class="nb">test</span>
 <p><img alt="" src="../_images/pytest-output-1024x1171.png" /></p>
 </section>
 <section id="setuptools-configuration">
-<h2>Setuptools Configuration<a class="headerlink" href="#setuptools-configuration" title="Link to this heading">¶</a></h2>
+<h2>Setuptools Configuration<a class="headerlink" href="#setuptools-configuration" title="Link to this heading"></a></h2>
 <p>In many established packages, you may find a file named “setup.py”. This is a file that used to be required for using setuptools, but more recently <a class="reference external" href="https://setuptools.pypa.io/en/latest/userguide/quickstart.html#transitioning-from-setup-py-to-setup-cfg">its use has been discouraged</a> in favor of storing configuration in “setup.cfg”. With this in mind, let’s create a basic setup.cfg file in the root of our project to configure setuptools to be able to install our package.</p>
 <div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[metadata]</span>
 <span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hellosetup</span>
@@ -248,7 +252,7 @@ mkdir<span class="w"> </span><span class="nb">test</span>
 <p><strong>IMPORTANT:</strong> You’ll want to give your project a new name that’s different from what I’ve used here to avoid conflicts, and you should adjust your other project files as well to make them consistent.</p>
 </section>
 <section id="building-the-project">
-<h2>Building The Project<a class="headerlink" href="#building-the-project" title="Link to this heading">¶</a></h2>
+<h2>Building The Project<a class="headerlink" href="#building-the-project" title="Link to this heading"></a></h2>
 <p>At this point, our project could actually be installed locally with Pip, as we outline in the next section. However, before doing that, we should make sure we’re ready not just to install locally, but that we’ve built our project to install correctly and quickly from pypi.org. To do this, with our virtual environment active, let’s install two new packages we’ll need.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>build
 pip<span class="w"> </span>install<span class="w"> </span>twine
@@ -261,7 +265,7 @@ pip<span class="w"> </span>install<span class="w"> </span>twine
 <p>This will build two files into the local “dist” directory. The first, the “.whl” file, is a binary distribution, which pip will try to install first if it can. Pip checks this first as an optimization to speed up the installation. The second file, the “tar.gz” file, is a source code distribution that pip will use if the binary distribution cannot be used.</p>
 </section>
 <section id="installing-our-setuptools-package-with-pip">
-<h2>Installing Our Setuptools Package With Pip<a class="headerlink" href="#installing-our-setuptools-package-with-pip" title="Link to this heading">¶</a></h2>
+<h2>Installing Our Setuptools Package With Pip<a class="headerlink" href="#installing-our-setuptools-package-with-pip" title="Link to this heading"></a></h2>
 <p>Our package has not yet been published to pypi.org at this point, so we can’t just use “pip install hellosetup” as we normally would. But fear not, we can still test it out locally, and we’ll do that now.</p>
 <p>To do this, in the terminal, start at the root of your project. From there, the first thing we want to do if our virtual environment is active is type “<code class="docutils literal notranslate"><span class="pre">deactivate</span></code>” to deactivate it – alternatively, you could open a new terminal to avoid this step.</p>
 <p>Next, let’s move to the parent of our project and create a new directory and a new virtual environment, for example:</p>
@@ -281,11 +285,11 @@ python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </
 <p>We just used Pip to install our package. Pretty cool, right? Well, yes, of course it is (it was a rhetorical question, as we all know). But now let’s do something even cooler, and publish our package to pypi.org, so we can show it off to our friends and future mates. Don’t delete this test directory for now, though, as we’ll be using it again.</p>
 </section>
 <section id="creating-an-account-on-pypi-org">
-<h2>Creating an Account on Pypi.org<a class="headerlink" href="#creating-an-account-on-pypi-org" title="Link to this heading">¶</a></h2>
+<h2>Creating an Account on Pypi.org<a class="headerlink" href="#creating-an-account-on-pypi-org" title="Link to this heading"></a></h2>
 <p>If you don’t already have a pypi.org account, creating one is very simple, and will cause you no trouble if you’ve ever created an online account anywhere. You <a class="reference external" href="https://pypi.org/account/register/">register here</a>. You’ll need to supply your name, email address, and a password – and make sure you store your password somewhere secure, of course. All done? Awesome, let’s go publish our package.</p>
 </section>
 <section id="publishing-a-package-to-pypi-org">
-<h2>Publishing a Package to Pypi.org<a class="headerlink" href="#publishing-a-package-to-pypi-org" title="Link to this heading">¶</a></h2>
+<h2>Publishing a Package to Pypi.org<a class="headerlink" href="#publishing-a-package-to-pypi-org" title="Link to this heading"></a></h2>
 <p>In the terminal, let’s deactivate our test directory’s virtual environment by typing “<code class="docutils literal notranslate"><span class="pre">deactivate</span></code>” in the terminal. We’re going to use a tool called <a class="reference external" href="https://twine.readthedocs.io/en/stable/">twine</a> to do this. Note that there’s a test.pypi.org website to which you can publish first to test things out, but this involves creating a separate account. Since we’ve already built and tested locally, we can save some time at least for this tutorial by publishing to the actual index.</p>
 <p>We start by installing Twine and checking it in the usual way:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
@@ -302,7 +306,7 @@ twine<span class="w"> </span>--version
 <p><img alt="hello, setuptools version 0.0.1" src="../_images/hellosetup.0.0.1-1024x6921.png" /></p>
 </section>
 <section id="modifying-the-setuptools-configuration">
-<h2>Modifying the Setuptools Configuration<a class="headerlink" href="#modifying-the-setuptools-configuration" title="Link to this heading">¶</a></h2>
+<h2>Modifying the Setuptools Configuration<a class="headerlink" href="#modifying-the-setuptools-configuration" title="Link to this heading"></a></h2>
 <p>If you’ve followed along this far, congratulations! You’ve mastered the basics of creating a package, configuring setuptools and the Python build system using pyproject.toml and setup.cfg, building the package, and publishing it to pypi.org. So I wouldn’t blame you if you went to the fridge at this point and grabbed a beverage.</p>
 <p>As for me, I’d like to make some improvements to our existing package. The package is there, and anytime you want, you can install it as you normally would with “<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">hellosetup</span></code>”. But it’s far too minimal for a real project, so let’s do a few things to whip it into a nicer shape. Putting my project manager hat on for a minute, I hand myself the following requirements:</p>
 <ol class="arabic simple">
@@ -344,7 +348,7 @@ git<span class="w"> </span>push<span class="w"> </span>--tag
 <p><img alt="" src="../_images/hellosetup.0.0.2-1024x9211.png" /></p>
 </section>
 <section id="additional-resources">
-<h2>Additional Resources<a class="headerlink" href="#additional-resources" title="Link to this heading">¶</a></h2>
+<h2>Additional Resources<a class="headerlink" href="#additional-resources" title="Link to this heading"></a></h2>
 <p>This article was created from several online resources that are worth consulting if you’re building a package that goes beyond trying out an online tutorial, or simply want to learn more.</p>
 <p>The Guides and Tutorials on the <a class="reference external" href="https://packaging.python.org/en/latest/">Python Packaging User Guide</a> site has a ton of great information that goes into significantly more depth than this article.</p>
 <p>Of course, the <a class="reference external" href="https://setuptools.pypa.io/en/latest/">setuptools documentation</a> is also very much worth reviewing, especially the <a class="reference external" href="https://setuptools.pypa.io/en/latest/userguide/quickstart.html">quickstart</a> and the section on <a class="reference external" href="https://setuptools.pypa.io/en/latest/userguide/declarative_config.html">configuring setup() using setup.cfg</a>.</p>

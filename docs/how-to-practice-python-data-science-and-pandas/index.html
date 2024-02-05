@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>How to Practice Python: Data Science and Pandas &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=19645805"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -121,10 +125,10 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="how-to-practice-python-data-science-and-pandas">
-<h1>How to Practice Python: Data Science and Pandas<a class="headerlink" href="#how-to-practice-python-data-science-and-pandas" title="Link to this heading">¶</a></h1>
+<h1>How to Practice Python: Data Science and Pandas<a class="headerlink" href="#how-to-practice-python-data-science-and-pandas" title="Link to this heading"></a></h1>
 <p>For this week’s How to Practice Python series, I wanted to go over the basics for practicing Python Pandas and other tools in the Python data science stack. This is for those who are new to Python data science and also as a refresher for me, since I’ve been doing more Python for cloud and AWS development lately. However, I’ve been itching to revisit the tools I was working with heavily a few years ago, so I thought I’d share some of the resources I used then and will use again to freshen up my skills in this area.</p>
 <section id="core-packages-for-python-data-science">
-<h2>Core Packages for Python Data Science<a class="headerlink" href="#core-packages-for-python-data-science" title="Link to this heading">¶</a></h2>
+<h2>Core Packages for Python Data Science<a class="headerlink" href="#core-packages-for-python-data-science" title="Link to this heading"></a></h2>
 <p>In this section, we discuss the packages you’ll need to practice Python data science on your local machine, and what tools those packages also include. However, working online is a reasonable choice as well, since there are many free resources to do this. We discuss some online resources in a later section, but you may want to read through this to learn what the core packages are, even if you don’t install them locally.</p>
 <p>If you don’t already have a technique for installing Python packages, a lot of folks get started with something called Anaconda. Personally, I prefer <a class="reference external" href="https://codesolid.com/what-is-a-python-package/#htoc-i">pip and a virtual environment</a>. A core set of packages to get you started consists of JupyterLab, Pandas and Seaborn. Here are a couple of bash aliases I wrote recently that you might find useful.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">alias</span><span class="w"> </span><span class="nv">venv</span><span class="o">=</span><span class="s1">&#39;python -m venv .venv &amp;&amp; source .venv/bin/activate &amp;&amp; \ </span>
@@ -140,22 +144,22 @@
 </ul>
 </section>
 <section id="online-tools-for-practicing-python-data-science">
-<h2>Online Tools for Practicing Python Data Science<a class="headerlink" href="#online-tools-for-practicing-python-data-science" title="Link to this heading">¶</a></h2>
+<h2>Online Tools for Practicing Python Data Science<a class="headerlink" href="#online-tools-for-practicing-python-data-science" title="Link to this heading"></a></h2>
 <p>As an alternative to installing JupyterLab, Pandas, and Seaborn locally, we’ll discuss <a class="reference external" href="https://www.kaggle.com/">Kaggle</a> in the context of finding data sets to work with, but Kaggle also supports running Jupyter notebooks online. Some other sites we should mention in this category are <a class="reference external" href="https://cocalc.com/">CoCalc</a>, which has a free version and a paid upgrade option. CoCalc supports not only Jupyter Notebook, but notebooks running in R or Julia, as well as two open source symbolic math tools, Octave and SageMath.</p>
 <p>Another site worth investigating is Google’s <a class="reference external" href="https://colab.research.google.com/">CoLab</a>. CoLab notebooks are based on Jupyter, but also feature an interactive table display for DataFrames. Once you’re ready to go beyond “just” using Pandas, CoLab also offers a free <a class="reference external" href="https://developers.google.com/machine-learning/crash-course/">15-hour machine learning crash course</a> that you can work through, as well as <a class="reference external" href="https://ai.google/education">other Machine Learning courses</a>.</p>
 </section>
 <section id="books-for-python-data-science">
-<h2>Books for Python Data Science<a class="headerlink" href="#books-for-python-data-science" title="Link to this heading">¶</a></h2>
+<h2>Books for Python Data Science<a class="headerlink" href="#books-for-python-data-science" title="Link to this heading"></a></h2>
 <p>Let’s start with what I was doing when I first learned these tools. I was fortunate to learn Pandas directly from the fellow who wrote it (well, from his book, at any rate). Wes McKinney’s <a class="reference external" href="https://www.amazon.com/gp/product/1491957662/ref=as_li_tl?ie=UTF8&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=1491957662&amp;amp;linkCode=as2&amp;amp;tag=codesolid-20&amp;amp;linkId=c3049409a5ab11ca885993c39d7cbc16">Python for Data Analysis: Data Wrangling with Pandas, NumPy, and IPython</a> is a book worth re-reading, and I’ve started doing that this week. This is a great starting place for diving into Python’s data science stack.</p>
 <p>Another book I read after McKinney’s – which I really should [buy](http://<a target="_blank" href="https://www.amazon.com/gp/product/1491912057/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1491912057&linkCode=as2&tag=codesolid-20&linkId=e486243406a0ee7672f6576d081e0b33">Python Data Science Handbook: Essential Tools for Working with Data</a>) this time around – is the Python Data Science Handbook, which Jake VanderPlas was good enough to make available in a <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/">free online version</a> as well. There’s a fair amount of overlap with McKinney’s book, but it treats both machine learning with scikit-learn and the Seaborn imaging library in greater depth.</p>
 </section>
 <section id="a-free-online-pandas-course">
-<h2>A Free Online Pandas Course<a class="headerlink" href="#a-free-online-pandas-course" title="Link to this heading">¶</a></h2>
+<h2>A Free Online Pandas Course<a class="headerlink" href="#a-free-online-pandas-course" title="Link to this heading"></a></h2>
 <p>Want a quick and easy, <a class="reference external" href="https://www.kaggle.com/learn/pandas">four-hour Pandas course</a> with a certificate? Who wouldn’t? Me, apparently – I just looked up the one I was working through four years ago, and it seems I left off at 67%. Wow, talk about your “spaced repetition”. I should finish that. It was a good course. The phone must have rung, or someone came by with dessert.</p>
 <p>Kaggle also features many other <a class="reference external" href="https://www.kaggle.com/learn">free courses</a> on various aspects of data science and machine learning.</p>
 </section>
 <section id="sample-data-sets-you-can-work-with">
-<h2>Sample Data Sets You Can Work With<a class="headerlink" href="#sample-data-sets-you-can-work-with" title="Link to this heading">¶</a></h2>
+<h2>Sample Data Sets You Can Work With<a class="headerlink" href="#sample-data-sets-you-can-work-with" title="Link to this heading"></a></h2>
 <p>When I first started learning about data science, I took some Coursera courses in R, and really enjoyed working with it in R-Studio. One feature I really missed when I first started with Python data tools was the lack of built-in data sets like in R. As a software developer, I was used to being able to get started on a project easily.</p>
 <p>Code = caffeine + time.</p>
 <p>To get even marginally proficient in data analysis, however, I needed some data sets to work with, and I found that the DataFrames that many authors included based on NumPy arrays were less clear than working with real data (even if they were easy to set up).</p>
@@ -258,17 +262,17 @@
 </ul>
 </section>
 <section id="build-your-own-dataset">
-<h2>Build Your Own Dataset<a class="headerlink" href="#build-your-own-dataset" title="Link to this heading">¶</a></h2>
+<h2>Build Your Own Dataset<a class="headerlink" href="#build-your-own-dataset" title="Link to this heading"></a></h2>
 <p>New datasets and tools for searching them are appearing all the time, and it’s easy to feel a bit overwhelmed or distracted. Also, you might not be interested in “the share of adults who can relate to characters in superhero movies in the United States as of February 2018”. One thing you might try once you’re feeling comfortable with the basics is to work up some data for something meaningful in your life.</p>
 <p>In fact, I blame Python and Pandas for moving across country! In 2017, when I was learning Pandas, I was interested in finding locations where there were lots of tech jobs and low housing costs. My wife and I were living in California at the time, which was (and is) a pricey market. My solution was to run queries on a job board for major cities for programming languages I knew to find areas with lots of likely jobs, and merge that with home price data from Zillow to create a custom data set. Some job searches later, my wife and I found ourselves driving a yellow Penske truck with the contents of our apartment from California to North Carolina.</p>
 </section>
 <section id="final-thoughts">
-<h2>Final Thoughts<a class="headerlink" href="#final-thoughts" title="Link to this heading">¶</a></h2>
+<h2>Final Thoughts<a class="headerlink" href="#final-thoughts" title="Link to this heading"></a></h2>
 <p>Those of us who come to Python from system administration or software development may or not need to master the intricacies of Machine Learning at some point. But short of that, the basic tools of Python data science can be as much fun to learn and experiment with as an automation script, an AWS Lambda function, or a web server. This is a very exciting field, and as I discuss in <a class="reference external" href="https://codesolid.com/why-is-python-popular/">Why Is Python Popular?</a>, data science is probably the single biggest use case that’s responsible for the #1 position Python finds itself in these days.</p>
 <p>As always, if you know of other resources you find helpful for practicing Python or want us to share a cool project with our readers, let us know! I’d love to hear from you.</p>
 </section>
 <section id="you-may-also-like">
-<h2>You May Also Like<a class="headerlink" href="#you-may-also-like" title="Link to this heading">¶</a></h2>
+<h2>You May Also Like<a class="headerlink" href="#you-may-also-like" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://codesolid.com/how-do-i-profile-python-code/">How to Profile Python Code</a></p></li>
 <li><p><a class="reference external" href="https://codesolid.com/python-format-strings/">Python Format Strings: Beginner to Expert</a></p></li>

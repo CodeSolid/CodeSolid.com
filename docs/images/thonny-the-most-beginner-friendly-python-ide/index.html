@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Installing Thonny Could Not Be Simpler &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=19645805"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -103,13 +107,13 @@
 <p>When I work with the Thonny IDE for Python, Thonny reminds me of the simplicity of that first C compiler, which came not on twenty-two 3.5” floppies like the one I purchased a couple of years later (sheesh!). It just came on one floppy that came with the book.</p>
 <p>In general, Thonny is the best Python IDE for beginners. This is because it has a simple, one step installation that provides both the Python interpreter and runtime and an IDE configured to use it. In addition, the Thonny debugger goes beyond the step-into function of most debuggers to show beginners in detail how each expression in Python is interpreted.</p>
 <section id="installing-thonny-could-not-be-simpler">
-<h1>Installing Thonny Could Not Be Simpler<a class="headerlink" href="#installing-thonny-could-not-be-simpler" title="Link to this heading">¶</a></h1>
+<h1>Installing Thonny Could Not Be Simpler<a class="headerlink" href="#installing-thonny-could-not-be-simpler" title="Link to this heading"></a></h1>
 <p>The beauty of the Thonny installer is that they’ve combined the Integrated Development Environment (or IDE) and the Python program and runtime libraries on which it depends into a single installer. Because of this, all you have to do is install it and go!</p>
 <p>The simplicity of Thonny is much better than the alternative: you install a Python release, then install an IDE, and configure the IDE to work with the release. Depending on the IDE you choose, this can either be somewhat straightforward or a mini-project in itself.</p>
 <p>Let’s walk through how simple it is to install Thonny, first on the Mac and then on Windows.</p>
 </section>
 <section id="installing-thonny-on-the-mac">
-<h1>Installing Thonny on the Mac<a class="headerlink" href="#installing-thonny-on-the-mac" title="Link to this heading">¶</a></h1>
+<h1>Installing Thonny on the Mac<a class="headerlink" href="#installing-thonny-on-the-mac" title="Link to this heading"></a></h1>
 <p>The simplicity of Thonny starts with their website, <a class="reference external" href="https://thonny.org/">thonny.org</a>, which always points to the latest stable release:</p>
 <p><img alt="" src="../../_images/image-413.png" /></p>
 <p>If we click on the Mac version, this will (currently) download the thonny-3.3.13.pkg file. The Thonny installer comes up, and we’ll continue through the various screens. Here’s the first:</p>
@@ -120,7 +124,7 @@
 <p>A few seconds later, you should see a screen telling you the installation was successful. At this point, you can go into Launchpad, search for Thonny, and launch the program. After walking our Windows friends through this same exercise, we’ll pick up the discussion below.</p>
 </section>
 <section id="first-steps-in-the-thonny-ide">
-<h1>First Steps in the Thonny IDE<a class="headerlink" href="#first-steps-in-the-thonny-ide" title="Link to this heading">¶</a></h1>
+<h1>First Steps in the Thonny IDE<a class="headerlink" href="#first-steps-in-the-thonny-ide" title="Link to this heading"></a></h1>
 <p>As we mentioned earlier, the Thonny IDE’s installer lets you get started right away without configuring the IDE for the Python environment since it installs and configures a Python distribution for you. The Thonny window that comes by default consists of three main parts:</p>
 <ul class="simple">
 <li><p>A code editor where you can edit and run your Python code.</p></li>
@@ -143,14 +147,14 @@
 <p>As you become more used to troubleshooting errors in Python, you may find that the error output in the shell is more than enough to help you understand the problem. In the meantime, however, the Assistant can help you get back to a working program even more quickly.</p>
 </section>
 <section id="using-the-thonny-debugger">
-<h1>Using The Thonny Debugger<a class="headerlink" href="#using-the-thonny-debugger" title="Link to this heading">¶</a></h1>
+<h1>Using The Thonny Debugger<a class="headerlink" href="#using-the-thonny-debugger" title="Link to this heading"></a></h1>
 <p>Thonny’s debugger is another area where the creators of the tool really tried to have the beginner in mind. Debuggers are useful for tracking down logic errors, which are different from the syntax errors we talked about in our discussion of Thonny’s assistant.</p>
 <p>If you’re new to debuggers in general, what they allow you to do is to execute your code in a kind of slow-motion, stepping through it one line at a time. (In a long program, you can set a breakpoint to stop at a specific location, then step from there.) While you’re stepping through your code, you can watch the variables in your code as they change, to give you insight as to where the problem might lie.</p>
 <p>The reason the Thonny debugger is beginner-friendly is that the “Step Into” function (what the Thonny documentation calls a “small step”, really shows a much more detailed evaluation of the program execution than most debuggers will.</p>
 <p>There are pros and cons to this approach. Many teachers who use Thonny report having a debugger that shows this much detail really helped many of their students to see what’s going on in a program, so that’s a good thing. For developers used to other debuggers, however, Thonny’s debugger can feel like it steps through code “too slowly”. I don’t know if beginning developers also feel this way after they’ve used the debugger for a while.</p>
 </section>
 <section id="hands-on-with-the-thonny-debugger">
-<h1>Hands-On With the Thonny Debugger<a class="headerlink" href="#hands-on-with-the-thonny-debugger" title="Link to this heading">¶</a></h1>
+<h1>Hands-On With the Thonny Debugger<a class="headerlink" href="#hands-on-with-the-thonny-debugger" title="Link to this heading"></a></h1>
 <p>Because “Hello World” does not provide a very good example of something one might step through, let’s open a new file and paste the following code so we’ll at least have a simple loop to go through:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
@@ -163,11 +167,11 @@
 <p>As shown above, now we’re in the first iteration of the loop. The list is already fully initialized, and we are working our way through it. Pressing F7 three more times, we first highlight the print function, then each of the parameters. Continuing to press F7, we eventually see the first line printed.</p>
 </section>
 <section id="closing-thoughts">
-<h1>Closing Thoughts<a class="headerlink" href="#closing-thoughts" title="Link to this heading">¶</a></h1>
+<h1>Closing Thoughts<a class="headerlink" href="#closing-thoughts" title="Link to this heading"></a></h1>
 <p>There’s a lot more to Thonny than we’ve highlighted here, including an interesting tree view that shows the structure of a program in considerable detail. We’ve focused on the features that make Thonny a great beginner IDE, but after working with it for a while, you may find you’re ready to move on to an IDE that features a debugger that’s a bit less verbose. However, for getting started without having to configure anything extra, and working through a Python text or set of online examples, Thonny is an excellent choice.</p>
 </section>
 <section id="you-may-also-enjoy">
-<h1>You May Also Enjoy<a class="headerlink" href="#you-may-also-enjoy" title="Link to this heading">¶</a></h1>
+<h1>You May Also Enjoy<a class="headerlink" href="#you-may-also-enjoy" title="Link to this heading"></a></h1>
 <p>This article is part of the <a class="reference external" href="https://codesolid.com/learn-python/">Learn Python</a> series.</p>
 </section>
 

@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>How To Separate Source and Tests in Python &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=19645805"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -152,7 +156,7 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="how-to-separate-source-and-tests-in-python">
-<h1>How To Separate Source and Tests in Python<a class="headerlink" href="#how-to-separate-source-and-tests-in-python" title="Link to this heading">¶</a></h1>
+<h1>How To Separate Source and Tests in Python<a class="headerlink" href="#how-to-separate-source-and-tests-in-python" title="Link to this heading"></a></h1>
 <p>Separating tests and source is not hard to do in Python, if you start your source directory at the root of the package structure. This is not hard in principle, but it trips up developers coming from other languages. We review how one popular library does it (which is in line with the pytest docs), and share a simple starter repository.</p>
 <p>A friend and former co-worker was good enough to submit a comment on my Python Packages post recently where he reminded me of an article I wanted to write. This is a problem he’d mentioned to me in the past, and it was one I had struggled with as well from time to time. I’m going to show a solution for pytest, which is a very common testing framework for Python. (You’ll need to <a class="reference external" href="https://codesolid.com/what-is-a-python-package/#htoc-how-to-install-python-packages">install</a> the pytest package to use it).</p>
 <p>Here’s the issue. Let’s say you have a package named “<code class="docutils literal notranslate"><span class="pre">mypackage</span></code>”, and you want to keep your unit tests separate from your package structure. Inside <code class="docutils literal notranslate"><span class="pre">mypackage</span></code> you have a simple function in greeter.py.</p>
@@ -199,7 +203,7 @@ test/mypackage/test_greeter.py
 </pre></div>
 </div>
 <section id="solution-code-python-in-python">
-<h2>Solution? Code Python in Python.<a class="headerlink" href="#solution-code-python-in-python" title="Link to this heading">¶</a></h2>
+<h2>Solution? Code Python in Python.<a class="headerlink" href="#solution-code-python-in-python" title="Link to this heading"></a></h2>
 <p>The issue here is just that <code class="docutils literal notranslate"><span class="pre">mypackage</span></code> is not the root of the package structure, <code class="docutils literal notranslate"><span class="pre">src</span></code> is. For Java programmers, in Maven we’re used to having a <code class="docutils literal notranslate"><span class="pre">src/main</span></code> and a <code class="docutils literal notranslate"><span class="pre">src/test</span></code> folder as the root of the source and tests, respectively.</p>
 <p>We can fix this in a number of ways. Let’s look at three ways I’m not going to recommend first.</p>
 <p>First, we can change our import line in the test file to read<code class="docutils literal notranslate"><span class="pre">:</span></code></p>
@@ -222,7 +226,7 @@ pytest
 <p>The best solution in my opinion is one that looks really strange for a Java developer (or even for someone familiar with Node.js), but it’s fairly idiomatic in Python. That’s simply to realize that src directory doesn’t need to be there!</p>
 </section>
 <section id="have-you-seen-this-puzzle">
-<h2>Have You Seen This Puzzle?<a class="headerlink" href="#have-you-seen-this-puzzle" title="Link to this heading">¶</a></h2>
+<h2>Have You Seen This Puzzle?<a class="headerlink" href="#have-you-seen-this-puzzle" title="Link to this heading"></a></h2>
 <p>You may have seen this puzzle, where you’re asked to connect all the dots using four lines – without lifting your pen from the paper.</p>
 <p><img alt="" src="../_images/dots.png" /></p>
 <p>Most people will scratch their heads over this one for a long time, but once you’re given the hint that the lines can extend beyond the dots, it’s pretty simple to solve. (If not, search for “nine-dots puzzle” on Google if it’s driving you crazy).</p>
@@ -237,7 +241,7 @@ tests
 </div>
 </section>
 <section id="id1">
-<h2><a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<h2><a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
 <p>That’s Crazy Talk – Right?</p>
 <p>Well, is it? Let’s take a hugely popular Python package for making HTTP requests, the appropriately named “requests” package. Here’s a screenshot from their GitHub repository. Pay attention to the last two lines:</p>
 <p><img alt="" src="../_images/image2.png" /></p>

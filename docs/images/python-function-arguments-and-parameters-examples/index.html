@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Introduction &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=19645805"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -95,7 +99,7 @@
            <div itemprop="articleBody">
              
   <section id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h1>
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h1>
 <p>Python functions have a relatively simple syntax that is very beginner-friendly. If you’re at the start of your Python journey, you’ll want to focus your practice on the basic syntax for defining and calling functions. However, as you go deeper into the language, you’ll learn that compared to other programming languages, Python has a very rich and flexible syntax for how to define functions.</p>
 <p>The great news about this flexibility is that – if used properly – it supports functions that are both easy to use from the caller’s point of view and maintainable (changeable) over time without breaking existing code. The downside of all this flexibility, of course, is that it can take a little work to master the many options that are available. This is especially true now since Python 3 has added many great enhancements, such as keyword-only arguments (Python 3.0) and positional-only arguments (Python 3.8).</p>
 <p>The goal of this article is to start with the simplest information about Python function arguments and some basic background on Python functions that we hope beginners will find useful. Following this, we gradually introduce many, many examples of the Python function calling convention. We will introduce many Python examples of Python parameters and arguments that show how to use both basic and advanced features.</p>
@@ -123,7 +127,7 @@
 </ul>
 </section>
 <section id="function-parameters-and-arguments-for-beginners">
-<h1>Function Parameters and Arguments for Beginners<a class="headerlink" href="#function-parameters-and-arguments-for-beginners" title="Link to this heading">¶</a></h1>
+<h1>Function Parameters and Arguments for Beginners<a class="headerlink" href="#function-parameters-and-arguments-for-beginners" title="Link to this heading"></a></h1>
 <p>If you’re a beginner and are unfamiliar with Python functions, this section is for you. Note that this isn’t a complete beginner discussion of Python functions, because we want to focus for now on parameters and arguments.</p>
 <p>What’s the difference? Well, although the terms “argument” and “parameter” are sometimes used interchangeably – and I’m as guilty of this as anyone. However, strictly speaking, a function is designed to take zero or more <em>parameters</em>, which the caller then passes as <em>arguments</em>.</p>
 <p>In other words: parameters appear in function definitions, while arguments are what you pass when you call the function.</p>
@@ -148,7 +152,7 @@ Hello,<span class="w"> </span>John.
 </div>
 </section>
 <section id="using-keyword-arguments-instead-of-positional-arguments">
-<h1>Using Keyword Arguments Instead of Positional Arguments<a class="headerlink" href="#using-keyword-arguments-instead-of-positional-arguments" title="Link to this heading">¶</a></h1>
+<h1>Using Keyword Arguments Instead of Positional Arguments<a class="headerlink" href="#using-keyword-arguments-instead-of-positional-arguments" title="Link to this heading"></a></h1>
 <p>A function with positional parameters can also be called either by position or by using keyword arguments. In this case, nothing more is needed when defining the function.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">punctuation</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;simple demo of &quot;plain&quot; function parameters&#39;&#39;&#39;</span>
@@ -172,7 +176,7 @@ Hello,<span class="w"> </span>programmer!
 </div>
 </section>
 <section id="type-hints">
-<h1>Type Hints<a class="headerlink" href="#type-hints" title="Link to this heading">¶</a></h1>
+<h1>Type Hints<a class="headerlink" href="#type-hints" title="Link to this heading"></a></h1>
 <p>Python introduced type hints in Python 3.5, and their use is encouraged. Type hints are a way to document the type of a function’s parameters, and some third party tools may use this information to display an error if the function is called with an argument of the incorrect type. Note that the Python runtime does not enforce type checking for type hints.</p>
 <p>We’re not dealing with type hints in detail here, and we don’t use them in the examples shown here only to make the code as simple as possible. But for non-tutorial code, they really are a best practice that we recommend.</p>
 <p>For now, we content ourselves with a simple definition and example may suffice.</p>
@@ -191,7 +195,7 @@ Hello,<span class="w"> </span>programmer!
 </div>
 </section>
 <section id="default-parameters">
-<h1>Default Parameters<a class="headerlink" href="#default-parameters" title="Link to this heading">¶</a></h1>
+<h1>Default Parameters<a class="headerlink" href="#default-parameters" title="Link to this heading"></a></h1>
 <p>The Python documentation lists default parameters as one of the most common, useful use cases for Python functions.</p>
 <p>Default parameters are added by simply using an equals sign after the argument name. Note that, unlike assignment expressions, PEP8 recommends no space before and after the equals sign, so use:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">argname</span><span class="o">=</span><span class="n">default</span>
@@ -223,7 +227,7 @@ Oh,<span class="w"> </span>hi,<span class="w"> </span>lame<span class="w"> </spa
 </div>
 </section>
 <section id="default-parameters-are-only-evaluated-once">
-<h1>Default Parameters Are Only Evaluated Once<a class="headerlink" href="#default-parameters-are-only-evaluated-once" title="Link to this heading">¶</a></h1>
+<h1>Default Parameters Are Only Evaluated Once<a class="headerlink" href="#default-parameters-are-only-evaluated-once" title="Link to this heading"></a></h1>
 <p>A subtle but important point about default parameters is that they are evaluated only once, not every time the function is called. So for mutable values like lists, dictionaries, etc., this may cause unexpected results. Let’s take as an example a function that tries to append an item to a list (The function below is not one you should really write since it doesn’t do add anything to a list’s “append” method, but it’s useful as an illustration):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">append_one_item_to_list</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">item_list</span><span class="o">=</span><span class="p">[]):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;try to add an item to the list and create the list if it does not exist&#39;&#39;&#39;</span>
@@ -244,7 +248,7 @@ Oh,<span class="w"> </span>hi,<span class="w"> </span>lame<span class="w"> </spa
 </div>
 </section>
 <section id="using-none-as-a-default-argument-for-mutable-values">
-<h1>Using None as a Default Argument for Mutable Values<a class="headerlink" href="#using-none-as-a-default-argument-for-mutable-values" title="Link to this heading">¶</a></h1>
+<h1>Using None as a Default Argument for Mutable Values<a class="headerlink" href="#using-none-as-a-default-argument-for-mutable-values" title="Link to this heading"></a></h1>
 <p>To solve the problem we of default arguments only being evaluated once, use None to represent the mutable value, and write your fuction this way:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">append_one_item_to_list</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">item_list</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>    
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;add an item to the list and create the list if it does not exist&#39;&#39;&#39;</span>
@@ -276,7 +280,7 @@ Oh,<span class="w"> </span>hi,<span class="w"> </span>lame<span class="w"> </spa
 </div>
 </section>
 <section id="variable-parameters-in-python-args-and-kwargs">
-<h1><strong>Variable Parameters in Python: *args and **kwargs</strong><a class="headerlink" href="#variable-parameters-in-python-args-and-kwargs" title="Link to this heading">¶</a></h1>
+<h1><strong>Variable Parameters in Python: *args and **kwargs</strong><a class="headerlink" href="#variable-parameters-in-python-args-and-kwargs" title="Link to this heading"></a></h1>
 <p>Whether passed by position, by keyword, or a mixture of both, so far we’ve looked at functions that support a fairly fixed number of arguments. That is to say, any parameters without a default must be supplied. If you don’t supply an argument for a non-default parameter, it’s an error. Let’s see our greet function again and see what happens.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># CAUTION:  This code generates an error!</span>
 <span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">punctuation</span><span class="o">=</span><span class="s2">&quot;!&quot;</span><span class="p">):</span>
@@ -296,7 +300,7 @@ TypeError:<span class="w"> </span>greet<span class="o">()</span><span class="w">
 <p>In Python, as in some other languages, it’s also possible to supply a variable number of positional or keyword arguments. By convention, variable positional arguments are denoted by a parameter named *args, and keyword arguments are specified usually by a parameter called **kwargs. I say “by convention” because strictly speaking, the names don’t matter as much as the asterisks at the beginning of the name, but the convention is very firmly entrenched, so it’s best to just stick with the names *args and **kwargs.</p>
 </section>
 <section id="variable-positional-arguments-only">
-<h1><strong>Variable Positional Arguments Only</strong><a class="headerlink" href="#variable-positional-arguments-only" title="Link to this heading">¶</a></h1>
+<h1><strong>Variable Positional Arguments Only</strong><a class="headerlink" href="#variable-positional-arguments-only" title="Link to this heading"></a></h1>
 <p>At the risk of making you hungry, let’s imagine you wanted a function to print all your favorite things to eat, one food per line. However, because your appetite changes from day to day, sometimes you want to print only one thing to eat, but on other days you wanted to print out a one or two things, some days you want to print out a whole list.</p>
 <p>Let’s see how we can support this with variable positional arguments:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_foods</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
@@ -326,7 +330,7 @@ Coffee
 </div>
 </section>
 <section id="calling-variable-positional-arguments-with-a-list">
-<h1><strong>Calling Variable Positional Arguments with a List</strong><a class="headerlink" href="#calling-variable-positional-arguments-with-a-list" title="Link to this heading">¶</a></h1>
+<h1><strong>Calling Variable Positional Arguments with a List</strong><a class="headerlink" href="#calling-variable-positional-arguments-with-a-list" title="Link to this heading"></a></h1>
 <p>What if you had a long list of foods or even a set (or any other iterable)? Would you have to manually copy out the arguments? Not at all. Here’s how you would do it, with a fun thing that’s usually called a “splat” operator in Python, which once again is an asterisk: “*”.</p>
 <p>It works pretty much the same way as the spread operator in JavaScript (…), so if you like that name better, I won’t stop you. Whatever you call it, this operator turns the iterable you prefix it with into a set of arguments for the function call.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># A Pythonic feast</span>
@@ -361,7 +365,7 @@ etc.
 </div>
 </section>
 <section id="variable-keyword-arguments">
-<h1><strong>Variable Keyword Arguments</strong><a class="headerlink" href="#variable-keyword-arguments" title="Link to this heading">¶</a></h1>
+<h1><strong>Variable Keyword Arguments</strong><a class="headerlink" href="#variable-keyword-arguments" title="Link to this heading"></a></h1>
 <p>In Python, just as you can pass a variable number of arguments by position, you can also pass a variable number of keyword arguments. This is done with the **kwargs parameter. Inside the function itself, kwargs is passed as a dictionary, as we demonstrate below.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_main_course</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;prints a main course for each keyword argument.</span>
@@ -392,7 +396,7 @@ etc.
 </div>
 </section>
 <section id="positional-arguments-still-come-first">
-<h1><strong>Positional Arguments Still Come First</strong><a class="headerlink" href="#positional-arguments-still-come-first" title="Link to this heading">¶</a></h1>
+<h1><strong>Positional Arguments Still Come First</strong><a class="headerlink" href="#positional-arguments-still-come-first" title="Link to this heading"></a></h1>
 <p>As you may recall from <a class="reference external" href="https://codesolid.com/python-function-arguments-and-parameters-examples">Part One</a>, positional arguments come before keyword arguments. This is true for variable keyword arguments as well. If we try to define variable keyword arguments before positional arguments, we get an error.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># BAD CODE! This code generates a syntax error, proving that</span>
 <span class="c1"># you can&#39;t give chuck_norris an argument!</span>
@@ -410,7 +414,7 @@ SyntaxError:<span class="w"> </span>invalid<span class="w"> </span>syntax
 </div>
 </section>
 <section id="keyword-only-parameters">
-<h1>Keyword-Only Parameters<a class="headerlink" href="#keyword-only-parameters" title="Link to this heading">¶</a></h1>
+<h1>Keyword-Only Parameters<a class="headerlink" href="#keyword-only-parameters" title="Link to this heading"></a></h1>
 <p>In Python 3.0 and later, anything following any variable length positional arguments must be specified by keyword. Passing them by position does not work.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_person_info</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">codes_in_python</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Given a person with a name, print the person&#39;s name, the name of any of their </span>
@@ -438,7 +442,7 @@ TypeError:<span class="w"> </span>print_person_info<span class="o">()</span><spa
 </div>
 </section>
 <section id="keyword-only-parameters-without-variable-positional-arguments">
-<h1><strong>Keyword-Only Parameters Without Variable Positional Arguments</strong><a class="headerlink" href="#keyword-only-parameters-without-variable-positional-arguments" title="Link to this heading">¶</a></h1>
+<h1><strong>Keyword-Only Parameters Without Variable Positional Arguments</strong><a class="headerlink" href="#keyword-only-parameters-without-variable-positional-arguments" title="Link to this heading"></a></h1>
 <p>We saw above that in Python, any parameters following a variable positional argument become keyword-only parameters. But what if we wanted to force a some parameters to be keyword-only without supporting variable positional arguments?</p>
 <p>In this case, we use a slight variation on the *args syntax. Here, we make it clear that there are no variable arguments allowed by simply denoting the end of the positional arguments with an unnamed, bare “*”.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_person_info</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">codes_in_python</span><span class="p">):</span>
@@ -469,7 +473,7 @@ TypeError:<span class="w"> </span>print_person_info<span class="o">()</span><spa
 </div>
 </section>
 <section id="positional-only-parameters">
-<h1><strong>Positional-only Parameters</strong><a class="headerlink" href="#positional-only-parameters" title="Link to this heading">¶</a></h1>
+<h1><strong>Positional-only Parameters</strong><a class="headerlink" href="#positional-only-parameters" title="Link to this heading"></a></h1>
 <p>In addition to supporting keyword-only parameters, newer versions of Python (from 3.8 onwards), support having parameters that must be specified by position. One of the stated reasons for the change (in <a class="reference external" href="https://www.python.org/dev/peps/pep-0570/">PEP 570</a>) was that it allowed a function’s authors to change the name of positional parameters without breaking existing callers. It’s especially useful when a function supports a keyword argument but also accepts a positional one.</p>
 <p>Positional-only parameters are specified by introducing a forward-slash character, “/”, into a function’s definition. Parameters before this special character must be specified by position.<br />
 Let’s return to our simple greet function from the start of the article to see how this would work.</p>
@@ -507,16 +511,16 @@ TypeError:<span class="w"> </span>greet_positional<span class="o">()</span><span
 </div>
 </section>
 <section id="we-ve-come-full-circle">
-<h1>We’ve Come Full Circle<a class="headerlink" href="#we-ve-come-full-circle" title="Link to this heading">¶</a></h1>
+<h1>We’ve Come Full Circle<a class="headerlink" href="#we-ve-come-full-circle" title="Link to this heading"></a></h1>
 <p>By now, we’ve learned a lot about how Python specifies function parameters. When we started out, we learned that arguments could be passed by position or by keyword by default. With Python 3 and even more so since Python 3.8, we’ve now allowed authors to precisely lock down whether functions are called with keyword-only arguments, positional-only arguments, or some combination. Positional-only parameters, if any, come first, and keyword-only parameters come last. And what would be the fate of the parameters between the two? Those parameters can be passed either way, which was the same default, simple case we explored at the very beginning.</p>
 <p>Naturally, our goal when authoring functions should be to make our intent as clear as possible, and make it as simple as possible both for callers to use the function correctly and for us as authors to make changes if need be in the future without breaking existing callers. The rules for Python function parameters give us everything we need to accomplish this end.</p>
 </section>
 <section id="resources">
-<h1>Resources<a class="headerlink" href="#resources" title="Link to this heading">¶</a></h1>
+<h1>Resources<a class="headerlink" href="#resources" title="Link to this heading"></a></h1>
 <p>This article is also available as a Jupyter notebook you can <a class="reference external" href="https://github.com/JohnLockwood/100-days-of-python/blob/main/day-03/python-function-argument-examples.ipynb">download</a> or <a class="reference external" href="https://mybinder.org/v2/gh/JohnLockwood/100-days-of-python/main?labpath=day-03%2Fpython-function-argument-examples.ipynb">run online</a>.</p>
 </section>
 <section id="you-may-also-enjoy">
-<h1>You May Also Enjoy<a class="headerlink" href="#you-may-also-enjoy" title="Link to this heading">¶</a></h1>
+<h1>You May Also Enjoy<a class="headerlink" href="#you-may-also-enjoy" title="Link to this heading"></a></h1>
 <ul class="simple">
 <li><p><a class="reference external" href="https://codesolid.com/how-do-i-profile-python-code/">How to Profile Python Code</a></p></li>
 <li><p><a class="reference external" href="https://codesolid.com/python-format-strings/">Python Format Strings: Beginner to Expert</a></p></li>

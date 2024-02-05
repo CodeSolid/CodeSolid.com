@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Is Julia Easy to Learn for Python Developers? &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=19645805"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -163,13 +167,13 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="is-julia-easy-to-learn-for-python-developers">
-<h1>Is Julia Easy to Learn for Python Developers?<a class="headerlink" href="#is-julia-easy-to-learn-for-python-developers" title="Link to this heading">¶</a></h1>
+<h1>Is Julia Easy to Learn for Python Developers?<a class="headerlink" href="#is-julia-easy-to-learn-for-python-developers" title="Link to this heading"></a></h1>
 <p>When I first took a look at Julia, I was wondering if it would be easy to learn and use it, coming from a background as a Python developer. I thought features like LISP-style macros might make it a difficult transition. It turns out it was easier than expected.</p>
 <p><strong>Julia has many features that are very similar to Python features, so this makes it easy to start programming Julia if you know some Python. Though there are differences between the two languages, where they differ, the Julia approach frequently makes things easier to learn and work with.</strong></p>
 <p>If you use Python for data science or machine learning, you may have heard of Julia. Though my own background is more along the lines of general software development, I’ve recently taken a first look at Julia and from what I can see so far, it’s really worth learning more about.</p>
 <p>In this article, we’ll walk through the features of Julia that are easy to learn coming from a Python background as well as a few of the major differences. We’ll do this in the context of a beginner Julia project, doing some simple data analysis in Jupyter notebook using a Julia DataFrame.</p>
 <section id="julia-easily-integrates-with-jupyter-notebook">
-<h2>Julia Easily Integrates With Jupyter Notebook<a class="headerlink" href="#julia-easily-integrates-with-jupyter-notebook" title="Link to this heading">¶</a></h2>
+<h2>Julia Easily Integrates With Jupyter Notebook<a class="headerlink" href="#julia-easily-integrates-with-jupyter-notebook" title="Link to this heading"></a></h2>
 <p>I found installing Julia to be quite straightforward in my environment. The installable packages are <a class="reference external" href="https://julialang.org/downloads/">available here</a>. For my environment, macOS ARM (M-series Processor), the release is listed as experimental, but I’m pleased to report that nothing untoward occurred in running the package, other than this:</p>
 <p><img alt="" src="../_images/JuliaInstall1.png" /></p>
 <p>As usual, I simply dragged Julia to the Applications folder, and it did the right thing. Launching Julia from as an application brought up a windowed terminal running with the Julia. To make things easier to work with in a terminal, I wrote the following shell script named julia and put it on my path:</p>
@@ -209,7 +213,7 @@ jupyter<span class="w"> </span>notebook
 <p>Yes, that’s as expected.</p>
 </section>
 <section id="julia-list-comprehensions-work-like-python-s">
-<h2>Julia List Comprehensions Work Like Python’s<a class="headerlink" href="#julia-list-comprehensions-work-like-python-s" title="Link to this heading">¶</a></h2>
+<h2>Julia List Comprehensions Work Like Python’s<a class="headerlink" href="#julia-list-comprehensions-work-like-python-s" title="Link to this heading"></a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -224,7 +228,7 @@ jupyter<span class="w"> </span>notebook
 <p>I say by arrays are one based by convention and consensus because – although doing so lightly is a bad idea – one can actually implement <a class="reference external" href="https://docs.julialang.org/en/v1/devdocs/offset-arrays/">arrays with arbitrary indexes</a> in Julia. I don’t think you’ll catch me doing that anytime soon, though.</p>
 </section>
 <section id="julia-manages-packages-and-environments-better">
-<h2>Julia Manages Packages and Environments Better<a class="headerlink" href="#julia-manages-packages-and-environments-better" title="Link to this heading">¶</a></h2>
+<h2>Julia Manages Packages and Environments Better<a class="headerlink" href="#julia-manages-packages-and-environments-better" title="Link to this heading"></a></h2>
 <p>I mentioned earlier that Julia’s package manager can be run from inside the REPL. There’s actually a fair bit more that the package manager can do, so overall the landscape here looks much simpler than it is in Python. Without leaving the Julia REPL, for example, you can:</p>
 <ul class="simple">
 <li><p>Create an isolated environment.</p></li>
@@ -263,7 +267,7 @@ git-tree-sha1<span class="w"> </span><span class="o">=</span><span class="w"> </
 </div>
 </section>
 <section id="like-python-julia-features-dataframes">
-<h2>Like Python, Julia Features DataFrames<a class="headerlink" href="#like-python-julia-features-dataframes" title="Link to this heading">¶</a></h2>
+<h2>Like Python, Julia Features DataFrames<a class="headerlink" href="#like-python-julia-features-dataframes" title="Link to this heading"></a></h2>
 <p>Let’s go back into Jupyter notebook and create a new Julia Notebook. Julia and Jupyter should work out that there’s a local environment and use that for the notebook, but let’s just confirm. In a code cell, enter:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">using</span> <span class="n">Pkg</span>
 <span class="n">Pkg</span><span class="o">.</span><span class="n">status</span><span class="p">()</span>
@@ -322,7 +326,7 @@ df
 </div>
 </section>
 <section id="subsets-of-data-in-julia-are-similar-to-pandas">
-<h2>Subsets of Data in Julia Are Similar To Pandas<a class="headerlink" href="#subsets-of-data-in-julia-are-similar-to-pandas" title="Link to this heading">¶</a></h2>
+<h2>Subsets of Data in Julia Are Similar To Pandas<a class="headerlink" href="#subsets-of-data-in-julia-are-similar-to-pandas" title="Link to this heading"></a></h2>
 <p>Without getting into the many <a class="reference external" href="https://dataframes.juliadata.org/stable/man/working_with_dataframes/#Taking-a-Subset">options for taking subsets</a> data in Julia DataFrames, here’s just one example where we get all the rows, as shown by the <code class="docutils literal notranslate"><span class="pre">:</span></code> as the first subset argument, and a small list of columns passed as a vector in the second argument.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[:,</span> <span class="p">[:</span><span class="n">continent</span><span class="p">,</span> <span class="p">:</span><span class="n">location</span><span class="p">,</span> <span class="p">:</span><span class="n">new_deaths_smoothed_per_million</span><span class="p">]]</span>
 </pre></div>
@@ -331,7 +335,7 @@ df
 <table><tbody><tr><td>continent</td><td>location</td><td>new_deaths_smoothed_per_million</td></tr><tr><td>String15?</td><td>String</td><td>Float64?</td></tr><tr><td>Asia</td><td>Afghanistan</td><td>missing</td></tr><tr><td>Asia</td><td>Afghanistan</td><td>missing</td></tr><tr><td>Asia</td><td>Afghanistan</td><td>missing</td></tr><tr><td>Asia</td><td>Afghanistan</td><td>missing</td></tr><tr><td>Asia</td><td>Afghanistan</td><td>missing</td></tr><tr><td>Asia</td><td>Afghanistan</td><td>missing</td></tr></tbody></table>
 </section>
 <section id="julia-packages-can-be-added-in-code">
-<h2>Julia Packages Can Be Added in Code<a class="headerlink" href="#julia-packages-can-be-added-in-code" title="Link to this heading">¶</a></h2>
+<h2>Julia Packages Can Be Added in Code<a class="headerlink" href="#julia-packages-can-be-added-in-code" title="Link to this heading"></a></h2>
 <p>In Julia, it’s more obvious than in Python how to use the package manager in the REPL or in code. Of course, since pip is a python module, I suppose in principle one could load packages in Python code too, but I’ve never seen it done or learned how to do it. Working in the notebook, it occurred to me that I could load some packages I’d forgotten right inside the notebook.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Query&quot;</span><span class="p">)</span>
 <span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Plots&quot;</span><span class="p">)</span>
@@ -341,14 +345,14 @@ df
 <p>Moreover, even though you can do it while prototyping, having packages added inside the notebook is something you’ll want to remove before committing your project. In a later section, we’ll show how to start working with existing projects.</p>
 </section>
 <section id="julia-s-query-tool-simplifies-querying-dataframes">
-<h2>Julia’s Query Tool Simplifies Querying DataFrames<a class="headerlink" href="#julia-s-query-tool-simplifies-querying-dataframes" title="Link to this heading">¶</a></h2>
+<h2>Julia’s Query Tool Simplifies Querying DataFrames<a class="headerlink" href="#julia-s-query-tool-simplifies-querying-dataframes" title="Link to this heading"></a></h2>
 <p>As you can see in the last section, we’ve started to think about how we can query and plot the data that we’ve loaded. The DataFrames documentation mentioned a couple of different tools for querying DataFrames easily. One of them, <a class="reference external" href="https://github.com/queryverse/Query.jl">Query</a>, is inspired by LINQ, C#’s library for querying and joining multiple data sources. I thought this would be a good tool to pick up, and it turned out to be quite easy to use, once you get past the difficulty in typing the Julia pipe operator: <code class="docutils literal notranslate"><span class="pre">|&gt;</span></code>.</p>
 <p>Before we hop into the Query package, however, let’s take a minute to work with the pipe operator a bit and to mention another difference between Julia and Python.</p>
 <p>The pipe operator is tough to type, but easy to understand. All it does is take the output of the expression to the left of it, and uses it as input to the expression on the right. So in this respect, it functions similarly to the builder pattern, which allows for complex chains of object construction.</p>
 <p>The pipe operator is useful where long chains of expressions need to be chained, as is the case for queries (think about the clauses of a SQL query, for example). For simpler cases it’s easier to use nested functions, but a simpler case is helpful to illustrate how it works.</p>
 </section>
 <section id="julia-slicing-ranges-differ-from-python-s">
-<h2>Julia Slicing Ranges Differ from Python’s<a class="headerlink" href="#julia-slicing-ranges-differ-from-python-s" title="Link to this heading">¶</a></h2>
+<h2>Julia Slicing Ranges Differ from Python’s<a class="headerlink" href="#julia-slicing-ranges-differ-from-python-s" title="Link to this heading"></a></h2>
 <p>Let’s take our old friend, “Hello, world”. We can slice a string in Julia as we might in Python, but in Julia, slices are one-based (as arrays are), and include the final index rather than excluding it. Thus, to get “Hello”, we want: “Hello, world”[1:5]. Without a pipe, making “Hello” uppercase is simply:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uppercase<span class="o">(</span><span class="s2">&quot;Hello, world&quot;</span><span class="o">[</span><span class="m">1</span>:5<span class="o">])</span>
 </pre></div>
@@ -367,7 +371,7 @@ df
 </div>
 </section>
 <section id="julia-s-query-package-is-easy-to-grasp">
-<h2>Julia’s Query Package is Easy to Grasp<a class="headerlink" href="#julia-s-query-package-is-easy-to-grasp" title="Link to this heading">¶</a></h2>
+<h2>Julia’s Query Package is Easy to Grasp<a class="headerlink" href="#julia-s-query-package-is-easy-to-grasp" title="Link to this heading"></a></h2>
 <p>Now that we understand how Julia uses pipes, let’s see how we can query some data about total deaths per million people in Canada vs the United States.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>using<span class="w"> </span>Query
 
@@ -387,7 +391,7 @@ df
 <p>Most of this is query syntax is pretty easy to understand, but if you’re wondering why in the <code class="docutils literal notranslate"><span class="pre">dropna</span></code> case we use <code class="docutils literal notranslate"><span class="pre">:column_name</span></code> syntax but everywhere else we use <code class="docutils literal notranslate"><span class="pre">_.column_name</span></code>, you’re <a class="reference external" href="https://github.com/queryverse/Query.jl/issues/331">not the first</a> to notice this inconsistency. Beyond that, we’re filtering the rows, sorting, etc., and saving the output to a new DataFrame with the name df_north_america. Before we plot this data, however, it will be helpful to transform it a bit.</p>
 </section>
 <section id="transforming-rows-into-columns-in-julia">
-<h2>Transforming Rows into Columns in Julia<a class="headerlink" href="#transforming-rows-into-columns-in-julia" title="Link to this heading">¶</a></h2>
+<h2>Transforming Rows into Columns in Julia<a class="headerlink" href="#transforming-rows-into-columns-in-julia" title="Link to this heading"></a></h2>
 <p>Our DataFrame, df_north_america, has total deaths for both Canada and the United States as rows. But in order to plot those values, it’s easier to have them as columns. The next line does that for us, using the “location” label for the column and populating the total_deaths_per_million values for the US and Canada in those columns. We may decide later to worry about the missing values, depending on how the plot looks.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">df_plottable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>unstack<span class="o">(</span>df_north_america,<span class="w"> </span>:location,<span class="w"> </span>:new_deaths_smoothed_per_million<span class="o">)</span>
 </pre></div>
@@ -396,7 +400,7 @@ df
 <table><tbody><tr><td>date</td><td>United States</td><td>Canada</td></tr><tr><td>Date</td><td>Float64?</td><td>Float64?</td></tr><tr><td>2020-02-29</td><td>0</td><td>missing</td></tr><tr><td>2020-03-01</td><td>0</td><td>missing</td></tr><tr><td>2020-03-02</td><td>0.003</td><td>missing</td></tr><tr><td>2020-03-03</td><td>0.003</td><td>missing</td></tr><tr><td>2020-03-04</td><td>0.005</td><td>missing</td></tr><tr><td>2020-03-05</td><td>0.005</td><td>missing</td></tr><tr><td>2020-03-06</td><td>0.006</td><td>missing</td></tr><tr><td>2020-03-07</td><td>0.007</td><td>missing</td></tr><tr><td>2020-03-08</td><td>0.009</td><td>missing</td></tr><tr><td>2020-03-09</td><td>0.007</td><td>0.004</td></tr><tr><td>2020-03-10</td><td>0.009</td><td>0.004</td></tr></tbody></table>
 </section>
 <section id="plotting-data-in-julia-is-straightforward">
-<h2>Plotting Data In Julia is Straightforward<a class="headerlink" href="#plotting-data-in-julia-is-straightforward" title="Link to this heading">¶</a></h2>
+<h2>Plotting Data In Julia is Straightforward<a class="headerlink" href="#plotting-data-in-julia-is-straightforward" title="Link to this heading"></a></h2>
 <p>Once we have a DataFrame in the format we want it, plotting the data is quite straightforward. We use the Plots package that we installed earlier. First, we extract two columns representing the smoothed value of new deaths per million population for the US and Canada. These will be our Y values. Our X values will simply be the dates. We pass the X values, followed by an array of our Y values. Finally, we pass in the labels to use for our Y values, and give our chart a grim title.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>using Plots
 
@@ -413,7 +417,7 @@ plot(x_values, [us, ca], label = [&quot;United States&quot; &quot;Canada&quot;],
 <p>Wow, time to pack up my passport, eh?</p>
 </section>
 <section id="julia-is-faster-than-python">
-<h2>Julia Is Faster Than Python<a class="headerlink" href="#julia-is-faster-than-python" title="Link to this heading">¶</a></h2>
+<h2>Julia Is Faster Than Python<a class="headerlink" href="#julia-is-faster-than-python" title="Link to this heading"></a></h2>
 <p>Although we’re meant to be discussing Julia from the point of view of how easy it is to learn given a background in Python, I do feel I must take a nod to the topic that every article brings up when comparing the two – the difference in performance.</p>
 <p>Setting up benchmarks to compare the two involved making allowances for the differences between the most commonly used timing library in Python, the timeit module, and Julia’s built-in timing macro, &#64;time. Because Julia’s macro didn’t seem to accommodate accumulations of successive runs like timeit, I instead went with a third-party package, Kristoffer Carlsson’s <a class="reference external" href="https://github.com/KristofferC/TimerOutputs.jl">TimerOutputs</a>. (This will need to be installed using one of the methods outlined above).</p>
 <p>Here, we’re going to sum the numbers zero to 255 (inclusive), 1000 times</p>
@@ -475,14 +479,14 @@ NumPy<span class="w"> </span><span class="o">(</span>best<span class="w"> </span
 </ul>
 </section>
 <section id="julia-from-python-can-be-done-incrementally">
-<h2>Julia From Python Can Be Done Incrementally<a class="headerlink" href="#julia-from-python-can-be-done-incrementally" title="Link to this heading">¶</a></h2>
+<h2>Julia From Python Can Be Done Incrementally<a class="headerlink" href="#julia-from-python-can-be-done-incrementally" title="Link to this heading"></a></h2>
 <p>Coming from a background in Python and other languages, I did not find Julia too hard to learn. To be sure, there are some differences between the two, and I’ve pointed out some of these as we’ve gone along.</p>
 <p>There are other differences that are even more fundamental that we haven’t covered in this article. For example, although it has a rich type system, Julia does not support bundling methods and custom data types together as Python does. In this respect, it more closely resembles Golang than Python. On the other hand, one of Julia’s coolest features, multiple dispatch, means it’s possible to define heavily overloaded functions that can be crafted to be precisely selected based on the runtime type of the arguments passed. Because of this, selecting behavior based on the type of object bound to the method is not really necessary in Julia.</p>
 <p>Overall, however, I was not so much impressed by how much Julia differs from Python as by how much they overlap. I tried using an “in” on an array, for example, and it just worked. I haven’t touched Pandas in a while, yet I was able to write this article only a week after beginning to read about Julia. The approach I used was simply to take the language as it is and find good examples from which to work. Doing that, my impression was that Julia was easy to learn, coming from Python.</p>
 <p>This side trip to Julia was great fun for me. The main disadvantage to the language that I see is the practical consideration that even though Julia may be an order of magnitude faster, Python is an order of magnitude more popular. It will be interesting indeed to see how this all plays out going forward.</p>
 </section>
 <section id="you-may-also-like">
-<h2>You May Also Like<a class="headerlink" href="#you-may-also-like" title="Link to this heading">¶</a></h2>
+<h2>You May Also Like<a class="headerlink" href="#you-may-also-like" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://codesolid.com/learning-c-and-python-the-perfect-duo-for-success/">Learning C++ and Python: The Perfect Duo for Success</a></p></li>
 <li><p><a class="reference external" href="https://codesolid.com/how-do-i-profile-python-code/">How to Profile Python Code</a></p></li>

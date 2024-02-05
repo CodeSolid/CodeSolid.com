@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Classes vs. Objects &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=19645805"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -112,7 +116,7 @@
 <li><p>You May Also Enjoy</p></li>
 </ul>
 <section id="classes-vs-objects">
-<h1>Classes vs. Objects<a class="headerlink" href="#classes-vs-objects" title="Link to this heading">¶</a></h1>
+<h1>Classes vs. Objects<a class="headerlink" href="#classes-vs-objects" title="Link to this heading"></a></h1>
 <p>Let’s start with some basic terminology and definitions to get oriented. In Python, as in many other languages, you can think of Python classes as a template or cookie-cutter for creating objects. On the other hand, objects are “instances” of a class, just as you could consider Christmas Tree cookies to be “instances” of cookies cut out from a Christmas Tree cookie-cutter.</p>
 <p>In Python, we can show the type of an object using the built-in function, type. For example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="mi">42</span><span class="p">))</span>
@@ -130,7 +134,7 @@
 <p>Before we get into more theory, let’s write our first class in Python. There will be a lot of new stuff here, but don’t worry, we’ll explain all that.</p>
 </section>
 <section id="a-first-python-class">
-<h1>A First Python Class<a class="headerlink" href="#a-first-python-class" title="Link to this heading">¶</a></h1>
+<h1>A First Python Class<a class="headerlink" href="#a-first-python-class" title="Link to this heading"></a></h1>
 <p>Let’s look at a very simple Python class, and then we’ll discuss the code in detail.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Declare a class</span>
 <span class="k">class</span> <span class="nc">Pet</span><span class="p">:</span>    
@@ -166,7 +170,7 @@ Fritz
 <p>On line 17, we see that we use the name of the instance, a period, and a method name to call a method. We can also use the name of the instance as we do in line 20 to access a property of the class and display it.</p>
 </section>
 <section id="theory-break-what-is-object-orientation">
-<h1>Theory Break: What Is Object Orientation?<a class="headerlink" href="#theory-break-what-is-object-orientation" title="Link to this heading">¶</a></h1>
+<h1>Theory Break: What Is Object Orientation?<a class="headerlink" href="#theory-break-what-is-object-orientation" title="Link to this heading"></a></h1>
 <p>Now that we’ve defined a class and created and used two objects based on this definition, we’re in a position to understand what it means to say a programming language is object-oriented. At one time, this was a favorite interview question for new developers, and I suspect you’re still likely to encounter it.</p>
 <p>Generally speaking, the conventional definition of an object-oriented language is a language that supports:</p>
 <ul class="simple">
@@ -176,7 +180,7 @@ Fritz
 </ul>
 </section>
 <section id="inheritance-in-python-classes">
-<h1>Inheritance in Python Classes<a class="headerlink" href="#inheritance-in-python-classes" title="Link to this heading">¶</a></h1>
+<h1>Inheritance in Python Classes<a class="headerlink" href="#inheritance-in-python-classes" title="Link to this heading"></a></h1>
 <p>In our simple Pet class example, we saw how code and data were encapsulated in the class as methods and properties. Next, let’s see how to use another central feature of object orientation: inheritance.</p>
 <p>In Python, as in other languages, class inheritance serves many valuable functions.</p>
 <p>First, it’s a way to enforce the DRY principle (“Don’t Repeat Yourself”). Pets have names, so we wouldn’t want to copy and paste the code if we created a Dog class and a Rabbit class. We also want our pets to move. A deceased parrot makes for a great Monty Python sketch but not a great pet.</p>
@@ -222,7 +226,7 @@ Hop,<span class="w"> </span>hop,<span class="w"> </span>HOP!
 </div>
 </section>
 <section id="when-to-use-inheritance-in-python-and-when-not-to">
-<h1>When To Use Inheritance in Python, and When Not To<a class="headerlink" href="#when-to-use-inheritance-in-python-and-when-not-to" title="Link to this heading">¶</a></h1>
+<h1>When To Use Inheritance in Python, and When Not To<a class="headerlink" href="#when-to-use-inheritance-in-python-and-when-not-to" title="Link to this heading"></a></h1>
 <p>As powerful as inheritance is, newcomers to object-oriented programming sometimes tend to overuse it. Inheritance is not always the first tool you want to choose.</p>
 <p>Inheritance is most useful in cases where you need to have a set of objects to expose one or more methods that allow them to do some basic operation “polymorphically,” i.e., they are called the same way, but they do different things depending on the actual class of the object.</p>
 <p>We’ve already given the example of a Shape class, which might implement the draw method differently for an Elipse, Rectangle, Line, Text, etc. If we think about what a drawing program might need to do with a set of shapes, we can develop many more examples that should be treated differently for each object type. For instance, it might implement <code class="docutils literal notranslate"><span class="pre">load</span></code> and <code class="docutils literal notranslate"><span class="pre">save</span></code> to store and retrieve the shape from a file, or other drawing and manipulation primitives such as <code class="docutils literal notranslate"><span class="pre">resize</span></code>, <code class="docutils literal notranslate"><span class="pre">rotate</span></code>, <code class="docutils literal notranslate"><span class="pre">flip</span></code>, etc. Or consider a generic Configuration tool, which might <code class="docutils literal notranslate"><span class="pre">read</span></code>, <code class="docutils literal notranslate"><span class="pre">write</span></code>, and <code class="docutils literal notranslate"><span class="pre">parse</span></code> ini files, XML, JSON, Yaml, or other file formats.</p>
@@ -297,7 +301,7 @@ John<span class="w"> </span>Lockwood:<span class="w"> </span><span class="o">[</
 <p>If you feel like you need to subclass the str, list, or dict type, the python collections package has three wrapper classes you can use, but composition works just fine for most purposes.</p>
 </section>
 <section id="python-abstract-base-classes">
-<h1>Python Abstract Base Classes<a class="headerlink" href="#python-abstract-base-classes" title="Link to this heading">¶</a></h1>
+<h1>Python Abstract Base Classes<a class="headerlink" href="#python-abstract-base-classes" title="Link to this heading"></a></h1>
 <p>As in other languages, abstract base classes allow certain methods to be defined as signatures only, with no implementation. Such methods are called abstract. A subclass needs to be created to implement the abstract method to create an instance based on an abstract class.</p>
 <p>This is easiest to see with an example. Let’s go back to the animal class that we discussed earlier. Suppose we know that different animals eat and move differently. We want to make sure that every Animal can move and sleep, though we don’t want to make any assumptions about how they do it in our base class. Here’s how we can do this with an abstract class:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
@@ -339,7 +343,7 @@ Snoozing<span class="w"> </span><span class="k">in</span><span class="w"> </span
 </div>
 </section>
 <section id="is-python-an-object-oriented-language">
-<h1>Is Python an Object-Oriented Language?<a class="headerlink" href="#is-python-an-object-oriented-language" title="Link to this heading">¶</a></h1>
+<h1>Is Python an Object-Oriented Language?<a class="headerlink" href="#is-python-an-object-oriented-language" title="Link to this heading"></a></h1>
 <p>If you speak to a system administrator or DevOps engineer, they may tell you that Python is a scripting language. That’s because Python is a very effective tool for writing short, simple automation tasks. But the more you learn about Python, the more you discover that Python is a very object-oriented language.</p>
 <p>Almost everything in Python is an object. So unlike Java, which makes a distinction between “primitive types” like numbers, and reference types (or objects), in Python, even numeric literals are objects.</p>
 <p>Python operators are the exception to the “everything is an object rule,” but even Python operators are implemented as syntactic sugar around methods on objects. Of course, this is very useful syntactic sugar – it’s a lot clearer to write four = 2 + 2 in Python than it does to write: four = (2).__add__(2), but the result is the same.</p>
@@ -347,7 +351,7 @@ Snoozing<span class="w"> </span><span class="k">in</span><span class="w"> </span
 <p>It’s hard to get away from objects in Python. Even those simple functions we think we’re creating in a script are wrapped in an object of the function type.</p>
 </section>
 <section id="practice-exercises-for-python-classes-and-objects">
-<h1>Practice Exercises for Python Classes and Objects<a class="headerlink" href="#practice-exercises-for-python-classes-and-objects" title="Link to this heading">¶</a></h1>
+<h1>Practice Exercises for Python Classes and Objects<a class="headerlink" href="#practice-exercises-for-python-classes-and-objects" title="Link to this heading"></a></h1>
 <p>The exercises for this article are below, but they’re also available as a downloadable Jupyter Notebook, or you can develop them online.</p>
 <p><a class="reference external" href="https://github.com/CodeSolid/CodeSolid.github.io/blob/main/booksource/exercises/PythonClassesExercises.ipynb">Download</a></p>
 <p><a class="reference external" href="https://colab.research.google.com/github/CodeSolid/CodeSolid.github.io/blob/main/booksource/exercises/PythonClassesExercises.ipynb">Run Online</a></p>
@@ -400,13 +404,13 @@ Snoozing<span class="w"> </span><span class="k">in</span><span class="w"> </span
 </ol>
 </section>
 <section id="additional-topics-to-explore">
-<h1>Additional Topics to Explore<a class="headerlink" href="#additional-topics-to-explore" title="Link to this heading">¶</a></h1>
+<h1>Additional Topics to Explore<a class="headerlink" href="#additional-topics-to-explore" title="Link to this heading"></a></h1>
 <p>If you’re new to Python classes and have gotten through the article and the exercises, that’s awesome! We’ve covered a lot of material in one admittedly rather long article.</p>
 <p>If you’re still thirsty for more, naturally there’s a lot more to Python classes and objects than we’ve covered here. For example, we haven’t covered two somewhat related types of methods, given by the decorators <a class="reference external" href="https://docs.python.org/3/library/functions.html#classmethod">&#64;classmethod</a> and <a class="reference external" href="https://docs.python.org/3/library/functions.html#staticmethod">&#64;staticmethod</a>.</p>
 <p>The literature on object-oriented design principles is vast, but a good introduction is the so-called “Gang of Four” <a class="reference external" href="https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612/ref=sr_1_1?keywords=gang+of+four+design+patterns&amp;amp;qid=1648570029&amp;amp;sprefix=Gang+of+four%252Caps%252C66&amp;amp;sr=8-1&amp;amp;_encoding=UTF8&amp;amp;tag=codesolid-20&amp;amp;linkCode=ur2&amp;amp;linkId=af4c0cf365baa3f945e23b008a817b01&amp;amp;camp=1789&amp;amp;creative=9325">Design Patterns</a> book. Though some of this work may still apply, in Python a better approach to object design is to first consider whether objects are needed at all, and if so, to ensure those objects that we write are well integrated with the Python data model. By far the best book I’ve found in this space is Luciano Ramalho’s <a class="reference external" href="https://www.amazon.com/Fluent-Python-Concise-Effective-Programming/dp/1491946008/ref=sr_1_2?crid=6MB6CL75D5JB&amp;amp;keywords=Fluent+Python&amp;amp;qid=1648570375&amp;amp;sprefix=fluent+python%252Caps%252C76&amp;amp;sr=8-2&amp;amp;_encoding=UTF8&amp;amp;tag=codesolid-20&amp;amp;linkCode=ur2&amp;amp;linkId=9e0c7858e1da770a9c0013dac1febbc4&amp;amp;camp=1789&amp;amp;creative=9325">Fluent Python</a>.</p>
 </section>
 <section id="you-may-also-enjoy">
-<h1>You May Also Enjoy<a class="headerlink" href="#you-may-also-enjoy" title="Link to this heading">¶</a></h1>
+<h1>You May Also Enjoy<a class="headerlink" href="#you-may-also-enjoy" title="Link to this heading"></a></h1>
 <p><a class="reference external" href="https://codesolid.com/python-dataclasses/">Python Dataclass: Easily Automate Class Best Practices</a></p>
 <p><a class="reference external" href="https://codesolid.com/python-operators/">Python Operators: The Building Blocks of Successful Code</a></p>
 <p><a class="reference external" href="https://codesolid.com/python-format-strings/">Python Format Strings: Beginner to Expert</a></p>

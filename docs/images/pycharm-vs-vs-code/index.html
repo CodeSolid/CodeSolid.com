@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Overview &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=19645805"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -96,7 +100,7 @@
              
   <p>PyCharm and VS Code are two of the top choices that stand out from the long lists of Python IDEs you may find. Each of them is great in its own way, but they excel in different areas, and in this article, we compare them across multiple different features to see how they stack up.</p>
 <section id="overview">
-<h1>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h1>
+<h1>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h1>
 <p>The first thing that we must stress at the beginning about PyCharm and VS Code is that they are not both trying to solve the exact same problem. In fact, they are so different in their approaches that I use both in my daily work. This is not just some pathological love of variety, but rather because there are things that they both do so well that I’ve come to rely on them for those tasks.</p>
 <p>We will explore the winners and losers over a variety of categories shortly, but to give a summary up front, the difference boils down to just some core differences in the approach.</p>
 <p>PyCharm is a purpose-built IDE that specializes in Python development, so for that narrow niche and a few other tasks, the free Community Edition is outstanding. The Professional Edition is not a free product but allows you to install excellent plugins that support many other use cases well. PyCharm is built by JetBrains, the company behind the Java IDE, IntelliJ IDEA.</p>
@@ -115,7 +119,7 @@
 </ul>
 </section>
 <section id="which-is-the-better-beginner-ide-for-python">
-<h1>Which Is the Better Beginner IDE for Python?<a class="headerlink" href="#which-is-the-better-beginner-ide-for-python" title="Link to this heading">¶</a></h1>
+<h1>Which Is the Better Beginner IDE for Python?<a class="headerlink" href="#which-is-the-better-beginner-ide-for-python" title="Link to this heading"></a></h1>
 <p>Because PyCharm is designed specifically for Python development, it’s much easier to get started with Python development in PyCharm than in VS Code. So if you are brand new to Python and don’t already have some familiarity with VS Code, then PyCharm Community Edition is a clear winner here. Although it’s true that setting up VS Code for Python is mostly just a matter of installing Microsoft’s excellent Python extension, PyCharm still makes many things easier than VS Code.</p>
 <p>For example, in PyCharm, the process of debugging or running the tests in the test directory is as simple as right-clicking on the directory and clicking on the appropriate menu item, as shown here:</p>
 <p><img alt="" src="../../_images/running-tests-pycharm.png" /></p>
@@ -124,7 +128,7 @@
 <p>Verdict: For a beginner Python environment, PyCharm Community Edition wins.</p>
 </section>
 <section id="which-is-better-for-general-editing-tasks">
-<h1>Which is Better for General Editing Tasks?<a class="headerlink" href="#which-is-better-for-general-editing-tasks" title="Link to this heading">¶</a></h1>
+<h1>Which is Better for General Editing Tasks?<a class="headerlink" href="#which-is-better-for-general-editing-tasks" title="Link to this heading"></a></h1>
 <p>Even if PyCharm is superior as an easy-to-use IDE for Python, for lots of the other things I do all day, I still prefer VS Code.</p>
 <p>In the first place, PyCharm is slower to load than VS Code, since it does extensive code analysis and symbol parsing at startup. This means it’s a great IDE once it’s started, but it takes several seconds, whereas VS Code launches instantly.</p>
 <p>Secondly, PyCharm works best within the context of a project. Compared to VS Code, it’s difficult (though still not impossible) to navigate to a random file outside the context of a project folder and open it to view it quickly. This means that even if I’m working on a PyCharm project, I’ll still use VS Code quite frequently to explore related project code or type up some quick notes.</p>
@@ -132,7 +136,7 @@
 <p>Verdict for best editor: VS Code.</p>
 </section>
 <section id="which-is-better-for-remote-development">
-<h1>Which is Better for Remote Development?<a class="headerlink" href="#which-is-better-for-remote-development" title="Link to this heading">¶</a></h1>
+<h1>Which is Better for Remote Development?<a class="headerlink" href="#which-is-better-for-remote-development" title="Link to this heading"></a></h1>
 <p>One of the things I’ve been really excited about lately is remote development. I have some experience with such tools. I’ve used <a class="reference external" href="https://aws.amazon.com/cloud9/">AWS’s Cloud9</a> in the past, for example, to spin up a cloud IDE I can access remotely. When I started planning a <a class="reference external" href="https://codesolid.com/new-for-2022-python-git-github-bootcamp-course/">Python course</a> I’d like to offer, for example, it struck me that a standard remote development environment would not only scale well but also would let me easily help individual students when they get stuck.</p>
 <p>Since I believe that programmers should start publishing their code on GitHub as soon as they start programming, I was really excited about <a class="reference external" href="https://www.gitpod.io/">gitpod.io</a>. Gitpod lets you turn any GitHub repository into a development environment, using VS Code (running in the browser) as the front end. The process is as simple as prefixing the GitHub repository with a Gitpod URL. For example, here’s the <a class="reference external" href="https://gitpod.io/#https://github.com/CodeSolid/python-package-example-setuptools">Gitpod URL</a> for the repository for my recent article Python Package Example article. With the Gitpod Chrome extension, finding that URL for you was as simple as navigating to the GitHub repository I wanted to share and looking for the green Gitpod button.</p>
 <p><img alt="" src="../../_images/gitpod-extension-demo-1024x683.png" /></p>
@@ -143,7 +147,7 @@
 <p>Best for Remote Development: VS Code.</p>
 </section>
 <section id="which-has-better-support-for-advanced-python-features">
-<h1>Which Has Better Support for Advanced Python Features?<a class="headerlink" href="#which-has-better-support-for-advanced-python-features" title="Link to this heading">¶</a></h1>
+<h1>Which Has Better Support for Advanced Python Features?<a class="headerlink" href="#which-has-better-support-for-advanced-python-features" title="Link to this heading"></a></h1>
 <p>JetBrains almost has a lock on this category, in my opinion. I say almost because as soon as we talk about advanced features, we are by definition wandering into Premium feature territory. Currently, a personal license (i.e., one you pay for yourself) to PyCharm professional starts at $199 per year, with some price breaks in later years.</p>
 <p>You can get a full breakdown of what’s missing from the Community Edition on their <a class="reference external" href="https://blog.jetbrains.com/pycharm/2017/09/pycharm-community-edition-and-professional-edition-explained-licenses-and-more/">product comparison page</a>. We’ve already mentioned remote development as being listed there. One prominent difference is support for Web Development. This is a premium feature in PyCharm, but one powerful driver of VS Code’s success is their excellent support for HTML, JavaScript, and especially TypeScript (as you’d expect since it’s also owned by Microsoft).</p>
 <p>All these features are free in VS Code. So why do I still list PyCharm as having won the category? I do this because for certain things, once you pay to enable more plugins besides just Python support, many things become much, much easier in PyCharm.</p>
@@ -152,7 +156,7 @@
 <p>The verdict: PyCharm wins if you have money to spend on a professional IDE. Otherwise, use VS Code.</p>
 </section>
 <section id="which-has-better-support-for-languages-other-than-python">
-<h1>Which Has Better Support for Languages Other Than Python?<a class="headerlink" href="#which-has-better-support-for-languages-other-than-python" title="Link to this heading">¶</a></h1>
+<h1>Which Has Better Support for Languages Other Than Python?<a class="headerlink" href="#which-has-better-support-for-languages-other-than-python" title="Link to this heading"></a></h1>
 <p>In our discussion of advanced Python features, we talked a lot about the features that the PyCharm professional edition adds on top of those in the community edition. One of those features was web development, and we saw that this is available to us and quite good in VS Code, but it’s a premium feature in PyCharm.</p>
 <p>To give another example, I do a lot of Terraform work at my current day job. The professional edition of PyCharm allows me to install JetBrains’ Terraform plugin, which provides an almost perfect ability to navigate between symbol definitions and usages in Terraform code. VS Code also has a Terraform plugin that offers some features, but PyCharm’s code navigation and other IntelliSense features make it the hands-down winner in this case.</p>
 <p>Overall, PyCharm and other IDEs from JetBrains follow a similar pattern. Each IDE is purpose-built for a specific language, and enables features and frameworks from that language in a well-crafted way, while allowing plugins to fill in for other languages. Thus, for example, PyCharm has great features for Python development specifically, while enabling plugins for other languages. Similarly, IntelliJ IDEA has great features for Java, but you could install the Python plugin to get some PyCharm support. That won’t make it the custom-built Python IDE that PyCharm is, but it will enable Python development in a minimal way.</p>
@@ -160,14 +164,14 @@
 <p>My final answer? PyCharm wins if you have money to spend on a professional IDE. Otherwise, use VS Code.</p>
 </section>
 <section id="code-editors-vs-heavyweight-ides-for-python">
-<h1>Code Editors vs Heavyweight IDEs for Python<a class="headerlink" href="#code-editors-vs-heavyweight-ides-for-python" title="Link to this heading">¶</a></h1>
+<h1>Code Editors vs Heavyweight IDEs for Python<a class="headerlink" href="#code-editors-vs-heavyweight-ides-for-python" title="Link to this heading"></a></h1>
 <p>One of the things that occurred to me as I was writing this article is that some of what made me a JetBrains customer for so long was my experience with IntelliJ IDEA. In that case, one of the main competitors to JetBrains was another heavyweight IDE Eclipse. Seen in that context, IDEA was so much better that there really was no comparison, in my mind (though in fairness, Eclipse did have its fans).</p>
 <p>In the case of Python, however, I do wonder how much a heavyweight IDE is really necessary compared to a fast, lightweight editor like VS Code. This is because unlike Java, where JetBrains made such great strides, Python has a wealth of other easy, light options for writing and executing code.</p>
 <p>I’m thinking of things like the Python shell (REPL), or IPython, which takes the Python shell to a whole new level and adds magic commands to better integrate things you might otherwise run at the terminal. Another lightweight solution for mixing Python, graphics, and documentation that comes to mind are Jupyter notebooks, which run in the browser. As an aside, they also can run in PyCharm or VS Code (and in that case, I prefer VS Code’s implementation).</p>
 <p>The verdict: If you agree with my assessment, VS Code may be a better choice here. However, given that the idea is that you can run your code outside either tool, that’s only because a lightweight editor has an edge.</p>
 </section>
 <section id="final-thoughts">
-<h1>Final Thoughts<a class="headerlink" href="#final-thoughts" title="Link to this heading">¶</a></h1>
+<h1>Final Thoughts<a class="headerlink" href="#final-thoughts" title="Link to this heading"></a></h1>
 <p>VS Code and PyCharm are very different tools. PyCharm is great both for beginning developers who can use the community edition to get easy-to-run features. The professional edition adds both advanced Python features and support for other languages, but at this point, the solution is no longer free. The downside though is that the remote development features are less useful, and it’s not a Swiss-army-knife editor like VS Code.</p>
 <p>VS Code, on the other hand, has a much richer plugin ecosystem, great remote development support, and is a tool you can use over and over again to quickly create documentation and work in multiple languages. For tasks specific to Python, it is “good enough”, but it lacks the ease of use and polish of PyCharm.</p>
 <p>As I said at the outset, because of their overlapping strengths and weaknesses, I use both tools in my daily work. Even if you decide against that approach, it’s a very good idea to give serious thought to at least evaluating both tools.</p>

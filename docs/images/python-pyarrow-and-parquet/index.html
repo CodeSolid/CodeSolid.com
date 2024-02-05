@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Arrow Tables vs. Pandas DataFrames &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=19645805"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -111,7 +115,7 @@
 <p>Parquet and Arrow are two Apache projects available in Python via the PyArrow library. Parquet is an efficient, compressed, column-oriented storage format for arrays and tables of data. Arrow is an in-memory columnar format for data analysis that is designed to be used across different languages. It currently boasts supported libraries for several important languages, including Python. Parquet and Arrow work together well. In Python, the same PyArrow library supports both.</p>
 <p>Arrow supports tabular data as well as nested (hierarchical) data. Arrow tables are two-dimensional containers. They consist of a set of columns that are “chunked arrays” (arrays where data is often stored contiguously, but it is not required), along with a schema that describes each field in the data (where a field is either a column or a nested data type such as a struct.</p>
 <section id="arrow-tables-vs-pandas-dataframes">
-<h1>Arrow Tables vs. Pandas DataFrames<a class="headerlink" href="#arrow-tables-vs-pandas-dataframes" title="Link to this heading">¶</a></h1>
+<h1>Arrow Tables vs. Pandas DataFrames<a class="headerlink" href="#arrow-tables-vs-pandas-dataframes" title="Link to this heading"></a></h1>
 <p>If you’re familiar with Python’s data science tools, the idea of an in-memory tool for dealing with two-dimensional data may remind you of a Pandas DataFrame. Similarly, the Arrow columns may remind you of Pandas Series.</p>
 <p>That’s certainly how I approached learning about Arrow, and it raises several interesting questions about Arrow and Parquet that this article will focus on.</p>
 <ul class="simple">
@@ -122,7 +126,7 @@
 <p>In this article, we’ll investigate the answers to these questions, but as always, we want you to be able to try the code and check the results for yourself, so let’s begin with the setup we used.</p>
 </section>
 <section id="installing-using-pip-or-conda">
-<h1>Installing Using Pip or Conda<a class="headerlink" href="#installing-using-pip-or-conda" title="Link to this heading">¶</a></h1>
+<h1>Installing Using Pip or Conda<a class="headerlink" href="#installing-using-pip-or-conda" title="Link to this heading"></a></h1>
 <p>Getting started with PyArrow is easy with either Conda or pip. In Conda, you can create and activate an environment to follow along with this article using the following steps.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>-n<span class="w"> </span>arrow<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11<span class="w"> </span>pyarrow<span class="w"> </span>jupyterlab<span class="w"> </span>seaborn
 <span class="c1"># Enter y to continue when prompted</span>
@@ -139,7 +143,7 @@ pip<span class="w"> </span>install<span class="w"> </span>jupyterlab<span class=
 <p>With one of these done, running <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code> will allow you to follow along with the rest of the article.</p>
 </section>
 <section id="using-arrow-with-pandas">
-<h1>Using Arrow With Pandas<a class="headerlink" href="#using-arrow-with-pandas" title="Link to this heading">¶</a></h1>
+<h1>Using Arrow With Pandas<a class="headerlink" href="#using-arrow-with-pandas" title="Link to this heading"></a></h1>
 <p>You may have noticed that we installed Seaborn. This was to take advantage of the built-in data sets, so we could be productive immediately. We begin by importing a few packages and loading the taxis dataset into a Pandas DataFrame. We’ll also get a quick feel for the data.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">pyarrow</span> <span class="k">as</span> <span class="nn">pa</span>
@@ -170,7 +174,7 @@ pickup<span class="w">	</span>dropoff<span class="w">	</span>passengers<span cla
 <p>With a Pandas DataFrame and a PyArrow Table in memory, we can now compare them.</p>
 </section>
 <section id="id1">
-<h1>Arrow Tables vs. Pandas DataFrames<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
+<h1>Arrow Tables vs. Pandas DataFrames<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
 <p>The first thing we notice about the Arrow Table is that the default display looks very different. Entering just the Table instance’s name in Jupyter (<code class="docutils literal notranslate"><span class="pre">arrow_taxis</span></code>) we don’t see the summary in the usual tabular output. Instead, we see the type of the object, the column names and types, and some summary data for the first few columns:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pyarrow</span><span class="o">.</span><span class="n">Table</span>
 <span class="n">pickup</span><span class="p">:</span> <span class="n">timestamp</span><span class="p">[</span><span class="n">ns</span><span class="p">]</span>
@@ -210,7 +214,7 @@ pickup<span class="w">	</span>dropoff<span class="w">	</span>passengers<span cla
 <section id="pyarrow-table-pickup-timestamp-ns-dropoff-timestamp-ns">
 <h1>pyarrow.Table
 pickup: timestamp[ns]
-dropoff: timestamp[ns]<a class="headerlink" href="#pyarrow-table-pickup-timestamp-ns-dropoff-timestamp-ns" title="Link to this heading">¶</a></h1>
+dropoff: timestamp[ns]<a class="headerlink" href="#pyarrow-table-pickup-timestamp-ns-dropoff-timestamp-ns" title="Link to this heading"></a></h1>
 <p>pickup: [[2019-03-23 20:21:09.000000000,2019-03-04 16:11:55.000000000,2019-03-27 17:53:01.000000000,2019-03-10 01:23:59.000000000,2019-03-30 13:27:42.000000000]]
 dropoff: [[2019-03-23 20:27:24.000000000,2019-03-04 16:19:00.000000000,2019-03-27 18:00:25.000000000,2019-03-10 01:49:51.000000000,2019-03-30 13:37:14.000000000]]</p>
 <p>We can also select rows according to some criteria using the filter method. To do this, we first have to create an expression on which the filter will operate. The following code shows how to do this. Here we select and display the fares that were at least $100.</p>
@@ -260,17 +264,17 @@ dropoff: [[2019-03-23 20:27:24.000000000,2019-03-04 16:19:00.000000000,2019-03-2
 <p><img alt="Table showing performance difference in Pandas DataFrames vs Arrow tables." src="../../_images/image-124.png" /></p>
 </section>
 <section id="parquet-vs-other-storage-formats-for-pandas">
-<h1>Parquet vs. Other Storage Formats for Pandas<a class="headerlink" href="#parquet-vs-other-storage-formats-for-pandas" title="Link to this heading">¶</a></h1>
+<h1>Parquet vs. Other Storage Formats for Pandas<a class="headerlink" href="#parquet-vs-other-storage-formats-for-pandas" title="Link to this heading"></a></h1>
 <p>As we’ve seen, Apache Arrow provides better performance than Pandas for many operations. However, the fact that more users are familiar with Pandas and that Arrow data cannot easily be “wrangled” (modified) may mean that many users will want to stick with Pandas DataFrames in many cases. Even if that’s the case for you, however, you may still want to take advantage of the excellent performance and compression characteristics of the Parquet storage format.</p>
 <p>Installing PyArrow enables you to write and read Pandas DataFrames using two data formats that Pandas does not otherwise support: Parquet and ORC. In the case of Parquet, Pandas can also read and write such files using a module called “fastparquet.”</p>
 <p>Using %timeit, we ran several tests where we wrote df_taxis using Parquet and other supported file formats, then read it back. We wanted to know each case’s read time, write time, and file size. (Note: we also needed to install fastparquet and openpyxl to compile this table).</p>
 <section id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading"></a></h2>
 <p>The table below summarizes the results, which we’ll follow with a discussion.</p>
 <table><tbody><tr><td><strong>Operation</strong></td><td><strong>Speed</strong></td><td><strong>File Size</strong></td></tr><tr><td>df_taxis.to_parquet (pyarrow)</td><td>4.55 ms</td><td>191,788</td></tr><tr><td>pandas.read_parquet (pyarrow)</td><td>2.03 ms</td><td></td></tr><tr><td>df_taxis.to_parquet (fastparquet)</td><td>14.2 ms</td><td>275,765</td></tr><tr><td>pandas.read_parquet (fastparquet)</td><td>2.7 ms</td><td></td></tr><tr><td>df_taxis.to_feather</td><td>2.74 ms</td><td>428,818</td></tr><tr><td>pandas.read_feather</td><td>1.48 ms</td><td></td></tr><tr><td>df_taxis.to_orc</td><td>7.01 ms</td><td>751,897</td></tr><tr><td>pandas.read_orc</td><td>5.65 ms</td><td></td></tr><tr><td>df_taxis.to_excel</td><td>874 ms</td><td>540,683</td></tr><tr><td>pandas.read_excel</td><td>560 ms</td><td></td></tr><tr><td>df_taxis.to_csv</td><td>32.7 ms</td><td>900,405</td></tr><tr><td>pandas.read_csv</td><td>8.13 ms</td><td></td></tr></tbody></table>
 </section>
 <section id="discussion">
-<h2>Discussion<a class="headerlink" href="#discussion" title="Link to this heading">¶</a></h2>
+<h2>Discussion<a class="headerlink" href="#discussion" title="Link to this heading"></a></h2>
 <p>Parquet read and write operations were very performant, with the PyArrow engine being faster than fastparquet. For sheer speed, however, the feather format performed best, and Excel performed the worst. Regarding file size, PyArrow parquet turned in the smallest size at 191,788 bytes, a 4x space saving over CSV (the worst offender) which took up almost a gigabyte for the same data.</p>
 <p>All else being equal, Parquet using PyArrow turned in the best balance of reasonable speed and great compression. So for wrangling large data sets with Pandas, Parquet is a great choice.</p>
 <p>Of course, CSV is still ubiquitous. It may be inefficient to parse and wasteful of space, but the fact that it’s human-readable and almost universally supported makes it the format of choice, especially for small example data sets.</p>
@@ -279,7 +283,7 @@ dropoff: [[2019-03-23 20:27:24.000000000,2019-03-04 16:19:00.000000000,2019-03-2
 </section>
 </section>
 <section id="closing-thoughts-pyarrow-beyond-pandas">
-<h1>Closing Thoughts: PyArrow Beyond Pandas<a class="headerlink" href="#closing-thoughts-pyarrow-beyond-pandas" title="Link to this heading">¶</a></h1>
+<h1>Closing Thoughts: PyArrow Beyond Pandas<a class="headerlink" href="#closing-thoughts-pyarrow-beyond-pandas" title="Link to this heading"></a></h1>
 <p>PyArrow is an important project that has many more important uses than we’ve been able to cover here. One exciting area of development that has not yet stabilized is PyArrow’s flight module, which uses the Arrow data format to efficiently push rows of data over a network in much the same way as a database driver based on ODBC or JDBC would. The Python PyArrow Cookbook has an <a class="reference external" href="https://arrow.apache.org/cookbook/py/flight.html" title="Arrow Flight">Arrow Flight</a> tutorial that shows how to run a Flight server against a directory containing Parquet files. This tutorial leverages Arrow’s ability to stream data sets (a subset of rows) to avoid having to have entire data sets in memory.</p>
 </section>
 

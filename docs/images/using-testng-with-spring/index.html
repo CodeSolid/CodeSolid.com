@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Moving to TestNG from JUnit &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=19645805"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -97,12 +101,12 @@
   <p>Although there aren’t too many examples to be found about it, using Spring’s AbstractTestNGSpringContextTests turns out to be really easy! We walk you through it in this brief tutorial.</p>
 <p>Testing Spring in JUnit is fairly simple given the test runner support. Using TestNG is a little bit more complex, but this tutorial will quickly get you up to speed.</p>
 <section id="moving-to-testng-from-junit">
-<h1>Moving to TestNG from JUnit<a class="headerlink" href="#moving-to-testng-from-junit" title="Link to this heading">¶</a></h1>
+<h1>Moving to TestNG from JUnit<a class="headerlink" href="#moving-to-testng-from-junit" title="Link to this heading"></a></h1>
 <p>A few weeks ago I published a <a class="reference external" href="https://blog.codesolid.com/post/spring-unit-testing-using-junit/">Simple Introduction to Spring Unit testing using JUnit</a>. We’ve been using JUnit quite a bit in our examples so far, but as some of you may already know, JUnit is not the only unit test framework for Java. Another framework, TestNG, offers a lot of features that JUnit lacks, such as the ability to run parameterized tests in which a given test is run against an array of different values, and the ability to break tests down into categories coupled with fine-grained configuration control over what tests to run. Indeed, the author of TestNG (“Next Generation”) very much had the limitations of JUnit in mind in writing the new framework. You can read about some of the problems with JUnit that TestNG was designed to solve on it the <a class="reference external" href="http://testng.org/">TestNG website</a>.</p>
 <p>Of course, the choice of which technology to use is often a matter not of what’s best, but what’s most popular (especially if you’re early in your career and need to get certain key technologies added to your resume). So for my newcomers who are beginning a technical career in Java, I’d be inclined to recommend JUnit, whereas for myself, the old programmer that I am, I have the luxury of picking the technology I consider better in many cases. For example, compared to IntelliJ Idea, for me Eclipse is just too painful – free or not, big market share or not. So I use IntelliJ. So if you’re playing “Indeed Job-Hunting Keyword Bingo”, stick with JUnit, otherwise do yourself a favor and take a look at TestNG. &lt;/My two cents&gt;</p>
 </section>
 <section id="setting-up-the-maven-dependency-for-testng">
-<h1>Setting Up The Maven Dependency for TestNG<a class="headerlink" href="#setting-up-the-maven-dependency-for-testng" title="Link to this heading">¶</a></h1>
+<h1>Setting Up The Maven Dependency for TestNG<a class="headerlink" href="#setting-up-the-maven-dependency-for-testng" title="Link to this heading"></a></h1>
 <p>Rather than repeat all the sample bean code from our original JUnit article, let’s focus here on the tests. The original sample code is, after all, not very interesting – it only gave us something to test. To migrate the JUnit sample, the first thing I needed to do was change the dependency section in our POM file slightly. Remove the JUnit dependency:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span>junit
 <span class="w">  </span>junit
@@ -120,7 +124,7 @@
 <p>For the benefit of those of you starting from scratch, here is the <a class="reference external" href="https://github.com/CodeSolid/tutorials/blob/master/SpringTestNG/pom.xml">full POM file</a>.</p>
 </section>
 <section id="simple-abstracttestngspringcontexttests-test-examples">
-<h1><strong>Simple AbstractTestNGSpringContextTests Test Examples</strong><a class="headerlink" href="#simple-abstracttestngspringcontexttests-test-examples" title="Link to this heading">¶</a></h1>
+<h1><strong>Simple AbstractTestNGSpringContextTests Test Examples</strong><a class="headerlink" href="#simple-abstracttestngspringcontexttests-test-examples" title="Link to this heading"></a></h1>
 <p>Next, let’s see what we need to do to use Spring’s basic TestNG testing support class, AbstractTestNGSpringContextTests. Don’t let the “Abstract” in the name scare you off here, there’s really nothing much to implement. All you need to do is add a ContextConfiguration annotation to your class and it just works. Here’s the Hello-World-simple example, which only uses the ContextConfiguration annotation to get it to compile and run.</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span><span class="w"> </span><span class="nn">com.codesolid.tutorials.tests</span><span class="p">;</span>
 

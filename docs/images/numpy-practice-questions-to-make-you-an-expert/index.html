@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Finding the Solutions &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=19645805"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -99,13 +103,13 @@
 <p>This example set features several questions that I worked on recently to review and improve my knowledge of NumPy – the excellent, high-performance n-dimensional array library that is a core pillar of the Python data science stack. These questions and exercises range from those that I could get right or code off the top of my head to challenging questions that I had no idea about when I worked on them (or made mistakes on the first time I tried). So don’t feel bad if some of these are hard, or you can’t finish all of them. That said, they will be simpler if you have some background in NumPy.</p>
 <p>If you need some materials for making a start on NumPy and Python data science, see our article, <a class="reference external" href="https://codesolid.com/how-to-practice-python-data-science-and-pandas/">How to Practice Python: Data Science and Pandas</a>.</p>
 <section id="finding-the-solutions">
-<h1>Finding the Solutions<a class="headerlink" href="#finding-the-solutions" title="Link to this heading">¶</a></h1>
+<h1>Finding the Solutions<a class="headerlink" href="#finding-the-solutions" title="Link to this heading"></a></h1>
 <p>For those I didn’t know the answer to, I used a combination of Google and <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html">The NumPy API Reference</a> to try to work out the solution, so yes, you should research these if you want to practice! The exercises selected here cover many of the features of NumPy, but it’s not meant to be exhaustive. For example, we don’t cover the linear algebra features in <code class="docutils literal notranslate"><span class="pre">numpy.linalg</span></code>.</p>
 <p>In the exercises that follow, any unqualified references to an “array” mean a NumPy array, not a native Python array. References to “np” refer to the NumPy package in the usual way it is aliased: “<code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code>”. Good luck, and let me know how it goes!</p>
 <p>Update: We’ve added a solution dropdown to each question so you don’t need to switch back and forth between the exercises and the solution set. That said, it’s still a good idea to try to recall the answer or look in the NumPy API reference, and use the solution links as a last resort!</p>
 </section>
 <section id="creating-simple-one-dimensional-numpy-arrays">
-<h1>Creating Simple One-Dimensional NumPy Arrays<a class="headerlink" href="#creating-simple-one-dimensional-numpy-arrays" title="Link to this heading">¶</a></h1>
+<h1>Creating Simple One-Dimensional NumPy Arrays<a class="headerlink" href="#creating-simple-one-dimensional-numpy-arrays" title="Link to this heading"></a></h1>
 <p>NumPy has several functions that will return an n-Dimensional array. These exercises ask you to recall these functions to create arrays with only one dimension.</p>
 <ol class="arabic simple">
 <li><p>Using a NumPy function, how would you create a one-dimensional NumPy array of the numbers from 10 to 100, counting by 10?</p></li>
@@ -217,7 +221,7 @@
 </div>
 </section>
 <section id="creating-and-using-multidimensional-arrays">
-<h1>Creating and Using Multidimensional Arrays<a class="headerlink" href="#creating-and-using-multidimensional-arrays" title="Link to this heading">¶</a></h1>
+<h1>Creating and Using Multidimensional Arrays<a class="headerlink" href="#creating-and-using-multidimensional-arrays" title="Link to this heading"></a></h1>
 <p>In this section, we move past one-dimensional arrays. As a reminder, many of the same functions that we used to create one-dimensional arrays select either a single scalar value for the number of elements to create or a tuple representing the shape of the array in higher dimensions.</p>
 <ol class="arabic simple" start="12">
 <li><p>Consider the code: <code class="docutils literal notranslate"><span class="pre">np.ones((3,5))</span></code>. Does this A) create an array of three arrays containing five elements each or B) create an array of five arrays containing three elements each?</p></li>
@@ -359,7 +363,7 @@ array<span class="o">([[</span><span class="w"> </span><span class="m">1</span>,
 <p>Note that transpose() returns a view (shallow copy) of the array. If you need to modify it without impacting the original array, use <code class="docutils literal notranslate"><span class="pre">arr.transpose().copy()</span></code>.</p>
 </section>
 <section id="indexing-and-slicing-two-dimensional-arrays">
-<h1>Indexing and Slicing Two-Dimensional Arrays<a class="headerlink" href="#indexing-and-slicing-two-dimensional-arrays" title="Link to this heading">¶</a></h1>
+<h1>Indexing and Slicing Two-Dimensional Arrays<a class="headerlink" href="#indexing-and-slicing-two-dimensional-arrays" title="Link to this heading"></a></h1>
 <p>NumPy arrays support indexing and slicing across using scalars and tuples. For questions 22-28, use the following array, assigned to the variable, four_by_five. Assume that the rows are the “outer” arrays of five elements each and that the nth element within all the rows is a column:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># four_by_five:</span>
 
@@ -449,7 +453,7 @@ array<span class="o">([[</span><span class="w"> </span><span class="m">1</span>,
 </div>
 </section>
 <section id="vectorized-operations">
-<h1>Vectorized Operations<a class="headerlink" href="#vectorized-operations" title="Link to this heading">¶</a></h1>
+<h1>Vectorized Operations<a class="headerlink" href="#vectorized-operations" title="Link to this heading"></a></h1>
 <p>Vectorized operations are implemented in NumPy so that many mathematical and logical functions operate across the whole array. These vectorized operations act on every array element without writing a Python loop. The most common ways to do this are to combine the array with itself, with an array of the same shape, or with a scalar value.</p>
 <p>To keep it simple, let’s use a small one-dimensional array to begin. For exercises #28-36, use the one-dimensional array shown below:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">one_dim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
@@ -552,7 +556,7 @@ print<span class="o">(</span>sum<span class="o">(</span>numbers<span class="o">)
 <p>[ 1  0 -1  0  1]</p>
 </section>
 <section id="working-with-files">
-<h1>Working with Files<a class="headerlink" href="#working-with-files" title="Link to this heading">¶</a></h1>
+<h1>Working with Files<a class="headerlink" href="#working-with-files" title="Link to this heading"></a></h1>
 <ol class="arabic simple" start="38">
 <li><p>You’re asked to save the following two arrays as is to a file, “data.npz”. The arrays should be named as they are here in the file. How could you do it?</p></li>
 </ol>
@@ -599,7 +603,7 @@ print<span class="o">(</span>sum<span class="o">(</span>numbers<span class="o">)
 </div>
 </section>
 <section id="numpy-string-functions">
-<h1>NumPy String Functions<a class="headerlink" href="#numpy-string-functions" title="Link to this heading">¶</a></h1>
+<h1>NumPy String Functions<a class="headerlink" href="#numpy-string-functions" title="Link to this heading"></a></h1>
 <p>Next, let’s relax a little with some simple character-oriented (string) functions, from the <code class="docutils literal notranslate"><span class="pre">np.char</span></code> package. Some of these are simply vectorized (element-wise) versions of the Python standard library functions.</p>
 <p>Proving that every Python blog gets around to the Lumberjack Song eventually, here’s the NumPy array we’ll use for the problems in this section:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lumberjack</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="s2">&quot;I&#39;m a lumberjack and I&#39;m OK I sleep all night and I work all day&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">))</span>

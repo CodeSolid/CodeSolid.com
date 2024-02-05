@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Apache Airflow: Python ETL and Scheduling Made Easy &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=19645805"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -161,9 +165,9 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="apache-airflow-python-etl-and-scheduling-made-easy">
-<h1>Apache Airflow:  Python ETL and Scheduling Made Easy<a class="headerlink" href="#apache-airflow-python-etl-and-scheduling-made-easy" title="Link to this heading">¶</a></h1>
+<h1>Apache Airflow:  Python ETL and Scheduling Made Easy<a class="headerlink" href="#apache-airflow-python-etl-and-scheduling-made-easy" title="Link to this heading"></a></h1>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
 <p>Apache’s Airflow project is a popular tool for scheduling Python jobs and pipelines, which can be used for “ETL jobs” (I.e., to Extract, Transform, and Load data), building machine learning models, updating data warehouses, or other scheduled tasks.</p>
 <p>Airflow is an excellent choice for Python developers. Unlike other solutions in this space, such as AWS step functions, in Airflow, you define the entire pipeline in Python, not just the code for the steps. Conveniently, however, you can also integrate bash scripts easily through Airflow’s bash “operator” (plugin).</p>
 <p>Though an open-source project, Apache Airflow has wide industry support. Two major cloud providers, AWS and Google, have managed products built on Airflow (Amazon Managed Workflows for Apache Airflow, or MWAA) and Google Cloud Composer, respectively. Although there is no comparable solution on Azure, there is a <a class="reference external" href="https://github.com/savjani-zz/azure-quickstart-templates/tree/master/101-webapp-linux-airflow-postgresql" title="quick-start template">quickstart template</a> for deploying Docker-based Airflow and PostgreSQL.</p>
@@ -171,7 +175,7 @@
 <p>In this article, I walk you through the steps involved and answer some of the questions I had when I first tried this exercise myself. I hope by working through this in a slightly different order than I did, I can help you address some of the issues I had when I went along.</p>
 </section>
 <section id="system-requirements-and-installing-airflow">
-<h2>System Requirements and Installing Airflow<a class="headerlink" href="#system-requirements-and-installing-airflow" title="Link to this heading">¶</a></h2>
+<h2>System Requirements and Installing Airflow<a class="headerlink" href="#system-requirements-and-installing-airflow" title="Link to this heading"></a></h2>
 <p>Airflow is straightforward to install and run on Linux or Mac. For Windows, it needs to be run on <a class="reference external" href="https://pypi.org/project/apache-airflow/" title="WSL2 or in Linux containers">WSL2 or in Linux containers</a>. Airflow’s default database for testing is SQLite 3.15.0+, so you may need to have that binary installed before beginning. As of the time of this writing, Airflow supports Python 3.7 through 3.10. I used Miniconda to set up an environment with Python 3.10, but you can also use PyEnv to manage Python versions. (See <a class="reference external" href="https://codesolid.com/conda-vs-pip/#htoc-conda-vs-pyenv">Conda vs. PyEnv</a> for some of the tradeoffs). Here’s the conda version:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Using Conda to create an isolated environment for airflowb</span>
 conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>airflow<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.10<span class="w">  </span>
@@ -188,7 +192,7 @@ conda<span class="w"> </span>activate<span class="w"> </span>airflow
 </div>
 </section>
 <section id="the-airflow-web-interface">
-<h2>The Airflow Web Interface<a class="headerlink" href="#the-airflow-web-interface" title="Link to this heading">¶</a></h2>
+<h2>The Airflow Web Interface<a class="headerlink" href="#the-airflow-web-interface" title="Link to this heading"></a></h2>
 <p>This initializes the database, creates a user, and starts both the web server and the scheduler. If we navigate to the web browser run by the command above (It should be at <a class="reference external" href="http://localhost:8080/">http://localhost:8080/</a>), we land by default on the DAGs view, a portion of which is shown here:</p>
 <p><img alt="Apache Airflow web interface, main page." src="../_images/image.png" /></p>
 <p>A DAG is a Directed Acyclic Graph, in other words, a graph in which nodes don’t lead to paths that loop back to other nodes (though they can branch, and individual nodes can, of course, contain loops in their Python code). So you can think of the DAG as your workflow or pipeline, and the nodes of it are the steps.</p>
@@ -204,7 +208,7 @@ conda<span class="w"> </span>activate<span class="w"> </span>airflow
 <p>As you can see, after print_date, the steps labeled sleep and templated are called.</p>
 </section>
 <section id="understanding-how-dag-tasks-are-related">
-<h2>Understanding How DAG Tasks Are Related<a class="headerlink" href="#understanding-how-dag-tasks-are-related" title="Link to this heading">¶</a></h2>
+<h2>Understanding How DAG Tasks Are Related<a class="headerlink" href="#understanding-how-dag-tasks-are-related" title="Link to this heading"></a></h2>
 <p>To see how that’s accomplished in code, click on the Code tab of the navbar. Here we see three tasks defined with the somewhat cryptic names, t1, t2, and t3 (print_date, sleep, and templated, respectfully). For example, t1 looks like this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="n">t1</span> <span class="o">=</span> <span class="n">BashOperator</span><span class="p">(</span>
         <span class="n">task_id</span><span class="o">=</span><span class="s2">&quot;print_date&quot;</span><span class="p">,</span>
@@ -230,7 +234,7 @@ conda<span class="w"> </span>activate<span class="w"> </span>airflow
 <p><img alt="Operator overloading cautions" src="../_images/image-5.png" /></p>
 </section>
 <section id="apache-airflow-2-0-and-the-taskflow-api">
-<h2>Apache Airflow 2.0 and the TaskFlow API<a class="headerlink" href="#apache-airflow-2-0-and-the-taskflow-api" title="Link to this heading">¶</a></h2>
+<h2>Apache Airflow 2.0 and the TaskFlow API<a class="headerlink" href="#apache-airflow-2-0-and-the-taskflow-api" title="Link to this heading"></a></h2>
 <p>Going again through the tutorials, we learn that as of Apache 2.0, there’s a new API that makes writing and wiring up tasks easier and more like writing “regular” Python code. One of the things that TaskFlow made easier and was designed to address was the issue of how to pass data from one step to another. The tutorial for this API has a great example of how to do this and how much easier it is to accomplish this using TaskFlow than the pre-2.0 solution.</p>
 <p>Glossing over the details somewhat, rather than creating a key-value pair at the end of a task and retrieving it in a subsequent task, with TaskFlow, you can simply return data and then pass it to the next function.</p>
 <p>This also changes how tasks are wired up. Looking at the Graph for this tutorial, we get the following simple flow process:</p>
@@ -281,7 +285,7 @@ conda<span class="w"> </span>activate<span class="w"> </span>airflow
 <p>Finally, one thing that interested me was how compatible the new TaskFlow API was with the earlier way of instantiating operators and wiring them up using overloaded shift operators. Although this might not be important for new code, it did seem like an essential concern if one was dealing with legacy code and migrating it forward.</p>
 </section>
 <section id="mixing-apache-airflow-2-0-style-tasks-with-legacy-tasks-an-example">
-<h2>Mixing Apache Airflow 2.0 Style Tasks with Legacy Tasks - An Example<a class="headerlink" href="#mixing-apache-airflow-2-0-style-tasks-with-legacy-tasks-an-example" title="Link to this heading">¶</a></h2>
+<h2>Mixing Apache Airflow 2.0 Style Tasks with Legacy Tasks - An Example<a class="headerlink" href="#mixing-apache-airflow-2-0-style-tasks-with-legacy-tasks-an-example" title="Link to this heading"></a></h2>
 <p>So with these motivating questions in mind, here is the code for Yet Another Apache Airflow Tutorial, <code class="docutils literal notranslate"><span class="pre">scheduled.py</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># scheduled.py</span>
 
@@ -358,7 +362,7 @@ conda<span class="w"> </span>activate<span class="w"> </span>airflow
 </pre></div>
 </div>
 <section id="discussion">
-<h3>Discussion<a class="headerlink" href="#discussion" title="Link to this heading">¶</a></h3>
+<h3>Discussion<a class="headerlink" href="#discussion" title="Link to this heading"></a></h3>
 <p>Following the imports, we first define a simple Python function to return a directory and logfile name for our custom log. Next, we annotate the function that defines the DAG with the <code class="docutils literal notranslate"><span class="pre">&#64;dag</span></code> decorator. Here we schedule our dag to run every minute and set some other properties, especially telling it not to catch up to all jobs since the arbitrary start_date we provide.</p>
 <p>The function name, “scheduled_task”, will be how our DAG appears in the user interface. We begin with two TaskFlow-style tasks:</p>
 <ul class="simple">
@@ -376,7 +380,7 @@ conda<span class="w"> </span>activate<span class="w"> </span>airflow
 </section>
 </section>
 <section id="scheduling-the-dags-directory-and-configuration">
-<h2>Scheduling, The Dags Directory, and Configuration<a class="headerlink" href="#scheduling-the-dags-directory-and-configuration" title="Link to this heading">¶</a></h2>
+<h2>Scheduling, The Dags Directory, and Configuration<a class="headerlink" href="#scheduling-the-dags-directory-and-configuration" title="Link to this heading"></a></h2>
 <p>Before running our scheduled job, I wanted to take a moment to clear up some issues that may not be obvious when you first start going through the Airflow tutorial material. One of the first things the tutorial instructs us to do is to run our files in the directory <code class="docutils literal notranslate"><span class="pre">~/airflow/dags</span></code> directory. Thus, for example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">airflow</span><span class="o">/</span><span class="n">dags</span>
 <span class="n">python</span> <span class="n">scheduled</span><span class="o">.</span><span class="n">py</span>
@@ -402,7 +406,7 @@ conda<span class="w"> </span>activate<span class="w"> </span>airflow
 <p>Changing this to a somewhat lower number will allow your new DAG files to show up more quickly.</p>
 </section>
 <section id="revisiting-airflow-logging">
-<h2>Revisiting Airflow Logging<a class="headerlink" href="#revisiting-airflow-logging" title="Link to this heading">¶</a></h2>
+<h2>Revisiting Airflow Logging<a class="headerlink" href="#revisiting-airflow-logging" title="Link to this heading"></a></h2>
 <p>I mentioned earlier that the scheduled_task custom logging turned out to be unnecessary, since Airflow will capture simple print and echo statements to the logs. If you’re looking for a single logfile, however, you won’t find it. Instead, Airflow arranges the files heirarchically, by dag_id / run_id / and task_id. Altough tree structure makes sesnse, it’s not pretty, for example:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>airflow
 <span class="w">    </span>/logs
@@ -426,7 +430,7 @@ conda<span class="w"> </span>activate<span class="w"> </span>airflow
 <p>Granted, in this case, that was a long way to go to watch ourselves print the date to the console, but once you get used to the user interface, you’ll find it beats writing custom logging code for every DAG.</p>
 </section>
 <section id="closing-thoughts">
-<h2>Closing Thoughts<a class="headerlink" href="#closing-thoughts" title="Link to this heading">¶</a></h2>
+<h2>Closing Thoughts<a class="headerlink" href="#closing-thoughts" title="Link to this heading"></a></h2>
 <p>As we’ve seen, getting started with Apache Airflow is relatively straightforward, though occasionally a bit quirky. On balance, however, it’s a powerful tool for scheduling ETL and other Data Engineering jobs, so once you get past some of the issues covered here, you’ll find it’s a valuable addition to your Python toolkit.</p>
 </section>
 </section>

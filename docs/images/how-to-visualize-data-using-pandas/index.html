@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Exploring the Dataset &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=19645805"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -113,7 +117,7 @@
 <li><p>Summary</p></li>
 </ul>
 <section id="exploring-the-dataset">
-<h1>Exploring the Dataset<a class="headerlink" href="#exploring-the-dataset" title="Link to this heading">¶</a></h1>
+<h1>Exploring the Dataset<a class="headerlink" href="#exploring-the-dataset" title="Link to this heading"></a></h1>
 <p>Visualization is an essential tool whether you are analyzing data or preparing it. It is important to learn how to visualize data to see the hidden patterns in the dataset that can be observed by just looking at the numbers. In this article, we will use the famous iris dataset and apply various techniques to visualize the data using the Pandas module. You can download the dataset from <a class="reference external" href="https://www.kaggle.com/datasets/uciml/iris" title="Kaggle">Kaggle</a> or can import it directly from either sklearn or seaborn as well.</p>
 <p>Before importing import and beginning work on visualization, however, make sure that you have installed the necessary dependencies on your system. You can install the Pandas module using the pip command or using Conda. To set up the starter project for this article, see the article, <a class="reference external" href="https://codesolid.com/python-data-analysis-starter-project/">Python Data Analysis Starter Project</a>.</p>
 <p>Now, let us first import the dataset and print a few rows to get familiar with the dataset.</p>
@@ -152,7 +156,7 @@
 </div>
 </section>
 <section id="visualize-data-using-pandas">
-<h1>Visualize Data Using Pandas<a class="headerlink" href="#visualize-data-using-pandas" title="Link to this heading">¶</a></h1>
+<h1>Visualize Data Using Pandas<a class="headerlink" href="#visualize-data-using-pandas" title="Link to this heading"></a></h1>
 <p>As we know Pandas is a very powerful tool for data analysis. It has many useful methods that play an important role in data preprocessing, manipulation, and feature engineering.</p>
 <p>Moreover, although Pandas is not a data visualization tool, it can be used to plot some basic plots that can help us to understand the data more clearly.</p>
 <p>In this section, we will learn how to plot the following graphs using the Pandas module</p>
@@ -166,7 +170,7 @@
 <li><p>Pie plots</p></li>
 </ul>
 <section id="line-plots-in-pandas">
-<h2>Line plots in Pandas<a class="headerlink" href="#line-plots-in-pandas" title="Link to this heading">¶</a></h2>
+<h2>Line plots in Pandas<a class="headerlink" href="#line-plots-in-pandas" title="Link to this heading"></a></h2>
 <p>Line Plot is one of the easiest and most basic graphical analysis techniques that play an important role in data analysis when working especially on time series datasets. They are used to express a relationship between two variables.</p>
 <p>In Pandas the plot() method is used to plot the line plots of the dataset.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting line plots in pandas</span>
@@ -194,7 +198,7 @@
 <p>As shown above, we got subplots for each of the input values.</p>
 </section>
 <section id="scatter-plots-in-python">
-<h2>Scatter plots in Python<a class="headerlink" href="#scatter-plots-in-python" title="Link to this heading">¶</a></h2>
+<h2>Scatter plots in Python<a class="headerlink" href="#scatter-plots-in-python" title="Link to this heading"></a></h2>
 <p>A scatter plot is a set of points plotted on horizontal and vertical axes. Scatter plots are important in statistics because they can show the extent of correlation, if any, between the values of observed quantities or variables.</p>
 <p>Now let us plot a scatter plot of the same dataset using pandas. The scatter() function is used to create a scatter plot as shown below. Notice that we have to specify the y and x axes values explicitly for the scatter plots.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Scatter plot in pandas</span>
@@ -249,7 +253,7 @@
 <p>As shown above, the scattered plot with different colors for each category helps to see how each category is distributed.</p>
 </section>
 <section id="bar-plots-in-pandas">
-<h2>Bar plots in Pandas<a class="headerlink" href="#bar-plots-in-pandas" title="Link to this heading">¶</a></h2>
+<h2>Bar plots in Pandas<a class="headerlink" href="#bar-plots-in-pandas" title="Link to this heading"></a></h2>
 <p>A bar plot is a plot that presents categorical data with rectangular bars with lengths proportional to the values that they represent. A bar plot shows comparisons among discrete categories. One axis of the plot shows the specific categories being compared, and the other axis represents a measured value.</p>
 <p>The plot() method in pandas takes an optional parameter ‘kind’ which specifies the type of plot we want. The default value for kind is a line plot, as we’ve seen above. We can change it to any other plot as in this section, we will assign bar charts to it.</p>
 <p>First, we will create a very simple bar plot for the length of the sepals. But as our dataset is large, we will only take 10% of the overall dataset and plot bar charts for it.</p>
@@ -280,7 +284,7 @@
 <p><img alt="stacked-bar-charts" src="../../_images/stacked-bar-charts1.png" /></p>
 </section>
 <section id="area-plots-in-pandas">
-<h2>Area plots in Pandas<a class="headerlink" href="#area-plots-in-pandas" title="Link to this heading">¶</a></h2>
+<h2>Area plots in Pandas<a class="headerlink" href="#area-plots-in-pandas" title="Link to this heading"></a></h2>
 <p>An area chart is a graph that combines a line chart and a bar chart to show changes in quantities over time. It’s similar to a line graph in that data points are plotted and connected by line segments.</p>
 <p>Let us plot the area chart of the dataset using Pandas. The area() method is used to plot the area plots.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Area plots using Pandas</span>
@@ -306,7 +310,7 @@
 <p><img alt="pandas-area-chart" src="../../_images/pandas-area-chart1.png" /></p>
 </section>
 <section id="box-plots-in-pandas">
-<h2>Box plots in Pandas<a class="headerlink" href="#box-plots-in-pandas" title="Link to this heading">¶</a></h2>
+<h2>Box plots in Pandas<a class="headerlink" href="#box-plots-in-pandas" title="Link to this heading"></a></h2>
 <p>A box plot is a graphical rendition of statistical data based on the minimum, first quartile, median, third quartile, and maximum. The term “box plot” comes from the fact that the graph looks like a rectangle with lines extending from the top and bottom. A box plot looks like this:</p>
 <p><img alt="box-plot" src="../../_images/box-plot1.png" /></p>
 <p>The box plot helps us to find the distribution of the data points. Any data point outside the min and max are considered to be outliers.</p>
@@ -342,7 +346,7 @@
 <p><img alt="box-plot-in-pandas" src="../../_images/box-plot-in-pandas1.png" /></p>
 </section>
 <section id="pie-charts-in-pandas">
-<h2>Pie charts in Pandas<a class="headerlink" href="#pie-charts-in-pandas" title="Link to this heading">¶</a></h2>
+<h2>Pie charts in Pandas<a class="headerlink" href="#pie-charts-in-pandas" title="Link to this heading"></a></h2>
 <p>A pie chart is a graphical representation technique that displays data in a circular-shaped graph. It can be used to show percentages of a whole and represents percentages at a set point in time. Unlike bar graphs and line graphs, pie charts do not show changes over time.</p>
 <p>The pie() method in pandas plots pie charts. Let us again take 10% of the data and plot a pie chart of the length of the sepals.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># taking 10% of the data randomly</span>
@@ -371,7 +375,7 @@
 <p><img alt="pandas-pie-subplots" src="../../_images/pandas-pie-subplots1.png" /></p>
 </section>
 <section id="density-plots-in-pandas">
-<h2>Density plots in Pandas<a class="headerlink" href="#density-plots-in-pandas" title="Link to this heading">¶</a></h2>
+<h2>Density plots in Pandas<a class="headerlink" href="#density-plots-in-pandas" title="Link to this heading"></a></h2>
 <p>A density plot is a representation of the distribution of a numeric variable. It uses a kernel density estimate to show the probability density function of the variable. In other words, a density plot is the continuous and smoothed version of the histogram estimated from the data.</p>
 <p>Let us first plot the density graph of the length of petals. The density() method in pandas is used to plot the density graph.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># density plot of the dataset</span>
@@ -390,7 +394,7 @@
 <p>As you can see, we now have the density plots for each input value.</p>
 </section>
 <section id="hexbin-plots-in-pandas">
-<h2>Hexbin plots in Pandas<a class="headerlink" href="#hexbin-plots-in-pandas" title="Link to this heading">¶</a></h2>
+<h2>Hexbin plots in Pandas<a class="headerlink" href="#hexbin-plots-in-pandas" title="Link to this heading"></a></h2>
 <p>A HexBin plot is also known as a hexagonal bin plot, and it looks like a honeycomb with different hexagons shaded differently. Each shade corresponds to a value intensity, and the hexagon represents a collection of points. Usually, these types of plots are useful for plotting data on the map.</p>
 <p>Let us understand how the hexbin plots work. We assume that we have the following random data.</p>
 <p><img alt="random-dataset" src="../../_images/random-dataset1.png" /></p>
@@ -411,7 +415,7 @@
 </section>
 </section>
 <section id="summary">
-<h1>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h1>
+<h1>Summary<a class="headerlink" href="#summary" title="Link to this heading"></a></h1>
 <p>Pandas is a powerful open-source Python module that is used for data analysis and manipulation. However, we can also use Pandas for data visualization as well. In this article, we learned how can use Pandas to visualize the dataset in various plots.</p>
 </section>
 

@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Python Lists 101 &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=19645805"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -107,7 +111,7 @@
 <li><p><a class="reference internal" href="#numpy-arrays-and-performance"><span class="std std-ref">NumPy Arrays and Performance</span></a></p></li>
 </ul>
 <section id="python-lists-101">
-<h1>Python Lists 101<a class="headerlink" href="#python-lists-101" title="Link to this heading">¶</a></h1>
+<h1>Python Lists 101<a class="headerlink" href="#python-lists-101" title="Link to this heading"></a></h1>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 
 <span class="c1"># A list initialized with a literal</span>
@@ -133,7 +137,7 @@
 <p>Let’s turn next to Python arrays;</p>
 </section>
 <section id="python-arrays">
-<h1>Python Arrays<a class="headerlink" href="#python-arrays" title="Link to this heading">¶</a></h1>
+<h1>Python Arrays<a class="headerlink" href="#python-arrays" title="Link to this heading"></a></h1>
 <p>There are a few differences between lists and arrays that we should go over up front.</p>
 <p>First, let’s discuss some of the types that are available. The list type is always available as part of Python’s built-ins. With arrays, there are several types we can talk about. Two built-in types are the <code class="docutils literal notranslate"><span class="pre">bytes</span></code> type, an immutable sequence of bytes, and the <code class="docutils literal notranslate"><span class="pre">bytearray</span></code> type, a mutable array. Other arrays can also be created where the item size is not just a single byte, but matches well known C types. These arrays are created using the array module, which must be imported.</p>
 <p>Lists of course have a literal syntax: <code class="docutils literal notranslate"><span class="pre">[item1,</span> <span class="pre">item2,</span> <span class="pre">...,</span> <span class="pre">itemN]</span></code>, as we saw in the example above. For array types, only the immutable <code class="docutils literal notranslate"><span class="pre">bytes</span></code> built-in type has a literal syntax, prepending “b” to a string. As with regular Python strings, <code class="docutils literal notranslate"><span class="pre">bytes</span></code> literals can also have an “r” to mean the “raw” case where we want to treat the escape character, <code class="docutils literal notranslate"><span class="pre">&quot;\n&quot;</span></code>, as a literal. For example:</p>
@@ -186,7 +190,7 @@ bytearray<span class="o">(</span>b<span class="s1">&#39;Hello&#39;</span><span c
 </div>
 </section>
 <section id="arrays-may-use-less-memory-than-lists">
-<h1>Arrays May Use Less Memory Than Lists<a class="headerlink" href="#arrays-may-use-less-memory-than-lists" title="Link to this heading">¶</a></h1>
+<h1>Arrays May Use Less Memory Than Lists<a class="headerlink" href="#arrays-may-use-less-memory-than-lists" title="Link to this heading"></a></h1>
 <p>For smaller types like bytes, arrays may more compactly store their values than lists do, since arrays can store the object itself, while in the list case there is both an object and a structure with a reference to it.</p>
 <p>Some examples from the array module will make this clear.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">array</span> <span class="kn">import</span> <span class="n">array</span>
@@ -244,7 +248,7 @@ array<span class="o">(</span><span class="s1">&#39;B&#39;</span>,<span class="w"
 </div>
 </section>
 <section id="id1">
-<h1><a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
+<h1><a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
 <p>For Large Amounts of Data, Use Generators Instead of Lists or Arrays</p>
 <p>Although arrays may store their values more compactly than lists, memory can still be a constraint for very large arrays. In this case, a Python generator may be a more appropriate choice. Let’s say we wanted a class to iterate through the lines of a file. For short files, we could even read the whole file into a list and process the list. If we wanted to do this with a longer file, we could of course read and process a line at a time directly in Python. However, this case also lets us demo a basic generator:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">FileIterator</span><span class="p">:</span>
@@ -277,7 +281,7 @@ array<span class="o">(</span><span class="s1">&#39;B&#39;</span>,<span class="w"
 <p>Again we get the output of 25, but here we can safely change range(10) to range(1000000000). I’ve actually done it. You won’t run out of memory. (But be prepared to wait awhile anyway!)</p>
 </section>
 <section id="performance-timers-array-and-list-loop-performance">
-<h1>Performance Timers: Array and List Loop Performance<a class="headerlink" href="#performance-timers-array-and-list-loop-performance" title="Link to this heading">¶</a></h1>
+<h1>Performance Timers: Array and List Loop Performance<a class="headerlink" href="#performance-timers-array-and-list-loop-performance" title="Link to this heading"></a></h1>
 <p>As we’ve seen, there are some space-saving benefits to arrays, but for really large sequences, generators provide a better option. However, setting aside the issue of space savings, it’s possible that Python arrays may have better loop efficiency than lists. Until we test this, we really have no way of knowing.</p>
 <p>To test this out, we used the <code class="docutils literal notranslate"><span class="pre">timeit</span></code> function to see if the iteration time differs significantly between arrays and lists. We expected the times to be about equal or perhaps a little faster in the non-object array case. The actual result then was quite surprising. In each case, we’ll looped through a list or array of 10,000 numbers 10,000 times.</p>
 <p>The list case first</p>
@@ -306,7 +310,7 @@ array<span class="o">(</span><span class="s1">&#39;B&#39;</span>,<span class="w"
 <p>Admittedly, this result still seems a bit strange to me. One possible place for the slowdown I considered was the conversion of the underlying object to a Python object reference, but even when I reworked the Python code to ignore the loop values, the slowness persisted, though both loops became slightly faster. For Python loops, the winner is clearly the list type.</p>
 </section>
 <section id="tip-use-arrays-for-low-level-buffer-access">
-<h1>Tip: Use Arrays For Low Level Buffer Access<a class="headerlink" href="#tip-use-arrays-for-low-level-buffer-access" title="Link to this heading">¶</a></h1>
+<h1>Tip: Use Arrays For Low Level Buffer Access<a class="headerlink" href="#tip-use-arrays-for-low-level-buffer-access" title="Link to this heading"></a></h1>
 <p>As we’ve seen, although arrays may offer some space savings over Python lists in certain cases, for truly large sequences, the preferred technique to iterate over them is either to read each item individually or to use a generator. Also, although some space may be saved by using an array, we showed that this will negatively impact loop performance for long sequences.</p>
 <p>So what, then, is the point of ever using an array at all? Arrays, unlike lists, support accessing the memory that contains them directly. This can be used to interface with the C language, or to use Python libraries to do fast IO without dipping into C. One main mechanism used to support this is Python’s <a class="reference external" href="https://docs.python.org/3/c-api/buffer.html#bufferobjects">buffer protocol</a>, which is a way of exposing the contents of a memory buffer to a low-level IO function such as <a class="reference external" href="https://docs.python.org/3/library/io.html#io.RawIOBase.readinto">readinto</a>. This would allow pre-allocating and re-using the buffer to efficiently read data from a socket, for example.</p>
 <p>In addition to one-time memory allocation, which can be an optimization where many reads are involved, the buffer protocol also supports zero-copy slicing. To demonstrate this, we can use a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#memoryview">memoryview</a> object, which allows obtaining a wrapper around this raw buffer. Let’s compare how slicing works for this case with how it works for a list. In the example below, we see that creating a slice in the array returns a copy of the array:</p>
@@ -354,7 +358,7 @@ array<span class="o">(</span><span class="s1">&#39;B&#39;</span>,<span class="w"
 </div>
 </section>
 <section id="numpy-arrays-and-performance">
-<h1>NumPy Arrays and Performance<a class="headerlink" href="#numpy-arrays-and-performance" title="Link to this heading">¶</a></h1>
+<h1>NumPy Arrays and Performance<a class="headerlink" href="#numpy-arrays-and-performance" title="Link to this heading"></a></h1>
 <p>Although our focus on this article has been on the array types that are part of the standard library, we should probably mention NumPy arrays, given that this library is almost as popular! In NumPy, the <code class="docutils literal notranslate"><span class="pre">array</span></code> type is an alias for the <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> class, an n-dimensional array. These arrays feature a number of aggregation and matrix algebra functions that are written in C with a Python wrapper.</p>
 <p>In addition to adding matrix support, for the operations they support, NumPy arrays are extremely fast compared to their standard library counterparts. However, the caveat is that this is true only when using the methods that NumPy provides. Mixing Python’s standard library calls with NumPy’s arrays can actually decrease performance.</p>
 <p>Here are the timings we ran earlier, with two additional comparisons at the end, one using the standard library (the “wrong” way), and one using an equivalent NumPy function. I apologize for the low readability of these timeit expressions; feel free to skim ahead to the output.</p>

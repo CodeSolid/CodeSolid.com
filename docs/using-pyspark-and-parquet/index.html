@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PySpark and Parquet: Elegant Python DataFrames and SQL &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=19645805"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -170,9 +174,9 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="pyspark-and-parquet-elegant-python-dataframes-and-sql">
-<h1>PySpark and Parquet: Elegant Python DataFrames and SQL<a class="headerlink" href="#pyspark-and-parquet-elegant-python-dataframes-and-sql" title="Link to this heading">¶</a></h1>
+<h1>PySpark and Parquet: Elegant Python DataFrames and SQL<a class="headerlink" href="#pyspark-and-parquet-elegant-python-dataframes-and-sql" title="Link to this heading"></a></h1>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
 <p>In a recent article on <a class="reference external" href="https://codesolid.com/python-pyarrow-and-parquet/">Python PyArrow and Parquet</a>, we discussed the speed and size advantages of the Parquet data format and the performance of PyArrow compared to Pandas. We also compared the performance of Pandas, Polars, and native PyArrow for working with Parquet files.</p>
 <p>Since then, two things have captured our attention (one old, one new):</p>
 <ul class="simple">
@@ -181,7 +185,7 @@
 </ul>
 <p>Since we already wanted to see how PySpark handled large data sets in Python as a follow-up to our <a class="reference external" href="https://codesolid.com/large-data-sets-in-python-pandas-and-the-alternatives/">earlier article</a> of the same name, we thought this would be an excellent time to see how PySpark’s API and performance compared to that of not only PyArrow and Polars, which we’ve already investigated but also the new and improved Pandas.</p>
 <section id="what-we-ll-cover">
-<h3>What We’ll Cover<a class="headerlink" href="#what-we-ll-cover" title="Link to this heading">¶</a></h3>
+<h3>What We’ll Cover<a class="headerlink" href="#what-we-ll-cover" title="Link to this heading"></a></h3>
 <p>To help get you started with PySpark, we’ll first go over installing it and configuring a must-have SparkSession object in JupyterLab. After this, some of the topics we’ll cover include:</p>
 <ul class="simple">
 <li><p>What Is PySpark?</p></li>
@@ -195,17 +199,17 @@
 </section>
 </section>
 <section id="what-is-pyspark">
-<h2>What Is PySpark?<a class="headerlink" href="#what-is-pyspark" title="Link to this heading">¶</a></h2>
+<h2>What Is PySpark?<a class="headerlink" href="#what-is-pyspark" title="Link to this heading"></a></h2>
 <p>Python is a Python interface to Spark, a tool for doing data analytics, data engineering, and machine learning on local machines or clusters of machines. For this reason, unlike Pandas, which does not scale well to clusters without third-party libraries, PySpark supports data analysis at scale “out of the box,” so to speak.</p>
 <p>Spark itself is written in Scala, so the fact that PySpark is an interface to the Spark libraries means we’ll need one additional dependency before we install the Python library.</p>
 </section>
 <section id="installing-pyspark-and-jupyterlab">
-<h2>Installing PySpark and JupyterLab<a class="headerlink" href="#installing-pyspark-and-jupyterlab" title="Link to this heading">¶</a></h2>
+<h2>Installing PySpark and JupyterLab<a class="headerlink" href="#installing-pyspark-and-jupyterlab" title="Link to this heading"></a></h2>
 <p>The Scala code that Spark is written in targets the Java Virtual Machine (JVM), so before installing PySpark, we’ll need to ensure we have at least Java 8 installed on our system. I have the JDK (the Java Development Kit), but if space is a concern, you can probably get by with just the JRE (Java Runtime Environment), which is smaller. You can download either option from the <a class="reference external" href="https://www.oracle.com/java/technologies/downloads/">Java downloads page.</a></p>
 <p>Some PySpark documentation claims you’ll also need to set JAVA_HOME. Still, I’ve verified both by testing and by reviewing the PySpark code that if that isn’t set, having the java executable on your path is sufficient. You can verify this using <code class="docutils literal notranslate"><span class="pre">java</span> <span class="pre">--version</span></code>.</p>
 <p>With Java available, we can install a basic PySpark plus some basic tools to give us a JupyterLab environment using either Pip or Conda.</p>
 <section id="installing-with-pip-and-venv">
-<h3>Installing With Pip and Venv<a class="headerlink" href="#installing-with-pip-and-venv" title="Link to this heading">¶</a></h3>
+<h3>Installing With Pip and Venv<a class="headerlink" href="#installing-with-pip-and-venv" title="Link to this heading"></a></h3>
 <p>Here’s how to install what you need using pip and the venv module:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv<span class="w"> </span>
 
@@ -222,14 +226,14 @@ pip<span class="w"> </span>install<span class="w"> </span>pyspark<span class="w"
 </div>
 </section>
 <section id="installing-with-conda">
-<h3>Installing with Conda<a class="headerlink" href="#installing-with-conda" title="Link to this heading">¶</a></h3>
+<h3>Installing with Conda<a class="headerlink" href="#installing-with-conda" title="Link to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>pyspark<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11<span class="w"> </span>pyspark<span class="w"> </span>ipython<span class="w"> </span>jupyterlab
 conda<span class="w"> </span>activate<span class="w"> </span>pyspark
 </pre></div>
 </div>
 </section>
 <section id="testing-the-installation">
-<h3>Testing The Installation<a class="headerlink" href="#testing-the-installation" title="Link to this heading">¶</a></h3>
+<h3>Testing The Installation<a class="headerlink" href="#testing-the-installation" title="Link to this heading"></a></h3>
 <p>Perhaps the easiest way to run PySpark is to use the PySpark shell, which will create a SparkSession behind the scenes for you. Simply type Spark from one of the environment</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>% pyspark
 Python 3.11.0 | packaged by conda-forge | (main, Jan 14 2023, 12:25:12) [Clang 14.0.6 ] on darwin
@@ -264,11 +268,11 @@ SparkSession available as &#39;spark&#39;.
 </section>
 </section>
 <section id="reading-parquet-files-in-pyspark">
-<h2>Reading Parquet Files in PySpark<a class="headerlink" href="#reading-parquet-files-in-pyspark" title="Link to this heading">¶</a></h2>
+<h2>Reading Parquet Files in PySpark<a class="headerlink" href="#reading-parquet-files-in-pyspark" title="Link to this heading"></a></h2>
 <p>OK, enough sanity checks – we’re ready to start working with Parquet files. Parquet is a fast, binary, column-based storage format that supports compression. Throughout this article, we’ll use the taxis dataset (<a class="reference external" href="https://github.com/CodeSolid/pyspark-demo/raw/main/taxis.parquet">download file</a>), which is based on the CSV Seaborn sample example.</p>
 <p>In PySpark, there are at least two ways to work with an existing Parquet file.</p>
 <section id="using-spark-s-read-method">
-<h3>Using Spark’s Read Method<a class="headerlink" href="#using-spark-s-read-method" title="Link to this heading">¶</a></h3>
+<h3>Using Spark’s Read Method<a class="headerlink" href="#using-spark-s-read-method" title="Link to this heading"></a></h3>
 <p>First, we can load the file into a PySpark DataFrame in memory using the <code class="docutils literal notranslate"><span class="pre">spark.read</span></code> method. Here we do that and print out some basic information about the DataFrame.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">taxis</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;parquet&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;./taxis.parquet&quot;</span><span class="p">)</span>
 
@@ -281,7 +285,7 @@ SparkSession available as &#39;spark&#39;.
 <p><img alt="Displaying basic information about a PySpark DataFrame" src="../_images/image-147.png" /></p>
 </section>
 <section id="querying-a-file-with-spark-sql">
-<h3>Querying a File with Spark SQL<a class="headerlink" href="#querying-a-file-with-spark-sql" title="Link to this heading">¶</a></h3>
+<h3>Querying a File with Spark SQL<a class="headerlink" href="#querying-a-file-with-spark-sql" title="Link to this heading"></a></h3>
 <p>Loading a file into a DataFrame like this is a commonplace operation in Pandas, PolaRS, and many other tools, but where Spark really shines is in SparkSQL’s ability to query files like Parquet files directly. For example, let’s say we want to know how far a cabbie has to drive to earn their top fares. Here’s how we might get at that answer.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">top_fares</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;SELECT fare, tip, fare + tip as total, distance, tolls from parquet.`taxis.parquet` order by fare desc limit 10&quot;</span><span class="p">)</span>
 <span class="n">top_fares</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -299,7 +303,7 @@ SparkSession available as &#39;spark&#39;.
 </section>
 </section>
 <section id="how-to-improve-pyspark-s-dataframes-display">
-<h2>How To Improve PySpark’s DataFrames Display<a class="headerlink" href="#how-to-improve-pyspark-s-dataframes-display" title="Link to this heading">¶</a></h2>
+<h2>How To Improve PySpark’s DataFrames Display<a class="headerlink" href="#how-to-improve-pyspark-s-dataframes-display" title="Link to this heading"></a></h2>
 <p>When you start working with PySpark DataFrames, you might try “running” the name of the DataFrame object in a cell as you would for a Pandas DataFrame. If you did that, the result probably surprised you.</p>
 <p><img alt="The output of a PySpark DataFrame looks like a simple repr method." src="../_images/image-165.png" /></p>
 <p>That simple <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> style output was probably not what you wanted to see.</p>
@@ -323,7 +327,7 @@ SparkSession available as &#39;spark&#39;.
 <p>Note that here we saved the result and called the <code class="docutils literal notranslate"><span class="pre">head</span></code> method on it rather than just using the name (<code class="docutils literal notranslate"><span class="pre">taxis_pandas</span></code>) directly. The pandas_api() function doesn’t emulate Pandas perfectly, so using the raw name shows the first 1,000 rows!</p>
 </section>
 <section id="writing-parquet-files">
-<h2>Writing Parquet Files<a class="headerlink" href="#writing-parquet-files" title="Link to this heading">¶</a></h2>
+<h2>Writing Parquet Files<a class="headerlink" href="#writing-parquet-files" title="Link to this heading"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">write</span></code> attribute of PySpark’s DataFrame object is not a method but a reference to a DataFrameWriter object, which allows you to save the DataFrame to many different formats, including Parquet, CSV, and external or Parquet database formats. The <code class="docutils literal notranslate"><span class="pre">parquet</span></code> method is the one that interests us, and the code is an easy one-liner.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">top_fares</span><span class="o">.</span><span class="n">write</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">&quot;./top_fares.parquet&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;overwrite&quot;</span><span class="p">)</span>
 </pre></div>
@@ -339,7 +343,7 @@ SparkSession available as &#39;spark&#39;.
 <p>Again, this relies on also having Pandas installed. Unlike pandas_api, the toPandas method returns a true <code class="docutils literal notranslate"><span class="pre">pandas.core.frame.DataFrame</span></code> object, not an imperfect implementation of the Pandas API.</p>
 </section>
 <section id="partitioning-parquet-files">
-<h2>Partitioning Parquet Files<a class="headerlink" href="#partitioning-parquet-files" title="Link to this heading">¶</a></h2>
+<h2>Partitioning Parquet Files<a class="headerlink" href="#partitioning-parquet-files" title="Link to this heading"></a></h2>
 <p>PySpark supports partitioning Parquet files to improve the performance of certain queries. For example, suppose you need to run one or more queries summarizing data by where the driver picked up a passenger. In this case, you could partition the data by pickup_borough, allowing the query to be distributed. This can result in a performance boost even on a single machine.</p>
 <p>Here’s the code to partition and save the file</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">taxis</span><span class="o">.</span><span class="n">write</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">&quot;taxis_by_pickup_borough.parquet&quot;</span><span class="p">,</span> <span class="n">partitionBy</span><span class="o">=</span><span class="s2">&quot;pickup_borough&quot;</span><span class="p">)</span>
@@ -360,7 +364,7 @@ SparkSession available as &#39;spark&#39;.
 <p>At the scales we’re dealing with here, ORC and Parquet offer comparable performance on SELECT queries, but Parquet’s write performance is consistently faster.</p>
 </section>
 <section id="parquet-vs-pyspark-tables">
-<h2>Parquet vs. PySpark Tables<a class="headerlink" href="#parquet-vs-pyspark-tables" title="Link to this heading">¶</a></h2>
+<h2>Parquet vs. PySpark Tables<a class="headerlink" href="#parquet-vs-pyspark-tables" title="Link to this heading"></a></h2>
 <p>Another argument to consider in favor of Parquet as a data format for PySpark is that it is used by default when you create a Spark table. To see this in action, let’s re-save our taxis DataFrame to a table, partitioning it the same way by pickup_borough.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">taxis</span><span class="o">.</span><span class="n">write</span><span class="o">.</span><span class="n">saveAsTable</span><span class="p">(</span><span class="s2">&quot;taxis_by_pickup&quot;</span><span class="p">,</span> <span class="n">partitionBy</span><span class="o">=</span><span class="s2">&quot;pickup_borough&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;overwrite&quot;</span><span class="p">)</span>
 </pre></div>
@@ -374,7 +378,7 @@ SparkSession available as &#39;spark&#39;.
 <p>This shows us that the default data structure used by createTable was Parquet. Moreover, the layout and query performance is quite similar to what we showed before for a partitioned Parquet dataset. The main advantages to saving parquet files as tables are to simplify select queries slightly and to enable easy use of other SQL operations, such as “SHOW TABLES” or “DESCRIBE TABLE taxis_by_pickup.”</p>
 </section>
 <section id="closing-thoughts">
-<h2>Closing Thoughts<a class="headerlink" href="#closing-thoughts" title="Link to this heading">¶</a></h2>
+<h2>Closing Thoughts<a class="headerlink" href="#closing-thoughts" title="Link to this heading"></a></h2>
 <p>In the course of our examination of PySpark and Parquet, we saw how easy it is to load and save data into a DataFrame. The interoperability with Pandas means you can be productive right away, while the ability to directly query files in a distributed environment or locally using Spark SQL should be a welcome addition to your toolkit.</p>
 </section>
 </section>

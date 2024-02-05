@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Journey to Beautiful Documentation With JupyterBook &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=19645805"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -113,7 +117,7 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="my-journey-to-beautiful-documentation-with-jupyterbook">
-<h1>My Journey to Beautiful Documentation With JupyterBook<a class="headerlink" href="#my-journey-to-beautiful-documentation-with-jupyterbook" title="Link to this heading">¶</a></h1>
+<h1>My Journey to Beautiful Documentation With JupyterBook<a class="headerlink" href="#my-journey-to-beautiful-documentation-with-jupyterbook" title="Link to this heading"></a></h1>
 <p>One of the features I love most about working in Jupyter Lab and Jupyter Notebooks is that it supports visual, interactive experiments with code and documenting what you’re doing in Markdown. (If you need a more general primer on using Jupyter, check out <a class="reference external" href="https://codesolid.com/jupyter-notebook-a-complete-introduction/">Jupyter Notebook: A Complete Introduction</a>). With tools like Binder or CoCalc, it’s also possible to publish fully live Jupyter Notebooks with which programmers can interact. I haven’t availed myself of this yet because I am focused on blogging, but I plan to do something along these lines in the future.</p>
 <p>Meantime, while researching some NumPy features, I stumbled by accident onto some excellent tools for publishing Jupyter Notebooks not as interactive notebooks but as online documentation. Two of these tools that we want to explore in this article are:</p>
 <ul class="simple">
@@ -121,7 +125,7 @@
 <li><p><a class="reference external" href="https://github.com/mwouts/jupytext">Jupytext</a>, a Jupyter plugin that can save Jupyter Notebook files as markdown files in various formats. It supports publishing to Jupyter Book as well as Sphinx, an extremely popular tool in the Python community and the publication tool behind the huge variety of Open Source documentation hosted on <a class="reference external" href="https://readthedocs.org/">ReadTheDocs.org</a>.</p></li>
 </ul>
 <section id="why-this-is-important-to-me">
-<h2>Why This Is Important To Me<a class="headerlink" href="#why-this-is-important-to-me" title="Link to this heading">¶</a></h2>
+<h2>Why This Is Important To Me<a class="headerlink" href="#why-this-is-important-to-me" title="Link to this heading"></a></h2>
 <p>Writing as I do every day on the CodeSolid site, it’s become clear that I still have a lot to learn about balancing raw productivity with creating a very high-quality product. For example, I recently posted a set of <a class="reference external" href="https://codesolid.com/numpy-practice-questions-to-make-you-an-expert/">practice exercises for NumPy</a>. Writing this was fun to do, and though I could work through those exercises and publish the article quickly enough to reach my target “words-per-day” goal, I felt like I really should have a solution set posted somewhere.</p>
 <p>It turns out that experiencing unintended consequences of measuring “the wrong thing” is not something I made up. Indeed, it’s a common enough mistake in management and personal goal setting that it has been generalized in a couple of maxims known as Goodhart’s Law and Campbell’s Law. In my case, the perfectly reasonable goal of writing a certain amount per day, taken with a family and a full-time job, meant I needed to tweak the measurement to include some quality-related goals. Meantime, that same “words-per-day” goal meant that I had to move on to this article, knowing that I did not publish that solution set and didn’t publish the repository for the recent Learning Julia from Python article either.</p>
 <p>I intend to turn that around in this article by experimenting with a repository for Jupyter Notebooks that can serve as additional documentation or interactive notebooks. If this experiment is successful, it will allow me to focus on producing a high-quality product that:</p>
@@ -133,7 +137,7 @@
 <p>As valuable as these things might be, inevitably, having a “sister” site for much of the source code will result in more complexity. However, I think it’s a worthwhile goal to pursue as an experiment, and if my readers respond positively, this extra complexity is something I can manage.</p>
 </section>
 <section id="jupyterbook-vs-sphinx">
-<h2>JupyterBook vs Sphinx<a class="headerlink" href="#jupyterbook-vs-sphinx" title="Link to this heading">¶</a></h2>
+<h2>JupyterBook vs Sphinx<a class="headerlink" href="#jupyterbook-vs-sphinx" title="Link to this heading"></a></h2>
 <p>I have worked with Sphinx in the past, and I like the look and feel of the published result. However, I prefer Markdown to reStructuredText, so this language from the JupyterBook documentation was the deciding factor for me:</p>
 <blockquote>
 <div><p>Sphinx primarily uses a markup language called <a class="reference external" href="https://docutils.sourceforge.io/rst.html">reStructuredText</a> to write documents. This is similar to markdown, though is less-popular and more flexible. In contrast, Jupyter Book uses <a class="reference external" href="https://myst-parser.readthedocs.io/en/latest/">MyST Markdown</a>, which was created to provide the flexibility of rST but for people who wish to write markdown.</p>
@@ -143,7 +147,7 @@
 <p>Now that we’ve selected the tool, JupyterBook, and the target hosting platform, GitHub Pages, let’s walk through the task together.</p>
 </section>
 <section id="creating-the-repository-for-github-pages">
-<h2>Creating the Repository for GitHub Pages<a class="headerlink" href="#creating-the-repository-for-github-pages" title="Link to this heading">¶</a></h2>
+<h2>Creating the Repository for GitHub Pages<a class="headerlink" href="#creating-the-repository-for-github-pages" title="Link to this heading"></a></h2>
 <p>If you’re not familiar with them, GitHub Pages are a popular tool for automatically standing up a static website from code checked into a GitHub-hosted repository. By default, GitHub pages serve up content based on Jekyll, a popular, Markdown-based tool for generating static websites. Still, we’re going to count on the JupyterBook magic to provide the GitHub actions needed for us to move forward.</p>
 <p>To use GitHub Pages, we start by creating a name for the repository in the form <accountname>.github.io or <organization>.github.io, depending on whether the account is an individual account or an organizational one. Since I have an organizational account for CodeSolid, I’ll use that for my JupyterBook repository.</p>
 <p>I generally use – and recommend – the GitHub CLI for managing GitHub repositories, so I begin this way:</p>
@@ -162,7 +166,7 @@ warning:<span class="w"> </span>You<span class="w"> </span>appear<span class="w"
 <p>Not to worry, it won’t be an empty repository for long.</p>
 </section>
 <section id="using-jupyterbook-to-create-the-starter-pages">
-<h2>Using JupyterBook to Create the Starter Pages<a class="headerlink" href="#using-jupyterbook-to-create-the-starter-pages" title="Link to this heading">¶</a></h2>
+<h2>Using JupyterBook to Create the Starter Pages<a class="headerlink" href="#using-jupyterbook-to-create-the-starter-pages" title="Link to this heading"></a></h2>
 <p>Let’s go into our repository and create a virtual environment for JupyterBook and only the basic JupyterBook toolset and some files the sample notebook can use for now.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>CodeSolid.github.io<span class="w"> </span><span class="c1"># Or your repository name</span>
 python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
@@ -186,7 +190,7 @@ pip<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </
 <p><img alt="" src="../_images/GitHubPagesSettingsHighlighted-1024x505.png" /></p>
 </section>
 <section id="resolving-issues-with-jupyterbook-s-documentation-and-cookiecutter-book">
-<h2>Resolving Issues with JupyterBook’s Documentation and Cookiecutter Book<a class="headerlink" href="#resolving-issues-with-jupyterbook-s-documentation-and-cookiecutter-book" title="Link to this heading">¶</a></h2>
+<h2>Resolving Issues with JupyterBook’s Documentation and Cookiecutter Book<a class="headerlink" href="#resolving-issues-with-jupyterbook-s-documentation-and-cookiecutter-book" title="Link to this heading"></a></h2>
 <p>I wish I could say that from there on in, it was smooth sailing, but the truth is that at this point, I ran into several issues with the JupyterBook documentation and the site that the cookiecutter process created. These were straightforward to fix after a short time, but let me go over them one by one and how I solved them.</p>
 <ul class="simple">
 <li><p>The cookiecutter step did an OK job of variable interpolation, but the colon in my selected title, “CodeSolid: Python in Practice”, didn’t play well with the generated _config.yml file, so that needed to be edited manually.</p></li>
@@ -239,7 +243,7 @@ jobs:
 </div>
 </section>
 <section id="the-results-so-far">
-<h2>The Results So Far<a class="headerlink" href="#the-results-so-far" title="Link to this heading">¶</a></h2>
+<h2>The Results So Far<a class="headerlink" href="#the-results-so-far" title="Link to this heading"></a></h2>
 <p>I got it all to work in the long run, and the site is up at <a class="reference external" href="https://codesolid.github.io/i">CodeSolid.github.io</a>. At present, it’s a mix of a decent new logo I did today, the NumPy Exercise Solutions I mentioned at the outset, and not too much else. So I believe it’s a good starting point for future efforts. Now I can review my existing articles to post those exercises. I will also build out a lot more documentation and practice (especially for beginners). Having a set of Notebooks as documentation will be a great adjunct to the site over time.</p>
 <p>There has been one disappointment, however. The integration with MyBinder.org has proven to be problematic. In the first place, it takes too long for a user to launch pages interactively. In the second place, it was challenging to thread the tiny needle of “Python packages that work just fine locally and when building on GitHub, then break when they get to Binder.”</p>
 <p>There are integrations with Colab and JupyterHub I could try in the future. I want to get it working on CoCalc, but on that front, JupyterBook has an <a class="reference external" href="https://github.com/executablebooks/jupyter-book/issues/1386">open issue</a>, so it may not be forthcoming unless I pitch in and fix it myself.</p>

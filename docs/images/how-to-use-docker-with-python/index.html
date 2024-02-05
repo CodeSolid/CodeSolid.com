@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Is Docker Important for Python Development &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=19645805"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -121,7 +125,7 @@
 <li><p>Closing Thoughts</p></li>
 </ul>
 <section id="is-docker-important-for-python-development">
-<h1>Is Docker Important for Python Development<a class="headerlink" href="#is-docker-important-for-python-development" title="Link to this heading">¶</a></h1>
+<h1>Is Docker Important for Python Development<a class="headerlink" href="#is-docker-important-for-python-development" title="Link to this heading"></a></h1>
 <p>Getting started with docker-compose python is not hard. However, before getting into the how of using Docker and Docker-Compose with Python perhaps it makes sense to take a step back and think about the why.</p>
 <p>Docker is important for Python development because it is a tool that makes development environments easy to automate on local and remote machines. It also allows the creation of containers that can run in almost any environment including all major cloud vendors and on-premise environments as well.</p>
 <p>Moreover, the popularity of Kubernetes and the fact that it is so widely supported by different vendors means the definition of Cloud Native Computing frequently gets associated with Docker and Kubernetes, a fact that the Wikipedia entry acknowledges as well:</p>
@@ -132,7 +136,7 @@
 <p>All this taken together means that a small investment in mastering Docker is likely to pay substantial dividends throughout your Python career.</p>
 </section>
 <section id="first-steps-installing-and-configuring-docker">
-<h1>First Steps: Installing and Configuring Docker<a class="headerlink" href="#first-steps-installing-and-configuring-docker" title="Link to this heading">¶</a></h1>
+<h1>First Steps: Installing and Configuring Docker<a class="headerlink" href="#first-steps-installing-and-configuring-docker" title="Link to this heading"></a></h1>
 <p>I recommend having Docker installed and ready to work with before you begin to get the most out of this article. If you don’t already have it, visit the <a class="reference external" href="https://docs.docker.com/get-docker/">Get Docker</a> page to install it. Once you’ve installed Docker, you should be able to go through the Get Started guide, or for the impatient, try going to a command line prompt and running:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>hello-world
 </pre></div>
@@ -146,7 +150,7 @@
 <p>If those steps don’t get you up and running, you can try the time-honored “paste the error message into Google.” Docker is popular and well supported, so that’s quite likely to turn up the answer.</p>
 </section>
 <section id="basic-docker-concepts">
-<h1>Basic Docker Concepts<a class="headerlink" href="#basic-docker-concepts" title="Link to this heading">¶</a></h1>
+<h1>Basic Docker Concepts<a class="headerlink" href="#basic-docker-concepts" title="Link to this heading"></a></h1>
 <p>Let’s begin with some basic docker concepts and terminology we’ll encounter along the way. As we mentioned before, docker is a combination of two command-line clients and a server (the Docker daemon). Together they allow us to run “containers,” which you can think of as processes that are isolated from the main process space of your computer but are nevertheless much more lightweight and faster than virtual machines.</p>
 <p>A Docker container is a running instance of a Docker image. An image, in turn, is a template for building up a set of layers that work together and can be used to run a container. We build an image template from a Docker source file (usually named Dockerfile). The Dockerfile specifies a parent image such as an operating system or other public dockerhub images as a base. In our case, this will be a combination of an operating system and a Python distribution. You can then install other packages or run other commands.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">&quot;docker</span> <span class="pre">build</span></code>” command reads the Dockerfile and constructs an image, which consists of binary layers representing the commands in the file. Docker’s layered image structure means that you only need to download the pieces you need. It also means that to optimize build times, it’s a good idea to put those commands that often change later in the file, since during a build, docker will only change rebuild the parts that have changed and anything later than that in the file.</p>
@@ -155,7 +159,7 @@
 <p>The source code for the examples is available in this <a class="reference external" href="https://github.com/CodeSolid/docker-examples">Github repository</a>. It is also downloadable as a zip file. We’ll walk through it all in the sections that follow.</p>
 </section>
 <section id="running-python-flask-in-a-docker-container">
-<h1>Running Python Flask in a Docker Container<a class="headerlink" href="#running-python-flask-in-a-docker-container" title="Link to this heading">¶</a></h1>
+<h1>Running Python Flask in a Docker Container<a class="headerlink" href="#running-python-flask-in-a-docker-container" title="Link to this heading"></a></h1>
 <p>For our first example, let’s see what it takes to run an extremely simple Flask web server application and connect to it from the “host machine” (our computer). The code for this is in the directory, <code class="docutils literal notranslate"><span class="pre">01-docker-flask</span></code>.</p>
 <p>The steps we need to walk through are straightforward.</p>
 <ul class="simple">
@@ -166,7 +170,7 @@
 </ul>
 </section>
 <section id="selecting-a-base-docker-image-for-python">
-<h1>Selecting a Base Docker Image for Python<a class="headerlink" href="#selecting-a-base-docker-image-for-python" title="Link to this heading">¶</a></h1>
+<h1>Selecting a Base Docker Image for Python<a class="headerlink" href="#selecting-a-base-docker-image-for-python" title="Link to this heading"></a></h1>
 <p>The Docker community maintains an extensive array of <a class="reference external" href="https://hub.docker.com/_/python">starter images</a> you can use for Python development. These docker images will generally combine a popular Linux base container with a version of Python, so you’ll be ready to install your code and run it. I usually start from the series of docker images for Python with “slim-buster” in the name. These images have the best combination of reasonably small image size, convenience, and ease of use.</p>
 <p>Many in the Docker community like to base their images on Alpine, which is even more lightweight. However, working with Alpine is problematic because things often don’t “just work” out of the box. For example, as I just recently confirmed, assuming you’re logged in to dockerhub, “<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pandas</span></code>” works brilliantly on the image, <code class="docutils literal notranslate"><span class="pre">python:3.10.4-slim-buster</span></code> but fails on <code class="docutils literal notranslate"><span class="pre">python:3.10.4-alpine3.15.</span></code> Therefore, my recommendation for Alpine is to avoid it unless you have a pressing need for it.</p>
 <p>Let’s start with our Flask application code, which is very simple as it is based on the <a class="reference external" href="https://flask.palletsprojects.com/en/2.0.x/quickstart/">Flask Quickstart</a>.</p>
@@ -187,7 +191,7 @@
 </div>
 </section>
 <section id="a-simple-flask-dockerfile">
-<h1>A Simple Flask Dockerfile<a class="headerlink" href="#a-simple-flask-dockerfile" title="Link to this heading">¶</a></h1>
+<h1>A Simple Flask Dockerfile<a class="headerlink" href="#a-simple-flask-dockerfile" title="Link to this heading"></a></h1>
 <p>With a simple Flask app ready to run, let’s create a Docker image for it. The following is the code for the Dockerfile, which we’ll discuss in detail:</p>
 <div class="highlight-docker notranslate"><div class="highlight"><pre><span></span><span class="c"># Dockerfile</span>
 <span class="k">FROM</span><span class="w"> </span><span class="s">python:3.10.4-slim-buster</span>
@@ -220,7 +224,7 @@
 <p>Lines 13-16 set up several environment variables to get us ready to run Flask. We set the PATH to refer to “flask” without typing the filename each time. The app name, FLASK_APP, must be set to the name of our Python module. We override the default port and set the FLASK_RUN_HOST to 0.0.0.0 to enable all connections. We need to do this to connect from outside the container, for example, from our host machine. Indeed, it would be a sad web server if we couldn’t connect to it!</p>
 </section>
 <section id="building-and-running-the-flask-image-and-python-docker-container">
-<h1>Building and Running the Flask Image and Python Docker Container<a class="headerlink" href="#building-and-running-the-flask-image-and-python-docker-container" title="Link to this heading">¶</a></h1>
+<h1>Building and Running the Flask Image and Python Docker Container<a class="headerlink" href="#building-and-running-the-flask-image-and-python-docker-container" title="Link to this heading"></a></h1>
 <p>If you happen to have GNU make on your system, you can use the <a class="reference external" href="https://raw.githubusercontent.com/CodeSolid/docker-examples/main/01-docker-flask/Makefile">Makefile</a> included in the <a class="reference external" href="https://github.com/CodeSolid/docker-examples">source repository</a>, but either way, we need to go over the steps you can use in the terminal and what they mean.</p>
 <p><strong>Building the Flask Dockerfile to an Image</strong></p>
 <p>Our first step is to build the image from the Dockerfile, so in the directory where that and the rest of the source is, run this command:</p>
@@ -248,13 +252,13 @@
 <p>The source code for the Alpine version of the Flask container we did above is in <a class="reference external" href="https://github.com/CodeSolid/docker-examples/tree/main/02-docker-flask-alpine">02-docker-flask-alpine</a>. The README.md in the root further documents how to use it.</p>
 </section>
 <section id="running-django-and-postgres-using-docker-compose">
-<h1>Running Django and Postgres Using Docker Compose<a class="headerlink" href="#running-django-and-postgres-using-docker-compose" title="Link to this heading">¶</a></h1>
+<h1>Running Django and Postgres Using Docker Compose<a class="headerlink" href="#running-django-and-postgres-using-docker-compose" title="Link to this heading"></a></h1>
 <p>Docker Compose is another Docker tool that allows you to work with multiple containers simultaneously and relate and network them in interesting ways. Even if you’re using Kubernetes in production, Docker Compose lets you create reproducible application environments where you and other developers on your team can easily deploy applications locally. For example, let’s say you wanted to build one container for your production code and another container based on that image where you install and run the tests for the production code. In that case, you could either use <a class="reference external" href="https://docs.docker.com/develop/develop-images/multistage-build/">Docker multi-stage builds</a> or use Docker Compose to achieve the same result.</p>
 <p>A more interesting case where Docker Compose is the preferred method of combining two containers is the one we’ll examine now: combining two levels of a backend stack. One of Django’s major strengths is that it integrates powerful Python data models that provide a high-level abstraction of an underlying SQL database. Django doesn’t exactly force you to use a SQL database, but support for such databases is more tightly integrated than use cases like MongoDB or DyanmoDB. Django also supports database migrations, which allow you to update the structure of the database to reflect the changes to the Python data models in your application.</p>
 <p>For development work, it’s sometimes to be able to test out new migrations and other application changes before submitting a pull request and modifying the shared development database. The combination of docker-compose plus Django and our backend database of choice works really well to enable this and other local development tasks on Python/Docker. As a bonus, with a bit of forethought about configuration, we can make our container production-ready as well.</p>
 <p>Note that in production, we can still use our Docker container that we developed against our local PostgreSQL database, but by that point, it’s likely that you won’t be running PostgreSQL as a container. That’s perfectly fine as long as we’re able to inject the Postgres configuration into the Django container, and as you’ll see, that’s exactly what we’ll do.</p>
 <section id="a-django-and-docker-compose-starter-application">
-<h2>A Django And Docker-Compose Starter Application<a class="headerlink" href="#a-django-and-docker-compose-starter-application" title="Link to this heading">¶</a></h2>
+<h2>A Django And Docker-Compose Starter Application<a class="headerlink" href="#a-django-and-docker-compose-starter-application" title="Link to this heading"></a></h2>
 <p>What we’ll build in this article is a Python Django starter application using docker-compose and Postgresql. The goal will be to have a reasonable starting point for future work that has the following features:</p>
 <ul class="simple">
 <li><p>We can configure both the Postgresql server and the Django application externally in the environment. In that respect, we’re following the configuration guidelines of the Twelve-Factor App.</p></li>
@@ -281,7 +285,7 @@
 <p>The Django configuration relies on the whole file, including the settings that POSTGRESQL is reading. Though the LIFECYCLE key is for future expansion only, we’re not using it yet.</p>
 </section>
 <section id="a-docker-compose-yaml-file-for-postgres-and-django">
-<h2>A docker-compose.yaml file for Postgres and Django<a class="headerlink" href="#a-docker-compose-yaml-file-for-postgres-and-django" title="Link to this heading">¶</a></h2>
+<h2>A docker-compose.yaml file for Postgres and Django<a class="headerlink" href="#a-docker-compose-yaml-file-for-postgres-and-django" title="Link to this heading"></a></h2>
 <p>Let’s turn to our docker-compose.yaml file next to see how we can connect Django and Postgres in a single file.</p>
 <div class="highlight-docker notranslate"><div class="highlight"><pre><span></span><span class="c"># docker-compose.yaml</span>
 services:
@@ -316,7 +320,7 @@ services:
 <p>In the case of the backend, we’re mapping the default PostgreSQL data directory to a local directory on lines 13-14. This means that if we don’t delete it (for example, using “make clean”), changes to the database should be persistent.</p>
 </section>
 <section id="the-django-dockerfile-and-source">
-<h2>The Django Dockerfile and Source<a class="headerlink" href="#the-django-dockerfile-and-source" title="Link to this heading">¶</a></h2>
+<h2>The Django Dockerfile and Source<a class="headerlink" href="#the-django-dockerfile-and-source" title="Link to this heading"></a></h2>
 <p>To create the Django application, we began with a virtual environment with Django installed and used “<code class="docutils literal notranslate"><span class="pre">django</span> <span class="pre">startproject</span> <span class="pre">codesolid_demo</span></code>” as a starting point. (You could use a different application name, of course). From that point, we modified settings.py as follows. First, we imported a function from a custom configuration file we created:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">codesolid_demo.config</span> <span class="kn">import</span> <span class="n">get_config</span>
 </pre></div>
@@ -357,7 +361,7 @@ services:
 <p>With this, our Django application is in pretty good shape, but as you know if you’ve worked with Django, usually we also need to run a database migration from time to time, so let’s do that once before we even start. We also want to create a superuser so we can log in as the admin when Django comes up. Finally, we need to wait for PostgreSQL to be available. Otherwise, we’ll be making database calls too early. We can accomplish all of that in our next section with…</p>
 </section>
 <section id="some-django-utility-scripts-for-docker">
-<h2>Some Django Utility Scripts for Docker<a class="headerlink" href="#some-django-utility-scripts-for-docker" title="Link to this heading">¶</a></h2>
+<h2>Some Django Utility Scripts for Docker<a class="headerlink" href="#some-django-utility-scripts-for-docker" title="Link to this heading"></a></h2>
 <p>We have some tasks we need to take care of when our container comes up. For this, we’ll create a shell script and a bit of Python code.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># start.sh</span>
 
@@ -396,7 +400,7 @@ python<span class="w"> </span>manage.py<span class="w"> </span>runserver<span cl
 <p>Finally, let’s take a quick look at our Dockerfile, and then we can get this party started!</p>
 </section>
 <section id="a-simple-django-dockerfile">
-<h2>A Simple Django Dockerfile<a class="headerlink" href="#a-simple-django-dockerfile" title="Link to this heading">¶</a></h2>
+<h2>A Simple Django Dockerfile<a class="headerlink" href="#a-simple-django-dockerfile" title="Link to this heading"></a></h2>
 <p>Here’s our Django Dockerfile:</p>
 <div class="highlight-docker notranslate"><div class="highlight"><pre><span></span><span class="c"># Dockerfile</span>
 <span class="k">FROM</span><span class="w"> </span><span class="s">python:3.10.4-slim-buster</span>
@@ -426,7 +430,7 @@ python<span class="w"> </span>manage.py<span class="w"> </span>runserver<span cl
 <p>As always, our Python dependencies are in requirements.txt. We’ve seen many of the techniques in this file already, but some of it is new. On lines 5-7, we install a library we may need to ensure our Python PostgreSQL client works correctly. On lines 13-18, we’re installing more necessary files. Finally, on line 23, we’re running our custom shell script to set up and run the server.</p>
 </section>
 <section id="putting-it-all-together">
-<h2>Putting It All Together<a class="headerlink" href="#putting-it-all-together" title="Link to this heading">¶</a></h2>
+<h2>Putting It All Together<a class="headerlink" href="#putting-it-all-together" title="Link to this heading"></a></h2>
 <p>At this point, we’re all ready to test things out. Once again, there’s a Makefile in the 03-docker-compose-django directory you can look at, but here’s our command to start PostgreSQL and Django:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>--env-file<span class="w"> </span>../secrets/secrets.txt<span class="w"> </span>up<span class="w"> </span>-d
 </pre></div>
@@ -450,14 +454,14 @@ python<span class="w"> </span>manage.py<span class="w"> </span>runserver<span cl
 </section>
 </section>
 <section id="more-useful-docker-commands">
-<h1>More Useful Docker Commands<a class="headerlink" href="#more-useful-docker-commands" title="Link to this heading">¶</a></h1>
+<h1>More Useful Docker Commands<a class="headerlink" href="#more-useful-docker-commands" title="Link to this heading"></a></h1>
 <p>The commands we’ve discussed so far in this article are just a few of those that are available to you using the “<code class="docutils literal notranslate"><span class="pre">docker</span></code>” client There are several others. For a complete list, you can run the command <code class="docutils literal notranslate"><span class="pre">docker</span></code> on the command line. Then, given any command, you can also learn more by running “<code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">&lt;command_name&gt;</span> <span class="pre">--help&quot;</span></code> There is also excellent documentation online.</p>
 <p>I would also encourage you to explore the Makefile for the Django section, where the code for the various make targets shows several commands we found helpful in development. For your convenience, however, let me summarize a few of my favorite commands here. Note that several of these are cleanup commands, and you should use them with some caution. Also, these commands should work on most Linux / Mac terminal flavors or in a compatible (bash) Windows terminal (git bash, WSL, etc.).</p>
 <table><tbody><tr><td class="has-text-align-left" data-align="left"><strong>Task</strong></td><td><strong>Command Examples</strong></td></tr><tr><td class="has-text-align-left" data-align="left">Connect to a docker-compose service by name</td><td><code>"docker compose run &lt;service_name&gt; /bin/bash</code>"<br>(Most containers)<br>"<code>docker compose run &lt;service_name&gt; /bin/sh</code>"(Alpine containers)</td></tr><tr><td class="has-text-align-left" data-align="left">List all running containers</td><td><code>docker ps</code></td></tr><tr><td class="has-text-align-left" data-align="left">List ALL containers</td><td><code>docker container ls -a</code></td></tr><tr><td class="has-text-align-left" data-align="left">Kill all running containers</td><td><code>docker kill ```docker ps -q```</code></td></tr><tr><td class="has-text-align-left" data-align="left">Delete all containers</td><td><code>docker rm -f ```docker ps -a -q```</code></td></tr><tr><td class="has-text-align-left" data-align="left">Delete all unused (dangling) images and those not referenced by a container without prompting.</td><td><code>docker image prune -a -f</code></td></tr><tr><td class="has-text-align-left" data-align="left">Delete ALL images, used by a container or not, without prompting.</td><td><code>docker image rm -f *</code></td></tr></tbody></table>
 <p>Again, for those commands that are deleting images/containers, please exercise caution before using them. I tend to treat all images and containers as something I can rebuild and re-obtain as needed, so when troubleshooting, I reach for a bigger hammer, but this may not be appropriate to your situation.</p>
 </section>
 <section id="closing-thoughts">
-<h1>Closing Thoughts<a class="headerlink" href="#closing-thoughts" title="Link to this heading">¶</a></h1>
+<h1>Closing Thoughts<a class="headerlink" href="#closing-thoughts" title="Link to this heading"></a></h1>
 <p>As we mentioned at the start, Docker and Docker Compose add substantial capabilities to the Python developer’s toolkit. Especially when it comes to Docker Compose, the many options for networking, etc. that are available can sometimes make it a bit daunting to configure correctly, but even having not touched it for a while, I was able to stand up the stack in about a day. Because of their declarative syntax, both Docker and Compose are not hard to master. They are effective and accessible tools not only for independent projects but also for team collaboration and releasing software builds that run consistently, regardless of the platform on which they’re deployed.</p>
 </section>
 

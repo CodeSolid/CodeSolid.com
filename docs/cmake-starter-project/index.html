@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>A CMake Starter Project &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=19645805"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -115,15 +119,15 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="a-cmake-starter-project">
-<h1>A CMake Starter Project<a class="headerlink" href="#a-cmake-starter-project" title="Link to this heading">¶</a></h1>
+<h1>A CMake Starter Project<a class="headerlink" href="#a-cmake-starter-project" title="Link to this heading"></a></h1>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
 <p>This article is a follow-on to my recent article, <a class="reference external" href="https://codesolid.com/running-the-cmake-tutorial-in-a-vs-code-dev-container/">Running the CMake Tutorial in a VS Code Container</a>. Toward the end of that tutorial, we built one of the tutorial steps and debugged it in a VS Code container. Since then, I’ve finished the tutorial and published my <a class="reference external" href="https://github.com/CodeSolid/c/tree/main/cmake_tutorial_solutions">solutions set</a>, in case you’re looking for one of those.</p>
 <p>My purpose in the present article is twofold. First, if you’re on the verge of working through the tutorial yourself or have just slogged through it, I’ll share my experiences with it in a brief review. We’ll see that the tutorial has some limitations, so we’ll need to dig further into the tool to become more proficient with it. The best way to do that is to actually create a CMake build system for a simple (but flexible) starter project. We’ll do that step by step in the second part of the article.</p>
 <p>Of course, I have a project of my own in mind, but I’ll resist the urge to get too far into that code, providing just enough detail so you can easily swap out that code with a project of your own.</p>
 </section>
 <section id="part-i-a-brief-review-of-the-cmake-tutorial">
-<h2>Part I: A Brief Review of the CMake Tutorial<a class="headerlink" href="#part-i-a-brief-review-of-the-cmake-tutorial" title="Link to this heading">¶</a></h2>
+<h2>Part I: A Brief Review of the CMake Tutorial<a class="headerlink" href="#part-i-a-brief-review-of-the-cmake-tutorial" title="Link to this heading"></a></h2>
 <p>CMake’s tutorial does a pretty good job of walking you through a lot of the basic CMake properties and functions you’ll need to work with the tool to create libraries and executables (and link them, of course), and it does a fair job of introducing some advanced features like supporting installers, using generator expressions, etc. It’s broken down into a series of steps, each of which consists of a number of exercises. Generally, the exercises point you to the CMake documentation for the functions you’ll need to use, but a hidden section reveals the full code you need if you can’t work it out from the documentation.</p>
 <p>For all but the simplest examples, however, this “point them to the documentation” approach suffers from a drawback of the documentation itself, that of not providing sufficient usage examples to be helpful on its own.</p>
 <p>A more serious limitation is that there isn’t much discussion of how to work with third-party libraries (beyond the C++ standard library, of course). CMake is a build tool generator, of course, and not a package manager, but it does have some facilities for downloading and building packages. The most modern (and self-contained) of these are provided by the FetchContent module.</p>
@@ -135,7 +139,7 @@
 </ul>
 </section>
 <section id="what-you-ll-learn-in-part-two">
-<h2>What You’ll Learn in Part Two<a class="headerlink" href="#what-you-ll-learn-in-part-two" title="Link to this heading">¶</a></h2>
+<h2>What You’ll Learn in Part Two<a class="headerlink" href="#what-you-ll-learn-in-part-two" title="Link to this heading"></a></h2>
 <p>By the end of this tutorial:</p>
 <ul class="simple">
 <li><p>You’ll know how to set up a multi-folder CMake project, including a build directory containing debug and release builds, and how to automate the process of building. We’ll beg the question a bit here with a plain Makefile (for Gnu Make) (i.e., one different from one that the CMake build process generates as part of the build).</p></li>
@@ -145,7 +149,7 @@
 </ul>
 </section>
 <section id="the-cmake-starter-project-a-test-first-approach">
-<h2>The CMake Starter Project: A Test First Approach<a class="headerlink" href="#the-cmake-starter-project-a-test-first-approach" title="Link to this heading">¶</a></h2>
+<h2>The CMake Starter Project: A Test First Approach<a class="headerlink" href="#the-cmake-starter-project-a-test-first-approach" title="Link to this heading"></a></h2>
 <p>Beginning from a plain directory, let’s consider what we need. We want to keep our root directory relatively clean with our main CMakeLists.txt project file, our Makefile helper, a README, and our .gitignore file.</p>
 <p>Next, simplifying somewhat the suggested structure in the Introduction to Modern CMake site we mentioned earlier, we’ll build out a similar directory structure:</p>
 <ul class="simple">
@@ -220,7 +224,7 @@ target_link_libraries<span class="o">(</span>tests<span class="w"> </span>PRIVAT
 <p>There’s not much mystery here. The REQUIRE macro basically asserts that the boolean expression is true and halts the test case on failure. (To print the failure without halting the test, use CHECK). A benefit of Catch2 is that the boolean expression is just any C++ code you want. You don’t need to learn a set of matchers like EXPECT_MY_PUPPY_TO_BE_NAMED_BORIS. To be sure, this is just a toy example, and the limited range of these tests actually hides a bug (as we’ll demonstrate later). Moreover, this test case with essentially four asserts might give unit test purists the one-test-per-function vapors, but to paraphrase Mark Antony, “We come here to build this code, not to praise it.”</p>
 </section>
 <section id="building-and-running-our-tests">
-<h2>Building and Running Our Tests<a class="headerlink" href="#building-and-running-our-tests" title="Link to this heading">¶</a></h2>
+<h2>Building and Running Our Tests<a class="headerlink" href="#building-and-running-our-tests" title="Link to this heading"></a></h2>
 <p>So with that, let’s be about building and running the tests. For now, let’s do our first build from the command line. (I’m working on a Mac, and the same command line works for Linux. We’ll address making the code from this section truly cross-platform in a future post. Meantime, all our code and CMakeLists.txt will work on Windows as well.)</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>build/Debug
 <span class="nb">cd</span><span class="w"> </span>build/Debug
@@ -266,7 +270,7 @@ test-verbose:<span class="w"> </span>
 <p>Now without leaving the root, you can use “<code class="docutils literal notranslate"><span class="pre">make</span></code>” (default target is the same as <code class="docutils literal notranslate"><span class="pre">&quot;make</span> <span class="pre">build,&quot;</span></code> since it’s the first target), “<code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">test</span></code>” to run the tests, etc.</p>
 </section>
 <section id="adding-a-library">
-<h2>Adding a Library<a class="headerlink" href="#adding-a-library" title="Link to this heading">¶</a></h2>
+<h2>Adding a Library<a class="headerlink" href="#adding-a-library" title="Link to this heading"></a></h2>
 <p>At this stage, we have a working build and some unit tests, but it’s still just a toy project. Having the code and the tests together like this is perhaps useful while you’re working out new ideas in development (as we’ve done here), but really what we want is to have the tests consume a library. Then the tests we develop will help us maintain any executables that we (or others) link to the same library.</p>
 <p>As a first step, let’s change our CMakeLists.txt file to look like this:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># source_root/CMakeLists.txt</span>
@@ -332,7 +336,7 @@ target_link_libraries<span class="o">(</span>tests<span class="w"> </span>PRIVAT
 <p>At this point, we can run “<code class="docutils literal notranslate"><span class="pre">make</span></code>” and “<code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">test</span></code>” again and everything should build and work as it did before.</p>
 </section>
 <section id="adding-an-application-with-a-library-dependency">
-<h2>Adding an Application with a Library Dependency<a class="headerlink" href="#adding-an-application-with-a-library-dependency" title="Link to this heading">¶</a></h2>
+<h2>Adding an Application with a Library Dependency<a class="headerlink" href="#adding-an-application-with-a-library-dependency" title="Link to this heading"></a></h2>
 <p>Given where we are, with the tests depending on the library, adding another target doing the same thing is a simple matter of creating a new directory and reworking things a bit using techniques we’ve already mastered. First, we create the app directory underneath the project root. In it, we add a short new CMakeLists.txt file</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># app/CMakeLists.txt</span>
 
@@ -397,7 +401,7 @@ Usage:<span class="w"> </span>./build/Debug/factorial<span class="w"> </span>num
 <p>Of course, the bug in our library is not our concern. The contents of the library code, our test code, and our app code are all just there as stubs so we can test that our CMake build script works and runs correctly.</p>
 </section>
 <section id="closing-thoughts-and-next-steps">
-<h2>Closing Thoughts and Next Steps<a class="headerlink" href="#closing-thoughts-and-next-steps" title="Link to this heading">¶</a></h2>
+<h2>Closing Thoughts and Next Steps<a class="headerlink" href="#closing-thoughts-and-next-steps" title="Link to this heading"></a></h2>
 <p>In our use of the FetchContent module and functions in test/CMakeLists.txt, we’ve seen a straightforward method for consuming pinned dependencies from CMake. We’ve learned not only how to separate a library from its executable dependencies (a topic covered, after all, in the CMake tutorial), but we’ve also shown how to keep the main (root) CMake file minimal, making each target’s directory CMake file responsible for whatever that target needs to build.</p>
 <p>There are several next steps you might take, some of which we may also cover here in follow-on articles. For example:</p>
 <ul class="simple">
@@ -408,7 +412,7 @@ Usage:<span class="w"> </span>./build/Debug/factorial<span class="w"> </span>num
 </ul>
 </section>
 <section id="get-the-code">
-<h2>Get the Code<a class="headerlink" href="#get-the-code" title="Link to this heading">¶</a></h2>
+<h2>Get the Code<a class="headerlink" href="#get-the-code" title="Link to this heading"></a></h2>
 <p>The code for this article is hosted on GitHub in the cmake_starter folder of <a class="reference external" href="https://github.com/CodeSolid/c">https://github.com/CodeSolid/c</a>.</p>
 </section>
 </section>

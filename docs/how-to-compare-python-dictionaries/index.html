@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>How To Compare Python Dictionaries &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=19645805"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -155,10 +159,10 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="how-to-compare-python-dictionaries">
-<h1>How To Compare Python Dictionaries<a class="headerlink" href="#how-to-compare-python-dictionaries" title="Link to this heading">¶</a></h1>
+<h1>How To Compare Python Dictionaries<a class="headerlink" href="#how-to-compare-python-dictionaries" title="Link to this heading"></a></h1>
 <p>The easiest way to compare Python dictionaries is simply to use the same equality operator you use on other Python types, “==”. This works great for most cases, but it relies on the behavior of “==” for the values involved. If you need a more strict test, this can be done in a few lines of code.</p>
 <section id="python-is-consistent">
-<h2>Python Is Consistent<a class="headerlink" href="#python-is-consistent" title="Link to this heading">¶</a></h2>
+<h2>Python Is Consistent<a class="headerlink" href="#python-is-consistent" title="Link to this heading"></a></h2>
 <p>Two of the benefits of Python are its ease of use and consistency. It’s different from Java, for example, where string comparisons compare object references, and you have to use the “equals” method to do the string comparison you want to do. In Python, in contrast, you can largely rely on <code class="docutils literal notranslate"><span class="pre">==</span></code> to do the right thing most of the time.</p>
 <p>Consider the following code:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span>
@@ -182,7 +186,7 @@ True
 <p>Of course, this also works for negative cases, as you’d expect: <code class="docutils literal notranslate"><span class="pre">&quot;pig&quot;</span> <span class="pre">==</span> <span class="pre">&quot;canary&quot;</span></code> returns <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 </section>
 <section id="compare-dictionaries-like-other-types">
-<h2>Compare Dictionaries Like Other Types<a class="headerlink" href="#compare-dictionaries-like-other-types" title="Link to this heading">¶</a></h2>
+<h2>Compare Dictionaries Like Other Types<a class="headerlink" href="#compare-dictionaries-like-other-types" title="Link to this heading"></a></h2>
 <p>Python is not just consistent for simple types, it also implements reasonable equality checks for more complex types as well. Let’s see this for dictionaries:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dictionary</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;favorite_website&quot;</span><span class="p">:</span> <span class="s2">&quot;https://codesolid.com&quot;</span><span class="p">,</span> <span class="s2">&quot;attempts&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
 <span class="n">same_dictionary</span> <span class="o">=</span> <span class="n">dictionary</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -230,7 +234,7 @@ True
 <p>The first three cases are pretty much what we’d expect. The last one needs some explaining.</p>
 </section>
 <section id="use-caution-with-equality-compatible-types">
-<h2>Use Caution With Equality-Compatible Types<a class="headerlink" href="#use-caution-with-equality-compatible-types" title="Link to this heading">¶</a></h2>
+<h2>Use Caution With Equality-Compatible Types<a class="headerlink" href="#use-caution-with-equality-compatible-types" title="Link to this heading"></a></h2>
 <p>What’s happening in the last case is that we’re comparing a <code class="docutils literal notranslate"><span class="pre">1</span></code> (an integer) with <code class="docutils literal notranslate"><span class="pre">1.0</span></code> (a floating point value). Behind the scenes, the integer value converts to a float, the two floats are compared, and the comparison returns true. This has nothing to do with dictionaries <em>per se</em> – it’s just a property of the values being compared. In the same way:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">==</span> <span class="mf">1.0</span><span class="p">)</span>
 </pre></div>
@@ -241,7 +245,7 @@ True
 </div>
 </section>
 <section id="what-if-we-need-a-stronger-check-for-equality">
-<h2>What If We Need a Stronger Check for Equality?<a class="headerlink" href="#what-if-we-need-a-stronger-check-for-equality" title="Link to this heading">¶</a></h2>
+<h2>What If We Need a Stronger Check for Equality?<a class="headerlink" href="#what-if-we-need-a-stronger-check-for-equality" title="Link to this heading"></a></h2>
 <p>If we need to check that the dictionaries are equal <strong>and</strong> that the types of all the values are equal, that’s relatively straightforward in Python. Here’s one version of a method that will work:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">typing</span>
 <span class="k">def</span> <span class="nf">type_aware_equals</span><span class="p">(</span><span class="n">d1</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Dict</span><span class="p">,</span> <span class="n">d2</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
@@ -281,7 +285,7 @@ True
 </div>
 </section>
 <section id="using-for-other-python-collections">
-<h2>Using “==” for Other Python Collections<a class="headerlink" href="#using-for-other-python-collections" title="Link to this heading">¶</a></h2>
+<h2>Using “==” for Other Python Collections<a class="headerlink" href="#using-for-other-python-collections" title="Link to this heading"></a></h2>
 <p>As we saw, Python’s treatment of equality for dictionaries is consistent with its treatment of equality for simple types like numbers and strings.</p>
 <p>This consistency also extends to other built-in composed types and collections, as well as collections defined in Python standard library modules. For example, here we demonstrate that it works for lists, sets, tuples, and arrays:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">array</span> <span class="kn">import</span> <span class="n">array</span>
@@ -313,7 +317,7 @@ True
 </div>
 </section>
 <section id="what-about-user-defined-types">
-<h2>What About User-Defined Types?<a class="headerlink" href="#what-about-user-defined-types" title="Link to this heading">¶</a></h2>
+<h2>What About User-Defined Types?<a class="headerlink" href="#what-about-user-defined-types" title="Link to this heading"></a></h2>
 <p>This topic is a bit more advanced than what we’ve been discussing, but I wanted to include it for readers who may be asking themselves, “How is such consistency achieved? Can I implement it too?”<br />
 The answer is, “Yes, you can.”</p>
 <p>Although you may not need it for simple cases,it’s also possible to define methods on user-defined classes that will allow consumers of your class to use the standard comparison operators (<code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, etc.). This is not done directly via operator overloading, as it is in C++. Instead, Python allows this via special methods like <code class="docutils literal notranslate"><span class="pre">__eq__</span></code>, <code class="docutils literal notranslate"><span class="pre">__ge__</span></code>, <code class="docutils literal notranslate"><span class="pre">__lt__</span></code>, etc. These are called “magic methods” or sometimes “dunder” methods (dunder comes from the “double underscore” at the beginning and end of each method).</p>

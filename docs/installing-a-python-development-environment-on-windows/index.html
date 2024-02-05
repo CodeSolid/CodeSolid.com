@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Installing a Python and Git Development Environment on Windows &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=19645805"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -127,7 +131,7 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="installing-a-python-and-git-development-environment-on-windows">
-<h1>Installing a Python and Git Development Environment on Windows<a class="headerlink" href="#installing-a-python-and-git-development-environment-on-windows" title="Link to this heading">¶</a></h1>
+<h1>Installing a Python and Git Development Environment on Windows<a class="headerlink" href="#installing-a-python-and-git-development-environment-on-windows" title="Link to this heading"></a></h1>
 <p>I recently posted a two-part video tutorial to our YouTube Channel that detail the steps for installing the following tools on Windows to have a complete Python and Git development environment.</p>
 <p>To help you walk through the steps, I’ve also prepared an edited transcript you can refer to if you want.</p>
 <p>Part 1 is below.</p>
@@ -145,38 +149,38 @@
 <li><p>Conclusion of Part 1</p></li>
 </ul>
 <section id="video">
-<h2>Video<a class="headerlink" href="#video" title="Link to this heading">¶</a></h2>
+<h2>Video<a class="headerlink" href="#video" title="Link to this heading"></a></h2>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/jZIjOLV5jZ0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </section>
 <section id="transcript-introduction">
-<h2>Transcript Introduction<a class="headerlink" href="#transcript-introduction" title="Link to this heading">¶</a></h2>
+<h2>Transcript Introduction<a class="headerlink" href="#transcript-introduction" title="Link to this heading"></a></h2>
 <p>In this video, the first thing we’re going to need is to get our tools set up so that we could start to do our work. Now we’ve got a lot to do, don’t let it intimidate you. There are several tools we need to install, let me show them to you now.</p>
 </section>
 <section id="overview-of-what-we-ll-be-doing">
-<h2>Overview of What We’ll Be Doing<a class="headerlink" href="#overview-of-what-we-ll-be-doing" title="Link to this heading">¶</a></h2>
+<h2>Overview of What We’ll Be Doing<a class="headerlink" href="#overview-of-what-we-ll-be-doing" title="Link to this heading"></a></h2>
 <p>First, we want to install Windows Terminal. This will allow us to set up an environment that looks pretty much the same on Windows and Mac. That way, I can teach on the Mac and you can follow along on Windows. And 99.9% of what we’ll be doing will be exactly identical. Where it’s not, I’ll point out what the differences are and there’ll be no problem with that.</p>
 <p>The next thing we want to install on Windows will be Python so we can write our code and test it and debug it. The next thing will be Git so that once we have code written, tested, we can publish it. And also, so that we can go back in time and we can get back to an earlier state of our code if we find we’ve made a mistake somewhere along the way.</p>
 <p>Next on the list, Visual Studio Code, this is a very good general-purpose editor that also handles Python quite well, in addition, and we can set up a nice development environment and a development workflow in Visual Studio Code. It’s also a useful editor for other programming languages you may encounter, so it’s a nice general-purpose tool. It also has the advantage of free, as all the rest of these tools are, by the way.</p>
 <p>And then finally, one last tool that’s really optional, but I love it because it makes working with GitHub a lot easier than it would be otherwise, we want to install the GitHub Command Line Interface or CLI.</p>
 </section>
 <section id="installing-windows-terminal">
-<h2>Installing Windows Terminal<a class="headerlink" href="#installing-windows-terminal" title="Link to this heading">¶</a></h2>
+<h2>Installing Windows Terminal<a class="headerlink" href="#installing-windows-terminal" title="Link to this heading"></a></h2>
 <p>So, with that, let’s pause the slideshow and let’s go into our most useful programming tool, and that’s Google. And we’ll go in and we’ll just start get started with the Windows Terminal. If we look up Windows Terminal, we can click through here. And now this is going to ask us to bring up Windows Store—Open Microsoft Store. Sure, go ahead and do it. And we’ll click on Install. Okay, now that that’s done, let’s go ahead and click on Open here. And as you can see, I’ve moved it over from my other monitor.</p>
 <p>There is one more thing I like to do with Windows Terminal, or with any terminal software, and that is to pin it to the taskbar. So let me go ahead and do that now. I’m going to go down here to hover over the icon that represents the Windows Terminal, and I’m going to right-click on it, and just click “Pin to Taskbar”.</p>
 </section>
 <section id="installing-python-for-windows">
-<h2>Installing Python for Windows<a class="headerlink" href="#installing-python-for-windows" title="Link to this heading">¶</a></h2>
+<h2>Installing Python for Windows<a class="headerlink" href="#installing-python-for-windows" title="Link to this heading"></a></h2>
 <p>The next thing we want to do is to install Python on Windows. On Windows 10, Microsoft has made this really simple to do, because they have a version of Python, the installer for which is already on your system. So, all you have to do is essentially type “python” and it will bring up the Microsoft Store. That will install Python, and it does it correctly.</p>
 <p>So, let’s go ahead and do that right now. Let’s just go to the Terminal prompt for the Windows terminal app that we just installed, and let’s type python. That’s going to bring up the Microsoft Store version of Python 3.9 in this case. I’ll go ahead and click Install here. And as always, we’ll pause that because it will take some time to install. And when it finishes, we’re not going to even have to do anything else.</p>
 </section>
 <section id="validating-the-python-install">
-<h2>Validating the Python Install<a class="headerlink" href="#validating-the-python-install" title="Link to this heading">¶</a></h2>
+<h2>Validating the Python Install<a class="headerlink" href="#validating-the-python-install" title="Link to this heading"></a></h2>
 <p>So, let’s go in and validate our installation real quick and make sure Python got installed correctly. Let’s go to our back to our terminal window and let’s type python again. But this time, let’s add two hyphens, a couple of dashes and the word “version”, all lowercase. And that’ll give us the Python version that’s installed. And sure enough, it’s 3.9.9 which is just what we expect.</p>
 <p>Let’s do the same thing for a program called PIP, that’s P-I-P. And once again, we’re going to type two hyphens and version. And we see the PIP version which is kind of unimportant to us but what is important is at the end, it says it’s pointing to Python 3.9, which is what we want, we want to make sure that PIP doesn’t point to a Python 2 version we may have kicking around.</p>
 <p>So, with that, Python is completely installed, and we’re ready to go on to the next section.</p>
 </section>
 <section id="installing-git-for-windows">
-<h2>Installing Git for Windows<a class="headerlink" href="#installing-git-for-windows" title="Link to this heading">¶</a></h2>
+<h2>Installing Git for Windows<a class="headerlink" href="#installing-git-for-windows" title="Link to this heading"></a></h2>
 <p>In this next part, what we want to install is Git for Windows. Now, Git for Windows has a lot more options to choose from and the installer, but we’ll walk through that together. So first, let’s go to our favorite program or helper, Google, and let’s find where Git for Windows can be located. Let’s type in Git for Windows here. Sure enough, this top one, the Gitforwindows.org, that is fine. And right here, we’re going to go ahead and download it. And we will accept the default location for Git and click Next.</p>
 <p>In this next dialog, we have a lot of things to look at. Let’s go ahead and put the additional icons. Windows Explorer Integration? Yeah, let’s leave that as it is. The rest of it, let’s leave all of that as it is. And then the final thing we want to check is this “Add a Git Bash Profile to Windows Terminal”. Remember, we just installed Windows Terminal a couple of programs ago, and this will allow us to all be on the same page by using a bash style terminal. And let’s click Next at this point.</p>
 <p>Here, it’s prompting for the window that we’re going to create. Let’s go ahead and click Next. Now here, it’s asking for a default editor that Git is going to pull up. Let’s leave that as vim for now. At this window, let’s override the default branch name for new repositories. And you see here that it suggests main. There’s a long history to this, but long story short, GitHub is now using main instead of master as the default branch. So we want to be compatible as possible with GitHub to save us some steps, so let’s click Next.</p>
@@ -186,13 +190,13 @@
 <p>When the installation finishes, it will ask you if you want to view the release notes. I am going to uncheck that. And then it also asks if you want to launch Git Bash. Let’s take a look at that really quickly. Let’s click Finish here. And that will launch a terminal prompt with Git Bash as the default. Now what we want to do—and if you’ll remember, we checked the box to say add this sort of terminal to our Windows Terminal program which works a lot better and is a lot easier to see, quite frankly. So let’s go ahead and get rid of this bash terminal, and let’s set that up now.</p>
 </section>
 <section id="making-windows-terminal-use-git-bash-by-default">
-<h2>Making Windows Terminal Use Git Bash By Default<a class="headerlink" href="#making-windows-terminal-use-git-bash-by-default" title="Link to this heading">¶</a></h2>
+<h2>Making Windows Terminal Use Git Bash By Default<a class="headerlink" href="#making-windows-terminal-use-git-bash-by-default" title="Link to this heading"></a></h2>
 <p>If we go over back to our Windows Terminal program that we installed earlier, and we have it in the taskbar. If you click this little down arrow over here—we’re not seeing it yet, but if we close this and go back in and now click the down arrow, you can see that Git Bash is available as an option. Let’s do one more thing. Let’s go into settings. In the settings, what we want to do is we want to pick our default terminal and our default terminal, we’re going to set it to Git Bash, and save.</p>
 <p>Now to test that out really quickly, let’s go back into Windows Terminal one more time, click on it. And Git Bash comes up as the default. Just to test that we have Git available on our path, let’s just type Git. Let’s try version—that’s always a good trick to see if we can try. And sure enough, Git Version 2.34.1 for Windows and so forth.</p>
 <p>And Git does not change that frequently, so if you have a slightly different version than this, I would not worry about it. The same is true of later Python 3 versions, whether you’re on 3.8, 3.9, or a later version of Python, this course should still continue to work perfectly well with those versions as well, because we don’t do a lot of version-specific stuff in this course, as you can imagine. So, at this point, we can type exit out of the Windows Terminal. And that will close Windows Terminal, and we’re ready to take a look at what we’ve done so far.</p>
 </section>
 <section id="conclusion-of-part-1">
-<h2>Conclusion of Part 1<a class="headerlink" href="#conclusion-of-part-1" title="Link to this heading">¶</a></h2>
+<h2>Conclusion of Part 1<a class="headerlink" href="#conclusion-of-part-1" title="Link to this heading"></a></h2>
 <p>Well, as you can see, we are more than halfway through, and especially that last Git for Windows install, that was a beast, wasn’t it? The rest of them will go fairly easily. But we are almost out of time for this video. So, with that, let’s cut it short for now and in our next video, we’ll go ahead and install Visual Studio Code as well as the GitHub CLI. We’ll set up Visual Studio Code so that it uses the same terminal we set up Windows Terminal for, so we’ll have a nice, consistent developer experience all throughout. And we’ll see you in the <a class="reference external" href="https://codesolid.com/installing-a-python-and-git-development-environment-on-windows-part-2/">next video</a>. Thanks for watching!</p>
 </section>
 </section>

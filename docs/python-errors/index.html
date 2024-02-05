@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Python Errors: Exception Handling from Beginner to Expert &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=19645805"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -136,7 +140,7 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="python-errors-exception-handling-from-beginner-to-expert">
-<h1>Python Errors: Exception Handling from Beginner to Expert<a class="headerlink" href="#python-errors-exception-handling-from-beginner-to-expert" title="Link to this heading">¶</a></h1>
+<h1>Python Errors: Exception Handling from Beginner to Expert<a class="headerlink" href="#python-errors-exception-handling-from-beginner-to-expert" title="Link to this heading"></a></h1>
 <p>“To err is human,” and no one knows that better than software developers. In Python, as in other programming languages, learning to correctly and quickly fix the errors that we make – and to handle the errors our program can make – is an essential part of learning to program correctly. The difference between a program that handles errors well and one that does not is the difference between one that will delight your users or discourage them. For us developers, it means the difference between a system software that is easy to maintain and one that is opaque even to us.</p>
 <p>This article will cover several aspects of successful error handling in Python, from the simple syntax errors that beginners make to discussing runtime exceptions and how to help our users be successful – whether we’re writing simple scripts for our use or serious production code for others.</p>
 <p>The topics we’ll cover include the following:</p>
@@ -148,13 +152,13 @@
 <li><p>Error handling mindset and best practices</p></li>
 </ul>
 <section id="syntax-errors-in-python">
-<h2>Syntax Errors in Python<a class="headerlink" href="#syntax-errors-in-python" title="Link to this heading">¶</a></h2>
+<h2>Syntax Errors in Python<a class="headerlink" href="#syntax-errors-in-python" title="Link to this heading"></a></h2>
 <p>Syntax errors are errors that won’t even let us run our program. In other languages, these are sometimes called “compiler errors,” meaning that the parser doesn’t recognize whatever you typed as valid. Syntax errors are especially common for beginner programmers and even senior engineers who are either learning a new programming language for the first time or “context switching” between languages.</p>
 <p>When the Python interpreter encounters a syntax error will try to point you to where the error appeared. Here’s a screenshot showing one such error:</p>
 <p><img alt="" src="../_images/image-294.png" /></p>
 <p>If you’re a beginner, the critical skill to master here is to note that the error message often tells you exactly where and what you need to fix. In this case, changing the first line to <code class="docutils literal notranslate"><span class="pre">&quot;def</span> <span class="pre">greeting()</span></code>:” fixes the error, just as the error message advises.</p>
 <section id="indentation-errors">
-<h3>Indentation Errors<a class="headerlink" href="#indentation-errors" title="Link to this heading">¶</a></h3>
+<h3>Indentation Errors<a class="headerlink" href="#indentation-errors" title="Link to this heading"></a></h3>
 <p>Another error newcomers often make (especially if they switch editors a lot) is an indentation error, which is another flavor of syntax error raised when indentation is incorrect.</p>
 <p>This error is somewhat unique to Python since Python uses indentation to identify “block structure” – lines that belong together. Other languages use keywords or curly braces to do the same thing.</p>
 <p>Here’s an example of incorrect indentation that’s relatively easy to fix:</p>
@@ -175,9 +179,9 @@
 </section>
 </section>
 <section id="exceptions-errors-and-bugs">
-<h2>Exceptions, Errors, and Bugs<a class="headerlink" href="#exceptions-errors-and-bugs" title="Link to this heading">¶</a></h2>
+<h2>Exceptions, Errors, and Bugs<a class="headerlink" href="#exceptions-errors-and-bugs" title="Link to this heading"></a></h2>
 <section id="exceptions-and-errors">
-<h3>Exceptions and Errors<a class="headerlink" href="#exceptions-and-errors" title="Link to this heading">¶</a></h3>
+<h3>Exceptions and Errors<a class="headerlink" href="#exceptions-and-errors" title="Link to this heading"></a></h3>
 <p>In Java, there’s a strict distinction between the two classes, Error and Exception. An exception, also called a checked exception, must be handled in your program or it won’t compile. An error, on the other hand, does not need to be caught. The rationale behind leaving errors unchecked is the idea that your program can’t recover from them.</p>
 <p>In Python, exceptions are always unchecked. This means that it’s up to you whether you want to handle it or not. So the line between an exception and an error is much less clear-cut. Syntax errors are always called errors, but exceptions can be named either way. For example, “OSError” is a runtime exception.</p>
 <p>So errors and exceptions are pretty much synonyms in Python, and non-syntax errors have the following characteristics:</p>
@@ -187,7 +191,7 @@
 </ul>
 </section>
 <section id="it-s-not-a-feature-it-s-a-bug">
-<h3>It’s Not a Feature; It’s a Bug<a class="headerlink" href="#it-s-not-a-feature-it-s-a-bug" title="Link to this heading">¶</a></h3>
+<h3>It’s Not a Feature; It’s a Bug<a class="headerlink" href="#it-s-not-a-feature-it-s-a-bug" title="Link to this heading"></a></h3>
 <p>Let’s take the case of selecting a user by email from a database table. We can probably all agree that if that wrong table name is wrong in our code, it’s definitely a bug. It’s also a bug if the user email is not in the table and we just let the low-level exception message bubble up to the user as a nasty “500 error” (for example), instead of formatting it nicely and allowing the user to fix it.</p>
 <p>In either case, bugs result from either code that’s so bad it doesn’t work at all or code that’s just good enough to hobble along but doesn’t provide a good user experience.</p>
 <p>Bugs fall into many categories, so it’s impossible to cover them comprehensively, but certainly, many of them result from poor or inadequate error handling. Because this is so important, we want to discuss some best practices for handling or preventing errors.</p>
@@ -195,9 +199,9 @@
 </section>
 </section>
 <section id="try-block-basics-handling-exceptions-in-python">
-<h2>Try Block Basics: Handling Exceptions in Python<a class="headerlink" href="#try-block-basics-handling-exceptions-in-python" title="Link to this heading">¶</a></h2>
+<h2>Try Block Basics: Handling Exceptions in Python<a class="headerlink" href="#try-block-basics-handling-exceptions-in-python" title="Link to this heading"></a></h2>
 <section id="handling-built-in-exceptions">
-<h3>Handling Built-In Exceptions<a class="headerlink" href="#handling-built-in-exceptions" title="Link to this heading">¶</a></h3>
+<h3>Handling Built-In Exceptions<a class="headerlink" href="#handling-built-in-exceptions" title="Link to this heading"></a></h3>
 <p>Python supports many different built-in exceptions that can happen at runtime. We might try to add two types, like a string and a number, which results in a TypeError. We might open a file for reading that isn’t there and get a FileNotFoundError. We can wrap the code that might generate such an exception in a try / except block to handle such cases. Suppose we have this code:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">show_contents</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Display the contents of a file&quot;&quot;&quot;</span>
@@ -261,7 +265,7 @@ FileNotFoundError:<span class="w"> </span><span class="o">[</span>Errno<span cla
 <p>The effect of this is to display it to the console by default but see the <a class="reference external" href="https://docs.python.org/3/howto/logging-cookbook.html">Logging Cookbook</a> for many examples of how to configure logging in different ways.</p>
 </section>
 <section id="handling-base-class-exception-types">
-<h3>Handling Base Class Exception Types<a class="headerlink" href="#handling-base-class-exception-types" title="Link to this heading">¶</a></h3>
+<h3>Handling Base Class Exception Types<a class="headerlink" href="#handling-base-class-exception-types" title="Link to this heading"></a></h3>
 <p>Some additional rules apply to Python except blocks. First, given a class hierarchy, an except block for a base class will match that type and any types derived from that base class.</p>
 <p>Thus, for example, we could replace <code class="docutils literal notranslate"><span class="pre">FileNotFoundError</span></code> in the examples that we’ve shown so far with <code class="docutils literal notranslate"><span class="pre">OSError</span></code> (or IOError, which is an alias for it) and get the same results. For example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ...</span>
@@ -292,7 +296,7 @@ chmod<span class="w"> </span><span class="m">200</span><span class="w"> </span>u
 </div>
 </section>
 <section id="handling-multiple-exception-types">
-<h3>Handling Multiple Exception Types<a class="headerlink" href="#handling-multiple-exception-types" title="Link to this heading">¶</a></h3>
+<h3>Handling Multiple Exception Types<a class="headerlink" href="#handling-multiple-exception-types" title="Link to this heading"></a></h3>
 <p>For each try block, we can add multiple except blocks, for example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
     <span class="c1"># Open a file, etc.</span>
@@ -312,7 +316,7 @@ chmod<span class="w"> </span><span class="m">200</span><span class="w"> </span>u
 <p>For other cases, we can weigh the improved granularity of specific exceptions with the increased code complexity. More isn’t always better.</p>
 </section>
 <section id="handling-base-class-exceptions-a-caveat">
-<h3>Handling Base Class Exceptions: A Caveat<a class="headerlink" href="#handling-base-class-exceptions-a-caveat" title="Link to this heading">¶</a></h3>
+<h3>Handling Base Class Exceptions: A Caveat<a class="headerlink" href="#handling-base-class-exceptions-a-caveat" title="Link to this heading"></a></h3>
 <p>If you’re trying to handle any possible exception your program can raise, you need to be aware of two things. First, if you’re using PyCharm, it will warn you that your exceptions should be more granular. I don’t always follow this advice, but one thing you definitely shouldn’t do is this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># DON&#39;T DO THIS!!!</span>
 
@@ -327,7 +331,7 @@ chmod<span class="w"> </span><span class="m">200</span><span class="w"> </span>u
 </section>
 </section>
 <section id="raising-built-in-and-user-defined-exceptions">
-<h2>Raising Built-In and User-Defined Exceptions<a class="headerlink" href="#raising-built-in-and-user-defined-exceptions" title="Link to this heading">¶</a></h2>
+<h2>Raising Built-In and User-Defined Exceptions<a class="headerlink" href="#raising-built-in-and-user-defined-exceptions" title="Link to this heading"></a></h2>
 <p>In addition to handling exceptions, you can also raise them, using the raise keyword and an instance of an exception class. Here’s a contrived example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">order_widget</span><span class="p">(</span><span class="n">widget</span><span class="p">):</span>
 
@@ -353,7 +357,7 @@ chmod<span class="w"> </span><span class="m">200</span><span class="w"> </span>u
 <p>However, it’s often the case when developing a module or library that we’ll need to create user-defined exceptions and raise them when something goes wrong. If this is something you need to do or are considering doing, we have a separate article that discusses how to design and write <a class="reference external" href="https://codesolid.com/writing-a-python-custom-exception/" title="Writing a Python Custom Exception">Python custom exceptions</a>.</p>
 </section>
 <section id="python-error-handling-do-s-and-don-ts">
-<h2>Python Error Handling: Do’s and Don’ts<a class="headerlink" href="#python-error-handling-do-s-and-don-ts" title="Link to this heading">¶</a></h2>
+<h2>Python Error Handling: Do’s and Don’ts<a class="headerlink" href="#python-error-handling-do-s-and-don-ts" title="Link to this heading"></a></h2>
 <p>Now that we’ve covered the syntax and examples of handling Python errors, it’s time to take a step back and discuss some general strategies for dealing with program errors. Some of this will recap what we’ve discussed along the way, but some of it will be new.</p>
 <ul class="simple">
 <li><p>DO: Use Python’s help function to understand what exceptions a function will raise. For example, the beginning of text returned by <code class="docutils literal notranslate"><span class="pre">help(open)</span></code> tells us that this function will “Raise OSError upon failure.”</p></li>

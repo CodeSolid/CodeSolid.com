@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Python Format Strings: Beginner to Expert &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=19645805"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -138,14 +142,14 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="python-format-strings-beginner-to-expert">
-<h1>Python Format Strings: Beginner to Expert<a class="headerlink" href="#python-format-strings-beginner-to-expert" title="Link to this heading">¶</a></h1>
+<h1>Python Format Strings: Beginner to Expert<a class="headerlink" href="#python-format-strings-beginner-to-expert" title="Link to this heading"></a></h1>
 <p>Note: this is part of a series of articles on <a class="reference external" href="https://codesolid.com/python-for-beginners/">Python for Beginners</a>.</p>
 <p>I’ve learned several programming languages throughout my career, and whenever I start to learn a new one, one of the first things I want to know about it is how to do string formatting. I realize that to many non-programmers, their idea of what we do involves a cross between slinging binary and reading the matrix. Nevertheless, I’ve found over the years that I’m going to spend a lot of my time formatting strings on almost every project.</p>
 <p>String formatting is the process of injecting – or “interpolating” – other things into a string to get the result we want. Most beginners begin learning how to format using string concatenation and print, but more flexible techniques include f strings and the string format method.</p>
 <p>String formatting is an essential skill for any Python programmer to master. Formatting strings allows you to display data in a more readable and concise way. This article will discuss the different methods for formatting strings in Python.</p>
 <p>Python has quite a few distinct ways to do this, and for any particular task, the format string you’ll need to use may be pretty specialized, so we’ll need to be selective about what string formatting techniques we cover. We want to start slowly by discussing what beginners first learn about how to work with strings, then move on to the current favorite of most Python developers, formatted string literals (or “f strings”). Next, we’ll take on what is probably the second-most common method you’ll find in modern Python codebases, the string format method, <code class="docutils literal notranslate"><span class="pre">str.format</span></code>.</p>
 <section id="string-formatting-for-beginners">
-<h2>String Formatting for Beginners<a class="headerlink" href="#string-formatting-for-beginners" title="Link to this heading">¶</a></h2>
+<h2>String Formatting for Beginners<a class="headerlink" href="#string-formatting-for-beginners" title="Link to this heading"></a></h2>
 <p>The vast majority of us began our careers with some version of this program:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)</span>
 </pre></div>
@@ -175,11 +179,11 @@ Print<span class="w"> </span>some<span class="w"> </span>more!
 <p>OK, I’m no Mother Goose, but you get the idea.</p>
 </section>
 <section id="beyond-the-basics-the-format-method-vs-f-strings">
-<h2>Beyond the Basics: The Format Method vs. F Strings<a class="headerlink" href="#beyond-the-basics-the-format-method-vs-f-strings" title="Link to this heading">¶</a></h2>
+<h2>Beyond the Basics: The Format Method vs. F Strings<a class="headerlink" href="#beyond-the-basics-the-format-method-vs-f-strings" title="Link to this heading"></a></h2>
 <p>Print is a forgiving and gentle guide to begin our Python programming journey, but we soon bump into its limitations. The most obvious is that not every string is destined to appear in standard output. Sometimes we’re passing it to another function for processing, for example. A string we’ve formatted may get displayed by a web browser front end that isn’t even written in Python.</p>
 <p>Today, there are two important formatting methods for modern Python code.</p>
 <section id="python-f-strings">
-<h3>Python F Strings<a class="headerlink" href="#python-f-strings" title="Link to this heading">¶</a></h3>
+<h3>Python F Strings<a class="headerlink" href="#python-f-strings" title="Link to this heading"></a></h3>
 <p>Formatted string literals — also called f-strings – are the newest method. They were introduced in Python 3.6 (released in December 2016) and have gained popularity ever since. F-strings are easy to use and offer a more convenient alternative to other methods of string formatting, such as %-formatting and <code class="docutils literal notranslate"><span class="pre">str.format()</span></code>. F-strings allow you to embed variables inside a string by enclosing them in curly braces {}. The variables will then be replaced with their value when the string is evaluated.</p>
 <p>Let’s start with a straightforward example for now as an appetizer and dive into the details in a later section.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;John&quot;</span>
@@ -196,12 +200,12 @@ Print<span class="w"> </span>some<span class="w"> </span>more!
 <p>As you can see, we can format various types and even embed expressions between the curly braces.</p>
 </section>
 <section id="str-format">
-<h3>str.format<a class="headerlink" href="#str-format" title="Link to this heading">¶</a></h3>
+<h3>str.format<a class="headerlink" href="#str-format" title="Link to this heading"></a></h3>
 <p>The other common method of string formatting is <code class="docutils literal notranslate"><span class="pre">str.format</span></code>. The format method is a string formatting method that has been available in Python since version 2.6. It is still widely used today because it is easy to read and understand and very flexible. Str.format can be used with positional arguments or named arguments. Positional arguments allow you to specify the order in which the replacements will be made. In contrast, named arguments may make it more obvious at a glance which argument matches which placeholder.</p>
 </section>
 </section>
 <section id="how-to-format-a-string-using-f-strings">
-<h2>How to Format a String Using F-Strings<a class="headerlink" href="#how-to-format-a-string-using-f-strings" title="Link to this heading">¶</a></h2>
+<h2>How to Format a String Using F-Strings<a class="headerlink" href="#how-to-format-a-string-using-f-strings" title="Link to this heading"></a></h2>
 <p>We saw above that the f-string method is easy to use. We prepend an f to a string literal, and within the literal, enclose a Python expression in brackets. Two plus two equals four becomes:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">value</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2"> + </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">value</span><span class="o">+</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -210,7 +214,7 @@ Print<span class="w"> </span>some<span class="w"> </span>more!
 <p>In addition to the simple uses, both f-strings and <code class="docutils literal notranslate"><span class="pre">str.format</span></code> allow you to take advantage of a special syntax called for precise string formatting. This special syntax is called the “Format Specification Mini-Language, and it’s described formally in the <a class="reference external" href="https://docs.python.org/3/library/string.html#formatspec">Python documentation</a>.</p>
 <p>In simplest terms, the basic idea is that given an f-string with an expression in it, f”{expression},” we can add a colon between the expression and the closing curly brace, followed by something called a format specifier, to control the formatting of the expression. These format specifiers won’t be new to you if you’ve worked in other languages. They form the basis of string formatting methods in different languages, dating back to C in the 1980s.</p>
 <section id="specifying-how-many-decimals-are-displayed">
-<h3>Specifying How Many Decimals Are Displayed<a class="headerlink" href="#specifying-how-many-decimals-are-displayed" title="Link to this heading">¶</a></h3>
+<h3>Specifying How Many Decimals Are Displayed<a class="headerlink" href="#specifying-how-many-decimals-are-displayed" title="Link to this heading"></a></h3>
 <p>For example, F-strings make it easy to format floating-point numbers by allowing you to specify the number of decimal places. You’re a teacher, let’s say, and you decide that the default values Python prints for the math constants will give your students too many decimals to memorize:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Pi is </span><span class="si">{</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="si">}</span><span class="s2"> and e is </span><span class="si">{</span><span class="n">math</span><span class="o">.</span><span class="n">e</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
@@ -236,7 +240,7 @@ Print<span class="w"> </span>some<span class="w"> </span>more!
 </div>
 </section>
 <section id="more-numbers-formatting-octal-hexadecimal-binary">
-<h3>More Numbers Formatting: Octal, Hexadecimal, Binary<a class="headerlink" href="#more-numbers-formatting-octal-hexadecimal-binary" title="Link to this heading">¶</a></h3>
+<h3>More Numbers Formatting: Octal, Hexadecimal, Binary<a class="headerlink" href="#more-numbers-formatting-octal-hexadecimal-binary" title="Link to this heading"></a></h3>
 <p>While we’re discussing numbers, it’s pretty straightforward to output numbers in various number bases that programmers find convenient to use. We do this with a single letter representing the base we want. Decimal is the default, so we often omit it, but if you’re curious, the letter is “d.” We use “o” for octal, “x” for heXadecimal, and b for binary format.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">21</span>
 <span class="n">how_old</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2"> in decimal is </span><span class="si">{</span><span class="n">age</span><span class="si">:</span><span class="s2">x</span><span class="si">}</span><span class="s2"> in hexadecimal, </span><span class="si">{</span><span class="n">age</span><span class="si">:</span><span class="s2">o</span><span class="si">}</span><span class="s2"> in octal, and </span><span class="si">{</span><span class="n">age</span><span class="si">:</span><span class="s2">b</span><span class="si">}</span><span class="s2"> in binary.&quot;</span>
@@ -250,7 +254,7 @@ Print<span class="w"> </span>some<span class="w"> </span>more!
 <p>I doubt that any of my readers are still using the octal format for anything except string formatting examples, but hex and binary are still important from time to time.</p>
 </section>
 <section id="scientific-notation-in-python-general-format-vs-exponent-format">
-<h3>Scientific Notation in Python: General Format vs. Exponent Format<a class="headerlink" href="#scientific-notation-in-python-general-format-vs-exponent-format" title="Link to this heading">¶</a></h3>
+<h3>Scientific Notation in Python: General Format vs. Exponent Format<a class="headerlink" href="#scientific-notation-in-python-general-format-vs-exponent-format" title="Link to this heading"></a></h3>
 <p>If you’re an astrophysicist or a specialist in viral diseases, you’re probably very used to thinking about numbers that are very large on the one hand or very small on the other. For the rest of us, we may have learned about scientific notation in the fifth grade. If you don’t need a brief refresher, feel free to skip over the next paragraph.</p>
 <p>Scientific notation is sometimes known as exponential notation because it is equivalent to multiplying a number by ten raised to a power. For example, 1 × 10⁵ is written as 1e5 in scientific notation. In Python, scientific notation is represented using the letter ‘e’ or ‘E,’ followed by a positive or negative integer. We can convert a number in scientific notation to decimal form by moving the decimal point to the left or right according to the exponent. For example, 1e5 is equal to 100000 in decimal format. Scientific notation can be used with any numeric type, including ints and floats.</p>
 <p>With that introduction, let’s see how to format a string using the general and exponent formats. The general format method uses “g” or “G” and only uses exponent format if the number is very large or small. The exponent format method (“e” or “E”) <em>always</em> formats the number using scientific notation. In both cases, where the number is shown in scientific notation, the capital letter version gives you a capital “E,” the lowercase version, a lowercase “e.”</p>
@@ -281,7 +285,7 @@ Always<span class="w"> </span>use<span class="w"> </span>exponent
 </div>
 </section>
 <section id="how-to-automatically-add-commas-to-a-number">
-<h3>How to Automatically Add Commas To a Number<a class="headerlink" href="#how-to-automatically-add-commas-to-a-number" title="Link to this heading">¶</a></h3>
+<h3>How to Automatically Add Commas To a Number<a class="headerlink" href="#how-to-automatically-add-commas-to-a-number" title="Link to this heading"></a></h3>
 <p>Adding commas to the string representation of a number is straightforward in Python. For example, beginning with a replacement field expression surrounded by curly braces, add the usual colon after the field name to separate it from the formatting instructions, then add a comma.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">big_num</span> <span class="o">=</span> <span class="mi">1_234_567_890</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">big_num</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -294,7 +298,7 @@ Always<span class="w"> </span>use<span class="w"> </span>exponent
 <p>If you need to display the separator “Python-style” using an underscore (“_”), you can substitute an underscore for the comma in the previous example.</p>
 </section>
 <section id="it-works-on-my-machine">
-<h3>“It Works On My Machine?”<a class="headerlink" href="#it-works-on-my-machine" title="Link to this heading">¶</a></h3>
+<h3>“It Works On My Machine?”<a class="headerlink" href="#it-works-on-my-machine" title="Link to this heading"></a></h3>
 <p>As those who’ve ever worked on code for international markets know, assuming that the comma is the thousands separator is problematic. Germany, for example, uses a “.” to separate thousands, while Sweden uses spaces!</p>
 <p>The Python documentation advises using the “n” specifier to format numbers in a locale-independent way. Still, to make this code work, you need to set the locale for all categories to the settings the user has configured (or the default for their machine based on their language). The example below shows how to do this</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">locale</span>
@@ -305,7 +309,7 @@ Always<span class="w"> </span>use<span class="w"> </span>exponent
 <p>The example above still displays a comma on my machine because the language I’m working with is US English, but now this code will do the right thing on Heidi’s machine and Olaf’s!</p>
 </section>
 <section id="how-to-align-signed-numbers-in-python">
-<h3>How to Align Signed Numbers in Python<a class="headerlink" href="#how-to-align-signed-numbers-in-python" title="Link to this heading">¶</a></h3>
+<h3>How to Align Signed Numbers in Python<a class="headerlink" href="#how-to-align-signed-numbers-in-python" title="Link to this heading"></a></h3>
 <p>Much of what we’ve been discussing so far are general formatting techniques that you can use in any situation. For example, formatting fixed decimal widths (or rounding) may be needed whether your ultimate display is a fixed-width device or a browser that may be using a variable-width font.</p>
 <p>However, aligning signed numbers and many other alignment techniques employ format codes that are useful to know, but you may not need them every day unless you’re working with fixed-width displays.</p>
 <p>We can align signed numbers in Python on fixed-width displays by adding a plus sign (“+”) or space to a numeric format specifier, optionally followed by a minimum width. This prepends a plus sign or space to a positive number. This helps us align columns if some of the numbers are negative.</p>
@@ -344,7 +348,7 @@ Always<span class="w"> </span>use<span class="w"> </span>exponent
 <p>Unlike the number we’re trying to format, where python expressions, literal values, and variables are allowed, the number specifying the width <em>must</em> be a literal value. Thus “<code class="docutils literal notranslate"><span class="pre">print(f&quot;{number:+number}&quot;)</span></code>” will result in an “Invalid format specifier value” error.</p>
 </section>
 <section id="python-string-alignment">
-<h3>Python String Alignment<a class="headerlink" href="#python-string-alignment" title="Link to this heading">¶</a></h3>
+<h3>Python String Alignment<a class="headerlink" href="#python-string-alignment" title="Link to this heading"></a></h3>
 <p>What you need to align may not be a number, of course. You might need to align some text on a fixed-width screen. Programming examples come and go, but in my opinion, you haven’t truly lived until you’ve coded a Christmas tree out of asterisks using ASCII art.</p>
 <p>Ho, ho, ho!</p>
 <p>As you’ve no doubt guessed by now, Python string alignment using f string formatting is easy enough to do. Left alignment is the default, so we rarely need it. Centering is done by following the colon with a fill character (often a space), a caret (^) to select a centered format, and a number representing the total size (in horizontal spaces) of the imaginary box we’re centering the text in. As usual, the format codes in the example tell the story more concisely:</p>
@@ -367,7 +371,7 @@ Always<span class="w"> </span>use<span class="w"> </span>exponent
 </section>
 </section>
 <section id="how-to-format-a-string-using-the-format-method">
-<h2>How to Format a String Using the Format Method<a class="headerlink" href="#how-to-format-a-string-using-the-format-method" title="Link to this heading">¶</a></h2>
+<h2>How to Format a String Using the Format Method<a class="headerlink" href="#how-to-format-a-string-using-the-format-method" title="Link to this heading"></a></h2>
 <p>Besides using f-strings, another common technique in modern code for formatting Python strings is to use the format method of the Python str class. Formatting a string using the string format method is often done by calling this method directly on a formatting string literal.</p>
 <p>Compared to f-strings, we’ll spend relatively little time on the format method. Spending less time on format is not because it’s not common in code or useful to know. It is both of those things. The reason for covering f-strings in somewhat greater detail boils down to this:</p>
 <ul class="simple">
@@ -377,7 +381,7 @@ Always<span class="w"> </span>use<span class="w"> </span>exponent
 <p>That said, there are some differences between using <code class="docutils literal notranslate"><span class="pre">str.format</span></code> and using formatted string literals. We’ll discuss some of the most important differences in the next section.</p>
 </section>
 <section id="using-an-f-string-vs-the-string-format-method">
-<h2>Using an F String vs. the String Format Method<a class="headerlink" href="#using-an-f-string-vs-the-string-format-method" title="Link to this heading">¶</a></h2>
+<h2>Using an F String vs. the String Format Method<a class="headerlink" href="#using-an-f-string-vs-the-string-format-method" title="Link to this heading"></a></h2>
 <p>There are a few differences between using an f string and the format method. The most obvious one is that for an f string, a name, expression, or literal is specified as the first element after the opening curly brace. In contrast, because the format method is a Python function, <a class="reference external" href="https://codesolid.com/python-function-arguments-and-parameters-examples/">like all Python functions</a>, the argument list can consist of positional arguments, keyword arguments, or a combination of the two.</p>
 <p>Calling it with keyword arguments makes the literal we’re calling it on look very similar to the use of f-strings. The difference is that the name is set up in the function call, rather than before the f-string is evaluated. Compare, for example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span> 
@@ -427,7 +431,7 @@ True
 </div>
 </section>
 <section id="what-is-old-style-string-formatting">
-<h2>What Is Old-Style String Formatting?<a class="headerlink" href="#what-is-old-style-string-formatting" title="Link to this heading">¶</a></h2>
+<h2>What Is Old-Style String Formatting?<a class="headerlink" href="#what-is-old-style-string-formatting" title="Link to this heading"></a></h2>
 <p>From time to time, you may see code that looks like this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> has many ways to format string; use this one for Python &lt; </span><span class="si">%.1f</span><span class="s2">.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="s2">&quot;Python&quot;</span><span class="p">,</span> <span class="mf">2.6</span><span class="p">))</span>
 </pre></div>
@@ -439,7 +443,7 @@ True
 <p>The <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#old-string-formatting">Python documentation</a> refers to this as “printf-style String Formatting.” You should refer to the documentation if you need to work on such legacy code. Although this string formatting style isn’t officially deprecated, since Python 3.0, it is not the recommended approach. Indeed, having an upgrade path may be one reason why <code class="docutils literal notranslate"><span class="pre">str.format</span></code> was back-ported to Python 2.6.</p>
 </section>
 <section id="closing-thoughts">
-<h2>Closing Thoughts<a class="headerlink" href="#closing-thoughts" title="Link to this heading">¶</a></h2>
+<h2>Closing Thoughts<a class="headerlink" href="#closing-thoughts" title="Link to this heading"></a></h2>
 <p>As you’ve no doubt guessed by now, I’m a big fan of f-strings, and I tend to use them in all my new code. When I was learning to code, I was also a big fan of string formatting examples. These days, many of the alignment tricks we’ve discussed in this article may not be as useful if you’re targeting a web platform (except perhaps for logging). Still, a good basic knowledge of Python string formatting is an essential skill for every Python developer.</p>
 </section>
 </section>

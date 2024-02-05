@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Getting Started: Basic Setup for the CDK for Python &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=19645805"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -101,12 +105,12 @@
 <p>As popular as these tools are, neither of them is written in a “real” programming language. Terraform files are written in HCL (Hashicorp Markup Language), a proprietary markup language. CloudFormation can be written either in JSON or YAML. These tools generally express simple relationships between infrastructure components well but lack the expressive power of languages like Python.</p>
 <p>To restore such expressive power to infrastructure deployment and to allow developers to use tools they already know, AWS created the Cloud Development Kit (or CDK). The CDK provides a layer of abstraction on top of CloudFormation and allows it to be used from TypeScript, Python, and other languages.</p>
 <section id="getting-started-basic-setup-for-the-cdk-for-python">
-<h1>Getting Started: Basic Setup for the CDK for Python<a class="headerlink" href="#getting-started-basic-setup-for-the-cdk-for-python" title="Link to this heading">¶</a></h1>
+<h1>Getting Started: Basic Setup for the CDK for Python<a class="headerlink" href="#getting-started-basic-setup-for-the-cdk-for-python" title="Link to this heading"></a></h1>
 <p>This article assumes that you have an AWS account and that you have the AWS CLI <a class="reference external" href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html">installed and configured</a>.</p>
 <p>In addition to the AWS CLI, the CDK also depends on Node for the CDK command line tool.</p>
 <p>The fact that you can easily install such extra tools into an environment is <a class="reference external" href="https://codesolid.com/conda-vs-pip/" title="one of many reasons">one of many reasons</a> I like to use conda, so if you have Anaconda or mini-conda installed, please use the next section. If you don’t, we’ll also walk you through the basics in the section “Using the CDK in a Python Virtual Environment”, but you’ll need to install <a class="reference external" href="https://nodejs.org/en/">Node.js</a> separately in that case if you don’t already have it. (If you’re not sure, try typing “<code class="docutils literal notranslate"><span class="pre">node</span> <span class="pre">--version</span></code>” to see if it’s available).</p>
 <section id="using-the-python-cdk-with-conda">
-<h2>Using the Python CDK With Conda<a class="headerlink" href="#using-the-python-cdk-with-conda" title="Link to this heading">¶</a></h2>
+<h2>Using the Python CDK With Conda<a class="headerlink" href="#using-the-python-cdk-with-conda" title="Link to this heading"></a></h2>
 <p>Conda makes it easy to set up an environment with Python and Node and to activate a separate environment. Note however that we still need to install the CDK library using pip.</p>
 <p>To get started, use the following terminal commands:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create and activate the environment:</span>
@@ -122,7 +126,7 @@ pip<span class="w"> </span>install<span class="w"> </span>aws-cdk-lib
 </div>
 </section>
 <section id="using-the-cdk-in-a-python-virtual-environment">
-<h2>Using the CDK in a Python Virtual Environment<a class="headerlink" href="#using-the-cdk-in-a-python-virtual-environment" title="Link to this heading">¶</a></h2>
+<h2>Using the CDK in a Python Virtual Environment<a class="headerlink" href="#using-the-cdk-in-a-python-virtual-environment" title="Link to this heading"></a></h2>
 <p>To create a virtual environment and install the Python Cloud Development Kit, use the following commands:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create and activate the environment:</span>
 

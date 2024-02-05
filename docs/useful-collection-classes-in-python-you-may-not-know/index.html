@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Useful Collection Classes in Python You May Not Know &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=19645805"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -160,7 +164,7 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="useful-collection-classes-in-python-you-may-not-know">
-<h1>Useful Collection Classes in Python You May Not Know<a class="headerlink" href="#useful-collection-classes-in-python-you-may-not-know" title="Link to this heading">¶</a></h1>
+<h1>Useful Collection Classes in Python You May Not Know<a class="headerlink" href="#useful-collection-classes-in-python-you-may-not-know" title="Link to this heading"></a></h1>
 <p>Most Python developers know about dictionaries, lists, and tuples – three workhorse collections that are so useful that they repeatedly appear in Python code. Compared to other languages, these essential collections have such excellent support in the language that they feel almost like native types. For example, they all have special constructors and operators unique to their classes.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># A list</span>
 <span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
@@ -186,7 +190,7 @@
 </div>
 <p>Perhaps because the built-in classes are so helpful and tightly integrated into the language, for a long time, I didn’t learn about the Python collection classes systematically as I did when I was learning other languages. It was too easy to learn the basics and stop there. For most purposes, that’s perfectly fine. Still, as I learned more about Python, I realized that some other collections are worth knowing and adding to your developer toolkit.</p>
 <section id="where-are-python-collections-defined">
-<h2>Where Are Python Collections Defined<a class="headerlink" href="#where-are-python-collections-defined" title="Link to this heading">¶</a></h2>
+<h2>Where Are Python Collections Defined<a class="headerlink" href="#where-are-python-collections-defined" title="Link to this heading"></a></h2>
 <p>However, in searching for useful collections, it’s important not to make the mistake I made at first of only looking in the collections library. You will find handy Python collections in several different places. For example, both the <code class="docutils literal notranslate"><span class="pre">dict</span></code> type and the three main sequence types (<code class="docutils literal notranslate"><span class="pre">list,</span> <span class="pre">tuple,</span></code> and <code class="docutils literal notranslate"><span class="pre">str</span></code>) are all defined as built-in types in Python.</p>
 <p>We’ll assume you’re familiar with the primary sequence types, but you might start with <a class="reference external" href="https://codesolid.com/python-lists/">Python Lists for Beginners</a> if you’re not. Two other types originally began their lives in a separate module but are now part of the built-in types: set and frozenset. We’ll discuss these later in this article because it brings up an interesting point about mutable and immutable types in Python. (And also because sets are cool!)</p>
 <p>Another important group of collection classes is defined in the queue module, which is part of the standard library (but not a built-in). As we’ll see below, this module specializes in allowing communication of results between threads.</p>
@@ -194,7 +198,7 @@
 <p>Let’s look at some classes from the collection package next.</p>
 </section>
 <section id="saving-memory-with-namedtuple">
-<h2>Saving Memory with Namedtuple<a class="headerlink" href="#saving-memory-with-namedtuple" title="Link to this heading">¶</a></h2>
+<h2>Saving Memory with Namedtuple<a class="headerlink" href="#saving-memory-with-namedtuple" title="Link to this heading"></a></h2>
 <p>Imagine a huge array of objects in memory. For example, I once worked on an underground geological mapping project dealing with three-dimensional points consisting of (x,y,z) triplets. Or better yet, think of a massive list of objects representing people. Each object might have several fields: <code class="docutils literal notranslate"><span class="pre">first_name,</span> <span class="pre">last_name,</span> <span class="pre">middle_initial,</span> <span class="pre">address_line_1,</span> <span class="pre">address_line_2,</span> <span class="pre">city,</span> <span class="pre">state,</span> <span class="pre">zip</span> <span class="pre">...</span></code> Well, you get the picture.</p>
 <p>You could store this in a custom class for a small list of people objects, which would be fine. However, one of the features of Python classes is that the names of the fields – first_name, last_name, etc. – are stored as dictionary keys for each object instance. If you think about it, the fact that you can add keys dynamically to an object necessitates this: we can set age on person1 and leave it off on person2 after constructing these objects. Typically, that’s what we want, but as an array of such objects becomes large enough, storing these keys every time becomes a problem.</p>
 <p>One could represent it as a tuple or other sequence type for a simple enough object. (In fact, because we were optimizing for JSON parsing time instead of memory on the project I worked on, that’s exactly what we did – we stored a list of lists, where each inner list was a point: <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">[1,2,3],</span> <span class="pre">[1,5,7]</span> <span class="pre">...</span></code> etc.<code class="docutils literal notranslate"><span class="pre">]</span></code>.</p>
@@ -229,7 +233,7 @@
 <p>In most contexts, immutable objects are easier to reason about since they lead to a more “functional” programming style. It does mean, of course, that one must provide all arguments to the object in the constructor. Providing all arguments to the constructor is an effective way to make sure the object is fully initialized when it’s constructed. Still, it is somewhat less convenient than adding properties as we go along.</p>
 </section>
 <section id="using-defaultdict-to-gracefully-handle-missing-values">
-<h2>Using Defaultdict to Gracefully Handle Missing Values<a class="headerlink" href="#using-defaultdict-to-gracefully-handle-missing-values" title="Link to this heading">¶</a></h2>
+<h2>Using Defaultdict to Gracefully Handle Missing Values<a class="headerlink" href="#using-defaultdict-to-gracefully-handle-missing-values" title="Link to this heading"></a></h2>
 <p>There are some cases where we always want a dictionary to have a starting value for any arbitrary key we assign to it. If the values in the dictionary are lists, for example, a reasonable default value would be an empty list. We can handle cases like this with a standard Python dictionary, but we need to write extra code to check for the key.</p>
 <p>To see what I mean, consider a word counting program where our task is to return a dictionary with the count of each word encountered in a string of text. Here we show such a function using a standard dictionary.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count_words</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
@@ -267,7 +271,7 @@
 <p>The default for the int class is a zero, as you can show with the code <code class="docutils literal notranslate"><span class="pre">print(int())</span></code> Because that’s our default factory, all we need to do in the loop is increment it each time we see a word The returned dictionary will always return a valid count for any word that occurs once, more than once, or never in the string.</p>
 </section>
 <section id="the-python-queue-package-makes-it-easy-to-pass-values-between-threads">
-<h2>The Python Queue Package Makes It Easy to Pass Values Between Threads<a class="headerlink" href="#the-python-queue-package-makes-it-easy-to-pass-values-between-threads" title="Link to this heading">¶</a></h2>
+<h2>The Python Queue Package Makes It Easy to Pass Values Between Threads<a class="headerlink" href="#the-python-queue-package-makes-it-easy-to-pass-values-between-threads" title="Link to this heading"></a></h2>
 <p>The Python queue package contains one of the more interesting groups of “collection classes” in Python. Their main use-case is for inter-thread communication. They implement the correct locking semantics to balance the load and coordinate activities between threads. You can use these within a single thread too, but the documentation notes that they are not re-entrant. In other words, they cannot be called again before the first call has finished within a single thread.</p>
 <p>The queue package contains three main classes:</p>
 <ul class="simple">
@@ -329,7 +333,7 @@ Consumer<span class="w"> </span>got:<span class="w"> </span><span class="m">5</s
 <p>There are several related classes in Python similar to the Queue classes. The multiprocessing package contains a few related Queue classes used for inter-process communication rather than inter-thread communication. Beyond this, like the classes in the queue package, the deque class in the collections package supports fast appends and pops from the “left or right side” of the queue, meaning it too can serve as a deque or stack. This class is said to be thread-safe, but it’s unclear whether it automatically supports locking, as do the classes in the queue package.</p>
 </section>
 <section id="overridable-python-configuration-with-chainmap">
-<h2>Overridable Python Configuration With ChainMap<a class="headerlink" href="#overridable-python-configuration-with-chainmap" title="Link to this heading">¶</a></h2>
+<h2>Overridable Python Configuration With ChainMap<a class="headerlink" href="#overridable-python-configuration-with-chainmap" title="Link to this heading"></a></h2>
 <p>One of the hallmarks of production-ready software is that you can often configure it in multiple ways. I once worked on a product that took this to a bizarre extreme. It was configurable from the command line, a configuration file, the environment, and various combinations of the environment or the command line pointing to the configuration file. Even in cases that are less pathologically complex than this, it’s frequently desirable to be able to configure an application’s behavior, let’s say, in the following ways:</p>
 <ul class="simple">
 <li><p>Read a configuration file first.</p></li>
@@ -366,7 +370,7 @@ Consumer<span class="w"> </span>got:<span class="w"> </span><span class="m">5</s
 <p>Though the lookup happens seamlessly, displaying either <code class="docutils literal notranslate"><span class="pre">config_map</span></code> or the variable that contains the list of the mappings, <code class="docutils literal notranslate"><span class="pre">config_map.map</span></code>, shows that the original mappings are still intact.</p>
 </section>
 <section id="python-sets-and-set-operations">
-<h2>Python Sets and Set Operations<a class="headerlink" href="#python-sets-and-set-operations" title="Link to this heading">¶</a></h2>
+<h2>Python Sets and Set Operations<a class="headerlink" href="#python-sets-and-set-operations" title="Link to this heading"></a></h2>
 <p>A popular self-help book once had the title “All I Really Need to Know I Learned In Kindergarten.” The concepts are a bit more advanced when it comes to sets, but not much. Many of us learned about sets in fifth or sixth grade when we first encountered using those fun overlapping circles called Venn diagrams to reason about them.</p>
 <p>As in mathematics, Python sets are groups of unique elements of any type: numbers, Python blogs, dog breeds, scary news items, things that rolled under the couch – you name it.</p>
 <p>To make this a bit more concrete, let’s look at some Python sets and some operations we can do on them.</p>
@@ -377,13 +381,13 @@ Consumer<span class="w"> </span>got:<span class="w"> </span><span class="m">5</s
 </div>
 <p>Given these three sets, we can show some results we’d get for various set operations. In some instances, we have a couple of different ways to get the result.</p>
 <section id="most-useful-operations-on-python-sets">
-<h3>Most Useful Operations on Python Sets<a class="headerlink" href="#most-useful-operations-on-python-sets" title="Link to this heading">¶</a></h3>
+<h3>Most Useful Operations on Python Sets<a class="headerlink" href="#most-useful-operations-on-python-sets" title="Link to this heading"></a></h3>
 <table><tbody><tr><td>To do this:</td><td>Use this code</td><td>Equivalent (if any)</td><td>Result</td></tr><tr><td>Test membership in a set.</td><td><code>2 in low<br>2 in high</code><br><code>2 not in high</code></td><td></td><td><code>True<br>False</code><br><code>True</code></td></tr><tr><td>Find out if two sets have no common elements.</td><td><code>low.isdisjoint(high)</code></td><td>There are other ways to do this, but they are not as good.</td><td><code>False</code></td></tr><tr><td>Find common members of sets.</td><td><code>low.intersection(high)</code></td><td><code>low &amp; high</code></td><td><code>{4,5}</code></td></tr><tr><td>Find out if a set is a subset/superset of another set.</td><td><code>low_subset &lt;= low<br>low &gt;= low_subset</code></td><td><code>low_subset.issubset(low)<br>low.issuperset(low_subset)</code></td><td><code>True<br>True</code></td></tr><tr><td>Combine all the members into a new set (union)</td><td><code>low.union(high)</code></td><td><code>low | high</code></td><td><code>{1, 2, 3, 4, 5, 6, 7, 8}</code></td></tr><tr><td>Find members of a set that aren't in members of one or more other set(s)</td><td><code>high.difference(low, low_subset)<br></code><br><code>high.difference(low)</code></td><td><code>high - low - low_subset<br><br>high - low<br></code></td><td><code>{6, 7, 8}</code><br><br><code>{6, 7, 8}</code></td></tr><tr><td>Find members that are in one or other but not both (opposite of intersection)</td><td><code>low.symmetric_difference(high)</code></td><td><code>low ^ high</code></td><td><code>{1, 2, 3, 6, 7, 8}</code></td></tr><tr><td>Find out if a set is empty/non-empty</td><td><code>len(low) == 0<br>len(low) != 0</code></td><td></td><td><code>False<br>True</code></td></tr></tbody></table>
 <p>For more information and use cases, see the <a class="reference external" href="https://docs.python.org/3.10/library/stdtypes.html#set">Python 3 set documentation</a>.</p>
 </section>
 </section>
 <section id="mutable-and-immutable-collections-and-sequences-in-python">
-<h2>Mutable and Immutable Collections and Sequences in Python<a class="headerlink" href="#mutable-and-immutable-collections-and-sequences-in-python" title="Link to this heading">¶</a></h2>
+<h2>Mutable and Immutable Collections and Sequences in Python<a class="headerlink" href="#mutable-and-immutable-collections-and-sequences-in-python" title="Link to this heading"></a></h2>
 <p>Before wrapping up our discussion of Python collections, we should take a moment to discuss mutable and immutable collections and types in Python. This difference is worth understanding if we want to understand the difference between <code class="docutils literal notranslate"><span class="pre">set</span></code> (which we’ve talked about quite a bit) and <code class="docutils literal notranslate"><span class="pre">frozenset</span></code>. As you’ve probably guessed by now, a frozenset is not something you need to defrost to put in the microwave – it’s an immutable set. It’s also hashable.</p>
 <p>According to the official definition of <a class="reference external" href="https://docs.python.org/3.10/glossary.html#term-hashable">hashable</a> types:</p>
 <blockquote>
@@ -400,7 +404,7 @@ Consumer<span class="w"> </span>got:<span class="w"> </span><span class="m">5</s
 <p>Citation: Although the content here is original, a work that influenced and informed several parts of this article was Brett Slatkin’s outstanding <a class="reference external" href="https://www.amazon.com/Effective-Python-Specific-Software-Development/dp/0134853989/ref=sr_1_1?crid=2CXWAWXHX0ZOW&amp;amp;keywords=Effective+Python&amp;amp;qid=1647689385&amp;amp;sprefix=effective+python%252Caps%252C64&amp;amp;sr=8-1&amp;amp;_encoding=UTF8&amp;amp;tag=codesolid-20&amp;amp;linkCode=ur2&amp;amp;linkId=1c3df20577c978bdae5ee5653644bb1c&amp;amp;camp=1789&amp;amp;creative=9325">Effective Python - 90 Specific Ways to Write Better Python</a>.</p>
 </section>
 <section id="you-may-also-like">
-<h2>You May Also Like<a class="headerlink" href="#you-may-also-like" title="Link to this heading">¶</a></h2>
+<h2>You May Also Like<a class="headerlink" href="#you-may-also-like" title="Link to this heading"></a></h2>
 <p><a class="reference external" href="https://codesolid.com/random-python-secrets-and-random-values-made-easy/">Random Python: Secrets and Random Values Made Easy</a></p>
 <p><a class="reference external" href="https://codesolid.com/python-dataclasses/">Python Dataclass: Easily Automate Class Best Practices</a></p>
 </section>

@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Python Indexing and Slicing: Complete Tutorial With Hands-On Exercises &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=19645805"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -124,7 +128,7 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="python-indexing-and-slicing-complete-tutorial-with-hands-on-exercises">
-<h1>Python Indexing and Slicing: Complete Tutorial With Hands-On Exercises<a class="headerlink" href="#python-indexing-and-slicing-complete-tutorial-with-hands-on-exercises" title="Link to this heading">¶</a></h1>
+<h1>Python Indexing and Slicing: Complete Tutorial With Hands-On Exercises<a class="headerlink" href="#python-indexing-and-slicing-complete-tutorial-with-hands-on-exercises" title="Link to this heading"></a></h1>
 <p>Almost all Python developers encounter indexing early on when they learn about lists. As you probably already know, Python lists have zero-based indexes. That is to say, given a list named <code class="docutils literal notranslate"><span class="pre">movies</span></code>, for example, <code class="docutils literal notranslate"><span class="pre">movies[0]</span></code> returns the first element in the ist, while <code class="docutils literal notranslate"><span class="pre">movies[len(movies)-1]</span></code> returns the last element.</p>
 <p>So far, there’s nothing to see here, folks. Yes, for newcomers, counting from zero to nine for a list of ten things seems a bit weird at first. But Python’s not unique in this – most of the top programming languages in use today index in the same way. These include C, C++, Java, C#, and JavaScript.</p>
 <p>What makes indexing in Python worth writing about is not the overlap with other languages but the ways it stands out. Several features of Python indexes make it different from other languages.</p>
@@ -135,7 +139,7 @@
 </ul>
 <p>If you’re new to indexing and slicing in Python, those bullet points may strike you as pretty abstract. But don’t worry. We’ll dig into several examples of how this works in practice in this article. Moreover, we’ve included several exercises at the end to help reinforce what you’ve learned.</p>
 <section id="simple-positive-indexing">
-<h2>Simple Positive Indexing<a class="headerlink" href="#simple-positive-indexing" title="Link to this heading">¶</a></h2>
+<h2>Simple Positive Indexing<a class="headerlink" href="#simple-positive-indexing" title="Link to this heading"></a></h2>
 <p>You may already know about this feature, but to ensure we’re all starting in the same place, let’s start with some simple examples of positive indexing, using a list, a tuple, and a string. As shown here, an index is simply a number enclosed in square brackets that you place after the sequence’s name.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simple positive indexing, zero based</span>
 
@@ -175,7 +179,7 @@ The<span class="w"> </span>funniest<span class="w"> </span>stooge<span class="w"
 </div>
 </section>
 <section id="negative-indexing-in-python">
-<h2>Negative Indexing In Python<a class="headerlink" href="#negative-indexing-in-python" title="Link to this heading">¶</a></h2>
+<h2>Negative Indexing In Python<a class="headerlink" href="#negative-indexing-in-python" title="Link to this heading"></a></h2>
 <p>Negative indexing in Python refers to accessing a sequence, such as a list, tuple, or string, using negative numbers indices. Negative indexing starts from the end of the sequence and counts backward. Thus, you can get the last element with an index of -1. The second to last element can be accessed using -2, and so on.</p>
 <p>Using negative indices can be helpful when working with lists of variable length. They allow you to access elements from the end of the list without knowing the length of the list in advance.</p>
 <p>Let’s grab the last character from a line of the Zen of Python, using positive and negative indexing:</p>
@@ -196,7 +200,7 @@ x
 <p>Negative indexing becomes even more helpful when combined with slicing, where it can also be used to reverse a sequence. For example, if you have a list of objects and you want to reverse the sort order of the list, you can use negative indexing to do so.</p>
 </section>
 <section id="getting-an-index-in-a-python-for-loop">
-<h2>Getting an Index in a Python For Loop<a class="headerlink" href="#getting-an-index-in-a-python-for-loop" title="Link to this heading">¶</a></h2>
+<h2>Getting an Index in a Python For Loop<a class="headerlink" href="#getting-an-index-in-a-python-for-loop" title="Link to this heading"></a></h2>
 <p>As we mentioned above, in general, indexes are not needed in Python loops. Many languages have a syntax like this, including Java, C#, and (since C++ 11), C++. Nevertheless, those languages let you revert to using a for loop like those found in C, where an index must still be explicitly used. If you’re curious, here’s how C does this:</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 
@@ -235,7 +239,7 @@ C
 </div>
 </section>
 <section id="python-slices-the-index-on-steroids">
-<h2>Python Slices: The Index on Steroids<a class="headerlink" href="#python-slices-the-index-on-steroids" title="Link to this heading">¶</a></h2>
+<h2>Python Slices: The Index on Steroids<a class="headerlink" href="#python-slices-the-index-on-steroids" title="Link to this heading"></a></h2>
 <p>If I had to name a feature where Python indexing is very different from other languages, it would be the slice feature. A slice is similar to an index, but whereas an index lets us retrieve one element, a slice expression lets us retrieve or set many elements at once. As with indexes, the expression is placed after the sequence name in square brackets, and has the following basic syntax:</p>
 <p><code class="docutils literal notranslate"><span class="pre">sequence[start:stop:step]</span></code></p>
 <p>Here are the meanings of the various steps:</p>
@@ -308,7 +312,7 @@ Step<span class="w"> </span>by<span class="w"> </span>two:
 <p>Slicing in reverse is much less common than working with subsets of an existing list, but it is popular as a Python interview question: “Given a string, <code class="docutils literal notranslate"><span class="pre">s</span> <span class="pre">=</span> <span class="pre">'Life</span> <span class="pre">of</span> <span class="pre">Brian'</span></code> how would you reverse it?” Doing in a loop is the “B” answer at best; <code class="docutils literal notranslate"><span class="pre">s[::-1]</span></code> is probably what your interviewer has in mind.</p>
 </section>
 <section id="assignment-behavior-when-slicing">
-<h2>Assignment Behavior When Slicing<a class="headerlink" href="#assignment-behavior-when-slicing" title="Link to this heading">¶</a></h2>
+<h2>Assignment Behavior When Slicing<a class="headerlink" href="#assignment-behavior-when-slicing" title="Link to this heading"></a></h2>
 <p>Assigning to a slice replaces the slice with the contents of another list or iterable object. It behaves like search and replace in the sense that it’s very flexible with respect to size. The number of items added doesn’t need to match the number of items in the slice The list grows or shrinks to accommodate the new elements.</p>
 <p>For example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">count_to_ten</span> <span class="o">=</span> <span class="p">[</span><span class="n">num</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">)]</span>
@@ -325,7 +329,7 @@ Step<span class="w"> </span>by<span class="w"> </span>two:
 <p>Note that for strings especially, though it’s possible to replace segments using slices, it’s often much more convenient to use the “replace” method to do so.</p>
 </section>
 <section id="python-indexing-and-slicing-exercises">
-<h2>Python Indexing and Slicing Exercises<a class="headerlink" href="#python-indexing-and-slicing-exercises" title="Link to this heading">¶</a></h2>
+<h2>Python Indexing and Slicing Exercises<a class="headerlink" href="#python-indexing-and-slicing-exercises" title="Link to this heading"></a></h2>
 <p>Here are several exercises and sample problems for indexing and slicing in Python Try your hand at these.</p>
 <ol class="arabic simple">
 <li><p>What does the code below produce, and what’s it doing (You can run it to find out if you need to) Can you replace everything except the import with a print statement and a concise slice expression?</p></li>

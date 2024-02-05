@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Selecting Data in Pandas &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=19645805"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -126,7 +130,7 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="selecting-data-in-pandas">
-<h1>Selecting Data in Pandas<a class="headerlink" href="#selecting-data-in-pandas" title="Link to this heading">¶</a></h1>
+<h1>Selecting Data in Pandas<a class="headerlink" href="#selecting-data-in-pandas" title="Link to this heading"></a></h1>
 <p>Unlike SQL, where a single “SELECT” statement can be used in many different ways, Pandas provides several methods to select data from a data frame, including the following:</p>
 <ul class="simple">
 <li><p>Indexing and slicing: Selecting rows and columns by index position, using df.iloc[] for index-based selection and df.loc[] for label-based selection.</p></li>
@@ -138,7 +142,7 @@
 </ul>
 <p>It is important to choose the appropriate method for selecting data based on the specific task and the type of data being used. By understanding the different methods for selecting data in Pandas, data scientists can efficiently manipulate and analyze their data.</p>
 <section id="introduction-to-selecting-data-in-pandas">
-<h2>Introduction to Selecting Data in Pandas<a class="headerlink" href="#introduction-to-selecting-data-in-pandas" title="Link to this heading">¶</a></h2>
+<h2>Introduction to Selecting Data in Pandas<a class="headerlink" href="#introduction-to-selecting-data-in-pandas" title="Link to this heading"></a></h2>
 <p>Pandas is a powerful library for data manipulation and analysis in Python. One of the most important tasks in data analysis is selecting specific data from a dataset. This article will explore different techniques for selecting data from pandas. We will start by covering the basics of selecting data using the [] operator, the .loc[] and .iloc[] attributes, and boolean indexing. Then, we will dive into more advanced techniques such as using the query() method, the at() and iat() methods, the apply() method, and the mask() method.</p>
 <p>Let us first import the dataset, and then use various techniques for selecting data. For this article, we will be using the iris dataset. The code below will load it from an online file:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -150,7 +154,7 @@
 <p><img alt="Importing dataset" src="../_images/importing-dataset1.png" /></p>
 <p>As you can see, the dataset contains information about different types of flowers. Using this data set, let’s discuss various methods for selecting data from a Pandas DataFrame.</p>
 <section id="using-the-operator">
-<h3>Using the [] Operator<a class="headerlink" href="#using-the-operator" title="Link to this heading">¶</a></h3>
+<h3>Using the [] Operator<a class="headerlink" href="#using-the-operator" title="Link to this heading"></a></h3>
 <p>The most basic way to select data in pandas is by using the square brackets operator, []. You can use this operator to select a single column or multiple columns from a DataFrame. The simple syntax to access specific columns using the [] operator is given below:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Syntax of [] operator to select data</span>
 <span class="n">DataFrame</span><span class="p">[</span><span class="s1">&#39;column name&#39;</span><span class="p">]</span>
@@ -203,7 +207,7 @@
 <p>Notice that we have selected the petal length and petal width columns.</p>
 </section>
 <section id="the-iloc-and-loc-methods">
-<h3>The iloc[] and loc[] methods<a class="headerlink" href="#the-iloc-and-loc-methods" title="Link to this heading">¶</a></h3>
+<h3>The iloc[] and loc[] methods<a class="headerlink" href="#the-iloc-and-loc-methods" title="Link to this heading"></a></h3>
 <p>The .loc[] and .iloc[] attributes are used to select rows and columns from a data frame in the Python library pandas. They are both used to select specific rows and columns from a data frame, but they have some key differences in how they are used.</p>
 <p>The .loc[] attribute is used to select rows and columns by their label. In other words, you select a specific row or column by its index or column name. The row you want comes first, followed by the column.</p>
 <p>For example, if you want to select the first row, you would use the following code: <code class="docutils literal notranslate"><span class="pre">data.loc[0]</span></code>. This would return the first row of the DataFrame since we’ve omitted the column selector. Similarly, if you wanted to select the column called “name,” you would use the following code: <code class="docutils literal notranslate"><span class="pre">data.loc[:,</span> <span class="pre">&quot;name&quot;]</span></code>. This would return the entire column of “name.” Here we need to pass a slice operator in the first position as a placeholder.</p>
@@ -254,7 +258,7 @@
 <p>As you can see, we selected multiple columns and rows using loc[] method.</p>
 </section>
 <section id="using-boolean-indexing">
-<h3>Using boolean indexing<a class="headerlink" href="#using-boolean-indexing" title="Link to this heading">¶</a></h3>
+<h3>Using boolean indexing<a class="headerlink" href="#using-boolean-indexing" title="Link to this heading"></a></h3>
 <p>In Pandas, boolean indexing is a way of filtering data in a DataFrame by evaluating a boolean expression. The expression is evaluated for each element in the DataFrame, and only the rows where the expression evaluates to True are kept. The resulting DataFrame contains only the rows that match the specified condition.</p>
 <p>In order to use boolean indexing, we need to create a boolean expression that evaluates to True or False for each row in the DataFrame. For example, we can create an expression to select only the rows where the sepal width is greater than 3</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># selecting specific width of sepal</span>
@@ -275,7 +279,7 @@
 <p>We learned that Boolean indexing is a powerful technique in Pandas for filtering data in a data frame. It allows us to select only the rows that match a specified condition, making extracting and analyzing relevant data easy. Using boolean expressions, we can create complex filters that match multiple conditions, making it a useful tool for data analysis.</p>
 </section>
 <section id="the-query-method-for-selecting-data">
-<h3>The query() method for selecting data<a class="headerlink" href="#the-query-method-for-selecting-data" title="Link to this heading">¶</a></h3>
+<h3>The query() method for selecting data<a class="headerlink" href="#the-query-method-for-selecting-data" title="Link to this heading"></a></h3>
 <p>The Pandas query() method allows us to filter a DataFrame by passing a string containing a boolean expression. The expression is evaluated for each element in the DataFrame, and only the rows where the expression evaluates to True are kept. The resulting data frame contains only the rows that match the specified condition. This method is similar to boolean indexing but allows us to use a more natural and readable syntax.</p>
 <p>The query() method takes a string containing a boolean expression as an argument. For example, we can use the following expression to select only the rows where the sepal width is greater than 3:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># query method</span>
@@ -296,7 +300,7 @@
 <p>As we’ve seen, Pandas’s query() method lets us use a more natural and readable syntax than boolean indexing, making extracting and analyzing relevant data easy.</p>
 </section>
 <section id="using-the-at-and-iat-methods-for-data-selection">
-<h3>Using the at() and iat() methods for data selection<a class="headerlink" href="#using-the-at-and-iat-methods-for-data-selection" title="Link to this heading">¶</a></h3>
+<h3>Using the at() and iat() methods for data selection<a class="headerlink" href="#using-the-at-and-iat-methods-for-data-selection" title="Link to this heading"></a></h3>
 <p>The at() and iat() methods in Pandas are used to access a single value in a DataFrame by providing its index and column labels. The at() method provides fast access to the values in a data frame by taking both the row and column labels as arguments. On the other hand, the iat() method provides fast access to the values in a data frame by taking the row and column index positions as arguments. Both methods return a scalar value representing the data in the specified row and column.</p>
 <p>The at() method takes two arguments: the row label and the column label. For example, we can use the following code to get the value of the sepal length in the first row:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># using at method</span>
@@ -316,7 +320,7 @@
 <p>As you can see, we got the first element of the first column.</p>
 </section>
 <section id="using-the-apply-method-to-select-data">
-<h3>Using the apply() method to select data<a class="headerlink" href="#using-the-apply-method-to-select-data" title="Link to this heading">¶</a></h3>
+<h3>Using the apply() method to select data<a class="headerlink" href="#using-the-apply-method-to-select-data" title="Link to this heading"></a></h3>
 <p>The apply() method in Pandas is a powerful tool that allows you to apply a function to one or more columns in a DataFrame. It is a versatile method that can be used for a wide variety of tasks, such as data cleaning, data transformation, and feature engineering. The apply() method takes the function as its first argument and the columns to apply the function as its second argument.</p>
 <p>We can use the apply() method with built-in Python functions to perform various operations on the columns of the DataFrame. For example, we can use the round() function to round the values in the ‘sepal_length’ column to the nearest whole number:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># applying the apply method</span>
@@ -342,7 +346,7 @@
 <p>As you can see, we added a new column that contains the squares of the sepal_length column.</p>
 </section>
 <section id="using-the-mask-method-to-select-data">
-<h3>Using the mask() method to select data<a class="headerlink" href="#using-the-mask-method-to-select-data" title="Link to this heading">¶</a></h3>
+<h3>Using the mask() method to select data<a class="headerlink" href="#using-the-mask-method-to-select-data" title="Link to this heading"></a></h3>
 <p>The mask() method in Pandas is used to query data using a Boolean mask for a DataFrame. The mask itself is a series of True and False values that determine which values in the DataFrame should be changed or kept unchanged. The mask() method takes a condition as its argument and returns a DataFrame containing only the values that satisfy the condition.</p>
 <p>We can use the mask() method to create a Boolean mask for a DataFrame by specifying a condition. For example, we can create a mask that selects only the rows where the ‘sepal_length’ column is greater than 5:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># mast method</span>
@@ -361,7 +365,7 @@
 </section>
 </section>
 <section id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading"></a></h2>
 <p>In summary, Pandas provides a variety of methods to select data from a DataFrame, including indexing and slicing, boolean indexing, query method, at() and iat() methods, apply method, and mask method. These methods allow data scientists to efficiently select and manipulate data based on specific conditions and requirements. Understanding the different methods and their use cases is essential for effectively working with data in Pandas.</p>
 </section>
 </section>

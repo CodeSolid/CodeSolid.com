@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Python Practice: More Python on Docker Project Ideas &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=19645805"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -119,16 +123,16 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="python-practice-more-python-on-docker-project-ideas">
-<h1>Python Practice:  More Python on Docker Project Ideas<a class="headerlink" href="#python-practice-more-python-on-docker-project-ideas" title="Link to this heading">¶</a></h1>
+<h1>Python Practice:  More Python on Docker Project Ideas<a class="headerlink" href="#python-practice-more-python-on-docker-project-ideas" title="Link to this heading"></a></h1>
 <p>After I wrote my article on <a class="reference external" href="https://codesolid.com/how-to-use-docker-with-python/">How To Use Docker and Docker Compose With Python</a>, it struck me that I had only begun to scratch the surface of the cool projects that might flow out of that idea.</p>
 <p>With this in mind, I thought I’d write briefly about some of these project ideas. Usually, I’m not particularly eager to do “coming soon” posts. However, this is such a rich area for exploration that I thought it would make a good “Python Practice Ideas” article and turn into a laundry list of things I might write about. We may see some of these added to the <a class="reference external" href="https://github.com/CodeSolid/python-docker-examples">Python Docker Examples</a> repo soon, or maybe one of our readers will get to these ideas ahead of us.</p>
 <p>So here, then, in no particular order, are several more ideas for Python Practice projects on Docker.</p>
 <section id="setting-up-python-tests-independently-of-code">
-<h2>Setting Up Python Tests Independently of Code<a class="headerlink" href="#setting-up-python-tests-independently-of-code" title="Link to this heading">¶</a></h2>
+<h2>Setting Up Python Tests Independently of Code<a class="headerlink" href="#setting-up-python-tests-independently-of-code" title="Link to this heading"></a></h2>
 <p>An everyday use case for Docker Compose is relatively easy to set up. It consists of treating the container that contains the production code that one is running as a base container. It’s then straightforward to have a set of unit tests built into another container. Those unit tests might run on the host machine. A more common scenario is that the production and test containers will collectively serve as the whole “ready-to-debug” developer environment.</p>
 </section>
 <section id="showing-how-to-debug-python-containers">
-<h2>Showing How To Debug Python Containers<a class="headerlink" href="#showing-how-to-debug-python-containers" title="Link to this heading">¶</a></h2>
+<h2>Showing How To Debug Python Containers<a class="headerlink" href="#showing-how-to-debug-python-containers" title="Link to this heading"></a></h2>
 <p>Speaking of debugging, debugging into containers is an area that might lead to some excellent articles and starter projects. On the last project I worked on, where we routinely debugged into containers professionally, I used PyCharm as an IDE. I relied on its excellent support for debugging in docker with a Docker Compose configuration. Unfortunately, however, this feature is part of the PyCharm Professional Edition, which might effectively put it out of reach of users who haven’t made that purchase.</p>
 <p>There are at least two workarounds for this. The first workaround is not to pick an IDE where you’re nickel-and-dimed for features; instead, work through the recently improved VS Code documentation on setting up <a class="reference external" href="https://code.visualstudio.com/docs/containers/debug-python">Python Debugging in Containers</a>.</p>
 <p>If suggesting that PyCharm nickels and dimes you sounds harsh, I should point out that I was much more of a Jetbrains fanboy until learning that my expensive all-products-pack didn’t include pre-release software. So it’s “all-products” except the ones you don’t get.).</p>
@@ -137,17 +141,17 @@
 <p>Perhaps the best approach here is to skip PyCharm altogether and limit the discussion to VS Code.</p>
 </section>
 <section id="other-containers-to-help-with-postgres-and-django-development">
-<h2>Other Containers to Help With Postgres and Django Development<a class="headerlink" href="#other-containers-to-help-with-postgres-and-django-development" title="Link to this heading">¶</a></h2>
+<h2>Other Containers to Help With Postgres and Django Development<a class="headerlink" href="#other-containers-to-help-with-postgres-and-django-development" title="Link to this heading"></a></h2>
 <p>The original example I gave for <a class="reference external" href="https://codesolid.com/how-to-use-docker-with-python/#htoc-running-django-and-postgres-using-docker-compose">Postgres plus Django</a> provided a pretty easy-to-use starter application for Django plus Postgres. Still, I could add a great deal more to that example. Another container that would be useful in that context would be a pgAdmin container connected to the same Postgres database to which Django connects. Of course, the common workflow is to set up and run migrations using Django, but I’ve found it’s often helpful to be able to view the database entities themselves. Moreover, one can use PgAdmin to do backups and restores of the development database, so it’s a tool worth having.</p>
 <p>Another container example could take the Postgres plus Docker Compose idea in a different direction. This would involve comparing two major Python ORM products: Djangos versus SQLAlchemy. I suspect that for most Django developers, the choice is moot since their natural (and correct!) inclination is to go with the easy, built-in Django ORM. Still, it might be fun to compare the two on a feature-by-feature basis.</p>
 </section>
 <section id="containers-for-remote-shared-python-development-environments">
-<h2>Containers for Remote Shared Python Development Environments<a class="headerlink" href="#containers-for-remote-shared-python-development-environments" title="Link to this heading">¶</a></h2>
+<h2>Containers for Remote Shared Python Development Environments<a class="headerlink" href="#containers-for-remote-shared-python-development-environments" title="Link to this heading"></a></h2>
 <p>I am always interested in different ways I might share code with readers and allow beginners to Python to work with this code in a hands-on way. Many of the examples I’ve relied on have used JupyterBook (c.f. codesolid.github.io), which provides excellent integration with Google Colab.</p>
 <p>However, another viable option here might have been something like Github Codespaces or Gitpod.io. Both of these options allow for the configuration of a full VS Code environment in a Docker container. For a shared development environment for a Python course or the like, this might prove to be a more useful option than JupyterBook, since it allows teaching a decent (free) IDE with a full-featured debugger.</p>
 </section>
 <section id="interfacing-python-and-c-or-c">
-<h2>Interfacing Python and C++ or C<a class="headerlink" href="#interfacing-python-and-c-or-c" title="Link to this heading">¶</a></h2>
+<h2>Interfacing Python and C++ or C<a class="headerlink" href="#interfacing-python-and-c-or-c" title="Link to this heading"></a></h2>
 <p>A research and writing area I would really like to devote more time and attention to on this blog are the many ways that one can interface and optimize Python with C or C++ code. Doing this work inside a container that supports both C++ and Python development would definitely be a plus, because C++ development is notoriously platform-specific. Focusing on the different approaches to this problem that are available while trying to support all the platforms a user might try it on would really be too much, I think, so a C++ plus Python container could at least lock down the platform side of the equation.</p>
 <p>That said, there are <em>at least</em> four approaches to the problem that one could explore:</p>
 <ul class="simple">
@@ -158,7 +162,7 @@
 </ul>
 </section>
 <section id="serverless-c-you-know-you-want-some">
-<h2>Serverless C++? You Know You Want Some<a class="headerlink" href="#serverless-c-you-know-you-want-some" title="Link to this heading">¶</a></h2>
+<h2>Serverless C++? You Know You Want Some<a class="headerlink" href="#serverless-c-you-know-you-want-some" title="Link to this heading"></a></h2>
 <p>As we’ve discussed before in the context of reviewing <a class="reference external" href="https://codesolid.com/career-paths-for-python-programmers/">Python careers</a>, AWS Lambda functions are one of the areas where Python is heavily used. We’ve covered <a class="reference external" href="https://codesolid.com/python-and-aws-lambda-functions/">Python Lambda functions</a> in a basic way, but in addition to hosting functions written in native Python (or JavaScript, or what have you), AWS Lambda also supports running functions based on <a class="reference external" href="https://docs.aws.amazon.com/lambda/latest/dg/images-create.html">custom containers</a>.</p>
 <p>Creating and launching such a container to run Python would be an interesting exercise in itself, but would not add much value beyond what one can do simply by deploying a Python AWS Lambda function in the usual way, without a custom container. However, the ability to interface with C++ in the last section suggests that we could provide some support – albeit in a very custom way – for running C++ code in AWS Lambda.</p>
 </section>

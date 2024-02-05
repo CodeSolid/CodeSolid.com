@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NumPy Matrix Multiplication: Use @ or Matmul &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=19645805"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -100,7 +104,7 @@
 <p>To run the code for this article online, see the companion <a class="reference external" href="https://jupyter.codesolid.com/lab/index.html?path=examples/MatrixMultiplication.ipynb">matrix multiplication notebook</a>.</p>
 <p>Once we see how to do that, we’ll take a broader look at what it means to multiply two matrices. We’ll define standard matrix multiplication, which is much less intuitive than the Hadamard product. We’ll also show how we can use NumPy as a learning tool to set up matrices that we can solve by hand and check against a solution.</p>
 <section id="numpy-matrix-multiplication-use-or-matmul">
-<h1>NumPy Matrix Multiplication: Use &#64; or Matmul<a class="headerlink" href="#numpy-matrix-multiplication-use-or-matmul" title="Link to this heading">¶</a></h1>
+<h1>NumPy Matrix Multiplication: Use &#64; or Matmul<a class="headerlink" href="#numpy-matrix-multiplication-use-or-matmul" title="Link to this heading"></a></h1>
 <p>If you’re new to NumPy, and especially if you have experience with other linear algebra tools such as MatLab, you might expect that the matrix product of two matrices, A and B, would be given by <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">*</span> <span class="pre">B</span></code>. However, NumPy’s asterisk multiplication operator returns the element-wise (Hadamard) product.</p>
 <p>To get the standard matrix product of two matrices A and B in NumPy instead of the Hadamard product, you can either call NumPy’s <code class="docutils literal notranslate"><span class="pre">matmul</span></code> function, or use the overloaded <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> operator, as shown here for the two matrices:</p>
 <p><img alt="" src="../../_images/image-273.png" /></p>
@@ -126,7 +130,7 @@
 <p>Notice that we used capital letters for A and B rather than the usual Python variable convention of lowercase letters. Mathematicians typically use capitals for matrix variables, so we followed that convention here.</p>
 </section>
 <section id="how-to-multiply-matrices-in-sympy">
-<h1>How to Multiply Matrices in SymPy<a class="headerlink" href="#how-to-multiply-matrices-in-sympy" title="Link to this heading">¶</a></h1>
+<h1>How to Multiply Matrices in SymPy<a class="headerlink" href="#how-to-multiply-matrices-in-sympy" title="Link to this heading"></a></h1>
 <p>Numpy arrays are based on C and are highly performant. Because of this, NumPy is a very popular choice for “matrix” operations in Python, especially those in production or for larger arrays. In contrast, SymPy is generally more highly regarded for interactive symbolic mathematics.</p>
 <p>However, since it also supports operations on matrices and vectors, we should briefly consider how to multiply matrices in SymPy. MatLab users will feel more at home with the fact that in SymPy, you can obtain a matrix product of two <code class="docutils literal notranslate"><span class="pre">sympy.matrices.Matrix</span></code> objects using the standard multiplication operator, “<code class="docutils literal notranslate"><span class="pre">*</span></code>”. SymPy has also implemented support for the new standard Python operator, “<code class="docutils literal notranslate"><span class="pre">&#64;</span></code>”. For the less common operation of finding a Hadamard product, you can use the SymPy <code class="docutils literal notranslate"><span class="pre">matrix_multiply_elementwise</span></code> function.</p>
 <p>For the sake of consistency, let’s show how we might run essentially the same code from the last example in SymPy:</p>
@@ -152,11 +156,11 @@
 <p>The &#64; operator is now so widely supported in Python libraries that we can say the answer to “How do I do matrix multiplication in Python” has a definitive answer: “Use the &#64; operator.” In addition to NumPy and SymPy, for example, TensorFlow also implements this operator. In Tensorflow, it’s equivalent to the <code class="docutils literal notranslate"><span class="pre">matmul</span></code> function from the package <code class="docutils literal notranslate"><span class="pre">tf.linalg</span></code>.</p>
 </section>
 <section id="the-math-behind-matrix-multiplication">
-<h1>The Math Behind Matrix Multiplication<a class="headerlink" href="#the-math-behind-matrix-multiplication" title="Link to this heading">¶</a></h1>
+<h1>The Math Behind Matrix Multiplication<a class="headerlink" href="#the-math-behind-matrix-multiplication" title="Link to this heading"></a></h1>
 <p>Now that we have a pretty firm grasp of how to multiply matrices in Python let’s introduce (or review) what it means to do it in mathematical terms. I will simplify this as much as possible since I know that matrix multiplication can be a little confusing when you first learn it. (In my case, I was still confused about how it worked even after I started consistently getting the correct answers!)</p>
 <p>Before we get through how to do this without getting confused, we need some basic ideas in place, and we’ll illustrate those with some more Python code.</p>
 <section id="matrix-multiplication-is-not-commutative">
-<h2>Matrix Multiplication is Not Commutative<a class="headerlink" href="#matrix-multiplication-is-not-commutative" title="Link to this heading">¶</a></h2>
+<h2>Matrix Multiplication is Not Commutative<a class="headerlink" href="#matrix-multiplication-is-not-commutative" title="Link to this heading"></a></h2>
 <p>The first thing to understand about matrix multiplication is that it’s not commutative. This means that unlike “regular” (scalar) multiplication, you can’t swap the terms around. Though we didn’t know it was the “commutative property” yet, we probably were first exposed to this idea when we learned our multiplication tables. Perhaps our teachers tried to console us about all that memorizing by telling us, “if you learn 2 x 3, then you already know the answer to 3 x 2!”</p>
 <p>Except for a few very special cases, that’s <em><strong>not</strong></em> true of matrix multiplication. We can prove this to ourselves for the matrices C and D from our SymPy example.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C times D:&quot;</span><span class="p">)</span>
@@ -170,7 +174,7 @@
 <p>Not only will we not get the same answer for two matrices when we change the order of the factors being multiplied – sometimes swapping terms like this means we can no longer multiply them at all! Just because we can multiply A x B, there’s no guarantee that we can multiply B x A. To understand why that is, we need to start exploring matrix dimensions.</p>
 </section>
 <section id="matrix-dimensions">
-<h2>Matrix Dimensions<a class="headerlink" href="#matrix-dimensions" title="Link to this heading">¶</a></h2>
+<h2>Matrix Dimensions<a class="headerlink" href="#matrix-dimensions" title="Link to this heading"></a></h2>
 <p>First, a matrix can be any spreadsheet-like table of numbers of any size. (By the way, we’ve been using integers for our examples, but the numbers can be real or even complex numbers).</p>
 <p>The dimensions are always expressed as the numbers of rows first, then the number of columns. We often speak of an M x N matrix, but to me, R x C would be more straightforward – rows first, then columns. But no matter. You’ll have it licked if you remember either “Royal Crown” cola or “Radio Controlled” airplanes.</p>
 <p>So far, we’ve been dealing with square matrices (with the same number of rows and columns) but let’s see how this works with two new matrices that aren’t square:</p>
@@ -194,7 +198,7 @@
 <p>Note, too, that the result for the case that did work has the outer dimensions from our two original arrays. The answer has four rows by three columns.</p>
 </section>
 <section id="matrix-multiplication-by-hand">
-<h2>Matrix Multiplication By Hand<a class="headerlink" href="#matrix-multiplication-by-hand" title="Link to this heading">¶</a></h2>
+<h2>Matrix Multiplication By Hand<a class="headerlink" href="#matrix-multiplication-by-hand" title="Link to this heading"></a></h2>
 <p>To do matrix multiplication by hand, we first need back up and define something called a dot product. Let’s say we have two equal-sized vectors, where a vector is just a series of numbers. (In Python, we’d call it a list or a one-dimensional array).</p>
 <p>In addition to creating a list or a one-dimensional array, we can obtain a vector by taking just a single row or column from a matrix. For example, let’s look at our J and K matrices again:</p>
 <p><img alt="" src="../../_images/image-332.png" /></p>
@@ -222,12 +226,12 @@
 </section>
 </section>
 <section id="don-t-make-this-mistake">
-<h1>Don’t Make This Mistake<a class="headerlink" href="#don-t-make-this-mistake" title="Link to this heading">¶</a></h1>
+<h1>Don’t Make This Mistake<a class="headerlink" href="#don-t-make-this-mistake" title="Link to this heading"></a></h1>
 <p>I mentioned earlier that I was still puzzled by matrix multiplication even after I started doing it correctly. Take the case of multiplying J times K. My confusion stemmed from the fact that the number of <em>columns</em> of J has to match the number of <em>rows</em> from K, yet using the cell-by-cell approach, we take the dot matrix of each row of J times the column of K.</p>
 <p>This turns out to be a non-problem. Rember, because the inner dimensions match, each row of J has exactly the same number of “columns” (individual values) as the number of rows in K. That’s why we could do this by hand by rotating a row of J and processing the dot product of each column of K.</p>
 </section>
 <section id="python-as-a-matrix-exploration-tool">
-<h1>Python As a Matrix Exploration Tool<a class="headerlink" href="#python-as-a-matrix-exploration-tool" title="Link to this heading">¶</a></h1>
+<h1>Python As a Matrix Exploration Tool<a class="headerlink" href="#python-as-a-matrix-exploration-tool" title="Link to this heading"></a></h1>
 <p>Of course, once you know how to do matrix multiplication, using NumPy and SymPy in Python or some other linear algebra system is less error-prone and faster. If you’re learning how to do it, however, either as part of a course or because you’re curious about it, we should point out that the row-by-row method that we’ve shown here corresponds to the more extensive “do-it-by-hand” instructions you can find in <a class="reference external" href="https://blog.cambridgecoaching.com/how-to-multiply-matrices-quickly-and-correctly-in-six-easy-steps">How To Multiply Matrices Quickly and Correctly in Six Easy Steps</a>.</p>
 <p>You can also use Python to practice the technique by generating exercises for you, using the following code as a starting point.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate practice matrices in Python</span>

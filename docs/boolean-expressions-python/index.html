@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Boolean Expressions in Python: Beginner to Expert &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=19645805"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -130,12 +134,12 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="boolean-expressions-in-python-beginner-to-expert">
-<h1>Boolean Expressions in Python: Beginner to Expert<a class="headerlink" href="#boolean-expressions-in-python-beginner-to-expert" title="Link to this heading">¶</a></h1>
+<h1>Boolean Expressions in Python: Beginner to Expert<a class="headerlink" href="#boolean-expressions-in-python-beginner-to-expert" title="Link to this heading"></a></h1>
 <p>We often talk about two different kinds of control flow in programming courses: branching and looping. A program branches when it goes down one path or another based on a condition. Both of these types of control flow are essential features of the vast majority of programming languages.</p>
 <p>We discuss some common ways to loop in detail in our article <a class="reference external" href="https://codesolid.com/python-lists/">Python Lists for Beginners</a>. Here we want to concern ourselves with basic branching, a simple but fundamental concept that you’ll quickly master with just a little practice. Setting aside some advanced techniques for the moment, at the heart of most branching statements you’ll find a Boolean expression.</p>
 <p>A Boolean expression in Python is a combination of values or values and functions that can be interpreted by the Python compiler to return a value that is either true or false. It often consists of at least two terms separated by a comparison operator, such as <code class="docutils literal notranslate"><span class="pre">&quot;price</span> <span class="pre">&gt;</span> <span class="pre">0</span></code>”. However, it can also be any expression or function call that returns a boolean result, such as <code class="docutils literal notranslate"><span class="pre">&quot;'error'</span> <span class="pre">in</span> <span class="pre">msg</span></code>”.</p>
 <section id="a-simple-boolean-example-in-python">
-<h2>A Simple Boolean Example in Python<a class="headerlink" href="#a-simple-boolean-example-in-python" title="Link to this heading">¶</a></h2>
+<h2>A Simple Boolean Example in Python<a class="headerlink" href="#a-simple-boolean-example-in-python" title="Link to this heading"></a></h2>
 <p>Let’s take a simple example of determining whether a number is odd or even. Perhaps we want to print a formatted string including “odd” if a number is odd and “even” if it’s even. We know that a number that’s evenly divisible by two is even – that is to say, the remainder of the division will be zero. We use the modulo operator, “%,” to calculate the remainder of a division:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">4</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span>
@@ -152,7 +156,7 @@
 <p>So now we know how to tell if a number is odd or even. However before writing the code for it, we need to take a fun side trip to the hardware store to pick up some other tools for the job. I promise we’ll come back and build the code, but it’ll be easier if we pack our toolkit first.</p>
 </section>
 <section id="boolean-constants-and-expressions-in-python">
-<h2>Boolean Constants and Expressions in Python<a class="headerlink" href="#boolean-constants-and-expressions-in-python" title="Link to this heading">¶</a></h2>
+<h2>Boolean Constants and Expressions in Python<a class="headerlink" href="#boolean-constants-and-expressions-in-python" title="Link to this heading"></a></h2>
 <p>The word Boolean is capitalized out of deference to Charles Boole, a 19th-century mathematician and philosopher who wanted to apply mathematical principles to logic. He worked out precise rules for expressions that are either entirely true or completely false. In Python, there are two Boolean constants that are capitalized: True and False. It’s possible and acceptable to set a variable to one of these values, but what’s even more common than Boolean variables are Boolean expressions, which are any expression that returns a True or False value. For example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Is three greater than two?</span>
 <span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span>
@@ -188,12 +192,12 @@ True
 </div>
 </section>
 <section id="python-comparison-operators">
-<h2>Python Comparison Operators<a class="headerlink" href="#python-comparison-operators" title="Link to this heading">¶</a></h2>
+<h2>Python Comparison Operators<a class="headerlink" href="#python-comparison-operators" title="Link to this heading"></a></h2>
 <p>Frequently, Boolean expressions are expressions that use comparison operators. Another way to describe Boolean expressions in Python (or other languages) is to say that they are expressions that make a comparison. We’ve seen a lot of this already in our example, but here are the Python comparison operators and what they mean.</p>
 <table><tbody><tr><td><strong>Operator</strong></td><td><strong>How to Read It</strong></td></tr><tr><td>x == y</td><td>x equals y</td></tr><tr><td>x != y</td><td>x does not equal y, x is not equal to y</td></tr><tr><td>x &gt;= y</td><td>x is greater than or equal to y</td></tr><tr><td>x &lt;= y</td><td>x is less than or equal to y</td></tr></tbody></table>
 </section>
 <section id="negation-using-not">
-<h2>Negation Using Not<a class="headerlink" href="#negation-using-not" title="Link to this heading">¶</a></h2>
+<h2>Negation Using Not<a class="headerlink" href="#negation-using-not" title="Link to this heading"></a></h2>
 <p>Just like in English, we can negate any boolean expression by using the keyword <code class="docutils literal notranslate"><span class="pre">not</span></code> in front of it. The keyword <code class="docutils literal notranslate"><span class="pre">not</span></code> is like a polarity reverser – it makes a true expression false and a false expression true.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">9</span> <span class="o">==</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span> <span class="c1"># True</span>
 <span class="nb">print</span><span class="p">(</span><span class="ow">not</span> <span class="mi">9</span> <span class="o">==</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span> <span class="c1"># False</span>
@@ -203,7 +207,7 @@ True
 </div>
 </section>
 <section id="if-and-else-in-python">
-<h2>If and Else In Python<a class="headerlink" href="#if-and-else-in-python" title="Link to this heading">¶</a></h2>
+<h2>If and Else In Python<a class="headerlink" href="#if-and-else-in-python" title="Link to this heading"></a></h2>
 <p>Now that we have some basic Boolean tools to work with, we’re ready to return to our “odd” vs. “even” example and start doing some branching logic. We use the <code class="docutils literal notranslate"><span class="pre">if</span></code> keyword followed by a Boolean expression and a colon; then we indent the following one or more lines that will run only <code class="docutils literal notranslate"><span class="pre">if</span></code> the expression evaluates to true. (Most Python editors will seamlessly convert the tab key to four spaces for us, so I always indent using the tab key).</p>
 <p>We can then optionally use <code class="docutils literal notranslate"><span class="pre">else</span></code> and a colon followed by one or more indented lines, and that code will be executed if the Boolean expression evaluates to false.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_number</span> <span class="o">=</span> <span class="mi">24</span>
@@ -215,7 +219,7 @@ True
 </div>
 </section>
 <section id="handling-more-than-two-cases-in-python-elif">
-<h2>Handling More Than Two Cases in Python: Elif<a class="headerlink" href="#handling-more-than-two-cases-in-python-elif" title="Link to this heading">¶</a></h2>
+<h2>Handling More Than Two Cases in Python: Elif<a class="headerlink" href="#handling-more-than-two-cases-in-python-elif" title="Link to this heading"></a></h2>
 <p>We can run code conditionally with just an <code class="docutils literal notranslate"><span class="pre">if</span></code> clause. The <code class="docutils literal notranslate"><span class="pre">else</span></code> clause is optional – we may not do anything if the Boolean checked by else is <code class="docutils literal notranslate"><span class="pre">False</span></code>. Another optional clause that can be useful in cases where there are more than two possibilities is an <code class="docutils literal notranslate"><span class="pre">elif</span></code> clause, which combines “<code class="docutils literal notranslate"><span class="pre">else</span></code>” and “<code class="docutils literal notranslate"><span class="pre">if</span></code>”. As always, it’s easiest to show with an example.</p>
 <p>I was going to write an example where we sort people into heights based on short, average, and tall, but out of sensitivity to those who might have body issues, I decided to work with potatoes instead. A quick search uncovered a reasonable example where <code class="docutils literal notranslate"><span class="pre">elif</span></code> might be used:</p>
 <blockquote>
@@ -244,7 +248,7 @@ True
 <p>I’m no potato expert, so I can’t tell you what’s supposed to become of potatoes between 2.25 inches and 2.5 inches. However, our code handles that case for now by assigning the label “UNKNOWN”.</p>
 </section>
 <section id="equality-checks-and-checking-for-none">
-<h2>Equality Checks and Checking for None<a class="headerlink" href="#equality-checks-and-checking-for-none" title="Link to this heading">¶</a></h2>
+<h2>Equality Checks and Checking for None<a class="headerlink" href="#equality-checks-and-checking-for-none" title="Link to this heading"></a></h2>
 <p>In the last section, we used <code class="docutils literal notranslate"><span class="pre">==</span></code> and <code class="docutils literal notranslate"><span class="pre">!=</span></code> to say that two numbers are equal or not equal, respectively. Unlike many of the other operators we’ve seen, these operators can be used to compare numbers and various other Python types.</p>
 <p>For example, using “<code class="docutils literal notranslate"><span class="pre">==</span></code>”, we can check that two lists contain the same elements or that two strings are identical. In the string case, by the way, the comparison is case-sensitive. To do a case insensitive comparison, we can convert both strings to the same case and then make the comparison:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s1</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span>
@@ -283,7 +287,7 @@ False
 <p>The reason for this suggestion is that there is only one <code class="docutils literal notranslate"><span class="pre">None</span></code> object in Python, so we’re testing that a variable is set to this one <code class="docutils literal notranslate"><span class="pre">None</span></code> object. Another reason to do it is simply to avoid editor warnings.</p>
 </section>
 <section id="what-are-compound-boolean-expressions-in-python">
-<h2>What Are Compound Boolean Expressions in Python?<a class="headerlink" href="#what-are-compound-boolean-expressions-in-python" title="Link to this heading">¶</a></h2>
+<h2>What Are Compound Boolean Expressions in Python?<a class="headerlink" href="#what-are-compound-boolean-expressions-in-python" title="Link to this heading"></a></h2>
 <p>So far in our discussion, we’ve been mainly dealing with simple Boolean expressions. However, both in code and in real life, it’s often the case that we want to make decisions based on more than one factor. We take an umbrella with us if it’s raining or cloudy. That is to say, we’ll take this action if either thing is true – they don’t have to both be true. Other times we need both things to be true to make a decision. We’ll go out with friends after work if we have time and money. Finally, we often want to do something if something is <strong>not</strong> true.</p>
 <p>Because Python was designed with simplicity in mind, the English words in bold in the last paragraph are also Python keywords we can use to create compound Boolean expressions. That said, we’ve already discussed the behavior of “<code class="docutils literal notranslate"><span class="pre">not</span></code>” in an earlier section, so let’s focus on the behavior of “<code class="docutils literal notranslate"><span class="pre">and</span></code>” and “<code class="docutils literal notranslate"><span class="pre">or</span></code>”.</p>
 <p>The way <code class="docutils literal notranslate"><span class="pre">&quot;and</span></code>” and “<code class="docutils literal notranslate"><span class="pre">or&quot;</span></code> work is that “<code class="docutils literal notranslate"><span class="pre">and</span></code>” evaluates to true if and only if both expressions that it joins are true. On the other hand, “<code class="docutils literal notranslate"><span class="pre">or</span></code>” returns true if at least one of the expressions that it joins is true.</p>
@@ -306,11 +310,11 @@ False
 <p>Some students find it helpful to construct a truth table when learning about Boolean values. Results marked with a * are those results that are the result of short-circuit expressions.</p>
 </section>
 <section id="a-truth-table-for-python-boolean-expressions">
-<h2>A Truth Table for Python Boolean Expressions<a class="headerlink" href="#a-truth-table-for-python-boolean-expressions" title="Link to this heading">¶</a></h2>
+<h2>A Truth Table for Python Boolean Expressions<a class="headerlink" href="#a-truth-table-for-python-boolean-expressions" title="Link to this heading"></a></h2>
 <table><tbody><tr><td>Expression 1</td><td>Connector</td><td>Expression 2</td><td>Result</td></tr><tr><td>True</td><td>and</td><td>True</td><td>True</td></tr><tr><td>False</td><td>and</td><td>True</td><td>False *</td></tr><tr><td>True</td><td>and</td><td>False</td><td>False</td></tr><tr><td>False</td><td>and</td><td>False</td><td>False *</td></tr><tr><td>True</td><td>or</td><td>True</td><td>True *</td></tr><tr><td>False</td><td>or</td><td>True</td><td>True</td></tr><tr><td>True</td><td>or</td><td>False</td><td>True *</td></tr><tr><td>False</td><td>or</td><td>False</td><td>False</td></tr></tbody></table>
 </section>
 <section id="what-are-the-precedence-rules-for-python-boolean-expressions">
-<h2>What Are the Precedence Rules For Python Boolean Expressions?<a class="headerlink" href="#what-are-the-precedence-rules-for-python-boolean-expressions" title="Link to this heading">¶</a></h2>
+<h2>What Are the Precedence Rules For Python Boolean Expressions?<a class="headerlink" href="#what-are-the-precedence-rules-for-python-boolean-expressions" title="Link to this heading"></a></h2>
 <p>When reading or writing Boolean expressions, it’s important to understand the order in which the expression will be evaluated. The Python documentation lists the <a class="reference external" href="https://docs.python.org/3/reference/expressions.html?highlight=precedence#operator-precedence">precedence rules</a> for the entire language, but here our focus is on Boolean expressions and the related issue of comparison operators.</p>
 <p>As the name suggests, Python precedence rules determine which operators are evaluated first. Because of precedence rules, we’re allowed allow us to combine expressions in a way that makes sense. Expressions are chained using operators with higher precedence, using component parts that have operators with lower precedence.</p>
 <p>We’ve been relying on one important rule in our discussion of compound boolean expressions. The comparison operators, <code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">is</span></code>, <code class="docutils literal notranslate"><span class="pre">is</span> <span class="pre">not</span></code>, etc. all have higher precedence than <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code> or <code class="docutils literal notranslate"><span class="pre">not</span></code>. Here is the precedence order, from highest to lowest:</p>
@@ -359,7 +363,7 @@ False
 <p>I have found that the best way to understand the precedence rules in a language is not by memorizing lists of them, but by hands-on practice. Remember that you can always change the order of precedence to be whatever you really mean to do using parentheses</p>
 </section>
 <section id="python-if-else-and-booleans-examples-and-practice-questions">
-<h2>Python If/Else and Booleans: Examples and Practice Questions<a class="headerlink" href="#python-if-else-and-booleans-examples-and-practice-questions" title="Link to this heading">¶</a></h2>
+<h2>Python If/Else and Booleans: Examples and Practice Questions<a class="headerlink" href="#python-if-else-and-booleans-examples-and-practice-questions" title="Link to this heading"></a></h2>
 <p>Note that the following practice questions are meant to challenge you based on the information in the article. Do your best to try these exercises without running them in Python.</p>
 <p>Of course, as with everything else in programming, there’s no substitute for doing lots of hands-on practice, so you might want to try out similar code in Python once you’ve finished with these example questions.</p>
 <p>Online Exercises</p>
@@ -465,7 +469,7 @@ E) Boolean expressions must include a Boolean literal (i.e. one of the the keywo
 <p><a class="reference external" href="https://colab.research.google.com/github/CodeSolid/CodeSolid.github.io/blob/main/booksource/solutions/BooleanExpressionsExercises.ipynb">Solutions to Exercises</a></p>
 </section>
 <section id="you-may-also-like">
-<h2>You May Also Like<a class="headerlink" href="#you-may-also-like" title="Link to this heading">¶</a></h2>
+<h2>You May Also Like<a class="headerlink" href="#you-may-also-like" title="Link to this heading"></a></h2>
 <p><a class="reference external" href="https://codesolid.com/python-operators/">Python Operators: The Building Blocks of Successful Code</a></p>
 <p><a class="reference external" href="https://codesolid.com/python-format-strings/">Python Format Strings: Beginner to Expert</a></p>
 </section>

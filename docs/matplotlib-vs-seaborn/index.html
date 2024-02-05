@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Matplotlib vs. Seaborn &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=19645805"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -125,7 +129,7 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="matplotlib-vs-seaborn">
-<h1>Matplotlib vs. Seaborn<a class="headerlink" href="#matplotlib-vs-seaborn" title="Link to this heading">¶</a></h1>
+<h1>Matplotlib vs. Seaborn<a class="headerlink" href="#matplotlib-vs-seaborn" title="Link to this heading"></a></h1>
 <p>Visualizing your data makes it easier for people to understand it. Visualization helps in the analysis of datasets and the extraction of insights. Matplotlib and Seaborn are complete toolkits for producing static, animated, and interactive visualizations in Python.</p>
 <ul class="simple">
 <li><p>Seaborn is more comfortable handling Pandas data frames and uses basic methods to provide beautiful graphics in Python.</p></li>
@@ -134,7 +138,7 @@
 <p>In this article, we learn step by step how we can plot and label the graphs in Matplotlib and Seaborn. Moreover, we will also compare various plots using Seaborn and Matplolib modules.</p>
 <p>We assume you have a basic idea of Python visualization and Jupyter notebook. If you haven’t installed Jupyter notebook yet, we highly recommend installing it on your system since the implementation part in the article will be in using it.</p>
 <section id="comparing-matplotlib-and-seaborn">
-<h2>Comparing Matplotlib and Seaborn<a class="headerlink" href="#comparing-matplotlib-and-seaborn" title="Link to this heading">¶</a></h2>
+<h2>Comparing Matplotlib and Seaborn<a class="headerlink" href="#comparing-matplotlib-and-seaborn" title="Link to this heading"></a></h2>
 <p>The two most important data visualization libraries in Python are Matplotlib and Seaborn.</p>
 <ul class="simple">
 <li><p>Matplotlib is a Python library used to plot various graphs with the help of additional libraries like Numpy and Pandas. It is an effective Python tool for data visualization and is mainly used to plot 2D graphs of arrays. Moreover, it also uses Pyplot to offer a free and open-source MATLAB-like interface. It can work with different operating systems and their graphical front ends.</p></li>
@@ -145,7 +149,7 @@
 <p>Matplotlib vs. Seaborn</p>
 </section>
 <section id="basic-plots-in-matplotlib-vs-seaborn">
-<h2>Basic Plots in Matplotlib vs. Seaborn<a class="headerlink" href="#basic-plots-in-matplotlib-vs-seaborn" title="Link to this heading">¶</a></h2>
+<h2>Basic Plots in Matplotlib vs. Seaborn<a class="headerlink" href="#basic-plots-in-matplotlib-vs-seaborn" title="Link to this heading"></a></h2>
 <p>We will directly jump into the practical part and create basic plots using Matplotlib and Seaborn modules. Before going to the implementation part, ensure that you have installed Matplotlib and Seaborn modules on your system.</p>
 <p>You can use the pip command to install the modules:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># installing the required modules</span>
@@ -168,7 +172,7 @@
 <p><img alt="" src="../_images/image-343.png" /></p>
 <p>As you can see, I have 3.6.0 and 0.12.0 versions of Matplotlib and Seaborn, respectively.</p>
 <section id="scatter-plots">
-<h3>Scatter Plots<a class="headerlink" href="#scatter-plots" title="Link to this heading">¶</a></h3>
+<h3>Scatter Plots<a class="headerlink" href="#scatter-plots" title="Link to this heading"></a></h3>
 <p>A scatter plot is a graph in which the values of two variables are plotted along two axes, the pattern of the resulting points revealing any correlation present.</p>
 <p>Before plotting the scatter plot using Maplotlib and Seaborn, let us first load the dataset. In this tutorial, we will be using the iris dataset. We’ll use seaborn’s built-in dataset to do this.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing required modules</span>
@@ -253,7 +257,7 @@
 <p>As you can see, in Seaborn, we don’t need to specify the labeling or the legend, which is done by default for some plots.</p>
 </section>
 <section id="line-graphs">
-<h3>Line Graphs<a class="headerlink" href="#line-graphs" title="Link to this heading">¶</a></h3>
+<h3>Line Graphs<a class="headerlink" href="#line-graphs" title="Link to this heading"></a></h3>
 <p>A line chart displays the evolution of one or several numeric variables and is one of the most common chart types for time series and regression datasets.</p>
 <p>Plotting line charts in the Maplotlib model is very easy. The plot() method is used to plot line charts. Let us plot a line chart of petal length(cm) from the dataset:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># line plot in matplotlib</span>
@@ -335,7 +339,7 @@ One of the important parameters in Seaborn plotting is hue which is used to plot
 <p><img alt="" src="../_images/colorful-line-chart-seaborn-1024x6991.png" /></p>
 </section>
 <section id="histogram-plots">
-<h3>Histogram Plots<a class="headerlink" href="#histogram-plots" title="Link to this heading">¶</a></h3>
+<h3>Histogram Plots<a class="headerlink" href="#histogram-plots" title="Link to this heading"></a></h3>
 <p>A histogram is a plot that lets us discover and show the underlying frequency distribution (shape) of a set of continuous data. This allows the inspection of the data for its underlying distribution (e.g., normal distribution), outliers, skewness, etc.</p>
 <p>The hist() method in the Matplotlib module is used to plot a histogram of the dataset.</p>
 <p>Let us plot a simple histogram of the petal lengths of the dataset:</p>
@@ -359,7 +363,7 @@ One of the important parameters in Seaborn plotting is hue which is used to plot
 <p><img alt="" src="../_images/image-422.png" /></p>
 </section>
 <section id="box-plots">
-<h3>Box Plots<a class="headerlink" href="#box-plots" title="Link to this heading">¶</a></h3>
+<h3>Box Plots<a class="headerlink" href="#box-plots" title="Link to this heading"></a></h3>
 <p>A box plot is a simple way of representing statistical data on a plot in which a rectangle is drawn to represent the second and third quartiles, usually with a vertical line inside to indicate the median value. The lower and upper quartiles are shown as horizontal lines on either side of the rectangle.</p>
 <p>The boxplot() method in Matplotlib is used to plot box plots. Let us first plot the box plot for the length of petals:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># fixing the size</span>
@@ -406,7 +410,7 @@ One of the important parameters in Seaborn plotting is hue which is used to plot
 <p><img alt="" src="../_images/box-plot-2-seaborn-1024x7281.png" /></p>
 </section>
 <section id="violin-plots">
-<h3>Violin Plots<a class="headerlink" href="#violin-plots" title="Link to this heading">¶</a></h3>
+<h3>Violin Plots<a class="headerlink" href="#violin-plots" title="Link to this heading"></a></h3>
 <p>Violin plots are similar to box plots, except that they also show the probability density of the data at different values. These plots include a marker for the median of the data and a box indicating the interquartile range, as in the standard box plots. Overlaid on this box plot is a kernel density estimation.</p>
 <p>The violinplot() function in Matplotlib is used to plot violin plots.</p>
 <p>Let us plot a simple violin plot of the length of petals in our dataset:</p>
@@ -457,7 +461,7 @@ One of the important parameters in Seaborn plotting is hue which is used to plot
 <p><img alt="" src="../_images/image-442.png" /></p>
 </section>
 <section id="bar-plots">
-<h3>Bar Plots<a class="headerlink" href="#bar-plots" title="Link to this heading">¶</a></h3>
+<h3>Bar Plots<a class="headerlink" href="#bar-plots" title="Link to this heading"></a></h3>
 <p>A bar plot is a plot that presents categorical data with rectangular bars with lengths proportional to the values that they represent. A bar plot shows comparisons among discrete categories. One axis of the plot shows the specific categories being compared, and the other axis represents a measured value. The difference between a bar plot and a histogram plot is that a bar graph is the graphical representation of categorical data while a histogram is the visual representation of grouped data continuously.</p>
 <p>The bar( ) method in Matplotlib creates a bar plot.</p>
 <p>Let us plot a simple bar graph of the different types of flowers depending on your petals’ length:</p>
@@ -531,7 +535,7 @@ One of the important parameters in Seaborn plotting is hue which is used to plot
 </section>
 </section>
 <section id="creating-legends">
-<h2>Creating Legends<a class="headerlink" href="#creating-legends" title="Link to this heading">¶</a></h2>
+<h2>Creating Legends<a class="headerlink" href="#creating-legends" title="Link to this heading"></a></h2>
 <p>Graph legends give meaning to the visualization of our data and provide title names for the different elements of the graph. As we’ve seen in the preceding examples, because our data is grouped by species, we were often able to get a reasonable legend with little work, especially when we used Seaborn.</p>
 <p>This is not always the case, however, so this section will explore how to create various legends.</p>
 <p>The simplest legend can be created with the plt.legend() command, which automatically creates a legend for all labeled graph elements:</p>
@@ -572,12 +576,12 @@ One of the important parameters in Seaborn plotting is hue which is used to plot
 <p>So we looked at adding legends and changing their location, frame, and line patterns.</p>
 </section>
 <section id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading"></a></h2>
 <p>Matplotlib is one solution for Python users who need to visualize their data to make essential statistical conclusions. It is a complete plotting helpful package for Python and NumPy users. On the other hand, Seaborn is also a Python data visualization library based on Matplotlib, and it provides a high-level interface for drawing attractive and informative statistical graphics.</p>
 <p>Generally speaking, we’ve seen how Matplotlib allows you fine-grain control over settings, but often without a high-level interface that provides excellent default plots. In contrast, Seaborn often allows you to get a great-looking plot with significantly less code while still remaining highly configurable. Matplotlib is worth learning about since it forms the back end of so many plotting libraries, but for general data science work – especially if we’re using Pandas – Seaborn may be a better choice.</p>
 </section>
 <section id="you-might-also-like">
-<h2>You Might Also Like<a class="headerlink" href="#you-might-also-like" title="Link to this heading">¶</a></h2>
+<h2>You Might Also Like<a class="headerlink" href="#you-might-also-like" title="Link to this heading"></a></h2>
 <p>The companion Jupyter notebook for this repository is in the matplotlib-vs-seaborn directory of our <a class="reference external" href="https://github.com/CodeSolid/python-plot-examples">Python Plot Examples</a> repository.</p>
 </section>
 </section>

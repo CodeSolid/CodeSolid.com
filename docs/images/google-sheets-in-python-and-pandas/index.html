@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Devil is Not in the Details, It’s In the Setup. &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=19645805"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -102,7 +106,7 @@
 <p>This article will fill this gap. We build on the gspread documentation to walk you through enabling a connection to a Google Sheet step by step – we even provide a spreadsheet you can upload to Google Sheets to get you started. Once we have gspread configured and working, which we’ll test out in some small sample programs, we’ll move on to integrate our spreadsheet with Pandas using the second package, gspread_dataframe.</p>
 <p>Ready for all that fun? You got this! Let’s dive right in:</p>
 <section id="the-devil-is-not-in-the-details-it-s-in-the-setup">
-<h1>The Devil is Not in the Details, It’s In the Setup.<a class="headerlink" href="#the-devil-is-not-in-the-details-it-s-in-the-setup" title="Link to this heading">¶</a></h1>
+<h1>The Devil is Not in the Details, It’s In the Setup.<a class="headerlink" href="#the-devil-is-not-in-the-details-it-s-in-the-setup" title="Link to this heading"></a></h1>
 <p>Some programming tasks are complex not because they’re hard in themselves but because getting ready to do them is hard. SQL is like that, for example. <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">employees;</span></code> – wow, that was easy, but oh, I have to install something and connect to it first, don’t I?</p>
 <p>In the case of using Google Sheets directly in Python, one of the best-supported approaches is to use the <a class="reference external" href="https://github.com/burnash/gspread">gspread</a> package, but there are some setup steps and dependencies you need before you can take advantage of this package.</p>
 <p>Of course, since we’re using this third-party package, an easy first step before we configure everything is to install that package. With a virtual environment selected, for example:</p>
@@ -111,14 +115,14 @@
 </div>
 </section>
 <section id="welcome-to-the-google-cloud">
-<h1>Welcome to the Google Cloud<a class="headerlink" href="#welcome-to-the-google-cloud" title="Link to this heading">¶</a></h1>
+<h1>Welcome to the Google Cloud<a class="headerlink" href="#welcome-to-the-google-cloud" title="Link to this heading"></a></h1>
 <p>The biggest hurdle is that, to get this to work, you’ll need a <a class="reference external" href="https://cloud.google.com/">Google Cloud</a> account. If you already have one, great. The tasks in this article shouldn’t cost you anything to do since all we’ll be doing is setting up a project and permissions you can apply to the spreadsheet.</p>
 <p>If you don’t have one, you’ll need to set on up, and Google will also throw in [<span class="math notranslate nohighlight">\(300 in free usage credits](https://cloud.google.com/free/) in the hope of making you a loyal Google fanboy someday. (Fan-person, sorry). Again, you shouldn't need any of those \)</span>300 in usage credits for this article, so after you’ve had your fill of this article, you can go and have fun setting up a Kubernetes cluster or something.</p>
 <p>I’m not going to walk you through setting up a Google Cloud account if you don’t have one. But if you have one already or create one, I’ll walk you through the rest of the steps.</p>
 <p>The steps below are a more detailed and visual version of the spread <a class="reference external" href="https://docs.gspread.org/en/latest/oauth2.html#service-account">Google Spreadsheets Authentication</a> instructions. We’ll work through the steps in detail and finish by referring to those instructions again.</p>
 </section>
 <section id="configuring-a-project">
-<h1>Configuring a Project<a class="headerlink" href="#configuring-a-project" title="Link to this heading">¶</a></h1>
+<h1>Configuring a Project<a class="headerlink" href="#configuring-a-project" title="Link to this heading"></a></h1>
 <p>If you have a Google Cloud account already, you probably know that, unlike AWS, Google Cloud organizes cloud resources and permissions in the context of a project. For purposes of this tutorial, we’re going to create a new project and go through the steps of enabling a Google Sheets service account together. Still, you could easily apply these steps to a pre-existing project, too.</p>
 <p>To create a project, visit the Google Cloud <a class="reference external" href="https://console.cloud.google.com/cloud-resource-manager">resource manager</a> page. Here click on the Create Project link:</p>
 <p><img alt="" src="../../_images/gcp_create_project-1024x2381.png" /></p>
@@ -126,7 +130,7 @@
 <p>In a few seconds, you’ll have a new project.</p>
 </section>
 <section id="creating-a-service-account">
-<h1>Creating a Service Account<a class="headerlink" href="#creating-a-service-account" title="Link to this heading">¶</a></h1>
+<h1>Creating a Service Account<a class="headerlink" href="#creating-a-service-account" title="Link to this heading"></a></h1>
 <p>Next, In the “Search Products, resources, docs” field above where you created the project, enter Google Drive API, which will bring you to a page for that. Odds are your new project won’t be selected on that page, so first, select it, then enable the Google Drive API for that project.</p>
 <p><img alt="" src="../../_images/gcp_enable_google_drive_api-1024x5781.png" /></p>
 <p>This step will bring you to the Google Drive API page, which will search the Google Cloud Search field again, so repeat this process by searching for Google Sheets API. Again, make sure your project is selected and enable Google Sheets API.</p>
@@ -136,12 +140,12 @@
 <p>Following this, you’ll probably see two optional steps, “Grant this service account access to project” and “Grant users access to this service account.” If you’re doing this on a personal account without other users, you can skip both steps. Otherwise, you will want to grant access to users who need to access spreadsheets on your account.</p>
 </section>
 <section id="adding-a-key">
-<h1>Adding a Key<a class="headerlink" href="#adding-a-key" title="Link to this heading">¶</a></h1>
+<h1>Adding a Key<a class="headerlink" href="#adding-a-key" title="Link to this heading"></a></h1>
 <p>While still in the API and Services Page, you should now see your new account in the “Service Accounts” section toward the bottom of the screen. Click it to make it active, then click KEYS, then in the Keys window, click “ADD KEY,” then “Create New Key,” select JSON format, and click CREATE.</p>
 <p>This step will download your JSON file with the credentials you’ll need to your computer, wherever you usually download files. You’ll see a message that you should store it securely. Of course, this is a best practice for all such credentials files.</p>
 </section>
 <section id="configure-your-spreadsheet-and-gspread-to-use-the-new-credentials">
-<h1>Configure Your Spreadsheet and Gspread to Use The New Credentials<a class="headerlink" href="#configure-your-spreadsheet-and-gspread-to-use-the-new-credentials" title="Link to this heading">¶</a></h1>
+<h1>Configure Your Spreadsheet and Gspread to Use The New Credentials<a class="headerlink" href="#configure-your-spreadsheet-and-gspread-to-use-the-new-credentials" title="Link to this heading"></a></h1>
 <p>At this point, you need to do three essential things:</p>
 <ol class="arabic simple">
 <li><p>Move the downloaded JSON FILE to a place where gspread can find it. From the documentation: “Move the downloaded file to <code class="docutils literal notranslate"><span class="pre">~/.config/gspread/service_account.json</span></code>. Windows users should put this file to <code class="docutils literal notranslate"><span class="pre">%APPDATA%\gspread\service_account.json</span></code>.”</p></li>
@@ -174,7 +178,7 @@
 <p><img alt="" src="../../_images/gspread_output1.jpg" /></p>
 </section>
 <section id="writing-data">
-<h1>Writing Data<a class="headerlink" href="#writing-data" title="Link to this heading">¶</a></h1>
+<h1>Writing Data<a class="headerlink" href="#writing-data" title="Link to this heading"></a></h1>
 <p>In addition to reading existing data, we can also write to cells or whole new worksheet pages. Let’s copy our existing data and modify the header names to demonstrate this.</p>
 <p>Here’s the code we would use for something like that.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gspread</span>
@@ -205,7 +209,7 @@
 <p><img alt="" src="../../_images/analytics_update1.png" /></p>
 </section>
 <section id="using-google-sheets-with-pandas">
-<h1>Using Google Sheets With Pandas<a class="headerlink" href="#using-google-sheets-with-pandas" title="Link to this heading">¶</a></h1>
+<h1>Using Google Sheets With Pandas<a class="headerlink" href="#using-google-sheets-with-pandas" title="Link to this heading"></a></h1>
 <p>Now that we’ve gone through the steps to configure gspread and demonstrate some basic functionality, it won’t take too much effort to see how this integrates with Pandas. For this, we’ll be working with the gspread-dataframe package, and we should also grab Pandas and NumPy while we’re at it.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>gspread-dataframe<span class="w"> </span>pandas<span class="w"> </span>numpy
 </pre></div>
@@ -248,7 +252,7 @@
 <p>If you make this change, you’ll also need to set the <code class="docutils literal notranslate"><span class="pre">skiprows</span></code> value to zero when you read the DataFrame back.</p>
 </section>
 <section id="closing-thoughts">
-<h1>Closing Thoughts<a class="headerlink" href="#closing-thoughts" title="Link to this heading">¶</a></h1>
+<h1>Closing Thoughts<a class="headerlink" href="#closing-thoughts" title="Link to this heading"></a></h1>
 <p>The Python packages for dealing with Google Sheets either directly or in Pandas both work well enough, and neither gave me any trouble. However, working with Google Sheets directly like this was reasonably involved, so it might not make sense for truly casual use.</p>
 <p>A good case for modifying an existing SpreadSheet <em>as</em> a Google sheet would be where the sheet needs to be shared with other users. Otherwise, it might be easier to work with the spreadsheet directly in Pandas.</p>
 <p>As more and more of us rely on Google’s “office apps in the cloud,” however, perhaps this closing advice is pretty moot, though. Once you’ve set up your Google project and service account, it’s not that onerous to add your service account to any Google Sheet you access in Python.</p>

@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>What Are Good Projects To Practice In Python? &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=19645805"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -123,15 +127,15 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="what-are-good-projects-to-practice-in-python">
-<h1>What Are Good Projects To Practice In Python?<a class="headerlink" href="#what-are-good-projects-to-practice-in-python" title="Link to this heading">¶</a></h1>
+<h1>What Are Good Projects To Practice In Python?<a class="headerlink" href="#what-are-good-projects-to-practice-in-python" title="Link to this heading"></a></h1>
 <p>The best Python practice projects depend on your interests and career choice, your goals for practice, and your skill level. But since we all can use some help brainstorming ideas and resources, this series of articles on Python Practice Projects can help you get started on the next big thing.</p>
 <section id="introduction-why-is-this-a-series">
-<h2>Introduction: Why Is This a Series?<a class="headerlink" href="#introduction-why-is-this-a-series" title="Link to this heading">¶</a></h2>
+<h2>Introduction: Why Is This a Series?<a class="headerlink" href="#introduction-why-is-this-a-series" title="Link to this heading"></a></h2>
 <p>A friend of mine and fan of the site reached out to me recently and asked me if I had ideas for Python Projects he could do to improve his skills, now that he’d been through an introductory Python text. I also see that question asked a lot on the <a class="reference external" href="https://www.reddit.com/r/Python/">r/Python</a> discussion on Reddit. I see some version of the question scroll by at least once per week.</p>
 <p>It’s a great question, as doing real work in a language is one way to really learn it well. The trouble is, though almost everyone is familiar with the cliché, “practice makes perfect”, learning the truism doesn’t teach us <em>what</em> to practice, or even give us much guidance on where to look. This problem is even more acute once you get past the beginner stage. In my article on <a class="reference external" href="https://codesolid.com/how-to-practice-python/#setting-up-your-environment-for-success">How to Practice Python</a>, I counsel beginners to have a resource to learn from to guide their practice, and I’m able to provide a link to two good resources to use. But what if you don’t want to buy the book, or what if you’ve picked up a good introductory course or book on Python and practiced what you can through that, then what?</p>
 </section>
 <section id="the-plan">
-<h2>The Plan<a class="headerlink" href="#the-plan" title="Link to this heading">¶</a></h2>
+<h2>The Plan<a class="headerlink" href="#the-plan" title="Link to this heading"></a></h2>
 <p>Since the point of the series will be to brainstorm ideas for Python projects and exercises to help you in your practice, I don’t expect each issue to necessarily follow the same format, but here are some ways a typical article might be structured.</p>
 <ul class="simple">
 <li><p><strong>Exercises for beginners</strong>. This section will definitely overlap the kinds of exercises you can expect to find in a Python book.</p></li>
@@ -142,16 +146,16 @@
 </ul>
 </section>
 <section id="issue-1">
-<h2>Issue #1<a class="headerlink" href="#issue-1" title="Link to this heading">¶</a></h2>
+<h2>Issue #1<a class="headerlink" href="#issue-1" title="Link to this heading"></a></h2>
 <section id="a-beginner-exercise">
-<h3>A Beginner Exercise<a class="headerlink" href="#a-beginner-exercise" title="Link to this heading">¶</a></h3>
+<h3>A Beginner Exercise<a class="headerlink" href="#a-beginner-exercise" title="Link to this heading"></a></h3>
 <p><strong>String Formatting</strong>. One of the most important aspects of any programming language is the ability to format strings. On a very basic level, this involves being able to concatenate strings and use string formatting tools, perhaps the most popular of which in modern Python programming is the <a class="reference external" href="https://docs.python.org/3/tutorial/inputoutput.html#formatted-string-literals">Formatted–string literal</a>, or “f-string”.</p>
 <p>Using f-strings is fairly easy, but this exercise is to practice attractively formatting tabular data for the screen, which may involve spacing the data for the longest row, different forms of justification, decimal alignment (it may help to use “round” on numeric columns), etc.</p>
 <p>For this exercise, imagine or create a few rows of tabular data. For example, If you need ideas, take a look at this list of <a class="reference external" href="https://people.sc.fsu.edu/~jburkardt/data/csv/csv.html">CSV files</a> – you can load one of these using Python’s <a class="reference external" href="https://docs.python.org/3/library/csv.html">CSV module</a>. Once you have some CSV loaded in memory, how can you format it, so it looks good on the display? (By display here we simply mean STDOUT, but a variation on this exercise is to generate a formatted HTML table).</p>
 <p>What about the next CSV file? For a more advanced program, consider how you might apply an array of format strings or some other mechanism to format and output any CSV nicely. How might you organize a module to do this using functions or classes?</p>
 </section>
 <section id="an-intermediate-advanced-exercise">
-<h3>An Intermediate / Advanced Exercise<a class="headerlink" href="#an-intermediate-advanced-exercise" title="Link to this heading">¶</a></h3>
+<h3>An Intermediate / Advanced Exercise<a class="headerlink" href="#an-intermediate-advanced-exercise" title="Link to this heading"></a></h3>
 <p>Here’s an intermediate to advanced exercise that I admit I haven’t gone through myself – yet. Unlike languages like C, C++, and Golang, Python doesn’t natively support compiling files to executables and shipping pre-built binaries to customers. On a recent Python Reddit thread, this was one of the most popular answer to the question, <a class="reference external" href="https://www.reddit.com/r/Python/comments/scbotw/what_are_the_top_features_you_wish_python_had/">What are the top features you wish Python had</a>?</p>
 <p>The mission for the exercise is to try to build some Python executables of various degrees of complexity, on one or more top platforms you can readily access. The Reddit thread lists a variety of tools you can try to do this with – though some are platform specific.</p>
 <p>Some things you might try to build are:</p>
@@ -163,18 +167,18 @@
 </ul>
 </section>
 <section id="seen-around-the-web">
-<h3>Seen Around The Web<a class="headerlink" href="#seen-around-the-web" title="Link to this heading">¶</a></h3>
+<h3>Seen Around The Web<a class="headerlink" href="#seen-around-the-web" title="Link to this heading"></a></h3>
 <p>For more project ideas, here are a couple of links to get you started.</p>
 <p>If you are brand new to Python or need to brush up quickly on some syntax, one of my favorite sites for every language I’m learning is <a class="reference external" href="https://www.w3schools.com/python/default.asp">w3schools.com</a>. They always have great tutorials that give you an overview of the language.</p>
 <p>You might find several intermediate/advanced project ideas in this thread about <a class="reference external" href="https://www.reddit.com/r/Python/comments/slqxbt/what_have_you_recently_automated_at_work_using/">what tasks Python devs have recently automated at work</a>.</p>
 </section>
 </section>
 <section id="what-are-you-working-on">
-<h2>What Are You Working On?<a class="headerlink" href="#what-are-you-working-on" title="Link to this heading">¶</a></h2>
+<h2>What Are You Working On?<a class="headerlink" href="#what-are-you-working-on" title="Link to this heading"></a></h2>
 <p>Are you working on a cool project, task, or learning goal? We’d love to hear about what you’re doing and, we may feature you in a later article too! Drop us a line in the comments!</p>
 </section>
 <section id="you-may-also-enjoy">
-<h2>You May Also Enjoy<a class="headerlink" href="#you-may-also-enjoy" title="Link to this heading">¶</a></h2>
+<h2>You May Also Enjoy<a class="headerlink" href="#you-may-also-enjoy" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://codesolid.com/random-python-secrets-and-random-values-made-easy/">Random Python: Secrets and Random Values Made Easy</a></p></li>
 <li><p><a class="reference external" href="https://codesolid.com/python-format-strings/">Python Format Strings: Beginner to Expert</a></p></li>

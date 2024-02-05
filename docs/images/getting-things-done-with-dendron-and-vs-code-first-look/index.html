@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Good &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=19645805"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -104,7 +108,7 @@
 </ul>
 <p>Last week, I wrote an article about <a class="reference external" href="https://codesolid.com/2021/12/11/getting-things-done-with-github-markdown-and-visual-studio-code/">Getting Things Done (GTD) using VS Code</a>, and one of my smart colleagues suggested I take a look at the Dendron extension. I’ve been using this extension fairly heavily since then. I’ve also been figuring out how I want to integrate it into a GTD workflow. Since Friday is the day that I’ve set aside for my “weekly review” and I just completed the first one, I thought I’d take a moment to share my thoughts about Dendron VSCode.</p>
 <section id="the-good">
-<h1>The Good<a class="headerlink" href="#the-good" title="Link to this heading">¶</a></h1>
+<h1>The Good<a class="headerlink" href="#the-good" title="Link to this heading"></a></h1>
 <ul class="simple">
 <li><p>Cmd-L (Or Ctrl-L on Windows). This brings up the lookup window, which is by far Dendron’s coolest feature. I can look up an existing note or create a new one from the keyboard, instantly. Once in the lookup window, I can choose “Create New” or type a few letters of what I’m looking for, a down arrow or two, and BAM! I’m there. So if I want to review something – my inbox or next-actions pages, for example – I can do it in about 3 seconds.</p></li>
 <li><p>The information hierarchy. Dendron files are simple markdown that you can organize any way you like by filename. For example, for getting things done, I have several files in the pattern project.[project-name].md files. This article, similarly, was originally drafted as: “writing.getting-things-done-dendron-first-look.md”.</p></li>
@@ -114,22 +118,22 @@
 <p>After a while, this system of linked information really does start to feel like the interconnected neurons in a second brain. And there you have the origin of the name “Dendron” as well.</p>
 </section>
 <section id="the-bad">
-<h1>The Bad<a class="headerlink" href="#the-bad" title="Link to this heading">¶</a></h1>
+<h1>The Bad<a class="headerlink" href="#the-bad" title="Link to this heading"></a></h1>
 <ul class="simple">
 <li><p>My initial new user experience with Dendron was pretty dismal, but I tried to reproduce it a moment ago, and it looks like an update pushed two days ago took care of some of that. It looks like Dendron now can either set up a global style “Second Brain” or integrate well into your existing VS Code project. I’ve since added a Dendron “vault” (folder) to an existing project I have for my coding course development, and that worked quite well. So this was a really needed update. Still, it’s prudent that you make such changes on a git branch or the like, or otherwise back up your work before you add Dendron.</p></li>
 <li><p>The calendar view is not easy to navigate. Today for my weekly review I had to add some appointments to next month, and it was more of a chore than it needed to be. An easy way to add a new “daily.journal.[date].md” file (calendar entry) from the command palette or look up “today” would be a great addition! For me that’s not a deal-breaker, as I don’t often schedule things, but if your use case relies heavily on scheduling or appointments or the like (managers, salespeople, etc.), Dendron is not best suited to the task.</p></li>
 </ul>
 </section>
 <section id="the-indifferent">
-<h1>The Indifferent<a class="headerlink" href="#the-indifferent" title="Link to this heading">¶</a></h1>
+<h1>The Indifferent<a class="headerlink" href="#the-indifferent" title="Link to this heading"></a></h1>
 <p>Dendron has support for schemas. I haven’t yet found them useful yet, since they seemed a bit heavy to set up for my needs at this point. However, if you really want to describe and organize the hierarchical structure I mentioned above, schemas are the way to do it.</p>
 </section>
 <section id="overall-impressions">
-<h1>Overall Impressions<a class="headerlink" href="#overall-impressions" title="Link to this heading">¶</a></h1>
+<h1>Overall Impressions<a class="headerlink" href="#overall-impressions" title="Link to this heading"></a></h1>
 <p>If you’re a VS Code user already and want to organize your notes and projects in an intuitive way, get Dendron – it’s absolutely awesome. Except for a few rough edges, I am really a fan. I’m writing this post in a Dendron-enabled project now, for example, so that should tell you something. It also supports a “Getting Things Done” workflow extremely well. However, you will have to spend a little time thinking about how you want to set up contexts, projects, and the like, as Dendron is not a dedicated GTD tool.</p>
 </section>
 <section id="try-it-yourself">
-<h1>Try It Yourself<a class="headerlink" href="#try-it-yourself" title="Link to this heading">¶</a></h1>
+<h1>Try It Yourself<a class="headerlink" href="#try-it-yourself" title="Link to this heading"></a></h1>
 <p>Like all Visual Studio Code Extensions, you can browse and <a class="reference external" href="https://code.visualstudio.com/docs/editor/extension-marketplace#_browse-for-extensions">install the extension in the usual way</a>. Simply browse for “dendron” and install it. You can read about Dendron on the <a class="reference external" href="https://wiki.dendron.so/">Dendron Wiki</a>.</p>
 </section>
 

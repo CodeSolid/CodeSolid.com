@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Python Date and Time Functions: The Complete Tutorial &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=19645805"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -160,9 +164,9 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="python-date-and-time-functions-the-complete-tutorial">
-<h1>Python Date and Time Functions: The Complete Tutorial<a class="headerlink" href="#python-date-and-time-functions-the-complete-tutorial" title="Link to this heading">¶</a></h1>
+<h1>Python Date and Time Functions: The Complete Tutorial<a class="headerlink" href="#python-date-and-time-functions-the-complete-tutorial" title="Link to this heading"></a></h1>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
 <p>What time is it now?</p>
 <p>That’s a pretty simple question, right? Your computer and your phone know the answer. You can probably just glance at the menu or the status bar. However, you might be surprised to learn that handling dates and times can sometimes be a bit more complex compared to simple numeric types like integers and floats. For example, how can I interpret your answer if I don’t know the time zone in which you live?</p>
 <p>Fortunately, the Python standard library includes a few modules and classes to make it easy to work with dates and time values, whether they’re just local or include timezone information. For example, the Python datetime module provides an object-oriented interface to manipulate dates and times, including classes to represent differences in time between one event and another.</p>
@@ -173,9 +177,9 @@
 <p>We’ll take it step-by-step and start with the most basic use cases first. So – if you have the time – let’s get started!</p>
 </section>
 <section id="the-datetime-module-basic-tasks">
-<h2>The DateTime Module: Basic Tasks<a class="headerlink" href="#the-datetime-module-basic-tasks" title="Link to this heading">¶</a></h2>
+<h2>The DateTime Module: Basic Tasks<a class="headerlink" href="#the-datetime-module-basic-tasks" title="Link to this heading"></a></h2>
 <section id="how-to-get-the-current-time-in-python">
-<h3>How to Get the Current Time in Python<a class="headerlink" href="#how-to-get-the-current-time-in-python" title="Link to this heading">¶</a></h3>
+<h3>How to Get the Current Time in Python<a class="headerlink" href="#how-to-get-the-current-time-in-python" title="Link to this heading"></a></h3>
 <p>As long as you don’t yet care about time zones, getting and displaying the current system time for the computer running the Python program is simply a matter of importing the datetime class from the datetime module and calling datetime.now().</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Display the current local time&quot;&quot;&quot;</span>
 
@@ -198,7 +202,7 @@
 </div>
 </section>
 <section id="how-to-get-the-current-date-in-python">
-<h3>How to Get the Current Date in Python<a class="headerlink" href="#how-to-get-the-current-date-in-python" title="Link to this heading">¶</a></h3>
+<h3>How to Get the Current Date in Python<a class="headerlink" href="#how-to-get-the-current-date-in-python" title="Link to this heading"></a></h3>
 <p>If you’re not interested in the time, only interested in recording or displaying the current date in Python, using the datetime module’s date class is one way to get it. Instead of datetime.now(), one calls date.today() to get the current date.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print the current date only</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
@@ -213,7 +217,7 @@
 </section>
 </section>
 <section id="the-python-datetime-module-a-closer-look">
-<h2>The Python Datetime Module: A Closer Look<a class="headerlink" href="#the-python-datetime-module-a-closer-look" title="Link to this heading">¶</a></h2>
+<h2>The Python Datetime Module: A Closer Look<a class="headerlink" href="#the-python-datetime-module-a-closer-look" title="Link to this heading"></a></h2>
 <p>So far, we’ve used the “<code class="docutils literal notranslate"><span class="pre">now</span></code>” function of the datetime class to get the current time, and you may have noticed this also included information about the date. We also got today’s date by calling the date class’s <code class="docutils literal notranslate"><span class="pre">&quot;today</span></code>” function. Now that we’ve touched on the very basics, it’s time to spend a little more time understanding the datetime module in more detail.</p>
 <p>The datetime class can be thought of as the union of the fields from through other datetime module classes: date and time. In fact, we can get a date instance or an instance of the time class from a datetime instance. We can write a short program to display what each of these classes contains:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;datetime module basic field demo&quot;&quot;&quot;</span>
@@ -256,7 +260,7 @@
 <p>Speaking of interesting details about the Gregorian vs. Julian calendar, did you know that the first president of the United States, George Washington, had two birthdays? According to the <a class="reference external" href="https://www.archives.gov/legislative/features/washington#:~:text=George%20Washington%20was%20born%20in,days%20to%20February%2022%2C%201732.">National Archives</a>, “<em>George Washington was born in Virginia on February 11, 1731, according to the then-used Julian calendar. In 1752, however, Britain and all its colonies adopted the Gregorian calendar which moved Washington’s birthday a year and 11 days to February 22, 1732.</em>”</p>
 </section>
 <section id="aware-vs-naive-datetimes">
-<h2>Aware vs. Naive Datetimes<a class="headerlink" href="#aware-vs-naive-datetimes" title="Link to this heading">¶</a></h2>
+<h2>Aware vs. Naive Datetimes<a class="headerlink" href="#aware-vs-naive-datetimes" title="Link to this heading"></a></h2>
 <p>For scripts or applications that run strictly on the desktop, local time is generally sufficient. However, there’s a large number of cases where we need to provide a date or time that includes time zone information. For example:</p>
 <ul class="simple">
 <li><p>You need to publish or save an exact date or time that an event occurred and share it outside your time zone.</p></li>
@@ -273,9 +277,9 @@
 </pre></div>
 </div>
 <section id="how-to-create-time-zone-aware-datetime-and-time-instances">
-<h3>How to Create Time Zone Aware Datetime and Time Instances<a class="headerlink" href="#how-to-create-time-zone-aware-datetime-and-time-instances" title="Link to this heading">¶</a></h3>
+<h3>How to Create Time Zone Aware Datetime and Time Instances<a class="headerlink" href="#how-to-create-time-zone-aware-datetime-and-time-instances" title="Link to this heading"></a></h3>
 <section id="getting-the-system-time-zone">
-<h4>Getting the System Time Zone<a class="headerlink" href="#getting-the-system-time-zone" title="Link to this heading">¶</a></h4>
+<h4>Getting the System Time Zone<a class="headerlink" href="#getting-the-system-time-zone" title="Link to this heading"></a></h4>
 <p>Fortunately, creating instances that are time zone aware is quite easy to do in Python. Simply call the datetime function <code class="docutils literal notranslate"><span class="pre">astimezone</span></code> on a naive instance to return an aware datetime instance. With the function above to check our result, here’s a short example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Naive datetimes vs aware datetimes&quot;&quot;&quot;</span>
 
@@ -310,7 +314,7 @@ datetime.datetime<span class="o">(</span><span class="m">2022</span>,<span class
 </div>
 </section>
 <section id="creating-an-arbitrary-time-zone-the-zoneinfo-module">
-<h4>Creating an Arbitrary Time Zone: The Zoneinfo Module<a class="headerlink" href="#creating-an-arbitrary-time-zone-the-zoneinfo-module" title="Link to this heading">¶</a></h4>
+<h4>Creating an Arbitrary Time Zone: The Zoneinfo Module<a class="headerlink" href="#creating-an-arbitrary-time-zone-the-zoneinfo-module" title="Link to this heading"></a></h4>
 <p>In the previous section, we created timezone-aware datetime and time instances using the <code class="docutils literal notranslate"><span class="pre">astimezone</span></code> method of the datetime class. This is a simple and reliable way to get the time zone of the computer the code you’re running on.</p>
 <p>Occasionally, however, you might need to be able to create an arbitrary time zone instance. Suppose your main data center is on the Island of Guam. You’ve been asked to ensure that your web application always writes timezone-aware dates and times to the log, in Guam local time, even if you’re testing from a machine in Saluda, North Carolina.</p>
 <p>To accomplish this you would need to step outside the datetime module we’ve been dealing with so far, and start using the zoneinfo module. The zoneinfo module’s ZoneInfo class provides a way to create time zone information objects compatible with datetime.tzinfo. You do this by passing a name we can use as a key into the IANA time zone database. (By the way, in addition to the <a class="reference external" href="https://www.iana.org/time-zones">time zone database</a>, IANA, or Internet Assigned Numbers Authority, is the same group that maintains the root DNS zones and many other registries used in internet protocols.)</p>
@@ -374,10 +378,10 @@ datetime.datetime<span class="o">(</span><span class="m">2022</span>,<span class
 </section>
 </section>
 <section id="getting-a-future-date-or-past-date-in-python">
-<h2>Getting a Future Date or Past Date in Python<a class="headerlink" href="#getting-a-future-date-or-past-date-in-python" title="Link to this heading">¶</a></h2>
+<h2>Getting a Future Date or Past Date in Python<a class="headerlink" href="#getting-a-future-date-or-past-date-in-python" title="Link to this heading"></a></h2>
 <p>So far we’ve been incredibly zen in our approach to dates and times: we live always in the present moment. Yes, we seemed to get a time in the “future” when Guam was fourteen hours ahead of us, but no, that was just “right now” in another time zone.</p>
 <section id="using-a-date-or-datetime-constructor">
-<h3>Using a Date or Datetime Constructor<a class="headerlink" href="#using-a-date-or-datetime-constructor" title="Link to this heading">¶</a></h3>
+<h3>Using a Date or Datetime Constructor<a class="headerlink" href="#using-a-date-or-datetime-constructor" title="Link to this heading"></a></h3>
 <p>To construct future dates or datetime objects, we simply pass the fields we discussed earlier into the appropriate constructor. For datetime, we can specify the <code class="docutils literal notranslate"><span class="pre">tzinfo</span></code> field if we wish, and we have to pass the date fields (the time fields are optional).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Using the date and datetime constructors</span>
 
@@ -407,9 +411,9 @@ datetime.datetime<span class="o">(</span><span class="m">2022</span>,<span class
 </section>
 </section>
 <section id="manipulating-dates-and-times-with-timedelta">
-<h2>Manipulating Dates and Times With Timedelta<a class="headerlink" href="#manipulating-dates-and-times-with-timedelta" title="Link to this heading">¶</a></h2>
+<h2>Manipulating Dates and Times With Timedelta<a class="headerlink" href="#manipulating-dates-and-times-with-timedelta" title="Link to this heading"></a></h2>
 <section id="how-to-add-days-to-a-date-object-in-python">
-<h3>How to Add Days to a Date Object In Python<a class="headerlink" href="#how-to-add-days-to-a-date-object-in-python" title="Link to this heading">¶</a></h3>
+<h3>How to Add Days to a Date Object In Python<a class="headerlink" href="#how-to-add-days-to-a-date-object-in-python" title="Link to this heading"></a></h3>
 <p>Besides using a constructor, we can use the datetime module’s <code class="docutils literal notranslate"><span class="pre">timedelta</span></code> class to get an arbitrary date or time in the future or the past. The <code class="docutils literal notranslate"><span class="pre">timedelta</span></code> class represents the difference between two dates or times. For example, let’s say you’re a library writing a custom application to track when a book will be due. You can add fourteen or twenty-one days to today’s date, and easily get the resulting date.</p>
 <p>You generally construct a <code class="docutils literal notranslate"><span class="pre">timedelta</span></code> object using either days or seconds as a value. (You can also use both). Either value can be positive or negative. Here are some <code class="docutils literal notranslate"><span class="pre">timedelta</span></code> examples:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Constructing a Python timedelta object&quot;&quot;&quot;</span>
@@ -453,7 +457,7 @@ datetime.datetime<span class="o">(</span><span class="m">2022</span>,<span class
 </div>
 </section>
 <section id="adding-or-subtracting-time">
-<h3>Adding or Subtracting Time<a class="headerlink" href="#adding-or-subtracting-time" title="Link to this heading">¶</a></h3>
+<h3>Adding or Subtracting Time<a class="headerlink" href="#adding-or-subtracting-time" title="Link to this heading"></a></h3>
 <p>The same technique can be used to apply a time difference, too, of course. And remember we can always move dates and times ahead as well as behind.</p>
 <p>There is a caveat when adding or subtracting times. Unlike adding or subtracting date objects, which we saw above uses simple math operators, in the case of <code class="docutils literal notranslate"><span class="pre">datetime.time</span></code>, the + and - operators are not overloaded. So time intervals can not be added or subtracted on time objects. So the way you have to do it is to add or subtract the time interval you want to the datetime object first, then use the datetime object’s <code class="docutils literal notranslate"><span class="pre">time</span></code> function to return just the time if that’s what you want.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Travel 3 minutes into the past:</span>
@@ -474,7 +478,7 @@ datetime.datetime<span class="o">(</span><span class="m">2022</span>,<span class
 <p>Again, we’ll focus on getting some prettier formatting going in a later section. For now, let’s continue our discussion of the Python timedelta class.</p>
 </section>
 <section id="finding-the-difference-between-two-dates">
-<h3>Finding the Difference Between Two Dates<a class="headerlink" href="#finding-the-difference-between-two-dates" title="Link to this heading">¶</a></h3>
+<h3>Finding the Difference Between Two Dates<a class="headerlink" href="#finding-the-difference-between-two-dates" title="Link to this heading"></a></h3>
 <p>So far we’ve looked at how to construct a timedelta object using either days or seconds and use it to adjust a date into either the future or the past. So we’ve seen basically this formula at work (pseudocode):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>datetime_1<span class="w"> </span>+/-<span class="w"> </span><span class="nv">timedelta</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>datetime_2<span class="w"> </span>
 </pre></div>
@@ -486,7 +490,7 @@ datetime.datetime<span class="o">(</span><span class="m">2022</span>,<span class
 <p>So you might be wondering, “Does that also work in Python?” The answer to that question is that it sure does, and we can use this property to implement behavior such as a countdown timer or calendar.</p>
 </section>
 <section id="calculate-remaining-days-until-christmas-in-python">
-<h3>Calculate Remaining Days Until Christmas in Python<a class="headerlink" href="#calculate-remaining-days-until-christmas-in-python" title="Link to this heading">¶</a></h3>
+<h3>Calculate Remaining Days Until Christmas in Python<a class="headerlink" href="#calculate-remaining-days-until-christmas-in-python" title="Link to this heading"></a></h3>
 <p>Now that we know that subtracting dates or datetimes will return a timedelta object, let’s work a fun program with it.</p>
 <p>If your kids need to know when Santa will be here, here’s how you could do it. (Apologies in advance to those who don’t celebrate that particular winter holiday, but feel free to adapt the code!).</p>
 <p>ou’ll notice we’ll also do a datetime comparison in this program; we’ll explain it all after showing the code.</p>
@@ -509,7 +513,7 @@ datetime.datetime<span class="o">(</span><span class="m">2022</span>,<span class
 </section>
 </section>
 <section id="formatting-and-parsing-dates-and-times-in-python">
-<h2>Formatting and Parsing Dates and Times in Python<a class="headerlink" href="#formatting-and-parsing-dates-and-times-in-python" title="Link to this heading">¶</a></h2>
+<h2>Formatting and Parsing Dates and Times in Python<a class="headerlink" href="#formatting-and-parsing-dates-and-times-in-python" title="Link to this heading"></a></h2>
 <p>If you’ve been reading through the article so far, you may have noticed that many of our “output” sections have been rather ugly. For example, in our section on “Adding or Subtracting Time”, the output from one of our examples was this:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Now<span class="w"> </span>it<span class="err">&#39;</span>s<span class="w"> </span><span class="m">16</span>:11:11.562711.<span class="w"> </span>Three<span class="w"> </span>minutes<span class="w"> </span>ago<span class="w"> </span>it<span class="w"> </span>was<span class="w"> </span><span class="m">16</span>:08:11.562711.<span class="w"> </span>See<span class="w"> </span>you<span class="w"> </span>there!
 </pre></div>
@@ -523,7 +527,7 @@ datetime.datetime<span class="o">(</span><span class="m">2022</span>,<span class
 <p>As a Python programmer, you may find those names a little bit more compressed than what you’re used to. The names actually come from the same functions in C, the language on which Python is based. Their shortness reflects the fact that, prior to the 1989 ANSI C standard, some C compilers only supported identifiers up to eight characters in length!</p>
 <p>Strftime and strptime share the same <a class="reference external" href="https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes">formatting codes</a>. As with everything in Python, however, the best way to get a feel for them is by coding up several examples.</p>
 <section id="formatting-dates-and-times-with-strftime">
-<h3>Formatting Dates and Times with Strftime<a class="headerlink" href="#formatting-dates-and-times-with-strftime" title="Link to this heading">¶</a></h3>
+<h3>Formatting Dates and Times with Strftime<a class="headerlink" href="#formatting-dates-and-times-with-strftime" title="Link to this heading"></a></h3>
 <p>We’ll start with some formatting examples with strftime. Since we’ll need a date and time for the example, I’m going to choose a day that’s special for me, narrow the time down as much as I can, and throw a Hail Mary pass on the microseconds.</p>
 <p>So here we go:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
@@ -562,7 +566,7 @@ The<span class="w"> </span>event<span class="w"> </span>took<span class="w"> </s
 </div>
 </section>
 <section id="strftime-formatting-codes-review">
-<h3>Strftime Formatting Codes Review<a class="headerlink" href="#strftime-formatting-codes-review" title="Link to this heading">¶</a></h3>
+<h3>Strftime Formatting Codes Review<a class="headerlink" href="#strftime-formatting-codes-review" title="Link to this heading"></a></h3>
 <p>Let’s review the formatting codes we used to get these four lines of output (lines 14, 19, 22, and 25).</p>
 <p>For line 14:</p>
 <ul class="simple">
@@ -592,7 +596,7 @@ The<span class="w"> </span>event<span class="w"> </span>took<span class="w"> </s
 <p>Line 25 contains only one code, a UTC offset, a precise value beginning with +/-HHHH, e.g. -0700 (seven hours behind), +1030 (ten and a half hours ahead), etc.</p>
 </section>
 <section id="parsing-dates-and-times-with-strptime">
-<h3>Parsing Dates and Times with Strptime<a class="headerlink" href="#parsing-dates-and-times-with-strptime" title="Link to this heading">¶</a></h3>
+<h3>Parsing Dates and Times with Strptime<a class="headerlink" href="#parsing-dates-and-times-with-strptime" title="Link to this heading"></a></h3>
 <p>The Python datetime class has a static method, strptime, that can be used to flexibly parse datetimes. It accepts a two arguments, a string representing a date, and a format string representing how to parse it. The format strings are compatible with strftime, however, strptime will set some defaults if parts of a full datetime are not available, as follows:</p>
 <ul class="simple">
 <li><p>If you pass a format string that will only retrieve the time portion, the date will be set to January 1, 1900.</p></li>
@@ -624,7 +628,7 @@ The<span class="w"> </span>event<span class="w"> </span>took<span class="w"> </s
 </section>
 </section>
 <section id="saving-and-parsing-dates-in-iso-8601-format">
-<h2>Saving and Parsing Dates in ISO 8601 Format<a class="headerlink" href="#saving-and-parsing-dates-in-iso-8601-format" title="Link to this heading">¶</a></h2>
+<h2>Saving and Parsing Dates in ISO 8601 Format<a class="headerlink" href="#saving-and-parsing-dates-in-iso-8601-format" title="Link to this heading"></a></h2>
 <p>The datetime module provides limited support for formatting and parsing dates in ISO 8601 format. For example, the datetime class can format a string to ISO 8601 format using the <code class="docutils literal notranslate"><span class="pre">isoformat</span></code> method. The <code class="docutils literal notranslate"><span class="pre">fromisoformat</span></code> can parse such a string back to a datetime object, however, the Python documentation warns against using it to parse <em>arbitrary</em> ISO 8601 strings that weren’t created by the <code class="docutils literal notranslate"><span class="pre">isoformat</span></code>. (For those use cases, it recommends using the third party module, dateutil, which we’ll discuss below).</p>
 <p>Meantime, since the datetime library in core Python is fine if you control both the strings created and the parsing side, let’s show a quick example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;datetime ISO format handling demo&quot;&quot;&quot;</span>
@@ -652,22 +656,22 @@ The<span class="w"> </span>event<span class="w"> </span>took<span class="w"> </s
 </div>
 </section>
 <section id="date-and-time-related-standard-library-modules">
-<h2>Date and Time Related Standard Library Modules<a class="headerlink" href="#date-and-time-related-standard-library-modules" title="Link to this heading">¶</a></h2>
+<h2>Date and Time Related Standard Library Modules<a class="headerlink" href="#date-and-time-related-standard-library-modules" title="Link to this heading"></a></h2>
 <p>In addition to the datetime and zoneinfo modules, there are two related modules in the Python standard library.</p>
 <section id="the-python-calendar-module">
-<h3>The Python Calendar Module<a class="headerlink" href="#the-python-calendar-module" title="Link to this heading">¶</a></h3>
+<h3>The Python Calendar Module<a class="headerlink" href="#the-python-calendar-module" title="Link to this heading"></a></h3>
 <p>The calendar module has several calendar-related functions. For example, you can print a text-based calendar for a given month or year. If I wanted to see a calendar for the month Colombia declared its independence from Spain (July 1810), it’s easily accomplished using the TextCalendar’s “prmonth “(“print month”) function:</p>
 <p><img alt="" src="../_images/image-98.png" /></p>
 <p>If you need your calendars in HTML format, with some control over the CSS class names to use for the various pieces, the HTMLCalendar class gets you there.</p>
 </section>
 <section id="the-python-time-module">
-<h3>The Python Time Module<a class="headerlink" href="#the-python-time-module" title="Link to this heading">¶</a></h3>
+<h3>The Python Time Module<a class="headerlink" href="#the-python-time-module" title="Link to this heading"></a></h3>
 <p>The Python time module provides several time functions that are based on – and generally, call into – their equivalent functions in C. Because of this dependency on the underlying C code, the behavior of some of these functions is different on different platforms. Indeed, a number of these functions are only available on Unix (and presumably, by extension, on Linux and Mac).</p>
 <p>That said, on certain platforms, high-precision time readings are available in this module. Moreover, there is one function that’s useful on many platforms: <code class="docutils literal notranslate"><span class="pre">time.sleep</span></code>, which takes a floating-point value representing a fractional or whole number of seconds. This function suspends the execution of the current thread for that time.</p>
 </section>
 </section>
 <section id="dateutil-a-python-third-party-datetime-library">
-<h2>Dateutil: A Python Third-Party DateTime Library<a class="headerlink" href="#dateutil-a-python-third-party-datetime-library" title="Link to this heading">¶</a></h2>
+<h2>Dateutil: A Python Third-Party DateTime Library<a class="headerlink" href="#dateutil-a-python-third-party-datetime-library" title="Link to this heading"></a></h2>
 <p>Dateutil is a powerful and popular third-part extension to the Python datetime module. It is mentioned several times in the Python standard library documentation on datetime.</p>
 <p>Like almost all third-party libraries, you can install it using pip.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>python-dateutil
@@ -683,7 +687,7 @@ The<span class="w"> </span>event<span class="w"> </span>took<span class="w"> </s
 <p>In general terms, the difference between Python’s datetime module and the third-party dateutil module is that datetime tends to do things in a way that is explicit and precise, but less flexible and less “calendar-aware”. The dateutil module, in contrast, is generally more flexible and can do things less explicitly (in the case of parsing), using somewhat more useful defaults for some values.</p>
 <p>Let’s take a look at a few of the classes provided by the dateutil module to get a feel for them in action.</p>
 <section id="dateutil-s-general-date-and-time-parser-class">
-<h3>Dateutil’s General Date and Time Parser Class<a class="headerlink" href="#dateutil-s-general-date-and-time-parser-class" title="Link to this heading">¶</a></h3>
+<h3>Dateutil’s General Date and Time Parser Class<a class="headerlink" href="#dateutil-s-general-date-and-time-parser-class" title="Link to this heading"></a></h3>
 <p>In our discussion of Python datetime’s <code class="docutils literal notranslate"><span class="pre">strptime</span></code> function, we showed how <code class="docutils literal notranslate"><span class="pre">strptime</span></code> could be used to parse dates and times using format strings that are compatible with those used in <code class="docutils literal notranslate"><span class="pre">strftime</span></code>. Having to provide the format codes explicitly gives precise control over how a date gets parsed, but in contrast, the dateutil.parser module does an excellent job of parsing arbitrary dates without a formatting string. Simply pass the string containing the date or time to the parse function, and most of the time, it will do the right thing.</p>
 <p>In the following code, we show today’s date. We then use a list of date strings, and pass each one to “parse”, building a table of the examples and the resultant parsed datetime object. The core of it (boiled down), is:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dateutil</span> <span class="kn">import</span> <span class="n">parser</span>
@@ -721,7 +725,7 @@ Wednesday<span class="w"> </span>at<span class="w"> </span><span class="m">4</sp
 <p>This is a very nice result for a parser where we don’t need to specify a format string upfront for every possibility. The tradeoff for this convenience is that such a parser probably takes more clock cycles to run than strptime, so it may not be a great fit for parsing a large series of values in a known format.</p>
 </section>
 <section id="smart-relative-date-time-offsets-with-dateutil-s-relativedelta">
-<h3>Smart Relative Date/Time Offsets with Dateutil’s Relativedelta<a class="headerlink" href="#smart-relative-date-time-offsets-with-dateutil-s-relativedelta" title="Link to this heading">¶</a></h3>
+<h3>Smart Relative Date/Time Offsets with Dateutil’s Relativedelta<a class="headerlink" href="#smart-relative-date-time-offsets-with-dateutil-s-relativedelta" title="Link to this heading"></a></h3>
 <p>As we’ve seen in an earlier section, Python’s datetime module has a timedelta class that allows us to specify a time offset, generally either in seconds or days. This is useful in some cases, but consider the case where you want two months from now to map to the same date of the month, or the “end of the month” if you call it on the 31st. Doing that manually using days would require a table of months to days in the month, knowing about leap years, etc.</p>
 <p>Here again, the dateutil module provides a solution that’s far more flexible. In the code below, for example, we use the <code class="docutils literal notranslate"><span class="pre">relativedelta</span></code> class to calculate some date offsets in terms of weeks and months.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Using dateutil&#39;s relativedelta class&quot;&quot;&quot;</span>
@@ -748,7 +752,7 @@ Today<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>
 </div>
 </section>
 <section id="handling-recurring-events-with-dateutil-s-rrule-recurrence-rule">
-<h3>Handling Recurring Events With Dateutil’s Rrule (Recurrence Rule)<a class="headerlink" href="#handling-recurring-events-with-dateutil-s-rrule-recurrence-rule" title="Link to this heading">¶</a></h3>
+<h3>Handling Recurring Events With Dateutil’s Rrule (Recurrence Rule)<a class="headerlink" href="#handling-recurring-events-with-dateutil-s-rrule-recurrence-rule" title="Link to this heading"></a></h3>
 <p>For our last DateUtil example, let’s take a look at how we might code a series of recurring events, similar to what you might do when you schedule a repeating meeting in Outlook:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;dateutil example, repeating an date five times beginning with today&#39;s date&quot;&quot;&quot;</span>
 
@@ -772,11 +776,11 @@ June<span class="w"> </span><span class="m">28</span>,<span class="w"> </span><s
 </section>
 </section>
 <section id="closing-thoughts">
-<h2>Closing Thoughts<a class="headerlink" href="#closing-thoughts" title="Link to this heading">¶</a></h2>
+<h2>Closing Thoughts<a class="headerlink" href="#closing-thoughts" title="Link to this heading"></a></h2>
 <p>As we’ve seen, the Python ecosystem contains a number of built-in and third-party classes that make date and time handling convenient and reliable. We hope the many examples in this tutorial have given you some ideas that you can use right away in your code!</p>
 </section>
 <section id="you-may-also-enjoy">
-<h2>You May Also Enjoy<a class="headerlink" href="#you-may-also-enjoy" title="Link to this heading">¶</a></h2>
+<h2>You May Also Enjoy<a class="headerlink" href="#you-may-also-enjoy" title="Link to this heading"></a></h2>
 <p><a class="reference external" href="https://codesolid.com/python-format-strings/">Python Format Strings: Beginner to Expert</a></p>
 <p><a class="reference external" href="https://codesolid.com/python-operators/">Python Operators: The Building Blocks of Successful Code</a></p>
 </section>

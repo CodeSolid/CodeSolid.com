@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>An Overview of the Python JSON Module &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../../_static/documentation_options.js?v=19645805"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -121,12 +125,12 @@
 <li><p>You May Also Enjoy</p></li>
 </ul>
 <section id="an-overview-of-the-python-json-module">
-<h1>An Overview of the Python JSON Module<a class="headerlink" href="#an-overview-of-the-python-json-module" title="Link to this heading">¶</a></h1>
+<h1>An Overview of the Python JSON Module<a class="headerlink" href="#an-overview-of-the-python-json-module" title="Link to this heading"></a></h1>
 <p>The Python JSON module is included with the Python standard library and gives you everything you need to work with Python JSON data. Before we begin a detailed discussion of this module, let’s briefly summarize the functions and classes exported by this JSON library and some non-library approaches we can take for custom classes.</p>
 <table><tbody><tr><td>Programming Task</td><td>Python JSON Library Function or Class.<br><br>Names assume:<br><br>import json</td><td>Advantages</td><td>Disadvantages</td></tr><tr><td>Convert a Python dictionary to a JSON string</td><td>json.dumps</td><td>Extremely flexible and easy to use. Very little code.</td><td>Dictionaries as an internal data format are convenient but can be harder to maintain. Class members provide better documentation than dictionary keys of what an object should contain.</td></tr><tr><td>Convert a JSON String to a Python dictionary</td><td>json.loads</td><td>As above</td><td>As above</td></tr><tr><td>Write a Python dictionary object to a JSON file</td><td>json.dump</td><td>As above</td><td>As above</td></tr><tr><td>Read a JSON file to a Python Dictionary object</td><td>json.load</td><td>As above</td><td>as above</td></tr><tr><td>Reading and Writing a Custom Python Object to JSON</td><td>Approach 1:<br>Add methods to the class itself. The JSON library may not be needed.</td><td>Convenient and obvious to readers of the class code. Methods is more likely to get maintained when the class changes.</td><td>Might lead to inconsistencies if it doesn't need to be done for all classes. Does not integrate with JSON package. May lead to invalid JSON.</td></tr><tr><td>Reading and Writing a Custom Python Object to JSON</td><td>Approach 2:<br>Write a custom json JSONDecoder and JSONEncoder.</td><td>Allows JSON functionality to follow "single responsibility" principle. Doesn't add functionality to class that it doesn't need natively.</td><td>May be unclear that it needs to be maintained when class changes. Increases code complexity.</td></tr><tr><td></td><td></td><td></td><td></td></tr></tbody></table>
 </section>
 <section id="the-easiest-way-to-use-json-the-python-dictionary-object">
-<h1>The Easiest Way To Use JSON: The Python Dictionary Object<a class="headerlink" href="#the-easiest-way-to-use-json-the-python-dictionary-object" title="Link to this heading">¶</a></h1>
+<h1>The Easiest Way To Use JSON: The Python Dictionary Object<a class="headerlink" href="#the-easiest-way-to-use-json-the-python-dictionary-object" title="Link to this heading"></a></h1>
 <p>Python dictionaries are perfect for encoding and decoding JSON data because they:</p>
 <ul class="simple">
 <li><p>Are easy to manipulate in Python</p></li>
@@ -175,7 +179,7 @@ Loads<span class="w"> </span>returns<span class="w"> </span>a<span class="w"> </
 <p>Now that you know how to encode and decode Python dictionaries to JSON data, let’s talk about how to read a JSON file in Python and how to write JSON to a file.</p>
 </section>
 <section id="reading-and-writing-json-files-in-python">
-<h1>Reading and Writing JSON files in Python<a class="headerlink" href="#reading-and-writing-json-files-in-python" title="Link to this heading">¶</a></h1>
+<h1>Reading and Writing JSON files in Python<a class="headerlink" href="#reading-and-writing-json-files-in-python" title="Link to this heading"></a></h1>
 <p>The Python json module provides two methods for reading and writing JSON files:</p>
 <ul class="simple">
 <li><p>json.dump(): Writes Python data to a JSON file.</p></li>
@@ -183,7 +187,7 @@ Loads<span class="w"> </span>returns<span class="w"> </span>a<span class="w"> </
 </ul>
 <p>Both of these methods take two arguments: The Python data to write (or read) and the name of the file to write (or read) the data to. Here’s an example of how to use each method.</p>
 <section id="writing-a-python-dictionary-to-a-json-file">
-<h2>Writing A Python Dictionary to a JSON File<a class="headerlink" href="#writing-a-python-dictionary-to-a-json-file" title="Link to this heading">¶</a></h2>
+<h2>Writing A Python Dictionary to a JSON File<a class="headerlink" href="#writing-a-python-dictionary-to-a-json-file" title="Link to this heading"></a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
 
 <span class="n">file_name</span> <span class="o">=</span> <span class="s2">&quot;website.json&quot;</span>
@@ -202,7 +206,7 @@ Loads<span class="w"> </span>returns<span class="w"> </span>a<span class="w"> </
 <p>Next, let’s load the file back to a Python dictionary.</p>
 </section>
 <section id="reading-a-json-file-to-a-python-dictionary">
-<h2>Reading A JSON File to a Python Dictionary<a class="headerlink" href="#reading-a-json-file-to-a-python-dictionary" title="Link to this heading">¶</a></h2>
+<h2>Reading A JSON File to a Python Dictionary<a class="headerlink" href="#reading-a-json-file-to-a-python-dictionary" title="Link to this heading"></a></h2>
 <p>Given the file we wrote before, we can load it using the json.load method. Just as <code class="docutils literal notranslate"><span class="pre">dumps</span></code> is analogous to <code class="docutils literal notranslate"><span class="pre">dump</span></code>, <code class="docutils literal notranslate"><span class="pre">loads</span></code> is analogous to <code class="docutils literal notranslate"><span class="pre">load</span></code>. The code is straightforward:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
 
@@ -219,7 +223,7 @@ Loads<span class="w"> </span>returns<span class="w"> </span>a<span class="w"> </
 </section>
 </section>
 <section id="reading-and-writing-custom-python-classes-to-json">
-<h1>Reading and Writing Custom Python Classes to JSON<a class="headerlink" href="#reading-and-writing-custom-python-classes-to-json" title="Link to this heading">¶</a></h1>
+<h1>Reading and Writing Custom Python Classes to JSON<a class="headerlink" href="#reading-and-writing-custom-python-classes-to-json" title="Link to this heading"></a></h1>
 <p>There are numerous approaches to loading custom Python objects from JSON and saving them again. This of course runs somewhat counter to what the Zen of Python tells us:</p>
 <blockquote>
 <div><p>There should be one– and preferably only one –obvious way to do it.</p>
@@ -243,7 +247,7 @@ The Zen of Python, by Tim Peters</p>
 <p>You’ve probably already guessed that it was almost lunchtime when I came up with this example. Let’s see how we can add the ability to serialize these objects to Python using the two approaches above.</p>
 </section>
 <section id="serializing-python-classes-to-and-from-json-directly">
-<h1>Serializing Python Classes To and From JSON Directly<a class="headerlink" href="#serializing-python-classes-to-and-from-json-directly" title="Link to this heading">¶</a></h1>
+<h1>Serializing Python Classes To and From JSON Directly<a class="headerlink" href="#serializing-python-classes-to-and-from-json-directly" title="Link to this heading"></a></h1>
 <p>The first approach is to add the methods to_json and from_json directly to the Restaurant class. These methods will take care of converting our objects to and from JSON strings. Here’s how that might look:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
 
@@ -285,7 +289,7 @@ The Zen of Python, by Tim Peters</p>
 </pre></div>
 </div>
 <section id="discussion-to-json">
-<h2>Discussion: to_json<a class="headerlink" href="#discussion-to-json" title="Link to this heading">¶</a></h2>
+<h2>Discussion: to_json<a class="headerlink" href="#discussion-to-json" title="Link to this heading"></a></h2>
 <p>You’ll notice that in this example, we’ve kept the names in the JSON the same as in the class, but often when we’re inter-operating with JavaScript, we might change the names appropriately to match front-end naming conventions or other requirements. For a class like this that does not include any nested objects, we can implement to_json even more simply, as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Take advantage of __dict__ property on object to dump JSON, if no nested objects.</span>
 <span class="k">def</span> <span class="nf">to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -295,12 +299,12 @@ The Zen of Python, by Tim Peters</p>
 <p>If you need more precise control over the formatted string than what’s shown here, see <a class="reference external" href="https://codesolid.com/python-format-strings/">Python Format Strings</a> for some techniques you may find useful.</p>
 </section>
 <section id="discussion-from-json">
-<h2>Discussion: from_json<a class="headerlink" href="#discussion-from-json" title="Link to this heading">¶</a></h2>
+<h2>Discussion: from_json<a class="headerlink" href="#discussion-from-json" title="Link to this heading"></a></h2>
 <p>We’ve implemented from_json as a <code class="docutils literal notranslate"><span class="pre">&#64;classmethod</span></code>. This is appropriate because we want to be able to call it without an existing object, as we do on line 30. We take the approach of first loading the JSON string to a dictionary, then using the dictionary unpacking operator, “<code class="docutils literal notranslate"><span class="pre">**</span></code>”, on line 24, passing the result to the class itself. This has the effect of calling the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method on the class and with the set of key/value pairs from the dictionary, so it assumes that the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method has a parameter for all the keys, as is the case here.</p>
 </section>
 </section>
 <section id="using-jsonencoder-and-jsondecoder-to-serialize-python-classes">
-<h1>Using JSONEncoder and JSONDecoder to Serialize Python Classes<a class="headerlink" href="#using-jsonencoder-and-jsondecoder-to-serialize-python-classes" title="Link to this heading">¶</a></h1>
+<h1>Using JSONEncoder and JSONDecoder to Serialize Python Classes<a class="headerlink" href="#using-jsonencoder-and-jsondecoder-to-serialize-python-classes" title="Link to this heading"></a></h1>
 <p>Our other approach to working providing custom serialization and deserialization for a Python class is to create custom JSON encoders and decoders. Let’s see how that might look:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">from</span> <span class="nn">json</span> <span class="kn">import</span> <span class="n">JSONEncoder</span><span class="p">,</span> <span class="n">JSONDecoder</span>
@@ -355,19 +359,19 @@ Restaurant<span class="o">(</span><span class="nv">name</span><span class="o">=<
 </div>
 </section>
 <section id="custom-jsonencoder-and-jsondecoder-discussion">
-<h1>Custom JSONEncoder and JSONDecoder Discussion<a class="headerlink" href="#custom-jsonencoder-and-jsondecoder-discussion" title="Link to this heading">¶</a></h1>
+<h1>Custom JSONEncoder and JSONDecoder Discussion<a class="headerlink" href="#custom-jsonencoder-and-jsondecoder-discussion" title="Link to this heading"></a></h1>
 <p>In this code, we encode the custom restaurant object on line 34. Our RestaurantEncoder simply checks that we have the right type of class, and returns the <code class="docutils literal notranslate"><span class="pre">__dict__</span></code> for the class. Our RestaurantDecoder consists of an object_hook method that we use to do the actual decoding and an override of the <code class="docutils literal notranslate"><span class="pre">decode</span></code> method which passes that object_hook to <code class="docutils literal notranslate"><span class="pre">json.loads</span></code>.</p>
 <p>Although having a custom JSONEncoder and JSONDecoder worked well, it has increased the code complexity significantly over our original <code class="docutils literal notranslate"><span class="pre">to_json</span></code> and <code class="docutils literal notranslate"><span class="pre">from_json</span></code> implementation.</p>
 </section>
 <section id="closing-thoughts">
-<h1>Closing Thoughts<a class="headerlink" href="#closing-thoughts" title="Link to this heading">¶</a></h1>
+<h1>Closing Thoughts<a class="headerlink" href="#closing-thoughts" title="Link to this heading"></a></h1>
 <p>For general JSON serialization and deserialization, the built-in Python module works extremely well. There are other, third-party libraries that provide additional functionality. Pydantic, for example, features a more convenient mapping of custom Python objects to JSON and also provides features to validate the data. One trade-off I have found in using Pydantic, however, is that the validation will slow the loading of large JSON data sets considerably. JSON is ubiquitous, convenient, and readable, but one still needs to be sensitive to the tradeoffs involved in reading and validating large data sets.</p>
 <p>As we’ve seen, the JSON module is especially good and offers clear and simple methods for serializing dictionaries both to files and to strings. For custom Python objects, a little more work is involved, but the JSON module makes this relatively simple as well.</p>
 <p>These are the basics of working with JSON data in Python. Now that you know how to encode and decode Python dictionaries to JSON strings, how to read and write JSON files, and how to customize the encoding and decoding of Python objects, you’re ready to start working with JSON data in Python like a pro!</p>
 <p>If you want to learn more about Python, be sure to check out our other Python tutorials. Happy coding!</p>
 </section>
 <section id="you-may-also-enjoy">
-<h1>You May Also Enjoy<a class="headerlink" href="#you-may-also-enjoy" title="Link to this heading">¶</a></h1>
+<h1>You May Also Enjoy<a class="headerlink" href="#you-may-also-enjoy" title="Link to this heading"></a></h1>
 <ul class="simple">
 <li><p><a class="reference external" href="https://codesolid.com/python-dataclasses/">Python Dataclass: Easily Automate Class Best Practices</a></p></li>
 <li><p><a class="reference external" href="https://codesolid.com/how-to-use-docker-with-python/">How to Use Docker Python Images and Docker Compose with Python</a></p></li>

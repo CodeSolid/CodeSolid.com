@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>What Is a Python Package? &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=19645805"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -162,12 +166,12 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="what-is-a-python-package">
-<h1>What Is a Python Package?<a class="headerlink" href="#what-is-a-python-package" title="Link to this heading">¶</a></h1>
+<h1>What Is a Python Package?<a class="headerlink" href="#what-is-a-python-package" title="Link to this heading"></a></h1>
 <p>A Python package is simply a directory, usually containing Python modules (source files with the .py extension). It frequently will include a special marker file**,** <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code>. Packages can easily be created and used locally, and published packages can be installed using pip.</p>
 <p>Learning to install public packages and create packages locally is not difficult, though I’ve noticed that even experienced developers coming from other languages can have a tough time at first with how Python modules, packages, and import statements work.</p>
 <p>This article is a tutorial that’s meant to cover Python packages, modules, and import statements in enough depth for a beginner to intermediate Python developer. The goal is to answer common questions people have about these topics. We also will strive to explain everything clearly and step by step, to show you errors you might see along the way and how to solve them, and to illustrate how things work with simple examples.</p>
 <section id="what-s-the-difference-between-a-python-package-and-a-module">
-<h2>What’s the Difference Between a Python Package and a Module?<a class="headerlink" href="#what-s-the-difference-between-a-python-package-and-a-module" title="Link to this heading">¶</a></h2>
+<h2>What’s the Difference Between a Python Package and a Module?<a class="headerlink" href="#what-s-the-difference-between-a-python-package-and-a-module" title="Link to this heading"></a></h2>
 <p>Before we get into how to install packages and how to import packages and modules, let’s make sure we’re clear on some terminology in Python:</p>
 <p>A <strong>module</strong> in Python is simply a text file with the extension “.py” that contains Python source code. It can consist of classes, functions, and variables.</p>
 <p>A <strong>package</strong> is a directory that creates a namespace, usually to house a collection of modules, while a module is just a simple python source code file. You can define and create packages locally, or install packages that other developers have published. Published packages generally live on <a class="reference external" href="https://pypi.org">PyPi.org</a> (The “Python Package Index”). The most common tool for installing packages is pip, which downloads and installs packages from PyPi directly.</p>
@@ -175,7 +179,7 @@
 <p>The <strong>import</strong> statement in Python allows you to use functions, classes, and variables that are defined in Python packages and modules. We have several examples showing how this is done in the next section.</p>
 </section>
 <section id="how-do-i-use-the-import-statement-in-python">
-<h2>How do I use the Import Statement in Python?<a class="headerlink" href="#how-do-i-use-the-import-statement-in-python" title="Link to this heading">¶</a></h2>
+<h2>How do I use the Import Statement in Python?<a class="headerlink" href="#how-do-i-use-the-import-statement-in-python" title="Link to this heading"></a></h2>
 <p>The import statement is like an awesome Swiss army knife. It can be used to import whole packages, individual modules, and even functions or variables contained in a package or module.</p>
 <p>To see how this works, let’s say you have a directory, package_demo, with contents that looks like this:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>.
@@ -226,7 +230,7 @@
 </div>
 </section>
 <section id="understanding-modulenotfounderror">
-<h2>Understanding ModuleNotFoundError<a class="headerlink" href="#understanding-modulenotfounderror" title="Link to this heading">¶</a></h2>
+<h2>Understanding ModuleNotFoundError<a class="headerlink" href="#understanding-modulenotfounderror" title="Link to this heading"></a></h2>
 <p>The ModuleNotFoundError is probably the most common error related to packages and modules you may encounter. This error occurs when an import statement does not work, and though it says ModuleNotFoundError, you’ll get the same error whether you’re trying to import a package or a module.</p>
 <p>Given the scenario above, all the following would likely produce a ModuleNotFoundError</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Try to import a local directory that doesn&#39;t exist:</span>
@@ -253,10 +257,10 @@
 <p>A more precise way to state it is that Python failed to find the module or package on the paths in the <code class="docutils literal notranslate"><span class="pre">sys.path</span></code> list. We’ll discuss <code class="docutils literal notranslate"><span class="pre">sys.path</span></code> in greater detail below after we discuss the recommended way to install Python packages.</p>
 </section>
 <section id="how-to-install-python-packages">
-<h2>How to Install Python Packages<a class="headerlink" href="#how-to-install-python-packages" title="Link to this heading">¶</a></h2>
+<h2>How to Install Python Packages<a class="headerlink" href="#how-to-install-python-packages" title="Link to this heading"></a></h2>
 <p>The most commonly used tool to install packages in Python is pip. Pip has come with Python installs by default <a class="reference external" href="https://docs.python.org/3/whatsnew/3.4.html#whatsnew-pep-453">since version 3.4</a>.</p>
 <section id="making-sure-your-pip-version-is-correct">
-<h3>Making Sure Your Pip Version Is Correct<a class="headerlink" href="#making-sure-your-pip-version-is-correct" title="Link to this heading">¶</a></h3>
+<h3>Making Sure Your Pip Version Is Correct<a class="headerlink" href="#making-sure-your-pip-version-is-correct" title="Link to this heading"></a></h3>
 <p>For Python 3.x releases, it’s a good idea to check first that your pip version is pointing to Python 3. The “<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">--version</span></code>” command will show you:</p>
 <ul class="simple">
 <li><p>The version of pip</p></li>
@@ -266,11 +270,11 @@
 <p>If any of those things points to a Python 2 release, it’s a good idea to try using the command <code class="docutils literal notranslate"><span class="pre">pip3</span></code> instead of <code class="docutils literal notranslate"><span class="pre">pip</span></code> for the discussion that follows.</p>
 </section>
 <section id="how-to-install-packages-the-right-way">
-<h3>How to Install Packages (The Right Way)<a class="headerlink" href="#how-to-install-packages-the-right-way" title="Link to this heading">¶</a></h3>
+<h3>How to Install Packages (The Right Way)<a class="headerlink" href="#how-to-install-packages-the-right-way" title="Link to this heading"></a></h3>
 <p>Most experienced Python developers will recommend that rather than installing packages globally, you create a virtual environment. Python virtual environments are basically a way to create and activate a local copy of some core Python tools. With a virtual environment (or “venv”) active, any Python packages you install will be isolated from the rest of your system.</p>
 <p>In the next section, we’ll discuss why we want to do this. For now, let’s just focus on the how. Using Python virtual environments consists of a few steps. If you’re a beginner, these may look hard when you first read them, but if you practice them a few times you’ll soon do them automatically.</p>
 <section id="creating-the-virtual-environment">
-<h4>1. Creating the Virtual Environment:<a class="headerlink" href="#creating-the-virtual-environment" title="Link to this heading">¶</a></h4>
+<h4>1. Creating the Virtual Environment:<a class="headerlink" href="#creating-the-virtual-environment" title="Link to this heading"></a></h4>
 <p>First, we create the environment. Usually I’ll do this in a new directory, or in any case, one that doesn’t already have a virtual environment. For example:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>my_project
 <span class="nb">cd</span><span class="w"> </span>my_project
@@ -281,7 +285,7 @@ python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </
 <p>Our next step is to activate the virtual environment. This is different on Windows than it is on Mac / Linux.</p>
 </section>
 <section id="activating-the-virtual-environment">
-<h4>2. Activating the Virtual Environment:<a class="headerlink" href="#activating-the-virtual-environment" title="Link to this heading">¶</a></h4>
+<h4>2. Activating the Virtual Environment:<a class="headerlink" href="#activating-the-virtual-environment" title="Link to this heading"></a></h4>
 <p>On Windows:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>.venv<span class="se">\s</span>cripts<span class="se">\a</span>ctivate
 </pre></div>
@@ -298,7 +302,7 @@ package_demo<span class="w"> </span>%<span class="w"> </span><span class="nb">so
 </div>
 </section>
 <section id="using-the-virtual-environment">
-<h4>3. Using the Virtual Environment:<a class="headerlink" href="#using-the-virtual-environment" title="Link to this heading">¶</a></h4>
+<h4>3. Using the Virtual Environment:<a class="headerlink" href="#using-the-virtual-environment" title="Link to this heading"></a></h4>
 <p>You can now run python commands, run pip install, etc., as you normally would, but whatever you do will be isolated to your virtual environment. For example, let’s suppose you have a website you want to test, so you want to install the requests package.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install the package</span>
 %<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>requests<span class="w">  </span>
@@ -317,12 +321,12 @@ True
 </div>
 </section>
 <section id="deactivating-the-virtual-environment">
-<h4>4. Deactivating the Virtual Environment:<a class="headerlink" href="#deactivating-the-virtual-environment" title="Link to this heading">¶</a></h4>
+<h4>4. Deactivating the Virtual Environment:<a class="headerlink" href="#deactivating-the-virtual-environment" title="Link to this heading"></a></h4>
 <p>If you need to get back to a normal shell prompt, entering the command <code class="docutils literal notranslate"><span class="pre">deactivate</span></code> will do it. You can go back in and reactivate it any time, just do what you did in Step 2.</p>
 </section>
 </section>
 <section id="dependency-hell-why-we-set-up-virtual-environments">
-<h3>Dependency Hell – Why We Set Up Virtual Environments<a class="headerlink" href="#dependency-hell-why-we-set-up-virtual-environments" title="Link to this heading">¶</a></h3>
+<h3>Dependency Hell – Why We Set Up Virtual Environments<a class="headerlink" href="#dependency-hell-why-we-set-up-virtual-environments" title="Link to this heading"></a></h3>
 <p>If you install a lot of Python packages globally on your system, you may sooner or later run into an issue that the Python community affectionately calls “dependency hell”. (Well, OK, I guess the “hell” part means we’re not that affectionate about it). Creating a virtual environment is one way to lessen the chance of ending up in that Bad Place.</p>
 <p>Dependency hell comes in a variety of not-so-delicious flavors:</p>
 <ul class="simple">
@@ -333,7 +337,7 @@ True
 </section>
 </section>
 <section id="how-python-finds-packages">
-<h2>How Python Finds Packages<a class="headerlink" href="#how-python-finds-packages" title="Link to this heading">¶</a></h2>
+<h2>How Python Finds Packages<a class="headerlink" href="#how-python-finds-packages" title="Link to this heading"></a></h2>
 <p>When we discussed importing packages, dealing with ModuleNotFoundError, and creating virtual environments, you may have been wondering how Python even finds modules and packages. We noticed that if we are in the terminal in a given directory, we can import files in that directory, and packages that are subdirectories. When we talked about venv, we said we installed the “requests” package into the virtual environment only, but what does that mean? Where exactly did the code for that package end up?</p>
 <p>The answer is that when Python runs, it sets up a variable named <code class="docutils literal notranslate"><span class="pre">path</span></code> in the <code class="docutils literal notranslate"><span class="pre">sys</span></code> module that it uses to resolve imports. The variable is nothing more than a list of paths. Here’s a very simple program we can use to explore this <code class="docutils literal notranslate"><span class="pre">sys.path</span></code> variable to learn more about the Python defaults:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># pathinfo.py</span>
@@ -382,7 +386,7 @@ True
 <p>Note that on Windows, you’ll find different directories for your installed Python version. The Python standard library files are located in “<code class="docutils literal notranslate"><span class="pre">Lib</span></code>”, while the C binaries appear to be mostly in “<code class="docutils literal notranslate"><span class="pre">libs</span></code>”, with additional DLLs (dynamic link libraries) in the “<code class="docutils literal notranslate"><span class="pre">DLLs</span></code>” directory.</p>
 </section>
 <section id="changing-the-python-path-and-controlling-where-pip-installs-packages-case-study">
-<h2>Changing the Python Path and Controlling Where Pip Installs Packages (Case Study)<a class="headerlink" href="#changing-the-python-path-and-controlling-where-pip-installs-packages-case-study" title="Link to this heading">¶</a></h2>
+<h2>Changing the Python Path and Controlling Where Pip Installs Packages (Case Study)<a class="headerlink" href="#changing-the-python-path-and-controlling-where-pip-installs-packages-case-study" title="Link to this heading"></a></h2>
 <p>One of the projects I’ve worked on recently was for a company that had strict security requirements, so their build environment for production builds did not allow connecting to external sites (including PyPi.org). I was tasked with creating an AWS Lambda function in Python that relied on some third party packages. How was this done?</p>
 <p>Because the production build system could access our source repository, but could not connect to PyPi, the solution I was simply to do the pip install using the pip “<code class="docutils literal notranslate"><span class="pre">--target</span></code>” switch. Unlike the default option and the venv solution, which sets up different reasonable defaults for a target directory, the <code class="docutils literal notranslate"><span class="pre">--target</span></code> command line option allows you to specify precisely any arbitrary directory where you want to install things. We could therefore check in dependencies along with code, by running “<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--target</span> <span class="pre">.</span> <span class="pre">&lt;some_dependency&gt;</span></code>” in the current directory. Since Python can also load packages in the current directory, the Lamba function handler had no problem in importing these packages.</p>
 <p>On reviewing the code, a colleague suggested we make it clear that these were third party dependencies by installing these third party packages into a subdirectory called “<code class="docutils literal notranslate"><span class="pre">dependencies</span></code>”. To understand how this was accomplished, remember that <code class="docutils literal notranslate"><span class="pre">sys.path</span></code> is just a list, so we can modify it. As long as we modify it ahead of the import call, this works just fine. For example:</p>
@@ -404,14 +408,14 @@ True
 <p>Changing the Python path is not something you’ll need to do often, and it should be a last resort tool that you reserve for special cases. Nevertheless, it’s useful to know.</p>
 </section>
 <section id="how-do-i-publish-a-package-in-python">
-<h2>How Do I Publish a Package in Python?<a class="headerlink" href="#how-do-i-publish-a-package-in-python" title="Link to this heading">¶</a></h2>
+<h2>How Do I Publish a Package in Python?<a class="headerlink" href="#how-do-i-publish-a-package-in-python" title="Link to this heading"></a></h2>
 <p>Let’s say that you’ve created a local package that contains more than just some test files as we’ve shown here, but some code you want to publish for others to use. There are several tools in the Python ecosystem to facilitate building and publishing packages.</p>
 <p>The most mainstream choice for many years – and still going strong today – is the combination of Setuptools for building and packaging and Twine for publishing the package. If you’re interested in this option, we have a complete tutorial on how to do it in our article, <a class="reference external" href="https://codesolid.com/python-package-example-setuptools/">Python Package Example: Setuptools</a>.</p>
 <p>Another awesome tool in this space is <a class="reference external" href="https://python-poetry.org/">Python Poetry</a> – and we really need to write an article on this tool as well. Poetry is a simple and elegant dependency manager and package builder and publishing tool in one – so you can think of it as a single tool that does the work of the Python venv module, pip, Setuptools, and twine. I have written a lot about pip and venv because I know that they are core tools that continue to be used on many projects, so beginners should be aware of them. However, if I were beginning a serious Python package development effort today and had a choice of tools, I’d probably start with Poetry.</p>
 <p>Two tools that have gained somewhat less traction are <a class="reference external" href="https://cournape.github.io/Bento/">Bento</a> (for building packages) and <a class="reference external" href="https://flit.readthedocs.io/">Flit</a> (which supports both building the package and publishing it to PyPi).</p>
 </section>
 <section id="final-thoughts-and-source-code">
-<h2>Final Thoughts and Source Code<a class="headerlink" href="#final-thoughts-and-source-code" title="Link to this heading">¶</a></h2>
+<h2>Final Thoughts and Source Code<a class="headerlink" href="#final-thoughts-and-source-code" title="Link to this heading"></a></h2>
 <p>Spending a little time working with Python packages is worth it and will make you an expert in no time. I hope this article helped save you a bit of time and added to your understanding of Python internals. This article was mostly discussion / demo, but if you’d like to grab pathinfo.py and the directory and code structure we used for the “package-demo” example, the source is available in the day-11 directory of our repository, <a class="reference external" href="https://github.com/JohnLockwood/100-days-of-python">100 Days of Python</a>.</p>
 </section>
 </section>

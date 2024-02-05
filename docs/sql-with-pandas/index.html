@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Using SQL With Pandas: PandasSQL and IPython-SQL &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=19645805"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -125,7 +129,7 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="using-sql-with-pandas-pandassql-and-ipython-sql">
-<h1>Using SQL With Pandas:  PandasSQL and IPython-SQL<a class="headerlink" href="#using-sql-with-pandas-pandassql-and-ipython-sql" title="Link to this heading">¶</a></h1>
+<h1>Using SQL With Pandas:  PandasSQL and IPython-SQL<a class="headerlink" href="#using-sql-with-pandas-pandassql-and-ipython-sql" title="Link to this heading"></a></h1>
 <p>As popular as Pandas is to those doing Data Analysis in Python, there’s no question that SQL is an even more important tool. Invented in 1970, the SQL language and database products based on this standard serve as the backbone of most businesses.</p>
 <p>To give you an idea of how much more popular SQL is, as of today the job board, Indeed.com, lists over fourteen jobs in SQL for every one job in Pandas. Also, despite the growing popularity of alternatives, so-called NoSQL databases still only account for about one-sixth of the mindshare of SQL.</p>
 <p>However, using SQL for data analysis doesn’t mean you have to give up using Pandas DataFrames. Quite, the contrary – Pandas and SQL work quite well together. Let’s next consider two ways that we can use Pandas and SQL together:</p>
@@ -134,12 +138,12 @@
 <li><p>We can use the SQL language to query data stored in a Pandas DataFrame.</p></li>
 </ul>
 <section id="sql-databases-as-a-storage-medium">
-<h2>SQL Databases as a “Storage Medium”<a class="headerlink" href="#sql-databases-as-a-storage-medium" title="Link to this heading">¶</a></h2>
+<h2>SQL Databases as a “Storage Medium”<a class="headerlink" href="#sql-databases-as-a-storage-medium" title="Link to this heading"></a></h2>
 <p>Although SQL is a language – Structured Query Language – and not a storage format, Pandas users can treat it as though it were a storage format with no additional tools. That is to say, Pandas can directly read or write data using any SQLAlchemy-compatible data sources using DataFrame.read_sql and DataFrame.to_sql.</p>
 <p>Again can think of these APIs as a way to treat “SQL” as a storage medium. Once you have a database connection, you can read and write data in much the same way as you can use Pandas to read and write to CSV or Excel. With read_sql and to_sql, the format of the “storage medium” will be different, depending on what the database connection points to. It’s even possible for the same vendor to support different storage formats, for example, MyISAM vs. InnoDB in MySQL.</p>
 </section>
 <section id="sql-as-a-query-language">
-<h2>SQL As a Query Language<a class="headerlink" href="#sql-as-a-query-language" title="Link to this heading">¶</a></h2>
+<h2>SQL As a Query Language<a class="headerlink" href="#sql-as-a-query-language" title="Link to this heading"></a></h2>
 <p>In addition to treating SQL as a kind of flexible storage medium, there are at least two libraries you can use that enable you to begin to take advantage of SQL as a language for querying DataFrames.</p>
 <ul class="simple">
 <li><p><strong>PandasSQL</strong> - PandasSQL is a simple tool with few dependencies, that allows you to query Pandas DataFrames using the dialect of SQL that SQLite uses. However, PandasSQL has not been revised in several years and provides limited functionality.</p></li>
@@ -148,7 +152,7 @@
 <p>For the remainder of this article, we want to take a closer look at these two options.</p>
 </section>
 <section id="pandas-with-sql-option-1-pandassql">
-<h2>Pandas With SQL Option 1: PandasSQL<a class="headerlink" href="#pandas-with-sql-option-1-pandassql" title="Link to this heading">¶</a></h2>
+<h2>Pandas With SQL Option 1: PandasSQL<a class="headerlink" href="#pandas-with-sql-option-1-pandassql" title="Link to this heading"></a></h2>
 <p>Let’s first look at our simpler option, using PandasSQL to query Pandas DataFrames.</p>
 <p>Our setup for this is fairly straightforward in Conda:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">pandasql</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.11</span> <span class="n">jupyterlab</span> <span class="n">seaborn</span> <span class="n">pandasql</span>
@@ -187,14 +191,14 @@
 </div>
 </section>
 <section id="pandas-with-sql-option-2-using-ipython-sql-and-duckdb">
-<h2>Pandas With SQL Option 2: Using IPython-SQL and DuckDB<a class="headerlink" href="#pandas-with-sql-option-2-using-ipython-sql-and-duckdb" title="Link to this heading">¶</a></h2>
+<h2>Pandas With SQL Option 2: Using IPython-SQL and DuckDB<a class="headerlink" href="#pandas-with-sql-option-2-using-ipython-sql-and-duckdb" title="Link to this heading"></a></h2>
 <p>Although IPython-SQL can be used to query any SQLAlchemy-compatible data source, if we’re using Pandas, we’re probably more interested in databases that are geared toward analytic work. To put that in the form of a buzzword, we’re interested in an OLAP database (one that specializes in Online Analytic Processing, as opposed to OLTP, Online Transaction Processing).</p>
 <p>One popular database tool for this kind of work is DuckDB, an in-process OLAP Database Management System. In-process means it’s serverless, so we can install a Python package (for example), and work with it either in memory, or persisted to a database file.</p>
 <p>The really big advantage that DuckDB has, however, is the ability to query Pandas DataFrames directly as though they were native DuckDB tables.</p>
 <p>For this tutorial, we’ll again use Seaborn because it comes with several datasets we can use immediately as DataFrames.</p>
 </section>
 <section id="using-duckdb-and-pandas-conda-or-pip">
-<h2>Using DuckDB and Pandas: Conda or Pip<a class="headerlink" href="#using-duckdb-and-pandas-conda-or-pip" title="Link to this heading">¶</a></h2>
+<h2>Using DuckDB and Pandas: Conda or Pip<a class="headerlink" href="#using-duckdb-and-pandas-conda-or-pip" title="Link to this heading"></a></h2>
 <p>If you’re using Conda, you can install what you need as shown below. One thing to note about Conda and ipython-sql, however, is that we’ve noticed that the conda-forge ipython-sql version is behind that of the PyPi version.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>-n<span class="w"> </span>duckdb<span class="w">  </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11<span class="w"> </span>python-duckdb<span class="w"> </span>jupyterlab<span class="w"> </span>ipython-sql<span class="w"> </span>SQLAlchemy<span class="w"> </span>duckdb-engine<span class="w"> </span>seaborn
 conda<span class="w"> </span>activate<span class="w"> </span>duckdb
@@ -238,7 +242,7 @@ conda<span class="w"> </span>activate<span class="w"> </span>duckdb
 <p>In the above connection string, everything after the <code class="docutils literal notranslate"><span class="pre">///</span></code> is a file path, so we’re using somefile.db in the current directory. The extension .db is completely optional and for documentation purposes, by the way.</p>
 </section>
 <section id="querying-a-pandas-dataframe-using-sql-with-ipython-sql-and-duckdb">
-<h2>Querying a Pandas DataFrame Using SQL with IPython-SQL and DuckDB<a class="headerlink" href="#querying-a-pandas-dataframe-using-sql-with-ipython-sql-and-duckdb" title="Link to this heading">¶</a></h2>
+<h2>Querying a Pandas DataFrame Using SQL with IPython-SQL and DuckDB<a class="headerlink" href="#querying-a-pandas-dataframe-using-sql-with-ipython-sql-and-duckdb" title="Link to this heading"></a></h2>
 <p>That’s all the setup we needed to do. From this point on we can use SQL to query Pandas DataFrames. Let’s first load some data into a DataFrame as we normally might. We’ll use the “titanic” dataset that comes with Seaborn, and verify that this returns a DataFrame:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">get_dataset_names</span><span class="p">()</span>
 <span class="n">titanic</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;titanic&#39;</span><span class="p">)</span>
@@ -286,7 +290,7 @@ After<span class="w"> </span>conversion,<span class="w"> </span>we<span class="w
 </pre></div>
 </div>
 <section id="persisting-dataframes-back-to-duckdb">
-<h3>Persisting DataFrames back to DuckDB.<a class="headerlink" href="#persisting-dataframes-back-to-duckdb" title="Link to this heading">¶</a></h3>
+<h3>Persisting DataFrames back to DuckDB.<a class="headerlink" href="#persisting-dataframes-back-to-duckdb" title="Link to this heading"></a></h3>
 <p>If you’re connected to a file database, given a DataFrame – whether created by a SQL query or not – you can also persist it back to a DuckDB table using the %sql magic. For example, given the df_survivors DataFrame created in the last section, the following code persists the DataFrame to a database table, clears the DataFrame from memory, and reads it back:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Persist the DataFrame</span>
 <span class="o">%</span><span class="n">sql</span> <span class="o">--</span><span class="n">persist</span> <span class="n">df_survivors</span>
@@ -308,7 +312,7 @@ After<span class="w"> </span>conversion,<span class="w"> </span>we<span class="w
 </section>
 </section>
 <section id="closing-database-connections">
-<h2>Closing Database Connections<a class="headerlink" href="#closing-database-connections" title="Link to this heading">¶</a></h2>
+<h2>Closing Database Connections<a class="headerlink" href="#closing-database-connections" title="Link to this heading"></a></h2>
 <p>As with any database, it’s important to close the Database connection when you are through with it. With an in-process database like DuckDB, you need to close the database so that other processes can use the file.</p>
 <p>Earlier we opened the connection with the following command:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">sql</span> <span class="n">duckdb</span><span class="p">:</span><span class="o">///./</span><span class="n">somefile</span><span class="o">.</span><span class="n">db</span>
