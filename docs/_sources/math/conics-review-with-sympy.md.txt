@@ -19,7 +19,7 @@ sp.init_session()
 ```
 
 ```{code-cell} ipython3
-%pip install plotly
+#%pip install plotly
 ```
 
 ```{code-cell} ipython3
@@ -37,27 +37,37 @@ hyperbola = (y**2)/(b**2) - (x**2)/(a**2) - 1
 
 # Another way to write function without zeroing out one side.
 hyperbola2 = Eq((y**2)/(b**2) - (x**2)/(a**2), 1)
-
-#focus1 = Point(-a, 0)
-#focus2 = Point(a, 0)
 ```
 
 ```{code-cell} ipython3
-#%matplotlib inline
+%matplotlib inline
 p1 = plot_implicit(ellipse, show=False, xlabel="", ylabel="")
 p2 = plot_implicit(hyperbola,show=False, xlabel="", ylabel="")
-#p3 = plot_implicit(line,show=False, xlabel="", ylabel="")
-#p4 = plot(1, show=False, xlabel="", ylabel="", line_color="red")
-
-plot_implicit??
 p1.extend(p2)
-#p1.extend(p3)
-#p1.extend(p4)
 p1.show()
 ```
 
 ```{code-cell} ipython3
+# Now do it Euclid's way.a
+# Not sure why plot starts to break down at  radii > 5
+%matplotlib inline
+circle1 = Circle(Point(0,0), 5)
+# print(circle1.center)
+# print(circle1.radius)
+# print(circle1.equation())
+p = plot_implicit(circle1.equation(), show=False)
+p.aspect_ratio=(1,1) 
+grid_max = 10
+grid_min = -10
+lims = (grid_min, grid_max)
+p.xlim = lims
+p.ylim = lims
+p.show()
+```
 
+```{code-cell} ipython3
+from sympy import __version__
+__version__
 ```
 
 ```{code-cell} ipython3

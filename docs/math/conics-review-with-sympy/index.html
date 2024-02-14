@@ -119,17 +119,7 @@ Documentation can be found at https://docs.sympy.org/1.12/
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">pip</span> install plotly
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: plotly in /Users/johnlockwood/source/JohnLockwood/johnlockwood.github.io/.venv/lib/python3.11/site-packages (5.18.0)
-Requirement already satisfied: tenacity&gt;=6.2.0 in /Users/johnlockwood/source/JohnLockwood/johnlockwood.github.io/.venv/lib/python3.11/site-packages (from plotly) (8.2.3)
-Requirement already satisfied: packaging in /Users/johnlockwood/source/JohnLockwood/johnlockwood.github.io/.venv/lib/python3.11/site-packages (from plotly) (23.2)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#%pip install plotly</span>
 </pre></div>
 </div>
 </div>
@@ -156,26 +146,57 @@ Requirement already satisfied: packaging in /Users/johnlockwood/source/JohnLockw
 
 <span class="c1"># Another way to write function without zeroing out one side.</span>
 <span class="n">hyperbola2</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">((</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">b</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">a</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
-
-<span class="c1">#focus1 = Point(-a, 0)</span>
-<span class="c1">#focus2 = Point(a, 0)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#%matplotlib inline</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="n">p1</span> <span class="o">=</span> <span class="n">plot_implicit</span><span class="p">(</span><span class="n">ellipse</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="n">p2</span> <span class="o">=</span> <span class="n">plot_implicit</span><span class="p">(</span><span class="n">hyperbola</span><span class="p">,</span><span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="c1">#p3 = plot_implicit(line,show=False, xlabel=&quot;&quot;, ylabel=&quot;&quot;)</span>
-<span class="c1">#p4 = plot(1, show=False, xlabel=&quot;&quot;, ylabel=&quot;&quot;, line_color=&quot;red&quot;)</span>
-
-plot_implicit<span class="o">??</span>
 <span class="n">p1</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span>
-<span class="c1">#p1.extend(p3)</span>
-<span class="c1">#p1.extend(p4)</span>
 <span class="n">p1</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/f40a1548c6ad861e441828dc83c03bf1d369ede9b2237f8104196a9e4e6c7400.png" src="../../_images/f40a1548c6ad861e441828dc83c03bf1d369ede9b2237f8104196a9e4e6c7400.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now do it Euclid&#39;s way.a</span>
+<span class="c1"># Not sure why plot starts to break down at  radii &gt; 5</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">circle1</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="mi">5</span><span class="p">)</span>
+<span class="c1"># print(circle1.center)</span>
+<span class="c1"># print(circle1.radius)</span>
+<span class="c1"># print(circle1.equation())</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">plot_implicit</span><span class="p">(</span><span class="n">circle1</span><span class="o">.</span><span class="n">equation</span><span class="p">(),</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">aspect_ratio</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> 
+<span class="n">grid_max</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">grid_min</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span>
+<span class="n">lims</span> <span class="o">=</span> <span class="p">(</span><span class="n">grid_min</span><span class="p">,</span> <span class="n">grid_max</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">xlim</span> <span class="o">=</span> <span class="n">lims</span>
+<span class="n">p</span><span class="o">.</span><span class="n">ylim</span> <span class="o">=</span> <span class="n">lims</span>
+<span class="n">p</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/d0b9c91a24d6dd08bc7834d05192ad291045795646ef73ecf1828837936817f6.png" src="../../_images/d0b9c91a24d6dd08bc7834d05192ad291045795646ef73ecf1828837936817f6.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">__version__</span>
+<span class="n">__version__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1.12&#39;
 </pre></div>
 </div>
 </div>
