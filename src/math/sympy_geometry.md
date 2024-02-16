@@ -16,9 +16,9 @@ kernelspec:
 
 I'm pretty sure not a lot of people have tried to see how one of Euclid's propositions might be diagramed using SymPy's plotting routines and its Geometry package.  There are plenty of nerds reading Euclid, and another fine group using SymPy, but the union of those two sets of people is probably pretty small.
 
-Indeed, the fact that this is such a minority use case probably accounts for the  fact that SymPy doesn't support this nearly as well as it supports some of its core  symbolic math features.  For example, SymPy is great for doing a final spot check on your Calculus I homework answers to make sure the work you did by hand passes muster.
+Indeed, the fact that this is such a minority use case probably accounts for the  fact that SymPy doesn't support this nearly as well as it supports some of its core  symbolic math features.  For example, SymPy is great for doing a final spot check on your Calculus I homework answers to make sure the work you did by hand passes muster. (Of course, if you don't suffer from dumb mistakes like copying the problem down wrong or messing up a sign, you don't need it -- but it helps poor drudges like me.)
 
-As we'll see, it's still possible to do this using Matplotlib, even if the SymPy plotting support for the geometry package doesn't let us tackle it straightforwardly. We'll get to that shortly, but first, let's say a word or two about why Euclid is cool enough that we've all heard of him.
+As we'll see, however, it's still possible to plot "SymPy" geometry using Matplotlib, even if the SymPy plotting support for the geometry package doesn't let us tackle it straightforwardly. We'll get to that shortly, but first, let's say a word or two about why Euclid is cool enough that we've all heard of him.
 
 # Euclid's Geometry
 

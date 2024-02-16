@@ -6,7 +6,7 @@ categories:
 coverImage: "Conda_logo.svg_.png"
 ---
 # Conda vs. Pip, Venv, and Pyenv -- Simplicity Wins
-If you spend time on Python forums, you'll find that even people who love Python think its package management tools are somewhat clunky compared to other languages. For example, I recently promoted my [SymPy post](http://SymPy is a Python library for symbolic mathematics. It’s free and open source, and because it’s written entirely in Python, it’s easy to install and use.) in such a place. In response, someone had some good-natured fun at my expense because I wrote that because SymPy is "written entirely in Python, it’s easy to install and use."
+If you spend time on Python forums, you'll find that even people who love Python think its package management tools are somewhat clunky compared to other languages. For example, someone once had some good-natured fun at my expense because I wrote that because SymPy is "written entirely in Python, it’s easy to install and use."
 
 Let me give you another symptom of Python's tooling. More than one person has told me that they don't use virtual environments; they just install packages using pip into their global Python environment.
 
