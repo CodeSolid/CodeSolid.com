@@ -240,3 +240,9 @@ This is an and well-written (popular) overview of Number Theory.
 * Wednesday
 	* Some reading in Stoll
 	* Work on 3.5 webassign and review some implicit derivative videos.
+* Thursday
+	* Class -- Implicit differentiation
+	* Boyer reading, plus reading up on synthetic division, Horner's method, and lattice multiplication.  Neat.
+ *   Homework 3.5 webassign, still more to do.  Headache. :(
+
+ *   

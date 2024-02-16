@@ -4,10 +4,10 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>&lt;no title&gt; &mdash; CodeSolid.com 0.1 documentation</title>
+  <title>Using SymPy for Plotting Geometry &mdash; CodeSolid.com 0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
 
   
   <!--[if lt IE 9]>
@@ -84,7 +84,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="breadcrumb-item active">Using SymPy for Plotting Geometry</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/math/equilateral_triangle.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -94,7 +94,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="cell docutils container">
+  <section class="tex2jax_ignore mathjax_ignore" id="using-sympy-for-plotting-geometry">
+<h1>Using SymPy for Plotting Geometry<a class="headerlink" href="#using-sympy-for-plotting-geometry" title="Link to this heading"></a></h1>
+<p>When I’m not learning math formally as <a class="reference internal" href="../../worlds-oldest-math-major/"><span class="doc std std-doc">World’s Oldest Math Major</span></a>, sometimes I just read about the subject for fun, without any university credit accruing to it. Case in point:  I recently picked up a free public domain copy of Euclid’s elements and started working through it.</p>
+<p>Most people know that Euclid’s elements is about geometry, and it represents a sort of proof-based, pure math approach to the subject that begins with a simple set of axioms and then develops proofs of more complex theorems along the way.</p>
+<p>What I didn’t know before picking up the book was that Euclid also worked through many “Propositions”.  Like the proofs, propositions start with known axioms and definitions.  Unlike a proof, however, the goal of a proposition is often to do something more or less “practical” (to a student of geometry at least).</p>
+<p>For example, the very first Proposition in Book I of the elements walks the reader through creating an equilateral triangle, by drawing two circles centered at the points of a horizontal line segments, with the radius of the circle equal to the length of the line segment.  Once this is done, the intersection of the two circles forms the third vertex.  Moreover, because both circles have the same radius as the line AB, then the sides AC and BC are both the same length as AB.</p>
+<p>Here we show a recreation of the drawing that appears in the Elements, with a rather anachronistic set of X,Y coordinates:</p>
+<p><img alt="/images/EuclidProposition1.png" src="../../_images/EuclidProposition1.png" /></p>
+<p>When I first read through this proposition, I was a Euclid fan from that point on since it seemed such an intuitive and cool result.</p>
+<section id="enter-sympy">
+<h2>Enter SymPy<a class="headerlink" href="#enter-sympy" title="Link to this heading"></a></h2>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">init_session</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">,</span> <span class="n">symbols</span>
 <span class="kn">from</span> <span class="nn">sympy.geometry</span> <span class="kn">import</span> <span class="n">Triangle</span><span class="p">,</span> <span class="n">Circle</span><span class="p">,</span> <span class="n">Point</span>
@@ -185,6 +196,8 @@ Point2D(5, 5*sqrt(3)) {Point2D(5, -5*sqrt(3)), Point2D(5, 5*sqrt(3))}
 </div>
 </div>
 </div>
+</section>
+</section>
 
 
            </div>

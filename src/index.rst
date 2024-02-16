@@ -34,5 +34,8 @@ Math ∩ Programming
 
 CodeSolid features articles at the intersection of Math and Programming.  It is written by a retired programmer who fancies himself `The World's Oldest Math Major <./worlds-oldest-math-major>`_.
 
+As you can see from the category headings on the left, you can find a lot on this site about Python, with a smattering of C, C++, Docker, and other software engineering topics. Going forward we still expect to do some of that, especially as it relates to mathematics.
+
+Sometimes those relationships can be pretty tenuous and in the nature of early experiments, such as when `Euclid meets SymPy </math/sympy_geometry>`_.  No one including me saw that one coming, but it was a pleasant diversion when it did arrive.
 
 

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Using SymPy for Plotting Geometry &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=19645805"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Categories</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../category-math-and-math-software/">Math and Math Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-math/">Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-python/">Python (General)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-python-for-beginners-posts/">Python for Beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-python-functions/">Python Funcitons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-python-math-and-science/">Python Math and Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-python-practice/">Python Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-python-tools/">Python Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-newsletter/">Newsletter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-miscellaneous/">Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-c-and-cplusplus/">C and C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-docker/">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-jupyter/">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-learn-to-code/">Learn to Code</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Using SymPy for Plotting Geometry</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/math/sympy_geometry.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="using-sympy-for-plotting-geometry">
+<h1>Using SymPy for Plotting Geometry<a class="headerlink" href="#using-sympy-for-plotting-geometry" title="Link to this heading"></a></h1>
+<p>I’m pretty sure not a lot of people have tried to see how one of Euclid’s propositions might be diagramed using SymPy’s plotting routines and its Geometry package.  There are plenty of nerds reading Euclid, and another fine group using SymPy, but the union of those two sets of people is probably pretty small.</p>
+<p>Indeed, the fact that this is such a minority use case probably accounts for the  fact that SymPy doesn’t support this nearly as well as it supports some of its core  symbolic math features.  For example, SymPy is great for doing a final spot check on your Calculus I homework answers to make sure the work you did by hand passes muster.</p>
+<p>As we’ll see, it’s still possible to do this using Matplotlib, even if the SymPy plotting support for the geometry package doesn’t let us tackle it straightforwardly. We’ll get to that shortly, but first, let’s say a word or two about why Euclid is cool enough that we’ve all heard of him.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="euclid-s-geometry">
+<h1>Euclid’s Geometry<a class="headerlink" href="#euclid-s-geometry" title="Link to this heading"></a></h1>
+<p>When I’m not learning math formally as <a class="reference internal" href="../../worlds-oldest-math-major/"><span class="doc std std-doc">World’s Oldest Math Major</span></a>, sometimes I just read about the subject for fun, without any university credit accruing to it. Case in point:  I recently picked up a free public-domain copy of Euclid’s elements and started working through it.</p>
+<p>Most people know that Euclid’s Elements is about geometry, and it represents a sort of proof-based, pure math approach to the subject that begins with a simple set of axioms and then develops proofs of more complex theorems along the way.</p>
+<p>What I didn’t know before picking up the book was that Euclid also worked through many “propositions”.  Like the proofs, propositions start with known axioms and definitions.  Unlike a proof, however, the goal of a proposition is often to do something more or less “practical” (to a student of geometry at least).  That is, they’re partly focused on doing a task rather than simply proving a result.</p>
+<p>For example, the very first Proposition in Book I of the Elements walks the reader through creating an equilateral triangle, by drawing two circles centered at the endpoints of a horizontal line segment, with the radius of the circle equal to the length of the line segment.  Once this is done, either point where the two circles  intersect can serve as the third vertex of an equilateral triangle.  Moreover, because both circles have the same radius as the line segment AB, then the sides AC and BC are both the same length as AB.</p>
+<p>Here we show a recreation of the drawing that appears in the Elements:</p>
+<p><img alt="/images/EuclidProposition1.png" src="../../_images/EuclidProposition1.png" /></p>
+<p>When I first read through this proposition, I thought this result was cool enough to merit trying it out in SymPy.  As you may have already guessed from the rather anachronistic set of X and Y axes visible in the image above, I was able to get it to work, but I didn’t get there through plotting it in SymPy.</p>
+<section id="enter-sympy">
+<h2>Enter SymPy<a class="headerlink" href="#enter-sympy" title="Link to this heading"></a></h2>
+<p>When I tried to reproduce this image in SymPy, I started at the end, so to speak.  That is to say, I began with the SymPy documentation for how to create an equilateral triangle. Here’s the code for that part:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Draw an Equilateral triangle (based on SymPy documentation)</span>
+<span class="n">vertices</span> <span class="o">=</span> <span class="p">[</span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">Point</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">))]</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">(</span><span class="o">*</span><span class="n">vertices</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>So far so good. According to the SymPy documentation, that’s equilateral.</p>
+<p>Now let’s plot it.  Again, we consult SymPy’s <a class="reference external" href="https://docs.sympy.org/latest/modules/plotting.html#plotting-geometric-entities">documentation</a>, where we learn this:</p>
+<blockquote>Plotting polygons (Polygon, RegularPolygon, Triangle) are not supported directly.</blockquote>
+<p>Dang. We can’t get there from here, at least not “directly”. No worries.  Let’s take a quick stab at doing it indirectly, along with the imports we’ll need for the rest of the task.</p>
+<p>Here’s the code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span>  <span class="n">sqrt</span>
+<span class="kn">from</span> <span class="nn">sympy.geometry</span> <span class="kn">import</span> <span class="n">Triangle</span><span class="p">,</span> <span class="n">Circle</span><span class="p">,</span> <span class="n">Point</span>
+<span class="kn">from</span> <span class="nn">sympy.plotting.plot_implicit</span> <span class="kn">import</span> <span class="n">plot_implicit</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="k">def</span> <span class="nf">make_plottable</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">):</span>
+    <span class="c1"># converts (&quot;flattens&quot;) two points to two arrays with x-value, y-value</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">p1</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p2</span><span class="o">.</span><span class="n">x</span><span class="p">],[</span><span class="n">p1</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">p2</span><span class="o">.</span><span class="n">y</span><span class="p">]</span>
+
+<span class="c1"># Draw an Equilateral triangle (based on SymPy documentation)</span>
+<span class="n">vertices</span> <span class="o">=</span> <span class="p">[</span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">Point</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">))]</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">(</span><span class="o">*</span><span class="n">vertices</span><span class="p">)</span>
+
+<span class="c1"># Get some axes to plot into</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Make our image square rather than the default (rectangular)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Plot each side using its two endpoints</span>
+<span class="k">for</span> <span class="n">side</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">sides</span><span class="p">:</span>    
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_plottable</span><span class="p">(</span><span class="o">*</span><span class="n">side</span><span class="o">.</span><span class="n">points</span><span class="p">)</span>
+    <span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/4488ea3dc84e9218e3eff15eb3488de6744d7d7391d39b5ba2bc75136ea7bd46.png" src="../../_images/4488ea3dc84e9218e3eff15eb3488de6744d7d7391d39b5ba2bc75136ea7bd46.png" />
+</div>
+</div>
+<p>As you can see, that’s looking pretty equilateral. We’ll accept it as a postulate for now that it is.  Now to get our Euclidean diagram, we need to draw a circle.  Let’s try to draw the first one.  The documentation says we can do this using plot_implicit.</p>
+<p>We need one with the same radius as the bottom line segment.  A reasonable first attempt based on the SymPy documentation is the following:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">circ1</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plot_implicit</span><span class="p">(</span><span class="n">circ1</span><span class="o">.</span><span class="n">equation</span><span class="p">(),</span> <span class="n">aspect_ratio</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/b506702d74bcbeea86461a578bdb517b7bccdd91452025e0fe2a83515a16cbf2.png" src="../../_images/b506702d74bcbeea86461a578bdb517b7bccdd91452025e0fe2a83515a16cbf2.png" />
+</div>
+</div>
+<p>Being the astute reader that you are, you’ve naturally noticed the absence of a circle here, where the documentation says there should be one:</p>
+<blockquote>The plotting module is capable of plotting some 2D geometric entities like line, circle and ellipse. The following example plots a circle centred at origin and of radius 2 units.
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x y&#39;</span><span class="p">)</span>
+<span class="n">plot_implicit</span><span class="p">(</span><span class="n">Eq</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Similarly, plot_implicit() may be used to plot any 2-D geometric structure from its implicit equation.</blockquote></p>
+<p>I noticed it, too!  “Maybe it’s a bug,” I thought.  “Let’s try some smaller circles.”</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">symbols</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x y&#39;</span><span class="p">)</span>
+<span class="n">Circle</span><span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">plot_implicit</span><span class="p">(</span><span class="n">Circle</span><span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">equation</span><span class="p">(),</span><span class="n">aspect_ratio</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">plot_implicit</span><span class="p">(</span><span class="n">Circle</span><span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">equation</span><span class="p">(),</span> <span class="n">aspect_ratio</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/59bc2907629576713f66dff320d12b6e3f51c817d2fbd75e39b5d4988a75fa89.png" src="../../_images/59bc2907629576713f66dff320d12b6e3f51c817d2fbd75e39b5d4988a75fa89.png" />
+<img alt="../../_images/2db582aababa5350f9c911f0ec3f3df71d82e9c1760c6035f4f3d542a36c1249.png" src="../../_images/2db582aababa5350f9c911f0ec3f3df71d82e9c1760c6035f4f3d542a36c1249.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sympy.plotting.plot.Plot at 0x111108410&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Well, darn.  We can plot_implicit a circle with radius of 5, but we start running into problems at a radius of 6, and by the time we reach 10, our circle has disappeared completely.  (I did manage at one point to set the x and y limits to a larger value, but the problem persisted, so it’s not just that the circles are getting cut off).</p>
+<p>The documentation notwithstanding, SymPy Circle objects aren’t supported directly either.</p>
+<p>OK, well once again, let’s see if Matplotlib won’t let us work around this.  Here we take our original triangle and add the two circles.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="k">def</span> <span class="nf">make_plottable</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">):</span>
+    <span class="c1"># converts (&quot;flattens&quot;) two points to two arrays with x-value, y-value</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">p1</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p2</span><span class="o">.</span><span class="n">x</span><span class="p">],[</span><span class="n">p1</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">p2</span><span class="o">.</span><span class="n">y</span><span class="p">]</span>
+
+<span class="c1"># Draw an Equilateral triangle (based on SymPy documentation)</span>
+<span class="n">vertices</span> <span class="o">=</span> <span class="p">[</span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">Point</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">))]</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">(</span><span class="o">*</span><span class="n">vertices</span><span class="p">)</span>
+
+<span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">side</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">sides</span><span class="p">:</span>    
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_plottable</span><span class="p">(</span><span class="o">*</span><span class="n">side</span><span class="o">.</span><span class="n">points</span><span class="p">)</span>
+    <span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># Now according to Euclid</span>
+
+<span class="c1"># the radius of the two circles == line AB</span>
+<span class="n">r</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="c1"># theta goes from 0 to 2pi</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+
+<span class="c1"># Left circle</span>
+<span class="c1"># compute x1 and x2</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="s2">&quot;.7&quot;</span><span class="p">)</span>
+
+<span class="c1"># Right circle</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">+</span> <span class="mi">10</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="s2">&quot;.7&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/7463f6c45f52ba78aa23e27ac52b9f45cc7e7f91b92e7d240973068485549b1c.png" src="../../_images/7463f6c45f52ba78aa23e27ac52b9f45cc7e7f91b92e7d240973068485549b1c.png" />
+</div>
+</div>
+<p>I know, that’s quite a lot of Matplotlib arm-waving for what Euclid no doubt dispatched quickly with a compass.</p>
+<p>Remember when they used to say that computers are labor-saving devices?</p>
+<p>Have you noticed they stopped saying that?</p>
+<p>OK, cynicism aside, let’s take what we’ve done so far and add the labels we’d need at the end.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="k">def</span> <span class="nf">make_plottable</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">):</span>
+    <span class="c1"># converts (&quot;flattens&quot;) two points to two arrays with x-value, y-value</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">p1</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p2</span><span class="o">.</span><span class="n">x</span><span class="p">],[</span><span class="n">p1</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">p2</span><span class="o">.</span><span class="n">y</span><span class="p">]</span>
+
+<span class="c1"># Draw an Equilateral triangle (based on SymPy documentation)</span>
+<span class="n">vertices</span> <span class="o">=</span> <span class="p">[</span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">Point</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">))]</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">(</span><span class="o">*</span><span class="n">vertices</span><span class="p">)</span>
+
+<span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">side</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">sides</span><span class="p">:</span>    
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_plottable</span><span class="p">(</span><span class="o">*</span><span class="n">side</span><span class="o">.</span><span class="n">points</span><span class="p">)</span>
+    <span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+<span class="c1"># Now according to Euclid</span>
+
+<span class="c1"># the radius of the two circles == line AB</span>
+<span class="n">r</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="c1"># theta goes from 0 to 2pi</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+
+<span class="c1"># Left circle</span>
+<span class="c1"># compute x1 and x2</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="s2">&quot;.7&quot;</span><span class="p">)</span>
+
+<span class="c1"># Right circle</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">+</span> <span class="mi">10</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="s2">&quot;.7&quot;</span><span class="p">)</span>
+
+<span class="c1"># Label vertices</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;large&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">10.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;large&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="mf">.5</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;large&#39;</span><span class="p">)</span>
+
+<span class="c1"># Label circles</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mi">11</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;large&#39;</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">20.3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;large&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/c1c6a49c12448ad86315ada49eaec59cb9bdd90c31acdca538096102655c1c94.png" src="../../_images/c1c6a49c12448ad86315ada49eaec59cb9bdd90c31acdca538096102655c1c94.png" />
+</div>
+</div>
+<p>There is our completed diagram.  If you want to see how this relates to Euclid’s original proposition and its diagram, you can read about those <a class="reference external" href="http://aleph0.clarku.edu/~djoyce/elements/bookI/propI1.html">here</a>.</p>
+<p>Let’s see how we might demonstrate that the point we originally trusted, (5, 5*sqrt(3)), really is the point of intersection of the two circles, and that the triangle is indeed equilateral.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">c1</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="n">vertices</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">r</span><span class="p">)</span>
+<span class="n">c2</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="n">vertices</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">r</span><span class="p">)</span>
+<span class="n">intersections</span> <span class="o">=</span> <span class="n">c1</span><span class="o">.</span><span class="n">intersect</span><span class="p">(</span><span class="n">c2</span><span class="p">)</span>
+
+<span class="c1"># Show our intersections:</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Our intersections are:  &quot;</span><span class="p">,</span> <span class="n">intersections</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is our apex point one of the intersections:&quot;</span><span class="p">,</span><span class="n">vertices</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">intersections</span><span class="p">))</span>
+
+<span class="c1"># Are three sides the same?</span>
+<span class="n">side_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">side</span><span class="o">.</span><span class="n">length</span> <span class="k">for</span> <span class="n">side</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">sides</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Our sides have the same length, as shown here: &quot;</span><span class="p">,</span> <span class="n">side_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Our intersections are:   {Point2D(5, -5*sqrt(3)), Point2D(5, 5*sqrt(3))}
+Is our apex point one of the intersections: True
+Our sides have the same length, as shown here:  [10, 10, 10]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, what can we say about that apex point? Why does it have the value that it has? In particular, where did that 5 times the square root of three come from?</p>
+<p>If we think about it, we tried to combine three sides of length 10 into a triangle where each angle is 60 degrees.  In radians, 60 degrees is</p>
+<div class="math notranslate nohighlight">
+\[\frac{\pi}{3}\]</div>
+<p>Let’s multiply the sin of that value times one of our sides, to see if it makes sense.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">pi</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">pi</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5*sqrt(3)
+</pre></div>
+</div>
+</div>
+</div>
+<p>SymPy’s geometry plotting could be much improved, but you have to love it for symbolic math.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QX7KGT4YPE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-QX7KGT4YPE', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

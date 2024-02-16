@@ -196,7 +196,53 @@ For a regular pentagon, $\frac{(5 - 2) * 180}{5}= \frac{540}{5} = \frac{540}{5} 
 	* Revisit MatPlotlib
 	* Review some conic section basic equations
 
-* Sunday
+* Sunday 2/4
 	* Working in SymPy -- more SymPy than math
 	* Reading Clawson's Mathematical Mysteries
 
+* Monday 2/5
+	* Reading
+	* Homework
+	* Reading Calvin C. Clawson's Mathematical Mysteries: The Beauty and Magic of Numbers.
+This is an and well-written (popular) overview of Number Theory.
+
+* Tuesday, 2/6
+	* Class basic derivative rules
+	* Homework
+	* Reading Clawson
+
+* Wednesday 2/7
+	* Begin homework on Product/Quotient rules -- SLOW
+	* Reading Clawson
+* Thursday 2/8
+	* Class on Product and quotient rules and pos and velocity.  Finish product/quotient homework.  Nice!
+	* Reading Clawson
+
+ * Friday 2/9
+	* Notebook for the article on Matplotlib for Book I Proposition I of the elements.
+	* Reading Clawson
+
+* Saturday 2/10
+	* Reviewing Chain Rule with Nancy Pi's [video](https://www.youtube.com/watch?v=H-ybCx8gt-8&t=994s).  Work through the problems except last one, see notes.
+	* Reading Clawson
+
+* Sunday 2/11
+	* Light on math per se :( -- just working on Symplot idea (SymPy simplified Matplotlib plotting)
+
+* Monday 2/12
+	* Reading Clawson
+	* Homework on chain rule.  About 10 out of 17 problems
+
+* Tuesday 2/13
+	* Class - chain rule.
+	* Finish 1/2 homework for next week, chain rule problems. (Webassign 3.4)
+
+* Wednesday
+	* Some reading in Stoll
+	* Work on 3.5 webassign and review some implicit derivative videos.
+* Thursday
+	* Class -- Implicit differentiation
+	* Boyer reading, plus reading up on synthetic division, Horner's method, and lattice multiplication.  Neat.
+ *   Homework 3.5 webassign, still more to do.  Headache. :(
+
+ *   

@@ -12,6 +12,24 @@ kernelspec:
   name: python3
 ---
 
+# Using SymPy for Plotting Geometry
+
+When I'm not learning math formally as [World's Oldest Math Major](/worlds-oldest-math-major/), sometimes I just read about the subject for fun, without any university credit accruing to it. Case in point:  I recently picked up a free public domain copy of Euclid's elements and started working through it.
+
+Most people know that Euclid's elements is about geometry, and it represents a sort of proof-based, pure math approach to the subject that begins with a simple set of axioms and then develops proofs of more complex theorems along the way.
+
+What I didn't know before picking up the book was that Euclid also worked through many "Propositions".  Like the proofs, propositions start with known axioms and definitions.  Unlike a proof, however, the goal of a proposition is often to do something more or less "practical" (to a student of geometry at least).
+
+For example, the very first Proposition in Book I of the elements walks the reader through creating an equilateral triangle, by drawing two circles centered at the points of a horizontal line segments, with the radius of the circle equal to the length of the line segment.  Once this is done, the intersection of the two circles forms the third vertex.  Moreover, because both circles have the same radius as the line AB, then the sides AC and BC are both the same length as AB.
+
+Here we show a recreation of the drawing that appears in the Elements, with a rather anachronistic set of X,Y coordinates:
+
+![/images/EuclidProposition1.png](/images/EuclidProposition1.png)
+
+When I first read through this proposition, I was a Euclid fan from that point on since it seemed such an intuitive and cool result.
+
+## Enter SymPy
+
 ```{code-cell} ipython3
 from sympy import init_session, sqrt, symbols
 from sympy.geometry import Triangle, Circle, Point
