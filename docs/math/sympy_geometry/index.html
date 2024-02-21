@@ -24,7 +24,9 @@
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex/" />
-    <link rel="search" title="Search" href="../../search/" /> 
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="next" title="Python (General)" href="../../category-python/" />
+    <link rel="prev" title="On Being The World’s Oldest Math Major" href="../../worlds-oldest-math-major/" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -54,9 +56,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Categories</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../category-math-and-math-software/">Math and Math Software</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../category-math/">Math</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../category-math/">Math</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../worlds-oldest-math-major/">On Being The World’s Oldest Math Major</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Using SymPy for Plotting Geometry</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#euclid-s-geometry">Euclid’s Geometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enter-sympy">Enter SymPy</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../category-python/">Python (General)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../category-python-for-beginners-posts/">Python for Beginners</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../category-python-functions/">Python Funcitons</a></li>
@@ -86,6 +97,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../category-math/">Math</a></li>
       <li class="breadcrumb-item active">Using SymPy for Plotting Geometry</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/math/sympy_geometry.md.txt" rel="nofollow"> View page source</a>
@@ -101,9 +113,8 @@
 <p>I’m pretty sure not a lot of people have tried to see how one of Euclid’s propositions might be diagramed using SymPy’s plotting routines and its Geometry package.  There are plenty of nerds reading Euclid, and another fine group using SymPy, but the union of those two sets of people is probably pretty small.</p>
 <p>Indeed, the fact that this is such a minority use case probably accounts for the  fact that SymPy doesn’t support this nearly as well as it supports some of its core  symbolic math features.  For example, SymPy is great for doing a final spot check on your Calculus I homework answers to make sure the work you did by hand passes muster. (Of course, if you don’t suffer from dumb mistakes like copying the problem down wrong or messing up a sign, you don’t need it – but it helps poor drudges like me.)</p>
 <p>As we’ll see, however, it’s still possible to plot “SymPy” geometry using Matplotlib, even if the SymPy plotting support for the geometry package doesn’t let us tackle it straightforwardly. We’ll get to that shortly, but first, let’s say a word or two about why Euclid is cool enough that we’ve all heard of him.</p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="euclid-s-geometry">
-<h1>Euclid’s Geometry<a class="headerlink" href="#euclid-s-geometry" title="Link to this heading"></a></h1>
+<section id="euclid-s-geometry">
+<h2>Euclid’s Geometry<a class="headerlink" href="#euclid-s-geometry" title="Link to this heading"></a></h2>
 <p>When I’m not learning math formally as <a class="reference internal" href="../../worlds-oldest-math-major/"><span class="doc std std-doc">World’s Oldest Math Major</span></a>, sometimes I just read about the subject for fun, without any university credit accruing to it. Case in point:  I recently picked up a free public-domain copy of Euclid’s elements and started working through it.</p>
 <p>Most people know that Euclid’s Elements is about geometry, and it represents a sort of proof-based, pure math approach to the subject that begins with a simple set of axioms and then develops proofs of more complex theorems along the way.</p>
 <p>What I didn’t know before picking up the book was that Euclid also worked through many “propositions”.  Like the proofs, propositions start with known axioms and definitions.  Unlike a proof, however, the goal of a proposition is often to do something more or less “practical” (to a student of geometry at least).  That is, they’re partly focused on doing a task rather than simply proving a result.</p>
@@ -111,6 +122,7 @@
 <p>Here we show a recreation of the drawing that appears in the Elements:</p>
 <p><img alt="/images/EuclidProposition1.png" src="../../_images/EuclidProposition1.png" /></p>
 <p>When I first read through this proposition, I thought this result was cool enough to merit trying it out in SymPy.  As you may have already guessed from the rather anachronistic set of X and Y axes visible in the image above, I was able to get it to work, but I didn’t get there through plotting it in SymPy.</p>
+</section>
 <section id="enter-sympy">
 <h2>Enter SymPy<a class="headerlink" href="#enter-sympy" title="Link to this heading"></a></h2>
 <p>When I tried to reproduce this image in SymPy, I started at the end, so to speak.  That is to say, I began with the SymPy documentation for how to create an equilateral triangle. Here’s the code for that part:</p>
@@ -197,9 +209,9 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/805e219a0c36bf85be08161310bd0fb58474a9eb2ae8679d79f4ecbf9cae9a8e.png" src="../../_images/805e219a0c36bf85be08161310bd0fb58474a9eb2ae8679d79f4ecbf9cae9a8e.png" />
-<img alt="../../_images/20fe61fd00e3b3daedf54b746e6d94d9aeac8b91f9c7f4a290219b12210e3910.png" src="../../_images/20fe61fd00e3b3daedf54b746e6d94d9aeac8b91f9c7f4a290219b12210e3910.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sympy.plotting.plot.Plot at 0x127c0ded0&gt;
+<img alt="../../_images/224010abc83231f97222b01b08a062a9076d0359d64235b0d0779f8527cb16f2.png" src="../../_images/224010abc83231f97222b01b08a062a9076d0359d64235b0d0779f8527cb16f2.png" />
+<img alt="../../_images/db156a37e4009f176b2e58d8ad9beba024e9c141553bf7e582555819bc2e3b1d.png" src="../../_images/db156a37e4009f176b2e58d8ad9beba024e9c141553bf7e582555819bc2e3b1d.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sympy.plotting.plot.Plot at 0x1182351d0&gt;
 </pre></div>
 </div>
 </div>
@@ -361,7 +373,10 @@ Our sides have the same length, as shown here:  [10, 10, 10]
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../../worlds-oldest-math-major/" class="btn btn-neutral float-left" title="On Being The World’s Oldest Math Major" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../category-python/" class="btn btn-neutral float-right" title="Python (General)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

@@ -9,6 +9,5 @@ vendor
 delme
 .vscode
 legacy/
-categories/
 themes/sphinx_rtd_theme_from_git/
 src/math/scratch

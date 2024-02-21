@@ -20,7 +20,7 @@ Indeed, the fact that this is such a minority use case probably accounts for the
 
 As we'll see, however, it's still possible to plot "SymPy" geometry using Matplotlib, even if the SymPy plotting support for the geometry package doesn't let us tackle it straightforwardly. We'll get to that shortly, but first, let's say a word or two about why Euclid is cool enough that we've all heard of him.
 
-# Euclid's Geometry
+## Euclid's Geometry
 
 When I'm not learning math formally as [World's Oldest Math Major](/worlds-oldest-math-major/), sometimes I just read about the subject for fun, without any university credit accruing to it. Case in point:  I recently picked up a free public-domain copy of Euclid's elements and started working through it.
 

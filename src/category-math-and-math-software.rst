@@ -5,6 +5,7 @@ Math and Math Software
    :caption: Articles:
    :maxdepth: 1
    
+   
    teach-yourself-math
    using-latex-in-python
    programming-and-math-a-brief-translation-guide

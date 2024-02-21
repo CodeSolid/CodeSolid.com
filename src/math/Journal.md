@@ -237,12 +237,36 @@ This is an and well-written (popular) overview of Number Theory.
 	* Class - chain rule.
 	* Finish 1/2 homework for next week, chain rule problems. (Webassign 3.4)
 
-* Wednesday
+* Wednesday 2/14
 	* Some reading in Stoll
 	* Work on 3.5 webassign and review some implicit derivative videos.
-* Thursday
+
+* Thursday 2/15
 	* Class -- Implicit differentiation
 	* Boyer reading, plus reading up on synthetic division, Horner's method, and lattice multiplication.  Neat.
- *   Homework 3.5 webassign, still more to do.  Headache. :(
+	* Homework 3.5 webassign, still more to do.  Headache. :(
 
- *   
+ *	Friday 2/16
+	* Finish WebAssign Homework
+
+* Saturday 2/17
+	* Reading Boyer History of Mathematics
+
+* Sunday, 2/18
+	* Reading Boyer History of Mathematics
+
+* Monday, 2/19
+	* Reading Boyer History of Mathematics
+	* Learning about [Derivatives of Inverse Functions](https://www.khanacademy.org/math/ap-calculus-ab/ab-differentiation-2-new/ab-3-3/v/derivatives-of-inverse-functions) and elsewhere, and next few videos.
+	* 2/3 (so far) of Webassign 3.6 homework for Calc I.
+
+* Tuesday 2/20
+	* Class on differentials of inverses, inverse trig fns.
+	* Finish homework for that class
+	* Reading Boyer History of Mathematics
+
+* Wednesday 2/21
+	* Begin working on related rates -- viewing only so far
+	* Reading Boyer History of Mathematics
+
+* G
