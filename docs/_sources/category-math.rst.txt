@@ -8,3 +8,4 @@ Math
    using-latex-in-python
    worlds-oldest-math-major
    math/sympy_geometry
+   math/Journal

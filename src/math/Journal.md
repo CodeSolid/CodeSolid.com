@@ -1,5 +1,7 @@
 # Math Journal
 
+I thought I'd make public my least readable of "articles", which is nothing more than the daily notes on my journy as the World's Oldest Math Major.
+
 * Monday, 12/11/2023:
 	* Refine some precalc notes.
 	* Calc I new course info notes.
@@ -268,5 +270,47 @@ This is an and well-written (popular) overview of Number Theory.
 * Wednesday 2/21
 	* Begin working on related rates -- viewing only so far
 	* Reading Boyer History of Mathematics
+  
+Note:  Here there was a big hiatus in entries, though not in Math, for several days (until 3/3).  On 3/3/24
+I caught up.
 
-* G
+* Thurday 2/22
+	* Class
+	* Finish up related rates problems
+	* Reading Boyer
+
+* Friday 2/23 
+	* Work on Test 2 Study guide Calc 1
+	* Somewhere in here began "What is Mathematics"
+	* Boyer
+
+* Saturday 2/24
+	* Boyer and What is Math
+
+* Sunday 2/25
+	* Boyer and What is Math
+
+* Monday 2/26
+	* More studying for Calc 1 test 2
+	* Reading Boyer
+
+* Tuesday 2/27
+	* Class -- review for test 2
+	* Study for test
+	* Boyer
+
+* Wednesday 2/28
+	* Final studying for test
+
+* Thursday 2/29
+	* Calc 1 test 2.  Got a grade of 102/100 with bonus question.  :) !!!
+
+* Friday 3/1
+	* Reading Boyer History of Math
+
+* Saturday 3/1
+	* Reading Boyer History of Math
+
+* Sunday 3/1
+	* Reading Boyer History of Math
+
