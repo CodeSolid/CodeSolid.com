@@ -10,6 +10,7 @@ Math ∩ Programming
    installing-pyenv-on-a-mac
    conda-vs-pip
    jupyter-password
+   math/taking-calculus-in-your-sixties
 
 .. toctree::
    :caption: Categories
