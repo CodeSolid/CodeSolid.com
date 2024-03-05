@@ -308,9 +308,17 @@ I caught up.
 * Friday 3/1
 	* Reading Boyer History of Math
 
-* Saturday 3/1
+* Saturday 3/2
 	* Reading Boyer History of Math
 
-* Sunday 3/1
+* Sunday 3/3
 	* Reading Boyer History of Math
+
+* Monday 3/4
+	* Reading Boyer History of Math
+	* Article on [Taking Calculus in your sixties](taking-calculus-in-your-sixties)
+
+* Tuesday 3/5
+	* Reading Boyer History of Math
+	* Finish article 
 
