@@ -1,5 +1,5 @@
 
-Python Funcitons
+Python Functions
 ================
 .. toctree::
    :caption: Articles:
