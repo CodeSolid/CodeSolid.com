@@ -321,4 +321,18 @@ I caught up.
 * Tuesday 3/5
 	* Reading Boyer History of Math
 	* Finish article 
+	* Begin Viewing Calc One Lecture 4.1 Professor Leonard on Antiderivatives & Integration
 
+* Wednesday 3/6
+	* Reading Boyer
+	* Viewing Calc One Lecture 4.1 (several parts) 
+
+* Thursday 3/7
+	* Reading Boyer
+	* Reading on series, infinite series, Wikipedia on Taylor Series etc. Scratching the surface.
+* Friday 3/8
+	* Reading Boyer
+
+* Saturday 3/9
+	* Reading Boyer
+	* Organize Calc I notes (Ok, that's minor!)
