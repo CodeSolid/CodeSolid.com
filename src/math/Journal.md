@@ -330,9 +330,74 @@ I caught up.
 * Thursday 3/7
 	* Reading Boyer
 	* Reading on series, infinite series, Wikipedia on Taylor Series etc. Scratching the surface.
+
 * Friday 3/8
 	* Reading Boyer
 
 * Saturday 3/9
 	* Reading Boyer
 	* Organize Calc I notes (Ok, that's minor!)
+
+* Sunday 3/10
+	* Reading Boyer
+
+* Monday 3/11
+	* Reading Boyer
+	* Get started on topics for homework due. Extrema on an Interval, Rolle's Theorem and MVT, Increasing and Decreasing Functions and First Derivative Test.  Start with this one:  https://www.youtube.com/watch?v=V239IIoGVT8.
+
+* Tuesday 3/12
+	* Class -- extrema
+	* Finish 4.1 homework, most of 4.2
+	* Reading Boyer
+
+* Wednesday 3/13
+	* Reading Boyer
+	* Some "What is Math" (not a lot)
+	* Work on 4.3
+
+**************** GAP ******************
+With frowny face:  :(
+**************** GAP ******************
+
+* Monday, 3/25
+	* OK, let's not even try to fill in that 12 day gap in any day-by-day way.  Twelve days!  That's bad.  But here are some highlights from that period:
+		* I'm primarily working on What Is Math now, having finished Boyer
+		* Friday and over the weekend of 3/23-3/24 I did some more Logarithm review.  It seems I need to do that every few months, or just work a big plate of problems until I have completely internalized them.  I may need to break down and write an article on them.
+		* Continuing with Homework / classes for Calculus I, of course.
+		* Began an article on exploring basic number theory with Python.
+
+Another gap filled in 3-25 to 4-1
+
+* Tues, 3/26
+	* Class.  Around here begin sweating the load on Exam 3
+	* Study for Exam 3
+
+* Weds 3/27
+	* Study for Exam 3
+	* Reading Courant.
+
+* Thurs 3/28
+	* Class.  Study for exam 3 in Calc 1
+	* Reading Courant.
+
+* Friday 3/29
+	* Study for exam 3 in Calc 1
+	* Homework
+	* Reading Courant.
+
+* Sat 3/30
+	* Study for exam 3 in Calc 1
+	* Homework and Lab
+	* Reading Courant.
+
+* Sunday 3/31
+	* Study for exam 3 in Calc 1
+	* Reading Courant.
+
+* Monday, 4/1
+	* Study for Exam 3
+	* Reading Courant.
+
+* Tuesday 4/2
+	* Exam 3.  Hardest yet
+	* Catch up math journal

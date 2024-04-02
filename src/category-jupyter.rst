@@ -1,6 +1,7 @@
 
 Jupyter
-======
+=======
+
 .. toctree::
    :caption: Articles:
    :maxdepth: 1

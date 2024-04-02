@@ -5,5 +5,5 @@ Featured Articles
    :caption: Featured:
    :hidden:
 
-   using_latex_in_python
+   using-latex-in-python
 

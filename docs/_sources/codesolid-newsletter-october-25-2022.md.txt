@@ -5,7 +5,8 @@ categories:
   - "newsletter"
 ---
 # CodeSolid Newsletter:  October 25, 2022
-### Hello from CodeSolid,
+
+Hello from CodeSolid,
 
 I hope you’re having a great week. This last week brought a lot of progress, new material, and fixes to the website.  We’re also welcoming new subscribers and the first feedback from existing ones.  I thought I’d break down the latest newsletter into CodeSolid news and other interesting reads.  But first, a bit of news:
 

@@ -18,4 +18,4 @@ Other
    getting-things-done-with-github-markdown-and-visual-studio-code
    the-marketing-genius-of-100-days-of-code
    python-postgres-and-docker-running-fast-meaningful-unit-tests
-    python-hobbyist-to-professional
+   python-hobbyist-to-professional

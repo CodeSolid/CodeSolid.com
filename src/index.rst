@@ -1,7 +1,8 @@
 
 
 Math ∩ Programming
-================
+==================
+
 .. toctree::
    :caption: Featured Articles:
    :hidden:   
@@ -10,7 +11,13 @@ Math ∩ Programming
    installing-pyenv-on-a-mac
    conda-vs-pip
    jupyter-password
+
+.. toctree::
+   :caption: Added Recently:
+   :hidden:   
+
    math/taking-calculus-in-your-sixties
+   math/exploring_basic_number_theory_in_python
 
 .. toctree::
    :caption: Categories

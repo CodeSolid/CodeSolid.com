@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exploring Basic Number Theory in Python &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=19645805"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="next" title="Math and Math Software" href="../../category-math-and-math-software/" />
+    <link rel="prev" title="Can You Take Calculus In Your Sixties?" href="../taking-calculus-in-your-sixties/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Added Recently:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../taking-calculus-in-your-sixties/">Can You Take Calculus In Your Sixties?</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Exploring Basic Number Theory in Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#solving-a-problem-by-hand-and-checking-it-in-sympy">Solving a problem by hand and checking it in SymPy</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Categories</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../category-math-and-math-software/">Math and Math Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-math/">Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-python/">Python (General)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-python-for-beginners-posts/">Python for Beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-python-functions/">Python Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-python-math-and-science/">Python Math and Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-python-practice/">Python Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-python-tools/">Python Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-newsletter/">Newsletter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-miscellaneous/">Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-c-and-cplusplus/">C and C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-docker/">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-jupyter/">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-learn-to-code/">Learn to Code</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Exploring Basic Number Theory in Python</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/math/exploring_basic_number_theory_in_python.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="exploring-basic-number-theory-in-python">
+<h1>Exploring Basic Number Theory in Python<a class="headerlink" href="#exploring-basic-number-theory-in-python" title="Link to this heading"></a></h1>
+<p>As a beginning undergraduate in math, I really appreciate good math writing. That’s why when the excellent author of <a class="reference external" href="https://www.amazon.com/Introduction-Graph-Theory-Dover-Mathematics/dp/0486678709">Introduction to Graph Theory</a>, Richard Trudeau, hailed <a class="reference external" href="https://www.amazon.com/What-Mathematics-Elementary-Approach-Methods-ebook/dp/B000SEKHFG">What Is Mathematics</a> as “one of the best all-around mathematics textbooks since Euclid,” I recognized that as my marching orders, so I picked up a copy and began reading.</p>
+<p>I found this book worthwhile enough to begin working on the exercises instead of just reading through and “skimming.”  The supplement to chapter 1 covered Number Theory, and as soon as I began grappling with these, I wanted to try out some things in Python.  This article is just an attempt to share some of those explorations.  (I’ll be doing some “beginner explorations” in this article.  If you’re more advanced, you might consider exploring SymPy’s <a class="reference external" href="https://docs.sympy.org/latest/modules/ntheory.html">ntheory package</a>.</p>
+<p>The discussion in the What is Mathematics section on Number Theory began with the idea of congruence.  Programmers are familiar with the modulus operator, %, which gives the remainder left over after an integer division of the operands.  For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>In number theory, we say that two numbers, <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are congruent with respect to a given modulus, <span class="math notranslate nohighlight">\(d\)</span>, if they give the same remainder. We write this as:</p>
+<div class="math notranslate nohighlight">
+\[ a \equiv b \space (mod \space d) \]</div>
+<p>For example, given a modulus of 3, we can see that both 7 and 10 divided by three both leave a remainder of 1, so we can say:</p>
+<div class="math notranslate nohighlight">
+\[ 10 \equiv 7 \space (mod \space 3) \]</div>
+<p>If this isn’t obvious enough by inspection, we can test it trivially in Python:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_congruent</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">modulus</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Test whether two numbers, a and b, are congruent for the given modulus&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">%</span> <span class="n">modulus</span> <span class="o">==</span> <span class="n">b</span> <span class="o">%</span> <span class="n">modulus</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">is_congruent</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>  <span class="c1"># OK, 1 == 1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">is_congruent</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>  <span class="c1"># NO!  7 mod 4 is 3, while 10 mod 4 is 2!</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Many interesting properties apply to the congruence relation numbers, which are similar to properties that apply to equivalence.</p>
+<p><em>What Is Mathematics</em> goes through these properties, so I won’t reproduce them here, but they generate many interesting results.  For example, congruent numbers can be added and multiplied; for any given modulus, we can construct tables to understand the results. We have some day-to-day experience with doing this in mod 12, where we know that if it’s 10:00 AM now, five hours from now, it won’t be 15:00 (unless you’re in the military).  Instead, it will be 3 PM because <span class="math notranslate nohighlight">\(15 \bmod 12 = 3\)</span>.</p>
+<p>To give an example that the authors didn’t discuss, you may have learned in school that if the digits of a number add up to nine, the number is evenly divisible by nine.  Thus, 27 is divisible by nine because <span class="math notranslate nohighlight">\(2 + 7 = 9\)</span>. Because we’re dealing with base 10 (where the digit choices are 0-9), the remainder after division by 9 is the same as you get from the sum of a number’s digits:</p>
+<p>For example, <span class="math notranslate nohighlight">\(139 \bmod 9 = 4\)</span>, and <span class="math notranslate nohighlight">\(1 + 3 + 9 = 13\)</span>.  We can see that 13 divided by nine gives a remainder of four, which we can also obtain by a second digit sum, i.e., <span class="math notranslate nohighlight">\(1 + 3 = 4\)</span></p>
+<section id="solving-a-problem-by-hand-and-checking-it-in-sympy">
+<h2>Solving a problem by hand and checking it in SymPy<a class="headerlink" href="#solving-a-problem-by-hand-and-checking-it-in-sympy" title="Link to this heading"></a></h2>
+<p>One of the exercises in <em>What is Mathematics</em> was this:  “To what number between 0 and 4 inclusive is the sum of <span class="math notranslate nohighlight">\(1 + 2^2 + 2^3 + ... 2^{18}\)</span> congruent (mod 5)?”</p>
+<p>In my first attempt to solve this, I tried to find a pattern in the first few terms to see if it was any help:</p>
+<p>Here’s the table I made for the modulus of those terms:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Term</p></th>
+<th class="head"><p>modulus 5</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>16</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>32</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>64</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p>128</p></td>
+<td><p>3</p></td>
+</tr>
+</tbody>
+</table>
+<p>Looking at the right-hand column, we see that the modulus terms repeat in groups of 4, as follows:  (1, 2, 4, 3).</p>
+<p>Since the four repeating terms add up to 10, and <span class="math notranslate nohighlight">\(10 \equiv 0 \space (\bmod 5)\)</span>, and since <span class="math notranslate nohighlight">\(2^18\)</span> is the term we’re concerned with, and since the series is based on zero rather than one, we’ll have three terms left over at the end.  I therefore reasoned that the second modulus of the sequence we showed above should give us the answer:  <span class="math notranslate nohighlight">\(\boxed{2}\)</span>.  This will turn out to be wrong, but bear with me.</p>
+<p>To check the answer in Python, I thought it was a great time to figure out how summations worked in SymPy. In general, SymPy is my go-to tool for checking results in Calculus. Now, for this problem, we’ll see in a minute that that approach is a bit overengineered since Python will also get us there directly, but let’s try SymPy first.</p>
+<p>The series in the exercise can also be written as:</p>
+<p><span class="math notranslate nohighlight">\(\sum\limits_{i=0}^{18} 2^i\)</span></p>
+<p>Checking the documentation for the summation function in SymPy, we learn we can translate that into Python as <code class="docutils literal notranslate"><span class="pre">summation(2**i,</span> <span class="pre">(i,</span> <span class="pre">0,</span> <span class="pre">18))</span></code>, i.e., <code class="docutils literal notranslate"><span class="pre">summation(function,</span> <span class="pre">(variable,</span> <span class="pre">start,</span> <span class="pre">stop))</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="n">i</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="n">integer</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">summation</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">18</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>524287
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since I’ve been working with congruences today, it’s obvious to me that 524287 mod 5 should be 2 (because 7 mod 5 is 2), but let’s show it in Python in case its not obvious to you:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">result</span> <span class="o">%</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<p>(As I mentioned, I wanted to try out the summation feature of Sympy, but we didn’t need SymPy otherwise. We can achieve the same result with the Python runtime library quite easily, as shown below).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="mi">2</span><span class="o">**</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">19</span><span class="p">)])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>524287
+</pre></div>
+</div>
+</div>
+</div>
+<p>In addition to dealing with infinite series, SymPy’s summation function also has the advantage of using the full closed range we’re dealing with rather than the half-open range, <span class="math notranslate nohighlight">\([0, 10)\)</span>.</p>
+<p>Whether we use SymPy or a simple list comprehension, the answer we arrived at by grouping terms seems to check out, but let’s verify that it’s not a fluke. If it’s not, the next term in the sequence should match up with the next term in our group of four.  That is, if we’re not just lucky, we should find <span class="math notranslate nohighlight">\(2^{19} \equiv 4 \bmod 5\)</span></p>
+<p>In other words, the following should return the number four:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sp</span><span class="o">.</span><span class="n">summation</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">19</span><span class="p">))</span> <span class="o">%</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/702ba12f4bf2cef7092842f0bdd4dc2b8bfdc07d13bc79cc481075cd1cc7c88c.png" src="../../_images/702ba12f4bf2cef7092842f0bdd4dc2b8bfdc07d13bc79cc481075cd1cc7c88c.png" />
+</div>
+</div>
+<p>Well, OK, that’s clearly not a four.  So, up to this point, I’ve learned I was right about <span class="math notranslate nohighlight">\(2^{18}\)</span> but not for <span class="math notranslate nohighlight">\(2^{19}\)</span>, so by dumb luck, I had arrived at the right answer for <span class="math notranslate nohighlight">\(2^{18}\)</span> with the wrong reasoning.</p>
+<p>Fortunately, because I was summing the terms now to check my answer, it quickly occurred to me that the trouble with my algorithm might be that I was looking for a pattern in the individual terms rather than the series.  I decided to write a bit of code to see if I could detect a pattern in the sum of the terms instead.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">summation</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span> <span class="o">%</span><span class="k">5</span>)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+3
+2
+0
+1
+3
+2
+0
+1
+3
+</pre></div>
+</div>
+</div>
+</div>
+<p>That’s better.  Here the fourth term in the repeating sequence is 0, not 4.  This agrees with the result we got for <span class="math notranslate nohighlight">\(2^{19}\)</span>.  Let’s do one final (inductive) check to make sure the algorithm seems to hold true for other terms as the series grows.  To do this we can run the summation, then see if the summation modulo 5 (what we call below the actual value) matches what we expect to see based on a repeated pattern (expected):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pattern</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">terms_to_check</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">passed</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Testing up to 2^</span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">terms_to_check</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">terms_to_check</span><span class="p">):</span>
+    <span class="c1"># Our expected value for the summation of the series:</span>
+    <span class="n">actual</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">summation</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span> <span class="o">%</span> <span class="mi">5</span>
+
+    <span class="c1"># Try matching the actual modulus value against our pattern using our &quot;algorithm&quot;:</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="n">x</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">pattern</span><span class="p">)</span>
+    <span class="n">expected</span> <span class="o">=</span> <span class="n">pattern</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+
+    <span class="c1"># Check</span>
+    <span class="k">if</span> <span class="n">actual</span> <span class="o">!=</span> <span class="n">expected</span><span class="p">:</span>
+        <span class="n">passed</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test passed?&quot;</span><span class="p">,</span> <span class="n">passed</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Testing up to 2^100
+Test passed? True
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is just one of the explorations my reading of <em>What Is Mathematics</em> has suggested so far.  It’s such a rich motherlode of math gems that I could easily spend a year playing with the ideas I’m learning from this one book.  Since I don’t have time to do that right at the moment with my university math courses, I’ll leave this one little article as yet another example of how Python helps me save myself from those many math errors I make either in calculation steps or in fundamental concepts.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../taking-calculus-in-your-sixties/" class="btn btn-neutral float-left" title="Can You Take Calculus In Your Sixties?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../category-math-and-math-software/" class="btn btn-neutral float-right" title="Math and Math Software" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QX7KGT4YPE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-QX7KGT4YPE', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>
