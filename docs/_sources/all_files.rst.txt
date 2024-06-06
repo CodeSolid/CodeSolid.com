@@ -34,8 +34,7 @@ Site Index
    getting-started-with-python-classes
    getting-things-done-with-dendron-and-vs-code-first-look
    getting-things-done-with-github-markdown-and-visual-studio-code
-   google-sheets-in-python-and-pandas
-   heymoe
+   google-sheets-in-python-and-pandas   
    how-do-i-profile-python-code
    how-to-compare-python-dictionaries
    how-to-convert-a-string-to-datetime-in-python

@@ -1,5 +1,0 @@
-I recently had an issue (likely a general issue, but in case you need this detail:  MAT 271, section B110, Spring 2024 4.2 Homework - Rolle's Theorem and MVT (Homework) for CPCC in Charlotte).
-
-The instructor reduced the number of questions for the assignment from 12 to 10, after I had begun the homework.  When I returned to "finish" the homework, I found the questions I hadn't completed were gone, but the grade was still being calculated  based on the original number of questions.  In other words, the instructor modifying the assignment in WebAssign did not correct trigger a re-calculation of in-progress student grades in WebAssign.  The result is now correct in our official grade tool (Brightspace), likely due to the instructor fixing it manually, so this is not an issue for me, but it is a WebAssign defect that should be passed on to development.
-
-Thanks.

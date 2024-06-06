@@ -1,0 +1,1279 @@
+{
+  "kind": "youtube#playlistItemListResponse",
+  "etag": "89nB1_bP7FGuqMmo19uggRKTFPs",
+  "items": [
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "Dlbg9L1XbM2q_cF5aW0hl1RH-fE",
+      "id": "UExEZXNhcVdUTjZFUTJKNHZnc04xSHlCZVJBREVoNEN3LS4yMDhBMkNBNjRDMjQxQTg1",
+      "snippet": {
+        "publishedAt": "2014-04-23T04:21:39Z",
+        "channelId": "UCoHhuummRZaIVX7bD4t2czg",
+        "title": "Calculus 2 Lecture 6.1:  The Natural Log Function",
+        "description": "Calculus 2 Lecture 6.1:  The Natural Log Function",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/H9eCT6f_Ftw/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/H9eCT6f_Ftw/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/H9eCT6f_Ftw/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/H9eCT6f_Ftw/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/H9eCT6f_Ftw/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Professor Leonard",
+        "playlistId": "PLDesaqWTN6EQ2J4vgsN1HyBeRADEh4Cw-",
+        "position": 0,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "H9eCT6f_Ftw"
+        },
+        "videoOwnerChannelTitle": "Professor Leonard",
+        "videoOwnerChannelId": "UCoHhuummRZaIVX7bD4t2czg"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "1N33CIUksHi6uWubyQkLuCWyjA4",
+      "id": "UExEZXNhcVdUTjZFUTJKNHZnc04xSHlCZVJBREVoNEN3LS5ENDU4Q0M4RDExNzM1Mjcy",
+      "snippet": {
+        "publishedAt": "2014-04-23T04:21:39Z",
+        "channelId": "UCoHhuummRZaIVX7bD4t2czg",
+        "title": "Calculus 2 Lecture 6.2:  Derivatives of Inverse Functions",
+        "description": "Calculus 2 Lecture 6.2:  Derivatives of Inverse Functions",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/HnsUNWNYZ28/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/HnsUNWNYZ28/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/HnsUNWNYZ28/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/HnsUNWNYZ28/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/HnsUNWNYZ28/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Professor Leonard",
+        "playlistId": "PLDesaqWTN6EQ2J4vgsN1HyBeRADEh4Cw-",
+        "position": 1,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "HnsUNWNYZ28"
+        },
+        "videoOwnerChannelTitle": "Professor Leonard",
+        "videoOwnerChannelId": "UCoHhuummRZaIVX7bD4t2czg"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "reTNAgQkJDPxWAfFDSZSYPS6bso",
+      "id": "UExEZXNhcVdUTjZFUTJKNHZnc04xSHlCZVJBREVoNEN3LS45RTgxNDRBMzUwRjQ0MDhC",
+      "snippet": {
+        "publishedAt": "2014-04-23T04:21:39Z",
+        "channelId": "UCoHhuummRZaIVX7bD4t2czg",
+        "title": "Calculus 2 Lecture 6.3:  Derivatives and Integrals of Exponential Functions",
+        "description": "Calculus 2 Lecture 6.3:  Derivatives and Integrals of Exponential Functions",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/5HlW7OnXUT4/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/5HlW7OnXUT4/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/5HlW7OnXUT4/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/5HlW7OnXUT4/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/5HlW7OnXUT4/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Professor Leonard",
+        "playlistId": "PLDesaqWTN6EQ2J4vgsN1HyBeRADEh4Cw-",
+        "position": 2,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "5HlW7OnXUT4"
+        },
+        "videoOwnerChannelTitle": "Professor Leonard",
+        "videoOwnerChannelId": "UCoHhuummRZaIVX7bD4t2czg"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "raJ2kJzSOeI7STgNJqQoFgJ8znA",
+      "id": "UExEZXNhcVdUTjZFUTJKNHZnc04xSHlCZVJBREVoNEN3LS4yMUQyQTQzMjRDNzMyQTMy",
+      "snippet": {
+        "publishedAt": "2014-04-23T04:21:39Z",
+        "channelId": "UCoHhuummRZaIVX7bD4t2czg",
+        "title": "Calculus 2 Lecture 6.4:  Derivatives and Integrals of General Exponential Functions",
+        "description": "Calculus 2 Lecture 6.4:  Derivatives and Integrals of General Exponential Functions",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/rR8imSHCuFk/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/rR8imSHCuFk/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/rR8imSHCuFk/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/rR8imSHCuFk/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/rR8imSHCuFk/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Professor Leonard",
+        "playlistId": "PLDesaqWTN6EQ2J4vgsN1HyBeRADEh4Cw-",
+        "position": 3,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "rR8imSHCuFk"
+        },
+        "videoOwnerChannelTitle": "Professor Leonard",
+        "videoOwnerChannelId": "UCoHhuummRZaIVX7bD4t2czg"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "iYibZvYJTlT7QDHgBrw-iVGaz5g",
+      "id": "UExEZXNhcVdUTjZFUTJKNHZnc04xSHlCZVJBREVoNEN3LS41QTY1Q0UxMTVCODczNThE",
+      "snippet": {
+        "publishedAt": "2014-04-23T04:21:39Z",
+        "channelId": "UCoHhuummRZaIVX7bD4t2czg",
+        "title": "Calculus 2 Lecture 6.5:  Calculus of Inverse Trigonometric Functions",
+        "description": "Calculus 2 Lecture 6.5:  Calculus of Inverse Trigonometric Functions",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/ST3ORfqVYQw/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/ST3ORfqVYQw/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/ST3ORfqVYQw/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/ST3ORfqVYQw/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/ST3ORfqVYQw/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Professor Leonard",
+        "playlistId": "PLDesaqWTN6EQ2J4vgsN1HyBeRADEh4Cw-",
+        "position": 4,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "ST3ORfqVYQw"
+        },
+        "videoOwnerChannelTitle": "Professor Leonard",
+        "videoOwnerChannelId": "UCoHhuummRZaIVX7bD4t2czg"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "fBqzhyk6yzgWxZk4QxbFLPKi-kc",
+      "id": "UExEZXNhcVdUTjZFUTJKNHZnc04xSHlCZVJBREVoNEN3LS5EQUE1NTFDRjcwMDg0NEMz",
+      "snippet": {
+        "publishedAt": "2014-04-23T04:21:39Z",
+        "channelId": "UCoHhuummRZaIVX7bD4t2czg",
+        "title": "Calculus 2 Lecture 6.6:  A Discussion of Hyperbolic Functions",
+        "description": "Calculus 2 Lecture 6.6:  A Discussion of Hyperbolic Functions",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/3kPg0gkJQgc/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/3kPg0gkJQgc/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/3kPg0gkJQgc/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/3kPg0gkJQgc/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/3kPg0gkJQgc/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Professor Leonard",
+        "playlistId": "PLDesaqWTN6EQ2J4vgsN1HyBeRADEh4Cw-",
+        "position": 5,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "3kPg0gkJQgc"
+        },
+        "videoOwnerChannelTitle": "Professor Leonard",
+        "videoOwnerChannelId": "UCoHhuummRZaIVX7bD4t2czg"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "-6CZHMy_QWcj6T5K_F8WL5kIO18",
+      "id": "UExEZXNhcVdUTjZFUTJKNHZnc04xSHlCZVJBREVoNEN3LS41Mzk2QTAxMTkzNDk4MDhF",
+      "snippet": {
+        "publishedAt": "2014-04-23T04:21:39Z",
+        "channelId": "UCoHhuummRZaIVX7bD4t2czg",
+        "title": "Calculus 2 Lecture 6.7:  Evaluating Limits of Indeterminate Forms",
+        "description": "Calculus 2 Lecture 6.7:  Evaluating Limits of Indeterminate Forms",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/Zd7wd24jeok/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/Zd7wd24jeok/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/Zd7wd24jeok/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/Zd7wd24jeok/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/Zd7wd24jeok/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Professor Leonard",
+        "playlistId": "PLDesaqWTN6EQ2J4vgsN1HyBeRADEh4Cw-",
+        "position": 6,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "Zd7wd24jeok"
+        },
+        "videoOwnerChannelTitle": "Professor Leonard",
+        "videoOwnerChannelId": "UCoHhuummRZaIVX7bD4t2czg"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "uxfhONECcZViiJtDoMfJQ9SOTck",
+      "id": "UExEZXNhcVdUTjZFUTJKNHZnc04xSHlCZVJBREVoNEN3LS4zMDg5MkQ5MEVDMEM1NTg2",
+      "snippet": {
+        "publishedAt": "2014-04-23T04:21:39Z",
+        "channelId": "UCoHhuummRZaIVX7bD4t2czg",
+        "title": "Calculus 2 Lecture 7.1:  Integration By Parts",
+        "description": "Calculus 2 Lecture 7.1:  Integration By Parts",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/EOwjiFpDY_s/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/EOwjiFpDY_s/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/EOwjiFpDY_s/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/EOwjiFpDY_s/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/EOwjiFpDY_s/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Professor Leonard",
+        "playlistId": "PLDesaqWTN6EQ2J4vgsN1HyBeRADEh4Cw-",
+        "position": 7,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "EOwjiFpDY_s"
+        },
+        "videoOwnerChannelTitle": "Professor Leonard",
+        "videoOwnerChannelId": "UCoHhuummRZaIVX7bD4t2czg"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "JngB9xolitfGJcRtuLo9xcRxi_w",
+      "id": "UExEZXNhcVdUTjZFUTJKNHZnc04xSHlCZVJBREVoNEN3LS45ODRDNTg0QjA4NkFBNkQy",
+      "snippet": {
+        "publishedAt": "2014-04-23T04:21:39Z",
+        "channelId": "UCoHhuummRZaIVX7bD4t2czg",
+        "title": "Calculus 2 Lecture 7.2:  Techniques For Trigonometric Integrals",
+        "description": "Calculus 2 Lecture 7.2:  Techniques For Trigonometric Integrals",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/pLrUBjiEo-w/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/pLrUBjiEo-w/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/pLrUBjiEo-w/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/pLrUBjiEo-w/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/pLrUBjiEo-w/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Professor Leonard",
+        "playlistId": "PLDesaqWTN6EQ2J4vgsN1HyBeRADEh4Cw-",
+        "position": 8,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "pLrUBjiEo-w"
+        },
+        "videoOwnerChannelTitle": "Professor Leonard",
+        "videoOwnerChannelId": "UCoHhuummRZaIVX7bD4t2czg"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "IAHZPQ2tXNNqECbF-mH9wNuFyEI",
+      "id": "UExEZXNhcVdUTjZFUTJKNHZnc04xSHlCZVJBREVoNEN3LS5EMEEwRUY5M0RDRTU3NDJC",
+      "snippet": {
+        "publishedAt": "2014-04-23T04:21:39Z",
+        "channelId": "UCoHhuummRZaIVX7bD4t2czg",
+        "title": "Calculus 2 Lecture 7.3:  Integrals By Trigonometric Substitution",
+        "description": "Calculus 2 Lecture 7.3:  Integrals By Trigonometric Substitution",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/q6JwTGpG8b4/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/q6JwTGpG8b4/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/q6JwTGpG8b4/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/q6JwTGpG8b4/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/q6JwTGpG8b4/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Professor Leonard",
+        "playlistId": "PLDesaqWTN6EQ2J4vgsN1HyBeRADEh4Cw-",
+        "position": 9,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "q6JwTGpG8b4"
+        },
+        "videoOwnerChannelTitle": "Professor Leonard",
+        "videoOwnerChannelId": "UCoHhuummRZaIVX7bD4t2czg"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "fXDsasULBWIzQkEnE27dRQc2Yuc",
+      "id": "UExEZXNhcVdUTjZFUTJKNHZnc04xSHlCZVJBREVoNEN3LS40NzZCMERDMjVEN0RFRThB",
+      "snippet": {
+        "publishedAt": "2014-04-23T04:21:39Z",
+        "channelId": "UCoHhuummRZaIVX7bD4t2czg",
+        "title": "Calculus 2 Lecture 7.4:  Integration By Partial Fractions",
+        "description": "Calculus 2 Lecture 7.4:  Integration By Partial Fractions",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/KJGp0pyPoVo/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/KJGp0pyPoVo/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/KJGp0pyPoVo/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/KJGp0pyPoVo/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/KJGp0pyPoVo/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Professor Leonard",
+        "playlistId": "PLDesaqWTN6EQ2J4vgsN1HyBeRADEh4Cw-",
+        "position": 10,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "KJGp0pyPoVo"
+        },
+        "videoOwnerChannelTitle": "Professor Leonard",
+        "videoOwnerChannelId": "UCoHhuummRZaIVX7bD4t2czg"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "2B7SU0FLM7yZPtz2I7UXQmmiOW0",
+      "id": "UExEZXNhcVdUTjZFUTJKNHZnc04xSHlCZVJBREVoNEN3LS5GNjNDRDREMDQxOThCMDQ2",
+      "snippet": {
+        "publishedAt": "2014-04-23T04:21:39Z",
+        "channelId": "UCoHhuummRZaIVX7bD4t2czg",
+        "title": "Calculus 2 Lecture 7.6:  Improper Integrals",
+        "description": "Calculus 2 Lecture 7.6:  Improper Integrals",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/g-M8FHslgdk/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/g-M8FHslgdk/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/g-M8FHslgdk/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/g-M8FHslgdk/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/g-M8FHslgdk/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Professor Leonard",
+        "playlistId": "PLDesaqWTN6EQ2J4vgsN1HyBeRADEh4Cw-",
+        "position": 11,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "g-M8FHslgdk"
+        },
+        "videoOwnerChannelTitle": "Professor Leonard",
+        "videoOwnerChannelId": "UCoHhuummRZaIVX7bD4t2czg"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "MroWPirKv003B0ozZpXGjBGrMUk",
+      "id": "UExEZXNhcVdUTjZFUTJKNHZnc04xSHlCZVJBREVoNEN3LS45NDk1REZENzhEMzU5MDQz",
+      "snippet": {
+        "publishedAt": "2014-04-23T04:21:39Z",
+        "channelId": "UCoHhuummRZaIVX7bD4t2czg",
+        "title": "Calculus 2 Lecture 8.1: Solving First Order Differential Equations By Separation of Variables",
+        "description": "Calculus 2 Lecture 8.1: Solving First Order Differential Equations By Separation of Variables",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/WxVaVzxsDb0/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/WxVaVzxsDb0/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/WxVaVzxsDb0/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/WxVaVzxsDb0/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/WxVaVzxsDb0/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Professor Leonard",
+        "playlistId": "PLDesaqWTN6EQ2J4vgsN1HyBeRADEh4Cw-",
+        "position": 12,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "WxVaVzxsDb0"
+        },
+        "videoOwnerChannelTitle": "Professor Leonard",
+        "videoOwnerChannelId": "UCoHhuummRZaIVX7bD4t2czg"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "znisTPtP0EBL0vgSoURJGXW-GCs",
+      "id": "UExEZXNhcVdUTjZFUTJKNHZnc04xSHlCZVJBREVoNEN3LS5DQUNERDQ2NkIzRUQxNTY1",
+      "snippet": {
+        "publishedAt": "2014-04-23T04:21:39Z",
+        "channelId": "UCoHhuummRZaIVX7bD4t2czg",
+        "title": "Calculus 2 Lecture 9.1:  Convergence and Divergence of Sequences",
+        "description": "Calculus 2 Lecture 9.1:  Convergence and Divergence of Sequences",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/FoNLQvf4NUs/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/FoNLQvf4NUs/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/FoNLQvf4NUs/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/FoNLQvf4NUs/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/FoNLQvf4NUs/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Professor Leonard",
+        "playlistId": "PLDesaqWTN6EQ2J4vgsN1HyBeRADEh4Cw-",
+        "position": 13,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "FoNLQvf4NUs"
+        },
+        "videoOwnerChannelTitle": "Professor Leonard",
+        "videoOwnerChannelId": "UCoHhuummRZaIVX7bD4t2czg"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "pbSvD0b51x75KDO5UeGqGeqqiAQ",
+      "id": "UExEZXNhcVdUTjZFUTJKNHZnc04xSHlCZVJBREVoNEN3LS41MzJCQjBCNDIyRkJDN0VD",
+      "snippet": {
+        "publishedAt": "2014-04-23T04:21:39Z",
+        "channelId": "UCoHhuummRZaIVX7bD4t2czg",
+        "title": "Calculus 2 Lecture 9.2:  Series, Geometric Series, Harmonic Series, and Divergence Test",
+        "description": "Calculus 2 Lecture 9.2:  Introduction to Series, Geometric Series, Harmonic Series, and the Divergence Test",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/DGcWMdW-72M/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/DGcWMdW-72M/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/DGcWMdW-72M/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/DGcWMdW-72M/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/DGcWMdW-72M/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Professor Leonard",
+        "playlistId": "PLDesaqWTN6EQ2J4vgsN1HyBeRADEh4Cw-",
+        "position": 14,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "DGcWMdW-72M"
+        },
+        "videoOwnerChannelTitle": "Professor Leonard",
+        "videoOwnerChannelId": "UCoHhuummRZaIVX7bD4t2czg"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "Br1V89R2u-7suUGMQ8Wk1P_cAKQ",
+      "id": "UExEZXNhcVdUTjZFUTJKNHZnc04xSHlCZVJBREVoNEN3LS4xMkVGQjNCMUM1N0RFNEUx",
+      "snippet": {
+        "publishedAt": "2014-04-23T04:21:39Z",
+        "channelId": "UCoHhuummRZaIVX7bD4t2czg",
+        "title": "Calculus 2 Lecture 9.3:  Using the Integral Test for Convergence/Divergence of Series, P-Series",
+        "description": "Calculus 2 Lecture 9.3:  Using the Integral Test for Convergence/Divergence of Series, P-Series",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/8jPpNK4GIVs/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/8jPpNK4GIVs/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/8jPpNK4GIVs/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/8jPpNK4GIVs/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/8jPpNK4GIVs/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Professor Leonard",
+        "playlistId": "PLDesaqWTN6EQ2J4vgsN1HyBeRADEh4Cw-",
+        "position": 15,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "8jPpNK4GIVs"
+        },
+        "videoOwnerChannelTitle": "Professor Leonard",
+        "videoOwnerChannelId": "UCoHhuummRZaIVX7bD4t2czg"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "RqSF32FawtulCh5X0B-qcxAn-LI",
+      "id": "UExEZXNhcVdUTjZFUTJKNHZnc04xSHlCZVJBREVoNEN3LS4wOTA3OTZBNzVEMTUzOTMy",
+      "snippet": {
+        "publishedAt": "2014-04-23T04:21:39Z",
+        "channelId": "UCoHhuummRZaIVX7bD4t2czg",
+        "title": "Calculus 2 Lecture 9.4:  The Comparison Test for Series and The Limit Comparison Test",
+        "description": "Calculus 2 Lecture 9.4:  The Comparison Test for Series and The Limit Comparison Test",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/ei8WKMAHky0/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/ei8WKMAHky0/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/ei8WKMAHky0/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/ei8WKMAHky0/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/ei8WKMAHky0/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Professor Leonard",
+        "playlistId": "PLDesaqWTN6EQ2J4vgsN1HyBeRADEh4Cw-",
+        "position": 16,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "ei8WKMAHky0"
+        },
+        "videoOwnerChannelTitle": "Professor Leonard",
+        "videoOwnerChannelId": "UCoHhuummRZaIVX7bD4t2czg"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "MdhJQeCg_EiB-_s2LOImbzKSdv4",
+      "id": "UExEZXNhcVdUTjZFUTJKNHZnc04xSHlCZVJBREVoNEN3LS41MjE1MkI0OTQ2QzJGNzNG",
+      "snippet": {
+        "publishedAt": "2014-04-23T04:21:39Z",
+        "channelId": "UCoHhuummRZaIVX7bD4t2czg",
+        "title": "Calculus 2 Lecture 9.5:  Showing Convergence With the Alternating Series Test, Finding Error of Sums",
+        "description": "Calculus 2 Lecture 9.5:  Showing Convergence With the Alternating Series Test, Finding Error of Sums",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/BhYPrQHDrjk/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/BhYPrQHDrjk/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/BhYPrQHDrjk/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/BhYPrQHDrjk/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/BhYPrQHDrjk/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Professor Leonard",
+        "playlistId": "PLDesaqWTN6EQ2J4vgsN1HyBeRADEh4Cw-",
+        "position": 17,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "BhYPrQHDrjk"
+        },
+        "videoOwnerChannelTitle": "Professor Leonard",
+        "videoOwnerChannelId": "UCoHhuummRZaIVX7bD4t2czg"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "GFIclQb_vT0HVw-xjGxNfrzkDqg",
+      "id": "UExEZXNhcVdUTjZFUTJKNHZnc04xSHlCZVJBREVoNEN3LS4wMTcyMDhGQUE4NTIzM0Y5",
+      "snippet": {
+        "publishedAt": "2014-04-23T04:21:39Z",
+        "channelId": "UCoHhuummRZaIVX7bD4t2czg",
+        "title": "Calculus 2 Lecture 9.6:  Absolute Convergence, Ratio Test and Root Test For Series",
+        "description": "Calculus 2 Lecture 9.6:  Absolute Convergence, Ratio Test and Root Test For Series",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/g4iZJOwMkjU/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/g4iZJOwMkjU/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/g4iZJOwMkjU/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/g4iZJOwMkjU/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/g4iZJOwMkjU/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Professor Leonard",
+        "playlistId": "PLDesaqWTN6EQ2J4vgsN1HyBeRADEh4Cw-",
+        "position": 18,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "g4iZJOwMkjU"
+        },
+        "videoOwnerChannelTitle": "Professor Leonard",
+        "videoOwnerChannelId": "UCoHhuummRZaIVX7bD4t2czg"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "OVDcLcPqphY3CqTVHuQJ5aTXLAw",
+      "id": "UExEZXNhcVdUTjZFUTJKNHZnc04xSHlCZVJBREVoNEN3LS4yODlGNEE0NkRGMEEzMEQy",
+      "snippet": {
+        "publishedAt": "2014-04-23T04:21:39Z",
+        "channelId": "UCoHhuummRZaIVX7bD4t2czg",
+        "title": "Calculus 2 Lecture 9.7:  Power Series, Calculus of Power Series, Ratio Test for Int. of Convergence",
+        "description": "Calculus 2 Lecture 9.7:  Power Series, Calculus of Power Series, Using Ratio Test to Find Interval of Convergence",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/TGD-TP1c7i4/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/TGD-TP1c7i4/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/TGD-TP1c7i4/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/TGD-TP1c7i4/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/TGD-TP1c7i4/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Professor Leonard",
+        "playlistId": "PLDesaqWTN6EQ2J4vgsN1HyBeRADEh4Cw-",
+        "position": 19,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "TGD-TP1c7i4"
+        },
+        "videoOwnerChannelTitle": "Professor Leonard",
+        "videoOwnerChannelId": "UCoHhuummRZaIVX7bD4t2czg"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "pH0EXWF3hiAKlo9rim0Ev3AqYuY",
+      "id": "UExEZXNhcVdUTjZFUTJKNHZnc04xSHlCZVJBREVoNEN3LS41NkI0NEY2RDEwNTU3Q0M2",
+      "snippet": {
+        "publishedAt": "2014-04-23T04:21:39Z",
+        "channelId": "UCoHhuummRZaIVX7bD4t2czg",
+        "title": "Calculus 2 Lecture 9.8:  Representation of Functions by Taylor Series and Maclauren Series",
+        "description": "Calculus 2 Lecture 9.8:  Representation of Functions by Taylor Series and Maclauren Series",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/3VHol7eosLA/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/3VHol7eosLA/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/3VHol7eosLA/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/3VHol7eosLA/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/3VHol7eosLA/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Professor Leonard",
+        "playlistId": "PLDesaqWTN6EQ2J4vgsN1HyBeRADEh4Cw-",
+        "position": 20,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "3VHol7eosLA"
+        },
+        "videoOwnerChannelTitle": "Professor Leonard",
+        "videoOwnerChannelId": "UCoHhuummRZaIVX7bD4t2czg"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "N03rs_IbsFQa9-DKV642A0XowuM",
+      "id": "UExEZXNhcVdUTjZFUTJKNHZnc04xSHlCZVJBREVoNEN3LS4zRjM0MkVCRTg0MkYyQTM0",
+      "snippet": {
+        "publishedAt": "2014-05-02T05:38:53Z",
+        "channelId": "UCoHhuummRZaIVX7bD4t2czg",
+        "title": "Calculus 2 Lecture 9.9: Approximation of Functions by Taylor Polynomials",
+        "description": "Calculus 2 Lecture 9.9: Approximation of Functions by Taylor Polynomials",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/RbreIk02B3c/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/RbreIk02B3c/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/RbreIk02B3c/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/RbreIk02B3c/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/RbreIk02B3c/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Professor Leonard",
+        "playlistId": "PLDesaqWTN6EQ2J4vgsN1HyBeRADEh4Cw-",
+        "position": 21,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "RbreIk02B3c"
+        },
+        "videoOwnerChannelTitle": "Professor Leonard",
+        "videoOwnerChannelId": "UCoHhuummRZaIVX7bD4t2czg"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "jcIkF6EO1mXn1lb8HBRNvzKMF4k",
+      "id": "UExEZXNhcVdUTjZFUTJKNHZnc04xSHlCZVJBREVoNEN3LS5GM0Q3M0MzMzY5NTJFNTdE",
+      "snippet": {
+        "publishedAt": "2014-05-02T05:38:29Z",
+        "channelId": "UCoHhuummRZaIVX7bD4t2czg",
+        "title": "Calculus 2 Lecture 10.2:  Introduction to Parametric Equations",
+        "description": "Calculus 2 Lecture 10.2:  Introduction to Parametric Equations",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/d4KADBFqpR0/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/d4KADBFqpR0/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/d4KADBFqpR0/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/d4KADBFqpR0/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/d4KADBFqpR0/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Professor Leonard",
+        "playlistId": "PLDesaqWTN6EQ2J4vgsN1HyBeRADEh4Cw-",
+        "position": 22,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "d4KADBFqpR0"
+        },
+        "videoOwnerChannelTitle": "Professor Leonard",
+        "videoOwnerChannelId": "UCoHhuummRZaIVX7bD4t2czg"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "Oq5uu30hxe5lZ8RcRnkE2fLcOYY",
+      "id": "UExEZXNhcVdUTjZFUTJKNHZnc04xSHlCZVJBREVoNEN3LS5DQ0MyQ0Y4Mzg0M0VGOEYw",
+      "snippet": {
+        "publishedAt": "2014-08-06T06:16:10Z",
+        "channelId": "UCoHhuummRZaIVX7bD4t2czg",
+        "title": "Calculus 2 Lecture 10.3:  Calculus of Parametric Equations",
+        "description": "Calculus 2 Lecture 10.3:  Calculus of Parametric Equations",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/1H6HrfX_qCA/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/1H6HrfX_qCA/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/1H6HrfX_qCA/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/1H6HrfX_qCA/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/1H6HrfX_qCA/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Professor Leonard",
+        "playlistId": "PLDesaqWTN6EQ2J4vgsN1HyBeRADEh4Cw-",
+        "position": 23,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "1H6HrfX_qCA"
+        },
+        "videoOwnerChannelTitle": "Professor Leonard",
+        "videoOwnerChannelId": "UCoHhuummRZaIVX7bD4t2czg"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "1zSkiNuGF1KPruxUj2uYiiPDreM",
+      "id": "UExEZXNhcVdUTjZFUTJKNHZnc04xSHlCZVJBREVoNEN3LS43MTI1NDIwOTMwQjIxMzNG",
+      "snippet": {
+        "publishedAt": "2014-08-06T06:16:10Z",
+        "channelId": "UCoHhuummRZaIVX7bD4t2czg",
+        "title": "Calculus 2 Lecture 10.4:  Using Polar Coordinates and Polar Equations",
+        "description": "Calculus 2 Lecture 10.4:  Using Polar Coordinates and Polar Equations",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/sWUyFQQ5QeI/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/sWUyFQQ5QeI/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/sWUyFQQ5QeI/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/sWUyFQQ5QeI/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/sWUyFQQ5QeI/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Professor Leonard",
+        "playlistId": "PLDesaqWTN6EQ2J4vgsN1HyBeRADEh4Cw-",
+        "position": 24,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "sWUyFQQ5QeI"
+        },
+        "videoOwnerChannelTitle": "Professor Leonard",
+        "videoOwnerChannelId": "UCoHhuummRZaIVX7bD4t2czg"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "ItVlKeyhVQh-0zHeut6jDAkP8GI",
+      "id": "UExEZXNhcVdUTjZFUTJKNHZnc04xSHlCZVJBREVoNEN3LS5DNzE1RjZEMUZCMjA0RDBB",
+      "snippet": {
+        "publishedAt": "2014-08-06T06:16:10Z",
+        "channelId": "UCoHhuummRZaIVX7bD4t2czg",
+        "title": "Calculus 2 Lecture 10.5:  Calculus of Polar Equations",
+        "description": "Calculus 2 Lecture 10.5:  Calculus of Polar Equations.  Area Bound by Polar Curve, Area Between Two Polar Curves.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/Kh265EC11OI/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/Kh265EC11OI/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/Kh265EC11OI/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/Kh265EC11OI/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/Kh265EC11OI/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Professor Leonard",
+        "playlistId": "PLDesaqWTN6EQ2J4vgsN1HyBeRADEh4Cw-",
+        "position": 25,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "Kh265EC11OI"
+        },
+        "videoOwnerChannelTitle": "Professor Leonard",
+        "videoOwnerChannelId": "UCoHhuummRZaIVX7bD4t2czg"
+      }
+    },
+    {
+      "kind": "youtube#playlistItem",
+      "etag": "5hWVyuQd8vtbaJQj0FKMzuJk4Xw",
+      "id": "UExEZXNhcVdUTjZFUTJKNHZnc04xSHlCZVJBREVoNEN3LS45NzUwQkI1M0UxNThBMkU0",
+      "snippet": {
+        "publishedAt": "2014-08-06T06:16:10Z",
+        "channelId": "UCoHhuummRZaIVX7bD4t2czg",
+        "title": "Numerical Integration With Trapezoidal and Simpson's Rule",
+        "description": "Calculus 2 Lecture 4.6:  Numerical Integration With the Trapezoidal Rule and Simpson's Rule.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/RTX-ik_8i-k/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/RTX-ik_8i-k/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/RTX-ik_8i-k/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/RTX-ik_8i-k/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/RTX-ik_8i-k/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Professor Leonard",
+        "playlistId": "PLDesaqWTN6EQ2J4vgsN1HyBeRADEh4Cw-",
+        "position": 26,
+        "resourceId": {
+          "kind": "youtube#video",
+          "videoId": "RTX-ik_8i-k"
+        },
+        "videoOwnerChannelTitle": "Professor Leonard",
+        "videoOwnerChannelId": "UCoHhuummRZaIVX7bD4t2czg"
+      }
+    }
+  ],
+  "pageInfo": {
+    "totalResults": 27,
+    "resultsPerPage": 50
+  }
+}

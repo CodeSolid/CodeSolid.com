@@ -5,6 +5,7 @@ kernelspec:
 ---
 # Your Header here
 
+Use extension mystnb
 ```{code-cell} ipython3
 # Your code here
 ```

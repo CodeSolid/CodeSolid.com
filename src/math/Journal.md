@@ -401,3 +401,45 @@ Another gap filled in 3-25 to 4-1
 * Tuesday 4/2
 	* Exam 3.  Hardest yet
 	* Catch up math journal
+
+* Wednesday 4/3
+	* Sweated the test results
+	* Homework?
+	* What is Mathematics
+
+* Thursday 4/4
+	* Got a 95 on the brutal test.  And the peasants rejoiced.
+	* What is Mathematics
+
+* Friday 4/5
+	* What is Mathematics
+	* Hack a bit on complex numbers from this
+	* Finish homework for this week minus attendance thing
+
+* Saturday 4/6
+	* What is Mathematics
+
+* Sunday 4/7 
+	* What is Mathematics
+
+* Monday 4/8
+	* What is Mathematics
+	* Finish up homework for this week - Attendance
+
+* Tuesday 4/9
+	* What is Mathematics
+	* Class - instructor out.  Ms. Railton instead.
+	* Continuing homework on Area.
+
+* Wednesday 4/10
+	* What is Mathematics
+	* Professor Leonard all of Calc 1 4.3 plus part of 4.4 (on limit def of area, etc., and definite integral) 
+	* What is Mathematics
+
+OK, there was another big hiatus here, so I'm not as consistent as I'd like.  In the interim I picked up and started reading two linear algebra texts, which means I'm setting aside What is Mathematics for now.  I also ACED THE HECK out of Calc 1, with a final grade of 99.68, which rounded to 100%, baby!
+
+* Wed 5/8 work on outline for Calc 2, which can be an article at some point.  Currently have it in python_scratch and a google sheet.
+
+* Thursday 5/9 - Begin Calc 2
+Only two Prof Leonard pomo
+
