@@ -25,7 +25,6 @@ Math ∩ Programming
    :hidden:
 
    category-math-and-math-software
-   category-math
    category-python
    category-python-for-beginners-posts
    category-python-functions
