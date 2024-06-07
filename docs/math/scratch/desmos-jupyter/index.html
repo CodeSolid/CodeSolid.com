@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Using Desmos Graphs in Jupyter Notebooks &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=19645805"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Added Recently:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../taking-calculus-in-your-sixties/">Can You Take Calculus In Your Sixties?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exploring_basic_number_theory_in_python/">Exploring Basic Number Theory in Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Categories</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../category-math-and-math-software/">Math and Math Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../category-python/">Python (General)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../category-python-for-beginners-posts/">Python for Beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../category-python-functions/">Python Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../category-python-math-and-science/">Python Math and Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../category-python-practice/">Python Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../category-python-tools/">Python Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../category-newsletter/">Newsletter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../category-miscellaneous/">Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../category-c-and-cplusplus/">C and C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../category-docker/">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../category-jupyter/">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../category-learn-to-code/">Learn to Code</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Using Desmos Graphs in Jupyter Notebooks</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/math/scratch/desmos-jupyter.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="using-desmos-graphs-in-jupyter-notebooks">
+<h1>Using Desmos Graphs in Jupyter Notebooks<a class="headerlink" href="#using-desmos-graphs-in-jupyter-notebooks" title="Link to this heading"></a></h1>
+<p>OK – I went another way in this article and got something to work.</p>
+<p>Here’s the beginning of what was to be the article.</p>
+<p>I recently finished Calculus I as the <a class="reference internal" href="../../../worlds-oldest-math-major/"><span class="doc std std-doc">World’s Oldest Math Major</span></a>. In class and on exams, I had the pleasure of competing with people a third my age in hunting and pecking on a TI-84 calculator.</p>
+<p>In contrast, at home, I only spent as much time as I needed on that device to do well on exams.  Instead, my preferred tools for calculation and graphing were a Python stack consisting of an open IPython terminal with SymPy installed and a browser opened to <a class="reference external" href="https://www.desmos.com/calculator">https://www.desmos.com/calculator</a> for graphing.</p>
+<p>I love SymPy for undergraduate math. It has everything I need to quickly try things out to refresh my memory, or to double-check the answers I found manually before submitting them to the online homework portal.  Although I’ve learned enough of it to be dangerous, one tool that’s not a great fit for a busy semester is matplotlib, Python’s most popular plotting library.  Although its website boasts that “Matplotlib makes easy things easy and hard things possible,” I find I can agree with only the latter part of that claim.</p>
+<p>For spinning up a quick graph to check a result, for example, doing this in Matplotlib would take me probably five times as long as it would in Desmos.  (If I did it all the time, I could probably cut that down to three times as long, but that’s still not great).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">symbols</span><span class="p">,</span> <span class="n">Eq</span><span class="p">,</span> <span class="n">latex</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;x y&quot;</span><span class="p">)</span>
+<span class="n">eq</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">latex</span><span class="p">(</span><span class="n">eq</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;y = x^{2}&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Javascript</span><span class="p">,</span> <span class="n">display</span>
+
+<span class="n">script</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    // Important, need to reset height or will not be visible.</span>
+<span class="s2">    element.style.height = &quot;500px&quot;</span>
+<span class="s2">    var calculator = Desmos.GraphingCalculator(element);</span>
+<span class="s2">    console.log(calculator);</span>
+<span class="s2">    calculator.setExpression({id:&#39;graph1&#39;, latex:&#39;y=x^2 +2&#39;});</span>
+<span class="s2">    calculator.setExpression({id:&#39;graph2&#39;, latex: &#39;y=2x+1&#39;});</span>
+
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">api_url</span> <span class="o">=</span> <span class="s2">&quot;https://www.desmos.com/api/v1.9/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6&quot;</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Javascript</span><span class="p">(</span><span class="n">script</span><span class="p">,</span> <span class="n">lib</span><span class="o">=</span><span class="p">[</span><span class="n">api_url</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/javascript">new Promise(function(resolve, reject) {
+	var script = document.createElement("script");
+	script.onload = resolve;
+	script.onerror = reject;
+	script.src = "https://www.desmos.com/api/v1.9/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6";
+	document.head.appendChild(script);
+}).then(() => {
+
+    // Important, need to reset height or will not be visible.
+    element.style.height = "500px"
+    var calculator = Desmos.GraphingCalculator(element);
+    console.log(calculator);
+    calculator.setExpression({id:'graph1', latex:'y=x^2 +2'});
+    calculator.setExpression({id:'graph2', latex: 'y=2x+1'});
+
+
+});</script></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QX7KGT4YPE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-QX7KGT4YPE', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

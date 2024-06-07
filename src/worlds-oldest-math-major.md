@@ -5,11 +5,11 @@ categories:
   - "math"
 ---
 
-# On Being The World's Oldest Math Major
+# The World's Oldest Math Major
 
-Before I begin to tell you why I fancy myself the world's oldest math major, a couple of disclaimers are in order
+Before I begin to tell you why I fancy myself the world's oldest math major, a couple of disclaimers are in order.
 
-First, although I have undergraduate and graduate degrees in non-Math subjects, I'm technically a visiting student at the local community college. So, if you object to someone non-matriculated declaring a major, you may feel I haven't lived up to your expectations.
+First, although I have undergraduate and graduate degrees in non-Math subjects, I'm technically a visiting student at the local community college. So, if you don't like the idea of some non-matriculated old guy declaring a major, you may feel I haven't lived up to your expectations.
 
 The second disclaimer here is that I haven't gone out and scoured the world's universities to see if some old codger, older and codgerlier than me, is working toward a math degree.  So it's not like I can give you a proof -- and certainly not a mathematical one -- that I'm the world's oldest math major.
 
