@@ -18,16 +18,17 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-$.getScript("my_lovely_script.js", function() {
-    alert("Script loaded and executed.");
-    // here you can use anything you defined in the loaded script
-});
+from sympy import symbols, Eq, latex
+x, y = symbols("x y")
+eq = Eq(y, x**2)
+print(type(eq))
+latex(eq.par
 ------------------
 
 
-[0;36m  Cell [0;32mIn[2], line 1[0;36m[0m
-[0;31m    $.getScript("my_lovely_script.js", function() {[0m
-[0m    ^[0m
-[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+[0;36m  Cell [0;32mIn[2], line 5[0;36m[0m
+[0;31m    latex(eq.par[0m
+[0m                ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m incomplete input
 
 

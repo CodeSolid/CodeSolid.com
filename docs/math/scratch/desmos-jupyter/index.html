@@ -100,43 +100,42 @@
              
   <section class="tex2jax_ignore mathjax_ignore" id="using-desmos-graphs-in-jupyter-notebooks">
 <h1>Using Desmos Graphs in Jupyter Notebooks<a class="headerlink" href="#using-desmos-graphs-in-jupyter-notebooks" title="Link to this heading"></a></h1>
-<p>OK – I went another way in this article and got something to work.</p>
-<p>Here’s the beginning of what was to be the article.</p>
 <p>I recently finished Calculus I as the <a class="reference internal" href="../../../worlds-oldest-math-major/"><span class="doc std std-doc">World’s Oldest Math Major</span></a>. In class and on exams, I had the pleasure of competing with people a third my age in hunting and pecking on a TI-84 calculator.</p>
 <p>In contrast, at home, I only spent as much time as I needed on that device to do well on exams.  Instead, my preferred tools for calculation and graphing were a Python stack consisting of an open IPython terminal with SymPy installed and a browser opened to <a class="reference external" href="https://www.desmos.com/calculator">https://www.desmos.com/calculator</a> for graphing.</p>
-<p>I love SymPy for undergraduate math. It has everything I need to quickly try things out to refresh my memory, or to double-check the answers I found manually before submitting them to the online homework portal.  Although I’ve learned enough of it to be dangerous, one tool that’s not a great fit for a busy semester is matplotlib, Python’s most popular plotting library.  Although its website boasts that “Matplotlib makes easy things easy and hard things possible,” I find I can agree with only the latter part of that claim.</p>
-<p>For spinning up a quick graph to check a result, for example, doing this in Matplotlib would take me probably five times as long as it would in Desmos.  (If I did it all the time, I could probably cut that down to three times as long, but that’s still not great).</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">symbols</span><span class="p">,</span> <span class="n">Eq</span><span class="p">,</span> <span class="n">latex</span>
-<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;x y&quot;</span><span class="p">)</span>
-<span class="n">eq</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">latex</span><span class="p">(</span><span class="n">eq</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;y = x^{2}&#39;
-</pre></div>
-</div>
-</div>
-</div>
+<p>Spinning up a quick graph to check a result I calculated by hand, for example, would take me probably five times as long as it would in Desmos.  (If I did it all the time, I could probably cut that down to three times as long, but that’s still not great).</p>
+<p>Going back and forth between the two was not a problem in practice while taking the course.  However, given my past life a software developer, I wondered how easy it would be to integrate them.  This article is a discussion of what I discovered.</p>
+<section id="desmos-and-its-api">
+<h2>Desmos and its API<a class="headerlink" href="#desmos-and-its-api" title="Link to this heading"></a></h2>
+<p>My first step was to learn about the <a class="reference external" href="https://www.desmos.com/api/v1.9/docs/index.html">Desmos API</a>.  Not surprisingly for a graphic calculator tool that runs in a web browser, the authors published the API in JavaScript. Since SymPy and my other favorite non-graphics tools run in Python, I first researched how to run JavaScript from a Jupyter code cell written in Python.  I briefly tried one of the tools that came up early in the search results, the <a rel="nofollow" href="https://github.com/jorgehpo/notebookJS">NotebookJS</a> library.  At first this didn’t work, and once I’d convinced myself that I was running it correctly, I decided that given the lack of recent updates, this probably wasn’t the best choice.  (In fairness to the author, this could be a platform-specific thing – not all Python libraries work without more wrangling on an Apple Silicon Python environment).</p>
+</section>
+<section id="using-the-ipython-display-javascript-class">
+<h2>Using the IPython.display.Javascript class<a class="headerlink" href="#using-the-ipython-display-javascript-class" title="Link to this heading"></a></h2>
+<p>Fortunately, I found that Jupyter itself provided an answer to the question in the form of a class in IPython’s display package, <a class="reference external" href="https://ipython.readthedocs.io/en/stable/api/generated/IPython.display.html#IPython.display.Javascript">IPython.display.Javascript</a>, and I reasoned that even if this approach might be less full-featured, it was probably better tested against all the lastest Jupyter releases.</p>
+<p>This constructor (i.e., the <strong>init</strong> method) of this Javascript class takes a script as input along with a list of libraries to load prior to running the script.  It returns an object that can be passed to the display method to ouput the results of evaluating the JavaScript.</p>
+<p>Given this information and the Desmos API samples, it was a pretty easy task to display a Desmos graph. The code for my first pass at doing this is below, which we’ll discuss below the graph.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Javascript</span><span class="p">,</span> <span class="n">display</span>
 
+<span class="c1"># Write the JavaScript</span>
 <span class="n">script</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">    // Important, need to reset height or will not be visible.</span>
-<span class="s2">    element.style.height = &quot;500px&quot;</span>
-<span class="s2">    var calculator = Desmos.GraphingCalculator(element);</span>
-<span class="s2">    console.log(calculator);</span>
-<span class="s2">    calculator.setExpression({id:&#39;graph1&#39;, latex:&#39;y=x^2 +2&#39;});</span>
-<span class="s2">    calculator.setExpression({id:&#39;graph2&#39;, latex: &#39;y=2x+1&#39;});</span>
+<span class="s2">    // Important, need to reset height or the graph will not be visible.</span>
+<span class="s2">    element.style.height = &quot;480px&quot;;</span>
 
+<span class="s2">    // Create the Desmos calculator object</span>
+<span class="s2">    var calculator = Desmos.GraphingCalculator(element);</span>
+
+<span class="s2">    // Do a &quot;Calculus 1&quot; friendly example, a curve and a tangent line through a point.</span>
+<span class="s2">    calculator.setExpression({id:&#39;exp1&#39;, latex: &#39;y=x^2 + 2&#39;});</span>
+<span class="s2">    calculator.setExpression({id:&#39;exp2&#39;, latex: &#39;y=2x + 1&#39;});</span>
 <span class="s2">&quot;&quot;&quot;</span>
 
+<span class="c1"># This uses the demo API key for now</span>
 <span class="n">api_url</span> <span class="o">=</span> <span class="s2">&quot;https://www.desmos.com/api/v1.9/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6&quot;</span>
-<span class="n">display</span><span class="p">(</span><span class="n">Javascript</span><span class="p">(</span><span class="n">script</span><span class="p">,</span> <span class="n">lib</span><span class="o">=</span><span class="p">[</span><span class="n">api_url</span><span class="p">]))</span>
+
+<span class="c1"># Create the Javascript object in Python and display it.</span>
+<span class="n">js</span> <span class="o">=</span> <span class="n">Javascript</span><span class="p">(</span><span class="n">script</span><span class="p">,</span> <span class="n">lib</span><span class="o">=</span><span class="p">[</span><span class="n">api_url</span><span class="p">])</span>
+<span class="n">display</span><span class="p">(</span><span class="n">js</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -149,16 +148,52 @@
 	document.head.appendChild(script);
 }).then(() => {
 
-    // Important, need to reset height or will not be visible.
-    element.style.height = "500px"
-    var calculator = Desmos.GraphingCalculator(element);
-    console.log(calculator);
-    calculator.setExpression({id:'graph1', latex:'y=x^2 +2'});
-    calculator.setExpression({id:'graph2', latex: 'y=2x+1'});
+    // Important, need to reset height or the graph will not be visible.
+    element.style.height = "480px";
 
+    // Create the Desmos calculator object
+    var calculator = Desmos.GraphingCalculator(element);
+
+    // Do a "Calculus 1" friendly example, a curve and a tangent line through a point.
+    calculator.setExpression({id:'exp1', latex: 'y=x^2 + 2'});
+    calculator.setExpression({id:'exp2', latex: 'y=2x + 1'});
 
 });</script></div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">symbols</span><span class="p">,</span> <span class="n">Eq</span><span class="p">,</span> <span class="n">latex</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;x y&quot;</span><span class="p">)</span>
+<span class="n">eq</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">eq</span><span class="p">)</span><span class="o">.</span><span class="vm">__bases__</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">relational</span><span class="o">.</span><span class="n">Relational</span><span class="o">.</span><span class="vm">__bases__</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">evalf</span><span class="o">.</span><span class="n">EvalfMixin</span><span class="o">.</span><span class="vm">__bases__</span><span class="p">)</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">3</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">.</span><span class="vm">__bases__</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">expr</span><span class="o">.</span><span class="n">Expr</span><span class="o">.</span><span class="vm">__bases__</span><span class="p">)</span>
+
+<span class="n">latex</span><span class="p">(</span><span class="n">eq</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&lt;class &#39;sympy.core.relational.Relational&#39;&gt;,)
+(&lt;class &#39;sympy.logic.boolalg.Boolean&#39;&gt;, &lt;class &#39;sympy.core.evalf.EvalfMixin&#39;&gt;)
+(&lt;class &#39;object&#39;&gt;,)
+(&lt;class &#39;sympy.core.expr.Expr&#39;&gt;, &lt;class &#39;sympy.core.operations.AssocOp&#39;&gt;)
+(&lt;class &#39;sympy.core.basic.Basic&#39;&gt;, &lt;class &#39;sympy.core.evalf.EvalfMixin&#39;&gt;)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;y = x^{2}&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>calculator.setExpression({id:’exp1’, latex: ‘y=x^2 +t+1’});
+calculator.setExpression({id:’exp2’, latex: ‘y=2x+t’});
+calculator.setExpression({id:’exp3’, latex: ‘t=1’});</p>
+</section>
 </section>
 
 
