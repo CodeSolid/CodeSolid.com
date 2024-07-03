@@ -16,6 +16,7 @@ Math ∩ Programming
    :caption: Added Recently:
    :hidden:   
 
+   math/desmos-jupyter
    math/taking-calculus-in-your-sixties
    math/exploring_basic_number_theory_in_python
 
