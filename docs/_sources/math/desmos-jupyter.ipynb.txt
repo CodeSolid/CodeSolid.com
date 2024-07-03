@@ -1,0 +1,268 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "560d2634-c87a-46ae-8bc4-51f374f82db9",
+   "metadata": {},
+   "source": [
+    "# Using Desmos Graphs in Jupyter Notebooks\n",
+    "\n",
+    "I recently finished Calculus I as the [World's Oldest Math Major](/worlds-oldest-math-major). In class and on exams, I had the pleasure of competing with people a third my age in hunting and pecking on a TI-84 calculator. \n",
+    "\n",
+    "In contrast, at home, I only spent as much time as I needed on that device to do well on exams.  Instead, my preferred tools for calculation and graphing were a Python stack consisting of an open IPython terminal with SymPy installed and a browser opened to the [Desmos calculator](https://www.desmos.com/calculator) for graphing.\n",
+    "\n",
+    "I didn't stay within the Python ecosystem for graphing because, as powerful as tools like Matplotlib and Seaborn are, doing interactive mathematical graphing in them tends to require a fair amount of setup.  For example, spinning up a quick graph to check a result I calculated by hand would probably take me five times as long as it would in Desmos. (If I did it all the time, I could probably cut that down to three times as long, but that's still not great.)\n",
+    "\n",
+    "SymPy's plotting package alleviated some of this, making it simpler in principle to plot SymPy objects in Python, but, as I discussed in the article [Using SymPy for plotting Geometry](/math/sympy_geometry.md), there were some missing features and quality issues in this library that made it less than ideal. Moreover, even when setting those aside, the results were still not the sort of interactive math graphing experience that Desmos provides.\n",
+    "\n",
+    "Going back and forth between SymPy and Desmos was not a problem in practice while taking the course.  Just keep a terminal window and a browser window open and then switch between them. However, given my past life as a software developer, I wondered how easy it would be to integrate them.  This article discusses what I discovered, and a new library that makes it much easier to work with.\n",
+    "\n",
+    "## Desmos and its API\n",
+    "\n",
+    "My first step was to learn about the [Desmos API](https://www.desmos.com/api/v1.9/docs/index.html).  Not surprisingly for a graphic calculator tool that runs in a web browser, the authors published the API in JavaScript. Since SymPy and my other favorite non-graphics tools run in Python, I first researched how to run JavaScript from a Jupyter code cell written in Python.  I briefly tried one of the tools that came up early in the search results, the <a rel=\"nofollow\" href=\"https://github.com/jorgehpo/notebookJS\">NotebookJS</a> library.  At first, this didn't work, and once I'd convinced myself that I was running it correctly, I decided that given the lack of recent updates, this probably wasn't the best choice.  (In fairness to the author, this could be a platform-specific thing -- not all Python libraries work without more wrangling on an Apple Silicon Python environment).\n",
+    "\n",
+    "## Using the IPython.display.Javascript class\n",
+    "Fortunately, I found that Jupyter itself provided an answer to the question in the form of a class in IPython's display package, [IPython.display.Javascript](https://ipython.readthedocs.io/en/stable/api/generated/IPython.display.html#IPython.display.Javascript), and I reasoned that even if this approach might be less full-featured, it was probably better tested against all the lastest Jupyter releases.\n",
+    "\n",
+    "This constructor (i.e., the ```__init__``` method) of this Javascript class takes a script as input along with a list of libraries to load prior to running the script.  It returns an object that can be passed to the display method to output the results of evaluating the JavaScript.\n",
+    "\n",
+    "Given this information and the Desmos API samples, it was a pretty easy task to display a Desmos graph. The code for my first pass at doing this is below, which we'll discuss below the graph."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "568b1740-ba82-498c-9b38-62f6558bb063",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "application/javascript": [
+       "new Promise(function(resolve, reject) {\n",
+       "\tvar script = document.createElement(\"script\");\n",
+       "\tscript.onload = resolve;\n",
+       "\tscript.onerror = reject;\n",
+       "\tscript.src = \"https://www.desmos.com/api/v1.9/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6\";\n",
+       "\tdocument.head.appendChild(script);\n",
+       "}).then(() => {\n",
+       "\n",
+       "    // Important, need to reset height or the graph will not be visible.\n",
+       "    element.style.height = \"480px\";\n",
+       "\n",
+       "    // Create the Desmos calculator object\n",
+       "    var calculator = Desmos.GraphingCalculator(element);\n",
+       "\n",
+       "    // Do a \"Calculus 1\" friendly example, a curve and a tangent line through a point.\n",
+       "    calculator.setExpression({id:'exp1', latex: 'y=x^2 + 2'});\n",
+       "    calculator.setExpression({id:'exp2', latex: 'y=2x + 1'});\n",
+       "\n",
+       "});"
+      ],
+      "text/plain": [
+       "<IPython.core.display.Javascript object>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "from IPython.display import Javascript, display\n",
+    "\n",
+    "# Write the JavaScript\n",
+    "script = \"\"\"\n",
+    "    // Important, need to reset height or the graph will not be visible.\n",
+    "    element.style.height = \"480px\";\n",
+    "\n",
+    "    // Create the Desmos calculator object\n",
+    "    var calculator = Desmos.GraphingCalculator(element);\n",
+    "\n",
+    "    // Do a \"Calculus 1\" friendly example, a curve and a tangent line through a point.\n",
+    "    calculator.setExpression({id:'exp1', latex: 'y=x^2 + 2'});\n",
+    "    calculator.setExpression({id:'exp2', latex: 'y=2x + 1'});\n",
+    "\"\"\"\n",
+    "\n",
+    "# This uses the demo API key for now\n",
+    "api_url = \"https://www.desmos.com/api/v1.9/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6\"\n",
+    "\n",
+    "# Create the Javascript object in Python and display it.\n",
+    "js = Javascript(script, lib=[api_url])\n",
+    "display(js)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "db658fe9-0230-45ec-9bf8-2fb044fd2a5e",
+   "metadata": {},
+   "source": [
+    "## Discussion:  First Attempt\n",
+    "\n",
+    "Well, this code is fine as a demo and it works OK, but we can take note of a few limitations it has.  First, there's a fair amount of JavaScript \"boilerplate\" here, which a) would have to be repeated every time and b) is not something a Python developer should have to care about.  It's fine that I learned the window height needs to be set to make this work, but we can set up overridable defaults for this and for the API key since others may want to use a non-demo key in production. \n",
+    "\n",
+    "So I decided to wrap this code in a small library to make it easier for myself and other Python developers, the result is [jdesmos](https://github.com/CodeSolid/jdesmos).  This is an extremely early release.  It still needs more documentation, demos, etc.  We'll make improvements soon, but meantime, it's available on PyPi if you want to kick the tires:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "2d43d3fc-6ac5-451d-9eb5-a5b4f5ae1162",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Note: you may need to restart the kernel to use updated packages.\n"
+     ]
+    }
+   ],
+   "source": [
+    "%pip install --quiet jdesmos"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "6ce193cc-de51-4238-b5ce-16092099ee74",
+   "metadata": {},
+   "source": [
+    "Once you have it installed, you can easily import it and create a Desmos object, as shown below.  \n",
+    "\n",
+    "What's supported so far is the expression syntax (not tables) for GraphingCalculator.setExpression.  There are two Python wrappers, add_latex, which takes a LaTeX expression that corresponds to what you'd type in Desmos, or add_expression, which is more flexible and allows you to set up a complete expression as a Python dictionary.  See the [Desmos API documentation](https://www.desmos.com/api/v1.9/docs/index.html) for what other keys are supported by the JSON that corresponds to this Python dictionary.\n",
+    "\n",
+    "Below is a brief demo that shows how easy it is to use both methods.  We'll take an extremely typical Calculus I task, plotting a tangent line to the graph of a curve at a given point."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "21ff5869-7469-4512-bf1b-f37efce697f8",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "application/javascript": [
+       "new Promise(function(resolve, reject) {\n",
+       "\tvar script = document.createElement(\"script\");\n",
+       "\tscript.onload = resolve;\n",
+       "\tscript.onerror = reject;\n",
+       "\tscript.src = \"https://www.desmos.com/api/v1.9/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6\";\n",
+       "\tdocument.head.appendChild(script);\n",
+       "}).then(() => {\n",
+       "\n",
+       "        element.style.height = '480px';\n",
+       "        element.style.width = '100%';\n",
+       "        var calculator = Desmos.GraphingCalculator(element);\n",
+       "        calculator.setExpression({\"latex\": \"y=x^2 + 2\"});calculator.setExpression({\"latex\": \"y=2x + 1\"});calculator.setExpression({\"latex\": \"(1,3)\", \"label\": \"(1,3)\", \"showLabel\": true});\n",
+       "        \n",
+       "});"
+      ],
+      "text/plain": [
+       "<IPython.core.display.Javascript object>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "from jdesmos import Desmos\n",
+    "desmos = Desmos()\n",
+    "desmos.add_latex('y=x^2 + 2')\n",
+    "desmos.add_latex('y=2x + 1')\n",
+    "desmos.add_expression({\"latex\": \"(1,3)\", \"label\": \"(1,3)\", \"showLabel\": True})\n",
+    "desmos.display()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "8791f78a-9557-444c-9839-b79e592509bb",
+   "metadata": {},
+   "source": [
+    "Again, once you're done coding the Python part, you can easily use the Desmos UI now from within Jupyter to add more information to the graph or experiment with different choices.  Simply interact with it as you would with the Desmos calculator.  \n",
+    "\n",
+    "One limitation of the library so far is that there's no support yet for saving such Graphs back to Desmos, but of course, you can save everything in the Jupyter Notebook as you normally would."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "636444a5-cf86-42bd-a128-a60dcfae5018",
+   "metadata": {},
+   "source": [
+    "## Using Desmos with SymPy\n",
+    "\n",
+    "I'm excited by the prospects of using the add_latex method in JDesmos, because it offers a simple way to integrate with SymPy, which has great support for latex.  To show how simply this can be done, let's set up a SymPy equation for the function $y = 2 x^{2} - 3$, and display it in JDesmos."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "id": "d7ba4219-e7e6-4e3c-bb37-f26b95370cbf",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "application/javascript": [
+       "new Promise(function(resolve, reject) {\n",
+       "\tvar script = document.createElement(\"script\");\n",
+       "\tscript.onload = resolve;\n",
+       "\tscript.onerror = reject;\n",
+       "\tscript.src = \"https://www.desmos.com/api/v1.9/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6\";\n",
+       "\tdocument.head.appendChild(script);\n",
+       "}).then(() => {\n",
+       "\n",
+       "        element.style.height = '480px';\n",
+       "        element.style.width = '100%';\n",
+       "        var calculator = Desmos.GraphingCalculator(element);\n",
+       "        calculator.setExpression({\"latex\": \"y = 2 x^{2} - 3\"});\n",
+       "        \n",
+       "});"
+      ],
+      "text/plain": [
+       "<IPython.core.display.Javascript object>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "from sympy import symbols, Eq, latex\n",
+    "x, y = symbols(\"x y\")\n",
+    "eq = Eq(y, 2* x**2 - 3)\n",
+    "latex(eq)\n",
+    "desmos = Desmos()\n",
+    "desmos.add_latex(latex(eq))\n",
+    "desmos.display()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "f1cc43b9-329f-4a92-a609-ea77f747b93a",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.11.2"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

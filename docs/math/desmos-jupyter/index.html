@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Using Desmos Graphs in Jupyter Notebooks &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=19645805"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Added Recently:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../taking-calculus-in-your-sixties/">Can You Take Calculus In Your Sixties?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exploring_basic_number_theory_in_python/">Exploring Basic Number Theory in Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Categories</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../category-math-and-math-software/">Math and Math Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-python/">Python (General)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-python-for-beginners-posts/">Python for Beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-python-functions/">Python Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-python-math-and-science/">Python Math and Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-python-practice/">Python Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-python-tools/">Python Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-newsletter/">Newsletter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-miscellaneous/">Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-c-and-cplusplus/">C and C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-docker/">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-jupyter/">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../category-learn-to-code/">Learn to Code</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Using Desmos Graphs in Jupyter Notebooks</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/math/desmos-jupyter.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="using-desmos-graphs-in-jupyter-notebooks">
+<h1>Using Desmos Graphs in Jupyter Notebooks<a class="headerlink" href="#using-desmos-graphs-in-jupyter-notebooks" title="Link to this heading"></a></h1>
+<p>I recently finished Calculus I as the <a class="reference internal" href="../../worlds-oldest-math-major/"><span class="doc std std-doc">World’s Oldest Math Major</span></a>. In class and on exams, I had the pleasure of competing with people a third my age in hunting and pecking on a TI-84 calculator.</p>
+<p>In contrast, at home, I only spent as much time as I needed on that device to do well on exams.  Instead, my preferred tools for calculation and graphing were a Python stack consisting of an open IPython terminal with SymPy installed and a browser opened to the <a class="reference external" href="https://www.desmos.com/calculator">Desmos calculator</a> for graphing.</p>
+<p>I didn’t stay within the Python ecosystem for graphing because, as powerful as tools like Matplotlib and Seaborn are, doing interactive mathematical graphing in them tends to require a fair amount of setup.  For example, spinning up a quick graph to check a result I calculated by hand would probably take me five times as long as it would in Desmos. (If I did it all the time, I could probably cut that down to three times as long, but that’s still not great.)</p>
+<p>SymPy’s plotting package alleviated some of this, making it simpler in principle to plot SymPy objects in Python, but, as I discussed in the article <a class="reference internal" href="../sympy_geometry/"><span class="std std-doc">Using SymPy for plotting Geometry</span></a>, there were some missing features and quality issues in this library that made it less than ideal. Moreover, even when setting those aside, the results were still not the sort of interactive math graphing experience that Desmos provides.</p>
+<p>Going back and forth between SymPy and Desmos was not a problem in practice while taking the course.  Just keep a terminal window and a browser window open and then switch between them. However, given my past life as a software developer, I wondered how easy it would be to integrate them.  This article discusses what I discovered, and a new library that makes it much easier to work with.</p>
+<section id="desmos-and-its-api">
+<h2>Desmos and its API<a class="headerlink" href="#desmos-and-its-api" title="Link to this heading"></a></h2>
+<p>My first step was to learn about the <a class="reference external" href="https://www.desmos.com/api/v1.9/docs/index.html">Desmos API</a>.  Not surprisingly for a graphic calculator tool that runs in a web browser, the authors published the API in JavaScript. Since SymPy and my other favorite non-graphics tools run in Python, I first researched how to run JavaScript from a Jupyter code cell written in Python.  I briefly tried one of the tools that came up early in the search results, the <a rel="nofollow" href="https://github.com/jorgehpo/notebookJS">NotebookJS</a> library.  At first, this didn’t work, and once I’d convinced myself that I was running it correctly, I decided that given the lack of recent updates, this probably wasn’t the best choice.  (In fairness to the author, this could be a platform-specific thing – not all Python libraries work without more wrangling on an Apple Silicon Python environment).</p>
+</section>
+<section id="using-the-ipython-display-javascript-class">
+<h2>Using the IPython.display.Javascript class<a class="headerlink" href="#using-the-ipython-display-javascript-class" title="Link to this heading"></a></h2>
+<p>Fortunately, I found that Jupyter itself provided an answer to the question in the form of a class in IPython’s display package, <a class="reference external" href="https://ipython.readthedocs.io/en/stable/api/generated/IPython.display.html#IPython.display.Javascript">IPython.display.Javascript</a>, and I reasoned that even if this approach might be less full-featured, it was probably better tested against all the lastest Jupyter releases.</p>
+<p>This constructor (i.e., the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method) of this Javascript class takes a script as input along with a list of libraries to load prior to running the script.  It returns an object that can be passed to the display method to output the results of evaluating the JavaScript.</p>
+<p>Given this information and the Desmos API samples, it was a pretty easy task to display a Desmos graph. The code for my first pass at doing this is below, which we’ll discuss below the graph.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Javascript</span><span class="p">,</span> <span class="n">display</span>
+
+<span class="c1"># Write the JavaScript</span>
+<span class="n">script</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    // Important, need to reset height or the graph will not be visible.</span>
+<span class="s2">    element.style.height = &quot;480px&quot;;</span>
+
+<span class="s2">    // Create the Desmos calculator object</span>
+<span class="s2">    var calculator = Desmos.GraphingCalculator(element);</span>
+
+<span class="s2">    // Do a &quot;Calculus 1&quot; friendly example, a curve and a tangent line through a point.</span>
+<span class="s2">    calculator.setExpression({id:&#39;exp1&#39;, latex: &#39;y=x^2 + 2&#39;});</span>
+<span class="s2">    calculator.setExpression({id:&#39;exp2&#39;, latex: &#39;y=2x + 1&#39;});</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="c1"># This uses the demo API key for now</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="s2">&quot;https://www.desmos.com/api/v1.9/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6&quot;</span>
+
+<span class="c1"># Create the Javascript object in Python and display it.</span>
+<span class="n">js</span> <span class="o">=</span> <span class="n">Javascript</span><span class="p">(</span><span class="n">script</span><span class="p">,</span> <span class="n">lib</span><span class="o">=</span><span class="p">[</span><span class="n">api_url</span><span class="p">])</span>
+<span class="n">display</span><span class="p">(</span><span class="n">js</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/javascript">new Promise(function(resolve, reject) {
+	var script = document.createElement("script");
+	script.onload = resolve;
+	script.onerror = reject;
+	script.src = "https://www.desmos.com/api/v1.9/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6";
+	document.head.appendChild(script);
+}).then(() => {
+
+    // Important, need to reset height or the graph will not be visible.
+    element.style.height = "480px";
+
+    // Create the Desmos calculator object
+    var calculator = Desmos.GraphingCalculator(element);
+
+    // Do a "Calculus 1" friendly example, a curve and a tangent line through a point.
+    calculator.setExpression({id:'exp1', latex: 'y=x^2 + 2'});
+    calculator.setExpression({id:'exp2', latex: 'y=2x + 1'});
+
+});</script></div>
+</div>
+</section>
+<section id="discussion-first-attempt">
+<h2>Discussion:  First Attempt<a class="headerlink" href="#discussion-first-attempt" title="Link to this heading"></a></h2>
+<p>Well, this code is fine as a demo and it works OK, but we can take note of a few limitations it has.  First, there’s a fair amount of JavaScript “boilerplate” here, which a) would have to be repeated every time and b) is not something a Python developer should have to care about.  It’s fine that I learned the window height needs to be set to make this work, but we can set up overridable defaults for this and for the API key since others may want to use a non-demo key in production.</p>
+<p>So I decided to wrap this code in a small library to make it easier for myself and other Python developers, the result is <a class="reference external" href="https://github.com/CodeSolid/jdesmos">jdesmos</a>.  This is an extremely early release.  It still needs more documentation, demos, etc.  We’ll make improvements soon, but meantime, it’s available on PyPi if you want to kick the tires:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">pip</span> install --quiet jdesmos
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">24.0</span> -&gt; <span class=" -Color -Color-Green">24.1.1</span>
+<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">pip install --upgrade pip</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Once you have it installed, you can easily import it and create a Desmos object, as shown below.</p>
+<p>What’s supported so far is the expression syntax (not tables) for GraphingCalculator.setExpression.  There are two Python wrappers, add_latex, which takes a LaTeX expression that corresponds to what you’d type in Desmos, or add_expression, which is more flexible and allows you to set up a complete expression as a Python dictionary.  See the <a class="reference external" href="https://www.desmos.com/api/v1.9/docs/index.html">Desmos API documentation</a> for what other keys are supported by the JSON that corresponds to this Python dictionary.</p>
+<p>Below is a brief demo that shows how easy it is to use both methods.  We’ll take an extremely typical Calculus I task, plotting a tangent line to the graph of a curve at a given point.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jdesmos</span> <span class="kn">import</span> <span class="n">Desmos</span>
+<span class="n">desmos</span> <span class="o">=</span> <span class="n">Desmos</span><span class="p">()</span>
+<span class="n">desmos</span><span class="o">.</span><span class="n">add_latex</span><span class="p">(</span><span class="s1">&#39;y=x^2 + 2&#39;</span><span class="p">)</span>
+<span class="n">desmos</span><span class="o">.</span><span class="n">add_latex</span><span class="p">(</span><span class="s1">&#39;y=2x + 1&#39;</span><span class="p">)</span>
+<span class="n">desmos</span><span class="o">.</span><span class="n">add_expression</span><span class="p">({</span><span class="s2">&quot;latex&quot;</span><span class="p">:</span> <span class="s2">&quot;(1,3)&quot;</span><span class="p">,</span> <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;(1,3)&quot;</span><span class="p">,</span> <span class="s2">&quot;showLabel&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">})</span>
+<span class="n">desmos</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/javascript">new Promise(function(resolve, reject) {
+	var script = document.createElement("script");
+	script.onload = resolve;
+	script.onerror = reject;
+	script.src = "https://www.desmos.com/api/v1.9/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6";
+	document.head.appendChild(script);
+}).then(() => {
+
+        element.style.height = '480px';
+        element.style.width = '100%';
+        var calculator = Desmos.GraphingCalculator(element);
+        calculator.setExpression({"latex": "y=x^2 + 2"});calculator.setExpression({"latex": "y=2x + 1"});calculator.setExpression({"latex": "(1,3)", "label": "(1,3)", "showLabel": true});
+        
+});</script></div>
+</div>
+<p>Again, once you’re done coding the Python part, you can easily use the Desmos UI now from within Jupyter to add more information to the graph or experiment with different choices.  Simply interact with it as you would with the Desmos calculator.</p>
+<p>One limitation of the library so far is that there’s no support yet for saving such Graphs back to Desmos, but of course, you can save everything in the Jupyter Notebook as you normally would.</p>
+</section>
+<section id="using-desmos-with-sympy">
+<h2>Using Desmos with SymPy<a class="headerlink" href="#using-desmos-with-sympy" title="Link to this heading"></a></h2>
+<p>I’m excited by the prospects of using the add_latex method in JDesmos, because it offers a simple way to integrate with SymPy, which has great support for latex.  To show how simply this can be done, let’s set up a SymPy equation for the function <span class="math notranslate nohighlight">\(y = 2 x^{2} - 3\)</span>, and display it in JDesmos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">symbols</span><span class="p">,</span> <span class="n">Eq</span><span class="p">,</span> <span class="n">latex</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s2">&quot;x y&quot;</span><span class="p">)</span>
+<span class="n">eq</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">latex</span><span class="p">(</span><span class="n">eq</span><span class="p">)</span>
+<span class="n">desmos</span> <span class="o">=</span> <span class="n">Desmos</span><span class="p">()</span>
+<span class="n">desmos</span><span class="o">.</span><span class="n">add_latex</span><span class="p">(</span><span class="n">latex</span><span class="p">(</span><span class="n">eq</span><span class="p">))</span>
+<span class="n">desmos</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/javascript">new Promise(function(resolve, reject) {
+	var script = document.createElement("script");
+	script.onload = resolve;
+	script.onerror = reject;
+	script.src = "https://www.desmos.com/api/v1.9/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6";
+	document.head.appendChild(script);
+}).then(() => {
+
+        element.style.height = '480px';
+        element.style.width = '100%';
+        var calculator = Desmos.GraphingCalculator(element);
+        calculator.setExpression({"latex": "y = 2 x^{2} - 3"});
+        
+});</script></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QX7KGT4YPE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-QX7KGT4YPE', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>
