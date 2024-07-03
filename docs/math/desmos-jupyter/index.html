@@ -7,7 +7,7 @@
   <title>Using Desmos Graphs in Jupyter Notebooks &mdash; CodeSolid.com 0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
 
   
   <!--[if lt IE 9]>
@@ -115,7 +115,7 @@
 <h2>Using the IPython.display.Javascript class<a class="headerlink" href="#using-the-ipython-display-javascript-class" title="Link to this heading"></a></h2>
 <p>Fortunately, I found that Jupyter itself provided an answer to the question in the form of a class in IPython’s display package, <a class="reference external" href="https://ipython.readthedocs.io/en/stable/api/generated/IPython.display.html#IPython.display.Javascript">IPython.display.Javascript</a>, and I reasoned that even if this approach might be less full-featured, it was probably better tested against all the lastest Jupyter releases.</p>
 <p>This constructor (i.e., the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method) of this Javascript class takes a script as input along with a list of libraries to load prior to running the script.  It returns an object that can be passed to the display method to output the results of evaluating the JavaScript.</p>
-<p>Given this information and the Desmos API samples, it was a pretty easy task to display a Desmos graph. The code for my first pass at doing this is below, which we’ll discuss below the graph.</p>
+<p>Given this information and the Desmos API samples, it was a pretty easy task to display a Desmos graph. The code for my first pass at doing this is below, which we’ll discuss in the graph below.  (Note that if you’re viewing this on CodeSolid.com, the images are actually screen-shots of the Desmos graph displayed, not how it will appear in Jupyter.  This is because the sphinx plugin the web site uses doesn’t handle JavaScript (at least not automatically.  To see the actual JDesmos graph, you can, for example, run the <a class="reference external" href="https://github.com/CodeSolid/CodeSolid.com/blob/main/src/math/desmos-jupyter.ipynb">Jupyter Notebook version</a> of this article).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Javascript</span><span class="p">,</span> <span class="n">display</span>
@@ -163,6 +163,7 @@
 
 });</script></div>
 </div>
+<p><img alt="JDesmos Screenshot 1" src="../../_images/images-jdesmos-1.png" /></p>
 </section>
 <section id="discussion-first-attempt">
 <h2>Discussion:  First Attempt<a class="headerlink" href="#discussion-first-attempt" title="Link to this heading"></a></h2>
@@ -175,8 +176,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">24.0</span> -&gt; <span class=" -Color -Color-Green">24.1.1</span>
-<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">pip install --upgrade pip</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">23.3.2</span> -&gt; <span class=" -Color -Color-Green">24.1.1</span>
+<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">python -m pip install --upgrade pip</span>
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
@@ -214,6 +215,7 @@
         
 });</script></div>
 </div>
+<p><img alt="JDesmos Screenshot 2" src="../../_images/images-jdesmos-2.png" /></p>
 <p>Again, once you’re done coding the Python part, you can easily use the Desmos UI now from within Jupyter to add more information to the graph or experiment with different choices.  Simply interact with it as you would with the Desmos calculator.</p>
 <p>One limitation of the library so far is that there’s no support yet for saving such Graphs back to Desmos, but of course, you can save everything in the Jupyter Notebook as you normally would.</p>
 </section>
@@ -248,6 +250,7 @@
         
 });</script></div>
 </div>
+<p><img alt="JDesmos Screenshot 3" src="../../_images/images-jdesmos-3.png" /></p>
 </section>
 </section>
 
