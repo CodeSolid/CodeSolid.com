@@ -12,11 +12,9 @@ kernelspec:
   name: python3
 ---
 
-```{code-cell} ipython3
 # A summation problem in SymPy.
 
-I don't 
-```
++++
 
 We have the following problem to solve:
 

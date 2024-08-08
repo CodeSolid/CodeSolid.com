@@ -44,7 +44,7 @@ print(is_congruent(7, 10, 3))  # OK, 1 == 1
 print(is_congruent(7, 10, 4))  # NO!  7 mod 4 is 3, while 10 mod 4 is 2!
 ```
 
-Many interesting properties apply to the congruence relation numbers, which are similar to properties that apply to equivalence.
+Many interesting properties apply to the congruence relation between numbers, which are similar to properties that apply to equivalence.
 
 _What Is Mathematics_ goes through these properties, so I won't reproduce them here, but they generate many interesting results.  For example, congruent numbers can be added and multiplied; for any given modulus, we can construct tables to understand the results. We have some day-to-day experience with doing this in mod 12, where we know that if it's 10:00 AM now, five hours from now, it won't be 15:00 (unless you're in the military).  Instead, it will be 3 PM because $15 \bmod 12 = 3$.
 
@@ -75,7 +75,7 @@ Here's the table I made for the modulus of those terms:
 
 Looking at the right-hand column, we see that the modulus terms repeat in groups of 4, as follows:  (1, 2, 4, 3).
 
-Since the four repeating terms add up to 10, and $10 \equiv 0 \space (\bmod 5)$, and since $2^18$ is the term we're concerned with, and since the series is based on zero rather than one, we'll have three terms left over at the end.  I therefore reasoned that the second modulus of the sequence we showed above should give us the answer:  $\boxed{2}$.  This will turn out to be wrong, but bear with me.
+Since the four repeating terms add up to 10, and $10 \equiv 0 \space (\bmod 5)$, and since $2^{18}$ is the term we're concerned with, and since the series is based on zero rather than one, we'll have three terms left over at the end.  I therefore reasoned that the second modulus of the sequence we showed above should give us the answer:  $\boxed{2}$.  This will turn out to be wrong, but bear with me.
 
 To check the answer in Python, I thought it was a great time to figure out how summations worked in SymPy. In general, SymPy is my go-to tool for checking results in Calculus. Now, for this problem, we'll see in a minute that that approach is a bit overengineered since Python will also get us there directly, but let's try SymPy first.
 
@@ -105,7 +105,7 @@ result = sum([2**x for x in range(0, 19)])
 print(result)
 ```
 
-In addition to dealing with infinite series, SymPy's summation function also has the advantage of using the full closed range we're dealing with rather than the half-open range, $[0, 10)$.
+In addition to dealing with infinite series, SymPy's summation function also has the advantage of using the full closed range we're dealing with rather than the half-open range, $[0, 19)$.
 
 Whether we use SymPy or a simple list comprehension, the answer we arrived at by grouping terms seems to check out, but let's verify that it's not a fluke. If it's not, the next term in the sequence should match up with the next term in our group of four.  That is, if we're not just lucky, we should find $2^{19} \equiv 4 \bmod 5$
 

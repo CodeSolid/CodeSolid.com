@@ -4,8 +4,10 @@ Math and Math Software
 .. toctree::
    :caption: Articles:
    :maxdepth: 1
-   
+
    using-latex-in-python
+   math/desmos-jupyter
+   math/yet-anoter-jdesmos-demo
    programming-and-math-a-brief-translation-guide
    introducing-sage-math-python-based-mathematics
    sympy-solving-math-equations-in-python
@@ -18,5 +20,6 @@ Math and Math Software
    math/Journal
    math/taking-calculus-in-your-sixties
    math/exploring_basic_number_theory_in_python
+   
    
    

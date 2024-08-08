@@ -16,9 +16,10 @@ Math ∩ Programming
    :caption: Added Recently:
    :hidden:   
 
+   math/yet-another-jdesmos-demo
+   cpcc-proposal
    math/desmos-jupyter
-   math/taking-calculus-in-your-sixties
-   math/exploring_basic_number_theory_in_python
+   
 
 .. toctree::
    :caption: Categories
