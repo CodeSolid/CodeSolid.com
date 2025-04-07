@@ -1,6 +1,6 @@
 # CodeSolid.com
 
-This is a draft of the new CodeSolid Web Site, currently [hosted here](https://codesolid.github.io/CodeSolid.com/).
+This is the source for CodeSolid.com
 
 This can be run as a codespace on GitHub, as a .devcontainer in VS Code (run using ```code .```), or using a virtual environment, as follows:
 

@@ -145,7 +145,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/f462c835d9b68eca9374d13302dc907056d551c1e88a61ac632d61ff5506cddb.png" src="../../../_images/f462c835d9b68eca9374d13302dc907056d551c1e88a61ac632d61ff5506cddb.png" />
+<img alt="../../../_images/f057f3b967953262c52c6bd855175c495cb6002f7215aba9fef4b0de9ae9515b.png" src="../../../_images/f057f3b967953262c52c6bd855175c495cb6002f7215aba9fef4b0de9ae9515b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -164,9 +164,16 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Point2D(0, 0)
-5
-x**2 + y**2 - 25
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Now do it Euclid&#39;s way</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># Note, it breaks down at  radii &gt; 5 -- use that to introduce symplot</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">circle1</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="mi">5</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="n">circle1</span><span class="o">.</span><span class="n">center</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="nb">print</span><span class="p">(</span><span class="n">circle1</span><span class="o">.</span><span class="n">radius</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;Circle&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -184,9 +191,6 @@ x**2 + y**2 - 25
 <span class="n">p</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../../_images/725c65734fe5ddf615f1db23048cdc6b993ed06264127647fbd7e953a899b8e5.png" src="../../../_images/725c65734fe5ddf615f1db23048cdc6b993ed06264127647fbd7e953a899b8e5.png" />
 </div>
 </div>
 </section>
