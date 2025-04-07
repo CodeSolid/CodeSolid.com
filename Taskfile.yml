@@ -1,0 +1,25 @@
+version: '3'
+
+tasks:
+  build:
+    desc: Build the site using Sphinx
+    cmds:
+      - rm -rf docs
+      - sphinx-build -b dirhtml src/ docs
+      - cp github-pages-files/.nojekyll docs
+      - cp github-pages-files/CNAME docs
+
+  serve:
+    desc: Serve the site locally using sphinx-autobuild
+    cmds:
+      - sphinx-autobuild -b dirhtml src docs
+
+  clean:
+    desc: Clean build artifacts
+    cmds:
+      - rm -rf docs
+
+  default:
+    desc: Show available tasks
+    cmds:
+      - task --list
