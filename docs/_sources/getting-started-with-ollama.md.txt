@@ -1,4 +1,4 @@
- ---
+---
 title: "Getting Started with Ollama"
 date: "2025-04-07"
 categories: 
