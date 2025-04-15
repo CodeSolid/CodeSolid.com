@@ -27,16 +27,14 @@ Math ∩ Programming
    :hidden:
 
    category-math-and-math-software
-   category-python
+   # category-python
    category-python-for-beginners-posts
    category-python-functions
    category-python-math-and-science
    category-python-practice
    category-python-tools
    category-pandas
-   category-newsletter
    category-miscellaneous
-   category-c-and-cplusplus
    category-docker
    category-jupyter
    category-learn-to-code
