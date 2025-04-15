@@ -1,4 +1,4 @@
----
+ ---
 title: "Getting Started with Ollama"
 date: "2025-04-07"
 categories: 
@@ -8,20 +8,20 @@ coverImage: "coding-with-python-book-small.jpeg"
 # Getting Started With Ollama
 
 ## What it Is
-If you've been working with online Language models as an AI Engineer -- of even if you've just kicked the tires on ChatGPT or Anthropic's Claude or the like -- you may have wondered if it's possible to run an LLM locally on your own local computer. If so, you're probably ready to test drive Ollama. 
+If you've been working with online Language models as an AI Engineer -- or even if you've just kicked the tires on ChatGPT or Anthropic's Claude or the like -- you may have wondered if it's possible to run an LLM locally on your own local computer. If so, you're probably ready to test drive Ollama. 
 
 Ollama is a free, open-source tool that lets you run large language models (LLMs) locally on your computer (Mac, Linux, and Windows are supported). With it, you can run and experiment with a variety of large language models, including Gemma3, Llama 3.3, Mistral, and many others.
 
 ## Ollama Pros and Cons in Brief
 Ollama has several features that make it worthy of a first look. Since all the models run locally, your data never leaves your machine, so it's great for security-conscious users. It's easy to install, without additional dependencies on Docker or other tools.  It's also quite simple to switch models -- you simply specify a different model name (though each model will take some time to download the first time you run it). Running a model from the terminal opens a prompt with which you can interact with the model, as well as an API endpoint, which means you can also use Ollama from LangChain or LangGraph (as we'll demonstrate below). Unlike the case with online providers, you won't have to set up separate accounts and pay a separate minimum fee to get started. Finally, for users familiar with Docker, many of Ollama's commands are quite intuitive, since they have many analogues in Docker commands.
 
-Of course, as with everything in a world of engineering trade-offs, it's reasonable to ask "OK, so what's the bad news?" The first word in "Large Language Models" gives the game away: LLMs are large (in terms of size), and resource-intensive (in terms of both memory and compute power). On my iMac (with an M1 processor and 16Gb), running gemma3:4b used about 4.5 GB of memory (and took up 3.3 GB of disk space), while running gemma3:12b used between 9.2 and 11 GB of memory (at 8.1 GB of disk space). Also, the models we're able to run on a typical developer machine run much more slowly and are much less full-featured than commercial models
+Of course, as with everything in a world of engineering trade-offs, it's reasonable to ask, "OK, so what's the bad news?" The first word in "Large Language Models" gives the game away: LLMs are large (in terms of size), and resource-intensive (in terms of both memory and compute power). On my iMac (with an M1 processor and 16Gb), running gemma3:4b used about 4.5 Gb of memory (and took up 3.3 Gb of disk space), while running gemma3:12b used between 9.2 and 11 Gb of memory (at 8.1 Gb of disk space). Also, the models we're able to run on a typical developer machine run much more slowly and are much less full-featured than commercial models available online.
 
 ## Installing and Running
 
-Installing Ollama is quite easy by downloading or running the appropriate installer [here](https://ollama.com/download/). On the Mac program, this consisted of a zip file with an app file inside.  Running this will let you install the app. The first time it runs, the GUI application will prompt you to install the Ollama command line, so you can then run "ollama" from a terminal or command prompt window.
+Installing Ollama is quite easy by downloading or running the appropriate installer [here](https://ollama.com/download/). On the Mac program, this consisted of a zip file with an app file inside.  Running this will let you install the app. The first time it runs, the GUI application will prompt you to install the Ollama command line, so you can then run ```ollama``` from a terminal or command prompt window.
 
-Before running anything, it's a good idea to check the [models page](https://ollama.com/search) and look at various "parameter sizes" to find the download size and any system requirements.  I decide on "gemma3:4b", 
+Before running anything, it's a good idea to check the [models page](https://ollama.com/search) and look at various "parameter sizes" to find the download size and any system requirements.  I decided on "gemma3:4b", 
 The first command I ran was "ollama run gemma3:4b".  As mentioned earlier, the first time you run a given model it will download the model locally, so there'll be a wait for that.  On later runs, it will open the ollama prompt more directly, as shown here:
 ```bash
 > ollama run gemma3:4b
@@ -52,7 +52,7 @@ ollama run gemma3:4b "/set parameter temperature 0 \What is the square root of 2
 The square root of 2 is approximately **1.41421356**.
 ```
 
-Since ollama runs at the command line, you can also redirect either input from a prompt of the output from it, or both, as shown here:
+Since ollama runs at the command line, you can also redirect either input from a prompt or the output from it, or both, as shown here:
 
 ```bash
 ollama run gemma3:4b < koan.txt > koan_answer.txt
@@ -64,9 +64,9 @@ The koan.text file consists simply of the ever-popular "What is the sound of one
 
 The two main ways that Large Language Models are further enhanced after they are trained are post-training and Resource Assisted Generation (RAG). Post-training seeks to fine-tune a model's performance to add new information or tune parameters to create a new model, so the result is a brand new model.  RAG consists of providing new information such as web search results or other documents to an existing model (typically using the prompt), so the model is unchanged, but in the context of the request, it can provide more accurate results.
 
-Without getting too far into these the details of these techniques in this "first look" article, let's take a look at some lightweight ways we can easily create new models using some of ollama's built-in tools. There are two main ways to do this:
+Without getting too far into the details of these techniques in this "first look" article, let's take a look at some lightweight ways we can easily create new models using some of ollama's built-in tools. There are two main ways to do this:
 
-* The ```/save <model>``` method can be used to save an existing session to a from withing an interactive prompt.  Note, however, that save does not seem to work with the technique shown earlier of redirecting input to the prompt from a file.
+* The ```/save <model>``` method can be used to save session from within an interactive prompt.  Note, however, that save does not seem to work with the technique shown earlier of redirecting input to the prompt from a file.
 * A more flexible technique for creating new models is to use the ```ollama create <model>``` from a command (terminal) prompt. By default, this looks for a file named "Modelfile" in the working directory, but this can be customized using ```-f <filename>```.
 
 Let's briefly demonstrate these two techniques.
@@ -78,9 +78,9 @@ Let's first see what models we have installed using the list command:
 ```bash
 $ ollama ls
 NAME             ID              SIZE      MODIFIED
-gemma3:12b       f4031aab637d    8.1 GB    2 days ago
-gemma3:4b        a2af6cc3eb7f    3.3 GB    8 days ago
-gemma3:latest    a2af6cc3eb7f    3.3 GB    8 days ago
+gemma3:12b       f4031aab637d    8.1 Gb    2 days ago
+gemma3:4b        a2af6cc3eb7f    3.3 Gb    8 days ago
+gemma3:latest    a2af6cc3eb7f    3.3 Gb    8 days ago
 $
 ```
 Your output may be different, of course.  Let's verify that gemma doesn't know our name yet:
@@ -117,7 +117,7 @@ Now let's verify that we have a new model, for example:
 
 ```
 $ ollama ls | grep myname
-myname:latest    89694f32b51d    3.3 GB    5 minutes ago
+myname:latest    89694f32b51d    3.3 Gb    5 minutes ago
 ```
 
 Now let's ask our new model the same question:
@@ -133,7 +133,7 @@ Gemma is a bit too fond of emojis, but at least this new model has one new fact.
 ### Using Ollama Create
 In addition to saving the current session based on an existing model to create a new model, Ollama's "create" option lets you build a new model from a file containing a base model to build from, parameters to set on the model, and messages to run, and a number of other options (see the [Modelfile documentation](https://ollama.readthedocs.io/en/modelfile) for a complete list).
 
-To give you a sense of how it works, we've put together a contrived example. At present, neither Ollama nor many commercial AI models (Anthropic's Claude excluded) don't seem to "know" the last line in the movie Cool Hand Luke. (Spoiler alert, I'm about to tell you, so skip to the next section if you plan to view it this weekend.) Granted this is a pretty limited benchmark for intelligence, but I thought I'd teach it to a lightweight model with some facts about me.  Here's the model file:
+To give you a sense of how it works, we've put together a contrived example. At present, neither Ollama nor many commercial AI models (Anthropic's Claude excluded) seem to "know" the last line in the movie Cool Hand Luke. (Spoiler alert, I'm about to tell you, so skip to the next section if you plan to view it this weekend.) Granted this is a pretty limited benchmark for intelligence, but I thought I'd teach it to a lightweight model with some facts about me.  Here's the model file:
 
 #### A Sample Modelfile
 ```
@@ -157,14 +157,14 @@ the same name is 'What we got here is a failure to \
 communicate.' He has many lines before it, but \
 that's the last line, verbatim.
 ```
-By the way, before running this, if you want to see some serial hallucination, try asking "What is the last line Cool Hand Luke says in the movie by the same name?" to gemma3:4b, and it will make up an answer. Ask it the same question again, it will apologize and make up a different answer.
+By the way, before running this, if you want to see some serial hallucination, try asking "What is the last line Cool Hand Luke says in the movie by the same name?" to gemma3:4b, and it will make up an answer. Ask it the same question again, and it will apologize and make up a different answer.
 
 Now, let's run it to see that answer we get. Note that the -f switch is not strictly needed if you named your file "Modelfile", but it's worth knowing if you want to experiment with more than one file.
 
 ```
 $ ollama create -f Modelfile coolhand
 ```
-You'll see that -- much like ```Docker build``` -- it will put together a mix of existing layers and some new ones based on hte contents of your Modelfile.
+You'll see that -- much like ```Docker build``` -- it will put together a mix of existing layers and some new ones based on the contents of your Modelfile.
 
 Once this has run, you can run the new model as you normally would.  
 
