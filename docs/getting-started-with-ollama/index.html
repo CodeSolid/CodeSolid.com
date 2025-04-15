@@ -61,11 +61,12 @@
 <li class="toctree-l2"><a class="reference internal" href="#installing-and-running">Installing and Running</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#saving-sessions-and-using-ollama-create">Saving Sessions and Using Ollama Create</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#using-ollama-s-save-method-in-a-prompt">Using Ollama’s /save Method in a prompt.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-ollama-create">Using Ollama Create</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#a-sample-modelfile">A Sample Modelfile</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#using-ollama-create">Using Ollama Create</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#working-with-the-api-endpoint">Working With the API endpoint</a></li>
 </ul>
 </li>
@@ -219,14 +220,13 @@ I<span class="w"> </span>just<span class="w"> </span>confirmed<span class="w"> <
 </div>
 <p>Gemma is a bit too fond of emojis, but at least this new model has one new fact.</p>
 </section>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="using-ollama-create">
-<h1>Using Ollama Create<a class="headerlink" href="#using-ollama-create" title="Link to this heading"></a></h1>
+<section id="using-ollama-create">
+<h3>Using Ollama Create<a class="headerlink" href="#using-ollama-create" title="Link to this heading"></a></h3>
 <p>In addition to saving the current session based on an existing model to create a new model, Ollama’s “create” option lets you build a new model from a file containing a base model to build from, parameters to set on the model, and messages to run, and a number of other options (see the <a class="reference external" href="https://ollama.readthedocs.io/en/modelfile">Modelfile documentation</a> for a complete list).</p>
 <p>To give you a sense of how it works, we’ve put together a contrived example. At present, neither Ollama nor many commercial AI models (Anthropic’s Claude excluded) don’t seem to “know” the last line in the movie Cool Hand Luke. (Spoiler alert, I’m about to tell you, so skip to the next section if you plan to view it this weekend.) Granted this is a pretty limited benchmark for intelligence, but I thought I’d teach it to a lightweight model with some facts about me.  Here’s the model file:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># A sample Modelfile</span>
-
+<section id="a-sample-modelfile">
+<h4>A Sample Modelfile<a class="headerlink" href="#a-sample-modelfile" title="Link to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 <span class="n">FROM</span> <span class="n">gemma3</span><span class="p">:</span><span class="mi">4</span><span class="n">b</span>
 
 <span class="c1"># Prefer concise and fact-based answers.</span>
@@ -267,6 +267,9 @@ The last line Cool Hand Luke says in the movie *Cool Hand Luke* is:
 </pre></div>
 </div>
 <p>If you ask it again, this time the model will stick by its guns, so to speak.</p>
+</section>
+</section>
+</section>
 <section id="working-with-the-api-endpoint">
 <h2>Working With the API endpoint<a class="headerlink" href="#working-with-the-api-endpoint" title="Link to this heading"></a></h2>
 <p>When Ollama is running, there’ll be an api endpoint listening on the default port of 11434, so running localhost:11434 in your browser should show you a status message.  The <a class="reference external" href="https://ollama.readthedocs.io/en/api/">Ollama API reference</a> lists the various endpoints and gives examples using CURL, but of course you can use any http client such as the Postman, the Python requests library, etc.</p>

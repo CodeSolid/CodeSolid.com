@@ -130,13 +130,13 @@ I just confirmed it when you told me your name. 😄
 ```
 Gemma is a bit too fond of emojis, but at least this new model has one new fact.
 
-# Using Ollama Create
+### Using Ollama Create
 In addition to saving the current session based on an existing model to create a new model, Ollama's "create" option lets you build a new model from a file containing a base model to build from, parameters to set on the model, and messages to run, and a number of other options (see the [Modelfile documentation](https://ollama.readthedocs.io/en/modelfile) for a complete list).
 
 To give you a sense of how it works, we've put together a contrived example. At present, neither Ollama nor many commercial AI models (Anthropic's Claude excluded) don't seem to "know" the last line in the movie Cool Hand Luke. (Spoiler alert, I'm about to tell you, so skip to the next section if you plan to view it this weekend.) Granted this is a pretty limited benchmark for intelligence, but I thought I'd teach it to a lightweight model with some facts about me.  Here's the model file:
 
+#### A Sample Modelfile
 ```
-# A sample Modelfile
 
 FROM gemma3:4b
 
