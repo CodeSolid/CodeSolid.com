@@ -1,7 +1,7 @@
 
 
-Math ∩ Programming
-==================
+CodeSolid: Python and AI Engineering
+====================================
 
 .. toctree::
    :caption: Featured Articles:
@@ -16,8 +16,10 @@ Math ∩ Programming
    :caption: Added Recently:
    :hidden:   
 
+   getting-started-with-ollama
+   ollama-langchain-demo
    math/yet-another-jdesmos-demo
-   cpcc-proposal
+
    math/desmos-jupyter
    
 
@@ -27,7 +29,6 @@ Math ∩ Programming
    :hidden:
 
    category-math-and-math-software
-   # category-python
    category-python-for-beginners-posts
    category-python-functions
    category-python-math-and-science
@@ -39,10 +40,11 @@ Math ∩ Programming
    category-jupyter
    category-learn-to-code
 
-CodeSolid features articles at the intersection of Math and Programming.  It is written by a retired programmer who fancies himself `The World's Oldest Math Major <./worlds-oldest-math-major>`_.
+CodeSolid features articles on a number of topics in Python, and mathematics.
 
-As you can see from the category headings on the left, you can find a lot on this site about Python, with a smattering of C, C++, Docker, and other software engineering topics. Going forward we still expect to do some of that, especially as it relates to mathematics.
+More recently, we've been exploring tools for using Python in the context of AI Engineering. Our first article on that subject is 
+`Getting Started With Ollama <./getting-started-with-ollama/>`_. We look forward to publishing more in this area.
 
-Sometimes those relationships can be pretty tenuous and in the nature of early experiments, such as when `Euclid meets SymPy </math/sympy_geometry>`_.  No one including me saw that one coming, but it was a pleasant diversion when it did arrive.
+
 
 

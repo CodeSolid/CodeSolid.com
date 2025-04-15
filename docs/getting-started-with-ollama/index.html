@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Getting Started With Ollama &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=19645805"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="Yet Another JDesmos Demo" href="../math/yet-another-jdesmos-demo/" />
+    <link rel="prev" title="Jupyter Password: Easy Notebook and Lab Configuration" href="../jupyter-password/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Added Recently:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started With Ollama</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-it-is">What it Is</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ollama-pros-and-cons-in-brief">Ollama Pros and Cons in Brief</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-and-running">Installing and Running</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#saving-sessions-and-using-ollama-create">Saving Sessions and Using Ollama Create</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-ollama-s-save-method-in-a-prompt">Using Ollama’s /save Method in a prompt.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#using-ollama-create">Using Ollama Create</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#working-with-the-api-endpoint">Working With the API endpoint</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../math/yet-another-jdesmos-demo/">Yet Another JDesmos Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/desmos-jupyter/">Using Desmos Graphs in Jupyter Notebooks</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Categories</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../category-math-and-math-software/">Math and Math Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Python Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Getting Started With Ollama</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/getting-started-with-ollama.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="getting-started-with-ollama">
+<h1>Getting Started With Ollama<a class="headerlink" href="#getting-started-with-ollama" title="Link to this heading"></a></h1>
+<section id="what-it-is">
+<h2>What it Is<a class="headerlink" href="#what-it-is" title="Link to this heading"></a></h2>
+<p>If you’ve been working with online Language models as an AI Engineer – of even if you’ve just kicked the tires on ChatGPT or Anthropic’s Claude or the like – you may have wondered if it’s possible to run an LLM locally on your own local computer. If so, you’re probably ready to test drive Ollama.</p>
+<p>Ollama is a free, open-source tool that lets you run large language models (LLMs) locally on your computer (Mac, Linux, and Windows are supported). With it, you can run and experiment with a variety of large language models, including Gemma3, Llama 3.3, Mistral, and many others.</p>
+</section>
+<section id="ollama-pros-and-cons-in-brief">
+<h2>Ollama Pros and Cons in Brief<a class="headerlink" href="#ollama-pros-and-cons-in-brief" title="Link to this heading"></a></h2>
+<p>Ollama has several features that make it worthy of a first look. Since all the models run locally, your data never leaves your machine, so it’s great for security-conscious users. It’s easy to install, without additional dependencies on Docker or other tools.  It’s also quite simple to switch models – you simply specify a different model name (though each model will take some time to download the first time you run it). Running a model from the terminal opens a prompt with which you can interact with the model, as well as an API endpoint, which means you can also use Ollama from LangChain or LangGraph (as we’ll demonstrate below). Unlike the case with online providers, you won’t have to set up separate accounts and pay a separate minimum fee to get started. Finally, for users familiar with Docker, many of Ollama’s commands are quite intuitive, since they have many analogues in Docker commands.</p>
+<p>Of course, as with everything in a world of engineering trade-offs, it’s reasonable to ask “OK, so what’s the bad news?” The first word in “Large Language Models” gives the game away: LLMs are large (in terms of size), and resource-intensive (in terms of both memory and compute power). On my iMac (with an M1 processor and 16Gb), running gemma3:4b used about 4.5 GB of memory (and took up 3.3 GB of disk space), while running gemma3:12b used between 9.2 and 11 GB of memory (at 8.1 GB of disk space). Also, the models we’re able to run on a typical developer machine run much more slowly and are much less full-featured than commercial models</p>
+</section>
+<section id="installing-and-running">
+<h2>Installing and Running<a class="headerlink" href="#installing-and-running" title="Link to this heading"></a></h2>
+<p>Installing Ollama is quite easy by downloading or running the appropriate installer <a class="reference external" href="https://ollama.com/download/">here</a>. On the Mac program, this consisted of a zip file with an app file inside.  Running this will let you install the app. The first time it runs, the GUI application will prompt you to install the Ollama command line, so you can then run “ollama” from a terminal or command prompt window.</p>
+<p>Before running anything, it’s a good idea to check the <a class="reference external" href="https://ollama.com/search">models page</a> and look at various “parameter sizes” to find the download size and any system requirements.  I decide on “gemma3:4b”,
+The first command I ran was “ollama run gemma3:4b”.  As mentioned earlier, the first time you run a given model it will download the model locally, so there’ll be a wait for that.  On later runs, it will open the ollama prompt more directly, as shown here:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;<span class="w"> </span>ollama<span class="w"> </span>run<span class="w"> </span>gemma3:4b
+&gt;&gt;&gt;<span class="w"> </span>Send<span class="w"> </span>a<span class="w"> </span>message<span class="w"> </span><span class="o">(</span><span class="s2">&quot;/? for help&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>At this point you can start ending natural language commands.  Here’s a brief session to give you an idea:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt;<span class="w"> </span>multiply<span class="w"> </span><span class="m">3</span><span class="w"> </span>and<span class="w"> </span><span class="m">7</span>
+<span class="m">3</span><span class="w"> </span>multiplied<span class="w"> </span>by<span class="w"> </span><span class="m">7</span><span class="w"> </span>is<span class="w"> </span><span class="m">21</span>.
+
+<span class="m">3</span><span class="w"> </span>*<span class="w"> </span><span class="nv">7</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">21</span>
+
+
+&gt;&gt;&gt;<span class="w"> </span>my<span class="w"> </span>name<span class="w"> </span>is<span class="w"> </span>John
+Hi<span class="w"> </span>John!<span class="w"> </span>It<span class="s1">&#39;s nice to meet you. 😊</span>
+
+<span class="s1">Is there anything you&#39;</span>d<span class="w"> </span>like<span class="w"> </span>to<span class="w"> </span>chat<span class="w"> </span>about,<span class="w"> </span>or<span class="w"> </span>were<span class="w"> </span>you<span class="w"> </span>just<span class="w"> </span>saying<span class="w"> </span>hello?
+
+&gt;&gt;&gt;<span class="w"> </span>Send<span class="w"> </span>a<span class="w"> </span>message<span class="w"> </span><span class="o">(</span>/?<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nb">help</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>(Note: you can exit the prompt using CTRL-D or /bye.)</p>
+<p>It’s also possible to run ollama non-interactively by passing it a command (in quotes after the model name) Here we’ll pass it a two-line command (with backslashes as new lines).  First we set the temperature to zero to focus on a precise and to the point answer, then we’ll ask it a mathematical question.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ollama</span> <span class="n">run</span> <span class="n">gemma3</span><span class="p">:</span><span class="mi">4</span><span class="n">b</span> <span class="s2">&quot;/set parameter temperature 0 \What is the square root of 2&quot;</span>
+<span class="n">The</span> <span class="n">square</span> <span class="n">root</span> <span class="n">of</span> <span class="mi">2</span> <span class="ow">is</span> <span class="n">approximately</span> <span class="o">**</span><span class="mf">1.41421356</span><span class="o">**.</span>
+</pre></div>
+</div>
+<p>Since ollama runs at the command line, you can also redirect either input from a prompt of the output from it, or both, as shown here:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ollama<span class="w"> </span>run<span class="w"> </span>gemma3:4b<span class="w"> </span>&lt;<span class="w"> </span>koan.txt<span class="w"> </span>&gt;<span class="w"> </span>koan_answer.txt
+</pre></div>
+</div>
+<p>The koan.text file consists simply of the ever-popular “What is the sound of one hand clapping?” – with the answer left as an exercise to the reader and Ollama.</p>
+</section>
+<section id="saving-sessions-and-using-ollama-create">
+<h2>Saving Sessions and Using Ollama Create<a class="headerlink" href="#saving-sessions-and-using-ollama-create" title="Link to this heading"></a></h2>
+<p>The two main ways that Large Language Models are further enhanced after they are trained are post-training and Resource Assisted Generation (RAG). Post-training seeks to fine-tune a model’s performance to add new information or tune parameters to create a new model, so the result is a brand new model.  RAG consists of providing new information such as web search results or other documents to an existing model (typically using the prompt), so the model is unchanged, but in the context of the request, it can provide more accurate results.</p>
+<p>Without getting too far into these the details of these techniques in this “first look” article, let’s take a look at some lightweight ways we can easily create new models using some of ollama’s built-in tools. There are two main ways to do this:</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">/save</span> <span class="pre">&lt;model&gt;</span></code> method can be used to save an existing session to a from withing an interactive prompt.  Note, however, that save does not seem to work with the technique shown earlier of redirecting input to the prompt from a file.</p></li>
+<li><p>A more flexible technique for creating new models is to use the <code class="docutils literal notranslate"><span class="pre">ollama</span> <span class="pre">create</span> <span class="pre">&lt;model&gt;</span></code> from a command (terminal) prompt. By default, this looks for a file named “Modelfile” in the working directory, but this can be customized using <code class="docutils literal notranslate"><span class="pre">-f</span> <span class="pre">&lt;filename&gt;</span></code>.</p></li>
+</ul>
+<p>Let’s briefly demonstrate these two techniques.</p>
+<section id="using-ollama-s-save-method-in-a-prompt">
+<h3>Using Ollama’s /save Method in a prompt.<a class="headerlink" href="#using-ollama-s-save-method-in-a-prompt" title="Link to this heading"></a></h3>
+<p>Let’s first see what models we have installed using the list command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ollama<span class="w"> </span>ls
+NAME<span class="w">             </span>ID<span class="w">              </span>SIZE<span class="w">      </span>MODIFIED
+gemma3:12b<span class="w">       </span>f4031aab637d<span class="w">    </span><span class="m">8</span>.1<span class="w"> </span>GB<span class="w">    </span><span class="m">2</span><span class="w"> </span>days<span class="w"> </span>ago
+gemma3:4b<span class="w">        </span>a2af6cc3eb7f<span class="w">    </span><span class="m">3</span>.3<span class="w"> </span>GB<span class="w">    </span><span class="m">8</span><span class="w"> </span>days<span class="w"> </span>ago
+gemma3:latest<span class="w">    </span>a2af6cc3eb7f<span class="w">    </span><span class="m">3</span>.3<span class="w"> </span>GB<span class="w">    </span><span class="m">8</span><span class="w"> </span>days<span class="w"> </span>ago
+$
+</pre></div>
+</div>
+<p>Your output may be different, of course.  Let’s verify that gemma doesn’t know our name yet:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ollama run gemma3:4b &quot;What&#39;s my name?&quot;
+As an AI, I have no way of knowing your name! I don&#39;t have access to
+personal information.
+
+You&#39;ll have to tell me your name! 😊
+
+Would you like to tell me?
+
+$
+</pre></div>
+</div>
+<p>Next, we’ll run a model, teach it our name, and save the session.  The <code class="docutils literal notranslate"><span class="pre">/save</span></code> command takes as an argument a name for the model, which can be used to load the model using <code class="docutils literal notranslate"><span class="pre">ollama</span> <span class="pre">run</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ollama run gemma3:4b
+&gt;&gt;&gt; My name is John
+Okay, John! It&#39;s nice to meet you. 😊
+
+Is there anything you’d like to chat about, or were you just letting me
+know your name?
+
+&gt;&gt;&gt; /save myname
+Created new model &#39;myname&#39;
+
+/bye
+</pre></div>
+</div>
+<p>Now let’s verify that we have a new model, for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ollama ls | grep myname
+myname:latest    89694f32b51d    3.3 GB    5 minutes ago
+</pre></div>
+</div>
+<p>Now let’s ask our new model the same question:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ollama<span class="w"> </span>run<span class="w"> </span>myname<span class="w"> </span><span class="s2">&quot;What&#39;s my name?&quot;</span>
+Your<span class="w"> </span>name<span class="w"> </span>is<span class="w"> </span>John!<span class="w"> </span>😊
+
+I<span class="w"> </span>just<span class="w"> </span>confirmed<span class="w"> </span>it<span class="w"> </span>when<span class="w"> </span>you<span class="w"> </span>told<span class="w"> </span>me<span class="w"> </span>your<span class="w"> </span>name.<span class="w"> </span>😄
+</pre></div>
+</div>
+<p>Gemma is a bit too fond of emojis, but at least this new model has one new fact.</p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="using-ollama-create">
+<h1>Using Ollama Create<a class="headerlink" href="#using-ollama-create" title="Link to this heading"></a></h1>
+<p>In addition to saving the current session based on an existing model to create a new model, Ollama’s “create” option lets you build a new model from a file containing a base model to build from, parameters to set on the model, and messages to run, and a number of other options (see the <a class="reference external" href="https://ollama.readthedocs.io/en/modelfile">Modelfile documentation</a> for a complete list).</p>
+<p>To give you a sense of how it works, we’ve put together a contrived example. At present, neither Ollama nor many commercial AI models (Anthropic’s Claude excluded) don’t seem to “know” the last line in the movie Cool Hand Luke. (Spoiler alert, I’m about to tell you, so skip to the next section if you plan to view it this weekend.) Granted this is a pretty limited benchmark for intelligence, but I thought I’d teach it to a lightweight model with some facts about me.  Here’s the model file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># A sample Modelfile</span>
+
+<span class="n">FROM</span> <span class="n">gemma3</span><span class="p">:</span><span class="mi">4</span><span class="n">b</span>
+
+<span class="c1"># Prefer concise and fact-based answers.</span>
+<span class="n">PARAMETER</span> <span class="n">temperature</span> <span class="mf">0.0</span>
+
+<span class="c1"># Teach it a basic fact about myself.</span>
+
+<span class="n">MESSAGE</span> <span class="n">user</span> <span class="n">My</span> <span class="n">name</span> <span class="ow">is</span> <span class="n">John</span><span class="o">.</span>
+<span class="n">MESSAGE</span> <span class="n">user</span> <span class="n">I</span> <span class="n">live</span> <span class="ow">in</span> <span class="n">Charlotte</span><span class="o">.</span>
+
+<span class="c1"># Teach it how to respond correctly to a question about Cool Hand Luke</span>
+
+<span class="n">MESSAGE</span> <span class="n">system</span> <span class="n">You</span> <span class="n">are</span> <span class="n">a</span> <span class="n">helpful</span> <span class="n">movie</span> <span class="n">bot</span> <span class="n">that</span> \
+<span class="n">remembers</span> <span class="n">the</span> <span class="n">following</span> <span class="n">information</span><span class="p">:</span> <span class="n">The</span> <span class="n">complete</span> \ 
+<span class="n">last</span> <span class="n">line</span> <span class="n">spoken</span> <span class="n">by</span> <span class="n">Cool</span> <span class="n">Hand</span> <span class="n">Luke</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">movie</span> <span class="n">of</span> \
+<span class="n">the</span> <span class="n">same</span> <span class="n">name</span> <span class="ow">is</span> <span class="s1">&#39;What we got here is a failure to </span><span class="se">\</span>
+<span class="s1">communicate.&#39;</span> <span class="n">He</span> <span class="n">has</span> <span class="n">many</span> <span class="n">lines</span> <span class="n">before</span> <span class="n">it</span><span class="p">,</span> <span class="n">but</span> \
+<span class="n">that</span><span class="s1">&#39;s the last line, verbatim.</span>
+</pre></div>
+</div>
+<p>By the way, before running this, if you want to see some serial hallucination, try asking “What is the last line Cool Hand Luke says in the movie by the same name?” to gemma3:4b, and it will make up an answer. Ask it the same question again, it will apologize and make up a different answer.</p>
+<p>Now, let’s run it to see that answer we get. Note that the -f switch is not strictly needed if you named your file “Modelfile”, but it’s worth knowing if you want to experiment with more than one file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ollama create -f Modelfile coolhand
+</pre></div>
+</div>
+<p>You’ll see that – much like <code class="docutils literal notranslate"><span class="pre">Docker</span> <span class="pre">build</span></code> – it will put together a mix of existing layers and some new ones based on hte contents of your Modelfile.</p>
+<p>Once this has run, you can run the new model as you normally would.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ollama run coolhand
+&gt;&gt;&gt; My name is John.
+&gt;&gt;&gt; I live in Charlotte.
+&gt;&gt;&gt; Send a message (/? for help)
+</pre></div>
+</div>
+<p>As you can see, the user messages are displayed, but the system message was not. If we now ask our movie trivia question, we should get the right answer:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; What is the last line Cool Hand Luke says in the movie by the same name?
+The last line Cool Hand Luke says in the movie *Cool Hand Luke* is: 
+“What we got here is a failure to communicate.”
+</pre></div>
+</div>
+<p>If you ask it again, this time the model will stick by its guns, so to speak.</p>
+<section id="working-with-the-api-endpoint">
+<h2>Working With the API endpoint<a class="headerlink" href="#working-with-the-api-endpoint" title="Link to this heading"></a></h2>
+<p>When Ollama is running, there’ll be an api endpoint listening on the default port of 11434, so running localhost:11434 in your browser should show you a status message.  The <a class="reference external" href="https://ollama.readthedocs.io/en/api/">Ollama API reference</a> lists the various endpoints and gives examples using CURL, but of course you can use any http client such as the Postman, the Python requests library, etc.</p>
+<p>I was especially glad to see because Ollama sports an API endpoint, this means that LangChain supports Ollama. LangChain support makes it easy to use Ollama models in a LangGraph application. LangGraph is a very popular tool for creating complex AI agent workflows, and integrating such agents with locally running tolls written in Python.  The <a class="reference external" href="https://academy.langchain.com/courses/intro-to-langgraph">LangGraph course</a> offers a great introduction to it if you’re interested in learning more.</p>
+<p>LangChain itself offers a common API for working with LLM models from various vendors.  To show just a simple example, I put together a more basic demo of sending a request to Ollama using a LangChain model.  If you’re not logged into Github, <a class="reference internal" href="../ollama_langchain_demo/"><span class="doc std std-doc">here is the output</span></a>, and if you are, see the <a class="reference external" href="https://github.com/CodeSolid/CodeSolid.com/blob/main/src/ollama_langchain_demo.ipynb">source here</a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../jupyter-password/" class="btn btn-neutral float-left" title="Jupyter Password: Easy Notebook and Lab Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../math/yet-another-jdesmos-demo/" class="btn btn-neutral float-right" title="Yet Another JDesmos Demo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QX7KGT4YPE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-QX7KGT4YPE', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

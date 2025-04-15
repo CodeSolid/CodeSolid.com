@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CPCC STEM Tank Proposal Draft &mdash; CodeSolid.com 0.1 documentation</title>
+  <title>A quick LangChain and Ollama demo. &mdash; CodeSolid.com 0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -22,9 +22,7 @@
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex/" />
-    <link rel="search" title="Search" href="../search/" />
-    <link rel="next" title="Using Desmos Graphs in Jupyter Notebooks" href="../math/desmos-jupyter/" />
-    <link rel="prev" title="Yet Another JDesmos Demo" href="../math/yet-another-jdesmos-demo/" /> 
+    <link rel="search" title="Search" href="../search/" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -54,30 +52,22 @@
 <li class="toctree-l1"><a class="reference internal" href="../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Added Recently:</span></p>
-<ul class="current">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started-with-ollama/">Getting Started With Ollama</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started-with-ollama/#using-ollama-create">Using Ollama Create</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/yet-another-jdesmos-demo/">Yet Another JDesmos Demo</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">CPCC STEM Tank Proposal Draft</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#project-overview">Project Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#technology-and-tools">Technology and Tools</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#deliverables">Deliverables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#level-of-detail">Level of Detail</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="../math/desmos-jupyter/">Using Desmos Graphs in Jupyter Notebooks</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Categories</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../category-math-and-math-software/">Math and Math Software</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-python/">Python (General)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Python Practice</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-newsletter/">Newsletter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../category-c-and-cplusplus/">C and C++</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
@@ -97,9 +87,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">CPCC STEM Tank Proposal Draft</li>
+      <li class="breadcrumb-item active">A quick LangChain and Ollama demo.</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/cpcc-proposal.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/ollama_langchain_demo.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -107,40 +97,45 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="cpcc-stem-tank-proposal-draft">
-<h1>CPCC STEM Tank Proposal Draft<a class="headerlink" href="#cpcc-stem-tank-proposal-draft" title="Link to this heading"></a></h1>
-<section id="project-overview">
-<h2>Project Overview<a class="headerlink" href="#project-overview" title="Link to this heading"></a></h2>
-<p>In this project, students will explore several free and open source tools that have been widely embrased by scientists and mathemticians, including:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="a-quick-langchain-and-ollama-demo">
+<h1>A quick LangChain and Ollama demo.<a class="headerlink" href="#a-quick-langchain-and-ollama-demo" title="Link to this heading"></a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>-q<span class="w"> </span>langchain<span class="w"> </span>langchain-ollama
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain_ollama</span> <span class="kn">import</span> <span class="n">OllamaLLM</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Markdown</span>
+
+<span class="n">llm</span> <span class="o">=</span> <span class="n">OllamaLLM</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;gemma3:4b&quot;</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="s2">&quot;0&quot;</span><span class="p">)</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="s2">&quot;What is the airspeed velocity of an unladen swallow?&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="n">response</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p>This is a classic question from <em>Monty Python and the Holy Grail</em>! The answer, as famously delivered by King Arthur, is delightfully complicated:</p>
+<p><strong>“What do you mean? An African or European swallow?”</strong></p>
+<p>The joke is that there’s no single answer. The airspeed velocity depends entirely on the type of swallow.</p>
 <ul class="simple">
-<li><p><strong>Python</strong>:  An easy-to learn and extremely popular programming language.</p></li>
-<li><p><strong>Jupyter Notebooks</strong>: An environment for mixing Python code and documentation in Markdown, including support simiar to LaTeX for formatting sophisticated mathematical expressions.</p></li>
-<li><p><strong>Python “math”</strong>:  Part of its standard library, the Python math package supports approximate numerical calculations (similar to what’s supported in the TI-84 calculator).</p></li>
-<li><p><strong>SymPy</strong>:  A Python package that implements a Computer Algebra System. As such, it supports symbolic manipulation, allowing for solving equations, factoring, differentiation and integration of functions, etc.  SymPy also includes support for Linear Alegbra, Number Theory, and other topics beyond basic Calculus.</p></li>
-<li><p><strong>NumPy</strong>: An alternative to SymPy for linear algebra, NumPy is a Python package which supports fast processing of multi-dimensional arrays.  As such, it can be seen as an alternative to Matlab/Octave for working with Linear Algebra operations.</p></li>
+<li><p><strong>European Swallow:</strong> Roughly 11 meters per second (24 mph)</p></li>
+<li><p><strong>African Swallow:</strong>  The film doesn’t give a specific number, but it’s implied to be faster.</p></li>
 </ul>
-</section>
-<section id="technology-and-tools">
-<h2>Technology and Tools<a class="headerlink" href="#technology-and-tools" title="Link to this heading"></a></h2>
-<p>To be able to focus on the task and easily share our work, it’s expected that we may use Kaggle, a free Jupyter hosting service with the libraries we’ll need pre-installed.  This is probably the best way to make forward progress without too much emphasis on initial setup.  That said, a laptop with an internet connection will be required for participants in this group.</p>
-</section>
-<section id="deliverables">
-<h2>Deliverables<a class="headerlink" href="#deliverables" title="Link to this heading"></a></h2>
-<p>We expect that each student will publish a Jupyter Notebook to our Kaggle environment.  One way to organize the focus of these is as a set of “tutorials” that can be used by other students for using open source math tools in their own math study.</p>
-</section>
-<section id="level-of-detail">
-<h2>Level of Detail<a class="headerlink" href="#level-of-detail" title="Link to this heading"></a></h2>
-<p>The topics above could fill more than one full-semester course. Therefore, we’ll focus on providing just enough “instruction” to allow participants to make progress on publishing Jupyter Notebooks of their own while digging further into their chosen topics of interest.</p>
-</section>
+<p><strong>Important Note:</strong> The scene is entirely satirical and meant to be absurd. It’s a running gag with no serious scientific basis.</p>
+<p>You can find more detailed breakdowns of the debate surrounding this question here: <a class="reference external" href="https://en.wikipedia.org/wiki/Airspeed_velocity_of_an_unladen_swallow">https://en.wikipedia.org/wiki/Airspeed_velocity_of_an_unladen_swallow</a></p>
+</div>
+</div>
 </section>
 
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../math/yet-another-jdesmos-demo/" class="btn btn-neutral float-left" title="Yet Another JDesmos Demo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../math/desmos-jupyter/" class="btn btn-neutral float-right" title="Using Desmos Graphs in Jupyter Notebooks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 
