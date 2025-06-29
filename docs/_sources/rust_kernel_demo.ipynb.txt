@@ -1,0 +1,74 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "6a676395-833f-41a1-a844-ef20a47ecb2f",
+   "metadata": {},
+   "source": [
+    "# Rust Demo\n",
+    "\n",
+    "This rust kernel demo takes exercises (albeit in a minimal way), the [Jupyter Rust Kernel](https://github.com/evcxr/evcxr),"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "4d6bbdd7-84a2-4d67-92cc-52a349fa8552",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "The answer to life, the universe, and everything is 42!\n"
+     ]
+    }
+   ],
+   "source": [
+    "fn get_answer() -> i32 { 42 }\n",
+    "\n",
+    "println!(\"The answer to life, the universe, and everything is {0}!\", get_answer());"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "e1b86a40-8eca-464e-9f43-f9cc98f5e7af",
+   "metadata": {},
+   "source": [
+    "Told you it was minimal.  But look Ma, it's Rust!"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "a891a20d-ccdd-487b-95c8-60f013b092ff",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Rust",
+   "language": "rust",
+   "name": "rust"
+  },
+  "language_info": {
+   "codemirror_mode": "rust",
+   "file_extension": ".rs",
+   "mimetype": "text/rust",
+   "name": "Rust",
+   "pygment_lexer": "rust",
+   "version": ""
+  },
+  "widgets": {
+   "application/vnd.jupyter.widget-state+json": {
+    "state": {},
+    "version_major": 2,
+    "version_minor": 0
+   }
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
