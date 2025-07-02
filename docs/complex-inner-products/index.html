@@ -7,7 +7,7 @@
   <title>The Inner Product of a Complex Vectors &mdash; CodeSolid.com 0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
 
   
   <!--[if lt IE 9]>
@@ -58,12 +58,13 @@
 <p class="caption" role="heading"><span class="caption-text">Added Recently:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">The Inner Product of a Complex Vectors</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#a-review-and-solution-in-python">A review and solution in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-formal-notation">The Formal Notation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#implementing-it-in-python">Implementing It In Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#back-to-the-abstract-math">Back to the Abstract Math</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#find-the-inner-product">Find the inner product</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#encapsulating-it-as-a-function">Encapsulating it as a function</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#complex-inner-products-in-numpy">Complex Inner Products in Numpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#find-the-inner-product">Find the inner product</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#encapsulating-it-as-a-function">Encapsulating it as a function</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started-with-ollama/">Getting Started With Ollama</a></li>
@@ -111,9 +112,13 @@
              
   <section class="tex2jax_ignore mathjax_ignore" id="the-inner-product-of-a-complex-vectors">
 <h1>The Inner Product of a Complex Vectors<a class="headerlink" href="#the-inner-product-of-a-complex-vectors" title="Link to this heading"></a></h1>
-<section id="a-review-and-solution-in-python">
-<h2>A review and solution in Python<a class="headerlink" href="#a-review-and-solution-in-python" title="Link to this heading"></a></h2>
-<p>I recently began viewing Leonard Suskind’s awesome introductory Quantum Mechanics course on Youtube, <a class="reference external" href="https://www.youtube.com/watch?v=iJfw6lDlTuA&amp;amp;list=PL701CD168D02FF56F">The Theoretical Minimum</a>.  Toward the end of lecture one, Suskind introduces the Dirac notation for Complex Vector spaces, and how to find the inner product of two complex vectors.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>I recently began viewing Leonard Suskind’s awesome introductory Quantum Mechanics course on Youtube, <a class="reference external" href="https://www.youtube.com/watch?v=iJfw6lDlTuA&amp;amp;list=PL701CD168D02FF56F">The Theoretical Minimum</a>.  Toward the end of lecture one, Suskind introduces the Dirac notation for Complex Vector spaces, and how to find the inner product of two complex vectors.  I thought I needed to summarize this material to better understand it, and at the same time show how to implement the idea in Python’s numpy.</p>
+</section>
+<section id="the-formal-notation">
+<h2>The Formal Notation<a class="headerlink" href="#the-formal-notation" title="Link to this heading"></a></h2>
+<p>A vector is simply an ordered series of numbers.  A complex array can include numbers of the form: <span class="math notranslate nohighlight">\(a + b\textit{i}\)</span>, where <span class="math notranslate nohighlight">\(\textit{i} = sqrt{-1}\)</span>.</p>
 <p>The Dirac notation for two complex vectors A, and B, would look like this:</p>
 <div class="math notranslate nohighlight">
 \[ |A&gt; \]</div>
@@ -127,7 +132,11 @@
 |B&gt; =\pmatrix{3 + 2j\\1 - 4j\\ 6 + 1j}
 \)</span></p>
 <p>This “<span class="math notranslate nohighlight">\(|\space \textit{symbol}\space &gt;\)</span>” notation is called a ket, which is an unusual name for anything.  It will make sense in a minute, but before we get to that, let’s see how we would implement what we just wrote in numpy.</p>
-<p>Note that we are going to stick to one dimensional numpy arrays of three elements each (in this case). Numpy handles vectors like this better and more simply for what we’ll eventually need to do, even if it does mean that ideas like “transpose” end up being a no-op.  Trying to work with vertical vectors in numpy complicates the code and creates more work for us.</p>
+<p>Note that in Dirac notation, uppercase letters are often used for vectors, though the convention in most Linear Algebra courses is to use lowercase letters for vectors.  In Linear Algebra, this distinguishes them from matrices, which use uppercase letters.</p>
+</section>
+<section id="implementing-it-in-python">
+<h2>Implementing It In Python<a class="headerlink" href="#implementing-it-in-python" title="Link to this heading"></a></h2>
+<p>For our purposes, we are going to stick to one dimensional numpy arrays of three elements each (in this case). Numpy handles vectors like this better and more simply for what we’ll eventually need to do, even if it does mean that ideas like “transpose” end up being a no-op.  Trying to work with vertical vectors in numpy complicates the code and creates more work for us.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -161,26 +170,32 @@ True True
 </section>
 <section id="back-to-the-abstract-math">
 <h2>Back to the Abstract Math<a class="headerlink" href="#back-to-the-abstract-math" title="Link to this heading"></a></h2>
-<p>Now that we have two vectors to work with, I promised to clear up the word ket.  Let’s do that now.  The Dirac notation for an inner product of the two vectors looks like this:
-$<span class="math notranslate nohighlight">\( \lt A|B \gt \)</span><span class="math notranslate nohighlight">\(
-Ealier we expressed the two vectors these using a ket notation: 
-\)</span><span class="math notranslate nohighlight">\( |A&gt; \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( |B&gt; \)</span><span class="math notranslate nohighlight">\(
-Now it looks like something has become of the &quot;A&quot; term. It has moved to the beginning of the brackets, so written individually, it would look like this:
-\)</span><span class="math notranslate nohighlight">\( \lt A| \)</span>$</p>
-<p>This is called a “bra”, so Dirac notation is also referred to as “bra-ket” notation.  If this is looking to you like a cute pun on the word “bracket,” you may congraulate yourself on paying attention.  That’s exactly what it is!</p>
+<p>Now that we have two vectors to work with, I promised to clear up the word ket.  Let’s do that now.  The Dirac notation for an inner product of the two vectors looks like this:</p>
+<div class="math notranslate nohighlight">
+\[ \lt A|B \gt \]</div>
+<p>Ealier we expressed the two vectors these using a ket notation:</p>
+<div class="math notranslate nohighlight">
+\[ |A&gt; \]</div>
+<div class="math notranslate nohighlight">
+\[ |B&gt; \]</div>
+<p>Now it looks like something has become of the “A” term. It has moved to the beginning of the brackets, so written individually, it would look like this:</p>
+<div class="math notranslate nohighlight">
+\[ \lt A| \]</div>
+<p>This is called a “bra”, so Dirac notation is also referred to as “bra-ket” notation.  If this is looking to you like a cute pun on the word “bracket,” you may congratulate yourself on paying attention.  That’s exactly what it is!</p>
 <p>But this bra is not just the same A vector “moved over.”</p>
 <p>We need to do two things to it to make it into a bra, also known as the “dual” of A.</p>
-<p>First, notationally, we transpose it, turning it into a row vector.  So instead of this:
-$<span class="math notranslate nohighlight">\(
+<p>First, as a notational convention, we transpose it, turning it into a row vector.  So instead of this:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \newcommand\mycolv[1]{\begin{pmatrix}#1\end{pmatrix}}
 \mycolv{2 + 1j\\3 - 2j\\5 + 1j}
-\)</span>$</p>
-<p>we get this:
-$<span class="math notranslate nohighlight">\(
+\end{split}\]</div>
+<p>we get this:</p>
+<div class="math notranslate nohighlight">
+\[
 \newcommand\myrowv[1]{\begin{pmatrix}#1\end{pmatrix}}
 \mycolv{2 + 1j, 3 - 2j, 5 + 1j}
-\)</span>$</p>
+\]</div>
 <p>We showed earlier that this is a no-op in Python, but we mention it here for completeness.</p>
 <p>Next, we need to take the conjugate of each term, which (in case you’ve forgotten it like I had) simply means flipping the sign of the imaginary part.</p>
 <p>Thus our final result for the <span class="math notranslate nohighlight">\(\lt A |\)</span>
@@ -189,17 +204,19 @@ term would be:  <span class="math notranslate nohighlight">\(\pmatrix{2 - 1j, 3 
 <p>So we can say that given a finite complex vector:</p>
 <p>The “dual of A” = <span class="math notranslate nohighlight">\(\lt A |\)</span> = “the conjugate transpose of A” == “the Hermitian adjoint of A”.</p>
 <p>I think that’s enough words for the same thing for now.</p>
-<p>“Conjugate transpose” is nice for our purposes, as it tells us exactly what we need to call to construct a dual.  As we showed before, the transpose is a no-op for our one-dimensional numpy vector, but we’ll leave it in as a bow to the formal math.  (You can experiment with taking it out, and you’ll get the same answer for the inner product.)</p>
+</section>
+<section id="complex-inner-products-in-numpy">
+<h2>Complex Inner Products in Numpy<a class="headerlink" href="#complex-inner-products-in-numpy" title="Link to this heading"></a></h2>
+<p>The documentation for numpy.inner says this:</p>
+<blockquote>
+Inner product of two arrays.
+<p>Ordinary inner product of vectors for 1-D arrays (without complex conjugation), in higher dimensions a sum product over the last axes.</p>
+</blockquote>
+<p>Our choice of a 1-D numpy array as a starting point turned out to be exactly what numpy’s “inner” function was expecting.  We’ll need to conjugate the numpy array “ourselves”, but numpy makes it easy with a function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find A&#39;s &quot;conjugate transpose&quot;.</span>
-<span class="n">A_dual</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">conjugate</span><span class="p">()</span>
-<span class="n">A_dual</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2.-1.j, 3.+2.j, 5.-1.j])
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find A&#39;s conjugate</span>
+<span class="n">A_dual</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">conjugate</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -212,8 +229,8 @@ term would be:  <span class="math notranslate nohighlight">\(\pmatrix{2 - 1j, 3 
 \[ \lt A|B \gt \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inner</span><span class="p">(</span><span class="n">A_dual</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
-<span class="n">result</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">inner_product</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inner</span><span class="p">(</span><span class="n">A_dual</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+<span class="n">inner_product</span>
 </pre></div>
 </div>
 </div>
@@ -223,8 +240,9 @@ term would be:  <span class="math notranslate nohighlight">\(\pmatrix{2 - 1j, 3 
 </div>
 </div>
 </div>
+</section>
 <section id="encapsulating-it-as-a-function">
-<h3>Encapsulating it as a function<a class="headerlink" href="#encapsulating-it-as-a-function" title="Link to this heading"></a></h3>
+<h2>Encapsulating it as a function<a class="headerlink" href="#encapsulating-it-as-a-function" title="Link to this heading"></a></h2>
 <p>I wrote this article partly as a way to review the formal math notation and understand how it relates to Python, but if what you really wanted was just a simple Python function to do it for you, here you go.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -239,15 +257,10 @@ term would be:  <span class="math notranslate nohighlight">\(\pmatrix{2 - 1j, 3 
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test it. We should get what we got above.</span>
-<span class="n">test_ok</span> <span class="o">=</span> <span class="n">result</span> <span class="o">==</span> <span class="n">complex_inner_product</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">test_ok</span><span class="p">)</span>
-<span class="k">assert</span><span class="p">(</span><span class="n">test_ok</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># An informal test for our function</span>
+<span class="c1"># Compare our earlier result with what our new function returns.  We should see no output</span>
+<span class="n">matches</span> <span class="o">=</span> <span class="n">inner_product</span> <span class="o">==</span> <span class="n">complex_inner_product</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">matches</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -255,15 +268,14 @@ term would be:  <span class="math notranslate nohighlight">\(\pmatrix{2 - 1j, 3 
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test the postulate that &lt;A|B&gt; is related to &lt;B|A&gt; as a conjugate, </span>
-<span class="c1"># assuming they are complex numbers.</span>
+<span class="c1"># assuming they are complex numbers.  Again, we should see no output for this cell.</span>
 
 <span class="nb">reversed</span> <span class="o">=</span> <span class="n">complex_inner_product</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
-<span class="k">assert</span> <span class="nb">reversed</span> <span class="o">==</span> <span class="n">result</span><span class="o">.</span><span class="n">conjugate</span><span class="p">()</span>
+<span class="k">assert</span> <span class="nb">reversed</span> <span class="o">==</span> <span class="n">inner_product</span><span class="o">.</span><span class="n">conjugate</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
-</section>
 </section>
 </section>
 
