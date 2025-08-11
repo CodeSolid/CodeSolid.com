@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sequences and Series: Some Preliminary Notes &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=19645805"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Added Recently:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../complex-inner-products/">The Inner Product of a Complex Vectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started-with-ollama/">Getting Started With Ollama</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/yet-another-jdesmos-demo/">Yet Another JDesmos Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/desmos-jupyter/">Using Desmos Graphs in Jupyter Notebooks</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Categories</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../category-math-and-math-software/">Math and Math Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-for-beginners-posts/">Python for Beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-functions/">Python Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-math-and-science/">Python Math and Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-practice/">Python Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-python-tools/">Python Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-miscellaneous/">Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-docker/">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-jupyter/">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../category-learn-to-code/">Learn to Code</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Sequences and Series: Some Preliminary Notes</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/sequences-and-series-notes.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="sequences-and-series-some-preliminary-notes">
+<h1>Sequences and Series: Some Preliminary Notes<a class="headerlink" href="#sequences-and-series-some-preliminary-notes" title="Link to this heading"></a></h1>
+<p>I’ve been on a self-imposed deadline to get through a certain number of Professor Leonard’s lectures on Sequences and Series.<a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>
+As fun as “death-watching” his these excellent lectures can be, it quickly dawned on me that I needed to consolidate what I was learning, hence these notes.</p>
+<section id="the-lay-of-the-land-sequences-vs-series">
+<h2>The Lay of the Land, Sequences vs. Series<a class="headerlink" href="#the-lay-of-the-land-sequences-vs-series" title="Link to this heading"></a></h2>
+</section>
+<section id="sequences">
+<h2>Sequences<a class="headerlink" href="#sequences" title="Link to this heading"></a></h2>
+<p>A sequence is an ordered list of numbers.  We often denote sequences as <span class="math notranslate nohighlight">\(a_n\)</span> or <span class="math notranslate nohighlight">\(\lbrace{a_n}\rbrace\)</span>, and we can specify the terms with a subscript, <span class="math notranslate nohighlight">\(a_1\)</span> for the first term, <span class="math notranslate nohighlight">\(a_2\)</span> for the second, etc. We can specify the terms either with a list, e.g. <span class="math notranslate nohighlight">\(a_n = \lbrace1, 4, 9, ... n\rbrace\)</span> or with a formula <span class="math notranslate nohighlight">\(a_n = n^2\)</span></p>
+<p>Note that <span class="math notranslate nohighlight">\(n\)</span> is always a positive integer.  In Calculus 2, n typically runs from 1 to infinity, but it’s possible to specify other places to stop and start. Thus, if we were leading a band, we could start the song by counting from one to four, <span class="math notranslate nohighlight">\(\lbrace a_n \rbrace{^{4}_{n=1}} = n\)</span>.</p>
+</section>
+<section id="series">
+<h2>Series<a class="headerlink" href="#series" title="Link to this heading"></a></h2>
+<p>A series is very similar to a sequence, except it represents a sum of a squence of terms.  We typically represent a series using summation notation, so an example of a finite series adding the first three square numbers would be:</p>
+<div class="math notranslate nohighlight">
+\[\sum_{n=1}^{3} n^2 = 1^2 + 2^2 + 3^2 = 1 + 4 + 9 = 14\]</div>
+<p>The term <span class="math notranslate nohighlight">\(n=1\)</span> at the bottom is our starting point, the 3 on the top is our endpoint, and the function <span class="math notranslate nohighlight">\(n^2\)</span> tells us how to generate each term. Often we find it convenient to begin at one or zero, and much of our concern for Calculus 2 is to find whether the converges or diverges at infinity. That is to say, if we look at several partial sums of the series <span class="math notranslate nohighlight">\({S_n}\)</span> do these sums approach a number (converge) or not (diverge)? The limit at infinity is the</p>
+</section>
+<section id="properties-of-infinite-series-p-612">
+<h2>Properties of Infinite Series (p. 612)<a class="headerlink" href="#properties-of-infinite-series-p-612" title="Link to this heading"></a></h2>
+</section>
+<section id="tests-for-convergence-and-divergence">
+<h2>Tests for Convergence and Divergence<a class="headerlink" href="#tests-for-convergence-and-divergence" title="Link to this heading"></a></h2>
+<section id="nth-term-test-for-divergence-nth-term-test-for-divergence">
+<h3>nth Term Test for Divergence nth-Term Test for Divergence<a class="headerlink" href="#nth-term-test-for-divergence-nth-term-test-for-divergence" title="Link to this heading"></a></h3>
+<p>Prof. Leonard suggests we apply this test early on if we can if the limit of the series is easy to find.  The important theorem to remember here is the converse of this theorem:</p>
+<div class="math notranslate nohighlight">
+\[\text{If}\sum_{n=1}^\infty a_n \text{converges, then} \lim_{n \to \infty} a_n = 0\]</div>
+<p>Though we can’t use this to test for convergence, we can use its opposite to demonstrate convergence:</p>
+<section id="divergence-test-theorem">
+<h4>Divergence test theorem:<a class="headerlink" href="#divergence-test-theorem" title="Link to this heading"></a></h4>
+<div class="math notranslate nohighlight">
+\[\text{If} \lim_{n \to \infty} a_n \ne 0 \text{ then} \sum_{n=1}^\infty a_n \text{ diverges.}\]</div>
+</section>
+</section>
+<section id="geometric-series-p-610">
+<h3>Geometric Series (p 610)<a class="headerlink" href="#geometric-series-p-610" title="Link to this heading"></a></h3>
+<p>A geometric series takes the general form of a constant multiplied by a base raised to the successive powers of <span class="math notranslate nohighlight">\(n\)</span>, beginning from zero. That is to say, it takes the general form of:</p>
+<div class="math notranslate nohighlight">
+\[\sum_{n=0}^\infty ar^n = a + ar + ar^2 + ... ar^n + ..., \text{ where } a \ne 0\]</div>
+<p>A geometric series with a base <span class="math notranslate nohighlight">\(r\)</span> diverges if <span class="math notranslate nohighlight">\(|r| \ge 1\)</span>.  If <span class="math notranslate nohighlight">\(0 &lt; |r| &lt; 1\)</span>, then the series converges based on the following formula for geometric series:</p>
+<div class="math notranslate nohighlight">
+\[\sum_{n = 0}^\infty ar^n = \frac{a}{1 -r}, 0 &lt; |r| &lt; 1\]</div>
+<p>Although we don’t often care about the sum at infinity, in this case we have a general formula for it.</p>
+</section>
+<section id="p-series-and-harmonic-series">
+<h3>p-Series and Harmonic Series<a class="headerlink" href="#p-series-and-harmonic-series" title="Link to this heading"></a></h3>
+<p>In a geometric series, we have a constant times a fixed base raised successive powers, <span class="math notranslate nohighlight">\(n\)</span>.  In a p-Series, in contrast, we have a fixed numerator of 1, and in the denominator, we raise each successive term to a constant (postive) power (“p”), thus:</p>
+<div class="math notranslate nohighlight">
+\[ \sum_{n=1}^\infty \frac{1}{n^p} = \frac{1}{1^p} + \frac{1}{2^p} + \frac{1}{3^p}\]</div>
+<section id="harmonic-series-as-a-special-case">
+<h4>Harmonic Series as a special case:<a class="headerlink" href="#harmonic-series-as-a-special-case" title="Link to this heading"></a></h4>
+<p>A harmonic series is simply the case where <span class="math notranslate nohighlight">\(p = 1\)</span>, so we get a series of diminishing fractions:</p>
+<div class="math notranslate nohighlight">
+\[ \sum_{n=1}^\infty \frac{1}{n} = \frac{1}{1} + \frac{1}{2} + \frac{1}{3}\]</div>
+</section>
+<section id="p-series-convergence-and-divergence">
+<h4>p-Series Convergence and Divergence<a class="headerlink" href="#p-series-convergence-and-divergence" title="Link to this heading"></a></h4>
+<p>A p-series converges if <span class="math notranslate nohighlight">\(p &gt; 1\)</span>, and diverges if <span class="math notranslate nohighlight">\(0 &lt; p \le 1\)</span>.  This tells us that a harmonic series, where <span class="math notranslate nohighlight">\(p = 1\)</span> is divergent.</p>
+</section>
+</section>
+<section id="the-integral-test">
+<h3>The Integral Test<a class="headerlink" href="#the-integral-test" title="Link to this heading"></a></h3>
+<p>Theorem:  If <span class="math notranslate nohighlight">\(f\)</span> is positive, continuous, and decreasing for <span class="math notranslate nohighlight">\(x \ge 1\)</span> and <span class="math notranslate nohighlight">\(a_n = f(n)\)</span>, then</p>
+<div class="math notranslate nohighlight">
+\[\sum_{n=1}^\infty a_n \text{ and}\int_1^\infty f(x)\space dx\]</div>
+<p>either both converge or both diverge.</p>
+</section>
+<section id="comparison-tests">
+<h3>Comparison Tests<a class="headerlink" href="#comparison-tests" title="Link to this heading"></a></h3>
+<section id="direct-comparison-test">
+<h4>Direct Comparison Test<a class="headerlink" href="#direct-comparison-test" title="Link to this heading"></a></h4>
+<p>Take two series.  Let <span class="math notranslate nohighlight">\(0 \lt a_n \le b_n\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\text{If } \sum_{n=1}^\infty b_n \text{ converges, then } \sum_{n=1}^\infty a_n \text{ converges.}\]</div>
+<div class="math notranslate nohighlight">
+\[\text{If } \sum_{n=1}^\infty a_n \text{ diverges, then } \sum_{n=1}^\infty b_n \text{ diverges.}\]</div>
+<p>Given a series and another one based on it (that is simpler, typically, that’s the point), if the “larger” series converges, the smaller one must also converge. If the smaller series diverges, the larger one must also diverge.</p>
+</section>
+<section id="limit-comparison-test">
+<h4>Limit Comparison Test<a class="headerlink" href="#limit-comparison-test" title="Link to this heading"></a></h4>
+<p>For a geometric series or P-series, it might be difficult to do direct comparison test.  In that case, we can use Limit Comparison Test:</p>
+<p>Theorem:</p>
+<p>Suppose that <span class="math notranslate nohighlight">\(a_n &gt; 0, b_n &gt; 0\)</span>, and</p>
+<div class="math notranslate nohighlight">
+\[\lim_{n \to \infty} (\frac{a_n}{b_n} )= L\]</div>
+<p>where <span class="math notranslate nohighlight">\(L\)</span> is finite and positive.  Then the two series, <span class="math notranslate nohighlight">\(\sum a_n\)</span> and <span class="math notranslate nohighlight">\(\sum b_n\)</span>, either both converge or both diverge.  Note that for this to work, <span class="math notranslate nohighlight">\(a_n\)</span> is the original series (in the numerator).  The comparison series is in the denominator.</p>
+</section>
+</section>
+<section id="alternating-series-test">
+<h3>Alternating Series Test<a class="headerlink" href="#alternating-series-test" title="Link to this heading"></a></h3>
+<p>In an alternating series, the signs alternate, so formally, the series looks like:</p>
+<div class="math notranslate nohighlight">
+\[\sum_{n=1}^\infty (-1)^n \space a_n\text{ or } \sum_{n=1}^\infty (-1)^{n-1} \space a_n\]</div>
+<p>The two forms depend on whether we want to start off negagtive or positive (We can also adjust the starting point to zero and adjust terms accordingly).  To be alternating, the series must alternate “every other sign”, not two positive followed by two negative, for example.</p>
+<p>Theorem:</p>
+<p>Such an alternating series converges if the following two conditions are met:</p>
+<div class="math notranslate nohighlight">
+\[ \text{1. } \lim_{n \to \infty} a_n = 0 \]</div>
+<div class="math notranslate nohighlight">
+\[ \text {2. } a_{n-1} \le a_n \text{ for all } n \]</div>
+<p>To prove the second point, that the function is descending everywhere, we take this approach:  let <span class="math notranslate nohighlight">\(a_n = f(x)\)</span>, then we can show that <span class="math notranslate nohighlight">\(\frac{d}{dx} f(x)\)</span> is negative for the domain we’re considering.  Remember ascending and descending functions from Calc 1.</p>
+</section>
+<section id="absolute-convergence">
+<h3>Absolute Convergence<a class="headerlink" href="#absolute-convergence" title="Link to this heading"></a></h3>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id2" role="note">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>These notes are based on videos 9.1 through 9.9 in the <a class="reference external" href="https://www.youtube.com/results?search_query=calc+2+professor+leonard+playlist">Calc 2 Playlist</a>, and Chapter 9 of <strong>Calculus: Early Transcendental Functions</strong>, Ron Larson and Bruce Edwards, 5th Edition.</p>
+</aside>
+</aside>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QX7KGT4YPE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-QX7KGT4YPE', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>
