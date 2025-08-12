@@ -55,7 +55,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Added Recently:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../complex-inner-products/">The Inner Product of a Complex Vectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../complex-inner-products/">The Inner Product of Complex Vectors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../getting-started-with-ollama/">Getting Started With Ollama</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/yet-another-jdesmos-demo/">Yet Another JDesmos Demo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/desmos-jupyter/">Using Desmos Graphs in Jupyter Notebooks</a></li>
@@ -120,6 +120,14 @@ As fun as “death-watching” his these excellent lectures can be, it quickly d
 </section>
 <section id="properties-of-infinite-series-p-612">
 <h2>Properties of Infinite Series (p. 612)<a class="headerlink" href="#properties-of-infinite-series-p-612" title="Link to this heading"></a></h2>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned} \sum_{n=1}^\infty c \cdot a_n = c \cdot \sum_{n=1}^\infty a \end{aligned} \\ 
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin {aligned}
+\sum_{n=1}^\infty (a_n \pm  b_n)  = \sum_{n=1}^\infty a_n \pm \sum_{n=1}^\infty b_n 
+\end{aligned}
+\)</span></p>
 </section>
 <section id="tests-for-convergence-and-divergence">
 <h2>Tests for Convergence and Divergence<a class="headerlink" href="#tests-for-convergence-and-divergence" title="Link to this heading"></a></h2>
@@ -203,8 +211,48 @@ As fun as “death-watching” his these excellent lectures can be, it quickly d
 \[ \text {2. } a_{n-1} \le a_n \text{ for all } n \]</div>
 <p>To prove the second point, that the function is descending everywhere, we take this approach:  let <span class="math notranslate nohighlight">\(a_n = f(x)\)</span>, then we can show that <span class="math notranslate nohighlight">\(\frac{d}{dx} f(x)\)</span> is negative for the domain we’re considering.  Remember ascending and descending functions from Calc 1.</p>
 </section>
+<section id="alternating-series-remainder">
+<h3>Alternating Series Remainder<a class="headerlink" href="#alternating-series-remainder" title="Link to this heading"></a></h3>
+<p>Todo:  review as needed c.f. L&amp;E page 635.</p>
+</section>
 <section id="absolute-convergence">
 <h3>Absolute Convergence<a class="headerlink" href="#absolute-convergence" title="Link to this heading"></a></h3>
+<p>Some series with different signs do not strictly alternate, such as:</p>
+<div class="math notranslate nohighlight">
+\[ \sum_{n=1}^\infty \frac{\sin n}{n^2} \]</div>
+<p>We can see if the series of the terms absolute values converge – if so, it is “absolutely convergent.”  In this case, since <span class="math notranslate nohighlight">\( | \sin n| \le 1 \)</span> for all n, for all <span class="math notranslate nohighlight">\( n &gt; 1\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[ \left| \frac{\sin n}{n^2} \right| &lt;= \frac{1}{n^2} \]</div>
+<p>Therefore the series converges.  This means that the series without the absolute value converges.</p>
+<p>Absolute convergence is the stronger claim.</p>
+<p>Theorems and definitions:</p>
+<p>If the series <span class="math notranslate nohighlight">\(\sum \space |a_n|\)</span> converges, then the series <span class="math notranslate nohighlight">\(\sum a_n\)</span> converges.  This is absolute convergence.</p>
+<p>If the series <span class="math notranslate nohighlight">\(\sum \space |a_n|\)</span> does not converge but the series <span class="math notranslate nohighlight">\(\sum a_n\)</span> does, the series is conditionally convergent.</p>
+</section>
+<section id="the-ratio-test-and-root-test">
+<h3>The Ratio Test and Root Test<a class="headerlink" href="#the-ratio-test-and-root-test" title="Link to this heading"></a></h3>
+<section id="the-ratio-test">
+<h4>The Ratio Test<a class="headerlink" href="#the-ratio-test" title="Link to this heading"></a></h4>
+<p>Let <span class="math notranslate nohighlight">\(\sum a_n\)</span> be a series with non-zero terms.</p>
+<p>Then:</p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\lim \limits_{n \to \infty} \left| \frac{a_n + 1}{a_n} \right| &lt; 1 \text{ converges absolutely.}\\
+\end{aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\lim \limits_{n \to \infty} \left| \frac{a_n + 1}{a_n} \right| &gt; 1 \space (\text{or } \infty ) \text{ diverges.}\\
+\end{aligned}
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(
+\begin{aligned}
+\lim \limits_{n \to \infty} \left| \frac{a_n + 1}{a_n} \right| = 1 \text{ is inconclusive.}\\ 
+\end{aligned}\)</span></p>
+</section>
+<section id="the-root-test">
+<h4>The Root Test<a class="headerlink" href="#the-root-test" title="Link to this heading"></a></h4>
+<p>Not as useful as the ratio test, TODO.</p>
 <hr class="footnotes docutils" />
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="id2" role="note">
@@ -212,6 +260,7 @@ As fun as “death-watching” his these excellent lectures can be, it quickly d
 <p>These notes are based on videos 9.1 through 9.9 in the <a class="reference external" href="https://www.youtube.com/results?search_query=calc+2+professor+leonard+playlist">Calc 2 Playlist</a>, and Chapter 9 of <strong>Calculus: Early Transcendental Functions</strong>, Ron Larson and Bruce Edwards, 5th Edition.</p>
 </aside>
 </aside>
+</section>
 </section>
 </section>
 </section>

@@ -28,6 +28,17 @@ The term $n=1$ at the bottom is our starting point, the 3 on the top is our endp
 
 ## Properties of Infinite Series (p. 612)
 
+$
+\begin{aligned} \sum_{n=1}^\infty c \cdot a_n = c \cdot \sum_{n=1}^\infty a \end{aligned} \\ 
+$ 
+
+
+$
+\begin {aligned}
+\sum_{n=1}^\infty (a_n \pm  b_n)  = \sum_{n=1}^\infty a_n \pm \sum_{n=1}^\infty b_n 
+\end{aligned}
+$
+
 ## Tests for Convergence and Divergence
 
 ### nth Term Test for Divergence nth-Term Test for Divergence
@@ -118,6 +129,57 @@ $$ \text {2. } a_{n-1} \le a_n \text{ for all } n $$
  
 To prove the second point, that the function is descending everywhere, we take this approach:  let $a_n = f(x)$, then we can show that $\frac{d}{dx} f(x)$ is negative for the domain we're considering.  Remember ascending and descending functions from Calc 1. 
 
+### Alternating Series Remainder
+
+Todo:  review as needed c.f. L&E page 635.
+
 ### Absolute Convergence
+
+Some series with different signs do not strictly alternate, such as:
+
+$$ \sum_{n=1}^\infty \frac{\sin n}{n^2} $$
+
+We can see if the series of the terms absolute values converge -- if so, it is "absolutely convergent."  In this case, since $ | \sin n| \le 1 $ for all n, for all $ n > 1$, 
+
+$$ \left| \frac{\sin n}{n^2} \right| <= \frac{1}{n^2} $$
+
+Therefore the series converges.  This means that the series without the absolute value converges.
+
+Absolute convergence is the stronger claim.  
+
+Theorems and definitions:
+
+If the series $\sum \space |a_n|$ converges, then the series $\sum a_n$ converges.  This is absolute convergence.
+
+If the series $\sum \space |a_n|$ does not converge but the series $\sum a_n$ does, the series is conditionally convergent.
+
+### The Ratio Test and Root Test
+
+#### The Ratio Test
+
+Let $\sum a_n$ be a series with non-zero terms.
+
+Then:
+
+$
+\begin{aligned}
+\lim \limits_{n \to \infty} \left| \frac{a_n + 1}{a_n} \right| < 1 \text{ converges absolutely.}\\
+\end{aligned}
+$
+
+$
+\begin{aligned}
+\lim \limits_{n \to \infty} \left| \frac{a_n + 1}{a_n} \right| > 1 \space (\text{or } \infty ) \text{ diverges.}\\
+\end{aligned}
+$
+
+$
+\begin{aligned}
+\lim \limits_{n \to \infty} \left| \frac{a_n + 1}{a_n} \right| = 1 \text{ is inconclusive.}\\ 
+\end{aligned}$
+
+#### The Root Test
+
+Not as useful as the ratio test, TODO.
 
 
