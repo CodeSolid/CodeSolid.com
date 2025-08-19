@@ -20,6 +20,8 @@
         <script src="../../../_static/doctools.js?v=888ff710"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex/" />
     <link rel="search" title="Search" href="../../../search/" /> 
@@ -53,7 +55,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Added Recently:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../complex-inner-products/">The Inner Product of a Complex Vectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../complex-inner-products/">The Inner Product of Complex Vectors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting-started-with-ollama/">Getting Started With Ollama</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../yet-another-jdesmos-demo/">Yet Another JDesmos Demo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../desmos-jupyter/">Using Desmos Graphs in Jupyter Notebooks</a></li>
@@ -111,22 +113,15 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">f</span> <span class="o">=</span> <span class="mi">6</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span>
-
-<span class="ne">NameError</span>: name &#39;x&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">integrate</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/b35a07fa8e7c4fdcdbb03380d4c1b7772ba0cf0df7352060ea90004f02c2c1f0.png" src="../../../_images/b35a07fa8e7c4fdcdbb03380d4c1b7772ba0cf0df7352060ea90004f02c2c1f0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -147,12 +142,18 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/3aa594bd4cf910c0664b65bcba29d18c54514d8a8e4302d290c83fc2d2473ee8.png" src="../../../_images/3aa594bd4cf910c0664b65bcba29d18c54514d8a8e4302d290c83fc2d2473ee8.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">summation</span><span class="p">(</span><span class="mi">6</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/702ba12f4bf2cef7092842f0bdd4dc2b8bfdc07d13bc79cc481075cd1cc7c88c.png" src="../../../_images/702ba12f4bf2cef7092842f0bdd4dc2b8bfdc07d13bc79cc481075cd1cc7c88c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -161,6 +162,9 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/936ae826a2d9d6d9d5ba49a29b612ac6328f06c8df73773422d990af6538174e.png" src="../../../_images/936ae826a2d9d6d9d5ba49a29b612ac6328f06c8df73773422d990af6538174e.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -168,12 +172,18 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/49bc401a2660780c6f8a4a3191fff0ea0b9cba95af0d946950663376204fe129.png" src="../../../_images/49bc401a2660780c6f8a4a3191fff0ea0b9cba95af0d946950663376204fe129.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">integrate</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">200</span><span class="p">))</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/3e6aa792f65498775874a9749fd07f17e6c64db37fe86edf661b1c5dd4e25e68.png" src="../../../_images/3e6aa792f65498775874a9749fd07f17e6c64db37fe86edf661b1c5dd4e25e68.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -189,6 +199,9 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/1deb48eeae8495e1e894d9b4da9c27c2eb3be62ddf879204c19d66e5ed4af17f.png" src="../../../_images/1deb48eeae8495e1e894d9b4da9c27c2eb3be62ddf879204c19d66e5ed4af17f.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -202,6 +215,9 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diff</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/98a3b0ceb321e77fb50cf8c04f2d5af521e6438b8d0bdca9a1ea7d2f2816551e.png" src="../../../_images/98a3b0ceb321e77fb50cf8c04f2d5af521e6438b8d0bdca9a1ea7d2f2816551e.png" />
 </div>
 </div>
 </section>

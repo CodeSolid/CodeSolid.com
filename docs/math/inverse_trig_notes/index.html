@@ -53,7 +53,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Added Recently:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../complex-inner-products/">The Inner Product of a Complex Vectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../complex-inner-products/">The Inner Product of Complex Vectors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../getting-started-with-ollama/">Getting Started With Ollama</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../yet-another-jdesmos-demo/">Yet Another JDesmos Demo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../desmos-jupyter/">Using Desmos Graphs in Jupyter Notebooks</a></li>
@@ -132,7 +132,22 @@ Documentation can be found at https://docs.sympy.org/1.12/
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/8d4ee0f9fc29f99eeafe0cdde338788396780c8eacc929c589c4376f4785c596.png" src="../../_images/8d4ee0f9fc29f99eeafe0cdde338788396780c8eacc929c589c4376f4785c596.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2025-08-19 10:03:03.220 Python[31061:47290541] *** Assertion failure in +[NSEvent otherEventWithType:location:modifierFlags:timestamp:windowNumber:context:subtype:data1:data2:], NSEvent.m:648
+XXX lineno: 677, opcode: 150
+ERROR:tornado.application:Exception in callback functools.partial(&lt;function Kernel.enter_eventloop.&lt;locals&gt;.advance_eventloop at 0x106423600&gt;)
+Traceback (most recent call last):
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/tornado/ioloop.py&quot;, line 738, in _run_callback
+    ret = callback()
+          ^^^^^^^^^^
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/ipykernel/kernelbase.py&quot;, line 468, in advance_eventloop
+    eventloop(self)
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/ipykernel/eventloops.py&quot;, line 353, in loop_cocoa
+    if kernel.shell_stream.flush(limit=1):
+       ^^^^^^^^^^^^^^^^^^^
+SystemError: unknown opcode
+</pre></div>
+</div>
+<img alt="../../_images/fb87c6f838621279f2bb9a262c81c5d26771c1c9a40e8a38ca393bdbd7edadd8.png" src="../../_images/fb87c6f838621279f2bb9a262c81c5d26771c1c9a40e8a38ca393bdbd7edadd8.png" />
 </div>
 </div>
 <div class="cell docutils container">
