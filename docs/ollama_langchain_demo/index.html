@@ -106,12 +106,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">25.0.1</span> -&gt; <span class=" -Color -Color-Green">25.3</span>
-<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">pip install --upgrade pip</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -126,15 +120,143 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<p>This is a classic question from <em>Monty Python and the Holy Grail</em>! The answer, as famously delivered by King Arthur, is delightfully complicated:</p>
-<p><strong>“What do you mean? An African or European swallow?”</strong></p>
-<p>The joke is that there’s no single answer. The airspeed velocity depends entirely on the type of swallow.</p>
-<ul class="simple">
-<li><p><strong>European Swallow:</strong> Roughly 11 meters per second (24 mph)</p></li>
-<li><p><strong>African Swallow:</strong>  The film doesn’t give a specific number, but it’s implied to be faster.</p></li>
-</ul>
-<p><strong>Important Note:</strong> The scene is entirely satirical and meant to be absurd. It’s a running gag with no serious scientific basis.</p>
-<p>You can find more detailed breakdowns of the debate surrounding this question here: <a class="reference external" href="https://en.wikipedia.org/wiki/Airspeed_velocity_of_an_unladen_swallow">https://en.wikipedia.org/wiki/Airspeed_velocity_of_an_unladen_swallow</a></p>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ResponseError</span><span class="g g-Whitespace">                             </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Markdown</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">llm</span> <span class="o">=</span> <span class="n">OllamaLLM</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;gemma3:4b&quot;</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="s2">&quot;0&quot;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">response</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="s2">&quot;What is the airspeed velocity of an unladen swallow?&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="n">response</span><span class="p">))</span>
+
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/langchain_core/language_models/llms.py:387,</span> in <span class="ni">BaseLLM.invoke</span><span class="nt">(self, input, config, stop, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">376</span> <span class="nd">@override</span>
+<span class="g g-Whitespace">    </span><span class="mi">377</span> <span class="k">def</span> <span class="nf">invoke</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">378</span>     <span class="bp">self</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">383</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">384</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">385</span>     <span class="n">config</span> <span class="o">=</span> <span class="n">ensure_config</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">386</span>     <span class="k">return</span> <span class="p">(</span>
+<span class="ne">--&gt; </span><span class="mi">387</span>         <span class="bp">self</span><span class="o">.</span><span class="n">generate_prompt</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">388</span>             <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_convert_input</span><span class="p">(</span><span class="nb">input</span><span class="p">)],</span>
+<span class="g g-Whitespace">    </span><span class="mi">389</span>             <span class="n">stop</span><span class="o">=</span><span class="n">stop</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">390</span>             <span class="n">callbacks</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;callbacks&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">391</span>             <span class="n">tags</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;tags&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">392</span>             <span class="n">metadata</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;metadata&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">393</span>             <span class="n">run_name</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;run_name&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">394</span>             <span class="n">run_id</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;run_id&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">395</span>             <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">396</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">397</span>         <span class="o">.</span><span class="n">generations</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">398</span>         <span class="o">.</span><span class="n">text</span>
+<span class="g g-Whitespace">    </span><span class="mi">399</span>     <span class="p">)</span>
+
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/langchain_core/language_models/llms.py:764,</span> in <span class="ni">BaseLLM.generate_prompt</span><span class="nt">(self, prompts, stop, callbacks, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">755</span> <span class="nd">@override</span>
+<span class="g g-Whitespace">    </span><span class="mi">756</span> <span class="k">def</span> <span class="nf">generate_prompt</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">757</span>     <span class="bp">self</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">761</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">762</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">LLMResult</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">763</span>     <span class="n">prompt_strings</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">to_string</span><span class="p">()</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">prompts</span><span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">764</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">prompt_strings</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="n">stop</span><span class="p">,</span> <span class="n">callbacks</span><span class="o">=</span><span class="n">callbacks</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/langchain_core/language_models/llms.py:971,</span> in <span class="ni">BaseLLM.generate</span><span class="nt">(self, prompts, stop, callbacks, tags, metadata, run_name, run_id, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">956</span> <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cache</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">get_llm_cache</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">957</span>     <span class="n">run_managers</span> <span class="o">=</span> <span class="p">[</span>
+<span class="g g-Whitespace">    </span><span class="mi">958</span>         <span class="n">callback_manager</span><span class="o">.</span><span class="n">on_llm_start</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">959</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_serialized</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">969</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">970</span>     <span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">971</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_helper</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">972</span>         <span class="n">prompts</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">973</span>         <span class="n">stop</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">974</span>         <span class="n">run_managers</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">975</span>         <span class="n">new_arg_supported</span><span class="o">=</span><span class="nb">bool</span><span class="p">(</span><span class="n">new_arg_supported</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">976</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">977</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">978</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">missing_prompts</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">979</span>     <span class="n">run_managers</span> <span class="o">=</span> <span class="p">[</span>
+<span class="g g-Whitespace">    </span><span class="mi">980</span>         <span class="n">callback_managers</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">on_llm_start</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">981</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_serialized</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">988</span>         <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">missing_prompt_idxs</span>
+<span class="g g-Whitespace">    </span><span class="mi">989</span>     <span class="p">]</span>
+
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/langchain_core/language_models/llms.py:790,</span> in <span class="ni">BaseLLM._generate_helper</span><span class="nt">(self, prompts, stop, run_managers, new_arg_supported, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">779</span> <span class="k">def</span> <span class="nf">_generate_helper</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">780</span>     <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">781</span>     <span class="n">prompts</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">786</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">787</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">LLMResult</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">788</span>     <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">789</span>         <span class="n">output</span> <span class="o">=</span> <span class="p">(</span>
+<span class="ne">--&gt; </span><span class="mi">790</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_generate</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">791</span>                 <span class="n">prompts</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">792</span>                 <span class="n">stop</span><span class="o">=</span><span class="n">stop</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">793</span>                 <span class="c1"># TODO: support multiple run managers</span>
+<span class="g g-Whitespace">    </span><span class="mi">794</span>                 <span class="n">run_manager</span><span class="o">=</span><span class="n">run_managers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">run_managers</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">795</span>                 <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">796</span>             <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">797</span>             <span class="k">if</span> <span class="n">new_arg_supported</span>
+<span class="g g-Whitespace">    </span><span class="mi">798</span>             <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate</span><span class="p">(</span><span class="n">prompts</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="n">stop</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">799</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">800</span>     <span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">801</span>         <span class="k">for</span> <span class="n">run_manager</span> <span class="ow">in</span> <span class="n">run_managers</span><span class="p">:</span>
+
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/langchain_ollama/llms.py:294,</span> in <span class="ni">OllamaLLM._generate</span><span class="nt">(self, prompts, stop, run_manager, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">292</span> <span class="n">generations</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="g g-Whitespace">    </span><span class="mi">293</span> <span class="k">for</span> <span class="n">prompt</span> <span class="ow">in</span> <span class="n">prompts</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">294</span>     <span class="n">final_chunk</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stream_with_aggregation</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">295</span>         <span class="n">prompt</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">296</span>         <span class="n">stop</span><span class="o">=</span><span class="n">stop</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">297</span>         <span class="n">run_manager</span><span class="o">=</span><span class="n">run_manager</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">298</span>         <span class="n">verbose</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">299</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">300</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">301</span>     <span class="n">generations</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">final_chunk</span><span class="p">])</span>
+<span class="g g-Whitespace">    </span><span class="mi">302</span> <span class="k">return</span> <span class="n">LLMResult</span><span class="p">(</span><span class="n">generations</span><span class="o">=</span><span class="n">generations</span><span class="p">)</span>
+
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/langchain_ollama/llms.py:262,</span> in <span class="ni">OllamaLLM._stream_with_aggregation</span><span class="nt">(self, prompt, stop, run_manager, verbose, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">253</span> <span class="k">def</span> <span class="nf">_stream_with_aggregation</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">254</span>     <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">255</span>     <span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">259</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">260</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">GenerationChunk</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">261</span>     <span class="n">final_chunk</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="ne">--&gt; </span><span class="mi">262</span>     <span class="k">for</span> <span class="n">stream_resp</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_generate_stream</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">263</span>         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">stream_resp</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">264</span>             <span class="n">chunk</span> <span class="o">=</span> <span class="n">GenerationChunk</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">265</span>                 <span class="n">text</span><span class="o">=</span><span class="n">stream_resp</span><span class="p">[</span><span class="s2">&quot;response&quot;</span><span class="p">]</span> <span class="k">if</span> <span class="s2">&quot;response&quot;</span> <span class="ow">in</span> <span class="n">stream_resp</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">266</span>                 <span class="n">generation_info</span><span class="o">=</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">267</span>                     <span class="nb">dict</span><span class="p">(</span><span class="n">stream_resp</span><span class="p">)</span> <span class="k">if</span> <span class="n">stream_resp</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;done&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">True</span> <span class="k">else</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">268</span>                 <span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">269</span>             <span class="p">)</span>
+
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/langchain_ollama/llms.py:217,</span> in <span class="ni">OllamaLLM._create_generate_stream</span><span class="nt">(self, prompt, stop, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">211</span> <span class="k">def</span> <span class="nf">_create_generate_stream</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">212</span>     <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">213</span>     <span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">214</span>     <span class="n">stop</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">215</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">216</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="nb">str</span><span class="p">]]:</span>
+<span class="ne">--&gt; </span><span class="mi">217</span>     <span class="k">yield from</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">218</span>         <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">_generate_params</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="n">stop</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">219</span>     <span class="p">)</span>
+
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/ollama/_client.py:168,</span> in <span class="ni">Client._request.&lt;locals&gt;.inner</span><span class="nt">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">166</span> <span class="k">except</span> <span class="n">httpx</span><span class="o">.</span><span class="n">HTTPStatusError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">167</span>   <span class="n">e</span><span class="o">.</span><span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">168</span>   <span class="k">raise</span> <span class="n">ResponseError</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span> <span class="kn">from</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">170</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">iter_lines</span><span class="p">():</span>
+<span class="g g-Whitespace">    </span><span class="mi">171</span>   <span class="n">part</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+<span class="ne">ResponseError</span>: llama runner process has terminated: exit status 2 (status code: 500)
+</pre></div>
+</div>
 </div>
 </div>
 </section>
