@@ -1,0 +1,2962 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vector Valued Functions &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../_static/documentation_options.js?v=19645805"></script>
+        <script src="../../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex/" />
+    <link rel="search" title="Search" href="../../../../search/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Added Recently:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../">Multivariable Calculus Sage Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../complex-inner-products/">The Inner Product of Complex Vectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting-started-with-ollama/">Getting Started With Ollama</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../math/yet-another-jdesmos-demo/">Yet Another JDesmos Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../math/desmos-jupyter/">Using Desmos Graphs in Jupyter Notebooks</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Categories</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../category-math-and-math-software/">Math and Math Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../category-python-for-beginners-posts/">Python for Beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../category-python-functions/">Python Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../category-python-math-and-science/">Python Math and Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../category-python-practice/">Python Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../category-python-tools/">Python Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../category-miscellaneous/">Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../category-docker/">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../category-jupyter/">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../category-learn-to-code/">Learn to Code</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Vector Valued Functions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/sage/calc3/mod2/VectorValuedFunctions.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="vector-valued-functions">
+<h1>Vector Valued Functions<a class="headerlink" href="#vector-valued-functions" title="Link to this heading"></a></h1>
+<section id="section-12-1">
+<h2>Section 12.1<a class="headerlink" href="#section-12-1" title="Link to this heading"></a></h2>
+<p>From <a class="reference external" href="https://www.contemporarycalculus.com/dh/Calculus_all/CC12_1.pdf">our text</a>, we have:</p>
+<p>Definition:  A <strong>vector-valued function</strong> is a rule that assigns a vector to each input number.  Typically a vector-valued function has the form</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align}
+\boldsymbol{r(t)} = x(t)i + y(t)j + z(t)k = \boldsymbol{\langle x(t), y(t), z(t)\rangle}
+\end{align}
+\]</div>
+<p>where x, y and z are scalar-valued functions.</p>
+<p>The domain consists of those <span class="math notranslate nohighlight">\(t\)</span> in the domain of x, y, and z.</p>
+<p>So the range is a collection of vectors.</p>
+<p>Below is an example of a vector valued function plotted in Sage:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">var</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+<span class="c1"># Define the tuple or vector</span>
+<span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">t</span><span class="p">)</span>
+
+<span class="c1"># Use parametric_plot3d for curves</span>
+<span class="c1"># Syntax: parametric_plot3d( (x, y, z), (variable, start, end) )</span>
+<span class="n">parametric_plot3d</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="o">*</span><span class="n">pi</span><span class="p">),</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">aspect_ratio</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;&lt;/title&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=viewport content=&quot;width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0&quot;&gt;
+&lt;style&gt;
+
+    body { margin: 0px; overflow: hidden; }
+
+    #menu-container { position: absolute; bottom: 30px; right: 40px; cursor: default; }
+
+    #menu-message { position: absolute; bottom: 0px; right: 0px; white-space: nowrap;
+                    display: none; background-color: #F5F5F5; padding: 10px; }
+
+    #menu-content { position: absolute; bottom: 0px; right: 0px;
+                    display: none; background-color: #F5F5F5; border-bottom: 1px solid black;
+                    border-right: 1px solid black; border-left: 1px solid black; }
+
+    #menu-content div { border-top: 1px solid black; padding: 10px; white-space: nowrap; }
+
+    #menu-content div:hover { background-color: #FEFEFE; }
+
+    .dark-theme #menu-container { color: white; }
+
+    .dark-theme #menu-message { background-color: #181818; }
+
+    .dark-theme #menu-content { background-color: #181818; border-color: white; }
+
+    .dark-theme #menu-content div { border-color: white; }
+
+    .dark-theme #menu-content div:hover { background-color: #303030; }
+
+&lt;/style&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;script src=&quot;/nbextensions/threejs-sage/r122/three.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  if ( !window.THREE ) document.write(&#x27; \
+&lt;script src=&quot;https://cdn.jsdelivr.net/gh/sagemath/threejs-sage@r122/build/three.min.js&quot;&gt;&lt;\/script&gt; \
+            &#x27;);
+&lt;/script&gt;
+        &lt;script&gt;// fat_lines.js
+
+var _fatLines = [];
+
+function _createFatLine( lineStrip, geometry, materialOptions ) {
+
+    var vertexCount = geometry.vertices.length;
+    var positions = [];
+    for ( var i=0 ; i &lt; vertexCount ; i++ ) {
+        var v = geometry.vertices[i];
+        positions.push( v.x, v.y, v.z );
+        // For a line strip, duplicate all but the first and last vertices.
+        if ( lineStrip &amp;&amp; i &gt; 0 &amp;&amp; i &lt; vertexCount - 1 ) {
+            positions.push( v.x, v.y, v.z );
+        }
+    }
+
+    geometry = new THREE.LineSegmentsGeometry();
+    geometry.setPositions( positions );
+
+    var material = new THREE.LineMaterial( materialOptions );
+    material.resolution = new THREE.Vector2( window.innerWidth, window.innerHeight );
+
+    var line = new THREE.LineSegments2( geometry, material );
+    line.computeLineDistances();
+    line.scale.set( 1, 1, 1 );
+
+    _fatLines.push( line );
+
+    return line;
+
+}
+
+function createFatLineStrip( geometry, materialOptions ) {
+    return _createFatLine( true, geometry, materialOptions );
+}
+
+function createFatLineSegments( geometry, materialOptions ) {
+    return _createFatLine( false, geometry, materialOptions );
+}
+
+function rescaleFatLines() {
+    var res = new THREE.Vector2( window.innerWidth, window.innerHeight );
+    var n = _fatLines.length;
+    for ( var i=0 ; i &lt; n ; i++ ) {
+        _fatLines[i].material.resolution = res;
+    }
+}
+&lt;/script&gt;
+&lt;script&gt;
+
+    var options = {&quot;animate&quot;: false, &quot;animationControls&quot;: true, &quot;aspectRatio&quot;: [4.0, 4.0, 1.0], &quot;autoScaling&quot;: [false, false, false], &quot;autoPlay&quot;: true, &quot;axes&quot;: false, &quot;axesLabels&quot;: [&quot;x&quot;, &quot;y&quot;, &quot;z&quot;], &quot;axesLabelsStyle&quot;: null, &quot;decimals&quot;: 2, &quot;delay&quot;: 20, &quot;frame&quot;: true, &quot;loop&quot;: true, &quot;projection&quot;: &quot;perspective&quot;, &quot;theme&quot;: &quot;light&quot;, &quot;viewpoint&quot;: false};
+    var animate = options.animate;
+
+    if ( options.theme === &#x27;dark&#x27; )
+        document.body.className = &#x27;dark-theme&#x27;;
+
+    var scene = new THREE.Scene();
+
+    var renderer = new THREE.WebGLRenderer( { antialias: true, preserveDrawingBuffer: true } );
+    renderer.setPixelRatio( window.devicePixelRatio );
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.setClearColor( options.theme === &#x27;dark&#x27; ? 0 : 0xffffff, 1 );
+    document.body.appendChild( renderer.domElement );
+
+    var b = [{&quot;x&quot;:-1.0, &quot;y&quot;:-0.9990989662046816, &quot;z&quot;:0.0}, {&quot;x&quot;:1.0, &quot;y&quot;:0.9990989662046816, &quot;z&quot;:18.84955592153876}]; // bounds
+
+    if ( b[0].x === b[1].x ) {
+        b[0].x -= 1;
+        b[1].x += 1;
+    }
+    if ( b[0].y === b[1].y ) {
+        b[0].y -= 1;
+        b[1].y += 1;
+    }
+    if ( b[0].z === b[1].z ) {
+        b[0].z -= 1;
+        b[1].z += 1;
+    }
+
+    var rxRange = Math.sqrt( Math.pow( b[1].z - b[0].z, 2 )
+                            + Math.pow( b[1].y - b[0].y, 2 ) );
+    var ryRange = Math.sqrt( Math.pow( b[1].x - b[0].x, 2 )
+                            + Math.pow( b[1].z - b[0].z, 2 ) );
+    var rzRange = Math.sqrt( Math.pow( b[1].x - b[0].x, 2 )
+                            + Math.pow( b[1].y - b[0].y, 2 ) );
+    var xRange = b[1].x - b[0].x;
+    var yRange = b[1].y - b[0].y;
+    var zRange = b[1].z - b[0].z;
+
+    var ar = options.aspectRatio;
+    var a = [ ar[0], ar[1], ar[2] ]; // aspect multipliers
+
+    var autoScaling = options.autoScaling;
+    var autoAspect = 2.5;
+    if ( xRange &gt; autoAspect * rxRange &amp;&amp; autoScaling[0] ) a[0] = autoAspect * rxRange / xRange;
+    if ( yRange &gt; autoAspect * ryRange &amp;&amp; autoScaling[1] ) a[1] = autoAspect * ryRange / yRange;
+    if ( zRange &gt; autoAspect * rzRange &amp;&amp; autoScaling[2] ) a[2] = autoAspect * rzRange / zRange;
+
+    // Distance from (xMid,yMid,zMid) to any corner of the bounding box, after applying aspectRatio
+    var midToCorner = Math.sqrt( a[0]*a[0]*xRange*xRange + a[1]*a[1]*yRange*yRange + a[2]*a[2]*zRange*zRange ) / 2;
+
+    var xMid = ( b[0].x + b[1].x ) / 2;
+    var yMid = ( b[0].y + b[1].y ) / 2;
+    var zMid = ( b[0].z + b[1].z ) / 2;
+
+    var box = new THREE.Geometry();
+    box.vertices.push( new THREE.Vector3( a[0]*b[0].x, a[1]*b[0].y, a[2]*b[0].z ) );
+    box.vertices.push( new THREE.Vector3( a[0]*b[1].x, a[1]*b[1].y, a[2]*b[1].z ) );
+    var boxMesh = new THREE.Line( box );
+    var boxColor = options.theme === &#x27;dark&#x27; ? &#x27;white&#x27; : &#x27;black&#x27;;
+    if ( options.frame ) scene.add( new THREE.BoxHelper( boxMesh, boxColor ) );
+
+    if ( options.axesLabels ) {
+
+        var d = options.decimals; // decimals
+        var offsetRatio = 0.1;
+        var al = options.axesLabels;
+        var als = options.axesLabelsStyle || [{}, {}, {}];
+
+        var offset = offsetRatio * a[1]*( b[1].y - b[0].y );
+        var xm = xMid.toFixed(d);
+        if ( /^-0.?0*$/.test(xm) ) xm = xm.substr(1);
+        addLabel( al[0] + &#x27;=&#x27; + xm, a[0]*xMid, a[1]*b[1].y+offset, a[2]*b[0].z, als[0] );
+        addLabel( ( b[0].x ).toFixed(d), a[0]*b[0].x, a[1]*b[1].y+offset, a[2]*b[0].z, als[0] );
+        addLabel( ( b[1].x ).toFixed(d), a[0]*b[1].x, a[1]*b[1].y+offset, a[2]*b[0].z, als[0] );
+
+        var offset = offsetRatio * a[0]*( b[1].x - b[0].x );
+        var ym = yMid.toFixed(d);
+        if ( /^-0.?0*$/.test(ym) ) ym = ym.substr(1);
+        addLabel( al[1] + &#x27;=&#x27; + ym, a[0]*b[1].x+offset, a[1]*yMid, a[2]*b[0].z, als[1] );
+        addLabel( ( b[0].y ).toFixed(d), a[0]*b[1].x+offset, a[1]*b[0].y, a[2]*b[0].z, als[1] );
+        addLabel( ( b[1].y ).toFixed(d), a[0]*b[1].x+offset, a[1]*b[1].y, a[2]*b[0].z, als[1] );
+
+        var offset = offsetRatio * a[1]*( b[1].y - b[0].y );
+        var zm = zMid.toFixed(d);
+        if ( /^-0.?0*$/.test(zm) ) zm = zm.substr(1);
+        addLabel( al[2] + &#x27;=&#x27; + zm, a[0]*b[1].x, a[1]*b[0].y-offset, a[2]*zMid, als[2] );
+        addLabel( ( b[0].z ).toFixed(d), a[0]*b[1].x, a[1]*b[0].y-offset, a[2]*b[0].z, als[2] );
+        addLabel( ( b[1].z ).toFixed(d), a[0]*b[1].x, a[1]*b[0].y-offset, a[2]*b[1].z, als[2] );
+
+    }
+
+    function addLabel( text, x, y, z, style ) {
+
+        var color = style.color || &#x27;black&#x27;;
+        var fontSize = style.fontSize || 14;
+        var fontFamily = style.fontFamily || &#x27;monospace&#x27;;
+        var fontStyle = style.fontStyle || &#x27;normal&#x27;;
+        var fontWeight = style.fontWeight || &#x27;normal&#x27;;
+        var opacity = style.opacity || 1;
+
+        if ( options.theme === &#x27;dark&#x27; )
+            if ( color === &#x27;black&#x27; || color === &#x27;#000000&#x27; )
+                color = &#x27;white&#x27;;
+
+        if ( Array.isArray( fontStyle ) ) {
+            fontFamily = fontFamily.map( function( f ) {
+                // Need to put quotes around fonts that have whitespace in their names.
+                return /\s/.test( f ) ? &#x27;&quot;&#x27; + f + &#x27;&quot;&#x27; : f;
+            }).join(&#x27;, &#x27;);
+        }
+
+        var canvas = document.createElement( &#x27;canvas&#x27; );
+        var context = canvas.getContext( &#x27;2d&#x27; );
+        var pixelRatio = Math.round( window.devicePixelRatio );
+
+        // For example: italic bold 20px &quot;Times New Roman&quot;, Georgia, serif
+        var font = [fontStyle, fontWeight, fontSize + &#x27;px&#x27;, fontFamily].join(&#x27; &#x27;);
+
+        context.font = font;
+        var width = context.measureText( text ).width;
+        var height = fontSize;
+
+        // The dimensions of the canvas&#x27;s underlying image data need to be powers
+        // of two in order for the resulting texture to support mipmapping.
+        canvas.width = THREE.MathUtils.ceilPowerOfTwo( width * pixelRatio );
+        canvas.height = THREE.MathUtils.ceilPowerOfTwo( height * pixelRatio );
+
+        // Re-compute the unscaled dimensions after the power of two conversion.
+        width = canvas.width / pixelRatio;
+        height = canvas.height / pixelRatio;
+
+        canvas.style.width = width + &#x27;px&#x27;;
+        canvas.style.height = height + &#x27;px&#x27;;
+
+        context.scale( pixelRatio, pixelRatio );
+        context.fillStyle = color;
+        context.font = font; // Must be set again after measureText.
+        context.textAlign = &#x27;center&#x27;;
+        context.textBaseline = &#x27;middle&#x27;;
+        context.fillText( text, width/2, height/2 );
+
+        var texture = new THREE.Texture( canvas );
+        texture.needsUpdate = true;
+
+        var materialOptions = { map: texture, sizeAttenuation: false, depthWrite: false };
+        if ( opacity &lt; 1 ) {
+            // Setting opacity=1 would cause the texture&#x27;s alpha component to be
+            // discarded, giving the text a black background instead of the
+            // background being transparent.
+            materialOptions.opacity = opacity;
+        }
+        var sprite = new THREE.Sprite( new THREE.SpriteMaterial( materialOptions ) );
+        sprite.position.set( x, y, z );
+
+        // Scaling factor, chosen somewhat arbitrarily so that the size of the text
+        // is consistent with previously generated plots.
+        var scale = 1/625;
+        if ( options.projection === &#x27;orthographic&#x27; ) {
+            scale = midToCorner/256; // Needs to scale along with the plot itself.
+        }
+        sprite.scale.set( scale * width, scale * height, 1 );
+
+        scene.add( sprite );
+
+        return sprite;
+
+    }
+
+    if ( options.axes ) scene.add( new THREE.AxesHelper( Math.min( a[0]*b[1].x, a[1]*b[1].y, a[2]*b[1].z ) ) );
+
+    var camera = createCamera();
+    camera.up.set( 0, 0, 1 );
+    camera.position.set( a[0]*xMid, a[1]*yMid, a[2]*zMid );
+
+    // camera is positioned so that the line from the camera to the center
+    // of the bounding sphere of the objects makes an angle of 60 degrees with x-axis
+    // and an angle of 30 degrees with z-axis and the field of view of the camera looking
+    // at the center has an angle of 45 degrees.
+    const sin8 = Math.sin(Math.PI / 8);
+    const sin5 = Math.sin(Math.PI / 5);
+    const cos5 = Math.cos(Math.PI / 5);
+    const sin3 = Math.sin(Math.PI / 3);
+    const cos3 = Math.cos(Math.PI / 3);
+    var r = midToCorner / sin8;
+    var offset = new THREE.Vector3( r * sin3 * cos5, r * sin3 * sin5, r * cos3 );
+
+    if ( options.viewpoint ) {
+
+        var aa = options.viewpoint;
+        var axis = new THREE.Vector3( aa[0][0], aa[0][1], aa[0][2] ).normalize();
+        var angle = aa[1] * Math.PI / 180;
+        var q = new THREE.Quaternion().setFromAxisAngle( axis, angle ).inverse();
+
+        offset.set( 0, 0, offset.length() );
+        offset.applyQuaternion( q );
+
+    }
+
+    camera.position.add( offset );
+
+    function createCamera() {
+
+        var aspect = window.innerWidth / window.innerHeight;
+
+        // Scale the near and far clipping planes along with the overall plot size.
+        var nearClip = 0.01 * midToCorner;
+        var farClip = 100 * midToCorner;
+
+        if ( options.projection === &#x27;orthographic&#x27; ) {
+            var camera = new THREE.OrthographicCamera( -1, 1, 1, -1, -farClip, farClip );
+            updateCameraAspect( camera, aspect );
+            return camera;
+        }
+
+        return new THREE.PerspectiveCamera( 45, aspect, nearClip, farClip );
+
+    }
+
+    function updateCameraAspect( camera, aspect ) {
+
+        if ( camera.isPerspectiveCamera ) {
+            camera.aspect = aspect;
+        } else if ( camera.isOrthographicCamera ) {
+            // Fit the camera frustum to the bounding box&#x27;s diagonal so that the entire plot fits
+            // within at the default zoom level and camera position.
+            if ( aspect &gt; 1 ) { // Wide window
+                camera.top = midToCorner;
+                camera.right = midToCorner * aspect;
+            } else { // Tall or square window
+                camera.top = midToCorner / aspect;
+                camera.right = midToCorner;
+            }
+            camera.bottom = -camera.top;
+            camera.left = -camera.right;
+        }
+
+        camera.updateProjectionMatrix();
+
+    }
+
+    var lights = [{&quot;x&quot;:-5, &quot;y&quot;:3, &quot;z&quot;:0, &quot;color&quot;:&quot;#7f7f7f&quot;, &quot;parent&quot;:&quot;camera&quot;}];
+    for ( var i=0 ; i &lt; lights.length ; i++ ) {
+        var light = new THREE.DirectionalLight( lights[i].color, 1 );
+        light.position.set( a[0]*lights[i].x, a[1]*lights[i].y, a[2]*lights[i].z );
+        if ( lights[i].parent === &#x27;camera&#x27; ) {
+            light.target.position.set( a[0]*xMid, a[1]*yMid, a[2]*zMid );
+            scene.add( light.target );
+            camera.add( light );
+        } else scene.add( light );
+    }
+    scene.add( camera );
+
+    var ambient = {&quot;color&quot;:&quot;#7f7f7f&quot;};
+    scene.add( new THREE.AmbientLight( ambient.color, 1 ) );
+
+    var controls = new THREE.OrbitControls( camera, renderer.domElement );
+    controls.target.set( a[0]*xMid, a[1]*yMid, a[2]*zMid );
+    controls.addEventListener( &#x27;change&#x27;, function() { if ( !animate ) render(); } );
+
+    window.addEventListener( &#x27;resize&#x27;, function() {
+
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        updateCameraAspect( camera, window.innerWidth / window.innerHeight );
+        if ( window.rescaleFatLines ) rescaleFatLines();
+        if ( !animate ) render();
+
+    } );
+
+    var texts = [];
+    for ( var i=0 ; i &lt; texts.length ; i++ ) addText( texts[i] );
+
+    function addText( json ) {
+        var sprite = addLabel( json.text, a[0]*json.x, a[1]*json.y, a[2]*json.z, json );
+        sprite.userData = json;
+    }
+
+    var points = [];
+    for ( var i=0 ; i &lt; points.length ; i++ ) addPoint( points[i] );
+
+    function addPoint( json ) {
+
+        var geometry = new THREE.Geometry();
+        var v = json.point;
+        geometry.vertices.push( new THREE.Vector3( a[0]*v[0], a[1]*v[1], a[2]*v[2] ) );
+
+        var canvas = document.createElement( &#x27;canvas&#x27; );
+        canvas.width = 128;
+        canvas.height = 128;
+
+        var context = canvas.getContext( &#x27;2d&#x27; );
+        context.arc( 64, 64, 64, 0, 2 * Math.PI );
+        context.fillStyle = json.color;
+        context.fill();
+
+        var texture = new THREE.Texture( canvas );
+        texture.needsUpdate = true;
+
+        var transparent = json.opacity &lt; 1 ? true : false;
+        var size = camera.isOrthographicCamera ? json.size : json.size/100;
+        var material = new THREE.PointsMaterial( { size: size, map: texture,
+                                                   transparent: transparent, opacity: json.opacity,
+                                                   alphaTest: .1 } );
+
+        var c = new THREE.Vector3();
+        geometry.computeBoundingBox();
+        geometry.boundingBox.getCenter( c );
+        geometry.translate( -c.x, -c.y, -c.z );
+
+        var mesh = new THREE.Points( geometry, material );
+        mesh.position.set( c.x, c.y, c.z );
+        mesh.userData = json;
+        scene.add( mesh );
+
+    }
+
+    var lines = [{&quot;points&quot;: [[1.0, 0.0, 0.0], [0.9677329469334989, 0.2519780613851252, 0.2547237286694427], [0.8730141131611882, 0.48769494381363454, 0.5094474573388854], [0.7219560939545244, 0.6919388689775462, 0.7641711860083281], [0.5243072835572317, 0.8515291377333113, 1.0188949146777708], [0.2928227712765502, 0.956166734739251, 1.2736186433472136], [0.04244120319614802, 0.9990989662046815, 1.5283423720166565], [-0.21067926999572673, 0.9775552389476861, 1.7830661006860993], [-0.4502037448176738, 0.8929258581495683, 2.037789829355542], [-0.6606747233900819, 0.7506723052527239, 2.292513558024985], [-0.8285096492438425, 0.5599747861375948, 2.5472372866944277], [-0.9428774454610844, 0.33313979474205674, 2.8019610153638705], [-0.9963974885425266, 0.08480592447550818, 3.0566847440333134], [-0.9856159103477082, -0.1690008203218502, 3.311408472702756], [-0.9112284903881351, -0.4119012482439938, 3.566132201372199], [-0.7780357543184386, -0.6282199972956434, 3.820855930041642], [-0.5946331763042857, -0.8039971303669412, 4.075579658711084], [-0.37285647778030795, -0.9278890272965096, 4.330303387380527], [-0.12701781974687834, -0.991900435258877, 4.585027116049969], [0.12701781974687884, -0.9919004352588768, 4.839750844719411], [0.3728564777803084, -0.9278890272965095, 5.094474573388854], [0.5946331763042862, -0.8039971303669409, 5.349198302058296], [0.778035754318439, -0.628219997295643, 5.603922030727738], [0.9112284903881352, -0.41190124824399377, 5.858645759397181], [0.9856159103477082, -0.16900082032185057, 6.113369488066623], [0.9963974885425266, 0.08480592447550736, 6.3680932167360655], [0.9428774454610849, 0.3331397947420555, 6.622816945405508], [0.8285096492438435, 0.5599747861375933, 6.87754067407495], [0.6606747233900836, 0.7506723052527224, 7.132264402744393], [0.45020374481767605, 0.892925858149567, 7.386988131413835], [0.2106792699957297, 0.9775552389476855, 7.641711860083277], [-0.04244120319614454, 0.9990989662046816, 7.89643558875272], [-0.2928227712765473, 0.9561667347392518, 8.151159317422163], [-0.5243072835572294, 0.8515291377333126, 8.405883046091606], [-0.721956093954523, 0.6919388689775477, 8.66060677476105], [-0.8730141131611875, 0.4876949438136359, 8.915330503430493], [-0.9677329469334987, 0.2519780613851261, 9.170054232099936], [-1.0, 3.6739403974420594e-16, 9.42477796076938], [-0.9677329469334988, -0.2519780613851254, 9.679501689438823], [-0.8730141131611878, -0.4876949438136352, 9.934225418108266], [-0.7219560939545235, -0.6919388689775472, 10.18894914677771], [-0.5243072835572301, -0.8515291377333123, 10.443672875447152], [-0.29282277127654804, -0.9561667347392516, 10.698396604116596], [-0.04244120319614528, -0.9990989662046816, 10.953120332786039], [0.21067926999572983, -0.9775552389476855, 11.207844061455482], [0.450203744817677, -0.8929258581495666, 11.462567790124925], [0.660674723390085, -0.7506723052527212, 11.717291518794369], [0.8285096492438451, -0.559974786137591, 11.972015247463812], [0.9428774454610861, -0.333139794742052, 12.226738976133255], [0.9963974885425271, -0.08480592447550278, 12.481462704802698], [0.9856159103477072, 0.16900082032185595, 12.736186433472142], [0.9112284903881326, 0.41190124824399954, 12.990910162141585], [0.7780357543184344, 0.6282199972956486, 13.245633890811028], [0.5946331763042796, 0.8039971303669458, 13.500357619480472], [0.3728564777803, 0.9278890272965128, 13.755081348149915], [0.12701781974686902, 0.9919004352588782, 14.009805076819358], [-0.12701781974688905, 0.9919004352588756, 14.264528805488801], [-0.3728564777803188, 0.9278890272965052, 14.519252534158245], [-0.5946331763042959, 0.8039971303669337, 14.773976262827688], [-0.7780357543184471, 0.6282199972956329, 15.028699991497131], [-0.9112284903881409, 0.41190124824398117, 15.283423720166574], [-0.9856159103477107, 0.16900082032183605, 15.538147448836018], [-0.9963974885425253, -0.08480592447552293, 15.79287117750546], [-0.9428774454610794, -0.3331397947420711, 16.047594906174904], [-0.8285096492438337, -0.5599747861376078, 16.302318634844347], [-0.6606747233900698, -0.7506723052527345, 16.55704236351379], [-0.45020374481765896, -0.8929258581495757, 16.811766092183234], [-0.21067926999571007, -0.9775552389476897, 17.066489820852677], [0.042441203196165476, -0.9990989662046807, 17.32121354952212], [0.29282277127656736, -0.9561667347392457, 17.575937278191564], [0.5243072835572473, -0.8515291377333017, 17.830661006861007], [0.7219560939545375, -0.6919388689775325, 18.08538473553045], [0.8730141131611976, -0.48769494381361755, 18.340108464199893], [0.9677329469335039, -0.2519780613851058, 18.594832192869337], [1.0, -7.347880794884119e-16, 18.84955592153876]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0, &quot;linewidth&quot;: 2.0}];
+    for ( var i=0 ; i &lt; lines.length ; i++ ) addLine( lines[i] );
+
+    function addLine( json ) {
+
+        var geometry = new THREE.Geometry();
+        for ( var i=0 ; i &lt; json.points.length ; i++ ) {
+            var v = json.points[i];
+            geometry.vertices.push( new THREE.Vector3( a[0]*v[0], a[1]*v[1], a[2]*v[2] ) );
+        }
+
+        var c = new THREE.Vector3();
+        geometry.computeBoundingBox();
+        geometry.boundingBox.getCenter( c );
+        geometry.translate( -c.x, -c.y, -c.z );
+
+        var transparent = json.opacity &lt; 1 ? true : false;
+        var materialOptions = { color: json.color, linewidth: json.linewidth,
+                                transparent: transparent, opacity: json.opacity };
+
+        var mesh;
+        if ( json.linewidth &gt; 1 &amp;&amp; window.createFatLineStrip ) {
+            mesh = createFatLineStrip( geometry, materialOptions );
+        } else {
+            var material = new THREE.LineBasicMaterial( materialOptions );
+            mesh = new THREE.Line( geometry, material );
+        }
+
+        mesh.position.set( c.x, c.y, c.z );
+        mesh.userData = json;
+        scene.add( mesh );
+
+    }
+
+    var surfaces = [];
+    for ( var i=0 ; i &lt; surfaces.length ; i++ ) addSurface( surfaces[i] );
+
+    function addSurface( json ) {
+
+        var useFaceColors = &#x27;faceColors&#x27; in json ? true : false;
+
+        var geometry = new THREE.Geometry();
+        for ( var i=0 ; i &lt; json.vertices.length ; i++ ) {
+            var v = json.vertices[i];
+            geometry.vertices.push( new THREE.Vector3( a[0]*v.x, a[1]*v.y, a[2]*v.z ) );
+        }
+        for ( var i=0 ; i &lt; json.faces.length ; i++ ) {
+            var f = json.faces[i];
+            for ( var j=0 ; j &lt; f.length - 2 ; j++ ) {
+                var face = new THREE.Face3( f[0], f[j+1], f[j+2] );
+                if ( useFaceColors ) face.color.set( json.faceColors[i] );
+                geometry.faces.push( face );
+            }
+        }
+        geometry.computeVertexNormals();
+
+        var side = json.singleSide ? THREE.FrontSide : THREE.DoubleSide;
+        var transparent = json.opacity &lt; 1 ? true : false;
+        var depthWrite = &#x27;depthWrite&#x27; in json ? json.depthWrite : !transparent;
+        var flatShading = json.useFlatShading ? json.useFlatShading : false;
+
+        var material = new THREE.MeshPhongMaterial( { side: side,
+                                     color: useFaceColors ? &#x27;white&#x27; : json.color,
+                                     vertexColors: useFaceColors ? THREE.FaceColors : THREE.NoColors,
+                                     transparent: transparent, opacity: json.opacity,
+                                     shininess: 20, flatShading: flatShading,
+                                     depthWrite: depthWrite } );
+
+        var c = new THREE.Vector3();
+        geometry.computeBoundingBox();
+        geometry.boundingBox.getCenter( c );
+        geometry.translate( -c.x, -c.y, -c.z );
+
+        var mesh = new THREE.Mesh( geometry, material );
+        mesh.position.set( c.x, c.y, c.z );
+        if ( transparent &amp;&amp; json.renderOrder ) mesh.renderOrder = json.renderOrder;
+        mesh.userData = json;
+        scene.add( mesh );
+
+        if ( json.showMeshGrid ) addSurfaceMeshGrid( json );
+
+    }
+
+    function addSurfaceMeshGrid( json ) {
+
+        var geometry = new THREE.Geometry();
+
+        for ( var i=0 ; i &lt; json.faces.length ; i++ ) {
+            var f = json.faces[i];
+            for ( var j=0 ; j &lt; f.length ; j++ ) {
+                var k = j === f.length-1 ? 0 : j+1;
+                var v1 = json.vertices[f[j]];
+                var v2 = json.vertices[f[k]];
+                // vertices in opposite directions on neighboring faces
+                var nudge = f[j] &lt; f[k] ? .0005*zRange : -.0005*zRange;
+                geometry.vertices.push( new THREE.Vector3( a[0]*v1.x, a[1]*v1.y, a[2]*(v1.z+nudge) ) );
+                geometry.vertices.push( new THREE.Vector3( a[0]*v2.x, a[1]*v2.y, a[2]*(v2.z+nudge) ) );
+            }
+        }
+
+        var c = new THREE.Vector3();
+        geometry.computeBoundingBox();
+        geometry.boundingBox.getCenter( c );
+        geometry.translate( -c.x, -c.y, -c.z );
+
+        var gridColor = options.theme === &#x27;dark&#x27; ? &#x27;white&#x27; : &#x27;black&#x27;;
+        var linewidth = json.linewidth || 1;
+        var materialOptions = { color: gridColor, linewidth: linewidth };
+
+        var mesh;
+        if ( linewidth &gt; 1 &amp;&amp; window.createFatLineSegments ) {
+            mesh = createFatLineSegments( geometry, materialOptions );
+        } else {
+            var material = new THREE.LineBasicMaterial( materialOptions );
+            mesh = new THREE.LineSegments( geometry, material );
+        }
+
+        mesh.position.set( c.x, c.y, c.z );
+        mesh.userData = json;
+        scene.add( mesh );
+
+    }
+
+    function render() {
+
+        if ( window.updateAnimation ) animate = updateAnimation();
+        if ( animate ) requestAnimationFrame( render );
+
+        renderer.render( scene, camera );
+
+    }
+
+    render();
+    controls.update();
+    if ( !animate ) render();
+
+
+    // menu functions
+
+    function toggleMenu() {
+
+        var m = document.getElementById( &#x27;menu-content&#x27; );
+        if ( m.style.display === &#x27;block&#x27; ) m.style.display = &#x27;none&#x27;
+        else m.style.display = &#x27;block&#x27;;
+
+    }
+
+
+    function saveAsPNG() {
+
+        var a = document.body.appendChild( document.createElement( &#x27;a&#x27; ) );
+        a.href = renderer.domElement.toDataURL( &#x27;image/png&#x27; );
+        a.download = &#x27;screenshot&#x27;;
+        a.click();
+
+    }
+
+    function saveAsHTML() {
+
+        toggleMenu(); // otherwise visible in output
+        event.stopPropagation();
+
+        var blob = new Blob( [ &#x27;&lt;!DOCTYPE html&gt;\n&#x27; + document.documentElement.outerHTML ] );
+        var a = document.body.appendChild( document.createElement( &#x27;a&#x27; ) );
+        a.href = window.URL.createObjectURL( blob );
+        a.download = suggestFilename();
+        a.click();
+
+        function suggestFilename() {
+            if ( !document.title ) {
+                return &#x27;graphic.html&#x27;;
+            } else if ( /\.html?$/i.test( document.title ) ) {
+                return document.title; // already ends in .htm or .html
+            } else {
+                return document.title + &#x27;.html&#x27;;
+            }
+        }
+
+    }
+
+    function getViewpoint() {
+
+        function roundTo( x, n ) { return +x.toFixed(n); }
+
+        var v = camera.quaternion.inverse();
+        var r = Math.sqrt( v.x*v.x + v.y*v.y + v.z*v.z );
+        var axis = [ roundTo( v.x / r, 4 ), roundTo( v.y / r, 4 ), roundTo( v.z / r, 4 ) ];
+        var angle = roundTo( 2 * Math.atan2( r, v.w ) * 180 / Math.PI, 2 );
+
+        var textArea = document.createElement( &#x27;textarea&#x27; );
+        textArea.textContent = JSON.stringify( axis ) + &#x27;,&#x27; + angle;
+        textArea.style.csstext = &#x27;position: absolute; top: -100%&#x27;;
+        document.body.append( textArea );
+        textArea.select();
+        document.execCommand( &#x27;copy&#x27; );
+
+        var m = document.getElementById( &#x27;menu-message&#x27; );
+        m.innerHTML = &#x27;Viewpoint copied to clipboard&#x27;;
+        m.style.display = &#x27;block&#x27;;
+        setTimeout( function() { m.style.display = &#x27;none&#x27;; }, 2000 );
+
+    }
+
+    function getCamera() {
+
+        function roundTo( x, n ) { return +x.toFixed(n); }
+
+        var pos = camera.position;
+        var pos_r = [ roundTo( pos.x, 4 ), roundTo( pos.y, 4 ), roundTo( pos.z, 4 ) ];
+   //     var up = camera.up; // up is always (0,0,1)
+        var textArea = document.createElement(&#x27;textarea&#x27;);
+        var cam_position = JSON.stringify(pos_r);
+        textArea.textContent = &#x27;,camera_position=&#x27; + cam_position;
+        textArea.style.csstext = &#x27;position: absolute; top: -100%&#x27;;
+        document.body.append( textArea );
+        textArea.select();
+        document.execCommand( &#x27;copy&#x27; );
+
+        var m = document.getElementById( &#x27;menu-message&#x27; );
+        m.innerHTML = &#x27;Camera position &#x27;+ cam_position+&#x27; copied to clipboard&#x27;;
+        m.style.display = &#x27;block&#x27;;
+        setTimeout( function() { m.style.display = &#x27;none&#x27;; }, 2000 );
+
+    }
+
+&lt;/script&gt;
+
+&lt;div id=&quot;menu-container&quot; onclick=&quot;toggleMenu()&quot;&gt;&amp;#x24d8;
+&lt;div id=&quot;menu-message&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;menu-content&quot;&gt;
+&lt;div onclick=&quot;saveAsPNG()&quot;&gt;Save as PNG&lt;/div&gt;
+&lt;div onclick=&quot;saveAsHTML()&quot;&gt;Save as HTML&lt;/div&gt;
+&lt;div onclick=&quot;getCamera()&quot;&gt;Get camera&lt;/div&gt;
+&lt;div onclick=&quot;getViewpoint()&quot;&gt;Get viewpoint&lt;/div&gt;
+&lt;div&gt;Close Menu&lt;/div&gt;
+&lt;/div&gt;&lt;/div&gt;
+
+
+&lt;/body&gt;
+&lt;/html&gt;
+"
+        width="100%"
+        height="400"
+        style="border: 0;">
+</iframe>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">var</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+<span class="n">f1</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">t</span>
+<span class="n">f2</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">t</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="n">vector</span><span class="p">((</span><span class="n">t</span><span class="p">,</span> <span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">))</span>
+<span class="n">parametric_plot3d</span><span class="p">(</span><span class="n">r2</span><span class="p">,</span> <span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;&lt;/title&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=viewport content=&quot;width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0&quot;&gt;
+&lt;style&gt;
+
+    body { margin: 0px; overflow: hidden; }
+
+    #menu-container { position: absolute; bottom: 30px; right: 40px; cursor: default; }
+
+    #menu-message { position: absolute; bottom: 0px; right: 0px; white-space: nowrap;
+                    display: none; background-color: #F5F5F5; padding: 10px; }
+
+    #menu-content { position: absolute; bottom: 0px; right: 0px;
+                    display: none; background-color: #F5F5F5; border-bottom: 1px solid black;
+                    border-right: 1px solid black; border-left: 1px solid black; }
+
+    #menu-content div { border-top: 1px solid black; padding: 10px; white-space: nowrap; }
+
+    #menu-content div:hover { background-color: #FEFEFE; }
+
+    .dark-theme #menu-container { color: white; }
+
+    .dark-theme #menu-message { background-color: #181818; }
+
+    .dark-theme #menu-content { background-color: #181818; border-color: white; }
+
+    .dark-theme #menu-content div { border-color: white; }
+
+    .dark-theme #menu-content div:hover { background-color: #303030; }
+
+&lt;/style&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;script src=&quot;/nbextensions/threejs-sage/r122/three.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  if ( !window.THREE ) document.write(&#x27; \
+&lt;script src=&quot;https://cdn.jsdelivr.net/gh/sagemath/threejs-sage@r122/build/three.min.js&quot;&gt;&lt;\/script&gt; \
+            &#x27;);
+&lt;/script&gt;
+        &lt;script&gt;// fat_lines.js
+
+var _fatLines = [];
+
+function _createFatLine( lineStrip, geometry, materialOptions ) {
+
+    var vertexCount = geometry.vertices.length;
+    var positions = [];
+    for ( var i=0 ; i &lt; vertexCount ; i++ ) {
+        var v = geometry.vertices[i];
+        positions.push( v.x, v.y, v.z );
+        // For a line strip, duplicate all but the first and last vertices.
+        if ( lineStrip &amp;&amp; i &gt; 0 &amp;&amp; i &lt; vertexCount - 1 ) {
+            positions.push( v.x, v.y, v.z );
+        }
+    }
+
+    geometry = new THREE.LineSegmentsGeometry();
+    geometry.setPositions( positions );
+
+    var material = new THREE.LineMaterial( materialOptions );
+    material.resolution = new THREE.Vector2( window.innerWidth, window.innerHeight );
+
+    var line = new THREE.LineSegments2( geometry, material );
+    line.computeLineDistances();
+    line.scale.set( 1, 1, 1 );
+
+    _fatLines.push( line );
+
+    return line;
+
+}
+
+function createFatLineStrip( geometry, materialOptions ) {
+    return _createFatLine( true, geometry, materialOptions );
+}
+
+function createFatLineSegments( geometry, materialOptions ) {
+    return _createFatLine( false, geometry, materialOptions );
+}
+
+function rescaleFatLines() {
+    var res = new THREE.Vector2( window.innerWidth, window.innerHeight );
+    var n = _fatLines.length;
+    for ( var i=0 ; i &lt; n ; i++ ) {
+        _fatLines[i].material.resolution = res;
+    }
+}
+&lt;/script&gt;
+&lt;script&gt;
+
+    var options = {&quot;animate&quot;: false, &quot;animationControls&quot;: true, &quot;aspectRatio&quot;: [1.0, 1.0, 1.0], &quot;autoScaling&quot;: [false, false, false], &quot;autoPlay&quot;: true, &quot;axes&quot;: false, &quot;axesLabels&quot;: [&quot;x&quot;, &quot;y&quot;, &quot;z&quot;], &quot;axesLabelsStyle&quot;: null, &quot;decimals&quot;: 2, &quot;delay&quot;: 20, &quot;frame&quot;: true, &quot;loop&quot;: true, &quot;projection&quot;: &quot;perspective&quot;, &quot;theme&quot;: &quot;light&quot;, &quot;viewpoint&quot;: false};
+    var animate = options.animate;
+
+    if ( options.theme === &#x27;dark&#x27; )
+        document.body.className = &#x27;dark-theme&#x27;;
+
+    var scene = new THREE.Scene();
+
+    var renderer = new THREE.WebGLRenderer( { antialias: true, preserveDrawingBuffer: true } );
+    renderer.setPixelRatio( window.devicePixelRatio );
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.setClearColor( options.theme === &#x27;dark&#x27; ? 0 : 0xffffff, 1 );
+    document.body.appendChild( renderer.domElement );
+
+    var b = [{&quot;x&quot;:0.0, &quot;y&quot;:0.0, &quot;z&quot;:0.0}, {&quot;x&quot;:2.0, &quot;y&quot;:4.0, &quot;z&quot;:2.0}]; // bounds
+
+    if ( b[0].x === b[1].x ) {
+        b[0].x -= 1;
+        b[1].x += 1;
+    }
+    if ( b[0].y === b[1].y ) {
+        b[0].y -= 1;
+        b[1].y += 1;
+    }
+    if ( b[0].z === b[1].z ) {
+        b[0].z -= 1;
+        b[1].z += 1;
+    }
+
+    var rxRange = Math.sqrt( Math.pow( b[1].z - b[0].z, 2 )
+                            + Math.pow( b[1].y - b[0].y, 2 ) );
+    var ryRange = Math.sqrt( Math.pow( b[1].x - b[0].x, 2 )
+                            + Math.pow( b[1].z - b[0].z, 2 ) );
+    var rzRange = Math.sqrt( Math.pow( b[1].x - b[0].x, 2 )
+                            + Math.pow( b[1].y - b[0].y, 2 ) );
+    var xRange = b[1].x - b[0].x;
+    var yRange = b[1].y - b[0].y;
+    var zRange = b[1].z - b[0].z;
+
+    var ar = options.aspectRatio;
+    var a = [ ar[0], ar[1], ar[2] ]; // aspect multipliers
+
+    var autoScaling = options.autoScaling;
+    var autoAspect = 2.5;
+    if ( xRange &gt; autoAspect * rxRange &amp;&amp; autoScaling[0] ) a[0] = autoAspect * rxRange / xRange;
+    if ( yRange &gt; autoAspect * ryRange &amp;&amp; autoScaling[1] ) a[1] = autoAspect * ryRange / yRange;
+    if ( zRange &gt; autoAspect * rzRange &amp;&amp; autoScaling[2] ) a[2] = autoAspect * rzRange / zRange;
+
+    // Distance from (xMid,yMid,zMid) to any corner of the bounding box, after applying aspectRatio
+    var midToCorner = Math.sqrt( a[0]*a[0]*xRange*xRange + a[1]*a[1]*yRange*yRange + a[2]*a[2]*zRange*zRange ) / 2;
+
+    var xMid = ( b[0].x + b[1].x ) / 2;
+    var yMid = ( b[0].y + b[1].y ) / 2;
+    var zMid = ( b[0].z + b[1].z ) / 2;
+
+    var box = new THREE.Geometry();
+    box.vertices.push( new THREE.Vector3( a[0]*b[0].x, a[1]*b[0].y, a[2]*b[0].z ) );
+    box.vertices.push( new THREE.Vector3( a[0]*b[1].x, a[1]*b[1].y, a[2]*b[1].z ) );
+    var boxMesh = new THREE.Line( box );
+    var boxColor = options.theme === &#x27;dark&#x27; ? &#x27;white&#x27; : &#x27;black&#x27;;
+    if ( options.frame ) scene.add( new THREE.BoxHelper( boxMesh, boxColor ) );
+
+    if ( options.axesLabels ) {
+
+        var d = options.decimals; // decimals
+        var offsetRatio = 0.1;
+        var al = options.axesLabels;
+        var als = options.axesLabelsStyle || [{}, {}, {}];
+
+        var offset = offsetRatio * a[1]*( b[1].y - b[0].y );
+        var xm = xMid.toFixed(d);
+        if ( /^-0.?0*$/.test(xm) ) xm = xm.substr(1);
+        addLabel( al[0] + &#x27;=&#x27; + xm, a[0]*xMid, a[1]*b[1].y+offset, a[2]*b[0].z, als[0] );
+        addLabel( ( b[0].x ).toFixed(d), a[0]*b[0].x, a[1]*b[1].y+offset, a[2]*b[0].z, als[0] );
+        addLabel( ( b[1].x ).toFixed(d), a[0]*b[1].x, a[1]*b[1].y+offset, a[2]*b[0].z, als[0] );
+
+        var offset = offsetRatio * a[0]*( b[1].x - b[0].x );
+        var ym = yMid.toFixed(d);
+        if ( /^-0.?0*$/.test(ym) ) ym = ym.substr(1);
+        addLabel( al[1] + &#x27;=&#x27; + ym, a[0]*b[1].x+offset, a[1]*yMid, a[2]*b[0].z, als[1] );
+        addLabel( ( b[0].y ).toFixed(d), a[0]*b[1].x+offset, a[1]*b[0].y, a[2]*b[0].z, als[1] );
+        addLabel( ( b[1].y ).toFixed(d), a[0]*b[1].x+offset, a[1]*b[1].y, a[2]*b[0].z, als[1] );
+
+        var offset = offsetRatio * a[1]*( b[1].y - b[0].y );
+        var zm = zMid.toFixed(d);
+        if ( /^-0.?0*$/.test(zm) ) zm = zm.substr(1);
+        addLabel( al[2] + &#x27;=&#x27; + zm, a[0]*b[1].x, a[1]*b[0].y-offset, a[2]*zMid, als[2] );
+        addLabel( ( b[0].z ).toFixed(d), a[0]*b[1].x, a[1]*b[0].y-offset, a[2]*b[0].z, als[2] );
+        addLabel( ( b[1].z ).toFixed(d), a[0]*b[1].x, a[1]*b[0].y-offset, a[2]*b[1].z, als[2] );
+
+    }
+
+    function addLabel( text, x, y, z, style ) {
+
+        var color = style.color || &#x27;black&#x27;;
+        var fontSize = style.fontSize || 14;
+        var fontFamily = style.fontFamily || &#x27;monospace&#x27;;
+        var fontStyle = style.fontStyle || &#x27;normal&#x27;;
+        var fontWeight = style.fontWeight || &#x27;normal&#x27;;
+        var opacity = style.opacity || 1;
+
+        if ( options.theme === &#x27;dark&#x27; )
+            if ( color === &#x27;black&#x27; || color === &#x27;#000000&#x27; )
+                color = &#x27;white&#x27;;
+
+        if ( Array.isArray( fontStyle ) ) {
+            fontFamily = fontFamily.map( function( f ) {
+                // Need to put quotes around fonts that have whitespace in their names.
+                return /\s/.test( f ) ? &#x27;&quot;&#x27; + f + &#x27;&quot;&#x27; : f;
+            }).join(&#x27;, &#x27;);
+        }
+
+        var canvas = document.createElement( &#x27;canvas&#x27; );
+        var context = canvas.getContext( &#x27;2d&#x27; );
+        var pixelRatio = Math.round( window.devicePixelRatio );
+
+        // For example: italic bold 20px &quot;Times New Roman&quot;, Georgia, serif
+        var font = [fontStyle, fontWeight, fontSize + &#x27;px&#x27;, fontFamily].join(&#x27; &#x27;);
+
+        context.font = font;
+        var width = context.measureText( text ).width;
+        var height = fontSize;
+
+        // The dimensions of the canvas&#x27;s underlying image data need to be powers
+        // of two in order for the resulting texture to support mipmapping.
+        canvas.width = THREE.MathUtils.ceilPowerOfTwo( width * pixelRatio );
+        canvas.height = THREE.MathUtils.ceilPowerOfTwo( height * pixelRatio );
+
+        // Re-compute the unscaled dimensions after the power of two conversion.
+        width = canvas.width / pixelRatio;
+        height = canvas.height / pixelRatio;
+
+        canvas.style.width = width + &#x27;px&#x27;;
+        canvas.style.height = height + &#x27;px&#x27;;
+
+        context.scale( pixelRatio, pixelRatio );
+        context.fillStyle = color;
+        context.font = font; // Must be set again after measureText.
+        context.textAlign = &#x27;center&#x27;;
+        context.textBaseline = &#x27;middle&#x27;;
+        context.fillText( text, width/2, height/2 );
+
+        var texture = new THREE.Texture( canvas );
+        texture.needsUpdate = true;
+
+        var materialOptions = { map: texture, sizeAttenuation: false, depthWrite: false };
+        if ( opacity &lt; 1 ) {
+            // Setting opacity=1 would cause the texture&#x27;s alpha component to be
+            // discarded, giving the text a black background instead of the
+            // background being transparent.
+            materialOptions.opacity = opacity;
+        }
+        var sprite = new THREE.Sprite( new THREE.SpriteMaterial( materialOptions ) );
+        sprite.position.set( x, y, z );
+
+        // Scaling factor, chosen somewhat arbitrarily so that the size of the text
+        // is consistent with previously generated plots.
+        var scale = 1/625;
+        if ( options.projection === &#x27;orthographic&#x27; ) {
+            scale = midToCorner/256; // Needs to scale along with the plot itself.
+        }
+        sprite.scale.set( scale * width, scale * height, 1 );
+
+        scene.add( sprite );
+
+        return sprite;
+
+    }
+
+    if ( options.axes ) scene.add( new THREE.AxesHelper( Math.min( a[0]*b[1].x, a[1]*b[1].y, a[2]*b[1].z ) ) );
+
+    var camera = createCamera();
+    camera.up.set( 0, 0, 1 );
+    camera.position.set( a[0]*xMid, a[1]*yMid, a[2]*zMid );
+
+    // camera is positioned so that the line from the camera to the center
+    // of the bounding sphere of the objects makes an angle of 60 degrees with x-axis
+    // and an angle of 30 degrees with z-axis and the field of view of the camera looking
+    // at the center has an angle of 45 degrees.
+    const sin8 = Math.sin(Math.PI / 8);
+    const sin5 = Math.sin(Math.PI / 5);
+    const cos5 = Math.cos(Math.PI / 5);
+    const sin3 = Math.sin(Math.PI / 3);
+    const cos3 = Math.cos(Math.PI / 3);
+    var r = midToCorner / sin8;
+    var offset = new THREE.Vector3( r * sin3 * cos5, r * sin3 * sin5, r * cos3 );
+
+    if ( options.viewpoint ) {
+
+        var aa = options.viewpoint;
+        var axis = new THREE.Vector3( aa[0][0], aa[0][1], aa[0][2] ).normalize();
+        var angle = aa[1] * Math.PI / 180;
+        var q = new THREE.Quaternion().setFromAxisAngle( axis, angle ).inverse();
+
+        offset.set( 0, 0, offset.length() );
+        offset.applyQuaternion( q );
+
+    }
+
+    camera.position.add( offset );
+
+    function createCamera() {
+
+        var aspect = window.innerWidth / window.innerHeight;
+
+        // Scale the near and far clipping planes along with the overall plot size.
+        var nearClip = 0.01 * midToCorner;
+        var farClip = 100 * midToCorner;
+
+        if ( options.projection === &#x27;orthographic&#x27; ) {
+            var camera = new THREE.OrthographicCamera( -1, 1, 1, -1, -farClip, farClip );
+            updateCameraAspect( camera, aspect );
+            return camera;
+        }
+
+        return new THREE.PerspectiveCamera( 45, aspect, nearClip, farClip );
+
+    }
+
+    function updateCameraAspect( camera, aspect ) {
+
+        if ( camera.isPerspectiveCamera ) {
+            camera.aspect = aspect;
+        } else if ( camera.isOrthographicCamera ) {
+            // Fit the camera frustum to the bounding box&#x27;s diagonal so that the entire plot fits
+            // within at the default zoom level and camera position.
+            if ( aspect &gt; 1 ) { // Wide window
+                camera.top = midToCorner;
+                camera.right = midToCorner * aspect;
+            } else { // Tall or square window
+                camera.top = midToCorner / aspect;
+                camera.right = midToCorner;
+            }
+            camera.bottom = -camera.top;
+            camera.left = -camera.right;
+        }
+
+        camera.updateProjectionMatrix();
+
+    }
+
+    var lights = [{&quot;x&quot;:-5, &quot;y&quot;:3, &quot;z&quot;:0, &quot;color&quot;:&quot;#7f7f7f&quot;, &quot;parent&quot;:&quot;camera&quot;}];
+    for ( var i=0 ; i &lt; lights.length ; i++ ) {
+        var light = new THREE.DirectionalLight( lights[i].color, 1 );
+        light.position.set( a[0]*lights[i].x, a[1]*lights[i].y, a[2]*lights[i].z );
+        if ( lights[i].parent === &#x27;camera&#x27; ) {
+            light.target.position.set( a[0]*xMid, a[1]*yMid, a[2]*zMid );
+            scene.add( light.target );
+            camera.add( light );
+        } else scene.add( light );
+    }
+    scene.add( camera );
+
+    var ambient = {&quot;color&quot;:&quot;#7f7f7f&quot;};
+    scene.add( new THREE.AmbientLight( ambient.color, 1 ) );
+
+    var controls = new THREE.OrbitControls( camera, renderer.domElement );
+    controls.target.set( a[0]*xMid, a[1]*yMid, a[2]*zMid );
+    controls.addEventListener( &#x27;change&#x27;, function() { if ( !animate ) render(); } );
+
+    window.addEventListener( &#x27;resize&#x27;, function() {
+
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        updateCameraAspect( camera, window.innerWidth / window.innerHeight );
+        if ( window.rescaleFatLines ) rescaleFatLines();
+        if ( !animate ) render();
+
+    } );
+
+    var texts = [];
+    for ( var i=0 ; i &lt; texts.length ; i++ ) addText( texts[i] );
+
+    function addText( json ) {
+        var sprite = addLabel( json.text, a[0]*json.x, a[1]*json.y, a[2]*json.z, json );
+        sprite.userData = json;
+    }
+
+    var points = [];
+    for ( var i=0 ; i &lt; points.length ; i++ ) addPoint( points[i] );
+
+    function addPoint( json ) {
+
+        var geometry = new THREE.Geometry();
+        var v = json.point;
+        geometry.vertices.push( new THREE.Vector3( a[0]*v[0], a[1]*v[1], a[2]*v[2] ) );
+
+        var canvas = document.createElement( &#x27;canvas&#x27; );
+        canvas.width = 128;
+        canvas.height = 128;
+
+        var context = canvas.getContext( &#x27;2d&#x27; );
+        context.arc( 64, 64, 64, 0, 2 * Math.PI );
+        context.fillStyle = json.color;
+        context.fill();
+
+        var texture = new THREE.Texture( canvas );
+        texture.needsUpdate = true;
+
+        var transparent = json.opacity &lt; 1 ? true : false;
+        var size = camera.isOrthographicCamera ? json.size : json.size/100;
+        var material = new THREE.PointsMaterial( { size: size, map: texture,
+                                                   transparent: transparent, opacity: json.opacity,
+                                                   alphaTest: .1 } );
+
+        var c = new THREE.Vector3();
+        geometry.computeBoundingBox();
+        geometry.boundingBox.getCenter( c );
+        geometry.translate( -c.x, -c.y, -c.z );
+
+        var mesh = new THREE.Points( geometry, material );
+        mesh.position.set( c.x, c.y, c.z );
+        mesh.userData = json;
+        scene.add( mesh );
+
+    }
+
+    var lines = [{&quot;points&quot;: [[0.0, 4.0, 2.0], [0.02702702702702703, 3.945945945945946, 1.972972972972973], [0.05405405405405406, 3.891891891891892, 1.945945945945946], [0.08108108108108109, 3.8378378378378377, 1.9189189189189189], [0.10810810810810811, 3.7837837837837838, 1.8918918918918919], [0.13513513513513514, 3.72972972972973, 1.864864864864865], [0.16216216216216217, 3.6756756756756754, 1.8378378378378377], [0.1891891891891892, 3.6216216216216215, 1.8108108108108107], [0.21621621621621623, 3.5675675675675675, 1.7837837837837838], [0.24324324324324326, 3.5135135135135136, 1.7567567567567568], [0.2702702702702703, 3.4594594594594597, 1.7297297297297298], [0.2972972972972973, 3.4054054054054053, 1.7027027027027026], [0.32432432432432434, 3.3513513513513513, 1.6756756756756757], [0.35135135135135137, 3.2972972972972974, 1.6486486486486487], [0.3783783783783784, 3.243243243243243, 1.6216216216216215], [0.40540540540540543, 3.189189189189189, 1.5945945945945945], [0.43243243243243246, 3.135135135135135, 1.5675675675675675], [0.4594594594594595, 3.081081081081081, 1.5405405405405406], [0.4864864864864865, 3.027027027027027, 1.5135135135135136], [0.5135135135135136, 2.972972972972973, 1.4864864864864864], [0.5405405405405406, 2.918918918918919, 1.4594594594594594], [0.5675675675675675, 2.864864864864865, 1.4324324324324325], [0.5945945945945945, 2.810810810810811, 1.4054054054054055], [0.6216216216216215, 2.756756756756757, 1.3783783783783785], [0.6486486486486485, 2.702702702702703, 1.3513513513513515], [0.6756756756756754, 2.648648648648649, 1.3243243243243246], [0.7027027027027024, 2.594594594594595, 1.2972972972972976], [0.7297297297297294, 2.5405405405405412, 1.2702702702702706], [0.7567567567567564, 2.4864864864864873, 1.2432432432432436], [0.7837837837837833, 2.4324324324324333, 1.2162162162162167], [0.8108108108108103, 2.3783783783783794, 1.1891891891891897], [0.8378378378378373, 2.3243243243243255, 1.1621621621621627], [0.8648648648648642, 2.2702702702702715, 1.1351351351351358], [0.8918918918918912, 2.2162162162162176, 1.1081081081081088], [0.9189189189189182, 2.1621621621621636, 1.0810810810810818], [0.9459459459459452, 2.1081081081081097, 1.0540540540540548], [0.9729729729729721, 2.0540540540540557, 1.0270270270270279], [0.9999999999999991, 2.0000000000000018, 1.0000000000000009], [1.027027027027026, 1.9459459459459478, 0.9729729729729739], [1.054054054054053, 1.8918918918918939, 0.9459459459459469], [1.08108108108108, 1.83783783783784, 0.91891891891892], [1.108108108108107, 1.783783783783786, 0.891891891891893], [1.135135135135134, 1.729729729729732, 0.864864864864866], [1.162162162162161, 1.675675675675678, 0.837837837837839], [1.189189189189188, 1.6216216216216242, 0.8108108108108121], [1.216216216216215, 1.5675675675675702, 0.7837837837837851], [1.2432432432432419, 1.5135135135135163, 0.7567567567567581], [1.2702702702702688, 1.4594594594594623, 0.7297297297297312], [1.2972972972972958, 1.4054054054054084, 0.7027027027027042], [1.3243243243243228, 1.3513513513513544, 0.6756756756756772], [1.3513513513513498, 1.2972972972973005, 0.6486486486486502], [1.3783783783783767, 1.2432432432432465, 0.6216216216216233], [1.4054054054054037, 1.1891891891891926, 0.5945945945945963], [1.4324324324324307, 1.1351351351351386, 0.5675675675675693], [1.4594594594594577, 1.0810810810810847, 0.5405405405405423], [1.4864864864864846, 1.0270270270270307, 0.5135135135135154], [1.5135135135135116, 0.9729729729729768, 0.4864864864864884], [1.5405405405405386, 0.9189189189189229, 0.45945945945946143], [1.5675675675675655, 0.8648648648648689, 0.43243243243243445], [1.5945945945945925, 0.810810810810815, 0.4054054054054075], [1.6216216216216195, 0.756756756756761, 0.3783783783783805], [1.6486486486486465, 0.7027027027027071, 0.35135135135135354], [1.6756756756756734, 0.6486486486486531, 0.32432432432432656], [1.7027027027027004, 0.5945945945945992, 0.2972972972972996], [1.7297297297297274, 0.5405405405405452, 0.2702702702702726], [1.7567567567567544, 0.4864864864864913, 0.24324324324324564], [1.7837837837837813, 0.43243243243243734, 0.21621621621621867], [1.8108108108108083, 0.3783783783783834, 0.1891891891891917], [1.8378378378378353, 0.32432432432432945, 0.16216216216216472], [1.8648648648648622, 0.2702702702702755, 0.13513513513513775], [1.8918918918918892, 0.21621621621622156, 0.10810810810811078], [1.9189189189189162, 0.1621621621621676, 0.0810810810810838], [1.9459459459459432, 0.10810810810811367, 0.05405405405405683], [1.9729729729729701, 0.05405405405405972, 0.02702702702702986], [2.0, 0.0, 0.0]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0, &quot;linewidth&quot;: 2.0}];
+    for ( var i=0 ; i &lt; lines.length ; i++ ) addLine( lines[i] );
+
+    function addLine( json ) {
+
+        var geometry = new THREE.Geometry();
+        for ( var i=0 ; i &lt; json.points.length ; i++ ) {
+            var v = json.points[i];
+            geometry.vertices.push( new THREE.Vector3( a[0]*v[0], a[1]*v[1], a[2]*v[2] ) );
+        }
+
+        var c = new THREE.Vector3();
+        geometry.computeBoundingBox();
+        geometry.boundingBox.getCenter( c );
+        geometry.translate( -c.x, -c.y, -c.z );
+
+        var transparent = json.opacity &lt; 1 ? true : false;
+        var materialOptions = { color: json.color, linewidth: json.linewidth,
+                                transparent: transparent, opacity: json.opacity };
+
+        var mesh;
+        if ( json.linewidth &gt; 1 &amp;&amp; window.createFatLineStrip ) {
+            mesh = createFatLineStrip( geometry, materialOptions );
+        } else {
+            var material = new THREE.LineBasicMaterial( materialOptions );
+            mesh = new THREE.Line( geometry, material );
+        }
+
+        mesh.position.set( c.x, c.y, c.z );
+        mesh.userData = json;
+        scene.add( mesh );
+
+    }
+
+    var surfaces = [];
+    for ( var i=0 ; i &lt; surfaces.length ; i++ ) addSurface( surfaces[i] );
+
+    function addSurface( json ) {
+
+        var useFaceColors = &#x27;faceColors&#x27; in json ? true : false;
+
+        var geometry = new THREE.Geometry();
+        for ( var i=0 ; i &lt; json.vertices.length ; i++ ) {
+            var v = json.vertices[i];
+            geometry.vertices.push( new THREE.Vector3( a[0]*v.x, a[1]*v.y, a[2]*v.z ) );
+        }
+        for ( var i=0 ; i &lt; json.faces.length ; i++ ) {
+            var f = json.faces[i];
+            for ( var j=0 ; j &lt; f.length - 2 ; j++ ) {
+                var face = new THREE.Face3( f[0], f[j+1], f[j+2] );
+                if ( useFaceColors ) face.color.set( json.faceColors[i] );
+                geometry.faces.push( face );
+            }
+        }
+        geometry.computeVertexNormals();
+
+        var side = json.singleSide ? THREE.FrontSide : THREE.DoubleSide;
+        var transparent = json.opacity &lt; 1 ? true : false;
+        var depthWrite = &#x27;depthWrite&#x27; in json ? json.depthWrite : !transparent;
+        var flatShading = json.useFlatShading ? json.useFlatShading : false;
+
+        var material = new THREE.MeshPhongMaterial( { side: side,
+                                     color: useFaceColors ? &#x27;white&#x27; : json.color,
+                                     vertexColors: useFaceColors ? THREE.FaceColors : THREE.NoColors,
+                                     transparent: transparent, opacity: json.opacity,
+                                     shininess: 20, flatShading: flatShading,
+                                     depthWrite: depthWrite } );
+
+        var c = new THREE.Vector3();
+        geometry.computeBoundingBox();
+        geometry.boundingBox.getCenter( c );
+        geometry.translate( -c.x, -c.y, -c.z );
+
+        var mesh = new THREE.Mesh( geometry, material );
+        mesh.position.set( c.x, c.y, c.z );
+        if ( transparent &amp;&amp; json.renderOrder ) mesh.renderOrder = json.renderOrder;
+        mesh.userData = json;
+        scene.add( mesh );
+
+        if ( json.showMeshGrid ) addSurfaceMeshGrid( json );
+
+    }
+
+    function addSurfaceMeshGrid( json ) {
+
+        var geometry = new THREE.Geometry();
+
+        for ( var i=0 ; i &lt; json.faces.length ; i++ ) {
+            var f = json.faces[i];
+            for ( var j=0 ; j &lt; f.length ; j++ ) {
+                var k = j === f.length-1 ? 0 : j+1;
+                var v1 = json.vertices[f[j]];
+                var v2 = json.vertices[f[k]];
+                // vertices in opposite directions on neighboring faces
+                var nudge = f[j] &lt; f[k] ? .0005*zRange : -.0005*zRange;
+                geometry.vertices.push( new THREE.Vector3( a[0]*v1.x, a[1]*v1.y, a[2]*(v1.z+nudge) ) );
+                geometry.vertices.push( new THREE.Vector3( a[0]*v2.x, a[1]*v2.y, a[2]*(v2.z+nudge) ) );
+            }
+        }
+
+        var c = new THREE.Vector3();
+        geometry.computeBoundingBox();
+        geometry.boundingBox.getCenter( c );
+        geometry.translate( -c.x, -c.y, -c.z );
+
+        var gridColor = options.theme === &#x27;dark&#x27; ? &#x27;white&#x27; : &#x27;black&#x27;;
+        var linewidth = json.linewidth || 1;
+        var materialOptions = { color: gridColor, linewidth: linewidth };
+
+        var mesh;
+        if ( linewidth &gt; 1 &amp;&amp; window.createFatLineSegments ) {
+            mesh = createFatLineSegments( geometry, materialOptions );
+        } else {
+            var material = new THREE.LineBasicMaterial( materialOptions );
+            mesh = new THREE.LineSegments( geometry, material );
+        }
+
+        mesh.position.set( c.x, c.y, c.z );
+        mesh.userData = json;
+        scene.add( mesh );
+
+    }
+
+    function render() {
+
+        if ( window.updateAnimation ) animate = updateAnimation();
+        if ( animate ) requestAnimationFrame( render );
+
+        renderer.render( scene, camera );
+
+    }
+
+    render();
+    controls.update();
+    if ( !animate ) render();
+
+
+    // menu functions
+
+    function toggleMenu() {
+
+        var m = document.getElementById( &#x27;menu-content&#x27; );
+        if ( m.style.display === &#x27;block&#x27; ) m.style.display = &#x27;none&#x27;
+        else m.style.display = &#x27;block&#x27;;
+
+    }
+
+
+    function saveAsPNG() {
+
+        var a = document.body.appendChild( document.createElement( &#x27;a&#x27; ) );
+        a.href = renderer.domElement.toDataURL( &#x27;image/png&#x27; );
+        a.download = &#x27;screenshot&#x27;;
+        a.click();
+
+    }
+
+    function saveAsHTML() {
+
+        toggleMenu(); // otherwise visible in output
+        event.stopPropagation();
+
+        var blob = new Blob( [ &#x27;&lt;!DOCTYPE html&gt;\n&#x27; + document.documentElement.outerHTML ] );
+        var a = document.body.appendChild( document.createElement( &#x27;a&#x27; ) );
+        a.href = window.URL.createObjectURL( blob );
+        a.download = suggestFilename();
+        a.click();
+
+        function suggestFilename() {
+            if ( !document.title ) {
+                return &#x27;graphic.html&#x27;;
+            } else if ( /\.html?$/i.test( document.title ) ) {
+                return document.title; // already ends in .htm or .html
+            } else {
+                return document.title + &#x27;.html&#x27;;
+            }
+        }
+
+    }
+
+    function getViewpoint() {
+
+        function roundTo( x, n ) { return +x.toFixed(n); }
+
+        var v = camera.quaternion.inverse();
+        var r = Math.sqrt( v.x*v.x + v.y*v.y + v.z*v.z );
+        var axis = [ roundTo( v.x / r, 4 ), roundTo( v.y / r, 4 ), roundTo( v.z / r, 4 ) ];
+        var angle = roundTo( 2 * Math.atan2( r, v.w ) * 180 / Math.PI, 2 );
+
+        var textArea = document.createElement( &#x27;textarea&#x27; );
+        textArea.textContent = JSON.stringify( axis ) + &#x27;,&#x27; + angle;
+        textArea.style.csstext = &#x27;position: absolute; top: -100%&#x27;;
+        document.body.append( textArea );
+        textArea.select();
+        document.execCommand( &#x27;copy&#x27; );
+
+        var m = document.getElementById( &#x27;menu-message&#x27; );
+        m.innerHTML = &#x27;Viewpoint copied to clipboard&#x27;;
+        m.style.display = &#x27;block&#x27;;
+        setTimeout( function() { m.style.display = &#x27;none&#x27;; }, 2000 );
+
+    }
+
+    function getCamera() {
+
+        function roundTo( x, n ) { return +x.toFixed(n); }
+
+        var pos = camera.position;
+        var pos_r = [ roundTo( pos.x, 4 ), roundTo( pos.y, 4 ), roundTo( pos.z, 4 ) ];
+   //     var up = camera.up; // up is always (0,0,1)
+        var textArea = document.createElement(&#x27;textarea&#x27;);
+        var cam_position = JSON.stringify(pos_r);
+        textArea.textContent = &#x27;,camera_position=&#x27; + cam_position;
+        textArea.style.csstext = &#x27;position: absolute; top: -100%&#x27;;
+        document.body.append( textArea );
+        textArea.select();
+        document.execCommand( &#x27;copy&#x27; );
+
+        var m = document.getElementById( &#x27;menu-message&#x27; );
+        m.innerHTML = &#x27;Camera position &#x27;+ cam_position+&#x27; copied to clipboard&#x27;;
+        m.style.display = &#x27;block&#x27;;
+        setTimeout( function() { m.style.display = &#x27;none&#x27;; }, 2000 );
+
+    }
+
+&lt;/script&gt;
+
+&lt;div id=&quot;menu-container&quot; onclick=&quot;toggleMenu()&quot;&gt;&amp;#x24d8;
+&lt;div id=&quot;menu-message&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;menu-content&quot;&gt;
+&lt;div onclick=&quot;saveAsPNG()&quot;&gt;Save as PNG&lt;/div&gt;
+&lt;div onclick=&quot;saveAsHTML()&quot;&gt;Save as HTML&lt;/div&gt;
+&lt;div onclick=&quot;getCamera()&quot;&gt;Get camera&lt;/div&gt;
+&lt;div onclick=&quot;getViewpoint()&quot;&gt;Get viewpoint&lt;/div&gt;
+&lt;div&gt;Close Menu&lt;/div&gt;
+&lt;/div&gt;&lt;/div&gt;
+
+
+&lt;/body&gt;
+&lt;/html&gt;
+"
+        width="100%"
+        height="400"
+        style="border: 0;">
+</iframe>
+</div></div>
+</div>
+</section>
+<section id="limits">
+<h2>Limits<a class="headerlink" href="#limits" title="Link to this heading"></a></h2>
+<p>The limit of a vector valued function (so it appears) is also a vector:</p>
+<p><img alt="" src="../../../../_images/limits.png" /></p>
+<p>We can’t find such limits directly in sage, but we can write a function to do it easily:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Do assignment 12.1 with our new function </span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">var</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+<span class="n">V</span> <span class="o">=</span> <span class="n">vector</span><span class="p">([</span><span class="mi">4</span><span class="o">*</span><span class="n">t</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="n">t</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">t</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">t</span> <span class="o">-</span><span class="mi">63</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">7</span><span class="p">),</span> <span class="mi">2</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">)])</span>
+<span class="n">latex</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\left(4 \, t^{2} - t - 2,\,\frac{t^{2} + 2 \, t - 63}{t - 7},\,2 \, \cos\left(t\right)\right)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">vvf_limit</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns a list with the limit of a vector valued function</span>
+
+<span class="sd">    Parameters:  </span>
+<span class="sd">        fn: The vector, list, or tuple representing the vector valued function</span>
+<span class="sd">        v:  The variable used in the function</span>
+<span class="sd">        a:  The &quot;endpoint&quot; or target of the limit, e.g. oo for infinity, 0, etc.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A list of values with the limit of each component of the function</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">limit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">l</span><span class="p">]</span>
+    
+    <span class="n">t</span> <span class="o">=</span> <span class="n">var</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+<span class="n">r5</span> <span class="o">=</span> <span class="p">[</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span> <span class="o">+</span> <span class="n">t</span><span class="p">),</span> <span class="mi">3</span><span class="o">*</span><span class="n">e</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">t</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vvf_limit</span><span class="p">(</span><span class="n">r5</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">display</span> plain
+<span class="n">t</span> <span class="o">=</span> <span class="n">var</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+<span class="n">x</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="n">t</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="n">t</span> <span class="o">-</span><span class="mi">2</span>
+<span class="n">y</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">t</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">t</span> <span class="o">-</span><span class="mi">63</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">z</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="n">V</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">y</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">z</span><span class="p">(</span><span class="n">t</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;12.1 question 5&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vvf_limit</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">12.1 question 5&quot;</span><span class="p">)</span>
+<span class="n">V2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">t</span><span class="o">^</span><span class="mi">2</span>  <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">t</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">t</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">t</span> <span class="o">-</span><span class="mi">24</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">4</span><span class="p">),</span> <span class="mi">4</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">V2</span><span class="p">)</span>
+<span class="n">vvf_limit</span><span class="p">(</span><span class="n">V2</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+
+<span class="n">lim</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="n">t</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12.1 question 5
+[4*t^2 - t - 2, (t^2 + 2*t - 63)/(t - 7), 2*cos(t)]
+[187, 16, 2*cos(7)]
+
+12.1 question 5
+[2*t^2 + 3*t - 1, (t^2 + 2*t - 24)/(t - 4), 4*cos(t)]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="continutity">
+<h2>Continutity<a class="headerlink" href="#continutity" title="Link to this heading"></a></h2>
+<p>A vector valued function <span class="math notranslate nohighlight">\(r(t)\)</span> is continuous at <span class="math notranslate nohighlight">\(t_0\)</span> if <span class="math notranslate nohighlight">\(\lim\limits_{t \to t_0} r(t) = r(t_0)\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># An ellipse and an eliptical helix, comment out one or the other</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">var</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="c1"># parametric_plot([sin(x), 2*cos(x)], (x, 0, 2*pi))</span>
+<span class="n">parametric_plot3d</span><span class="p">([</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="mi">2</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="p">],</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="o">*</span><span class="n">pi</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;&lt;/title&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=viewport content=&quot;width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0&quot;&gt;
+&lt;style&gt;
+
+    body { margin: 0px; overflow: hidden; }
+
+    #menu-container { position: absolute; bottom: 30px; right: 40px; cursor: default; }
+
+    #menu-message { position: absolute; bottom: 0px; right: 0px; white-space: nowrap;
+                    display: none; background-color: #F5F5F5; padding: 10px; }
+
+    #menu-content { position: absolute; bottom: 0px; right: 0px;
+                    display: none; background-color: #F5F5F5; border-bottom: 1px solid black;
+                    border-right: 1px solid black; border-left: 1px solid black; }
+
+    #menu-content div { border-top: 1px solid black; padding: 10px; white-space: nowrap; }
+
+    #menu-content div:hover { background-color: #FEFEFE; }
+
+    .dark-theme #menu-container { color: white; }
+
+    .dark-theme #menu-message { background-color: #181818; }
+
+    .dark-theme #menu-content { background-color: #181818; border-color: white; }
+
+    .dark-theme #menu-content div { border-color: white; }
+
+    .dark-theme #menu-content div:hover { background-color: #303030; }
+
+&lt;/style&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;script src=&quot;/nbextensions/threejs-sage/r122/three.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  if ( !window.THREE ) document.write(&#x27; \
+&lt;script src=&quot;https://cdn.jsdelivr.net/gh/sagemath/threejs-sage@r122/build/three.min.js&quot;&gt;&lt;\/script&gt; \
+            &#x27;);
+&lt;/script&gt;
+        
+&lt;script&gt;
+
+    var options = {&quot;animate&quot;: false, &quot;animationControls&quot;: true, &quot;aspectRatio&quot;: [1.0, 1.0, 1.0], &quot;autoScaling&quot;: [false, false, false], &quot;autoPlay&quot;: true, &quot;axes&quot;: false, &quot;axesLabels&quot;: [&quot;x&quot;, &quot;y&quot;, &quot;z&quot;], &quot;axesLabelsStyle&quot;: null, &quot;decimals&quot;: 2, &quot;delay&quot;: 20, &quot;frame&quot;: true, &quot;loop&quot;: true, &quot;projection&quot;: &quot;perspective&quot;, &quot;theme&quot;: &quot;light&quot;, &quot;viewpoint&quot;: false};
+    var animate = options.animate;
+
+    if ( options.theme === &#x27;dark&#x27; )
+        document.body.className = &#x27;dark-theme&#x27;;
+
+    var scene = new THREE.Scene();
+
+    var renderer = new THREE.WebGLRenderer( { antialias: true, preserveDrawingBuffer: true } );
+    renderer.setPixelRatio( window.devicePixelRatio );
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.setClearColor( options.theme === &#x27;dark&#x27; ? 0 : 0xffffff, 1 );
+    document.body.appendChild( renderer.domElement );
+
+    var b = [{&quot;x&quot;:-0.9990989662046815, &quot;y&quot;:-1.9927949770850555, &quot;z&quot;:0.0}, {&quot;x&quot;:0.9990989662046825, &quot;y&quot;:2.0, &quot;z&quot;:25.132741228718345}]; // bounds
+
+    if ( b[0].x === b[1].x ) {
+        b[0].x -= 1;
+        b[1].x += 1;
+    }
+    if ( b[0].y === b[1].y ) {
+        b[0].y -= 1;
+        b[1].y += 1;
+    }
+    if ( b[0].z === b[1].z ) {
+        b[0].z -= 1;
+        b[1].z += 1;
+    }
+
+    var rxRange = Math.sqrt( Math.pow( b[1].z - b[0].z, 2 )
+                            + Math.pow( b[1].y - b[0].y, 2 ) );
+    var ryRange = Math.sqrt( Math.pow( b[1].x - b[0].x, 2 )
+                            + Math.pow( b[1].z - b[0].z, 2 ) );
+    var rzRange = Math.sqrt( Math.pow( b[1].x - b[0].x, 2 )
+                            + Math.pow( b[1].y - b[0].y, 2 ) );
+    var xRange = b[1].x - b[0].x;
+    var yRange = b[1].y - b[0].y;
+    var zRange = b[1].z - b[0].z;
+
+    var ar = options.aspectRatio;
+    var a = [ ar[0], ar[1], ar[2] ]; // aspect multipliers
+
+    var autoScaling = options.autoScaling;
+    var autoAspect = 2.5;
+    if ( xRange &gt; autoAspect * rxRange &amp;&amp; autoScaling[0] ) a[0] = autoAspect * rxRange / xRange;
+    if ( yRange &gt; autoAspect * ryRange &amp;&amp; autoScaling[1] ) a[1] = autoAspect * ryRange / yRange;
+    if ( zRange &gt; autoAspect * rzRange &amp;&amp; autoScaling[2] ) a[2] = autoAspect * rzRange / zRange;
+
+    // Distance from (xMid,yMid,zMid) to any corner of the bounding box, after applying aspectRatio
+    var midToCorner = Math.sqrt( a[0]*a[0]*xRange*xRange + a[1]*a[1]*yRange*yRange + a[2]*a[2]*zRange*zRange ) / 2;
+
+    var xMid = ( b[0].x + b[1].x ) / 2;
+    var yMid = ( b[0].y + b[1].y ) / 2;
+    var zMid = ( b[0].z + b[1].z ) / 2;
+
+    var box = new THREE.Geometry();
+    box.vertices.push( new THREE.Vector3( a[0]*b[0].x, a[1]*b[0].y, a[2]*b[0].z ) );
+    box.vertices.push( new THREE.Vector3( a[0]*b[1].x, a[1]*b[1].y, a[2]*b[1].z ) );
+    var boxMesh = new THREE.Line( box );
+    var boxColor = options.theme === &#x27;dark&#x27; ? &#x27;white&#x27; : &#x27;black&#x27;;
+    if ( options.frame ) scene.add( new THREE.BoxHelper( boxMesh, boxColor ) );
+
+    if ( options.axesLabels ) {
+
+        var d = options.decimals; // decimals
+        var offsetRatio = 0.1;
+        var al = options.axesLabels;
+        var als = options.axesLabelsStyle || [{}, {}, {}];
+
+        var offset = offsetRatio * a[1]*( b[1].y - b[0].y );
+        var xm = xMid.toFixed(d);
+        if ( /^-0.?0*$/.test(xm) ) xm = xm.substr(1);
+        addLabel( al[0] + &#x27;=&#x27; + xm, a[0]*xMid, a[1]*b[1].y+offset, a[2]*b[0].z, als[0] );
+        addLabel( ( b[0].x ).toFixed(d), a[0]*b[0].x, a[1]*b[1].y+offset, a[2]*b[0].z, als[0] );
+        addLabel( ( b[1].x ).toFixed(d), a[0]*b[1].x, a[1]*b[1].y+offset, a[2]*b[0].z, als[0] );
+
+        var offset = offsetRatio * a[0]*( b[1].x - b[0].x );
+        var ym = yMid.toFixed(d);
+        if ( /^-0.?0*$/.test(ym) ) ym = ym.substr(1);
+        addLabel( al[1] + &#x27;=&#x27; + ym, a[0]*b[1].x+offset, a[1]*yMid, a[2]*b[0].z, als[1] );
+        addLabel( ( b[0].y ).toFixed(d), a[0]*b[1].x+offset, a[1]*b[0].y, a[2]*b[0].z, als[1] );
+        addLabel( ( b[1].y ).toFixed(d), a[0]*b[1].x+offset, a[1]*b[1].y, a[2]*b[0].z, als[1] );
+
+        var offset = offsetRatio * a[1]*( b[1].y - b[0].y );
+        var zm = zMid.toFixed(d);
+        if ( /^-0.?0*$/.test(zm) ) zm = zm.substr(1);
+        addLabel( al[2] + &#x27;=&#x27; + zm, a[0]*b[1].x, a[1]*b[0].y-offset, a[2]*zMid, als[2] );
+        addLabel( ( b[0].z ).toFixed(d), a[0]*b[1].x, a[1]*b[0].y-offset, a[2]*b[0].z, als[2] );
+        addLabel( ( b[1].z ).toFixed(d), a[0]*b[1].x, a[1]*b[0].y-offset, a[2]*b[1].z, als[2] );
+
+    }
+
+    function addLabel( text, x, y, z, style ) {
+
+        var color = style.color || &#x27;black&#x27;;
+        var fontSize = style.fontSize || 14;
+        var fontFamily = style.fontFamily || &#x27;monospace&#x27;;
+        var fontStyle = style.fontStyle || &#x27;normal&#x27;;
+        var fontWeight = style.fontWeight || &#x27;normal&#x27;;
+        var opacity = style.opacity || 1;
+
+        if ( options.theme === &#x27;dark&#x27; )
+            if ( color === &#x27;black&#x27; || color === &#x27;#000000&#x27; )
+                color = &#x27;white&#x27;;
+
+        if ( Array.isArray( fontStyle ) ) {
+            fontFamily = fontFamily.map( function( f ) {
+                // Need to put quotes around fonts that have whitespace in their names.
+                return /\s/.test( f ) ? &#x27;&quot;&#x27; + f + &#x27;&quot;&#x27; : f;
+            }).join(&#x27;, &#x27;);
+        }
+
+        var canvas = document.createElement( &#x27;canvas&#x27; );
+        var context = canvas.getContext( &#x27;2d&#x27; );
+        var pixelRatio = Math.round( window.devicePixelRatio );
+
+        // For example: italic bold 20px &quot;Times New Roman&quot;, Georgia, serif
+        var font = [fontStyle, fontWeight, fontSize + &#x27;px&#x27;, fontFamily].join(&#x27; &#x27;);
+
+        context.font = font;
+        var width = context.measureText( text ).width;
+        var height = fontSize;
+
+        // The dimensions of the canvas&#x27;s underlying image data need to be powers
+        // of two in order for the resulting texture to support mipmapping.
+        canvas.width = THREE.MathUtils.ceilPowerOfTwo( width * pixelRatio );
+        canvas.height = THREE.MathUtils.ceilPowerOfTwo( height * pixelRatio );
+
+        // Re-compute the unscaled dimensions after the power of two conversion.
+        width = canvas.width / pixelRatio;
+        height = canvas.height / pixelRatio;
+
+        canvas.style.width = width + &#x27;px&#x27;;
+        canvas.style.height = height + &#x27;px&#x27;;
+
+        context.scale( pixelRatio, pixelRatio );
+        context.fillStyle = color;
+        context.font = font; // Must be set again after measureText.
+        context.textAlign = &#x27;center&#x27;;
+        context.textBaseline = &#x27;middle&#x27;;
+        context.fillText( text, width/2, height/2 );
+
+        var texture = new THREE.Texture( canvas );
+        texture.needsUpdate = true;
+
+        var materialOptions = { map: texture, sizeAttenuation: false, depthWrite: false };
+        if ( opacity &lt; 1 ) {
+            // Setting opacity=1 would cause the texture&#x27;s alpha component to be
+            // discarded, giving the text a black background instead of the
+            // background being transparent.
+            materialOptions.opacity = opacity;
+        }
+        var sprite = new THREE.Sprite( new THREE.SpriteMaterial( materialOptions ) );
+        sprite.position.set( x, y, z );
+
+        // Scaling factor, chosen somewhat arbitrarily so that the size of the text
+        // is consistent with previously generated plots.
+        var scale = 1/625;
+        if ( options.projection === &#x27;orthographic&#x27; ) {
+            scale = midToCorner/256; // Needs to scale along with the plot itself.
+        }
+        sprite.scale.set( scale * width, scale * height, 1 );
+
+        scene.add( sprite );
+
+        return sprite;
+
+    }
+
+    if ( options.axes ) scene.add( new THREE.AxesHelper( Math.min( a[0]*b[1].x, a[1]*b[1].y, a[2]*b[1].z ) ) );
+
+    var camera = createCamera();
+    camera.up.set( 0, 0, 1 );
+    camera.position.set( a[0]*xMid, a[1]*yMid, a[2]*zMid );
+
+    // camera is positioned so that the line from the camera to the center
+    // of the bounding sphere of the objects makes an angle of 60 degrees with x-axis
+    // and an angle of 30 degrees with z-axis and the field of view of the camera looking
+    // at the center has an angle of 45 degrees.
+    const sin8 = Math.sin(Math.PI / 8);
+    const sin5 = Math.sin(Math.PI / 5);
+    const cos5 = Math.cos(Math.PI / 5);
+    const sin3 = Math.sin(Math.PI / 3);
+    const cos3 = Math.cos(Math.PI / 3);
+    var r = midToCorner / sin8;
+    var offset = new THREE.Vector3( r * sin3 * cos5, r * sin3 * sin5, r * cos3 );
+
+    if ( options.viewpoint ) {
+
+        var aa = options.viewpoint;
+        var axis = new THREE.Vector3( aa[0][0], aa[0][1], aa[0][2] ).normalize();
+        var angle = aa[1] * Math.PI / 180;
+        var q = new THREE.Quaternion().setFromAxisAngle( axis, angle ).inverse();
+
+        offset.set( 0, 0, offset.length() );
+        offset.applyQuaternion( q );
+
+    }
+
+    camera.position.add( offset );
+
+    function createCamera() {
+
+        var aspect = window.innerWidth / window.innerHeight;
+
+        // Scale the near and far clipping planes along with the overall plot size.
+        var nearClip = 0.01 * midToCorner;
+        var farClip = 100 * midToCorner;
+
+        if ( options.projection === &#x27;orthographic&#x27; ) {
+            var camera = new THREE.OrthographicCamera( -1, 1, 1, -1, -farClip, farClip );
+            updateCameraAspect( camera, aspect );
+            return camera;
+        }
+
+        return new THREE.PerspectiveCamera( 45, aspect, nearClip, farClip );
+
+    }
+
+    function updateCameraAspect( camera, aspect ) {
+
+        if ( camera.isPerspectiveCamera ) {
+            camera.aspect = aspect;
+        } else if ( camera.isOrthographicCamera ) {
+            // Fit the camera frustum to the bounding box&#x27;s diagonal so that the entire plot fits
+            // within at the default zoom level and camera position.
+            if ( aspect &gt; 1 ) { // Wide window
+                camera.top = midToCorner;
+                camera.right = midToCorner * aspect;
+            } else { // Tall or square window
+                camera.top = midToCorner / aspect;
+                camera.right = midToCorner;
+            }
+            camera.bottom = -camera.top;
+            camera.left = -camera.right;
+        }
+
+        camera.updateProjectionMatrix();
+
+    }
+
+    var lights = [{&quot;x&quot;:-5, &quot;y&quot;:3, &quot;z&quot;:0, &quot;color&quot;:&quot;#7f7f7f&quot;, &quot;parent&quot;:&quot;camera&quot;}];
+    for ( var i=0 ; i &lt; lights.length ; i++ ) {
+        var light = new THREE.DirectionalLight( lights[i].color, 1 );
+        light.position.set( a[0]*lights[i].x, a[1]*lights[i].y, a[2]*lights[i].z );
+        if ( lights[i].parent === &#x27;camera&#x27; ) {
+            light.target.position.set( a[0]*xMid, a[1]*yMid, a[2]*zMid );
+            scene.add( light.target );
+            camera.add( light );
+        } else scene.add( light );
+    }
+    scene.add( camera );
+
+    var ambient = {&quot;color&quot;:&quot;#7f7f7f&quot;};
+    scene.add( new THREE.AmbientLight( ambient.color, 1 ) );
+
+    var controls = new THREE.OrbitControls( camera, renderer.domElement );
+    controls.target.set( a[0]*xMid, a[1]*yMid, a[2]*zMid );
+    controls.addEventListener( &#x27;change&#x27;, function() { if ( !animate ) render(); } );
+
+    window.addEventListener( &#x27;resize&#x27;, function() {
+
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        updateCameraAspect( camera, window.innerWidth / window.innerHeight );
+        if ( window.rescaleFatLines ) rescaleFatLines();
+        if ( !animate ) render();
+
+    } );
+
+    var texts = [];
+    for ( var i=0 ; i &lt; texts.length ; i++ ) addText( texts[i] );
+
+    function addText( json ) {
+        var sprite = addLabel( json.text, a[0]*json.x, a[1]*json.y, a[2]*json.z, json );
+        sprite.userData = json;
+    }
+
+    var points = [];
+    for ( var i=0 ; i &lt; points.length ; i++ ) addPoint( points[i] );
+
+    function addPoint( json ) {
+
+        var geometry = new THREE.Geometry();
+        var v = json.point;
+        geometry.vertices.push( new THREE.Vector3( a[0]*v[0], a[1]*v[1], a[2]*v[2] ) );
+
+        var canvas = document.createElement( &#x27;canvas&#x27; );
+        canvas.width = 128;
+        canvas.height = 128;
+
+        var context = canvas.getContext( &#x27;2d&#x27; );
+        context.arc( 64, 64, 64, 0, 2 * Math.PI );
+        context.fillStyle = json.color;
+        context.fill();
+
+        var texture = new THREE.Texture( canvas );
+        texture.needsUpdate = true;
+
+        var transparent = json.opacity &lt; 1 ? true : false;
+        var size = camera.isOrthographicCamera ? json.size : json.size/100;
+        var material = new THREE.PointsMaterial( { size: size, map: texture,
+                                                   transparent: transparent, opacity: json.opacity,
+                                                   alphaTest: .1 } );
+
+        var c = new THREE.Vector3();
+        geometry.computeBoundingBox();
+        geometry.boundingBox.getCenter( c );
+        geometry.translate( -c.x, -c.y, -c.z );
+
+        var mesh = new THREE.Points( geometry, material );
+        mesh.position.set( c.x, c.y, c.z );
+        mesh.userData = json;
+        scene.add( mesh );
+
+    }
+
+    var lines = [{&quot;points&quot;: [[0.0, 2.0, 0.0], [0.33313979474205757, 1.8857548909221684, 0.33963163822592357], [0.6282199972956423, 1.556071508636879, 0.6792632764518471], [0.8515291377333113, 1.0486145671144633, 1.0188949146777708], [0.9775552389476861, 0.42135853999145284, 1.3585265529036943], [0.991900435258877, -0.25403563949375707, 1.6981581911296177], [0.8929258581495686, -0.900407489635346, 2.037789829355541], [0.6919388689775465, -1.4439121879090482, 2.3774214675814647], [0.41190124824399327, -1.822456980776271, 2.717053105807388], [0.08480592447550994, -1.9927949770850528, 3.0566847440333116], [-0.25197806138512435, -1.9354658938669982, 3.396316382259235], [-0.5599747861375945, -1.6570192984876855, 3.7359480204851585], [-0.8039971303669401, -1.1892663526085743, 4.075579658711082], [-0.9561667347392507, -0.5856455425531024, 4.415211296937006], [-0.9990989662046815, 0.08488240639229466, 4.754842935162929], [-0.9278890272965098, 0.7457129555606151, 5.094474573388853], [-0.7506723052527252, 1.321349446780161, 5.434106211614776], [-0.48769494381363576, 1.746028226322375, 5.7737378498407], [-0.16900082032185057, 1.9712318206954165, 6.113369488066623], [0.16900082032184746, 1.9712318206954176, 6.453001126292547], [0.487694943813633, 1.746028226322378, 6.79263276451847], [0.7506723052527231, 1.3213494467801659, 7.1322644027443935], [0.9278890272965086, 0.745712955560621, 7.471896040970317], [0.9990989662046814, 0.08488240639230096, 7.8115276791962405], [0.9561667347392514, -0.5856455425530981, 8.151159317422165], [0.803997130366941, -1.1892663526085723, 8.49079095564809], [0.5599747861375953, -1.6570192984876844, 8.830422593874014], [0.25197806138512435, -1.9354658938669982, 9.170054232099938], [-0.08480592447551079, -1.9927949770850528, 9.509685870325862], [-0.4119012482439948, -1.8224569807762694, 9.849317508551787], [-0.6919388689775484, -1.4439121879090446, 10.188949146777711], [-0.8929258581495703, -0.9004074896353397, 10.528580785003635], [-0.9919004352588775, -0.25403563949374836, 10.86821242322956], [-0.977555238947685, 0.42135853999146317, 11.207844061455484], [-0.8515291377333081, 1.0486145671144738, 11.547475699681408], [-0.6282199972956369, 1.5560715086368877, 11.887107337907333], [-0.33313979474205035, 1.8857548909221735, 12.226738976133257], [8.391925477342312e-15, 2.0, 12.566370614359181], [0.3331397947420662, 1.8857548909221622, 12.906002252585106], [0.62821999729565, 1.5560715086368666, 13.24563389081103], [0.8515291377333168, 1.0486145671144453, 13.585265529036954], [0.9775552389476886, 0.42135853999143036, 13.924897167262879], [0.9919004352588754, -0.2540356394937816, 14.264528805488803], [0.8929258581495627, -0.9004074896353697, 14.604160443714727], [0.6919388689775363, -1.443912187909068, 14.943792081940652], [0.41190124824397956, -1.8224569807762834, 15.283423720166576], [0.08480592447549407, -1.9927949770850555, 15.6230553583925], [-0.2519780613851406, -1.9354658938669898, 15.962686996618425], [-0.5599747861376078, -1.6570192984876675, 16.302318634844347], [-0.8039971303669499, -1.189266352608548, 16.64195027307027], [-0.9561667347392557, -0.5856455425530693, 16.981581911296196], [-0.9990989662046807, 0.08488240639233095, 17.32121354952212], [-0.9278890272965026, 0.7457129555606505, 17.660845187748045], [-0.750672305252712, 1.321349446780191, 18.00047682597397], [-0.48769494381361755, 1.7460282263223952, 18.340108464199893], [-0.16900082032182917, 1.9712318206954238, 18.679740102425818], [0.16900082032186972, 1.9712318206954098, 19.019371740651742], [0.4876949438136535, 1.7460282263223552, 19.359003378877667], [0.7506723052527392, 1.3213494467801292, 19.69863501710359], [0.927889027296518, 0.7457129555605742, 20.038266655329515], [0.9990989662046825, 0.0848824063922487, 20.37789829355544], [0.9561667347392437, -0.585645542553148, 20.717529931781364], [0.8039971303669254, -1.1892663526086142, 21.05716157000729], [0.5599747861375737, -1.6570192984877137, 21.396793208233213], [0.2519780613850991, -1.9354658938670113, 21.736424846459137], [-0.08480592447553685, -1.9927949770850484, 22.07605648468506], [-0.41190124824401864, -1.8224569807762478, 22.415688122910986], [-0.6919388689775673, -1.4439121879090084, 22.75531976113691], [-0.892925858149582, -0.9004074896352929, 23.094951399362834], [-0.9919004352588808, -0.25403563949369645, 23.43458303758876], [-0.9775552389476796, 0.4213585399915143, 23.774214675814683], [-0.8515291377332944, 1.0486145671145184, 24.113846314040607], [-0.6282199972956166, 1.5560715086369206, 24.45347795226653], [-0.3331397947420257, 1.8857548909221908, 24.793109590492456], [-9.797174393178826e-16, 2.0, 25.132741228718345]], &quot;color&quot;: &quot;#6666ff&quot;, &quot;opacity&quot;: 1.0, &quot;linewidth&quot;: 1.0}];
+    for ( var i=0 ; i &lt; lines.length ; i++ ) addLine( lines[i] );
+
+    function addLine( json ) {
+
+        var geometry = new THREE.Geometry();
+        for ( var i=0 ; i &lt; json.points.length ; i++ ) {
+            var v = json.points[i];
+            geometry.vertices.push( new THREE.Vector3( a[0]*v[0], a[1]*v[1], a[2]*v[2] ) );
+        }
+
+        var c = new THREE.Vector3();
+        geometry.computeBoundingBox();
+        geometry.boundingBox.getCenter( c );
+        geometry.translate( -c.x, -c.y, -c.z );
+
+        var transparent = json.opacity &lt; 1 ? true : false;
+        var materialOptions = { color: json.color, linewidth: json.linewidth,
+                                transparent: transparent, opacity: json.opacity };
+
+        var mesh;
+        if ( json.linewidth &gt; 1 &amp;&amp; window.createFatLineStrip ) {
+            mesh = createFatLineStrip( geometry, materialOptions );
+        } else {
+            var material = new THREE.LineBasicMaterial( materialOptions );
+            mesh = new THREE.Line( geometry, material );
+        }
+
+        mesh.position.set( c.x, c.y, c.z );
+        mesh.userData = json;
+        scene.add( mesh );
+
+    }
+
+    var surfaces = [];
+    for ( var i=0 ; i &lt; surfaces.length ; i++ ) addSurface( surfaces[i] );
+
+    function addSurface( json ) {
+
+        var useFaceColors = &#x27;faceColors&#x27; in json ? true : false;
+
+        var geometry = new THREE.Geometry();
+        for ( var i=0 ; i &lt; json.vertices.length ; i++ ) {
+            var v = json.vertices[i];
+            geometry.vertices.push( new THREE.Vector3( a[0]*v.x, a[1]*v.y, a[2]*v.z ) );
+        }
+        for ( var i=0 ; i &lt; json.faces.length ; i++ ) {
+            var f = json.faces[i];
+            for ( var j=0 ; j &lt; f.length - 2 ; j++ ) {
+                var face = new THREE.Face3( f[0], f[j+1], f[j+2] );
+                if ( useFaceColors ) face.color.set( json.faceColors[i] );
+                geometry.faces.push( face );
+            }
+        }
+        geometry.computeVertexNormals();
+
+        var side = json.singleSide ? THREE.FrontSide : THREE.DoubleSide;
+        var transparent = json.opacity &lt; 1 ? true : false;
+        var depthWrite = &#x27;depthWrite&#x27; in json ? json.depthWrite : !transparent;
+        var flatShading = json.useFlatShading ? json.useFlatShading : false;
+
+        var material = new THREE.MeshPhongMaterial( { side: side,
+                                     color: useFaceColors ? &#x27;white&#x27; : json.color,
+                                     vertexColors: useFaceColors ? THREE.FaceColors : THREE.NoColors,
+                                     transparent: transparent, opacity: json.opacity,
+                                     shininess: 20, flatShading: flatShading,
+                                     depthWrite: depthWrite } );
+
+        var c = new THREE.Vector3();
+        geometry.computeBoundingBox();
+        geometry.boundingBox.getCenter( c );
+        geometry.translate( -c.x, -c.y, -c.z );
+
+        var mesh = new THREE.Mesh( geometry, material );
+        mesh.position.set( c.x, c.y, c.z );
+        if ( transparent &amp;&amp; json.renderOrder ) mesh.renderOrder = json.renderOrder;
+        mesh.userData = json;
+        scene.add( mesh );
+
+        if ( json.showMeshGrid ) addSurfaceMeshGrid( json );
+
+    }
+
+    function addSurfaceMeshGrid( json ) {
+
+        var geometry = new THREE.Geometry();
+
+        for ( var i=0 ; i &lt; json.faces.length ; i++ ) {
+            var f = json.faces[i];
+            for ( var j=0 ; j &lt; f.length ; j++ ) {
+                var k = j === f.length-1 ? 0 : j+1;
+                var v1 = json.vertices[f[j]];
+                var v2 = json.vertices[f[k]];
+                // vertices in opposite directions on neighboring faces
+                var nudge = f[j] &lt; f[k] ? .0005*zRange : -.0005*zRange;
+                geometry.vertices.push( new THREE.Vector3( a[0]*v1.x, a[1]*v1.y, a[2]*(v1.z+nudge) ) );
+                geometry.vertices.push( new THREE.Vector3( a[0]*v2.x, a[1]*v2.y, a[2]*(v2.z+nudge) ) );
+            }
+        }
+
+        var c = new THREE.Vector3();
+        geometry.computeBoundingBox();
+        geometry.boundingBox.getCenter( c );
+        geometry.translate( -c.x, -c.y, -c.z );
+
+        var gridColor = options.theme === &#x27;dark&#x27; ? &#x27;white&#x27; : &#x27;black&#x27;;
+        var linewidth = json.linewidth || 1;
+        var materialOptions = { color: gridColor, linewidth: linewidth };
+
+        var mesh;
+        if ( linewidth &gt; 1 &amp;&amp; window.createFatLineSegments ) {
+            mesh = createFatLineSegments( geometry, materialOptions );
+        } else {
+            var material = new THREE.LineBasicMaterial( materialOptions );
+            mesh = new THREE.LineSegments( geometry, material );
+        }
+
+        mesh.position.set( c.x, c.y, c.z );
+        mesh.userData = json;
+        scene.add( mesh );
+
+    }
+
+    function render() {
+
+        if ( window.updateAnimation ) animate = updateAnimation();
+        if ( animate ) requestAnimationFrame( render );
+
+        renderer.render( scene, camera );
+
+    }
+
+    render();
+    controls.update();
+    if ( !animate ) render();
+
+
+    // menu functions
+
+    function toggleMenu() {
+
+        var m = document.getElementById( &#x27;menu-content&#x27; );
+        if ( m.style.display === &#x27;block&#x27; ) m.style.display = &#x27;none&#x27;
+        else m.style.display = &#x27;block&#x27;;
+
+    }
+
+
+    function saveAsPNG() {
+
+        var a = document.body.appendChild( document.createElement( &#x27;a&#x27; ) );
+        a.href = renderer.domElement.toDataURL( &#x27;image/png&#x27; );
+        a.download = &#x27;screenshot&#x27;;
+        a.click();
+
+    }
+
+    function saveAsHTML() {
+
+        toggleMenu(); // otherwise visible in output
+        event.stopPropagation();
+
+        var blob = new Blob( [ &#x27;&lt;!DOCTYPE html&gt;\n&#x27; + document.documentElement.outerHTML ] );
+        var a = document.body.appendChild( document.createElement( &#x27;a&#x27; ) );
+        a.href = window.URL.createObjectURL( blob );
+        a.download = suggestFilename();
+        a.click();
+
+        function suggestFilename() {
+            if ( !document.title ) {
+                return &#x27;graphic.html&#x27;;
+            } else if ( /\.html?$/i.test( document.title ) ) {
+                return document.title; // already ends in .htm or .html
+            } else {
+                return document.title + &#x27;.html&#x27;;
+            }
+        }
+
+    }
+
+    function getViewpoint() {
+
+        function roundTo( x, n ) { return +x.toFixed(n); }
+
+        var v = camera.quaternion.inverse();
+        var r = Math.sqrt( v.x*v.x + v.y*v.y + v.z*v.z );
+        var axis = [ roundTo( v.x / r, 4 ), roundTo( v.y / r, 4 ), roundTo( v.z / r, 4 ) ];
+        var angle = roundTo( 2 * Math.atan2( r, v.w ) * 180 / Math.PI, 2 );
+
+        var textArea = document.createElement( &#x27;textarea&#x27; );
+        textArea.textContent = JSON.stringify( axis ) + &#x27;,&#x27; + angle;
+        textArea.style.csstext = &#x27;position: absolute; top: -100%&#x27;;
+        document.body.append( textArea );
+        textArea.select();
+        document.execCommand( &#x27;copy&#x27; );
+
+        var m = document.getElementById( &#x27;menu-message&#x27; );
+        m.innerHTML = &#x27;Viewpoint copied to clipboard&#x27;;
+        m.style.display = &#x27;block&#x27;;
+        setTimeout( function() { m.style.display = &#x27;none&#x27;; }, 2000 );
+
+    }
+
+    function getCamera() {
+
+        function roundTo( x, n ) { return +x.toFixed(n); }
+
+        var pos = camera.position;
+        var pos_r = [ roundTo( pos.x, 4 ), roundTo( pos.y, 4 ), roundTo( pos.z, 4 ) ];
+   //     var up = camera.up; // up is always (0,0,1)
+        var textArea = document.createElement(&#x27;textarea&#x27;);
+        var cam_position = JSON.stringify(pos_r);
+        textArea.textContent = &#x27;,camera_position=&#x27; + cam_position;
+        textArea.style.csstext = &#x27;position: absolute; top: -100%&#x27;;
+        document.body.append( textArea );
+        textArea.select();
+        document.execCommand( &#x27;copy&#x27; );
+
+        var m = document.getElementById( &#x27;menu-message&#x27; );
+        m.innerHTML = &#x27;Camera position &#x27;+ cam_position+&#x27; copied to clipboard&#x27;;
+        m.style.display = &#x27;block&#x27;;
+        setTimeout( function() { m.style.display = &#x27;none&#x27;; }, 2000 );
+
+    }
+
+&lt;/script&gt;
+
+&lt;div id=&quot;menu-container&quot; onclick=&quot;toggleMenu()&quot;&gt;&amp;#x24d8;
+&lt;div id=&quot;menu-message&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;menu-content&quot;&gt;
+&lt;div onclick=&quot;saveAsPNG()&quot;&gt;Save as PNG&lt;/div&gt;
+&lt;div onclick=&quot;saveAsHTML()&quot;&gt;Save as HTML&lt;/div&gt;
+&lt;div onclick=&quot;getCamera()&quot;&gt;Get camera&lt;/div&gt;
+&lt;div onclick=&quot;getViewpoint()&quot;&gt;Get viewpoint&lt;/div&gt;
+&lt;div&gt;Close Menu&lt;/div&gt;
+&lt;/div&gt;&lt;/div&gt;
+
+
+&lt;/body&gt;
+&lt;/html&gt;
+"
+        width="100%"
+        height="400"
+        style="border: 0;">
+</iframe>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sustitution example:</span>
+
+<span class="n">r5</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">=</span> <span class="p">[</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span> <span class="o">+</span> <span class="n">t</span><span class="p">),</span> <span class="mi">3</span><span class="o">*</span><span class="n">e</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">t</span><span class="p">)]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">r5</span><span class="p">(</span><span class="mi">9</span><span class="p">),</span> <span class="n">N</span><span class="p">(</span><span class="n">r5</span><span class="p">(</span><span class="mi">9</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(cos(9), sqrt(13), 3*e^18) (-0.911130261884677, 3.60555127546399, 1.96979907411992e8)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Import the Cylinder shape</span>
+<span class="kn">from</span> <span class="nn">sage.plot.plot3d.shapes</span> <span class="kn">import</span> <span class="n">Cylinder</span>
+ 
+<span class="c1"># 2. Create the cylinder object: Cylinder(radius, height)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">Cylinder</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+ 
+<span class="c1"># 3. Display the graph</span>
+<span class="n">C</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">aspect_ratio</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> 
+<span class="c1"># aspect_ratio=(1,1,1) ensures the axes are scaled equally, so it looks circular</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;&lt;/title&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=viewport content=&quot;width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0&quot;&gt;
+&lt;style&gt;
+
+    body { margin: 0px; overflow: hidden; }
+
+    #menu-container { position: absolute; bottom: 30px; right: 40px; cursor: default; }
+
+    #menu-message { position: absolute; bottom: 0px; right: 0px; white-space: nowrap;
+                    display: none; background-color: #F5F5F5; padding: 10px; }
+
+    #menu-content { position: absolute; bottom: 0px; right: 0px;
+                    display: none; background-color: #F5F5F5; border-bottom: 1px solid black;
+                    border-right: 1px solid black; border-left: 1px solid black; }
+
+    #menu-content div { border-top: 1px solid black; padding: 10px; white-space: nowrap; }
+
+    #menu-content div:hover { background-color: #FEFEFE; }
+
+    .dark-theme #menu-container { color: white; }
+
+    .dark-theme #menu-message { background-color: #181818; }
+
+    .dark-theme #menu-content { background-color: #181818; border-color: white; }
+
+    .dark-theme #menu-content div { border-color: white; }
+
+    .dark-theme #menu-content div:hover { background-color: #303030; }
+
+&lt;/style&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;script src=&quot;/nbextensions/threejs-sage/r122/three.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  if ( !window.THREE ) document.write(&#x27; \
+&lt;script src=&quot;https://cdn.jsdelivr.net/gh/sagemath/threejs-sage@r122/build/three.min.js&quot;&gt;&lt;\/script&gt; \
+            &#x27;);
+&lt;/script&gt;
+        
+&lt;script&gt;
+
+    var options = {&quot;animate&quot;: false, &quot;animationControls&quot;: true, &quot;aspectRatio&quot;: [1.0, 1.0, 1.0], &quot;autoScaling&quot;: [false, false, false], &quot;autoPlay&quot;: true, &quot;axes&quot;: false, &quot;axesLabels&quot;: [&quot;x&quot;, &quot;y&quot;, &quot;z&quot;], &quot;axesLabelsStyle&quot;: null, &quot;decimals&quot;: 2, &quot;delay&quot;: 20, &quot;frame&quot;: true, &quot;loop&quot;: true, &quot;projection&quot;: &quot;perspective&quot;, &quot;theme&quot;: &quot;light&quot;, &quot;viewpoint&quot;: false};
+    var animate = options.animate;
+
+    if ( options.theme === &#x27;dark&#x27; )
+        document.body.className = &#x27;dark-theme&#x27;;
+
+    var scene = new THREE.Scene();
+
+    var renderer = new THREE.WebGLRenderer( { antialias: true, preserveDrawingBuffer: true } );
+    renderer.setPixelRatio( window.devicePixelRatio );
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.setClearColor( options.theme === &#x27;dark&#x27; ? 0 : 0xffffff, 1 );
+    document.body.appendChild( renderer.domElement );
+
+    var b = [{&quot;x&quot;:-1.0, &quot;y&quot;:-1.0, &quot;z&quot;:0}, {&quot;x&quot;:1.0, &quot;y&quot;:1.0, &quot;z&quot;:2.0}]; // bounds
+
+    if ( b[0].x === b[1].x ) {
+        b[0].x -= 1;
+        b[1].x += 1;
+    }
+    if ( b[0].y === b[1].y ) {
+        b[0].y -= 1;
+        b[1].y += 1;
+    }
+    if ( b[0].z === b[1].z ) {
+        b[0].z -= 1;
+        b[1].z += 1;
+    }
+
+    var rxRange = Math.sqrt( Math.pow( b[1].z - b[0].z, 2 )
+                            + Math.pow( b[1].y - b[0].y, 2 ) );
+    var ryRange = Math.sqrt( Math.pow( b[1].x - b[0].x, 2 )
+                            + Math.pow( b[1].z - b[0].z, 2 ) );
+    var rzRange = Math.sqrt( Math.pow( b[1].x - b[0].x, 2 )
+                            + Math.pow( b[1].y - b[0].y, 2 ) );
+    var xRange = b[1].x - b[0].x;
+    var yRange = b[1].y - b[0].y;
+    var zRange = b[1].z - b[0].z;
+
+    var ar = options.aspectRatio;
+    var a = [ ar[0], ar[1], ar[2] ]; // aspect multipliers
+
+    var autoScaling = options.autoScaling;
+    var autoAspect = 2.5;
+    if ( xRange &gt; autoAspect * rxRange &amp;&amp; autoScaling[0] ) a[0] = autoAspect * rxRange / xRange;
+    if ( yRange &gt; autoAspect * ryRange &amp;&amp; autoScaling[1] ) a[1] = autoAspect * ryRange / yRange;
+    if ( zRange &gt; autoAspect * rzRange &amp;&amp; autoScaling[2] ) a[2] = autoAspect * rzRange / zRange;
+
+    // Distance from (xMid,yMid,zMid) to any corner of the bounding box, after applying aspectRatio
+    var midToCorner = Math.sqrt( a[0]*a[0]*xRange*xRange + a[1]*a[1]*yRange*yRange + a[2]*a[2]*zRange*zRange ) / 2;
+
+    var xMid = ( b[0].x + b[1].x ) / 2;
+    var yMid = ( b[0].y + b[1].y ) / 2;
+    var zMid = ( b[0].z + b[1].z ) / 2;
+
+    var box = new THREE.Geometry();
+    box.vertices.push( new THREE.Vector3( a[0]*b[0].x, a[1]*b[0].y, a[2]*b[0].z ) );
+    box.vertices.push( new THREE.Vector3( a[0]*b[1].x, a[1]*b[1].y, a[2]*b[1].z ) );
+    var boxMesh = new THREE.Line( box );
+    var boxColor = options.theme === &#x27;dark&#x27; ? &#x27;white&#x27; : &#x27;black&#x27;;
+    if ( options.frame ) scene.add( new THREE.BoxHelper( boxMesh, boxColor ) );
+
+    if ( options.axesLabels ) {
+
+        var d = options.decimals; // decimals
+        var offsetRatio = 0.1;
+        var al = options.axesLabels;
+        var als = options.axesLabelsStyle || [{}, {}, {}];
+
+        var offset = offsetRatio * a[1]*( b[1].y - b[0].y );
+        var xm = xMid.toFixed(d);
+        if ( /^-0.?0*$/.test(xm) ) xm = xm.substr(1);
+        addLabel( al[0] + &#x27;=&#x27; + xm, a[0]*xMid, a[1]*b[1].y+offset, a[2]*b[0].z, als[0] );
+        addLabel( ( b[0].x ).toFixed(d), a[0]*b[0].x, a[1]*b[1].y+offset, a[2]*b[0].z, als[0] );
+        addLabel( ( b[1].x ).toFixed(d), a[0]*b[1].x, a[1]*b[1].y+offset, a[2]*b[0].z, als[0] );
+
+        var offset = offsetRatio * a[0]*( b[1].x - b[0].x );
+        var ym = yMid.toFixed(d);
+        if ( /^-0.?0*$/.test(ym) ) ym = ym.substr(1);
+        addLabel( al[1] + &#x27;=&#x27; + ym, a[0]*b[1].x+offset, a[1]*yMid, a[2]*b[0].z, als[1] );
+        addLabel( ( b[0].y ).toFixed(d), a[0]*b[1].x+offset, a[1]*b[0].y, a[2]*b[0].z, als[1] );
+        addLabel( ( b[1].y ).toFixed(d), a[0]*b[1].x+offset, a[1]*b[1].y, a[2]*b[0].z, als[1] );
+
+        var offset = offsetRatio * a[1]*( b[1].y - b[0].y );
+        var zm = zMid.toFixed(d);
+        if ( /^-0.?0*$/.test(zm) ) zm = zm.substr(1);
+        addLabel( al[2] + &#x27;=&#x27; + zm, a[0]*b[1].x, a[1]*b[0].y-offset, a[2]*zMid, als[2] );
+        addLabel( ( b[0].z ).toFixed(d), a[0]*b[1].x, a[1]*b[0].y-offset, a[2]*b[0].z, als[2] );
+        addLabel( ( b[1].z ).toFixed(d), a[0]*b[1].x, a[1]*b[0].y-offset, a[2]*b[1].z, als[2] );
+
+    }
+
+    function addLabel( text, x, y, z, style ) {
+
+        var color = style.color || &#x27;black&#x27;;
+        var fontSize = style.fontSize || 14;
+        var fontFamily = style.fontFamily || &#x27;monospace&#x27;;
+        var fontStyle = style.fontStyle || &#x27;normal&#x27;;
+        var fontWeight = style.fontWeight || &#x27;normal&#x27;;
+        var opacity = style.opacity || 1;
+
+        if ( options.theme === &#x27;dark&#x27; )
+            if ( color === &#x27;black&#x27; || color === &#x27;#000000&#x27; )
+                color = &#x27;white&#x27;;
+
+        if ( Array.isArray( fontStyle ) ) {
+            fontFamily = fontFamily.map( function( f ) {
+                // Need to put quotes around fonts that have whitespace in their names.
+                return /\s/.test( f ) ? &#x27;&quot;&#x27; + f + &#x27;&quot;&#x27; : f;
+            }).join(&#x27;, &#x27;);
+        }
+
+        var canvas = document.createElement( &#x27;canvas&#x27; );
+        var context = canvas.getContext( &#x27;2d&#x27; );
+        var pixelRatio = Math.round( window.devicePixelRatio );
+
+        // For example: italic bold 20px &quot;Times New Roman&quot;, Georgia, serif
+        var font = [fontStyle, fontWeight, fontSize + &#x27;px&#x27;, fontFamily].join(&#x27; &#x27;);
+
+        context.font = font;
+        var width = context.measureText( text ).width;
+        var height = fontSize;
+
+        // The dimensions of the canvas&#x27;s underlying image data need to be powers
+        // of two in order for the resulting texture to support mipmapping.
+        canvas.width = THREE.MathUtils.ceilPowerOfTwo( width * pixelRatio );
+        canvas.height = THREE.MathUtils.ceilPowerOfTwo( height * pixelRatio );
+
+        // Re-compute the unscaled dimensions after the power of two conversion.
+        width = canvas.width / pixelRatio;
+        height = canvas.height / pixelRatio;
+
+        canvas.style.width = width + &#x27;px&#x27;;
+        canvas.style.height = height + &#x27;px&#x27;;
+
+        context.scale( pixelRatio, pixelRatio );
+        context.fillStyle = color;
+        context.font = font; // Must be set again after measureText.
+        context.textAlign = &#x27;center&#x27;;
+        context.textBaseline = &#x27;middle&#x27;;
+        context.fillText( text, width/2, height/2 );
+
+        var texture = new THREE.Texture( canvas );
+        texture.needsUpdate = true;
+
+        var materialOptions = { map: texture, sizeAttenuation: false, depthWrite: false };
+        if ( opacity &lt; 1 ) {
+            // Setting opacity=1 would cause the texture&#x27;s alpha component to be
+            // discarded, giving the text a black background instead of the
+            // background being transparent.
+            materialOptions.opacity = opacity;
+        }
+        var sprite = new THREE.Sprite( new THREE.SpriteMaterial( materialOptions ) );
+        sprite.position.set( x, y, z );
+
+        // Scaling factor, chosen somewhat arbitrarily so that the size of the text
+        // is consistent with previously generated plots.
+        var scale = 1/625;
+        if ( options.projection === &#x27;orthographic&#x27; ) {
+            scale = midToCorner/256; // Needs to scale along with the plot itself.
+        }
+        sprite.scale.set( scale * width, scale * height, 1 );
+
+        scene.add( sprite );
+
+        return sprite;
+
+    }
+
+    if ( options.axes ) scene.add( new THREE.AxesHelper( Math.min( a[0]*b[1].x, a[1]*b[1].y, a[2]*b[1].z ) ) );
+
+    var camera = createCamera();
+    camera.up.set( 0, 0, 1 );
+    camera.position.set( a[0]*xMid, a[1]*yMid, a[2]*zMid );
+
+    // camera is positioned so that the line from the camera to the center
+    // of the bounding sphere of the objects makes an angle of 60 degrees with x-axis
+    // and an angle of 30 degrees with z-axis and the field of view of the camera looking
+    // at the center has an angle of 45 degrees.
+    const sin8 = Math.sin(Math.PI / 8);
+    const sin5 = Math.sin(Math.PI / 5);
+    const cos5 = Math.cos(Math.PI / 5);
+    const sin3 = Math.sin(Math.PI / 3);
+    const cos3 = Math.cos(Math.PI / 3);
+    var r = midToCorner / sin8;
+    var offset = new THREE.Vector3( r * sin3 * cos5, r * sin3 * sin5, r * cos3 );
+
+    if ( options.viewpoint ) {
+
+        var aa = options.viewpoint;
+        var axis = new THREE.Vector3( aa[0][0], aa[0][1], aa[0][2] ).normalize();
+        var angle = aa[1] * Math.PI / 180;
+        var q = new THREE.Quaternion().setFromAxisAngle( axis, angle ).inverse();
+
+        offset.set( 0, 0, offset.length() );
+        offset.applyQuaternion( q );
+
+    }
+
+    camera.position.add( offset );
+
+    function createCamera() {
+
+        var aspect = window.innerWidth / window.innerHeight;
+
+        // Scale the near and far clipping planes along with the overall plot size.
+        var nearClip = 0.01 * midToCorner;
+        var farClip = 100 * midToCorner;
+
+        if ( options.projection === &#x27;orthographic&#x27; ) {
+            var camera = new THREE.OrthographicCamera( -1, 1, 1, -1, -farClip, farClip );
+            updateCameraAspect( camera, aspect );
+            return camera;
+        }
+
+        return new THREE.PerspectiveCamera( 45, aspect, nearClip, farClip );
+
+    }
+
+    function updateCameraAspect( camera, aspect ) {
+
+        if ( camera.isPerspectiveCamera ) {
+            camera.aspect = aspect;
+        } else if ( camera.isOrthographicCamera ) {
+            // Fit the camera frustum to the bounding box&#x27;s diagonal so that the entire plot fits
+            // within at the default zoom level and camera position.
+            if ( aspect &gt; 1 ) { // Wide window
+                camera.top = midToCorner;
+                camera.right = midToCorner * aspect;
+            } else { // Tall or square window
+                camera.top = midToCorner / aspect;
+                camera.right = midToCorner;
+            }
+            camera.bottom = -camera.top;
+            camera.left = -camera.right;
+        }
+
+        camera.updateProjectionMatrix();
+
+    }
+
+    var lights = [{&quot;x&quot;:-5, &quot;y&quot;:3, &quot;z&quot;:0, &quot;color&quot;:&quot;#7f7f7f&quot;, &quot;parent&quot;:&quot;camera&quot;}];
+    for ( var i=0 ; i &lt; lights.length ; i++ ) {
+        var light = new THREE.DirectionalLight( lights[i].color, 1 );
+        light.position.set( a[0]*lights[i].x, a[1]*lights[i].y, a[2]*lights[i].z );
+        if ( lights[i].parent === &#x27;camera&#x27; ) {
+            light.target.position.set( a[0]*xMid, a[1]*yMid, a[2]*zMid );
+            scene.add( light.target );
+            camera.add( light );
+        } else scene.add( light );
+    }
+    scene.add( camera );
+
+    var ambient = {&quot;color&quot;:&quot;#7f7f7f&quot;};
+    scene.add( new THREE.AmbientLight( ambient.color, 1 ) );
+
+    var controls = new THREE.OrbitControls( camera, renderer.domElement );
+    controls.target.set( a[0]*xMid, a[1]*yMid, a[2]*zMid );
+    controls.addEventListener( &#x27;change&#x27;, function() { if ( !animate ) render(); } );
+
+    window.addEventListener( &#x27;resize&#x27;, function() {
+
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        updateCameraAspect( camera, window.innerWidth / window.innerHeight );
+        if ( window.rescaleFatLines ) rescaleFatLines();
+        if ( !animate ) render();
+
+    } );
+
+    var texts = [];
+    for ( var i=0 ; i &lt; texts.length ; i++ ) addText( texts[i] );
+
+    function addText( json ) {
+        var sprite = addLabel( json.text, a[0]*json.x, a[1]*json.y, a[2]*json.z, json );
+        sprite.userData = json;
+    }
+
+    var points = [];
+    for ( var i=0 ; i &lt; points.length ; i++ ) addPoint( points[i] );
+
+    function addPoint( json ) {
+
+        var geometry = new THREE.Geometry();
+        var v = json.point;
+        geometry.vertices.push( new THREE.Vector3( a[0]*v[0], a[1]*v[1], a[2]*v[2] ) );
+
+        var canvas = document.createElement( &#x27;canvas&#x27; );
+        canvas.width = 128;
+        canvas.height = 128;
+
+        var context = canvas.getContext( &#x27;2d&#x27; );
+        context.arc( 64, 64, 64, 0, 2 * Math.PI );
+        context.fillStyle = json.color;
+        context.fill();
+
+        var texture = new THREE.Texture( canvas );
+        texture.needsUpdate = true;
+
+        var transparent = json.opacity &lt; 1 ? true : false;
+        var size = camera.isOrthographicCamera ? json.size : json.size/100;
+        var material = new THREE.PointsMaterial( { size: size, map: texture,
+                                                   transparent: transparent, opacity: json.opacity,
+                                                   alphaTest: .1 } );
+
+        var c = new THREE.Vector3();
+        geometry.computeBoundingBox();
+        geometry.boundingBox.getCenter( c );
+        geometry.translate( -c.x, -c.y, -c.z );
+
+        var mesh = new THREE.Points( geometry, material );
+        mesh.position.set( c.x, c.y, c.z );
+        mesh.userData = json;
+        scene.add( mesh );
+
+    }
+
+    var lines = [];
+    for ( var i=0 ; i &lt; lines.length ; i++ ) addLine( lines[i] );
+
+    function addLine( json ) {
+
+        var geometry = new THREE.Geometry();
+        for ( var i=0 ; i &lt; json.points.length ; i++ ) {
+            var v = json.points[i];
+            geometry.vertices.push( new THREE.Vector3( a[0]*v[0], a[1]*v[1], a[2]*v[2] ) );
+        }
+
+        var c = new THREE.Vector3();
+        geometry.computeBoundingBox();
+        geometry.boundingBox.getCenter( c );
+        geometry.translate( -c.x, -c.y, -c.z );
+
+        var transparent = json.opacity &lt; 1 ? true : false;
+        var materialOptions = { color: json.color, linewidth: json.linewidth,
+                                transparent: transparent, opacity: json.opacity };
+
+        var mesh;
+        if ( json.linewidth &gt; 1 &amp;&amp; window.createFatLineStrip ) {
+            mesh = createFatLineStrip( geometry, materialOptions );
+        } else {
+            var material = new THREE.LineBasicMaterial( materialOptions );
+            mesh = new THREE.Line( geometry, material );
+        }
+
+        mesh.position.set( c.x, c.y, c.z );
+        mesh.userData = json;
+        scene.add( mesh );
+
+    }
+
+    var surfaces = [{&quot;vertices&quot;: [{&quot;x&quot;: 0.0, &quot;y&quot;: 0.0, &quot;z&quot;: 2.0}, {&quot;x&quot;: 0.16900082032184907, &quot;y&quot;: 0.9856159103477085, &quot;z&quot;: 2.0}, {&quot;x&quot;: 0.0, &quot;y&quot;: 1.0, &quot;z&quot;: 2.0}, {&quot;x&quot;: 0.33313979474205757, &quot;y&quot;: 0.9428774454610842, &quot;z&quot;: 2.0}, {&quot;x&quot;: 0.48769494381363454, &quot;y&quot;: 0.8730141131611882, &quot;z&quot;: 2.0}, {&quot;x&quot;: 0.6282199972956423, &quot;y&quot;: 0.7780357543184395, &quot;z&quot;: 2.0}, {&quot;x&quot;: 0.7506723052527243, &quot;y&quot;: 0.6606747233900815, &quot;z&quot;: 2.0}, {&quot;x&quot;: 0.8515291377333113, &quot;y&quot;: 0.5243072835572317, &quot;z&quot;: 2.0}, {&quot;x&quot;: 0.9278890272965093, &quot;y&quot;: 0.3728564777803086, &quot;z&quot;: 2.0}, {&quot;x&quot;: 0.9775552389476861, &quot;y&quot;: 0.21067926999572642, &quot;z&quot;: 2.0}, {&quot;x&quot;: 0.9990989662046814, &quot;y&quot;: 0.04244120319614846, &quot;z&quot;: 2.0}, {&quot;x&quot;: 0.9919004352588768, &quot;y&quot;: -0.12701781974687876, &quot;z&quot;: 2.0}, {&quot;x&quot;: 0.9561667347392511, &quot;y&quot;: -0.2928227712765501, &quot;z&quot;: 2.0}, {&quot;x&quot;: 0.8929258581495685, &quot;y&quot;: -0.4502037448176734, &quot;z&quot;: 2.0}, {&quot;x&quot;: 0.8039971303669405, &quot;y&quot;: -0.5946331763042867, &quot;z&quot;: 2.0}, {&quot;x&quot;: 0.6919388689775463, &quot;y&quot;: -0.7219560939545244, &quot;z&quot;: 2.0}, {&quot;x&quot;: 0.5599747861375954, &quot;y&quot;: -0.8285096492438421, &quot;z&quot;: 2.0}, {&quot;x&quot;: 0.4119012482439928, &quot;y&quot;: -0.9112284903881356, &quot;z&quot;: 2.0}, {&quot;x&quot;: 0.251978061385125, &quot;y&quot;: -0.9677329469334989, &quot;z&quot;: 2.0}, {&quot;x&quot;: 0.0848059244755095, &quot;y&quot;: -0.9963974885425265, &quot;z&quot;: 2.0}, {&quot;x&quot;: -0.08480592447550882, &quot;y&quot;: -0.9963974885425265, &quot;z&quot;: 2.0}, {&quot;x&quot;: -0.2519780613851252, &quot;y&quot;: -0.9677329469334989, &quot;z&quot;: 2.0}, {&quot;x&quot;: -0.4119012482439926, &quot;y&quot;: -0.9112284903881357, &quot;z&quot;: 2.0}, {&quot;x&quot;: -0.5599747861375949, &quot;y&quot;: -0.8285096492438424, &quot;z&quot;: 2.0}, {&quot;x&quot;: -0.6919388689775461, &quot;y&quot;: -0.7219560939545246, &quot;z&quot;: 2.0}, {&quot;x&quot;: -0.8039971303669406, &quot;y&quot;: -0.5946331763042865, &quot;z&quot;: 2.0}, {&quot;x&quot;: -0.8929258581495684, &quot;y&quot;: -0.4502037448176736, &quot;z&quot;: 2.0}, {&quot;x&quot;: -0.956166734739251, &quot;y&quot;: -0.2928227712765503, &quot;z&quot;: 2.0}, {&quot;x&quot;: -0.9919004352588768, &quot;y&quot;: -0.1270178197468792, &quot;z&quot;: 2.0}, {&quot;x&quot;: -0.9990989662046815, &quot;y&quot;: 0.04244120319614822, &quot;z&quot;: 2.0}, {&quot;x&quot;: -0.9775552389476861, &quot;y&quot;: 0.21067926999572661, &quot;z&quot;: 2.0}, {&quot;x&quot;: -0.9278890272965095, &quot;y&quot;: 0.3728564777803084, &quot;z&quot;: 2.0}, {&quot;x&quot;: -0.8515291377333117, &quot;y&quot;: 0.5243072835572311, &quot;z&quot;: 2.0}, {&quot;x&quot;: -0.7506723052527245, &quot;y&quot;: 0.6606747233900812, &quot;z&quot;: 2.0}, {&quot;x&quot;: -0.6282199972956423, &quot;y&quot;: 0.7780357543184395, &quot;z&quot;: 2.0}, {&quot;x&quot;: -0.4876949438136342, &quot;y&quot;: 0.8730141131611884, &quot;z&quot;: 2.0}, {&quot;x&quot;: -0.3331397947420577, &quot;y&quot;: 0.9428774454610841, &quot;z&quot;: 2.0}, {&quot;x&quot;: -0.16900082032184968, &quot;y&quot;: 0.9856159103477083, &quot;z&quot;: 2.0}, {&quot;x&quot;: 0.16900082032184907, &quot;y&quot;: 0.9856159103477085, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.0, &quot;y&quot;: 1.0, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.33313979474205757, &quot;y&quot;: 0.9428774454610842, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.48769494381363454, &quot;y&quot;: 0.8730141131611882, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.6282199972956423, &quot;y&quot;: 0.7780357543184395, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.7506723052527243, &quot;y&quot;: 0.6606747233900815, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.8515291377333113, &quot;y&quot;: 0.5243072835572317, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.9278890272965093, &quot;y&quot;: 0.3728564777803086, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.9775552389476861, &quot;y&quot;: 0.21067926999572642, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.9990989662046814, &quot;y&quot;: 0.04244120319614846, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.9919004352588768, &quot;y&quot;: -0.12701781974687876, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.9561667347392511, &quot;y&quot;: -0.2928227712765501, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.8929258581495685, &quot;y&quot;: -0.4502037448176734, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.8039971303669405, &quot;y&quot;: -0.5946331763042867, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.6919388689775463, &quot;y&quot;: -0.7219560939545244, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.5599747861375954, &quot;y&quot;: -0.8285096492438421, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.4119012482439928, &quot;y&quot;: -0.9112284903881356, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.251978061385125, &quot;y&quot;: -0.9677329469334989, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.0848059244755095, &quot;y&quot;: -0.9963974885425265, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.08480592447550882, &quot;y&quot;: -0.9963974885425265, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.2519780613851252, &quot;y&quot;: -0.9677329469334989, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.4119012482439926, &quot;y&quot;: -0.9112284903881357, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.5599747861375949, &quot;y&quot;: -0.8285096492438424, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.6919388689775461, &quot;y&quot;: -0.7219560939545246, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.8039971303669406, &quot;y&quot;: -0.5946331763042865, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.8929258581495684, &quot;y&quot;: -0.4502037448176736, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.956166734739251, &quot;y&quot;: -0.2928227712765503, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.9919004352588768, &quot;y&quot;: -0.1270178197468792, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.9990989662046815, &quot;y&quot;: 0.04244120319614822, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.9775552389476861, &quot;y&quot;: 0.21067926999572661, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.9278890272965095, &quot;y&quot;: 0.3728564777803084, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.8515291377333117, &quot;y&quot;: 0.5243072835572311, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.7506723052527245, &quot;y&quot;: 0.6606747233900812, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.6282199972956423, &quot;y&quot;: 0.7780357543184395, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.4876949438136342, &quot;y&quot;: 0.8730141131611884, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.3331397947420577, &quot;y&quot;: 0.9428774454610841, &quot;z&quot;: 0.0}, {&quot;x&quot;: -0.16900082032184968, &quot;y&quot;: 0.9856159103477083, &quot;z&quot;: 0.0}, {&quot;x&quot;: 0.0, &quot;y&quot;: 0.0, &quot;z&quot;: 0.0}], &quot;faces&quot;: [[0, 1, 2], [0, 3, 1], [0, 4, 3], [0, 5, 4], [0, 6, 5], [0, 7, 6], [0, 8, 7], [0, 9, 8], [0, 10, 9], [0, 11, 10], [0, 12, 11], [0, 13, 12], [0, 14, 13], [0, 15, 14], [0, 16, 15], [0, 17, 16], [0, 18, 17], [0, 19, 18], [0, 20, 19], [0, 21, 20], [0, 22, 21], [0, 23, 22], [0, 24, 23], [0, 25, 24], [0, 26, 25], [0, 27, 26], [0, 28, 27], [0, 29, 28], [0, 30, 29], [0, 31, 30], [0, 32, 31], [0, 33, 32], [0, 34, 33], [0, 35, 34], [0, 36, 35], [0, 37, 36], [0, 2, 37], [2, 1, 38, 39], [1, 3, 40, 38], [3, 4, 41, 40], [4, 5, 42, 41], [5, 6, 43, 42], [6, 7, 44, 43], [7, 8, 45, 44], [8, 9, 46, 45], [9, 10, 47, 46], [10, 11, 48, 47], [11, 12, 49, 48], [12, 13, 50, 49], [13, 14, 51, 50], [14, 15, 52, 51], [15, 16, 53, 52], [16, 17, 54, 53], [17, 18, 55, 54], [18, 19, 56, 55], [19, 20, 57, 56], [20, 21, 58, 57], [21, 22, 59, 58], [22, 23, 60, 59], [23, 24, 61, 60], [24, 25, 62, 61], [25, 26, 63, 62], [26, 27, 64, 63], [27, 28, 65, 64], [28, 29, 66, 65], [29, 30, 67, 66], [30, 31, 68, 67], [31, 32, 69, 68], [32, 33, 70, 69], [33, 34, 71, 70], [34, 35, 72, 71], [35, 36, 73, 72], [36, 37, 74, 73], [37, 2, 39, 74], [39, 38, 75], [38, 40, 75], [40, 41, 75], [41, 42, 75], [42, 43, 75], [43, 44, 75], [44, 45, 75], [45, 46, 75], [46, 47, 75], [47, 48, 75], [48, 49, 75], [49, 50, 75], [50, 51, 75], [51, 52, 75], [52, 53, 75], [53, 54, 75], [54, 55, 75], [55, 56, 75], [56, 57, 75], [57, 58, 75], [58, 59, 75], [59, 60, 75], [60, 61, 75], [61, 62, 75], [62, 63, 75], [63, 64, 75], [64, 65, 75], [65, 66, 75], [66, 67, 75], [67, 68, 75], [68, 69, 75], [69, 70, 75], [70, 71, 75], [71, 72, 75], [72, 73, 75], [73, 74, 75], [74, 39, 75]], &quot;color&quot;: &quot;#0000ff&quot;, &quot;opacity&quot;: 0.4}];
+    for ( var i=0 ; i &lt; surfaces.length ; i++ ) addSurface( surfaces[i] );
+
+    function addSurface( json ) {
+
+        var useFaceColors = &#x27;faceColors&#x27; in json ? true : false;
+
+        var geometry = new THREE.Geometry();
+        for ( var i=0 ; i &lt; json.vertices.length ; i++ ) {
+            var v = json.vertices[i];
+            geometry.vertices.push( new THREE.Vector3( a[0]*v.x, a[1]*v.y, a[2]*v.z ) );
+        }
+        for ( var i=0 ; i &lt; json.faces.length ; i++ ) {
+            var f = json.faces[i];
+            for ( var j=0 ; j &lt; f.length - 2 ; j++ ) {
+                var face = new THREE.Face3( f[0], f[j+1], f[j+2] );
+                if ( useFaceColors ) face.color.set( json.faceColors[i] );
+                geometry.faces.push( face );
+            }
+        }
+        geometry.computeVertexNormals();
+
+        var side = json.singleSide ? THREE.FrontSide : THREE.DoubleSide;
+        var transparent = json.opacity &lt; 1 ? true : false;
+        var depthWrite = &#x27;depthWrite&#x27; in json ? json.depthWrite : !transparent;
+        var flatShading = json.useFlatShading ? json.useFlatShading : false;
+
+        var material = new THREE.MeshPhongMaterial( { side: side,
+                                     color: useFaceColors ? &#x27;white&#x27; : json.color,
+                                     vertexColors: useFaceColors ? THREE.FaceColors : THREE.NoColors,
+                                     transparent: transparent, opacity: json.opacity,
+                                     shininess: 20, flatShading: flatShading,
+                                     depthWrite: depthWrite } );
+
+        var c = new THREE.Vector3();
+        geometry.computeBoundingBox();
+        geometry.boundingBox.getCenter( c );
+        geometry.translate( -c.x, -c.y, -c.z );
+
+        var mesh = new THREE.Mesh( geometry, material );
+        mesh.position.set( c.x, c.y, c.z );
+        if ( transparent &amp;&amp; json.renderOrder ) mesh.renderOrder = json.renderOrder;
+        mesh.userData = json;
+        scene.add( mesh );
+
+        if ( json.showMeshGrid ) addSurfaceMeshGrid( json );
+
+    }
+
+    function addSurfaceMeshGrid( json ) {
+
+        var geometry = new THREE.Geometry();
+
+        for ( var i=0 ; i &lt; json.faces.length ; i++ ) {
+            var f = json.faces[i];
+            for ( var j=0 ; j &lt; f.length ; j++ ) {
+                var k = j === f.length-1 ? 0 : j+1;
+                var v1 = json.vertices[f[j]];
+                var v2 = json.vertices[f[k]];
+                // vertices in opposite directions on neighboring faces
+                var nudge = f[j] &lt; f[k] ? .0005*zRange : -.0005*zRange;
+                geometry.vertices.push( new THREE.Vector3( a[0]*v1.x, a[1]*v1.y, a[2]*(v1.z+nudge) ) );
+                geometry.vertices.push( new THREE.Vector3( a[0]*v2.x, a[1]*v2.y, a[2]*(v2.z+nudge) ) );
+            }
+        }
+
+        var c = new THREE.Vector3();
+        geometry.computeBoundingBox();
+        geometry.boundingBox.getCenter( c );
+        geometry.translate( -c.x, -c.y, -c.z );
+
+        var gridColor = options.theme === &#x27;dark&#x27; ? &#x27;white&#x27; : &#x27;black&#x27;;
+        var linewidth = json.linewidth || 1;
+        var materialOptions = { color: gridColor, linewidth: linewidth };
+
+        var mesh;
+        if ( linewidth &gt; 1 &amp;&amp; window.createFatLineSegments ) {
+            mesh = createFatLineSegments( geometry, materialOptions );
+        } else {
+            var material = new THREE.LineBasicMaterial( materialOptions );
+            mesh = new THREE.LineSegments( geometry, material );
+        }
+
+        mesh.position.set( c.x, c.y, c.z );
+        mesh.userData = json;
+        scene.add( mesh );
+
+    }
+
+    function render() {
+
+        if ( window.updateAnimation ) animate = updateAnimation();
+        if ( animate ) requestAnimationFrame( render );
+
+        renderer.render( scene, camera );
+
+    }
+
+    render();
+    controls.update();
+    if ( !animate ) render();
+
+
+    // menu functions
+
+    function toggleMenu() {
+
+        var m = document.getElementById( &#x27;menu-content&#x27; );
+        if ( m.style.display === &#x27;block&#x27; ) m.style.display = &#x27;none&#x27;
+        else m.style.display = &#x27;block&#x27;;
+
+    }
+
+
+    function saveAsPNG() {
+
+        var a = document.body.appendChild( document.createElement( &#x27;a&#x27; ) );
+        a.href = renderer.domElement.toDataURL( &#x27;image/png&#x27; );
+        a.download = &#x27;screenshot&#x27;;
+        a.click();
+
+    }
+
+    function saveAsHTML() {
+
+        toggleMenu(); // otherwise visible in output
+        event.stopPropagation();
+
+        var blob = new Blob( [ &#x27;&lt;!DOCTYPE html&gt;\n&#x27; + document.documentElement.outerHTML ] );
+        var a = document.body.appendChild( document.createElement( &#x27;a&#x27; ) );
+        a.href = window.URL.createObjectURL( blob );
+        a.download = suggestFilename();
+        a.click();
+
+        function suggestFilename() {
+            if ( !document.title ) {
+                return &#x27;graphic.html&#x27;;
+            } else if ( /\.html?$/i.test( document.title ) ) {
+                return document.title; // already ends in .htm or .html
+            } else {
+                return document.title + &#x27;.html&#x27;;
+            }
+        }
+
+    }
+
+    function getViewpoint() {
+
+        function roundTo( x, n ) { return +x.toFixed(n); }
+
+        var v = camera.quaternion.inverse();
+        var r = Math.sqrt( v.x*v.x + v.y*v.y + v.z*v.z );
+        var axis = [ roundTo( v.x / r, 4 ), roundTo( v.y / r, 4 ), roundTo( v.z / r, 4 ) ];
+        var angle = roundTo( 2 * Math.atan2( r, v.w ) * 180 / Math.PI, 2 );
+
+        var textArea = document.createElement( &#x27;textarea&#x27; );
+        textArea.textContent = JSON.stringify( axis ) + &#x27;,&#x27; + angle;
+        textArea.style.csstext = &#x27;position: absolute; top: -100%&#x27;;
+        document.body.append( textArea );
+        textArea.select();
+        document.execCommand( &#x27;copy&#x27; );
+
+        var m = document.getElementById( &#x27;menu-message&#x27; );
+        m.innerHTML = &#x27;Viewpoint copied to clipboard&#x27;;
+        m.style.display = &#x27;block&#x27;;
+        setTimeout( function() { m.style.display = &#x27;none&#x27;; }, 2000 );
+
+    }
+
+    function getCamera() {
+
+        function roundTo( x, n ) { return +x.toFixed(n); }
+
+        var pos = camera.position;
+        var pos_r = [ roundTo( pos.x, 4 ), roundTo( pos.y, 4 ), roundTo( pos.z, 4 ) ];
+   //     var up = camera.up; // up is always (0,0,1)
+        var textArea = document.createElement(&#x27;textarea&#x27;);
+        var cam_position = JSON.stringify(pos_r);
+        textArea.textContent = &#x27;,camera_position=&#x27; + cam_position;
+        textArea.style.csstext = &#x27;position: absolute; top: -100%&#x27;;
+        document.body.append( textArea );
+        textArea.select();
+        document.execCommand( &#x27;copy&#x27; );
+
+        var m = document.getElementById( &#x27;menu-message&#x27; );
+        m.innerHTML = &#x27;Camera position &#x27;+ cam_position+&#x27; copied to clipboard&#x27;;
+        m.style.display = &#x27;block&#x27;;
+        setTimeout( function() { m.style.display = &#x27;none&#x27;; }, 2000 );
+
+    }
+
+&lt;/script&gt;
+
+&lt;div id=&quot;menu-container&quot; onclick=&quot;toggleMenu()&quot;&gt;&amp;#x24d8;
+&lt;div id=&quot;menu-message&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;menu-content&quot;&gt;
+&lt;div onclick=&quot;saveAsPNG()&quot;&gt;Save as PNG&lt;/div&gt;
+&lt;div onclick=&quot;saveAsHTML()&quot;&gt;Save as HTML&lt;/div&gt;
+&lt;div onclick=&quot;getCamera()&quot;&gt;Get camera&lt;/div&gt;
+&lt;div onclick=&quot;getViewpoint()&quot;&gt;Get viewpoint&lt;/div&gt;
+&lt;div&gt;Close Menu&lt;/div&gt;
+&lt;/div&gt;&lt;/div&gt;
+
+
+&lt;/body&gt;
+&lt;/html&gt;
+"
+        width="100%"
+        height="400"
+        style="border: 0;">
+</iframe>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">vvf_diff</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">diff_n</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns a list representing the limit of a vector valued function</span>
+
+<span class="sd">    Parameters:  </span>
+<span class="sd">        fn      : The vector, list, or tuple representing the vector valued function</span>
+<span class="sd">        v       : The variable used in the function</span>
+<span class="sd">        diff_n  : 1 for first derivative, 2 for second, etc.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A list of values with the limit of each component of the function</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">diff_n</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">l</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="section-12-2-the-derivative-of-vector-valued-functions">
+<h1>Section 12.2 - The Derivative of vector-valued functions<a class="headerlink" href="#section-12-2-the-derivative-of-vector-valued-functions" title="Link to this heading"></a></h1>
+<p>The derivative of a vector valued function is simply the derivative of each component, so as in the case of limits, we can implement a function to find one easily in Sage.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test out the vvf_diff function</span>
+
+<span class="n">var</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">V</span> <span class="o">=</span> <span class="n">vector</span><span class="p">([</span><span class="n">x</span><span class="o">^</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="n">ln</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="mi">5</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">V_prime</span> <span class="o">=</span> <span class="n">vvf_diff</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="k">assert</span>  <span class="n">V_prime</span> <span class="o">==</span> <span class="p">[</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">x</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">V_prime</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3*x^2 + 3, 1/x, 5]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solve a problem (12.2, q 3):</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">var</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Problem 12.2, q 3&quot;</span><span class="p">)</span>
+<span class="n">V</span> <span class="o">=</span> <span class="n">vector</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="o">*</span><span class="n">t</span><span class="o">^</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="o">*</span><span class="n">e</span><span class="o">^</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">t</span><span class="p">),</span> <span class="o">-</span><span class="mi">5</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="o">*</span><span class="n">t</span><span class="p">)])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vvf_diff</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Problem 12.2, q 4&quot;</span><span class="p">)</span>
+<span class="n">V</span> <span class="o">=</span> <span class="n">vector</span><span class="p">([(</span><span class="o">-</span><span class="mi">4</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="o">-</span><span class="n">t</span><span class="o">+</span><span class="mi">6</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">t</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="n">t</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="o">-</span><span class="mi">7</span><span class="o">*</span><span class="n">t</span><span class="o">^</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vvf_diff</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Problem 12.2, q 5 (second derivative)&quot;</span><span class="p">)</span>
+<span class="n">V</span> <span class="o">=</span> <span class="n">vector</span><span class="p">([</span><span class="mi">6</span><span class="o">*</span><span class="n">t</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="mi">5</span><span class="o">*</span><span class="n">t</span> <span class="o">+</span> <span class="mi">6</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">)])</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">V</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vvf_diff</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vvf_diff</span><span class="p">(</span><span class="n">vvf_diff</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">t</span><span class="p">),</span> <span class="n">t</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Problem 12.2, q 3
+(-3*t^5 - 2, 4*e^(3*t), -5*sin(-3*t))
+[-15*t^4, 12*e^(3*t), 15*cos(-3*t)]
+
+Problem 12.2, q 4
+(4/(t - 6), 2*t/(3*t^2 + 1), t^2/(7*t^3 + 2))
+[-4/(t - 6)^2, -12*t^2/(3*t^2 + 1)^2 + 2/(3*t^2 + 1), -21*t^4/(7*t^3 + 2)^2 + 2*t/(7*t^3 + 2)]
+
+Problem 12.2, q 5 (second derivative)
+(6*t + 3*sin(t), 5*t + 6*cos(t))
+[-3*sin(t), -6*cos(t)]
+[-3*sin(t), -6*cos(t)]
+</pre></div>
+</div>
+</div>
+</div>
+<section id="rules-and-properties-related-to-differentials-of-vector-valued-functions">
+<h2>Rules and Properties Related to Differentials of Vector Valued Functions<a class="headerlink" href="#rules-and-properties-related-to-differentials-of-vector-valued-functions" title="Link to this heading"></a></h2>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\begin{array}{|c|c|c|}
+\hline
+\textbf{Operation} &amp; \textbf{Rule} &amp; \textbf{Result Type} \\
+\hline
+\text{Sum} &amp; \frac{d}{dt} \left[ \mathbf{r}_1(t) + \mathbf{r}_2(t) \right] = \mathbf{r}_1'(t) + \mathbf{r}_2'(t) &amp; \text{Vector} \\
+\hline
+\text{Scalar Multiple} &amp; \frac{d}{dt} \left[ c \mathbf{r}(t) \right] = c \mathbf{r}'(t) &amp; \text{Vector} \\
+\hline
+\text{Product (Dot)} &amp; \frac{d}{dt} \left[ \mathbf{r}_1(t) \cdot \mathbf{r}_2(t) \right] = \mathbf{r}_1'(t) \cdot \mathbf{r}_2(t) + \mathbf{r}_1(t) \cdot \mathbf{r}_2'(t) &amp; \text{Scalar} \\
+\hline
+\text{Product (Cross)} &amp; \frac{d}{dt} \left[ \mathbf{r}_1(t) \times \mathbf{r}_2(t) \right] = \mathbf{r}_1'(t) \times \mathbf{r}_2(t) + \mathbf{r}_1(t) \times \mathbf{r}_2'(t) &amp; \text{Vector} \\
+\hline
+\text{Chain Rule} &amp; \frac{d}{dt} \left[ \mathbf{r}(f(t)) \right] = f'(t) \mathbf{r}'(f(t)) &amp; \text{Vector} \\
+\hline
+\end{array}
+\end{align}
+\end{split}\]</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QX7KGT4YPE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-QX7KGT4YPE', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

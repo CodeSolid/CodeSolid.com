@@ -1,0 +1,52 @@
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 173, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/base_events.py", line 653, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Solve a problem, 11.1 q9 -- enterered rounded answers in Moer, it's correct!
+# A person starts walking from home and walks:
+# 4 miles East
+# 5 miles Southeast
+# 4 miles South
+# 3 miles Southwest
+# 3 miles East
+Have to find total miles (easy) and displacement vector and ||displacement vector||
+
+
+southeast = 7*pi/4
+southwest = 5*pi/4
+
+# Solve # 11.1 q 9:
+v1 = vector((4, 0))
+v2 = vector([N(5*cos(southeast)), N(5*sin(southeast))])
+v3 = vector((0, -4))
+v4 = vector([N(3*cos(southwest)), N(3*sin(southwest))])
+v5 = vector((3, 0))
+
+displacement = v1 + v2 + v3 + v4 + v5
+print(displacement)
+sqrt(displacement[0]**2 + displacement[1]**2)
+------------------
+
+
+  [36mCell[39m[36m [39m[32mIn[12][39m[32m, line 8[39m
+[31m    [39m[31mHave to find total miles (easy) and displacement vector and ||displacement vector||[39m
+         ^
+[31mSyntaxError[39m[31m:[39m invalid syntax
+
+

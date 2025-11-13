@@ -15,7 +15,8 @@ CodeSolid: Exploring Python and Mathematics
 .. toctree::
    :caption: Added Recently:
    :hidden:   
-   
+
+   sage/calc3/index/
    complex-inner-products
    getting-started-with-ollama
    ollama-langchain-demo
