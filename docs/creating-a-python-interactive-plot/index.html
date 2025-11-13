@@ -1,25 +1,23 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Creating a Python Interactive Plot Using Matplotlib in Jupyter &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=19645805"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=19645805"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" />
@@ -179,9 +177,9 @@
 <p>We begin by enabling some our the matplotlib interactive features that we’ll need later, importing what we need at this point, and declaring our two vectors as simple Python lists.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">widget</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">acos</span><span class="p">,</span> <span class="n">pi</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">acos</span><span class="p">,</span> <span class="n">pi</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
     
 <span class="n">vector_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
 <span class="n">vector_2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
@@ -196,18 +194,18 @@
 <p>Next, we’ll add the code to draw our vectors and format the grid.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">widget</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">acos</span><span class="p">,</span> <span class="n">pi</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">acos</span><span class="p">,</span> <span class="n">pi</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
     
 <span class="n">vector_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
 <span class="n">vector_2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
 
-<span class="k">def</span> <span class="nf">get_label</span><span class="p">(</span><span class="n">which_vector</span><span class="p">,</span> <span class="n">vector</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_label</span><span class="p">(</span><span class="n">which_vector</span><span class="p">,</span> <span class="n">vector</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Labels a vector with its name and vector head coordinates&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">which_vector</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">vector</span><span class="si">}</span><span class="s2">&quot;</span>
 
-<span class="k">def</span> <span class="nf">plot_line</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>    
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_line</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>    
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Plots a vector in standard position&quot;&quot;&quot;</span>
     <span class="n">line</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">vector</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">vector</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
     
@@ -219,7 +217,7 @@
         <span class="n">size</span><span class="o">=</span><span class="mi">10</span>
     <span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">configure_graph_grid</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">configure_graph_grid</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Set up a square grid axis&quot;&quot;&quot;</span>
     
     <span class="c1"># Size</span>
@@ -259,14 +257,14 @@
 <p>We want to display the angle between the vectors, and the dot product of the two vectors. NumPy gives us the dot product easily, and we’ll write the code to calculate the angle in the <code class="docutils literal notranslate"><span class="pre">vector_angle</span></code> function (below). Finally, the <code class="docutils literal notranslate"><span class="pre">get_title</span></code> function puts it all together into a string. Here are the changes we need to make.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add this code below the vectors_to_dataframe function</span>
 
-<span class="k">def</span> <span class="nf">vector_angle</span><span class="p">(</span><span class="n">vector1</span><span class="p">,</span> <span class="n">vector2</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">vector_angle</span><span class="p">(</span><span class="n">vector1</span><span class="p">,</span> <span class="n">vector2</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Compute the angle between the two vectors</span>
 <span class="sd">          (There&#39;s an issue with this that we&#39;ll fix later).</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">radians</span> <span class="o">=</span> <span class="n">acos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">vector1</span><span class="p">,</span> <span class="n">vector2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">vector1</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">vector2</span><span class="p">)))</span>
     <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">radians</span> <span class="o">*</span> <span class="mi">180</span><span class="o">/</span><span class="n">pi</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">get_title</span><span class="p">(</span><span class="n">vector1</span><span class="p">,</span> <span class="n">vector2</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_title</span><span class="p">(</span><span class="n">vector1</span><span class="p">,</span> <span class="n">vector2</span><span class="p">):</span>
     <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Vectors dot product: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">vector1</span><span class="p">,</span><span class="w"> </span><span class="n">vector2</span><span class="p">)</span><span class="si">}</span><span class="s2">, Angle: </span><span class="si">{</span><span class="n">vector_angle</span><span class="p">(</span><span class="n">vector1</span><span class="p">,</span><span class="w"> </span><span class="n">vector2</span><span class="p">)</span><span class="si">}</span><span class="s2"> degrees.&quot;</span>
 
 <span class="c1"># Add this code above the plt.show() command:</span>
@@ -287,11 +285,11 @@
 <li><p>In response to the updated state, redrawing any related user interface (in this case, the plot we developed in the last section).</p></li>
 </ul>
 <p>With that broad outline in place, the code itself is below. We’ll discuss it following the code listing.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
-<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interactive</span>
-<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ipywidgets</span><span class="w"> </span><span class="kn">import</span> <span class="n">interactive</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">ipywidgets</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">widgets</span>
 
-<span class="k">def</span> <span class="nf">do_update</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">do_update</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Based on the new control state, update the interactive plot.</span>
 <span class="sd">    </span>
 <span class="sd">       The approach here is to clear and redraw the whole plot rather than simply to update </span>
@@ -308,7 +306,7 @@
     <span class="n">plt</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
     
-<span class="k">def</span> <span class="nf">handle_event</span><span class="p">(</span><span class="n">v1_x</span><span class="p">,</span> <span class="n">v1_y</span><span class="p">,</span> <span class="n">v2_x</span><span class="p">,</span> <span class="n">v2_y</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">handle_event</span><span class="p">(</span><span class="n">v1_x</span><span class="p">,</span> <span class="n">v1_y</span><span class="p">,</span> <span class="n">v2_x</span><span class="p">,</span> <span class="n">v2_y</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Process events from the ipywidgets.interactive handler.</span>
 <span class="sd">       </span>
 <span class="sd">       Argument names in the event handler must match the keys in the &quot;interactive&quot; call (below).       </span>
@@ -321,7 +319,7 @@
     <span class="n">do_update</span><span class="p">(</span><span class="n">vector1</span><span class="p">,</span> <span class="n">vector2</span><span class="p">)</span>    
     
 
-<span class="k">def</span> <span class="nf">slider_config</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">slider_config</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Return an IntSlider widget with the common configuration&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=-</span><span class="mi">6</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">)</span>
 
@@ -351,7 +349,7 @@
 <h2>Interactive Plots: A Fringe Benefit<a class="headerlink" href="#interactive-plots-a-fringe-benefit" title="Link to this heading"></a></h2>
 <p>Once upon a time as a back-end developer, I spent a lot of time coding unit tests. Unit tests at that level tend to be easier to get right and less brittle than unit tests on the front end. Fortunately, people who spend their time developing user interfaces may be able to get away with somewhat less unit testing, because they get instant feedback from the interface they’re developing.</p>
 <p>Back in the code for <code class="docutils literal notranslate"><span class="pre">vector_angle</span></code>, we left an I.O.U. for a bug fix: <em>“(There’s an issue with this that we’ll fix lat r).”</em> I found this bug while testing out the slider controls, and noticing were getting a math domain error. The cause turned out to be a floating-point rounding conditions leading to cosines outside the range we were expecting. While fixing that, we also noticed a possible divide by zero condition, so we added some defensive code for that, too. Here’s the corrected code:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">vector_angle</span><span class="p">(</span><span class="n">vector1</span><span class="p">,</span> <span class="n">vector2</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">vector_angle</span><span class="p">(</span><span class="n">vector1</span><span class="p">,</span> <span class="n">vector2</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the angle between the two vectors&quot;&quot;&quot;</span>
     <span class="n">norm1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">vector1</span><span class="p">)</span>
     <span class="n">norm2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">vector2</span><span class="p">)</span>

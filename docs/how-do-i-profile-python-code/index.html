@@ -1,25 +1,23 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>How To Profile Python Code &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=19645805"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=19645805"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" />
@@ -218,7 +216,7 @@
 </pre></div>
 </div>
 <p>And here is the code that does the lookup:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">list_lookup</span><span class="p">(</span><span class="n">state_name</span><span class="p">):</span> 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">list_lookup</span><span class="p">(</span><span class="n">state_name</span><span class="p">):</span> 
     <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">code</span> <span class="ow">in</span> <span class="n">states_list</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="n">state_name</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">code</span>
@@ -233,12 +231,12 @@
     <span class="c1"># ... etc.</span>
 <span class="p">}</span>
 
-<span class="k">def</span> <span class="nf">dict_lookup</span><span class="p">(</span><span class="n">state_name</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">dict_lookup</span><span class="p">(</span><span class="n">state_name</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">states_dct</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">state_name</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>To prove that your code didn’t break anything, you write a function that will loop through some significant amount of times to make sure the values are correct:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_lookups</span><span class="p">(</span><span class="n">tries</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">test_lookups</span><span class="p">(</span><span class="n">tries</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">tries</span><span class="p">):</span>
         <span class="n">state</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">states_list</span><span class="p">[</span><span class="n">i</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">states_list</span><span class="p">)]</span>
         <span class="n">code1</span> <span class="o">=</span> <span class="n">list_lookup</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
@@ -295,9 +293,9 @@
 <p>Running cProfile in a Python program results in a lot cleaner profiling data output than running cProfile from the terminal. One very convenient way to do this relies on the fact that cProfile’s Profile class can be used as a context manager – that is to say, you can use a “with” expression to manage the lifecycle of the Profile class.</p>
 <p>The context manager implementation is convenient, as it saves you from having to start collecting profiling data with <code class="docutils literal notranslate"><span class="pre">enable</span></code> and stop collecting profiling data with <code class="docutils literal notranslate"><span class="pre">disable</span></code>.</p>
 <p>Here’s a simple main method we can use to run cProfile from Python directly:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lookup</span>
-<span class="kn">import</span> <span class="nn">cProfile</span><span class="o">,</span> <span class="nn">pstats</span><span class="o">,</span> <span class="nn">io</span>
-<span class="kn">from</span> <span class="nn">pstats</span> <span class="kn">import</span> <span class="n">SortKey</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">lookup</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">cProfile</span><span class="o">,</span><span class="w"> </span><span class="nn">pstats</span><span class="o">,</span><span class="w"> </span><span class="nn">io</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pstats</span><span class="w"> </span><span class="kn">import</span> <span class="n">SortKey</span>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="k">with</span> <span class="n">cProfile</span><span class="o">.</span><span class="n">Profile</span><span class="p">()</span> <span class="k">as</span> <span class="n">pr</span><span class="p">:</span>
@@ -337,7 +335,7 @@ $ python -m timeit -s &quot;from lookup import list_lookup&quot; &quot;list_look
 <h3>Using the Timeit Module in a Program<a class="headerlink" href="#using-the-timeit-module-in-a-program" title="Link to this heading"></a></h3>
 <p>As with cProfile, we use the timeit module programmatically or from the terminal. For example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Timeit example to benchmark the compare functions function&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">timeit</span> <span class="kn">import</span> <span class="n">timeit</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">timeit</span><span class="w"> </span><span class="kn">import</span> <span class="n">timeit</span>
 <span class="n">result_long</span> <span class="o">=</span> <span class="n">timeit</span><span class="p">(</span><span class="n">stmt</span><span class="o">=</span><span class="s2">&quot;list_lookup(&#39;New York&#39;)&quot;</span><span class="p">,</span> <span class="n">setup</span><span class="o">=</span><span class="s2">&quot;from lookup import list_lookup&quot;</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">200000</span><span class="p">)</span>
 <span class="n">result_short</span> <span class="o">=</span> <span class="n">timeit</span><span class="p">(</span><span class="n">stmt</span><span class="o">=</span><span class="s2">&quot;dict_lookup(&#39;New York&#39;)&quot;</span><span class="p">,</span> <span class="n">setup</span><span class="o">=</span><span class="s2">&quot;from lookup import dict_lookup&quot;</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">200000</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dictionary lookup was </span><span class="si">{:.2f}</span><span class="s2"> faster.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">result_long</span> <span class="o">/</span> <span class="n">result_short</span><span class="p">))</span>
@@ -371,7 +369,7 @@ $ python -m timeit -s &quot;from lookup import list_lookup&quot; &quot;list_look
 <section id="profile-python-function-calls-as-you-go-using-the-prun-magic-method">
 <h3>Profile Python Function Calls as You Go: Using the %prun magic method<a class="headerlink" href="#profile-python-function-calls-as-you-go-using-the-prun-magic-method" title="Link to this heading"></a></h3>
 <p>I said earlier that profiling is usually a late-stage activity, but %prun is a welcome exception to this general rule. Like <code class="docutils literal notranslate"><span class="pre">%time</span></code>, you can use <code class="docutils literal notranslate"><span class="pre">%prun</span></code> to quickly understand the performance of short snippets of code. Suppose we want to understand whether constructing a large array containing a series of numbers is faster using NumPy’s <code class="docutils literal notranslate"><span class="pre">arange</span></code> method or a regular Python list comprehension. The %time magic method will do this for us, but %prun will also show us some of the “why” behind the numbers. Here we construct an array of 10 million numbers:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="n">count</span> <span class="o">=</span> <span class="mi">10_000_000</span>
 <span class="o">%</span><span class="n">prun</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
 </pre></div>
@@ -389,7 +387,7 @@ $ python -m timeit -s &quot;from lookup import list_lookup&quot; &quot;list_look
 </pre></div>
 </div>
 <p>Next, let’s look at the same sized array being created as a list comprehension and passed to NumPy:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="n">count</span> <span class="o">=</span> <span class="mi">10_000_000</span>
 <span class="o">%</span><span class="n">prun</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">count</span><span class="p">)])</span>
 </pre></div>
@@ -413,7 +411,7 @@ $ python -m timeit -s &quot;from lookup import list_lookup&quot; &quot;list_look
 <h3>Using %lprun: More Convenient than Kernprof<a class="headerlink" href="#using-lprun-more-convenient-than-kernprof" title="Link to this heading"></a></h3>
 <p>The other magic method doing a <code class="docutils literal notranslate"><span class="pre">%load_ext</span> <span class="pre">line_profiler</span></code> will make available to you is <code class="docutils literal notranslate"><span class="pre">%lprun</span></code>. We’ve already seen how getting significant detail from the line_profiler using kernprof requires us to annotate our code with <code class="docutils literal notranslate"><span class="pre">&#64;profile</span></code>. <code class="docutils literal notranslate"><span class="pre">%lprun</span></code> gives us essentially the same output but lets us pass the functions we want to profile when we’re calling the function.</p>
 <p>Here’s an example that echos what we did with kernprof, but much more conveniently:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lookup</span> <span class="kn">import</span> <span class="n">test_lookups</span><span class="p">,</span> <span class="n">list_lookup</span><span class="p">,</span> <span class="n">dict_lookup</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">lookup</span><span class="w"> </span><span class="kn">import</span> <span class="n">test_lookups</span><span class="p">,</span> <span class="n">list_lookup</span><span class="p">,</span> <span class="n">dict_lookup</span>
 <span class="o">%</span><span class="n">lprun</span> <span class="o">-</span><span class="n">u</span> <span class="mf">.001</span> <span class="o">-</span><span class="n">f</span> <span class="n">test_lookups</span> <span class="o">-</span><span class="n">f</span> <span class="n">list_lookup</span> <span class="n">test_lookups</span><span class="p">(</span><span class="mi">200000</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -429,22 +427,22 @@ $ python -m timeit -s &quot;from lookup import list_lookup&quot; &quot;list_look
 <h3>Memory Profiling for Single Lines of Python Code with %memit<a class="headerlink" href="#memory-profiling-for-single-lines-of-python-code-with-memit" title="Link to this heading"></a></h3>
 <p>Just as we could use %prun to profile a single line of Python code (which may resolve to multiple calls under the hood), the <code class="docutils literal notranslate"><span class="pre">%memit</span></code> magic function can be used to display an estimate of the memory consumed or freed by a single line of Python code. I stress that this is an estimate – as the module’s <a class="reference external" href="https://github.com/pythonprofilers/memory_profiler">documentation points</a> out, results are not 100% accurate due to the behavior of the garbage collector.</p>
 <p>Once again, we developed a class to consume some memory to have a small amount of code to profile. Since this is for demonstration purposes, the methods are purposely somewhat asymmetrical between allocations and deallocations.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="k">class</span> <span class="nc">MemoryEater</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MemoryEater</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">size</span> <span class="o">=</span> <span class="mi">10_000_000</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">big_list</span> <span class="o">=</span> <span class="n">big_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">size</span><span class="p">)]</span>
     
-    <span class="k">def</span> <span class="nf">make_array</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">make_array</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">big_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">big_list</span><span class="p">)</span>
         
-    <span class="k">def</span> <span class="nf">delete_array</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">delete_array</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">big_array</span> <span class="o">=</span> <span class="kc">None</span>
         
-    <span class="k">def</span> <span class="nf">delete_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">delete_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">big_list</span> <span class="o">=</span> <span class="kc">None</span>
 
-<span class="k">def</span> <span class="nf">use_memory</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">use_memory</span><span class="p">():</span>
     <span class="n">me</span> <span class="o">=</span> <span class="n">MemoryEater</span><span class="p">()</span>
     <span class="n">me</span><span class="o">.</span><span class="n">make_array</span><span class="p">()</span>
     <span class="n">me</span> <span class="o">=</span> <span class="kc">None</span>
@@ -454,7 +452,7 @@ $ python -m timeit -s &quot;from lookup import list_lookup&quot; &quot;list_look
 </pre></div>
 </div>
 <p>We can import this code into Jupyter or IPython to see <code class="docutils literal notranslate"><span class="pre">%memit</span></code> in action:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">memory_demo</span> <span class="k">as</span> <span class="nn">md</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">memory_demo</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">md</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Constructing a MemoryEater, which will allocate a list&quot;</span><span class="p">)</span>
 <span class="o">%</span><span class="n">memit</span> <span class="n">me</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">MemoryEater</span><span class="p">()</span>
@@ -484,7 +482,7 @@ peak<span class="w"> </span>memory:<span class="w"> </span><span class="m">584</
 <p>One difference is worth noting, however. Unlike <code class="docutils literal notranslate"><span class="pre">%lprun</span></code>, the functions to be profiled in <code class="docutils literal notranslate"><span class="pre">%mprun</span></code> need to be imported from a file, not run interactively. It’s unclear why this limitation exists, as <code class="docutils literal notranslate"><span class="pre">%memit</span></code> it can be used on interactive code without a problem.</p>
 <p>Other than that, <code class="docutils literal notranslate"><span class="pre">%mpru</span></code>n is quite handy to use. Here’s a short example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">load_ext</span> <span class="n">memory_profiler</span>
-<span class="kn">import</span> <span class="nn">memory_demo</span> <span class="k">as</span> <span class="nn">md</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">memory_demo</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">md</span>
 <span class="o">%</span><span class="n">mprun</span> <span class="o">-</span><span class="n">f</span> <span class="n">md</span><span class="o">.</span><span class="n">use_memory</span> <span class="n">md</span><span class="o">.</span><span class="n">use_memory</span><span class="p">()</span>
 </pre></div>
 </div>

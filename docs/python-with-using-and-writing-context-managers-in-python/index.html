@@ -1,25 +1,23 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Python With: Using and Writing Context Managers in Python &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=19645805"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=19645805"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" /> 
@@ -158,7 +156,7 @@
 <p>In the case of resources that need to be closed, the file example we’ve already looked at is the most common. Let’s take another example showing the socket module in use.</p>
 <p>To do this, we’ll send a simple HTTP request and read only the first few bytes that come back. That should be enough to show the response was successful. We’ll handle the request with just a socket, which is definitely “the long way”, but it’s an interesting example. For an easier-to-use and much more robust implementation, something like urllib or the requests library is definitely preferred as an HTTP client.</p>
 <p>he main point for our purposes is that the socket returned by <code class="docutils literal notranslate"><span class="pre">create_connection</span></code> will be automatically closed when the <code class="docutils literal notranslate"><span class="pre">with</span></code> block exits. We can show this by printing the value of the private member, _close, both within the block and afterward.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">socket</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">socket</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;www.w3.org&quot;</span>
 <span class="n">port</span> <span class="o">=</span> <span class="mi">80</span>
@@ -193,13 +191,13 @@ Closed<span class="w"> </span>when<span class="w"> </span>block<span class="w"> 
 <h3>Managing Locks in Multi-Threaded Code<a class="headerlink" href="#managing-locks-in-multi-threaded-code" title="Link to this heading"></a></h3>
 <p>Context managers can also be used to automatically manage a thread lock in Python, as an alternative to calling acquire and release. Let’s see how we might safely increment a global variable. Of course, once again, there are simpler ways to write our example, but we want to show the use of a with expression with Python locks to show they are implemented as a context manager type.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
-<span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Thread</span><span class="p">,</span> <span class="n">Lock</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">threading</span><span class="w"> </span><span class="kn">import</span> <span class="n">Thread</span><span class="p">,</span> <span class="n">Lock</span>
 
 <span class="n">lock</span> <span class="o">=</span> <span class="n">Lock</span><span class="p">()</span>
 
 <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
 
-<span class="k">def</span> <span class="nf">incrementer</span><span class="p">():</span>    
+<span class="k">def</span><span class="w"> </span><span class="nf">incrementer</span><span class="p">():</span>    
     <span class="k">global</span> <span class="n">count</span>
     <span class="k">with</span> <span class="n">lock</span><span class="p">:</span>
         <span class="n">count</span> <span class="o">=</span> <span class="n">count</span><span class="o">+</span><span class="mi">1</span>        
@@ -237,7 +235,7 @@ Decimal<span class="o">(</span><span class="m">1</span>.1<span class="o">)</span
 </div>
 <p>If your code makes heavy use of the Decimals, however, one problem you may run into is that the context settings you specify as we did above on the line <code class="docutils literal notranslate"><span class="pre">getcontext().prec</span> <span class="pre">=</span> <span class="pre">2</span></code> remain in effect for all the code that runs on the current thread. That may not be what you want.</p>
 <p>To avoid this, using the <code class="docutils literal notranslate"><span class="pre">localcontext()</span></code> function in a <code class="docutils literal notranslate"><span class="pre">with</span></code> statement, you can use a context manager that will restore the global DecimalContext when the block exits. In the following example, we’ve indented the output we print inside the with block to make it more clear what’s going on:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="n">getcontext</span><span class="p">,</span> <span class="n">localcontext</span><span class="p">,</span> <span class="n">Decimal</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">decimal</span><span class="w"> </span><span class="kn">import</span> <span class="n">getcontext</span><span class="p">,</span> <span class="n">localcontext</span><span class="p">,</span> <span class="n">Decimal</span>
 
 <span class="c1"># Reset to default precision (if needed)</span>
 <span class="n">getcontext</span><span class="p">()</span><span class="o">.</span><span class="n">prec</span> <span class="o">=</span> <span class="mi">28</span>
@@ -291,29 +289,29 @@ Outside<span class="w"> </span>the<span class="w"> </span>block,<span class="w">
 <li><p>__exit__: This is guaranteed to be called when you exit the block of code controlled by with, whether or not an exception is thrown (or handled).</p></li>
 </ul>
 <p>Here we go:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ffrom</span> <span class="n">contextlib</span> <span class="kn">import</span> <span class="nn">AbstractContextManager</span>
-<span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Lock</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ffrom</span> <span class="n">contextlib</span> <span class="kn">import</span><span class="w"> </span><span class="nn">AbstractContextManager</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">threading</span><span class="w"> </span><span class="kn">import</span> <span class="n">Lock</span>
 
-<span class="k">class</span> <span class="nc">DemoContextManager</span><span class="p">(</span><span class="n">AbstractContextManager</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">DemoContextManager</span><span class="p">(</span><span class="n">AbstractContextManager</span><span class="p">):</span>
     
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raise_exception</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">handle_exception</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raise_exception</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">handle_exception</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Inside __init__:  setting up shop.&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">raise_exception</span> <span class="o">=</span> <span class="n">raise_exception</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">handle_exception</span> <span class="o">=</span> <span class="n">handle_exception</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">resource</span> <span class="o">=</span> <span class="n">Lock</span><span class="p">()</span>
     
-    <span class="k">def</span> <span class="nf">do_something</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">do_something</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">raise_exception</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Houston, we have a problem...&quot;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>            
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Doing something useful.&quot;</span><span class="p">)</span>
         
-    <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Inside __enter__: allocating a resource.&quot;</span><span class="p">)</span>        
         <span class="bp">self</span><span class="o">.</span><span class="n">resource</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
         <span class="k">return</span> <span class="bp">self</span>            
     
-    <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ex_type</span><span class="p">,</span> <span class="n">ex_value</span><span class="p">,</span> <span class="n">ex_traceback</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ex_type</span><span class="p">,</span> <span class="n">ex_value</span><span class="p">,</span> <span class="n">ex_traceback</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Inside __exit__:  deallocating a resource.&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">resource</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_exception</span><span class="p">:</span>
@@ -374,11 +372,11 @@ Logging<span class="w"> </span>an<span class="w"> </span>exception<span class="w
 <p>Although writing a context manager by hand can be illuminating, it is somewhat tedious, especially if you have many uses for simple resource closers. The contextlib module provides many easier-to-use solutions, and there are several interesting examples in the <a class="reference external" href="https://docs.python.org/3/library/contextlib.html">contextlib module documentation</a>. I don’t want to get into repeating the documentation here wholesale, but I do want to summarize a few points.</p>
 <p>First, the module supports the same kind of synchronous context managers we’ve been dealing with here, as well as something we haven’t looked at yet, asynchronous contact managers.</p>
 <p>Asynchronous context managers can be used with an “<code class="docutils literal notranslate"><span class="pre">async</span> <span class="pre">with</span></code>” expression, to allow things like long io-bound resources to suspend their operation. Their method signatures are declared differently, as shown in the following pseudocode:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">async</span> <span class="k">def</span> <span class="fm">__aenter__</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="fm">__aenter__</span><span class="p">:</span>
      <span class="k">await</span> <span class="n">resource_aquire</span><span class="p">()</span>
      <span class="k">return</span> <span class="bp">self</span>
 
-<span class="k">async</span> <span class="k">def</span> <span class="fm">__aexit__</span><span class="p">():</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="fm">__aexit__</span><span class="p">():</span>
    <span class="k">await</span> <span class="n">resource_release</span><span class="p">()</span>
    <span class="k">return</span> <span class="kc">False</span>
 </pre></div>
@@ -390,10 +388,10 @@ Logging<span class="w"> </span>an<span class="w"> </span>exception<span class="w
 <p>https://docs.python.org/3/library/contextlib.html#contextlib.contextmanager</p>
 </div></blockquote>
 <p>To illustrate how easy these are to use here’s a basic example that uses pseudocode, for now:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">contextlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">contextmanager</span>
 
 <span class="nd">@contextmanager</span>
-<span class="k">def</span> <span class="nf">managed_resource</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">managed_resource</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A simple context manager in a function&quot;&quot;&quot;</span>
     <span class="n">resource_manager</span> <span class="o">=</span> <span class="n">ResourceManager</span><span class="p">()</span>
     <span class="k">yield</span> <span class="n">resource_manager</span><span class="o">.</span><span class="n">allocate</span><span class="p">()</span>
@@ -402,32 +400,32 @@ Logging<span class="w"> </span>an<span class="w"> </span>exception<span class="w
 </div>
 <p>Here we use the <code class="docutils literal notranslate"><span class="pre">&#64;contextmanager</span></code> annotation on a function, <code class="docutils literal notranslate"><span class="pre">managed_resource</span></code>, and as the documentation requires, we’ve yielded exactly one resource that will be bound to the target of “as”. We’ve also shown where you would allocate the resource and free it.</p>
 <p>What I wanted to show here was how little code is required to do this. But with that, here’s a more fleshed-out example that includes the basic idea above along with a lot of print statements to show what’s happening in the various parts of the code including the Python <code class="docutils literal notranslate"><span class="pre">with</span></code> statement.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">contextlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">contextmanager</span>
 
 <span class="sd">&quot;&quot;&quot;A contextmanager decorator example with a ResourceManager class&quot;&quot;&quot;</span>
 
-<span class="k">class</span> <span class="nc">ResourceManager</span><span class="p">():</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ResourceManager</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A resource manager template you might modify for your needs&quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">resource_available</span> <span class="o">=</span> <span class="kc">False</span>
         
-    <span class="k">def</span> <span class="nf">do_something</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">do_something</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">resource_available</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Did something, the resource was availble.&quot;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Can&#39;t do it, sorry -- resource not availble.&quot;</span><span class="p">)</span>
         
-    <span class="k">def</span> <span class="nf">allocate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">allocate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Getting resource&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">resource_available</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="k">return</span> <span class="bp">self</span>
         
-    <span class="k">def</span> <span class="nf">free</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">free</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Freeing resource&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">resource_available</span> <span class="o">=</span> <span class="kc">False</span>        
 
 <span class="nd">@contextmanager</span>
-<span class="k">def</span> <span class="nf">managed_resource</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">managed_resource</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A simple context manager in a function&quot;&quot;&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Entering context manager function.&quot;</span><span class="p">)</span>
     <span class="n">resource_manager</span> <span class="o">=</span> <span class="n">ResourceManager</span><span class="p">()</span>
@@ -461,12 +459,12 @@ Exiting<span class="w"> </span>context<span class="w"> </span>manager<span class
 <li><p>I wanted to use a database example for this case, even if only a local one, but realistically async code is more appropriate to remote databases and other network-bound code. That said, sqllite3 has the advantage of being easier to set up.</p></li>
 </ul>
 <p>OK, with all that apologizing out of the way up front, here’s an implementation of a local key-value store in Python that shows off an asynchronous context manager, based on sqllite3.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
-<span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">asynccontextmanager</span>
-<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">exists</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">contextlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">asynccontextmanager</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">os.path</span><span class="w"> </span><span class="kn">import</span> <span class="n">exists</span>
 
 <span class="nd">@asynccontextmanager</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">connect</span><span class="p">():</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">connect</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Manage a filename, closing of the connection, and one time table creation of sqlite3 database.</span>
 <span class="sd">    </span>
 <span class="sd">       Yield the connection as an asynchronous context manager-manged object, so it </span>
@@ -486,7 +484,7 @@ Exiting<span class="w"> </span>context<span class="w"> </span>manager<span class
     <span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     
     
-<span class="k">async</span> <span class="k">def</span> <span class="nf">putvalue</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">putvalue</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Put a value to keyvalue.db&#39;s keyvalue table identified by key.  Does an insert or update as needed.&quot;&quot;&quot;</span>
     <span class="n">lookup</span> <span class="o">=</span> <span class="k">await</span> <span class="n">getvalue</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
         
@@ -498,7 +496,7 @@ Exiting<span class="w"> </span>context<span class="w"> </span>manager<span class
             <span class="n">connection</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;update keyvalue set value = ? where key = ?;&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">value</span><span class="p">,</span> <span class="n">key</span><span class="p">])</span>
             <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
     
-<span class="k">async</span> <span class="k">def</span> <span class="nf">getvalue</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">getvalue</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Retrieves a by key from keyvalue.db&#39;s keyvalue table, or None if does not exist.&quot;&quot;&quot;</span>
     <span class="k">async</span> <span class="k">with</span> <span class="n">connect</span><span class="p">()</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
         <span class="k">with</span> <span class="n">connection</span><span class="p">:</span>
@@ -519,9 +517,9 @@ Exiting<span class="w"> </span>context<span class="w"> </span>manager<span class
 <h2>Other Contextlib Utilities<a class="headerlink" href="#other-contextlib-utilities" title="Link to this heading"></a></h2>
 <p>Beyond the generator-based functions, the contextlib module has a lot more interesting decorators and functions that you can use.</p>
 <p>For example, here’s a simple website-checker I wrote using the closing function, which takes whatever you want to automatically close even if all else goes wrong.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">closing</span>
-<span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
-<span class="kn">from</span> <span class="nn">http</span> <span class="kn">import</span> <span class="n">HTTPStatus</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">contextlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">closing</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">urllib.request</span><span class="w"> </span><span class="kn">import</span> <span class="n">urlopen</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">http</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTTPStatus</span>
 
 <span class="k">with</span> <span class="n">closing</span><span class="p">(</span><span class="n">urlopen</span><span class="p">(</span><span class="s1">&#39;https://codesolid.com&#39;</span><span class="p">))</span> <span class="k">as</span> <span class="n">page</span><span class="p">:</span>
     <span class="n">status</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">getcode</span><span class="p">()</span>
@@ -533,9 +531,9 @@ Exiting<span class="w"> </span>context<span class="w"> </span>manager<span class
 </div>
 <p>Needless to say, the site is currently up and running or you couldn’t be reading this!</p>
 <p>The contextlib module also features an exception suppressor you can use if you know you’re not interested in a specific exception.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">suppress</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">contextlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">suppress</span>
 
-<span class="k">def</span> <span class="nf">chicken_little</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">chicken_little</span><span class="p">():</span>
     <span class="k">raise</span> <span class="ne">SystemError</span><span class="p">(</span><span class="s2">&quot;The sky is falling!&quot;</span><span class="p">)</span>
 
 <span class="k">with</span> <span class="n">suppress</span><span class="p">(</span><span class="ne">SystemError</span><span class="p">):</span>

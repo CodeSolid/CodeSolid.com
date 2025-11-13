@@ -1,25 +1,23 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Python Dataclass: Easily Automate Class Best Practices &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=19645805"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=19645805"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" /> 
@@ -116,8 +114,8 @@
 <p>Before diving into our first example of a dataclass, let’s take a minute to understand why we might like to use them. What, after all, is all the fuss about?</p>
 <p>Before Python dataclasses, to add fields to standard classes, the most common method would be to create an __init__ method, and for each non-self parameter in init, write some boilerplate code like “self.parameter_name = parameter_name”. Writing code like this is OK if you’re learning Python, but it gets old quickly after that.</p>
 <p>So let’s say you’ve done that, and you’ve created a nifty Person class:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">height_in_meters</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Person</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">height_in_meters</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">height_in_meters</span> <span class="o">=</span> <span class="n">height_in_meters</span>
 </pre></div>
@@ -148,10 +146,10 @@
 </section>
 <section id="python-dataclass-example-class-definition">
 <h2>Python Dataclass Example: Class Definition<a class="headerlink" href="#python-dataclass-example-class-definition" title="Link to this heading"></a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
 
 <span class="nd">@dataclass</span> 
-<span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Person</span><span class="p">:</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">height_in_meters</span><span class="p">:</span> <span class="nb">float</span>
 </pre></div>
@@ -255,10 +253,10 @@ Found<span class="w"> </span>by<span class="w"> </span>height:<span class="w"> <
 <section id="understanding-and-using-data-class-default-values">
 <h2>Understanding and Using Data Class Default Values<a class="headerlink" href="#understanding-and-using-data-class-default-values" title="Link to this heading"></a></h2>
 <p>We’ve seen how, by default, adding the dataclass annotation will implement <code class="docutils literal notranslate"><span class="pre">__init__</span></code>, <code class="docutils literal notranslate"><span class="pre">__eq__</span></code>, <code class="docutils literal notranslate"><span class="pre">__repr__</span></code>And __match_args__ for you. If you don’t want one or more of these, you can suppress it in one of two ways. First, you can set a named parameter to <code class="docutils literal notranslate"><span class="pre">False</span></code>, as shown below:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
 
 <span class="nd">@dataclass</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="p">:</span>
     <span class="n">my_field</span><span class="p">:</span> <span class="nb">int</span>
 
 <span class="n">my_var</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">()</span>
@@ -266,7 +264,7 @@ Found<span class="w"> </span>by<span class="w"> </span>height:<span class="w"> <
 </pre></div>
 </div>
 <p>Here is the dataclass decorator’s signature, showing what arguments are available and their defaults:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dataclass</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">repr</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">eq</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">unsafe_hash</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">frozen</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">dataclass</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">repr</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">eq</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">unsafe_hash</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">frozen</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The unsafe_hash method is of limited utility, but if you’re curious about them, see the full specification for dataclasses in <a class="reference external" href="https://peps.python.org/pep-0557">PEP-557</a>. We’ll discuss frozen in a later section. Order can be used to add comparison methods (__gt__, __lt__, etc.). It makes sense to discuss this in the context of field customization, so we’ll do that in a later section.</p>
@@ -284,9 +282,9 @@ Found<span class="w"> </span>by<span class="w"> </span>height:<span class="w"> <
 </ul>
 <p>The last point begs the question – if we can’t make namedtuple instances mutable, how about dataclasses? Do we have some flexibility there? Yes, we do! Dataclasses are mutable by default, and although immutability as a guarantee is problematic in user-defined Python classes, we can certainly get close enough for all practical purposes with the simple addition of frozen=True to our decorator argument list.</p>
 <p>For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
 <span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Point</span><span class="p">:</span>
     <span class="n">x</span><span class="p">:</span> <span class="nb">int</span>
     <span class="n">y</span><span class="p">:</span> <span class="nb">int</span>
 
@@ -316,10 +314,10 @@ Hashes,<span class="w"> </span>p1:<span class="w"> </span><span class="m">238092
 <section id="simple-field-customization-overriding-a-default-value">
 <h3>Simple Field Customization: Overriding a Default Value<a class="headerlink" href="#simple-field-customization-overriding-a-default-value" title="Link to this heading"></a></h3>
 <p>For example, consider the following dataclass example, where we suppress the output of a password for the user class by omitting it from the __repr__ method. (Strictly speaking, a repr method should initialize a class, but in this case, we may feel that keeping passwords out of the log is more critical than writing canonical Python).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
 
 <span class="nd">@dataclass</span> 
-<span class="k">class</span> <span class="nc">User</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">User</span><span class="p">:</span>
     <span class="n">email</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">password</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
@@ -339,15 +337,15 @@ Hashes,<span class="w"> </span>p1:<span class="w"> </span><span class="m">238092
 <h3>Post Init Processing<a class="headerlink" href="#post-init-processing" title="Link to this heading"></a></h3>
 <p>If an <code class="docutils literal notranslate"><span class="pre">__init__</span></code> dunder function is created by the dataclass annotation it will call a special method called __post_init__ if one is defined. We can use this together with passing False as the init parameter to a field to create a custom field.</p>
 <p>Consider the following code for calculating a defined field during object instantiation:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
 
 <span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">Rectangle</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Rectangle</span><span class="p">:</span>
     <span class="n">length</span><span class="p">:</span> <span class="nb">float</span>
     <span class="n">width</span><span class="p">:</span> <span class="nb">float</span>
     <span class="n">area</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="nb">repr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">area</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span>
 
 
@@ -364,10 +362,10 @@ Hashes,<span class="w"> </span>p1:<span class="w"> </span><span class="m">238092
 <h3>Excluding Fields from Ordering<a class="headerlink" href="#excluding-fields-from-ordering" title="Link to this heading"></a></h3>
 <p>We mentioned earlier that one of the other defaults for data classes is the order parameter; the default parameter is <code class="docutils literal notranslate"><span class="pre">False</span></code>. If set to true, it enables comparing objects, but the default ordering of comparing all the fields as though they were an ordered tuple may not be what you want. We can exclude a field from ordering by using <code class="docutils literal notranslate"><span class="pre">compare=False</span></code> as an argument to the field function.</p>
 <p>Consider, for example, the following simple code:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
 
 <span class="nd">@dataclass</span><span class="p">(</span><span class="n">order</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="k">class</span> <span class="nc">PersonByHeight</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">PersonByHeight</span><span class="p">:</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">compare</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">height_in_meters</span><span class="p">:</span> <span class="nb">float</span>
     

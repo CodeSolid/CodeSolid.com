@@ -1,25 +1,23 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Debugging Python in VS Code &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=19645805"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=19645805"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" />
@@ -187,11 +185,11 @@ pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </s
 <span class="sd">Bradley Bumblekey and Robustness Unlimited(tm)</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="k">def</span> <span class="nf">is_number</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_number</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;determine if a value is a number.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
     
-<span class="k">def</span> <span class="nf">get_numbers_from_dictionary</span><span class="p">(</span><span class="n">dct</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_numbers_from_dictionary</span><span class="p">(</span><span class="n">dct</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Gets the numbers from dictionary, dct, as a tuple containing all the numbers&quot;&quot;&quot;</span>
     <span class="n">numbers</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dct</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
@@ -200,7 +198,7 @@ pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </s
             <span class="n">numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>        
     <span class="k">return</span> <span class="n">numbers</span>
     
-<span class="k">def</span> <span class="nf">test_get_numbers_from_dictionary</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">test_get_numbers_from_dictionary</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Instructions: examine the printout.  Ensure only numbers are included&quot;</span><span class="p">)</span>
     <span class="n">bond</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;agent&quot;</span><span class="p">:</span> <span class="s2">&quot;James Bond&quot;</span><span class="p">,</span> <span class="s2">&quot;agent_number&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">37</span><span class="p">}</span>
     <span class="n">numbers</span> <span class="o">=</span> <span class="n">get_numbers_from_dictionary</span><span class="p">(</span><span class="n">bond</span><span class="p">)</span>
@@ -218,7 +216,7 @@ pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </s
 <p>After you do that once, the button will change to look like a run button with a bug next to it. Next time you can click the button to run your code in the debugger and see the results:</p>
 <p><img alt="" src="../_images/image-15.png" /></p>
 <p>Before using the debugger features, we noticed that – in typical Brad Bumblekey fashion – the test function requires us to examine the output (unlike a real unit test) and only includes tests that pass. So let’s at least fix the second problem. First, add the following import to the top of the file under the comment:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="n">Decimal</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">decimal</span><span class="w"> </span><span class="kn">import</span> <span class="n">Decimal</span>
 </pre></div>
 </div>
 <p>Next, let’s add more cases to the “bond” dictionary in <code class="docutils literal notranslate"><span class="pre">test_get_numbers_from_dictionary</span></code>:</p>
@@ -259,11 +257,11 @@ pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </s
 <p><img alt="" src="../_images/image-28-1024x168.png" /></p>
 <p>At this point, we’ve located the bug, which is that we’re checking our value only against “int”. That’s too specific, which is why we’re not including floats and decimals. At the same time, we’re letting values of the type <code class="docutils literal notranslate"><span class="pre">bool</span></code> get through.</p>
 <p>Let’s use VS Code to quickly test out a candidate fix. The Python numbers module contains a base class, Number, that should be general enough to test numbers again. Let’s add an import to the top of the file:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="kn">from</span> <span class="nn">numbers</span> <span class="kn">import</span> <span class="n">Number</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="kn">from</span><span class="w"> </span><span class="nn">numbers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Number</span>
 </pre></div>
 </div>
 <p>Next, let’s change <code class="docutils literal notranslate"><span class="pre">is_number</span></code> to this code:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_number</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_number</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;determine if a value is a number.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">Number</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
 </pre></div>

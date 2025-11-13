@@ -1,25 +1,23 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Understanding Python Types and Type Hints &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=19645805"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=19645805"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" /> 
@@ -117,7 +115,7 @@
 </pre></div>
 </div>
 <p>As you may know, we can do the same thing in Python without the explicit “String” type appearing either in the parameter list or the return value:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">greeting</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
     <span class="k">return</span> <span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;!&quot;</span>
 </pre></div>
 </div>
@@ -159,9 +157,9 @@ Hello
 <h3>Behind the Scenes of Variable Assignment Using Python’s Disassembler<a class="headerlink" href="#behind-the-scenes-of-variable-assignment-using-python-s-disassembler" title="Link to this heading"></a></h3>
 <p>If you’re curious about what Python’s doing behind the scenes when a variable gets assigned or reassigned, you can get explore the bytecode that Python generates when it happens. We can use Python’s dis (disassembly) module for this. (Note that this is part of the standard runtime, and does not need to be installed using Pip).</p>
 <p>Let’s see what happens when we assign a variable to a numerical constant, a string constant, and another variable.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dis</span> <span class="kn">import</span> <span class="n">dis</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dis</span><span class="w"> </span><span class="kn">import</span> <span class="n">dis</span>
 
-<span class="k">def</span> <span class="nf">show_variable_use</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">show_variable_use</span><span class="p">():</span>
     <span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>
     <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
@@ -224,7 +222,7 @@ Hello
 <p>The first consequence has to do with performance. As a rule, statically typed languages can take advantage of compile-time optimizations and have less overhead at runtime, so their performance is generally better than dynamically typed languages. C, C++, and Rust are all more performant than Python or Ruby, for example.</p>
 <p>The second consequence of dynamic typing is that, although it’s beginner-friendly, there is no way to do static checking to ensure that arguments to functions have the correct type, or that what’s returned from the function is correct. As we’ll see shortly, this is the problem that type hints solve, but first, let’s look at an example to illustrate the problem.</p>
 <p>Taking our old friend user_id, consider the following code, which presumably reads a user from a database.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_user</span><span class="p">(</span><span class="n">user_id</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_user</span><span class="p">(</span><span class="n">user_id</span><span class="p">):</span>
      <span class="c1"># Returns something ...</span>
 </pre></div>
 </div>
@@ -234,9 +232,9 @@ Hello
 <h3>Type Hint Typing Module and Basic Syntax<a class="headerlink" href="#type-hint-typing-module-and-basic-syntax" title="Link to this heading"></a></h3>
 <p>To address this second consequence, Python 3.5 introduced a new module, typing, which formally added many new, related classes to help make type hints available to the Python language. (For completeness, we should point out that although type hints were officially available in 3.5, the syntax it relies on is somewhat backward compatible).</p>
 <p>Python’s type hints make it easy to rework the function above. For example, suppose we replaced it this way:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">models</span> <span class="kn">import</span> <span class="n">User</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">models</span><span class="w"> </span><span class="kn">import</span> <span class="n">User</span>
 
-<span class="k">def</span> <span class="nf">get_user</span><span class="p">(</span><span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">User</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_user</span><span class="p">(</span><span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">User</span><span class="p">:</span>
     <span class="c1"># ...</span>
 </pre></div>
 </div>
@@ -261,7 +259,7 @@ Hello
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># bug.py </span>
 <span class="c1"># Don&#39;t do this.  Violate the greet_user type hint</span>
 
-<span class="k">def</span> <span class="nf">greet_user</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span> 
+<span class="k">def</span><span class="w"> </span><span class="nf">greet_user</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span> 
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="n">greet_user</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
@@ -313,21 +311,21 @@ Hello
 <section id="collections-types-and-type-aliases">
 <h3>Collections Types and Type Aliases<a class="headerlink" href="#collections-types-and-type-aliases" title="Link to this heading"></a></h3>
 <p>We’ve covered how to work with simple types, but next, let’s consider how to work with collection types. There are two ways you might want to specify a collection type. You might want to enforce that a function accepts or returns a collection containing any element. In this case, you can simply use the collection type name:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_list</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_list</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
     <span class="k">return</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>A second common option is to make the type hint more precise by specifying the type the collection must contain. In Python 3.9 and above, you can use the collection name directly, followed by the type in square brackets. Here is an example, where we enforce that both the key and the value will be strings:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_blog_info</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_blog_info</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://codesolid.com&quot;</span><span class="p">,</span> <span class="s2">&quot;topic&quot;</span><span class="p">:</span> <span class="s2">&quot;Python&quot;</span><span class="p">}</span>
 </pre></div>
 </div>
 <p>Before version 3.9, if you needed to use generics like this, you had to import a class designed for that purpose from the typing module. Often the names of these classes were the uppercased version of the class name for the collection: List, Set, Dict, etc. Here for example we specify that a factorial function must be passed a list of integers:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use this for 3.8 and earlier, otherwise just use lowercase &quot;list&quot;:</span>
 
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
 
-<span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">list_of_ints</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="n">list_of_ints</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;returns a factorial of a list of integers, cf https://en.wikipedia.org/wiki/Factorial&quot;&quot;&quot;</span>
     <span class="nb">sum</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">list_of_ints</span><span class="p">:</span>
@@ -346,7 +344,7 @@ Hello
 <span class="n">MapIntToInt</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
 <span class="n">MapStringToInt</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
 
-<span class="k">def</span> <span class="nf">get_ages</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">MapStringToInt</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_ages</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">MapStringToInt</span><span class="p">:</span>
     <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;mom&#39;</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span> <span class="s1">&#39;dad&#39;</span><span class="p">:</span> <span class="mi">34</span><span class="p">}</span>
 </pre></div>
 </div>
@@ -354,10 +352,10 @@ Hello
 <section id="union-types">
 <h3>Union Types<a class="headerlink" href="#union-types" title="Link to this heading"></a></h3>
 <p>A union type allows you to specify that a function will accept or return one of two or more types. For example, suppose you were writing a function that accepts a date, and you want to specify that it will either take a date in a known format (for example, “2015-03-15”) or a Python date object. You could do it like this:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Union</span>
 
-<span class="k">def</span> <span class="nf">show_expiration</span><span class="p">(</span><span class="n">expires</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">date</span><span class="p">,</span> <span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">show_expiration</span><span class="p">(</span><span class="n">expires</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">date</span><span class="p">,</span> <span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expires on: </span><span class="si">{</span><span class="n">expires</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
     
 <span class="n">show_expiration</span><span class="p">(</span><span class="s2">&quot;2059-06-20&quot;</span><span class="p">)</span>
@@ -365,13 +363,13 @@ Hello
 </pre></div>
 </div>
 <p>Note that beginning in Python 3.10, you can write union types more concisely. The function above, for example, could be written as:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">show_expiration</span><span class="p">(</span><span class="n">expires</span><span class="p">:</span> <span class="n">date</span> <span class="o">|</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">show_expiration</span><span class="p">(</span><span class="n">expires</span><span class="p">:</span> <span class="n">date</span> <span class="o">|</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expires on: </span><span class="si">{</span><span class="n">expires</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This more recent syntax can also be used to express an optional type. An optional type either contains a value or None. For example, <code class="docutils literal notranslate"><span class="pre">float</span> <span class="pre">|</span> <span class="pre">None</span></code> represents an argument that’s either a float or None. Before 3.10, this could be done would be written using the Optional type, as shown below:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
-<span class="k">def</span> <span class="nf">some_function</span><span class="p">(</span><span class="n">param</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">some_function</span><span class="p">(</span><span class="n">param</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="c1"># . . .</span>
 </pre></div>
 </div>
@@ -381,9 +379,9 @@ Hello
 <h2>Literal Types<a class="headerlink" href="#literal-types" title="Link to this heading"></a></h2>
 <p>Generally speaking, type hints are aptly named because they don’t let you check anything <em>except</em> the type. Literal types are an exception to this general rule, however, since they let you check that a parameter is a given value, or within a range of values.</p>
 <p>Suppose we’re writing a comparison function for a sort operation. We’re passed two strings, and have to return 1 if the first would come before the second in a language dictionary, zero if they’re the same, or -1 if the first comes after the second. Here is how the function might be written to make the return value clear:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Literal</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Literal</span>
 
-<span class="k">def</span> <span class="nf">compare_strings</span><span class="p">(</span><span class="n">first</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">second</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Literal</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">compare_strings</span><span class="p">(</span><span class="n">first</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">second</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Literal</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]:</span>
     <span class="c1"># . . .</span>
 </pre></div>
 </div>

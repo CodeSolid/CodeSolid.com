@@ -1,25 +1,23 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Python Function Arguments: The Complete Guide &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=19645805"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=19645805"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" />
@@ -145,7 +143,7 @@
 <p>Parameters have names, but the name the caller uses to call the function can be different, or – if you’re calling the function with a literal value – you may not have a name on the caller side at all.</p>
 <p>To make this more concrete, let’s take a very simple example.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a function with one parameter, with the name &quot;name&quot;</span>
-<span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 
 <span class="c1"># Pass a literal as an argument</span>
@@ -165,7 +163,7 @@ Hello,<span class="w"> </span>John.
 <section id="using-keyword-arguments-instead-of-positional-arguments">
 <h2>Using Keyword Arguments Instead of Positional Arguments<a class="headerlink" href="#using-keyword-arguments-instead-of-positional-arguments" title="Link to this heading"></a></h2>
 <p>A function with positional parameters can also be called either by position or by using keyword arguments. In this case, nothing more is needed when defining the function.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">punctuation</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">punctuation</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;simple demo of &quot;plain&quot; function parameters&#39;&#39;&#39;</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">name</span><span class="si">}{</span><span class="n">punctuation</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
@@ -196,7 +194,7 @@ Hello,<span class="w"> </span>programmer!
 </pre></div>
 </div>
 <p>For example, rewriting our greet function with named arguments, it looks like this.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">punctuation</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">punctuation</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;simple demo of &quot;typed&quot; parameters&#39;&#39;&#39;</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">name</span><span class="si">}{</span><span class="n">punctuation</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     
@@ -217,7 +215,7 @@ Hello,<span class="w"> </span>programmer!
 </pre></div>
 </div>
 <p>Our <code class="docutils literal notranslate"><span class="pre">greet</span></code> example is a simple case where a default argument would have improved the function. Since we usually want to greet folks enthusiastically, let’s add an exclamation point default.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">punctuation</span><span class="o">=</span><span class="s2">&quot;!&quot;</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">punctuation</span><span class="o">=</span><span class="s2">&quot;!&quot;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;simple demo of a function with a single default parameter&#39;&#39;&#39;</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">name</span><span class="si">}{</span><span class="n">punctuation</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
@@ -240,7 +238,7 @@ Oh,<span class="w"> </span>hi,<span class="w"> </span>lame<span class="w"> </spa
 <section id="default-parameters-are-only-evaluated-once">
 <h2>Default Parameters Are Only Evaluated Once<a class="headerlink" href="#default-parameters-are-only-evaluated-once" title="Link to this heading"></a></h2>
 <p>A subtle but important point about default parameters is that they are evaluated only once, not every time the function is called. So for mutable values like lists, dictionaries, etc., this may cause unexpected results. Let’s take as an example a function that tries to append an item to a list (The function below is not one you should really write since it doesn’t do add anything to a list’s “append” method, but it’s useful as an illustration):</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">append_one_item_to_list</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">item_list</span><span class="o">=</span><span class="p">[]):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">append_one_item_to_list</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">item_list</span><span class="o">=</span><span class="p">[]):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;try to add an item to the list and create the list if it does not exist&#39;&#39;&#39;</span>
     <span class="n">item_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">item_list</span>
@@ -261,7 +259,7 @@ Oh,<span class="w"> </span>hi,<span class="w"> </span>lame<span class="w"> </spa
 <section id="using-none-as-a-default-argument-for-mutable-values">
 <h2>Using None as a Default Argument for Mutable Values<a class="headerlink" href="#using-none-as-a-default-argument-for-mutable-values" title="Link to this heading"></a></h2>
 <p>To solve the problem we of default arguments only being evaluated once, use None to represent the mutable value, and write your fuction this way:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">append_one_item_to_list</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">item_list</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>    
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">append_one_item_to_list</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">item_list</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>    
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;add an item to the list and create the list if it does not exist&#39;&#39;&#39;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">item_list</span><span class="p">:</span>
         <span class="n">item_list</span> <span class="o">=</span> <span class="p">[]</span>
@@ -294,7 +292,7 @@ Oh,<span class="w"> </span>hi,<span class="w"> </span>lame<span class="w"> </spa
 <h2><strong>Variable Parameters in Python: *args and **kwargs</strong><a class="headerlink" href="#variable-parameters-in-python-args-and-kwargs" title="Link to this heading"></a></h2>
 <p>Whether passed by position, by keyword, or a mixture of both, so far we’ve looked at functions that support a fairly fixed number of arguments. That is to say, any parameters without a default must be supplied. If you don’t supply an argument for a non-default parameter, it’s an error. Let’s see our greet function again and see what happens.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># CAUTION:  This code generates an error!</span>
-<span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">punctuation</span><span class="o">=</span><span class="s2">&quot;!&quot;</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">punctuation</span><span class="o">=</span><span class="s2">&quot;!&quot;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;simple demo of a function with a single default parameter&quot;&quot;&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">name</span><span class="si">}{</span><span class="n">punctuation</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
@@ -314,7 +312,7 @@ TypeError:<span class="w"> </span>greet<span class="o">()</span><span class="w">
 <h2><strong>Variable Positional Arguments Only</strong><a class="headerlink" href="#variable-positional-arguments-only" title="Link to this heading"></a></h2>
 <p>At the risk of making you hungry, let’s imagine you wanted a function to print all your favorite things to eat, one food per line. However, because your appetite changes from day to day, sometimes you want to print only one thing to eat, but on other days you wanted to print out a one or two things, some days you want to print out a whole list.</p>
 <p>Let’s see how we can support this with variable positional arguments:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_foods</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">print_foods</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;prints one or more foods passed as a single list or as one or more positional arguments&quot;&quot;&quot;</span>
     <span class="k">for</span> <span class="n">food</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">food</span><span class="p">)</span>
@@ -378,7 +376,7 @@ etc.
 <section id="variable-keyword-arguments">
 <h2><strong>Variable Keyword Arguments</strong><a class="headerlink" href="#variable-keyword-arguments" title="Link to this heading"></a></h2>
 <p>In Python, just as you can pass a variable number of arguments by position, you can also pass a variable number of keyword arguments. This is done with the **kwargs parameter. Inside the function itself, kwargs is passed as a dictionary, as we demonstrate below.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_main_course</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">print_main_course</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;prints a main course for each keyword argument.</span>
 <span class="sd">      </span>
 <span class="sd">       We assume the argument name is a &#39;meal&#39; </span>
@@ -412,7 +410,7 @@ etc.
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># BAD CODE! This code generates a syntax error, proving that</span>
 <span class="c1"># you can&#39;t give chuck_norris an argument!</span>
 
-<span class="k">def</span> <span class="nf">broken_function</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">,</span> <span class="n">chuck_norris</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">broken_function</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">,</span> <span class="n">chuck_norris</span><span class="p">):</span>
     <span class="k">pass</span>
 </pre></div>
 </div>
@@ -427,7 +425,7 @@ SyntaxError:<span class="w"> </span>invalid<span class="w"> </span>syntax
 <section id="keyword-only-parameters">
 <h2>Keyword-Only Parameters<a class="headerlink" href="#keyword-only-parameters" title="Link to this heading"></a></h2>
 <p>In Python 3.0 and later, anything following any variable length positional arguments must be specified by keyword. Passing them by position does not work.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_person_info</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">codes_in_python</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">print_person_info</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">codes_in_python</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Given a person with a name, print the person&#39;s name, the name of any of their </span>
 <span class="sd">       children as *args, and whether they code in python.&quot;&quot;&quot;</span>
     
@@ -456,7 +454,7 @@ TypeError:<span class="w"> </span>print_person_info<span class="o">()</span><spa
 <h2><strong>Keyword-Only Parameters Without Variable Positional Arguments</strong><a class="headerlink" href="#keyword-only-parameters-without-variable-positional-arguments" title="Link to this heading"></a></h2>
 <p>We saw above that in Python, any parameters following a variable positional argument become keyword-only parameters. But what if we wanted to force a some parameters to be keyword-only without supporting variable positional arguments?</p>
 <p>In this case, we use a slight variation on the *args syntax. Here, we make it clear that there are no variable arguments allowed by simply denoting the end of the positional arguments with an unnamed, bare “*”.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_person_info</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">codes_in_python</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">print_person_info</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">codes_in_python</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Print a person&#39;s name, and whether they code in python.</span>
 
 <span class="sd">         codes_in_python must be passed by keyword</span>
@@ -488,7 +486,7 @@ TypeError:<span class="w"> </span>print_person_info<span class="o">()</span><spa
 <p>In addition to supporting keyword-only parameters, newer versions of Python (from 3.8 onwards), support having parameters that must be specified by position. One of the stated reasons for the change (in <a class="reference external" href="https://www.python.org/dev/peps/pep-0570/">PEP 570</a>) was that it allowed a function’s authors to change the name of positional parameters without breaking existing callers. It’s especially useful when a function supports a keyword argument but also accepts a positional one.</p>
 <p>Positional-only parameters are specified by introducing a forward-slash character, “/”, into a function’s definition. Parameters before this special character must be specified by position.<br />
 Let’s return to our simple greet function from the start of the article to see how this would work.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greet_flexible</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">greet_flexible</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;accepts a standard argument, positional or keyword&quot;&quot;&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
 
@@ -498,7 +496,7 @@ Let’s return to our simple greet function from the start of the article to see
 <span class="c1"># Also OK, call by keyword</span>
 <span class="n">greet_flexible</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Larry&quot;</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">greet_positional</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="o">/</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">greet_positional</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="o">/</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;accepts a standard argument, positional only!&quot;&quot;&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
     

@@ -1,25 +1,23 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Useful Collection Classes in Python You May Not Know &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=19645805"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=19645805"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" /> 
@@ -140,7 +138,7 @@
 <p>In the case of points, losing the labels was not a big deal: we knew that they are represented x,y,z by convention. But as a list or tuple becomes large, losing the labels is a real problem. Quick: does <code class="docutils literal notranslate"><span class="pre">person[5]</span></code> mean the value for address_line_2, or does it mean city?</p>
 <p>What we need in Python is something that serves the role of an immutable data transfer object. (Scala developers may recognize a favorite class of theirs from the description, the Scala “case class”). Enter the Python namedtuple class, which provides just such a feature.</p>
 <p>To keep the example simple, let’s model a point using a namedtuple. The namedtuple class is a factory for other classes that we then use to create the object. Here’s how you can use it to generate point objects:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">namedtuple</span>
 <span class="n">Point</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">&quot;Point&quot;</span><span class="p">,</span> <span class="n">field_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">])</span>
 
 <span class="c1"># Create a point using positional arguments</span>
@@ -171,7 +169,7 @@
 <h2>Using Defaultdict to Gracefully Handle Missing Values<a class="headerlink" href="#using-defaultdict-to-gracefully-handle-missing-values" title="Link to this heading"></a></h2>
 <p>There are some cases where we always want a dictionary to have a starting value for any arbitrary key we assign to it. If the values in the dictionary are lists, for example, a reasonable default value would be an empty list. We can handle cases like this with a standard Python dictionary, but we need to write extra code to check for the key.</p>
 <p>To see what I mean, consider a word counting program where our task is to return a dictionary with the count of each word encountered in a string of text. Here we show such a function using a standard dictionary.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count_words</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">count_words</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;returns a dictionary with the counts for each word in the text&quot;&quot;&quot;</span>
     <span class="n">tokens</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
     <span class="n">tokens</span>
@@ -188,9 +186,9 @@
 </pre></div>
 </div>
 <p>The above code listing works fine, but it is more verbose than it needs to be. To fix it, we can use the defaultdict class. This class takes a default_factory, which allows lookups on a missing key to return a default value Here’s the same counter program re-cast to use a <code class="docutils literal notranslate"><span class="pre">defaultdict</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">defaultdict</span>
 
-<span class="k">def</span> <span class="nf">count_words</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">count_words</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;returns a dictionary with the counts for each word in the text&quot;&quot;&quot;</span>
     <span class="n">tokens</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
     <span class="n">tokens</span>
@@ -217,16 +215,16 @@
 <p>The constructor for each class takes an extra parameter, <code class="docutils literal notranslate"><span class="pre">maxsize</span></code>, which is zero by default (unlimited). Setting this value to a positive number limits the number of items that can be in the queue at one time. Beyond this value, additional puts will block until items code in another thread removes them from the queue.</p>
 <p>The example below provides a simple illustration of starting a producer thread and a consumer thread. In order to join on both in the main thread and not have the program hang, we set a common value for the number of items produced and consumed. Another way to do this would be to join the thread and use a timeout to specify a specific time to wait).</p>
 <p>The producer thread puts five numbers into the queue and sleeps a random amount of time each time. The consumer thread gets five numbers out of the queue.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">threading</span>
-<span class="kn">import</span> <span class="nn">queue</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">queue</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">random</span><span class="w"> </span><span class="kn">import</span> <span class="n">randint</span>
 
 <span class="n">shared</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">Queue</span><span class="p">()</span>
 
 <span class="n">ITEMS</span> <span class="o">=</span> <span class="mi">5</span>
 
-<span class="k">def</span> <span class="nf">producer_function</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">producer_function</span><span class="p">():</span>
     <span class="n">items</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">while</span> <span class="n">items</span> <span class="o">&lt;</span> <span class="n">ITEMS</span><span class="p">:</span>
         <span class="n">items</span> <span class="o">=</span> <span class="n">items</span> <span class="o">+</span> <span class="mi">1</span>
@@ -234,7 +232,7 @@
         <span class="n">shared</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 
-<span class="k">def</span> <span class="nf">consumer_function</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">consumer_function</span><span class="p">():</span>
     <span class="n">remaining</span> <span class="o">=</span> <span class="n">ITEMS</span>
     <span class="k">while</span> <span class="n">remaining</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>        
         <span class="k">if</span> <span class="ow">not</span> <span class="n">shared</span><span class="o">.</span><span class="n">empty</span><span class="p">():</span>
@@ -278,7 +276,7 @@ Consumer<span class="w"> </span>got:<span class="w"> </span><span class="m">5</s
 <p>For example, AWS’s command-line tool (which is written in Python) implements exactly the <a class="reference external" href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html">configuration sequence</a> listed above.</p>
 <p>One way to implement this in Python is to use the ChainMap class. The ChainMap implements a set of mappings so that they can be treated as a single unit. You can also accomplish this with a regular dictionary and multiple update calls, but ChainMap is documented as being somewhat faster. It also maintains each of the original maps, so one can see where the values are coming from.</p>
 <p>We won’t show the code to read the configuration file, the environment, and the command line for brevity. Let’s take a more straightforward case to show how such overriding will work. The argument to ChainMap is a list or series of maps, with the maps that will be searched first appearing first in the list.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">ChainMap</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">ChainMap</span>
 
 <span class="c1"># Some example configuration</span>
 <span class="n">config_settings</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;lifecycle&quot;</span><span class="p">:</span>  <span class="s2">&quot;Production&quot;</span><span class="p">,</span> <span class="s2">&quot;data_center&quot;</span><span class="p">:</span> <span class="s2">&quot;Atlanta&quot;</span><span class="p">,</span> <span class="s2">&quot;log_level&quot;</span><span class="p">:</span> <span class="s2">&quot;info&quot;</span><span class="p">}</span>

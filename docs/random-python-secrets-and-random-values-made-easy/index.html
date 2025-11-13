@@ -1,25 +1,23 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Random Python: Secrets and Random Values Made Easy &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=19645805"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=19645805"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" /> 
@@ -124,7 +122,7 @@
 <p>There are other differences between the two modules as well. The random module is the older of the two and has been around since Python version 1. It has a large functional interface that is essentially a wrapper around a shared instance of a class, <code class="docutils literal notranslate"><span class="pre">random.Random</span></code>. However, you could always construct a Random class of your own and use that. The <code class="docutils literal notranslate"><span class="pre">random.Random</span></code> class could be instantiated with a known seed to give a reproducible sequence of random numbers. If missing, a seed value based on the system timer would be used.</p>
 <p>This example shows the impact of selecting a seed on the <code class="docutils literal notranslate"><span class="pre">random.Random</span></code> class:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Creating random integers demo&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">Random</span><span class="p">,</span> <span class="n">randint</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">random</span><span class="w"> </span><span class="kn">import</span> <span class="n">Random</span><span class="p">,</span> <span class="n">randint</span>
 
 <span class="n">seed</span> <span class="o">=</span> <span class="mi">42</span>
 <span class="n">seeded_1</span> <span class="o">=</span> <span class="n">Random</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
@@ -168,7 +166,7 @@
 <section id="randint-and-randrange">
 <h3>Randint and Randrange<a class="headerlink" href="#randint-and-randrange" title="Link to this heading"></a></h3>
 <p>We’ve already seen how to generate random numbers in a specific range using <code class="docutils literal notranslate"><span class="pre">randint</span></code>. The <code class="docutils literal notranslate"><span class="pre">randrange</span></code> function is very similar, except that it excludes the upper bound, whereas the upper bound of <code class="docutils literal notranslate"><span class="pre">randint</span></code> is inclusive. If you run this code often enough, a five will turn up for the first output line, but not for the second.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">secrets</span> <span class="kn">import</span> <span class="n">SystemRandom</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">secrets</span><span class="w"> </span><span class="kn">import</span> <span class="n">SystemRandom</span>
 <span class="n">rand</span> <span class="o">=</span> <span class="n">SystemRandom</span><span class="p">()</span>
 
 <span class="c1"># Integers betewen 1 and 5, inclusive</span>
@@ -185,7 +183,7 @@
 <p>For example, we can create a list of 20 imaginary IQ values, randomly distributed along the same normal curve as a real population. By definition, IQ has a mean value of 100 and a standard deviation of 15. (By the way, for purposes of this example, we want to model this sort of distribution, even as we ignore the legitimate criticisms that have been raised about both the idea and how we test for it.)</p>
 <p>Here is the code o create a “population” of 20 IQs at random:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;IQ distribution&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">secrets</span> <span class="kn">import</span> <span class="n">SystemRandom</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">secrets</span><span class="w"> </span><span class="kn">import</span> <span class="n">SystemRandom</span>
 <span class="n">rand</span> <span class="o">=</span> <span class="n">SystemRandom</span><span class="p">()</span>
 <span class="n">population</span> <span class="o">=</span> <span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">rand</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">)]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">population</span><span class="p">)</span>
@@ -217,8 +215,8 @@
 <p>Because it’s so easy to select random choices from a sequence in Python using the methods <code class="docutils literal notranslate"><span class="pre">Random.choice</span></code> or <code class="docutils literal notranslate"><span class="pre">Random.choices</span></code>Creating random strings in Python is also straightforward. In addition, the secrets module defines some specialized functions that can also be used, depending on your needs.</p>
 <p>Let’s first look at a general approach that you can use to generate many kinds of strings. The string module includes several strings that are essentially hard-coded sequences of characters, e.g. <code class="docutils literal notranslate"><span class="pre">ascii_lowercase</span></code> (a-z), <code class="docutils literal notranslate"><span class="pre">ascii_uppercase</span></code> (A-Z), <code class="docutils literal notranslate"><span class="pre">ascii_letters</span></code>, <code class="docutils literal notranslate"><span class="pre">punctuation</span></code>, and <code class="docutils literal notranslate"><span class="pre">digits</span></code>. <code class="docutils literal notranslate"><span class="pre">Random.choices</span></code> or <code class="docutils literal notranslate"><span class="pre">SystemRandom.choices</span></code> can be called on any of these to create an array of the desired length, then the str class’s join method can be used to convert the array to a new string.</p>
 <p>We combine those steps in the following example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="n">ascii_letters</span><span class="p">,</span> <span class="n">digits</span><span class="p">,</span> <span class="n">punctuation</span><span class="p">,</span> <span class="n">ascii_lowercase</span><span class="p">,</span> <span class="n">ascii_uppercase</span>
-<span class="kn">from</span> <span class="nn">secrets</span> <span class="kn">import</span> <span class="n">SystemRandom</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">string</span><span class="w"> </span><span class="kn">import</span> <span class="n">ascii_letters</span><span class="p">,</span> <span class="n">digits</span><span class="p">,</span> <span class="n">punctuation</span><span class="p">,</span> <span class="n">ascii_lowercase</span><span class="p">,</span> <span class="n">ascii_uppercase</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">secrets</span><span class="w"> </span><span class="kn">import</span> <span class="n">SystemRandom</span>
 <span class="n">rand</span> <span class="o">=</span> <span class="n">SystemRandom</span><span class="p">()</span>
 
 <span class="n">four_digits</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">rand</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">digits</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
@@ -241,7 +239,7 @@ PLZYOxFLoQ
 <section id="secure-random-strings-using-the-secrets-module">
 <h2>Secure Random Strings Using the Secrets Module<a class="headerlink" href="#secure-random-strings-using-the-secrets-module" title="Link to this heading"></a></h2>
 <p>In addition to easily creating random strings as shown above, the secrets module provides several functions that can be used to generate random sequences of bytes in various formats. At the lowest level, we can generate raw “bytes” arrays of various lengths using the <code class="docutils literal notranslate"><span class="pre">token_bytes</span></code> function</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">secrets</span> <span class="kn">import</span> <span class="n">token_bytes</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">secrets</span><span class="w"> </span><span class="kn">import</span> <span class="n">token_bytes</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">token_bytes</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
@@ -254,7 +252,7 @@ b<span class="s1">&#39;!\x05P\xc6a\x87\xf9~(\xa9&#39;</span>
 </div>
 <p>Raw bytes might be useful as input to cryptographic algorithms or the like, but remember that they won’t contain valid UTF-8 codepoints, so this function shouldn’t be used for generating strings. To get strings, one can use either the techniques from the last section or one of the next two functions.</p>
 <p>Rather than get the bytes in raw format, we can return a string, consisting again of random bytes, but in hexadecimal format. This gives us two characters of hexadecimal output per byte:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">secrets</span> <span class="kn">import</span> <span class="n">token_hex</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">secrets</span><span class="w"> </span><span class="kn">import</span> <span class="n">token_hex</span>
 <span class="n">token</span> <span class="o">=</span> <span class="n">token_hex</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Returned a </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">token</span><span class="p">)</span><span class="si">}</span><span class="s2"> of length: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">token</span><span class="p">)</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
@@ -266,7 +264,7 @@ b<span class="s1">&#39;!\x05P\xc6a\x87\xf9~(\xa9&#39;</span>
 </pre></div>
 </div>
 <p>A third function in the same family – in some respects perhaps the most useful, is <code class="docutils literal notranslate"><span class="pre">token_urlsafe</span></code>. This function allows us to get a string of random bytes into a slightly modified base64 encoded string. Here each byte results in an average of 1.3 characters, and the result can be safely used as a URL – for example, to represent a shortened URL or to be used as a password reset token. An additional benefit is a string that comes from a much larger set of potentially random characters than the 16 digits of <code class="docutils literal notranslate"><span class="pre">token_hex</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">secrets</span> <span class="kn">import</span> <span class="n">token_urlsafe</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">secrets</span><span class="w"> </span><span class="kn">import</span> <span class="n">token_urlsafe</span>
 <span class="n">token</span> <span class="o">=</span> <span class="n">token_urlsafe</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
 </pre></div>
@@ -285,7 +283,7 @@ b<span class="s1">&#39;!\x05P\xc6a\x87\xf9~(\xa9&#39;</span>
 <p>uuid1 values are created by combining a network node id (which typically means a mac address of your network card), with a few bits of information about the UUID version and variant, and many bits representing a high-resolution timestamp.</p>
 <p>uuid4 values, in contrast, generally contain six bits devoted to storing information about the version and variant, and 122 bits of purely random data. So even though in principle there could be collisions of two uuid4 values, in practice, according to <a class="reference external" href="https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)">Wikipedia</a>, “the probability to find a duplicate within 103 trillion version-4 UUIDs is one in a billion.”</p>
 <p>You can create uuid1 and uuid4 values easily with the Python uuid module. As we’ll see, the string representation looks the same, even though it is more meaningful to describe the bits in a uuid1 field.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">uuid</span> <span class="kn">import</span> <span class="n">uuid1</span><span class="p">,</span> <span class="n">uuid4</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">uuid</span><span class="w"> </span><span class="kn">import</span> <span class="n">uuid1</span><span class="p">,</span> <span class="n">uuid4</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">uuid1</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">uuid4</span><span class="p">())</span>
@@ -302,8 +300,8 @@ b<span class="s1">&#39;!\x05P\xc6a\x87\xf9~(\xa9&#39;</span>
 <h2>Closing Thoughts<a class="headerlink" href="#closing-thoughts" title="Link to this heading"></a></h2>
 <p>I hope you’ve enjoyed our tour through the Python random modules. Remember that we’ve dealt here with what’s available in the core Python standard library. In the data science world, we should also make a quick nod to NumPy’s module, <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code>, which provides the ability to generate samples according to many different distributions. There’s some overlap in terms of functionality with the distribution methods in the core library we discussed above, but in the NumPy case, you can more efficiently generate large arrays of sample data.</p>
 <p>Oh, and one final thing – if you’re curious about the featured image for this post, here’s the code I used to create it (in Jupyter Lab):</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)]</span>
 <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)]</span>

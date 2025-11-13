@@ -1,25 +1,23 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Python Lists vs. Arrays: How to Choose Between Them &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=19645805"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=19645805"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" /> 
@@ -104,7 +102,7 @@
 <p>As with most things in Python, the language’s consistency means that you can often easily replace the one with the other, or at least, their APIs are very similar. Let’s look at arrays and lists in turn. Finally, we’ll also take a brief look at how NumPy fits into the picture in terms of performance at the end.</p>
 <section id="python-lists-101">
 <h2>Python Lists 101<a class="headerlink" href="#python-lists-101" title="Link to this heading"></a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
 
 <span class="c1"># A list initialized with a literal</span>
 <span class="n">short_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;first&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()]</span>
@@ -185,7 +183,7 @@ bytearray<span class="o">(</span>b<span class="s1">&#39;Hello&#39;</span><span c
 <h2>Arrays May Use Less Memory Than Lists<a class="headerlink" href="#arrays-may-use-less-memory-than-lists" title="Link to this heading"></a></h2>
 <p>For smaller types like bytes, arrays may more compactly store their values than lists do, since arrays can store the object itself, while in the list case there is both an object and a structure with a reference to it.</p>
 <p>Some examples from the array module will make this clear.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">array</span> <span class="kn">import</span> <span class="n">array</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">array</span><span class="w"> </span><span class="kn">import</span> <span class="n">array</span>
 
 <span class="c1"># Build an array of unicode characters (strings) from a single larger string.</span>
 <span class="n">string_elements</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="s2">&quot;Hello, array lovers everywhere!&quot;</span><span class="p">)</span>
@@ -208,7 +206,7 @@ array<span class="o">(</span><span class="s1">&#39;u&#39;</span>,<span class="w"
 <p>In the example above, the first parameter to the array constructor is a type code, in this case saying we’re dealing with Unicode characters. The second parameter is a string, which according to the Python documentation is converted into an array of type <code class="docutils literal notranslate"><span class="pre">wchar_t</span></code> internally in C. This can be either 2 bytes wide or 4 bytes wide depending on the platform, according to the documentation. (I’d expect 4 to be a bit more common, since utf-8 characters can be up to 4 bytes wide, and I imagine this would make the underlying code simpler).</p>
 <p>Either way, when we access an element of the list, Python converts the character to the Python string type, as we see in the last line. It does the same thing for slices in this case.</p>
 <p>We get a very different result if we change the type to an array of unsigned char (basically a byte array).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">array</span> <span class="kn">import</span> <span class="n">array</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">array</span><span class="w"> </span><span class="kn">import</span> <span class="n">array</span>
 
 <span class="c1"># Build an array of bytes (unsigned chars)</span>
 <span class="n">string_elements</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="sa">b</span><span class="s2">&quot;Hello, array lovers everywhere!&quot;</span><span class="p">)</span>
@@ -243,12 +241,12 @@ array<span class="o">(</span><span class="s1">&#39;B&#39;</span>,<span class="w"
 <h2><a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
 <p>For Large Amounts of Data, Use Generators Instead of Lists or Arrays</p>
 <p>Although arrays may store their values more compactly than lists, memory can still be a constraint for very large arrays. In this case, a Python generator may be a more appropriate choice. Let’s say we wanted a class to iterate through the lines of a file. For short files, we could even read the whole file into a list and process the list. If we wanted to do this with a longer file, we could of course read and process a line at a time directly in Python. However, this case also lets us demo a basic generator:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">FileIterator</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">FileIterator</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">filename</span> <span class="o">=</span> <span class="n">filename</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">file_handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
         
-    <span class="k">def</span> <span class="nf">readline</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">readline</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">while</span> <span class="n">line</span> <span class="o">:=</span> <span class="bp">self</span><span class="o">.</span><span class="n">file_handle</span><span class="o">.</span><span class="n">readline</span><span class="p">():</span>
             <span class="k">yield</span> <span class="n">line</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">file_handle</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
@@ -277,7 +275,7 @@ array<span class="o">(</span><span class="s1">&#39;B&#39;</span>,<span class="w"
 <p>As we’ve seen, there are some space-saving benefits to arrays, but for really large sequences, generators provide a better option. However, setting aside the issue of space savings, it’s possible that Python arrays may have better loop efficiency than lists. Until we test this, we really have no way of knowing.</p>
 <p>To test this out, we used the <code class="docutils literal notranslate"><span class="pre">timeit</span></code> function to see if the iteration time differs significantly between arrays and lists. We expected the times to be about equal or perhaps a little faster in the non-object array case. The actual result then was quite surprising. In each case, we’ll looped through a list or array of 10,000 numbers 10,000 times.</p>
 <p>The list case first</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">timeit</span> <span class="kn">import</span> <span class="n">timeit</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">timeit</span><span class="w"> </span><span class="kn">import</span> <span class="n">timeit</span>
 
 <span class="n">result</span> <span class="o">=</span> <span class="n">timeit</span><span class="p">(</span><span class="n">setup</span><span class="o">=</span><span class="s2">&quot;num_list = [x for x in range(0,10000)]&quot;</span><span class="p">,</span> 
                           <span class="n">stmt</span><span class="o">=</span><span class="s2">&quot;for i in num_list: x = i&quot;</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
@@ -289,7 +287,7 @@ array<span class="o">(</span><span class="s1">&#39;B&#39;</span>,<span class="w"
 </pre></div>
 </div>
 <p>Now the array case, using signed integers:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">timeit</span> <span class="kn">import</span> <span class="n">timeit</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">timeit</span><span class="w"> </span><span class="kn">import</span> <span class="n">timeit</span>
 
 <span class="n">result</span> <span class="o">=</span> <span class="n">timeit</span><span class="p">(</span><span class="n">setup</span><span class="o">=</span><span class="s2">&quot;from array import array; num_array = array(&#39;i&#39;, [x for x in range(0,10000)])&quot;</span><span class="p">,</span> <span class="n">stmt</span><span class="o">=</span><span class="s2">&quot;for i in num_array: x = i&quot;</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
@@ -354,12 +352,12 @@ array<span class="o">(</span><span class="s1">&#39;B&#39;</span>,<span class="w"
 <p>Although our focus on this article has been on the array types that are part of the standard library, we should probably mention NumPy arrays, given that this library is almost as popular! In NumPy, the <code class="docutils literal notranslate"><span class="pre">array</span></code> type is an alias for the <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> class, an n-dimensional array. These arrays feature a number of aggregation and matrix algebra functions that are written in C with a Python wrapper.</p>
 <p>In addition to adding matrix support, for the operations they support, NumPy arrays are extremely fast compared to their standard library counterparts. However, the caveat is that this is true only when using the methods that NumPy provides. Mixing Python’s standard library calls with NumPy’s arrays can actually decrease performance.</p>
 <p>Here are the timings we ran earlier, with two additional comparisons at the end, one using the standard library (the “wrong” way), and one using an equivalent NumPy function. I apologize for the low readability of these timeit expressions; feel free to skim ahead to the output.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">timeit</span> <span class="kn">import</span> <span class="n">timeit</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">timeit</span><span class="w"> </span><span class="kn">import</span> <span class="n">timeit</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">iterations</span> <span class="o">=</span> <span class="mi">500</span>
 
-<span class="k">def</span> <span class="nf">display</span><span class="p">(</span><span class="n">elapsed_time</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">rounding</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">display</span><span class="p">(</span><span class="n">elapsed_time</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">rounding</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">elapsed_time</span><span class="p">,</span><span class="w"> </span><span class="n">rounding</span><span class="p">)</span><span class="si">}</span><span class="s2"> seconds -- </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 
 <span class="n">result</span> <span class="o">=</span> <span class="n">timeit</span><span class="p">(</span><span class="n">setup</span><span class="o">=</span><span class="s2">&quot;num_list = [n for n in range(0,256)] * 1000&quot;</span><span class="p">,</span> 

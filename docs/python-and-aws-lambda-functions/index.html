@@ -1,25 +1,23 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Python for AWS Lambda Functions: A Beginner’s Guide &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=19645805"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=19645805"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" /> 
@@ -133,9 +131,9 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># lambda_function.py</span>
 <span class="sd">&quot;&quot;&quot;lambda function demo&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 
-<span class="k">def</span> <span class="nf">lambda_handler</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">lambda_handler</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;lambda_handler is a hello-world lambda function&quot;&quot;&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello, Lambda!&#39;</span><span class="p">)</span>
 
@@ -178,9 +176,9 @@
 <p>We select “Author from scratch” in the top row (it should be the default). We give our function a name, and under Runtime, select the latest Python version. We can leave architecture at the default x86_64. If we do this through the console, AWS will automatically set up an IAM role, or set of permissions, for our Lambda function to use. That should be the default, so we leave it as it is.</p>
 <p><img alt="" src="../_images/create_lambda_small-1024x466.jpg" /></p>
 <p>Scroll down to the bottom of the page and click Create Function. This will bring you to a page that shows a function that looks like a slightly slimmed-down version of the function we wrote above:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 
-<span class="k">def</span> <span class="nf">lambda_handler</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">lambda_handler</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
     <span class="c1"># TODO implement</span>
     <span class="k">return</span> <span class="p">{</span>
         <span class="s1">&#39;statusCode&#39;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
@@ -282,19 +280,19 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;boto3 example that creates an S3 bucket and uploads a file to it&quot;&quot;&quot;</span>
 <span class="c1"># bucket_and_file.py</span>
 
-<span class="kn">import</span> <span class="nn">boto3</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">boto3</span>
 
 <span class="c1"># Globally unique bucket name</span>
 <span class="c1"># IMPORTANT:  must be unique, not what&#39;s set below:</span>
 <span class="n">bucket_name</span> <span class="o">=</span> <span class="s2">&quot;codesolid-boto-demo-3-22&quot;</span>
 
-<span class="k">def</span> <span class="nf">create_bucket</span><span class="p">(</span><span class="n">s3</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_bucket</span><span class="p">(</span><span class="n">s3</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;creates and returns the bucket given by bucket_name.  Does not fail if bucket exists&quot;&quot;&quot;</span>     
     <span class="n">bucket</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="n">bucket_name</span><span class="p">)</span>    
     <span class="n">bucket</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">bucket</span>
 
-<span class="k">def</span> <span class="nf">get_test_file</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_test_file</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Creates a test file and returns the name&quot;&quot;&quot;</span>
     <span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;testfile.txt&#39;</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -347,14 +345,14 @@ Modified:<span class="w"> </span><span class="m">2022</span>-03-22<span class="w
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Lambda function using boto3 to retrieve a file from S3&quot;&quot;&quot;</span>
 <span class="c1"># bucket_and_file.py</span>
 
-<span class="kn">import</span> <span class="nn">boto3</span>
-<span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">boto3</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">io</span>
 
 <span class="c1"># Globally unique bucket name</span>
 <span class="c1"># Must be set to what we created in bucket_and_file.py</span>
 <span class="n">bucket_name</span> <span class="o">=</span> <span class="s2">&quot;codesolid-boto-demo-3-22&quot;</span>
 
-<span class="k">def</span> <span class="nf">lambda_handler</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">lambda_handler</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
     <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;testfile.txt&quot;</span>
     <span class="c1"># Get an s3 resource, and create our bucket</span>
     <span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s2">&quot;s3&quot;</span><span class="p">)</span>

@@ -1,27 +1,25 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Python Function Exercises With Solutions &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=19645805"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=19645805"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" />
@@ -123,7 +121,7 @@
 </pre></div>
 </div>
 <p>Solution:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">reverse_list</span><span class="p">(</span><span class="nb">input</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reverse_list</span><span class="p">(</span><span class="nb">input</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;returns a reversed copy of list, leaving original list unchanged&quot;&quot;&quot;</span>
     <span class="n">half_list</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
     <span class="n">output</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -150,7 +148,7 @@ removed. Test it using the following code (you should see no output):</p>
 </pre></div>
 </div>
 <p>Solution:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">remove_vowels</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">remove_vowels</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns a string with the vowels removed.&quot;&quot;&quot;</span>
     <span class="n">vowels</span> <span class="o">=</span> <span class="s2">&quot;aeiouAEIOU&quot;</span>
     <span class="n">new_string</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
@@ -164,7 +162,7 @@ removed. Test it using the following code (you should see no output):</p>
 </div>
 <p>3. Write a function that takes in a list of integers or floats and returns True if the list contains duplicates and False if the list does not contain duplicates. Use a type hint to “enforce” the correct type.</p>
 <p>Solution:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">has_duplicates</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="o">|</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">has_duplicates</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="o">|</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Checks the list and returns true if there are duplicate values.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">items</span><span class="p">))</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
 
@@ -181,7 +179,7 @@ removed. Test it using the following code (you should see no output):</p>
 </div>
 <p>Use a while loop to control the iteration and printing.</p>
 <p>Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_powers_of_two</span><span class="p">():</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">print_powers_of_two</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Print two raised to a number, for numbers in range 0 to 12, inclusive&quot;&quot;&quot;</span>
     <span class="n">exponent</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">LAST</span> <span class="o">=</span> <span class="mi">12</span>
@@ -201,7 +199,7 @@ removed. Test it using the following code (you should see no output):</p>
 </div>
 <p>You should see the list values and no other output.</p>
 <p>Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_values</span><span class="p">():</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calculate_values</span><span class="p">():</span>
     <span class="n">LAST</span> <span class="o">=</span> <span class="mi">12</span>
     <span class="k">return</span> <span class="p">[</span><span class="mi">2</span><span class="o">**</span><span class="n">exponent</span> <span class="k">for</span> <span class="n">exponent</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">LAST</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
 
@@ -213,7 +211,7 @@ removed. Test it using the following code (you should see no output):</p>
 </div>
 <hr class="docutils" />
 <p>6. Write a function with the following signature:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">display_box</span><span class="p">(</span><span class="n">width</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">character</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">display_box</span><span class="p">(</span><span class="n">width</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">character</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This function will draw a simple ASCII-art rectangle (non-filled) of the given height and width, using <code class="docutils literal notranslate"><span class="pre">character</span></code> to print the lines. For example, <code class="docutils literal notranslate"><span class="pre">display_box(5,</span> <span class="pre">4,</span> <span class="pre">'x')</span></code> should output the following:</p>
@@ -226,7 +224,7 @@ removed. Test it using the following code (you should see no output):</p>
 <hr class="docutils" />
 <p>The function should raise an exception if the dimensions are less than 2 wide by two high.</p>
 <p>Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">display_box</span><span class="p">(</span><span class="n">width</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">character</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">display_box</span><span class="p">(</span><span class="n">width</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">character</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">width</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">height</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Box dimensions must be at least 2 x 2&quot;</span><span class="p">)</span>
     <span class="n">line</span> <span class="o">=</span> <span class="mi">0</span>
@@ -250,7 +248,7 @@ removed. Test it using the following code (you should see no output):</p>
 </pre></div>
 </div>
 <p>Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fizzbuzz</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fizzbuzz</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
     <span class="k">if</span> <span class="n">value</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">result</span> <span class="o">+=</span> <span class="s2">&quot;fizz&quot;</span>
@@ -281,7 +279,7 @@ fizzbuzz
 <p>Write a function that takes a New England state code as a string and returns a string with the longer name as shown above. Return None if no mapping is found.</p>
 <p>Solution</p>
 <p>Whenever an exercise calls for mapping one value to another, think “dictionary”! Once you realize that, the function boils down to creating the dictionary and passing the key (in this case, the state code), to the get function. (Get is convenient since it will return None by default if the key is not found rather than throwing an exception).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_state_full_name</span><span class="p">(</span><span class="n">state_code</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_state_full_name</span><span class="p">(</span><span class="n">state_code</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Maps a state code to a full name for New England States only&quot;&quot;&quot;</span>
     <span class="n">states</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s2">&quot;RI&quot;</span><span class="p">:</span> <span class="s2">&quot;Rhode Island&quot;</span><span class="p">,</span> 
@@ -295,8 +293,8 @@ fizzbuzz
 </div>
 <p>9. Speaking of interview questions, here’s another fairly simple one we used to ask developers who interviewed for our small team. We were doing Java, but the question works equally well in Python, so I’ve translated it here.</p>
 <p>Suppose you have a list of movie objects, which are defined as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Movie</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">director</span><span class="p">,</span> <span class="n">year_released</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Movie</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">director</span><span class="p">,</span> <span class="n">year_released</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="n">title</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">director</span> <span class="o">=</span> <span class="n">director</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">year_released</span> <span class="o">=</span> <span class="n">year_released</span>
@@ -305,13 +303,13 @@ fizzbuzz
 <p>Write a function that takes a list of movies and displays the title and director of each movie in the list.</p>
 <p>Solution</p>
 <p>Here’s a reasonable solution one could code in an interview that includes an informal test to demonstrate the function.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>  <span class="k">class</span> <span class="nc">Movie</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">director</span><span class="p">,</span> <span class="n">year_released</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>  <span class="k">class</span><span class="w"> </span><span class="nc">Movie</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">director</span><span class="p">,</span> <span class="n">year_released</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="n">title</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">director</span> <span class="o">=</span> <span class="n">director</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">year_released</span> <span class="o">=</span> <span class="n">year_released</span>
         
-<span class="k">def</span> <span class="nf">display_movies</span><span class="p">(</span><span class="n">movies</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Movie</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">display_movies</span><span class="p">(</span><span class="n">movies</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Movie</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Displays movie title and director, one per line&quot;&quot;&quot;</span>
     <span class="k">for</span> <span class="n">movie</span> <span class="ow">in</span> <span class="n">movies</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">movie</span><span class="o">.</span><span class="n">title</span><span class="si">}</span><span class="s2">&#39;. Directed by </span><span class="si">{</span><span class="n">movie</span><span class="o">.</span><span class="n">director</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
@@ -332,7 +330,7 @@ fizzbuzz
 </ol>
 <p>Solution</p>
 <p>Note that in the solution below, we use descriptive names to clarify the pricing and price cutoffs. This makes the function longer but clarifies our intent and makes it easier to change prices or cutoffs if the business requirements change.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_price</span><span class="p">(</span><span class="n">copies</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calculate_price</span><span class="p">(</span><span class="n">copies</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate price of a print order based on cutoffs&quot;&quot;&quot;</span>
     <span class="n">small_order_rate</span> <span class="o">=</span> <span class="mf">3.00</span>
     <span class="n">medium_order_rate</span> <span class="o">=</span> <span class="mf">1.25</span>
@@ -353,7 +351,7 @@ fizzbuzz
 <li><p>The velocity of an object falling near the earth is given as -9.81 meters per second squared. (It’s negative because the object is falling downwards, so it’s relative to where it started). Write a function that takes two arguments, a whole number of seconds since the object was released and a starting height in meters. Return a boolean value that’s True if the object would still be accelerating, or False it it already hit the ground.</p></li>
 </ol>
 <p>Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">still_falling</span><span class="p">(</span><span class="n">seconds_ago</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">starting_height</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">still_falling</span><span class="p">(</span><span class="n">seconds_ago</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">starting_height</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns true if an object dropped so many seconds ago would still be falling&quot;&quot;&quot;</span>
     <span class="n">distance</span> <span class="o">=</span> <span class="o">-</span><span class="mf">9.81</span> <span class="o">*</span> <span class="n">seconds_ago</span><span class="o">**</span><span class="mi">2</span>
     <span class="k">return</span> <span class="n">starting_height</span> <span class="o">+</span> <span class="n">distance</span> <span class="o">&gt;</span> <span class="mi">0</span>

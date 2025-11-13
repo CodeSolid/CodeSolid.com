@@ -137,6 +137,10 @@ C.show(aspect_ratio=(1,1,1))
 # aspect_ratio=(1,1,1) ensures the axes are scaled equally, so it looks circular
 ```
 
+# Section 12.2 - The Derivative of vector-valued functions
+
+The derivative of a vector valued function is simply the derivative of each component, so as in the case of limits, we can implement a function to find one easily in Sage.
+
 ```{sage}
 def vvf_diff(fn, v, diff_n=1):
     """Returns a list representing the limit of a vector valued function
@@ -152,10 +156,6 @@ def vvf_diff(fn, v, diff_n=1):
     l = list(fn)
     return [diff(x, v, diff_n) for x in l]
 ```
-
-# Section 12.2 - The Derivative of vector-valued functions
-
-The derivative of a vector valued function is simply the derivative of each component, so as in the case of limits, we can implement a function to find one easily in Sage.
 
 ```{sage}
 # Test out the vvf_diff function
@@ -209,3 +209,171 @@ $$
 \end{array}
 \end{align}
 $$
+
+## Velocity/Acceleration of Vector Valued Functions
+
+In either $\mathbb{R}^2$ or $\mathbb{R}^3$ if a vector-valued function, $r(t)$ represents the curve of position (e.g. at point $t$), then $v(t) = r^{\prime}(t)$ is the velocity, and $r^{\prime\prime}(t)$ is the acceleration.  The speed is given by the magnitude of the velocity vector, $\|v(t)\|$.
+
+To do this in code, see the following example based on functions we've already defined.
+
+```{sage}
+# Find the velocity vector and speed given a position vector
+# Our results agree with the example shown in the Video assignment 12.2 Q4, so they are correct,
+# but the simplification on the speed value leaves room for improvement.
+t = var('t')
+pos_vector = vector([cos(pi * t), sin(pi*t), t^2/2])
+velocity_vector = vector(vvf_diff(pos_vector, t)) #  Need to wrap list in a vector again for "norm"
+acceleration_vector = vvf_diff(pos_vector, t, 2)
+speed = velocity_vector.norm().simplify()
+print(velocity_vector)
+print(acceleration_vector)
+print(speed)
+```
+
+## The Unit Tangent Vector.
+
+A unit tangent vector for a VVF, $r(t)$ is given by the derivative of the vector over the magnitude of that derivative.  (So it's similar to the formula for a unit vector.)
+
+That is, assuming $r^{\prime}(t) \ne 0$,
+
+$$
+\begin{align}
+T(t) = \frac{r^{\prime}(t)}{\|r^{\prime}(t)\|}
+\end{align}
+$$
+
+### Calculating and Plotting a Unit Tangent Vector in SageMath
+
+Let's calculate one for $r(t) = \langle t^3, 2t^2\rangle$, with a tangency point at t = 1.  We get the correct values, but this vector would need to be graphed with the origin at the tangency point, (1,2).  W
+
+```{sage}
+# Set up the curve
+t = var('t')
+r = vector([t**3, 2*t^2])
+
+# Get the derivative, and plug in the point at which we want to draw the unit tangent vector
+r_prime = vector(vvf_diff(r, t))
+tangency_point = r(t=1)
+print("Tangency point: ", tangency_point)
+
+# Calculate the tangent vector using the formula above
+tangent_vector = r_prime/r_prime.norm()
+print("Tangent vector:", tangent_vector(t=1))
+
+# Get a plot for the curve
+plt = parametric_plot(r, (t, .75, 1.4), linestyle="dashed")
+
+# Plot the unit tangent vector.  By setting start equal to our tangency point, we place
+# the vector tail where it belongs
+plt2 =  plot(tangent_vector(t=1), start=tangency_point, color="red")
+plt += plt2                           
+plt.show(aspect_ratio=1)
+```
+
+## Anti-Derivatives:  Integration of Vector Valued Functions
+
+Given our discussion of limits and derivatives, we might have guessed that the integral of a vector valued function is calculated by taking the integral of each of the components. Thus, for example, given an indefinite integral for $r(t) = \langle f(t), g(t), h(t)\rangle$, then the definite integral is as follows:
+
+$$
+\begin{aligned}
+\int \mathbf{r}(t) \, dt = \left( \int f(t) \, dt \right) \mathbf{i} + \left( \int g(t) \, dt \right) \mathbf{j} + \left( \int h(t) \, dt \right) \mathbf{k} + \mathbf{C}
+\end{aligned}
+$$
+
+For the definite integral, we have:
+$$
+\begin{aligned}
+\int_{a}^{b} \mathbf{r}(t) \, dt = \left( \int_{a}^{b} f(t) \, dt \right) \mathbf{i} + \left( \int_{a}^{b} g(t) \, dt \right) \mathbf{j} + \left( \int_{a}^{b} h(t) \, dt \right) \mathbf{k}
+\end{aligned}
+$$
+
+As we did before for limits and derivatives, we can easily implement this in sage
+
+```{sage}
+def vvf_integrate(fn, v, limits=None):
+    """Returns a list with the integral of each component of a vector-valued function
+
+    Parameters:  
+        fn: The vector, list, or tuple representing the vector valued function
+        v:  The variable used in the function
+        limits: Either none or a two-element iterable for a definite integral.
+
+    Returns:
+        A list of values with the limit of each component of the function
+
+    Notes: 
+        Initial condition problems are not yet handled by this function.        
+    """
+    l = list(fn)
+    
+    if limits is None:
+        return [integrate(x, v) for x in l]
+    else:
+        return [integrate(x, v, limits[0], limits[1]) for x in l]
+    
+    t = var('t')
+r5 = [cos(t), sqrt(4 + t), 3*e**(2*t)]
+
+# Test it out
+print(vvf_integrate(r5, t))
+print(vvf_integrate(r5, t, (0, pi/2)))
+```
+
+```{sage}
+# Solve some problems with it.  Let's start with 12.2, Q6
+
+t = var('t')
+r = vector([-4*t^2 + 1, -1*e^(-1 * t), 5 * sin(-4*t)])
+print("12.2 Q6", vvf_integrate(r, t))
+
+print("\nAdd initial conditions manually\nto each term for the next problem:")
+r = vector([3 + 4*t, cos(t), 6*e^(3*t)])
+print("\t12.2 Q7", vvf_integrate(r, t))
+```
+
+```{sage}
+diff(ln(2*t))
+```
+
+```{sage}
+# Solving 12.2 Q9.  We're asked to find the angle of 
+# intersection between two vectors.  Originally I though we could just 
+# use get_angle_between_vectors with respect to the two vectors "as is", 
+# but it turns out we needed the angle between the tangent vectors
+# of each funciton, so get the derivative first.
+
+# Copied from another notebook -- at some point this needs to be a library!
+def get_angle_between_vectors(v: vector, w: vector):
+    """returns the angle between two vectors in radians."""
+    cos_theta = (v*w)/(v.norm() * w.norm())
+    return acos(cos_theta)
+
+r1 = vector([2*t, t^3, -1*t^4])
+r2 = vector([sin(-2 * t), sin(2*t), t - pi])
+
+angle_as_fn = get_angle_between_vectors(diff(r1, t), diff(r2, t))
+print(N(angle_as_fn(t=0)))
+```
+
+## Solving another unit tangent vector problem
+
+Question 12.2 # 10 asks us to find the unit tangent vector at the point $t = 0$ for the function $r(t) = \langle 4t^5 -2, -2 e^{3t}, -2 sin(5t)  \rangle$
+
+Let's do this using the technique we developed earlier:
+
+```{sage}
+# Set up the curve
+t = var('t')
+r = vector([4*t^5 - 2, -2*e^(3*t), -2 * sin(5*t)])
+print(r)
+
+
+# Get the derivative, and plug in the point at which we want to draw the unit tangent vector
+r_prime = vector(vvf_diff(r, t))
+tangency_point = r(t=0)
+print("Tangency point: ", tangency_point)
+
+# Calculate the tangent vector using the formula above
+tangent_vector = r_prime/r_prime.norm()
+print("Unit tangent vector:", tangent_vector(t=0))
+```

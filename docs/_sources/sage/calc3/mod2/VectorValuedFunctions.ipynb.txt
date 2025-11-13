@@ -1473,7 +1473,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 22,
+   "execution_count": 5,
    "id": "883d3c90-d493-4218-880e-c0e76b774f30",
    "metadata": {},
    "outputs": [
@@ -1495,7 +1495,7 @@
        "1"
       ]
      },
-     "execution_count": 22,
+     "execution_count": 5,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1529,7 +1529,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 5,
+   "execution_count": 6,
    "id": "4206e20f-04f7-473c-a89a-a72d384b115b",
    "metadata": {},
    "outputs": [
@@ -2151,7 +2151,7 @@
        "Graphics3d Object"
       ]
      },
-     "execution_count": 5,
+     "execution_count": 6,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2165,7 +2165,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 30,
+   "execution_count": 7,
    "id": "c8ab6f74-5d8e-4c06-b82b-90109bfef582",
    "metadata": {},
    "outputs": [
@@ -2187,7 +2187,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 7,
+   "execution_count": 8,
    "id": "9f43bc88-8413-4ce5-aa17-719e8393c82b",
    "metadata": {},
    "outputs": [
@@ -2826,8 +2826,18 @@
    ]
   },
   {
+   "cell_type": "markdown",
+   "id": "3d584521-da4c-4b05-a122-b8bd814d32da",
+   "metadata": {},
+   "source": [
+    "# Section 12.2 - The Derivative of vector-valued functions\n",
+    "\n",
+    "The derivative of a vector valued function is simply the derivative of each component, so as in the case of limits, we can implement a function to find one easily in Sage."
+   ]
+  },
+  {
    "cell_type": "code",
-   "execution_count": 34,
+   "execution_count": 9,
    "id": "43e51b48-1a33-4e3c-8c40-359b4c5a2bfc",
    "metadata": {},
    "outputs": [],
@@ -2848,18 +2858,8 @@
    ]
   },
   {
-   "cell_type": "markdown",
-   "id": "3d584521-da4c-4b05-a122-b8bd814d32da",
-   "metadata": {},
-   "source": [
-    "# Section 12.2 - The Derivative of vector-valued functions\n",
-    "\n",
-    "The derivative of a vector valued function is simply the derivative of each component, so as in the case of limits, we can implement a function to find one easily in Sage."
-   ]
-  },
-  {
    "cell_type": "code",
-   "execution_count": 35,
+   "execution_count": 10,
    "id": "b525fb7e-0100-41da-9cff-814c861ddee9",
    "metadata": {},
    "outputs": [
@@ -2883,7 +2883,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 36,
+   "execution_count": 11,
    "id": "cf21c0c9-5588-4004-ab93-5fa18c81169c",
    "metadata": {},
    "outputs": [
@@ -2952,7 +2952,314 @@
     "\\hline\n",
     "\\end{array}\n",
     "\\end{align}\n",
-    "$$\n"
+    "$$\n",
+    "\n",
+    "## Velocity/Acceleration of Vector Valued Functions\n",
+    "\n",
+    "In either $\\mathbb{R}^2$ or $\\mathbb{R}^3$ if a vector-valued function, $r(t)$ represents the curve of position (e.g. at point $t$), then $v(t) = r^{\\prime}(t)$ is the velocity, and $r^{\\prime\\prime}(t)$ is the acceleration.  The speed is given by the magnitude of the velocity vector, $\\|v(t)\\|$.\n",
+    "\n",
+    "To do this in code, see the following example based on functions we've already defined."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "88255b0a-d2a3-4e2b-9294-56540c4e3ade",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "(-pi*sin(pi*t), pi*cos(pi*t), t)\n",
+      "[-pi^2*cos(pi*t), -pi^2*sin(pi*t), 1]\n",
+      "sqrt(pi^2*cos(pi*t)^2 + pi^2*sin(pi*t)^2 + t^2)\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Find the velocity vector and speed given a position vector\n",
+    "# Our results agree with the example shown in the Video assignment 12.2 Q4, so they are correct,\n",
+    "# but the simplification on the speed value leaves room for improvement.\n",
+    "t = var('t')\n",
+    "pos_vector = vector([cos(pi * t), sin(pi*t), t^2/2])\n",
+    "velocity_vector = vector(vvf_diff(pos_vector, t)) #  Need to wrap list in a vector again for \"norm\"\n",
+    "acceleration_vector = vvf_diff(pos_vector, t, 2)\n",
+    "speed = velocity_vector.norm().simplify()\n",
+    "print(velocity_vector)\n",
+    "print(acceleration_vector)\n",
+    "print(speed)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "fc3ac654-12a9-4102-8e04-429e9731be93",
+   "metadata": {},
+   "source": [
+    "## The Unit Tangent Vector.\n",
+    "\n",
+    "A unit tangent vector for a VVF, $r(t)$ is given by the derivative of the vector over the magnitude of that derivative.  (So it's similar to the formula for a unit vector.)\n",
+    "\n",
+    "That is, assuming $r^{\\prime}(t) \\ne 0$,\n",
+    "\n",
+    "$$\n",
+    "\\begin{align}\n",
+    "T(t) = \\frac{r^{\\prime}(t)}{\\|r^{\\prime}(t)\\|}\n",
+    "\\end{align}\n",
+    "$$\n",
+    "\n",
+    "### Calculating and Plotting a Unit Tangent Vector in SageMath\n",
+    "\n",
+    "Let's calculate one for $r(t) = \\langle t^3, 2t^2\\rangle$, with a tangency point at t = 1.  We get the correct values, but this vector would need to be graphed with the origin at the tangency point, (1,2).  W"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "34ab1619-86f8-4bd5-9b42-e9cc06551d61",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Tangency point:  (1, 2)\n",
+      "Tangent vector: (3/5, 4/5)\n"
+     ]
+    },
+    {
+     "data": {
+      "image/png": "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",
+      "text/plain": [
+       "Graphics object consisting of 2 graphics primitives"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "# Set up the curve\n",
+    "t = var('t')\n",
+    "r = vector([t**3, 2*t^2])\n",
+    "\n",
+    "# Get the derivative, and plug in the point at which we want to draw the unit tangent vector\n",
+    "r_prime = vector(vvf_diff(r, t))\n",
+    "tangency_point = r(t=1)\n",
+    "print(\"Tangency point: \", tangency_point)\n",
+    "\n",
+    "# Calculate the tangent vector using the formula above\n",
+    "tangent_vector = r_prime/r_prime.norm()\n",
+    "print(\"Tangent vector:\", tangent_vector(t=1))\n",
+    "\n",
+    "# Get a plot for the curve\n",
+    "plt = parametric_plot(r, (t, .75, 1.4), linestyle=\"dashed\")\n",
+    "\n",
+    "# Plot the unit tangent vector.  By setting start equal to our tangency point, we place\n",
+    "# the vector tail where it belongs\n",
+    "plt2 =  plot(tangent_vector(t=1), start=tangency_point, color=\"red\")\n",
+    "plt += plt2                           \n",
+    "plt.show(aspect_ratio=1)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "a9934319-88fa-479c-9946-023111fd76c3",
+   "metadata": {},
+   "source": [
+    "## Anti-Derivatives:  Integration of Vector Valued Functions\n",
+    "\n",
+    "Given our discussion of limits and derivatives, we might have guessed that the integral of a vector valued function is calculated by taking the integral of each of the components. Thus, for example, given an indefinite integral for $r(t) = \\langle f(t), g(t), h(t)\\rangle$, then the definite integral is as follows:\n",
+    "\n",
+    "$$\n",
+    "\\begin{aligned}\n",
+    "\\int \\mathbf{r}(t) \\, dt = \\left( \\int f(t) \\, dt \\right) \\mathbf{i} + \\left( \\int g(t) \\, dt \\right) \\mathbf{j} + \\left( \\int h(t) \\, dt \\right) \\mathbf{k} + \\mathbf{C}\n",
+    "\\end{aligned}\n",
+    "$$\n",
+    "\n",
+    "For the definite integral, we have:\n",
+    "$$\n",
+    "\\begin{aligned}\n",
+    "\\int_{a}^{b} \\mathbf{r}(t) \\, dt = \\left( \\int_{a}^{b} f(t) \\, dt \\right) \\mathbf{i} + \\left( \\int_{a}^{b} g(t) \\, dt \\right) \\mathbf{j} + \\left( \\int_{a}^{b} h(t) \\, dt \\right) \\mathbf{k}\n",
+    "\\end{aligned}\n",
+    "$$\n",
+    "\n",
+    "As we did before for limits and derivatives, we can easily implement this in sage"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "id": "82dc509b-1716-4bc3-b8f9-0c4c14684534",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[sin(t), 2/3*(t + 4)^(3/2), 3/2*e^(2*t)]\n",
+      "[1, 2/3*(1/2*pi + 4)^(3/2) - 16/3, 3/2*e^pi - 3/2]\n"
+     ]
+    }
+   ],
+   "source": [
+    "def vvf_integrate(fn, v, limits=None):\n",
+    "    \"\"\"Returns a list with the integral of each component of a vector-valued function\n",
+    "\n",
+    "    Parameters:  \n",
+    "        fn: The vector, list, or tuple representing the vector valued function\n",
+    "        v:  The variable used in the function\n",
+    "        limits: Either none or a two-element iterable for a definite integral.\n",
+    "\n",
+    "    Returns:\n",
+    "        A list of values with the limit of each component of the function\n",
+    "\n",
+    "    Notes: \n",
+    "        Initial condition problems are not yet handled by this function.        \n",
+    "    \"\"\"\n",
+    "    l = list(fn)\n",
+    "    \n",
+    "    if limits is None:\n",
+    "        return [integrate(x, v) for x in l]\n",
+    "    else:\n",
+    "        return [integrate(x, v, limits[0], limits[1]) for x in l]\n",
+    "    \n",
+    "    t = var('t')\n",
+    "r5 = [cos(t), sqrt(4 + t), 3*e**(2*t)]\n",
+    "\n",
+    "# Test it out\n",
+    "print(vvf_integrate(r5, t))\n",
+    "print(vvf_integrate(r5, t, (0, pi/2)))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "id": "5f7f9da6-c739-4f04-8197-2c383e8016af",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "12.2 Q6 [-4/3*t^3 + t, e^(-t), 5/4*cos(4*t)]\n",
+      "\n",
+      "Add initial conditions manually\n",
+      "to each term for the next problem:\n",
+      "\t12.2 Q7 [2*t^2 + 3*t, sin(t), 2*e^(3*t)]\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Solve some problems with it.  Let's start with 12.2, Q6\n",
+    "\n",
+    "t = var('t')\n",
+    "r = vector([-4*t^2 + 1, -1*e^(-1 * t), 5 * sin(-4*t)])\n",
+    "print(\"12.2 Q6\", vvf_integrate(r, t))\n",
+    "\n",
+    "print(\"\\nAdd initial conditions manually\\nto each term for the next problem:\")\n",
+    "r = vector([3 + 4*t, cos(t), 6*e^(3*t)])\n",
+    "print(\"\\t12.2 Q7\", vvf_integrate(r, t))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "id": "c2f12065-edfb-481d-a1c3-53c0bc6870e6",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "1/t"
+      ]
+     },
+     "execution_count": 16,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "diff(ln(2*t))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "90b7dbef-b184-40de-a82c-415fe3f79676",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "2.30052398302186\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Solving 12.2 Q9.  We're asked to find the angle of \n",
+    "# intersection between two vectors.  Originally I though we could just \n",
+    "# use get_angle_between_vectors with respect to the two vectors \"as is\", \n",
+    "# but it turns out we needed the angle between the tangent vectors\n",
+    "# of each funciton, so get the derivative first.\n",
+    "\n",
+    "# Copied from another notebook -- at some point this needs to be a library!\n",
+    "def get_angle_between_vectors(v: vector, w: vector):\n",
+    "    \"\"\"returns the angle between two vectors in radians.\"\"\"\n",
+    "    cos_theta = (v*w)/(v.norm() * w.norm())\n",
+    "    return acos(cos_theta)\n",
+    "\n",
+    "r1 = vector([2*t, t^3, -1*t^4])\n",
+    "r2 = vector([sin(-2 * t), sin(2*t), t - pi])\n",
+    "\n",
+    "angle_as_fn = get_angle_between_vectors(diff(r1, t), diff(r2, t))\n",
+    "print(N(angle_as_fn(t=0)))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "71386c8e-d204-4cb4-9e72-8851aa6493ff",
+   "metadata": {},
+   "source": [
+    "## Solving another unit tangent vector problem\n",
+    "\n",
+    "Question 12.2 # 10 asks us to find the unit tangent vector at the point $t = 0$ for the function $r(t) = \\langle 4t^5 -2, -2 e^{3t}, -2 sin(5t)  \\rangle$\n",
+    "\n",
+    "Let's do this using the technique we developed earlier:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "id": "a14c1850-3768-49c2-952a-ab268bb8dc1b",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "(4*t^5 - 2, -2*e^(3*t), -2*sin(5*t))\n",
+      "Tangency point:  (-2, -2, 0)\n",
+      "Unit tangent vector: (0, -3/34*sqrt(34), -5/34*sqrt(34))\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Set up the curve\n",
+    "t = var('t')\n",
+    "r = vector([4*t^5 - 2, -2*e^(3*t), -2 * sin(5*t)])\n",
+    "print(r)\n",
+    "\n",
+    "\n",
+    "# Get the derivative, and plug in the point at which we want to draw the unit tangent vector\n",
+    "r_prime = vector(vvf_diff(r, t))\n",
+    "tangency_point = r(t=0)\n",
+    "print(\"Tangency point: \", tangency_point)\n",
+    "\n",
+    "# Calculate the tangent vector using the formula above\n",
+    "tangent_vector = r_prime/r_prime.norm()\n",
+    "print(\"Unit tangent vector:\", tangent_vector(t=0))"
    ]
   }
  ],

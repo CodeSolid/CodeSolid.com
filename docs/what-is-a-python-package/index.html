@@ -1,25 +1,23 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>What Is a Python Package? &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=19645805"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=19645805"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" /> 
@@ -132,33 +130,33 @@
 <span class="c1"># statement, you call functions in the module like this:</span>
 <span class="c1"># package3.hello.greet()</span>
 
-<span class="kn">import</span> <span class="nn">package3.hello</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">package3.hello</span>
 
 <span class="c1"># Import the pathprint module from package1, </span>
 <span class="c1"># and alias the module as mm.  With this alias, the greet function </span>
 <span class="c1"># above would be called as mm.greet()</span>
-<span class="kn">import</span> <span class="nn">package1.mymodule</span> <span class="k">as</span> <span class="nn">mm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">package1.mymodule</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mm</span>
 
 <span class="c1"># Import 2 packages with no modules to speak of in them.  </span>
 <span class="c1"># This works, but at least in the case of package4, it isn&#39;t useful since there&#39;s no code in the package.</span>
 
-<span class="kn">import</span> <span class="nn">package2</span>
-<span class="kn">import</span> <span class="nn">package4</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">package2</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">package4</span>
 
 <span class="c1"># Import a module from the current directory</span>
 
-<span class="kn">import</span> <span class="nn">pathinfo</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pathinfo</span>
 
 <span class="c1"># Import a package that&#39;s not local, but we know comes with Python</span>
 <span class="c1"># Packages that come </span>
 <span class="c1"># This allows us to call json.loads, json.dumps, etc.</span>
 
-<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 
 <span class="c1"># Import only a specific function from a package</span>
 <span class="c1"># Now we can drop the json and simply call &quot;loads&quot;</span>
 
-<span class="kn">from</span> <span class="nn">json</span> <span class="kn">import</span> <span class="n">loads</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">json</span><span class="w"> </span><span class="kn">import</span> <span class="n">loads</span>
 </pre></div>
 </div>
 </section>
@@ -168,17 +166,17 @@
 <p>Given the scenario above, all the following would likely produce a ModuleNotFoundError</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Try to import a local directory that doesn&#39;t exist:</span>
 
-<span class="kn">import</span> <span class="nn">package5</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">package5</span>
 
 <span class="c1"># Import a package that&#39;s published and pip can install but you likely </span>
 <span class="c1"># don&#39;t have installed on your system.</span>
 
-<span class="kn">import</span> <span class="nn">hellosetup</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">hellosetup</span>
 
 
 <span class="c1"># Import another name Python can&#39;t resolve</span>
 
-<span class="kn">import</span> <span class="nn">some_crazy_random_name</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">some_crazy_random_name</span>
 </pre></div>
 </div>
 <p>So, broadly speaking, ModuleNotFoundError happens when you try to import any other name that is not:</p>
@@ -282,8 +280,8 @@ True
 <span class="sd">a list of the places where Python will try to resolve imports. </span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">pprint</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pprint</span>
 
 <span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
 </pre></div>
@@ -328,11 +326,11 @@ True
 <span class="sd">&quot;&quot;&quot; AWS Lambda handler function &quot;&quot;&quot;</span>
 
 <span class="c1"># Must do this part first:</span>
-<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;./dependencies&quot;</span><span class="p">)</span>
 
 <span class="c1"># Now import whatever other packages are needed</span>
-<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
 <span class="c1"># remaining handler code</span>
 </pre></div>
