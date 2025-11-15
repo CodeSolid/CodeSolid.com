@@ -377,3 +377,102 @@ print("Tangency point: ", tangency_point)
 tangent_vector = r_prime/r_prime.norm()
 print("Unit tangent vector:", tangent_vector(t=0))
 ```
+
+## Solving Some Velocity and Acceleration Vector Problems
+
+12.2 question 11:
+
+Given the vector function $\mathbf{r}(t) = \left< -3t, \ -5t^3, \ -t^2 + 5 \right>$
+
+Find the **velocity** and **acceleration** vectors at $t = -2$
+
+In our solution, below, we are finding derivatives as needed using vvf_diff. We don't have a way to substitute into a whole vector (as far as I know), so we use a for comprehension in which we substitute each term to arrive at the correct vector.
+
+```{sage}
+t = var('t')
+pos = r = vector([-3*t, -5*t^3, -t^2 + 5])
+# print(r)
+
+vel = vvf_diff(pos, t)
+# print(vel)
+
+accel = vvf_diff(vel, t)
+# print(accel)
+
+vel_at_minus_two = [x(t=-2) for x in vel]
+accel_at_minus_two = [x(t=-2) for x in accel]
+
+print("velocity at -2", vel_at_minus_two)
+print("acceleration at -2", accel_at_minus_two)
+```
+
+Question 12 will ask us to work the problem "backwards", finding anti-derivatives of the acceleration function given initial conditions.  Since our ```vvf_integrate``` function doesn't handle initial conditions, we'll need to see about doing this "manually" at first.  And perhaps we'll replace vvf_integrate if this works out.  
+
+
+Find the position vector for a particle with acceleration, initial velocity, and initial position given below.
+
+12.2 Question 12:
+
+$$
+\mathbf{a}(t) = \left< 6t, 4\sin(t), \cos(5t) \right>
+$$
+
+$$
+\mathbf{v}(0) = \left< -3, 4, 3 \right>
+$$
+
+$$
+\mathbf{r}(0) = \left< 2, -2, 4 \right>
+$$
+
+We're asked to find $\mathbf{r}(t)$.
+
+
+Note, my first attempt at this was rather naive, adding the initial values to each expression.  What's really needed is for each term, $n \in [0,2] $ of the velocity vector, for example:
+
+Solve for $V(t=0) + C_n = intial_values[n]$
+
+```{sage}
+# Let's begin with our acceleration vector, 
+# integrate it, and "add" the v(0) initial condition as a vector
+t = var('t')
+A = vector([6*t, 4*sin(t), cos(5*t)])
+V = vector(vvf_integrate(A, t))
+
+def vvf_initial_values(vec, variable, init_val, init_val_equals):
+    """ Given an integral of a function in vec, returns a function based on initial values
+        
+        Parameters:
+            vec:              a function representing an indefinite integral of a vector_valued_function
+            variable:         the variable we're setting the init_value of
+            init_val:          the initial variable
+            init_val_equals:  a list of results for the function vec at the init_val
+
+        Returns:
+            a vector with the consants of integration adjusted appropriately
+    """    
+    C = var("C1, C2, C3")
+
+    init_values_solved = []
+    for i in range(0, len(vec)):
+        substituted = vec[i](t=init_val)
+        val = solve(substituted + C[i] - init_val_equals[i], C[i])[0]
+        init_values_solved.append(vec[0] + val.rhs())
+    return init_values_solved
+
+V_0 = vvf_initial_values(V, t, 0, [-3, 4, 3])
+
+R = vector(vvf_integrate(V_0, t))
+
+print(V_0)
+# something = vector(A(t=0))
+#print(something)
+
+# V_0 = V + vector([-3, 4, 3])
+#print(V_0)
+# R_0 = vector(vvf_integrate(V_0, t))
+# print(R_0)
+# R_t = R_0 + vector([2, -2, 4])
+# print(R_t)
+```
+
