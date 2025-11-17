@@ -406,8 +406,13 @@ print("velocity at -2", vel_at_minus_two)
 print("acceleration at -2", accel_at_minus_two)
 ```
 
-Question 12 will ask us to work the problem "backwards", finding anti-derivatives of the acceleration function given initial conditions.  Since our ```vvf_integrate``` function doesn't handle initial conditions, we'll need to see about doing this "manually" at first.  And perhaps we'll replace vvf_integrate if this works out.  
+## Working with Initial Values
 
+Question 12 asks us to find the anti-derivative of the acceleration function given initial condition for both our velocity and acceleration.  Since our ```vvf_integrate``` function doesn't handle initial conditions.
+
+My first attempt at this problem failed, as shown in this [Gemini session](https://gemini.google.com/share/39e29d86177d) where I checked my work.  To solve it correctly, I decided to capture the correct procedure that Gemini used by writing a SageMath function (yes, mine, not Gemini's -- I do *some* thinking here after all).
+
+Here is the problem and the solution:
 
 Find the position vector for a particle with acceleration, initial velocity, and initial position given below.
 
@@ -437,15 +442,16 @@ Solve for $V(t=0) + C_n = intial_values[n]$
 # integrate it, and "add" the v(0) initial condition as a vector
 t = var('t')
 A = vector([6*t, 4*sin(t), cos(5*t)])
-V = vector(vvf_integrate(A, t))
 
 def vvf_initial_values(vec, variable, init_val, init_val_equals):
-    """ Given an integral of a function in vec, returns a function based on initial values
+    """ Given an integral of a function in vec, returns a function based on initial values.
+
+        This involved solving for the constant of integration for each term.
         
         Parameters:
-            vec:              a function representing an indefinite integral of a vector_valued_function
-            variable:         the variable we're setting the init_value of
-            init_val:          the initial variable
+            vec:           a function representing an indefinite integral of a vector_valued_function
+            variable:      the variable we're setting the init_value of
+            init_val:      the initial variable
             init_val_equals:  a list of results for the function vec at the init_val
 
         Returns:
@@ -453,26 +459,35 @@ def vvf_initial_values(vec, variable, init_val, init_val_equals):
     """    
     C = var("C1, C2, C3")
 
+    # Result vector we'll be building.
     init_values_solved = []
+
     for i in range(0, len(vec)):
+        # Start building the term for this "component" of the vector
+        # based on subtituting the initial value
         substituted = vec[i](t=init_val)
+        
+        # Using the result, solve for constant of integration and add it to the 
+        # component we're working on.
         val = solve(substituted + C[i] - init_val_equals[i], C[i])[0]
-        init_values_solved.append(vec[0] + val.rhs())
+        init_values_solved.append(vec[i] + val.rhs())
+        
     return init_values_solved
 
+# Work problem 12.2 # 12
+
+# Integrate the velocity vector, V, then modify it to V_0 based on the initial conditions
+V = vector(vvf_integrate(A, t))
+print("V: ", V)
 V_0 = vvf_initial_values(V, t, 0, [-3, 4, 3])
+print("V_0: ", V_0)
 
+# Do the same for the acceleration vector
 R = vector(vvf_integrate(V_0, t))
+print("R: ", R)
+R_0 = vvf_initial_values(R, t, 0, [2, -2, 4])
+print("R_0: ", R_0)
 
-print(V_0)
-# something = vector(A(t=0))
-#print(something)
-
-# V_0 = V + vector([-3, 4, 3])
-#print(V_0)
-# R_0 = vector(vvf_integrate(V_0, t))
-# print(R_0)
-# R_t = R_0 + vector([2, -2, 4])
-# print(R_t)
+print("At this point R_0 contains our final answer.")
 ```
 
