@@ -13,9 +13,9 @@ jupyter:
     name: sagemath-10.7
 ---
 
-# Vector Valued Functions
+# Chapter 12:  Vector Valued Functions
 
-## Section 12.1
+## Section 12.1 Vector Valued Functions and Curves in Space
 
 From [our text](https://www.contemporarycalculus.com/dh/Calculus_all/CC12_1.pdf), we have:
 
@@ -154,7 +154,7 @@ def vvf_diff(fn, v, diff_n=1):
         A list of values with the limit of each component of the function
     """
     l = list(fn)
-    return [diff(x, v, diff_n) for x in l]
+    return vector([diff(x, v, diff_n) for x in l])
 ```
 
 ```{sage}
@@ -163,7 +163,7 @@ def vvf_diff(fn, v, diff_n=1):
 var('x')
 V = vector([x^3 + 3*x, ln(x), 5*x + 3])
 V_prime = vvf_diff(V, x)
-assert  V_prime == [3*x^2 + 3, 1/x, 5]
+assert  V_prime.list() == [3*x^2 + 3, 1/x, 5]
 print(V_prime)
 ```
 
@@ -268,6 +268,21 @@ plt = parametric_plot(r, (t, .75, 1.4), linestyle="dashed")
 plt2 =  plot(tangent_vector(t=1), start=tangency_point, color="red")
 plt += plt2                           
 plt.show(aspect_ratio=1)
+```
+
+### A SageMath Function to get the Unit Tangent Vector
+
+Since we'll need it again below for a curvature problem, let's implement a function to find a unit tangent vector:
+
+```{sage}
+def vvf_unit_tangent_vector(vec, var):
+    """ gets a unit tangent vector for the vector vec defined in terms of the variable var"""
+    r_prime = vector(vvf_diff(r, var))
+    return r_prime/r_prime.norm()
+
+t = var('t')
+r = vector([t**3, 2*t^2])
+print(vvf_unit_tangent_vector(r, t))
 ```
 
 ## Anti-Derivatives:  Integration of Vector Valued Functions
@@ -377,3 +392,307 @@ print("Tangency point: ", tangency_point)
 tangent_vector = r_prime/r_prime.norm()
 print("Unit tangent vector:", tangent_vector(t=0))
 ```
+
+## Solving Some Velocity and Acceleration Vector Problems
+
+12.2 question 11:
+
+Given the vector function $\mathbf{r}(t) = \left< -3t, \ -5t^3, \ -t^2 + 5 \right>$
+
+Find the **velocity** and **acceleration** vectors at $t = -2$
+
+In our solution, below, we are finding derivatives as needed using vvf_diff. We don't have a way to substitute into a whole vector (as far as I know), so we use a for comprehension in which we substitute each term to arrive at the correct vector.
+
+```{sage}
+t = var('t')
+pos = r = vector([-3*t, -5*t^3, -t^2 + 5])
+# print(r)
+
+vel = vvf_diff(pos, t)
+# print(vel)
+
+accel = vvf_diff(vel, t)
+# print(accel)
+
+vel_at_minus_two = [x(t=-2) for x in vel]
+accel_at_minus_two = [x(t=-2) for x in accel]
+
+print("velocity at -2", vel_at_minus_two)
+print("acceleration at -2", accel_at_minus_two)
+```
+
+## Working with Initial Values
+
+Question 12 asks us to find the anti-derivative of the acceleration function given initial condition for both our velocity and acceleration.  Since our ```vvf_integrate``` function doesn't handle initial conditions.
+
+My first attempt at this problem failed, as shown in this [Gemini session](https://gemini.google.com/share/39e29d86177d) where I checked my work.  To solve it correctly, I decided to capture the correct procedure that Gemini used by writing a SageMath function (yes, mine, not Gemini's -- I do *some* thinking here after all).
+
+Here is the problem and the solution:
+
+Find the position vector for a particle with acceleration, initial velocity, and initial position given below.
+
+12.2 Question 12:
+
+$$
+\mathbf{a}(t) = \left< 6t, 4\sin(t), \cos(5t) \right>
+$$
+
+$$
+\mathbf{v}(0) = \left< -3, 4, 3 \right>
+$$
+
+$$
+\mathbf{r}(0) = \left< 2, -2, 4 \right>
+$$
+
+We're asked to find $\mathbf{r}(t)$.
+
+
+Note, my first attempt at this was rather naive, adding the initial values to each expression.  What's really needed is for each term, $n \in [0,2] $ of the velocity vector, for example:
+
+Solve for $V(t=0) + C_n = intial_values[n]$
+
+```{sage}
+# Let's begin with our acceleration vector, 
+# integrate it, and "add" the v(0) initial condition as a vector
+
+
+
+def vvf_initial_values(vec, var, init_val, init_val_equals):
+    """ Given an integral of a function in vec, returns a function based on initial values.
+
+        This involved solving for the constant of integration for each term.
+        
+        Parameters:
+            vec:           a function representing an indefinite integral of a vector_valued_function
+            var:           the variable to substitute the initial_val
+            init_val:      the initial variable
+            init_val_equals:  a list of results for the function vec at the init_val
+
+        Returns:
+            a vector with the consants of integration adjusted appropriately
+    """    
+
+
+    # Result vector we'll be building.
+    init_values_solved = []
+
+    # Constant names
+    C = SR.var("C1, C2, C3")
+
+    for i in range(0, len(vec)):
+        # Start building the term for this "component" of the vector
+        # based on subtituting the initial value
+        substituted = (vec[i]).subs({var: init_val})
+        # Using the result, solve for constant of integration and add it to the 
+        # component we're working on.
+        val = solve(substituted + C[i] - init_val_equals[i], C[i])[0]
+        init_values_solved.append(vec[i] + val.rhs())
+        
+    return init_values_solved
+
+# Work problem 12.2 # 12
+
+t = var('t')
+A = vector([6*t, 4*sin(t), cos(5*t)])
+
+# Integrate the velocity vector, V, then modify it to V_0 based on the initial conditions
+V = vector(vvf_integrate(A, t))
+print("V: ", V)
+V_0 = vvf_initial_values(V, t, 0, [-3, 4, 3])
+print("V_0: ", V_0)
+
+# Do the same for the acceleration vector
+R = vector(vvf_integrate(V_0, t))
+print("R: ", R)
+R_0 = vvf_initial_values(R, t, 0, [2, -2, 4])
+print("R_0: ", R_0)
+
+print("At this point R_0 contains our final answer.")
+```
+
+# Section 12.3 Arc Length and Curvature of Space Curves
+
+## Arc Length Formula
+
+Here is a formula given in the video assignment 12.3 Q1:
+
+If a smooth curve is defined by
+$\mathbf{r}(t) = f(t)\mathbf{i} + g(t)\mathbf{j} + h(t)\mathbf{k}$ on $[a,b]$
+
+the arc length on the interval is given by
+
+$$s = \int_a^b \sqrt{[x'(t)]^2 + [y'(t)]^2 + [z'(t)]^2} \, dt$$
+
+$$s = \int_a^b ||\mathbf{r}'(t)|| \, dt$$
+
+This is the same formula used for parameterized functions, but we now see in this case it represents the integral of the magnitude of the derivative of r of t.  In the next code block, we follow along with that same video's example to see if we can arrive at the same answer in SageMath.  Spoiler alert, the output for arc_len, below, is correct.
+
+### Finding the Arc Length of a curve in SageMath
+
+```{sage}
+t = var('t')
+r = vector([2*cos(t), 2 * sin(t), 2*t])
+
+# We are asked to find the arc length from 0 to pi
+r_prime = vector(vvf_diff(r, t))
+print("r_prime: ", r_prime)
+magnitude = r_prime.norm()
+print("magnitude: ", magnitude)
+arc_len = integrate(magnitude, (t, 0, pi))
+print("arc_len: ", arc_len)
+
+
+def vvf_arc_length(vec, var, a, b):
+    r_prime = vector(vvf_diff(vec, var))
+    magnitude = r_prime.norm()
+    arc_len = integrate(magnitude, (t, a, b))
+    return arc_len
+
+print("Arc len from function: ", vvf_arc_length(r, t, 0, pi))
+```
+
+```{sage}
+# Problem 12.3 Q1
+t = var('t')
+r = vector([5*cos(t), 5*sin(t), 4*t])
+print(vvf_arc_length(r, t, 0, 2*pi))
+```
+
+```{sage}
+# Problem 12.3 Q2
+t = var('t')
+r = vector([4*cos(2*t), 4*sin(2*t), 4*t])
+arc_len = vvf_arc_length(r, t, -8, 6)
+print(arc_len, " = approx ", round(N(arc_len), 2))
+```
+
+```{sage}
+# Problem 12.3 Q3
+t = var('t')
+r = vector([e^(4*t) * cos(t), e^(4*t) * sin(t)])
+arc_len = vvf_arc_length(r, t, 0, 10)
+print(arc_len)
+```
+
+## Curvature
+
+The curvature, $K$, at a point measures how sharply the curve bends or how quickly it changes direction.  For a line, curvature is zero, no bend.  For a circle, curvature, $K$ is $K = \frac{1}{r}$, so it's greater for smaller circles and more gradual on a larger circle.
+
+There are two formulas for this.
+
+### Formula 1
+Here, curvature measures how quickly the direction of $\boldsymbol{T}(t)$ changes with respect to arc length, $s$
+
+$$
+\begin{alignat*}{2}
+K &= \left\| \frac{d\boldsymbol{T}}{ds}\right\| = 
+\left\|\frac{d\boldsymbol{T}/dt}{
+ds/dt}\right\|
+\\
+\\
+K &= \frac{\|\boldsymbol{T^{\prime}}(t)\|}{\|r^{\prime}(t)\|}
+\end{alignat*}
+$$
+
+Here $d\boldsymbol{T}/dt$ is derivatrive of unit tangent vector value function, $\boldsymbol{T^{\prime}}(t)$, and $ds/dt$ is the derivative of the position function, $r(t)$ which is to say, the velocity function.
+
+### Formula 2
+Alternative formula:  
+
+$$
+\begin{alignat*}{2}
+K &= \frac{\left\| r^{\prime}(t) \times r^{\prime\prime}(t) \right\|}{\left\| r^{\prime}(t)\right\|^3}
+\end{alignat*}
+$$
+
+### Evaluating Curvature in SageMath
+
+Below we will implement formula 2 in SageMath:
+
+```{sage}
+def vvf_get_curvature(vvf, variable, value):
+    """ Determines the curvature of the vector valued function vvf for the variable at value.        Implements function 2 shown in the avoc
+
+    Parameters:
+        vvf: The vector valued function representing the curve / space curve. 
+        variable: the variable that we'll evaluate at the value given by value
+        value: the value at which we want to determine curvature.
+    """
+    global t
+    subst_dict = {variable: value}
+    r_prime = (vvf_diff(vvf, t)).subs(subst_dict)
+    r_double_prime = (vvf_diff(vvf, variable, 2)).subs(subst_dict)
+    numerator = (r_prime.cross_product (r_double_prime)).norm()
+    denominator = (r_prime.norm())^3
+    return (numerator/denominator)
+
+# Test it out on an example from the video:
+t = var('t')
+r = vector([t, t^2/2, t^3/3])
+K = vvf_get_curvature(r, t, 1)
+print("Curvature, exact: ", K)
+print("Curvature, approx: ", N(K))
+#print(N(sqrt(2)/3))
+```
+
+```{sage}
+# Problem 12.3 Q 4
+t = var('t')
+r = vector([-5*t, 3*t^2, -5*t^3])
+K = vvf_get_curvature(r, t, 1)
+round(N(K), 4)
+```
+
+```{sage}
+# Problem 12.3 Q 5
+t = var('t')
+r = vector([-3*t, -4*t^2, 2*t^4])
+K = vvf_get_curvature(r, t, -2)
+round(N(K), 4)
+```
+
+```{sage}
+# Problem 12.3 Q 6
+t = var('t')
+r = vector([2*cos(2*t), 2* sin(2*t), 1*t])
+K = vvf_get_curvature(r, t, 0)
+round(N(K), 2)
+```
+
+```{sage}
+# Problem 12.3 Q 7
+t = var('t')
+# Need to add a zero value as a dummy to get cross-product
+# in vvf_get_curvature to work.
+r = vector([6*cos(t), 5* sin(t), 0])
+K = vvf_get_curvature(r, t, (5*pi)/6)
+print(K)
+```
+
+```{sage}
+# Problem 12.3 Q 8 can't be solved with vvf_get_curvature because of a divide by zero issue.
+# So we'll implement a function using formula one and see if we can arrive at an answer that way.
+# NOTE:  The answer given is not correct.  Note that the associated video for this problem gives 
+# yet a third function we could use, which is a simplification of formula 2.  More work is 
+# needed based on that video, but the correct vector form for the problem is 
+# r = vector([x, -3*x^5, 0]), as below.
+
+def vvf_get_curvature_formula1(vvf, variable, value):
+    unit_tangent_vector = vvf_unit_tangent_vector(vvf, variable)
+    dT = vvf_diff(unit_tangent_vector, variable)
+    #print(dT.norm())
+    numerator = dT.norm().subs({variable: value})
+    #print("num:", numerator)
+
+    ds = vvf_diff(vvf, variable)
+    denominator = ds.norm().subs({variable: value})
+    # print("den: ", denominator)
+    return numerator/denominator
+
+x = var('x')
+r = vector([x, -3*x^5, 0])
+K = vvf_get_curvature_formula1(r, x, -2)
+print("This is not the correct answer.  More work is needed: ", K)
+```
+

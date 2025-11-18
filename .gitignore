@@ -16,3 +16,5 @@ src/todo.md
 docs/todo/
 docs/.doctrees/todo.doctree
 docs/_sources/todo.md.txt
+src/sage/private
+jupyter_execute/sage/private

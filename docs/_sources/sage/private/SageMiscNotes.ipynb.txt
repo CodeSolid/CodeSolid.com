@@ -1,0 +1,218 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "e1b62f32-7b76-4853-998c-3d022d376dbd",
+   "metadata": {},
+   "source": [
+    "Just messing around based on this [introductory tutorial](https://doc.sagemath.org/html/en/prep/Programming.html)\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "25e9ec70-9aa4-4f5c-844b-7c9a21183956",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "A = matrix([[1,2],[3,4]])\n",
+    "B = matrix(QQ, [[1,2],[3,4]])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "7d373715-c9d5-467d-9f87-784d863a37be",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[1 0]\n",
+       "[0 1]"
+      ]
+     },
+     "execution_count": 10,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "A.rref()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "9b9e2ad2-0f42-488b-a5a8-9a5eebf9ae0e",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[1 0]\n",
+       "[0 2]"
+      ]
+     },
+     "execution_count": 11,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "A.echelon_form()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "0e5e1c4e-ca80-434a-8fa5-7857659d9046",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[1 0]\n",
+       "[0 1]"
+      ]
+     },
+     "execution_count": 12,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "B.echelon_form()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "7cf3111a-6fb5-45b7-a125-0dca2c7be7bc",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[1 2]\n",
+       "[3 4]"
+      ]
+     },
+     "execution_count": 13,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "B"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "id": "1d02cfef-b805-46b0-a79f-2644d1d380c4",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[1 2]\n",
+       "[3 4]"
+      ]
+     },
+     "execution_count": 14,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "A"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "id": "df1db7fa-48f9-41c1-a0fa-bae9458f3ca4",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "(1, 3)\n",
+      "(3, 4)\n",
+      "<class 'sage.modules.vector_integer_dense.Vector_integer_dense'>\n",
+      "<class 'sage.modules.vector_integer_dense.Vector_integer_dense'>\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Sage is zero based, not one based.\n",
+    "print(A.column(0))\n",
+    "print(A.row(1))\n",
+    "print(type(A.column(0)))\n",
+    "print(type(A.row(0)))\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "id": "ff5f745a-d5dc-4b00-ab93-44d8fbd35d86",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "<class 'list'>\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "6*x"
+      ]
+     },
+     "execution_count": 30,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "my_list = [1, 2, \"Jeffo\", 3*x^2+7]\n",
+    "print(type(my_list)) # looks like Python\n",
+    "diff(my_list[3])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "7279ae91-3116-4ce8-818d-1eb28129282c",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "SageMath 10.7",
+   "language": "sage",
+   "name": "sagemath-10.7"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.13.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

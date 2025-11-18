@@ -6,10 +6,10 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vector Valued Functions &mdash; CodeSolid.com 0.1 documentation</title>
+  <title>Chapter 12: Vector Valued Functions &mdash; CodeSolid.com 0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
 
   
       <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
@@ -88,7 +88,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../../" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Vector Valued Functions</li>
+      <li class="breadcrumb-item active">Chapter 12:  Vector Valued Functions</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../../../_sources/sage/calc3/mod2/VectorValuedFunctions.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -98,10 +98,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="vector-valued-functions">
-<h1>Vector Valued Functions<a class="headerlink" href="#vector-valued-functions" title="Link to this heading"></a></h1>
-<section id="section-12-1">
-<h2>Section 12.1<a class="headerlink" href="#section-12-1" title="Link to this heading"></a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-12-vector-valued-functions">
+<h1>Chapter 12:  Vector Valued Functions<a class="headerlink" href="#chapter-12-vector-valued-functions" title="Link to this heading"></a></h1>
+<section id="section-12-1-vector-valued-functions-and-curves-in-space">
+<h2>Section 12.1 Vector Valued Functions and Curves in Space<a class="headerlink" href="#section-12-1-vector-valued-functions-and-curves-in-space" title="Link to this heading"></a></h2>
 <p>From <a class="reference external" href="https://www.contemporarycalculus.com/dh/Calculus_all/CC12_1.pdf">our text</a>, we have:</p>
 <p>Definition:  A <strong>vector-valued function</strong> is a rule that assigns a vector to each input number.  Typically a vector-valued function has the form</p>
 <div class="math notranslate nohighlight">
@@ -2830,7 +2830,7 @@ function rescaleFatLines() {
 <span class="sd">        A list of values with the limit of each component of the function</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">l</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span>
-    <span class="k">return</span> <span class="p">[</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">diff_n</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">l</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">vector</span><span class="p">([</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">diff_n</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">l</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -2842,13 +2842,13 @@ function rescaleFatLines() {
 <span class="n">var</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
 <span class="n">V</span> <span class="o">=</span> <span class="n">vector</span><span class="p">([</span><span class="n">x</span><span class="o">^</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="n">ln</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="mi">5</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">3</span><span class="p">])</span>
 <span class="n">V_prime</span> <span class="o">=</span> <span class="n">vvf_diff</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-<span class="k">assert</span>  <span class="n">V_prime</span> <span class="o">==</span> <span class="p">[</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">x</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="k">assert</span>  <span class="n">V_prime</span><span class="o">.</span><span class="n">list</span><span class="p">()</span> <span class="o">==</span> <span class="p">[</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">x</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">V_prime</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3*x^2 + 3, 1/x, 5]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3*x^2 + 3, 1/x, 5)
 </pre></div>
 </div>
 </div>
@@ -2879,16 +2879,16 @@ function rescaleFatLines() {
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Problem 12.2, q 3
 (-3*t^5 - 2, 4*e^(3*t), -5*sin(-3*t))
-[-15*t^4, 12*e^(3*t), 15*cos(-3*t)]
+(-15*t^4, 12*e^(3*t), 15*cos(-3*t))
 
 Problem 12.2, q 4
 (4/(t - 6), 2*t/(3*t^2 + 1), t^2/(7*t^3 + 2))
-[-4/(t - 6)^2, -12*t^2/(3*t^2 + 1)^2 + 2/(3*t^2 + 1), -21*t^4/(7*t^3 + 2)^2 + 2*t/(7*t^3 + 2)]
+(-4/(t - 6)^2, -12*t^2/(3*t^2 + 1)^2 + 2/(3*t^2 + 1), -21*t^4/(7*t^3 + 2)^2 + 2*t/(7*t^3 + 2))
 
 Problem 12.2, q 5 (second derivative)
 (6*t + 3*sin(t), 5*t + 6*cos(t))
-[-3*sin(t), -6*cos(t)]
-[-3*sin(t), -6*cos(t)]
+(-3*sin(t), -6*cos(t))
+(-3*sin(t), -6*cos(t))
 </pre></div>
 </div>
 </div>
@@ -2938,7 +2938,7 @@ Problem 12.2, q 5 (second derivative)
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-pi*sin(pi*t), pi*cos(pi*t), t)
-[-pi^2*cos(pi*t), -pi^2*sin(pi*t), 1]
+(-pi^2*cos(pi*t), -pi^2*sin(pi*t), 1)
 sqrt(pi^2*cos(pi*t)^2 + pi^2*sin(pi*t)^2 + t^2)
 </pre></div>
 </div>
@@ -2989,7 +2989,30 @@ T(t) = \frac{r^{\prime}(t)}{\|r^{\prime}(t)\|}
 Tangent vector: (3/5, 4/5)
 </pre></div>
 </div>
-<img alt="../../../../_images/1385867db5230d3b5e427574fb98f17fa585ced2ce81a5aa1d0e17cbe0798766.png" src="../../../../_images/1385867db5230d3b5e427574fb98f17fa585ced2ce81a5aa1d0e17cbe0798766.png" />
+<img alt="../../../../_images/04179386e56b59cce3ae4aea3fae4fb22128036bdf0ecd7524b8652593ef8de6.png" src="../../../../_images/04179386e56b59cce3ae4aea3fae4fb22128036bdf0ecd7524b8652593ef8de6.png" />
+</div>
+</div>
+</section>
+<section id="a-sagemath-function-to-get-the-unit-tangent-vector">
+<h3>A SageMath Function to get the Unit Tangent Vector<a class="headerlink" href="#a-sagemath-function-to-get-the-unit-tangent-vector" title="Link to this heading"></a></h3>
+<p>Since we’ll need it again below for a curvature problem, let’s implement a function to find a unit tangent vector:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">vvf_unit_tangent_vector</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span> <span class="n">var</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; gets a unit tangent vector for the vector vec defined in terms of the variable var&quot;&quot;&quot;</span>
+    <span class="n">r_prime</span> <span class="o">=</span> <span class="n">vector</span><span class="p">(</span><span class="n">vvf_diff</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">var</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">r_prime</span><span class="o">/</span><span class="n">r_prime</span><span class="o">.</span><span class="n">norm</span><span class="p">()</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">var</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">vector</span><span class="p">([</span><span class="n">t</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">t</span><span class="o">^</span><span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vvf_unit_tangent_vector</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3*t^2/sqrt(9*abs(t)^4 + 16*abs(t)^2), 4*t/sqrt(9*abs(t)^4 + 16*abs(t)^2))
+</pre></div>
+</div>
 </div>
 </div>
 </section>
@@ -3145,6 +3168,405 @@ Unit tangent vector: (0, -3/34*sqrt(34), -5/34*sqrt(34))
 </div>
 </div>
 </div>
+</section>
+<section id="solving-some-velocity-and-acceleration-vector-problems">
+<h2>Solving Some Velocity and Acceleration Vector Problems<a class="headerlink" href="#solving-some-velocity-and-acceleration-vector-problems" title="Link to this heading"></a></h2>
+<p>12.2 question 11:</p>
+<p>Given the vector function <span class="math notranslate nohighlight">\(\mathbf{r}(t) = \left&lt; -3t, \ -5t^3, \ -t^2 + 5 \right&gt;\)</span></p>
+<p>Find the <strong>velocity</strong> and <strong>acceleration</strong> vectors at <span class="math notranslate nohighlight">\(t = -2\)</span></p>
+<p>In our solution, below, we are finding derivatives as needed using vvf_diff. We don’t have a way to substitute into a whole vector (as far as I know), so we use a for comprehension in which we substitute each term to arrive at the correct vector.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">var</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="n">r</span> <span class="o">=</span> <span class="n">vector</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="o">*</span><span class="n">t</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="o">*</span><span class="n">t</span><span class="o">^</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="n">t</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">5</span><span class="p">])</span>
+<span class="c1"># print(r)</span>
+
+<span class="n">vel</span> <span class="o">=</span> <span class="n">vvf_diff</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+<span class="c1"># print(vel)</span>
+
+<span class="n">accel</span> <span class="o">=</span> <span class="n">vvf_diff</span><span class="p">(</span><span class="n">vel</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+<span class="c1"># print(accel)</span>
+
+<span class="n">vel_at_minus_two</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">(</span><span class="n">t</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">vel</span><span class="p">]</span>
+<span class="n">accel_at_minus_two</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">(</span><span class="n">t</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">accel</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;velocity at -2&quot;</span><span class="p">,</span> <span class="n">vel_at_minus_two</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;acceleration at -2&quot;</span><span class="p">,</span> <span class="n">accel_at_minus_two</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>velocity at -2 [-3, -60, 4]
+acceleration at -2 [0, 60, -2]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="working-with-initial-values">
+<h2>Working with Initial Values<a class="headerlink" href="#working-with-initial-values" title="Link to this heading"></a></h2>
+<p>Question 12 asks us to find the anti-derivative of the acceleration function given initial condition for both our velocity and acceleration.  Since our <code class="docutils literal notranslate"><span class="pre">vvf_integrate</span></code> function doesn’t handle initial conditions.</p>
+<p>My first attempt at this problem failed, as shown in this <a class="reference external" href="https://gemini.google.com/share/39e29d86177d">Gemini session</a> where I checked my work.  To solve it correctly, I decided to capture the correct procedure that Gemini used by writing a SageMath function (yes, mine, not Gemini’s – I do <em>some</em> thinking here after all).</p>
+<p>Here is the problem and the solution:</p>
+<p>Find the position vector for a particle with acceleration, initial velocity, and initial position given below.</p>
+<p>12.2 Question 12:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{a}(t) = \left&lt; 6t, 4\sin(t), \cos(5t) \right&gt;
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{v}(0) = \left&lt; -3, 4, 3 \right&gt;
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{r}(0) = \left&lt; 2, -2, 4 \right&gt;
+\]</div>
+<p>We’re asked to find <span class="math notranslate nohighlight">\(\mathbf{r}(t)\)</span>.</p>
+<p>Note, my first attempt at this was rather naive, adding the initial values to each expression.  What’s really needed is for each term, <span class="math notranslate nohighlight">\(n \in [0,2] \)</span> of the velocity vector, for example:</p>
+<p>Solve for <span class="math notranslate nohighlight">\(V(t=0) + C_n = intial_values[n]\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s begin with our acceleration vector, </span>
+<span class="c1"># integrate it, and &quot;add&quot; the v(0) initial condition as a vector</span>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">vvf_initial_values</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">init_val</span><span class="p">,</span> <span class="n">init_val_equals</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Given an integral of a function in vec, returns a function based on initial values.</span>
+
+<span class="sd">        This involved solving for the constant of integration for each term.</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters:</span>
+<span class="sd">            vec:           a function representing an indefinite integral of a vector_valued_function</span>
+<span class="sd">            var:           the variable to substitute the initial_val</span>
+<span class="sd">            init_val:      the initial variable</span>
+<span class="sd">            init_val_equals:  a list of results for the function vec at the init_val</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            a vector with the consants of integration adjusted appropriately</span>
+<span class="sd">    &quot;&quot;&quot;</span>    
+
+
+    <span class="c1"># Result vector we&#39;ll be building.</span>
+    <span class="n">init_values_solved</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Constant names</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">SR</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="s2">&quot;C1, C2, C3&quot;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">vec</span><span class="p">)):</span>
+        <span class="c1"># Start building the term for this &quot;component&quot; of the vector</span>
+        <span class="c1"># based on subtituting the initial value</span>
+        <span class="n">substituted</span> <span class="o">=</span> <span class="p">(</span><span class="n">vec</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">var</span><span class="p">:</span> <span class="n">init_val</span><span class="p">})</span>
+        <span class="c1"># Using the result, solve for constant of integration and add it to the </span>
+        <span class="c1"># component we&#39;re working on.</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">substituted</span> <span class="o">+</span> <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">init_val_equals</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">init_values_solved</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vec</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">val</span><span class="o">.</span><span class="n">rhs</span><span class="p">())</span>
+        
+    <span class="k">return</span> <span class="n">init_values_solved</span>
+
+<span class="c1"># Work problem 12.2 # 12</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">var</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">vector</span><span class="p">([</span><span class="mi">6</span><span class="o">*</span><span class="n">t</span><span class="p">,</span> <span class="mi">4</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">cos</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="n">t</span><span class="p">)])</span>
+
+<span class="c1"># Integrate the velocity vector, V, then modify it to V_0 based on the initial conditions</span>
+<span class="n">V</span> <span class="o">=</span> <span class="n">vector</span><span class="p">(</span><span class="n">vvf_integrate</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;V: &quot;</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span>
+<span class="n">V_0</span> <span class="o">=</span> <span class="n">vvf_initial_values</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;V_0: &quot;</span><span class="p">,</span> <span class="n">V_0</span><span class="p">)</span>
+
+<span class="c1"># Do the same for the acceleration vector</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">vector</span><span class="p">(</span><span class="n">vvf_integrate</span><span class="p">(</span><span class="n">V_0</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R: &quot;</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span>
+<span class="n">R_0</span> <span class="o">=</span> <span class="n">vvf_initial_values</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R_0: &quot;</span><span class="p">,</span> <span class="n">R_0</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;At this point R_0 contains our final answer.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>V:  (3*t^2, -4*cos(t), 1/5*sin(5*t))
+V_0:  [3*t^2 - 3, -4*cos(t) + 8, 1/5*sin(5*t) + 3]
+R:  (t^3 - 3*t, 8*t - 4*sin(t), 3*t - 1/25*cos(5*t))
+R_0:  [t^3 - 3*t + 2, 8*t - 4*sin(t) - 2, 3*t - 1/25*cos(5*t) + 101/25]
+At this point R_0 contains our final answer.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="section-12-3-arc-length-and-curvature-of-space-curves">
+<h1>Section 12.3 Arc Length and Curvature of Space Curves<a class="headerlink" href="#section-12-3-arc-length-and-curvature-of-space-curves" title="Link to this heading"></a></h1>
+<section id="arc-length-formula">
+<h2>Arc Length Formula<a class="headerlink" href="#arc-length-formula" title="Link to this heading"></a></h2>
+<p>Here is a formula given in the video assignment 12.3 Q1:</p>
+<p>If a smooth curve is defined by
+<span class="math notranslate nohighlight">\(\mathbf{r}(t) = f(t)\mathbf{i} + g(t)\mathbf{j} + h(t)\mathbf{k}\)</span> on <span class="math notranslate nohighlight">\([a,b]\)</span></p>
+<p>the arc length on the interval is given by</p>
+<div class="math notranslate nohighlight">
+\[s = \int_a^b \sqrt{[x'(t)]^2 + [y'(t)]^2 + [z'(t)]^2} \, dt\]</div>
+<div class="math notranslate nohighlight">
+\[s = \int_a^b ||\mathbf{r}'(t)|| \, dt\]</div>
+<p>This is the same formula used for parameterized functions, but we now see in this case it represents the integral of the magnitude of the derivative of r of t.  In the next code block, we follow along with that same video’s example to see if we can arrive at the same answer in SageMath.  Spoiler alert, the output for arc_len, below, is correct.</p>
+<section id="finding-the-arc-length-of-a-curve-in-sagemath">
+<h3>Finding the Arc Length of a curve in SageMath<a class="headerlink" href="#finding-the-arc-length-of-a-curve-in-sagemath" title="Link to this heading"></a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">var</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">vector</span><span class="p">([</span><span class="mi">2</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="mi">2</span><span class="o">*</span><span class="n">t</span><span class="p">])</span>
+
+<span class="c1"># We are asked to find the arc length from 0 to pi</span>
+<span class="n">r_prime</span> <span class="o">=</span> <span class="n">vector</span><span class="p">(</span><span class="n">vvf_diff</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;r_prime: &quot;</span><span class="p">,</span> <span class="n">r_prime</span><span class="p">)</span>
+<span class="n">magnitude</span> <span class="o">=</span> <span class="n">r_prime</span><span class="o">.</span><span class="n">norm</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;magnitude: &quot;</span><span class="p">,</span> <span class="n">magnitude</span><span class="p">)</span>
+<span class="n">arc_len</span> <span class="o">=</span> <span class="n">integrate</span><span class="p">(</span><span class="n">magnitude</span><span class="p">,</span> <span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">pi</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;arc_len: &quot;</span><span class="p">,</span> <span class="n">arc_len</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">vvf_arc_length</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">r_prime</span> <span class="o">=</span> <span class="n">vector</span><span class="p">(</span><span class="n">vvf_diff</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span> <span class="n">var</span><span class="p">))</span>
+    <span class="n">magnitude</span> <span class="o">=</span> <span class="n">r_prime</span><span class="o">.</span><span class="n">norm</span><span class="p">()</span>
+    <span class="n">arc_len</span> <span class="o">=</span> <span class="n">integrate</span><span class="p">(</span><span class="n">magnitude</span><span class="p">,</span> <span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">arc_len</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Arc len from function: &quot;</span><span class="p">,</span> <span class="n">vvf_arc_length</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">pi</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>r_prime:  (-2*sin(t), 2*cos(t), 2)
+magnitude:  2*sqrt(abs(cos(t))^2 + abs(sin(t))^2 + 1)
+arc_len:  2*sqrt(2)*pi
+Arc len from function:  2*sqrt(2)*pi
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Problem 12.3 Q1</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">var</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">vector</span><span class="p">([</span><span class="mi">5</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="mi">5</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="mi">4</span><span class="o">*</span><span class="n">t</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vvf_arc_length</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2*sqrt(41)*pi
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Problem 12.3 Q2</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">var</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">vector</span><span class="p">([</span><span class="mi">4</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">t</span><span class="p">),</span> <span class="mi">4</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">t</span><span class="p">),</span> <span class="mi">4</span><span class="o">*</span><span class="n">t</span><span class="p">])</span>
+<span class="n">arc_len</span> <span class="o">=</span> <span class="n">vvf_arc_length</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">arc_len</span><span class="p">,</span> <span class="s2">&quot; = approx &quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">N</span><span class="p">(</span><span class="n">arc_len</span><span class="p">),</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12*sqrt(5)*pi - 8*sqrt(5)*(pi - 4) - 4*sqrt(5)*(pi - 6)  = approx  125.22
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Problem 12.3 Q3</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">var</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">vector</span><span class="p">([</span><span class="n">e</span><span class="o">^</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">e</span><span class="o">^</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">)])</span>
+<span class="n">arc_len</span> <span class="o">=</span> <span class="n">vvf_arc_length</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">arc_len</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1/4*sqrt(17)*e^40 - 1/4*sqrt(17)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="curvature">
+<h2>Curvature<a class="headerlink" href="#curvature" title="Link to this heading"></a></h2>
+<p>The curvature, <span class="math notranslate nohighlight">\(K\)</span>, at a point measures how sharply the curve bends or how quickly it changes direction.  For a line, curvature is zero, no bend.  For a circle, curvature, <span class="math notranslate nohighlight">\(K\)</span> is <span class="math notranslate nohighlight">\(K = \frac{1}{r}\)</span>, so it’s greater for smaller circles and more gradual on a larger circle.</p>
+<p>There are two formulas for this.</p>
+<section id="formula-1">
+<h3>Formula 1<a class="headerlink" href="#formula-1" title="Link to this heading"></a></h3>
+<p>Here, curvature measures how quickly the direction of <span class="math notranslate nohighlight">\(\boldsymbol{T}(t)\)</span> changes with respect to arc length, <span class="math notranslate nohighlight">\(s\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{alignat*}{2}
+K &amp;= \left\| \frac{d\boldsymbol{T}}{ds}\right\| = 
+\left\|\frac{d\boldsymbol{T}/dt}{
+ds/dt}\right\|
+\\
+\\
+K &amp;= \frac{\|\boldsymbol{T^{\prime}}(t)\|}{\|r^{\prime}(t)\|}
+\end{alignat*}
+\end{split}\]</div>
+<p>Here <span class="math notranslate nohighlight">\(d\boldsymbol{T}/dt\)</span> is derivatrive of unit tangent vector value function, <span class="math notranslate nohighlight">\(\boldsymbol{T^{\prime}}(t)\)</span>, and <span class="math notranslate nohighlight">\(ds/dt\)</span> is the derivative of the position function, <span class="math notranslate nohighlight">\(r(t)\)</span> which is to say, the velocity function.</p>
+</section>
+<section id="formula-2">
+<h3>Formula 2<a class="headerlink" href="#formula-2" title="Link to this heading"></a></h3>
+<p>Alternative formula:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{alignat*}{2}
+K &amp;= \frac{\left\| r^{\prime}(t) \times r^{\prime\prime}(t) \right\|}{\left\| r^{\prime}(t)\right\|^3}
+\end{alignat*}
+\]</div>
+</section>
+<section id="evaluating-curvature-in-sagemath">
+<h3>Evaluating Curvature in SageMath<a class="headerlink" href="#evaluating-curvature-in-sagemath" title="Link to this heading"></a></h3>
+<p>Below we will implement formula 2 in SageMath:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">vvf_get_curvature</span><span class="p">(</span><span class="n">vvf</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Determines the curvature of the vector valued function vvf for the variable at value.        Implements function 2 shown in the avoc</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        vvf: The vector valued function representing the curve / space curve. </span>
+<span class="sd">        variable: the variable that we&#39;ll evaluate at the value given by value</span>
+<span class="sd">        value: the value at which we want to determine curvature.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">t</span>
+    <span class="n">subst_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">variable</span><span class="p">:</span> <span class="n">value</span><span class="p">}</span>
+    <span class="n">r_prime</span> <span class="o">=</span> <span class="p">(</span><span class="n">vvf_diff</span><span class="p">(</span><span class="n">vvf</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">subst_dict</span><span class="p">)</span>
+    <span class="n">r_double_prime</span> <span class="o">=</span> <span class="p">(</span><span class="n">vvf_diff</span><span class="p">(</span><span class="n">vvf</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">subst_dict</span><span class="p">)</span>
+    <span class="n">numerator</span> <span class="o">=</span> <span class="p">(</span><span class="n">r_prime</span><span class="o">.</span><span class="n">cross_product</span> <span class="p">(</span><span class="n">r_double_prime</span><span class="p">))</span><span class="o">.</span><span class="n">norm</span><span class="p">()</span>
+    <span class="n">denominator</span> <span class="o">=</span> <span class="p">(</span><span class="n">r_prime</span><span class="o">.</span><span class="n">norm</span><span class="p">())</span><span class="o">^</span><span class="mi">3</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">numerator</span><span class="o">/</span><span class="n">denominator</span><span class="p">)</span>
+
+<span class="c1"># Test it out on an example from the video:</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">var</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">vector</span><span class="p">([</span><span class="n">t</span><span class="p">,</span> <span class="n">t</span><span class="o">^</span><span class="mi">2</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">t</span><span class="o">^</span><span class="mi">3</span><span class="o">/</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">K</span> <span class="o">=</span> <span class="n">vvf_get_curvature</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Curvature, exact: &quot;</span><span class="p">,</span> <span class="n">K</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Curvature, approx: &quot;</span><span class="p">,</span> <span class="n">N</span><span class="p">(</span><span class="n">K</span><span class="p">))</span>
+<span class="c1">#print(N(sqrt(2)/3))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Curvature, exact:  1/9*sqrt(6)*sqrt(3)
+Curvature, approx:  0.471404520791032
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Problem 12.3 Q 4</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">var</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">vector</span><span class="p">([</span><span class="o">-</span><span class="mi">5</span><span class="o">*</span><span class="n">t</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">t</span><span class="o">^</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="o">*</span><span class="n">t</span><span class="o">^</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">K</span> <span class="o">=</span> <span class="n">vvf_get_curvature</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">round</span><span class="p">(</span><span class="n">N</span><span class="p">(</span><span class="n">K</span><span class="p">),</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0367
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Problem 12.3 Q 5</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">var</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">vector</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="o">*</span><span class="n">t</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">t</span><span class="o">^</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">t</span><span class="o">^</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">K</span> <span class="o">=</span> <span class="n">vvf_get_curvature</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">round</span><span class="p">(</span><span class="n">N</span><span class="p">(</span><span class="n">K</span><span class="p">),</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0037
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Problem 12.3 Q 6</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">var</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">vector</span><span class="p">([</span><span class="mi">2</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">t</span><span class="p">),</span> <span class="mi">2</span><span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">t</span><span class="p">),</span> <span class="mi">1</span><span class="o">*</span><span class="n">t</span><span class="p">])</span>
+<span class="n">K</span> <span class="o">=</span> <span class="n">vvf_get_curvature</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="nb">round</span><span class="p">(</span><span class="n">N</span><span class="p">(</span><span class="n">K</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.47
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Problem 12.3 Q 7</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">var</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+<span class="c1"># Need to add a zero value as a dummy to get cross-product</span>
+<span class="c1"># in vvf_get_curvature to work.</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">vector</span><span class="p">([</span><span class="mi">6</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="mi">5</span><span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">K</span> <span class="o">=</span> <span class="n">vvf_get_curvature</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="n">pi</span><span class="p">)</span><span class="o">/</span><span class="mi">6</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>80/4107*sqrt(111)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Problem 12.3 Q 8 can&#39;t be solved with vvf_get_curvature because of a divide by zero issue.</span>
+<span class="c1"># So we&#39;ll implement a function using formula one and see if we can arrive at an answer that way.</span>
+<span class="c1"># NOTE:  The answer given is not correct.  Note that the associated video for this problem gives </span>
+<span class="c1"># yet a third function we could use, which is a simplification of formula 2.  More work is </span>
+<span class="c1"># needed based on that video, but the correct vector form for the problem is </span>
+<span class="c1"># r = vector([x, -3*x^5, 0]), as below.</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">vvf_get_curvature_formula1</span><span class="p">(</span><span class="n">vvf</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="n">unit_tangent_vector</span> <span class="o">=</span> <span class="n">vvf_unit_tangent_vector</span><span class="p">(</span><span class="n">vvf</span><span class="p">,</span> <span class="n">variable</span><span class="p">)</span>
+    <span class="n">dT</span> <span class="o">=</span> <span class="n">vvf_diff</span><span class="p">(</span><span class="n">unit_tangent_vector</span><span class="p">,</span> <span class="n">variable</span><span class="p">)</span>
+    <span class="c1">#print(dT.norm())</span>
+    <span class="n">numerator</span> <span class="o">=</span> <span class="n">dT</span><span class="o">.</span><span class="n">norm</span><span class="p">()</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">variable</span><span class="p">:</span> <span class="n">value</span><span class="p">})</span>
+    <span class="c1">#print(&quot;num:&quot;, numerator)</span>
+
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">vvf_diff</span><span class="p">(</span><span class="n">vvf</span><span class="p">,</span> <span class="n">variable</span><span class="p">)</span>
+    <span class="n">denominator</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">norm</span><span class="p">()</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">variable</span><span class="p">:</span> <span class="n">value</span><span class="p">})</span>
+    <span class="c1"># print(&quot;den: &quot;, denominator)</span>
+    <span class="k">return</span> <span class="n">numerator</span><span class="o">/</span><span class="n">denominator</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">var</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">vector</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">^</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">K</span> <span class="o">=</span> <span class="n">vvf_get_curvature_formula1</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is not the correct answer.  More work is needed: &quot;</span><span class="p">,</span> <span class="n">K</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This is not the correct answer.  More work is needed:  480/3317875201*sqrt(57601)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 </section>
 
