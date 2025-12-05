@@ -3,7 +3,7 @@ Python for Beginners
 ====================
 
 .. toctree::
-   :caption: Site Index:
+   :caption: Articles:
    :maxdepth: 1
    
    getting-started-with-python-classes

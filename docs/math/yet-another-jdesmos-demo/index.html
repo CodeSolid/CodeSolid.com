@@ -1,23 +1,25 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Yet Another JDesmos Demo &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
 
   
-      <script src="../../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../_static/documentation_options.js?v=19645805"></script>
-      <script src="../../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=19645805"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex/" />
     <link rel="search" title="Search" href="../../search/" />
@@ -122,7 +124,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">jdesmos</span><span class="w"> </span><span class="kn">import</span> <span class="n">Desmos</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jdesmos</span> <span class="kn">import</span> <span class="n">Desmos</span>
 <span class="n">desmos</span> <span class="o">=</span> <span class="n">Desmos</span><span class="p">()</span>
 <span class="n">desmos</span><span class="o">.</span><span class="n">add_latex</span><span class="p">(</span><span class="s1">&#39;x^2 + 2&#39;</span><span class="p">)</span>
 <span class="n">desmos</span><span class="o">.</span><span class="n">add_latex</span><span class="p">(</span><span class="s1">&#39;y=2x + 1&#39;</span><span class="p">)</span>
@@ -218,7 +220,7 @@
         element.style.height = '480px';
         element.style.width = '100%';
         var calculator = Desmos.GraphingCalculator(element);
-        calculator.setExpression({ id: 'm', latex: 'm=2' });calculator.setExpression({ id: 'line1', latex: 'y=mx', color: '#ff0000' });calculator.setExpression({ id: 'm', latex: 'm=3' });calculator.setExpression({ id: 'circle1', latex: 'x^2 + y^2 < 1' });calculator.setExpression({id: 'm', sliderBounds: { min: 1, max: 10, step: 1 }});
+        calculator.setExpression("{ id: 'm', latex: 'm=2' }");calculator.setExpression("{ id: 'line1', latex: 'y=mx', color: '#ff0000' }");calculator.setExpression("{ id: 'm', latex: 'm=3' }");calculator.setExpression("{ id: 'circle1', latex: 'x^2 + y^2 < 1' }");calculator.setExpression("{id: 'm', sliderBounds: { min: 1, max: 10, step: 1 }}");
         
 });</script></div>
 </div>
@@ -228,7 +230,7 @@
 <p>Because of SymPy’s excellent support for LaTeX, it’s quite simple to use SymPy’s powerful CAS (Computer Algebra System) features and display the results in JDesmos.  In the example below, we’ll take the derivative of a function and draw a tangent line to a point on the curve, a classic Calculus 1 problem with some SymPy flavor.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="kn">import</span> <span class="n">symbols</span><span class="p">,</span> <span class="n">diff</span><span class="p">,</span> <span class="n">latex</span><span class="p">,</span> <span class="n">Eq</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">symbols</span><span class="p">,</span> <span class="n">diff</span><span class="p">,</span> <span class="n">latex</span><span class="p">,</span> <span class="n">Eq</span>
 
 <span class="c1"># Typical SymPy setup</span>
 <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x y&#39;</span><span class="p">)</span>

@@ -1,23 +1,25 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Python Errors: Exception Handling from Beginner to Expert &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
 
   
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=19645805"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=19645805"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" />
@@ -162,7 +164,7 @@
 <p>Here’s an example of incorrect indentation that’s relatively easy to fix:</p>
 <p><img alt="" src="../_images/image-311.png" /></p>
 <p>When correctly formatted, the lines after the if and after the else should have an additional level of indent, as shown here:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">greeting</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">name</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">name</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
@@ -201,7 +203,7 @@
 <section id="handling-built-in-exceptions">
 <h3>Handling Built-In Exceptions<a class="headerlink" href="#handling-built-in-exceptions" title="Link to this heading"></a></h3>
 <p>Python supports many different built-in exceptions that can happen at runtime. We might try to add two types, like a string and a number, which results in a TypeError. We might open a file for reading that isn’t there and get a FileNotFoundError. We can wrap the code that might generate such an exception in a try / except block to handle such cases. Suppose we have this code:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">show_contents</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">show_contents</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Display the contents of a file&quot;&quot;&quot;</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">contents</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
@@ -238,9 +240,9 @@ show_contents(“not_here.txt”)</p>
 <p>The example below shows how to capture the exception as a variable and write it to a log.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Logging an exception:  logging_example.py&quot;&quot;&quot;</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">logging</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">show_contents</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">show_contents</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Catch an exception with variable name&quot;&quot;&quot;</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -331,7 +333,7 @@ chmod<span class="w"> </span><span class="m">200</span><span class="w"> </span>u
 <section id="raising-built-in-and-user-defined-exceptions">
 <h2>Raising Built-In and User-Defined Exceptions<a class="headerlink" href="#raising-built-in-and-user-defined-exceptions" title="Link to this heading"></a></h2>
 <p>In addition to handling exceptions, you can also raise them, using the raise keyword and an instance of an exception class. Here’s a contrived example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">order_widget</span><span class="p">(</span><span class="n">widget</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">order_widget</span><span class="p">(</span><span class="n">widget</span><span class="p">):</span>
 
     <span class="c1"># Gadgets are dangerous</span>
     <span class="k">if</span> <span class="n">widget</span> <span class="o">==</span> <span class="s2">&quot;gadget&quot;</span><span class="p">:</span>
@@ -343,7 +345,7 @@ chmod<span class="w"> </span><span class="m">200</span><span class="w"> </span>u
 <p>If an order is placed for a gadget, the line ordering the widget will never be reached, because an exception will be thrown.</p>
 <p>There are a couple of things to point out about this code. First, if you raise an exception in your application code like this, it needs to be in the context of an “outer” exception handler in the same function, or a function calling you, etc.</p>
 <p>Secondly, for a case like this where we’re doing input validation, we can sometimes simplify it by using Python’s <code class="docutils literal notranslate"><span class="pre">assert</span></code> keyword instead of raise. If we know our user interface code doesn’t allow gadgets to be entered in our present code, we might still add a defensive <code class="docutils literal notranslate"><span class="pre">assert</span></code> in case that changes:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">order_widget</span><span class="p">(</span><span class="n">widget</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">order_widget</span><span class="p">(</span><span class="n">widget</span><span class="p">):</span>
     <span class="c1"># Don&#39;t send widgets.  Remember what happened to Crispy Bob</span>
     <span class="k">assert</span> <span class="n">widget</span> <span class="o">!=</span> <span class="s2">&quot;gadget&quot;</span>
     

@@ -1,23 +1,25 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Find Files in Python: Complete Cookbook for Searching Files and Folders &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
 
   
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=19645805"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=19645805"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" /> 
@@ -113,7 +115,7 @@
 <h2>Finding Files in the Current Directory<a class="headerlink" href="#finding-files-in-the-current-directory" title="Link to this heading"></a></h2>
 <p>To start getting our hands on the Pathlib module, we can run the following code either as a file or from the command prompt. This will list the contents of the current working directory, that is, wherever we run it from (not where the Python script is located).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># list_dirs.py</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="n">here</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
 <span class="n">files</span> <span class="o">=</span> <span class="n">here</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
@@ -129,7 +131,7 @@
 <h2>Searching for Files Recursively in Python<a class="headerlink" href="#searching-for-files-recursively-in-python" title="Link to this heading"></a></h2>
 <p>The glob method also supports an extended glob syntax, <code class="docutils literal notranslate"><span class="pre">&quot;**/*&quot;</span></code>, which allows you to search for files recursively. (This syntax may be new to some of my readers, but it’s the same syntax supported by zsh and .gitignore files if you’re familiar with those). This glob pattern means “search here and in all subdirectories.”</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># list_dirs_recursive.py</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="n">here</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
 <span class="n">files</span> <span class="o">=</span> <span class="n">here</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;**/*&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
@@ -143,7 +145,7 @@
 <h2>Finding a Single File Recursively<a class="headerlink" href="#finding-a-single-file-recursively" title="Link to this heading"></a></h2>
 <p>Using just a little creativity, we can also search recursively for a single file or a subset of files. For example, if we just wanted to find something.txt no matter where it was starting from our current working directory, we could use “**/something.txt” as the glob pattern:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># find_file.py</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="n">here</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
 <span class="n">files</span> <span class="o">=</span> <span class="n">here</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;**/something.txt&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
@@ -160,7 +162,7 @@
 <h2>Finding an Absolute Path<a class="headerlink" href="#finding-an-absolute-path" title="Link to this heading"></a></h2>
 <p>So far we’ve shown examples of using relative paths. We started out by setting a variable to <code class="docutils literal notranslate"><span class="pre">Path(&quot;.&quot;)</span></code>, and relative to that, we were able to use “glob” to find “my_subdirectory omething.txt”, for example. But sometimes what we need to find is an absolute path given that information. Using path objects like Posix path or WindowsPath, we can use the <code class="docutils literal notranslate"><span class="pre">resolve</span></code> method to get this information. Resolve returns an absolute path. It also resolves any symbolic links.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Display some known relative and absolute paths&quot;&quot;&quot;</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="n">here</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
 <span class="n">file_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;my_subdirectory/something.txt&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The absolute path to </span><span class="si">{</span><span class="n">here</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="n">here</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -186,7 +188,7 @@ The<span class="w"> </span>absolute<span class="w"> </span>path<span class="w"> 
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">__file__</span></code> variable is not a path object, but a string. However, by constructing a path from it, we can query two special attributes of a file, name and parent, which will give us just the name portion of the file and the directory portion, respectively:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># print_directory.py</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="n">file_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The file </span><span class="si">{</span><span class="n">file_path</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> is located in directory </span><span class="si">{</span><span class="n">file_path</span><span class="o">.</span><span class="n">parent</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 </pre></div>
@@ -218,7 +220,7 @@ The<span class="w"> </span>absolute<span class="w"> </span>path<span class="w"> 
 <p>When we constructed a new filename based on the name of the Python <code class="docutils literal notranslate"><span class="pre">__file__</span></code> built-in variable, we knew that <code class="docutils literal notranslate"><span class="pre">__file__</span></code> was a file name, so it made sense to use the <code class="docutils literal notranslate"><span class="pre">parent</span></code> attribute to get the directory where the file was located. Of course, given an absolute path to a directory, <code class="docutils literal notranslate"><span class="pre">parent</span></code> behaves “differently,” returning the directory that contains this one. For example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Display the current and parent directory&quot;&quot;&quot;</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="n">here</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;You are here: </span><span class="si">{</span><span class="n">here</span><span class="si">}</span><span class="s2">, a sub-directory of </span><span class="si">{</span><span class="n">here</span><span class="o">.</span><span class="n">parent</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 </pre></div>
@@ -234,7 +236,7 @@ The<span class="w"> </span>absolute<span class="w"> </span>path<span class="w"> 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># list_paths.py</span>
 
 <span class="sd">&quot;&quot;&quot;Recursively list files and directories&quot;&quot;&quot;</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="n">here</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">here</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;**/*&quot;</span><span class="p">)):</span>
@@ -266,7 +268,7 @@ F<span class="w"> </span>print_directory.py
 <h3>Get the User’s Home Directory in Python<a class="headerlink" href="#get-the-user-s-home-directory-in-python" title="Link to this heading"></a></h3>
 <p>To get the user’s home directory, simply call the class method “<code class="docutils literal notranslate"><span class="pre">home</span></code>” on the Path class. This will retrieve the user’s home directory whether in a Linux-like environment or on Windows.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Display the user&#39;s home directory&quot;&quot;&quot;</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -277,7 +279,7 @@ F<span class="w"> </span>print_directory.py
 <h2>Getting the Current Working Directory<a class="headerlink" href="#getting-the-current-working-directory" title="Link to this heading"></a></h2>
 <p>To get us started constructing Path objects, I’ve been using the path given by <code class="docutils literal notranslate"><span class="pre">Path(&quot;.&quot;)</span></code> to retrieve the current working directory. I’ve tested that that method works even if you change the current working directory programmatically, but there is another way to accomplish this that is perhaps a bit more clear: <code class="docutils literal notranslate"><span class="pre">Path.cwd()</span></code>. As you might expect, just like <code class="docutils literal notranslate"><span class="pre">Path.home</span></code>, <code class="docutils literal notranslate"><span class="pre">Path.cwd</span></code> is a class method, so you can call it on the class itself – you don’t need an instance.</p>
 <p>Like the Path string constructor, <code class="docutils literal notranslate"><span class="pre">Path.cwd()</span></code> and <code class="docutils literal notranslate"><span class="pre">Path.home()</span></code> both return concrete Path objects, so we can build paths immediately using the slash operator. Do you need to query whether the user already has a configuration installed for Amazon’s AWS command-line interface, for example?</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="n">default</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span> <span class="o">/</span> <span class="s2">&quot;.aws&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">default</span><span class="o">.</span><span class="n">exists</span><span class="p">())</span>
 </pre></div>
@@ -289,7 +291,7 @@ F<span class="w"> </span>print_directory.py
 <p>Because creating a directory will fail with an exception if the path already exists, we check for this and do the right thing.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Creates a .codesolid directory in the user&#39;s home directory&quot;&quot;&quot;</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 
 <span class="n">DIRECTORY_NAME</span> <span class="o">=</span> <span class="s2">&quot;.codesolid&quot;</span>
 <span class="n">config_directory</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span> <span class="o">/</span> <span class="n">DIRECTORY_NAME</span>
@@ -336,7 +338,7 @@ $<span class="w"> </span>python
 </div>
 <p>Using a somewhat less reliable method, we can sometimes find the path from which a module would be loaded even without actually loading it. This generally works for user-defined modules and Python runtime library modules that are not loaded by the “FrozenLoader” module loader. As we’ll see below, it doesn’t work well for the “os” module.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Shows how find_spec can sometimes be used to get a file load location path&quot;&quot;&quot;</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">importlib.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">find_spec</span>
+<span class="kn">from</span> <span class="nn">importlib.util</span> <span class="kn">import</span> <span class="n">find_spec</span>
 
 <span class="k">for</span> <span class="n">module</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;os&#39;</span><span class="p">,</span> <span class="s1">&#39;json&#39;</span><span class="p">,</span> <span class="s1">&#39;module.file_in_module&#39;</span><span class="p">]:</span>
     <span class="n">spec</span> <span class="o">=</span> <span class="n">find_spec</span><span class="p">(</span><span class="n">module</span><span class="p">)</span>

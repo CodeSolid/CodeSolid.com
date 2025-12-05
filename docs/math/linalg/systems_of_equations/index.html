@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Systems of Equations &mdash; CodeSolid.com 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=19645805"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex/" />
+    <link rel="search" title="Search" href="../../../search/" />
+    <link rel="next" title="Python for Beginners" href="../../../category-python-for-beginners-posts/" />
+    <link rel="prev" title="Python Matrix Multiplication: NumPy, SymPy, and the Math Behind It" href="../../../python-matrix-multiplication/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../" class="icon icon-home">
+            CodeSolid.com
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Featured Articles:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../using-latex-in-python/">Using LaTeX In Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installing-pyenv-on-a-mac/">Installing Pyenv on a Mac (A Setup Guide With Usage Tips)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../conda-vs-pip/">Conda vs. Pip, Venv, and Pyenv – Simplicity Wins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../jupyter-password/">Jupyter Password: Easy Notebook and Lab Configuration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Added Recently:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../sage/calc3/">Multivariable Calculus Sage Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../complex-inner-products/">The Inner Product of Complex Vectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-started-with-ollama/">Getting Started With Ollama</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../yet-another-jdesmos-demo/">Yet Another JDesmos Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../desmos-jupyter/">Using Desmos Graphs in Jupyter Notebooks</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Categories</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../category-math-and-math-software/">Math and Math Software</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../category-python-linear-algebra/">Python Linear Algebra</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../python-matrix-multiplication/">Python Matrix Multiplication: NumPy, SymPy, and the Math Behind It</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Systems of Equations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#definition-1-2-4-elementary-operations">Definition 1.2.4: Elementary Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gaussian-elimination-and-gauss-jordan-elimination">Gaussian Elimination and Gauss-Jordan Elimination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#doing-rref-more-systematically">Doing rref more systematically</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../category-python-for-beginners-posts/">Python for Beginners</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../category-python-functions/">Python Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../category-python-math-and-science/">Python Math and Science</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../category-python-practice/">Python Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../category-python-tools/">Python Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../category-pandas/">Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../category-miscellaneous/">Other</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../category-docker/">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../category-jupyter/">Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../category-learn-to-code/">Learn to Code</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../">CodeSolid.com</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../category-python-linear-algebra/">Python Linear Algebra</a></li>
+      <li class="breadcrumb-item active">Systems of Equations</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/math/linalg/systems_of_equations.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="systems-of-equations">
+<h1>Systems of Equations<a class="headerlink" href="#systems-of-equations" title="Link to this heading"></a></h1>
+<p>These are my notes on the first section of Ken Kuttler’s LibreText Book, <a class="reference external" href="https://math.libretexts.org/Bookshelves/Linear_Algebra/A_First_Course_in_Linear_Algebra_(Kuttler)">A First Course in Linear Algebra</a></p>
+<p>The first part of the course deals with the intersection of linear equations, to show that they either intersect never (are parallel), everywhere (they are the same line), or in exactly one point (they intersect).  We’re given instructions to graph two sets of functions.  Limiting ourselves to Python (i.e, without SageMath), the easiest way to do this is to use SymPy’s <code class="docutils literal notranslate"><span class="pre">plot_implicit</span></code> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">symbols</span><span class="p">,</span> <span class="n">Eq</span>
+<span class="kn">from</span> <span class="nn">sympy.plotting</span> <span class="kn">import</span> <span class="n">plot</span>
+
+<span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x,y&#39;</span><span class="p">)</span>
+
+<span class="n">eq</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">y</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">eq2</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span><span class="n">y</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="n">plt</span> <span class="o">=</span> <span class="n">plot_implicit</span><span class="p">(</span><span class="n">eq</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Plot two functions&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt2</span> <span class="o">=</span> <span class="n">plot_implicit</span><span class="p">(</span><span class="n">eq2</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Plot two functions&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">plt2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">symbols</span><span class="p">,</span> <span class="n">Eq</span>
+<span class="kn">from</span> <span class="nn">sympy.plotting</span> <span class="kn">import</span> <span class="n">plot</span>
+
+<span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x,y&#39;</span><span class="p">)</span>
+
+<span class="n">eq</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">eq2</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">y</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">plt</span> <span class="o">=</span> <span class="n">plot_implicit</span><span class="p">(</span><span class="n">eq</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Plot two functions&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt2</span> <span class="o">=</span> <span class="n">plot_implicit</span><span class="p">(</span><span class="n">eq2</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Plot two functions&quot;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">plt2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Our second graph appears to have a solution at x = 1.  Let’s assume that’s correct and see if we can solve both equations using simple substitution.  Our system of equations here consists of:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+3x + y = 3 \\
+x + 2y = 1 \\
+\end{align}
+\end{split}\]</div>
+<p>Sustituting x = 1, we get:
+$$</p>
+<div class="amsmath math notranslate nohighlight" id="equation-939ad8e7-b7cb-4857-98e0-408386c50164">
+<span class="eqno">(1)<a class="headerlink" href="#equation-939ad8e7-b7cb-4857-98e0-408386c50164" title="Permalink to this equation"></a></span>\[\begin{align}
+3\cdot 1 + y = 3 \\
+1 + 2y = 1 \\
+\end{align}\]</div>
+<div class="math notranslate nohighlight">
+\[Isolating y, we have:\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-757ea3ff-6cf3-4f34-baef-30ecfd3ef73b">
+<span class="eqno">(2)<a class="headerlink" href="#equation-757ea3ff-6cf3-4f34-baef-30ecfd3ef73b" title="Permalink to this equation"></a></span>\[\begin{align}
+y = 3  - 3 = 0\\
+2y = 1 -1 = 0 \\
+\end{align}\]</div>
+<p>$$</p>
+<p>So our solution is (1,0), which aggrees with our intersection point.</p>
+<p>For the first graph, our solution is a bit harder to simply read off the plot, but let’s see what sense we can make of it algebraically:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+x + 3y = 1 \\
+4x - y = 3 \\
+\end{align}
+\end{split}\]</div>
+<p>To solve this one, let’s quote what our text gives as…</p>
+<section id="definition-1-2-4-elementary-operations">
+<h2>Definition 1.2.4: Elementary Operations<a class="headerlink" href="#definition-1-2-4-elementary-operations" title="Link to this heading"></a></h2>
+<p><strong>Elementary operations</strong> are those operations consisting of the following.</p>
+<ol class="arabic simple">
+<li><p>Interchange the order in which the equations are listed.</p></li>
+<li><p>Multiply any equation by a nonzero number.</p></li>
+<li><p>Replace any equation with itself added to a multiple of another equation.</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{alignat*}{2}
+x + 3y &amp;= 1 &amp;\quad\text{given}\\
+4x - y &amp;= 3 \\
+\\
+13x + 0y &amp;= 10 &amp;\quad\text{Add 3 times equation 2 to equation 1}\\
+4x - y &amp;= 3 \\
+\\
+x &amp;= 10/13 &amp;\quad\text{Solve equation 1 for x}\\
+4x - y &amp;= 3 \\
+\\
+4 \cdot \frac{10}{13} - y &amp;= 3 &amp;\quad\text{Subsitute our solution for x into equation 2}\\
+-y &amp;= 3 - \frac{40}{13} &amp;\quad\text{solve for y}\\
+\\-y &amp;= \frac{39}{13} - \frac{40}{13} \\
+-y &amp;= - \frac{1}{13}\\
+y &amp;= \frac{1}{13}
+\end{alignat*}
+\end{split}\]</div>
+<p>Our solution set is <span class="math notranslate nohighlight">\(\left(\frac{10}{13}, \frac{1}{13}\right)\)</span></p>
+<p>Let’s check to see that it satisfies both our equations:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+x + 3y = 1 \\
+4x - y = 3 \\
+\\
+\frac{10}{13} + \left(3 \cdot \frac{1}{13}\right) &amp;= 1\quad\checkmark\\
+\\
+\left(4 \cdot \frac{10}{13}\right) - \frac{1}{13} &amp;= 3\\
+\frac{40}{13}- \frac{1}{13} &amp;= 3\\
+= \frac{39}{13} &amp;= 3\quad\checkmark\\
+\end{align}
+\end{split}\]</div>
+</section>
+<section id="gaussian-elimination-and-gauss-jordan-elimination">
+<h2>Gaussian Elimination and Gauss-Jordan Elimination<a class="headerlink" href="#gaussian-elimination-and-gauss-jordan-elimination" title="Link to this heading"></a></h2>
+<p>We can represent systems of equations as augmented matrices, and use Gaussian or Gauss-Jordan elimination to get our equations into row-echelon form (REF) or reduced row-echelon form (RREF). (See definitions 1.3.3 and 1.3.4 <a class="reference external" href="https://math.libretexts.org/Bookshelves/Linear_Algebra/A_First_Course_in_Linear_Algebra_(Kuttler)/01%3A_Systems_of_Equations/1.03%3A_Gaussian_Elimination">here</a>).</p>
+<p>Let’s take an exercise from Larson and Edwards Elementary Linear Algebra, and work it by hand and using Python.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{alignat*}{2}
+-3x + 5y &amp;= -22 \\
+3x + 4y &amp;= 4 \\
+4x -8y &amp;= 32 \\
+\\
+\begin{vmatrix}
+-3 &amp; 5 &amp; -22 \\
+3 &amp; 4  &amp; 4 \\
+4 &amp; -8 &amp; 32 \\
+\end{vmatrix}&amp;\quad\quad\text{Matrix form}
+\\
+\\
+\begin{vmatrix}
+4 &amp; -8 &amp; 32 \\
+-3 &amp; 5 &amp; -22 \\
+3 &amp; 4  &amp; 4 \\
+\end{vmatrix}&amp;\quad\quad\text{Move row 3 to row 1}
+\\
+\\
+\begin{vmatrix}
+4 &amp; -8 &amp; 32 \\
+-3 &amp; 5 &amp; -22 \\
+0 &amp; 9  &amp; -18 \\
+\end{vmatrix}&amp;\quad\quad\text{Add row 2 to row 3}
+\\
+\\
+\begin{vmatrix}
+4 &amp; -8 &amp; 32 \\
+-3 &amp; 5 &amp; -22 \\
+0 &amp; 1  &amp; -2 \\
+\end{vmatrix}&amp;\quad\quad\text{multiply row 3 by 1/9}
+\\
+\\
+\begin{vmatrix}
+4 &amp; -8 &amp; 32 \\
+0 &amp; -1 &amp; 2 \\
+0 &amp; 1  &amp; -2 \\
+\end{vmatrix}&amp;\quad\quad\text{Add 3/4 * row 1 to row 2}
+\\
+\\
+\begin{vmatrix}
+4 &amp; -8 &amp; 32 \\
+0 &amp; -1 &amp; 2 \\
+0 &amp; 0  &amp; 0 \\
+\end{vmatrix}&amp;\quad\quad\text{Add row 2 to row 3}\\
+\\
+\begin{vmatrix}
+1 &amp; -2 &amp; 8 \\
+0 &amp; -1 &amp; 2 \\
+0 &amp; 0  &amp; 0 \\
+\end{vmatrix}&amp;\quad\quad\text{Multiply row 1 by 1/4}\\
+\\
+\begin{vmatrix}
+1 &amp; 0 &amp; 4 \\
+0 &amp; -1 &amp; 2 \\
+0 &amp; 0  &amp; 0 \\
+\end{vmatrix}&amp;\quad\quad\text{Add -2 times row 2 to row 1}\\
+\begin{vmatrix}
+1 &amp; 0 &amp; 4 \\
+0 &amp; 1 &amp; -2 \\
+0 &amp; 0  &amp; 0 \\
+\end{vmatrix}&amp;\quad\quad\text{Multiply row 2 by -1}
+\end{alignat*}
+\end{split}\]</div>
+<p>The nice thing about reduced row echelon form is that in general (for a single solution) we can now read off the solution directly from the matrix.</p>
+<p>We have:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{alignat*}{2}
+x &amp;= 4 \\
+y &amp;= -2 \\
+\\
+\text{Check (substitute):} \\
+\\
+-3(4) + 5(-2) &amp;= -22 &amp;\quad\checkmark \\
+3(4) + 4(-2) &amp;= 4&amp;\quad\checkmark \\
+4(4) -8(-2) &amp;= 32&amp;\quad\checkmark\\
+\\
+\end{alignat*}
+\end{split}\]</div>
+<p>Alright, we arrived at the right answer here, but let’s see how to do it in SymPy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># In SymPy:</span>
+<span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">Matrix</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">22</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">32</span><span class="p">]])</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Matrix:&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;rref and pivot column indices:&quot;</span><span class="p">,</span> <span class="n">A</span><span class="o">.</span><span class="n">rref</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Matrix:&#39;
+</pre></div>
+</div>
+<img alt="../../../_images/0f050781c71bebab9325bb72b6780425f23509a484b3e89492fa914b81c84db8.png" src="../../../_images/0f050781c71bebab9325bb72b6780425f23509a484b3e89492fa914b81c84db8.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;rref and pivot column indices:&#39;
+</pre></div>
+</div>
+<img alt="../../../_images/08ee762bb0ea71c0c6b4b97ccb4d4fdd94c9952d26f7e93cd1556d44ad880f52.png" src="../../../_images/08ee762bb0ea71c0c6b4b97ccb4d4fdd94c9952d26f7e93cd1556d44ad880f52.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Numpy doesn&#39;t have an rref function, but the conversion back to Sympy is straightforward:</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">22</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">32</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Numpy array:  </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">-------------------&quot;</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;SymPy Matrix and call to rref as before:&quot;</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Matrix</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">C</span><span class="o">.</span><span class="n">rref</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Numpy array:  
+ [[ -3   5 -22]
+ [  3   4   4]
+ [  4  -8  32]] 
+-------------------
+SymPy Matrix and call to rref as before:
+</pre></div>
+</div>
+<img alt="../../../_images/0f050781c71bebab9325bb72b6780425f23509a484b3e89492fa914b81c84db8.png" src="../../../_images/0f050781c71bebab9325bb72b6780425f23509a484b3e89492fa914b81c84db8.png" />
+<img alt="../../../_images/08ee762bb0ea71c0c6b4b97ccb4d4fdd94c9952d26f7e93cd1556d44ad880f52.png" src="../../../_images/08ee762bb0ea71c0c6b4b97ccb4d4fdd94c9952d26f7e93cd1556d44ad880f52.png" />
+</div>
+</div>
+</section>
+<section id="doing-rref-more-systematically">
+<h2>Doing rref more systematically<a class="headerlink" href="#doing-rref-more-systematically" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Step 1.</strong> Locate the leftmost column that does not consist entirely of zeros.</p></li>
+<li><p><strong>Step 2.</strong> Interchange the top row with another row, if necessary, to bring a nonzero entry to the top of the column found in Step 1.</p></li>
+<li><p><strong>Step 3.</strong> If the entry that is now at the top of the column found in Step 1 is <span class="math notranslate nohighlight">\(a\)</span>, multiply the first row by <span class="math notranslate nohighlight">\(1/a\)</span> in order to introduce a leading 1.</p></li>
+<li><p><strong>Step 4.</strong> Add suitable multiples of the top row to the rows below so that all entries below the leading 1 become zeros.</p></li>
+<li><p><strong>Step 5.</strong> Now cover the top row in the matrix and begin again with Step 1 applied to the submatrix that remains. Continue in this way until the <em>entire</em> matrix is in row echelon form.</p></li>
+<li><p><strong>Step 6.</strong> Beginning with the last nonzero row and working upward, add suitable multiples of each row to the rows above to introduce zeros above the leading 1’s.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Transpose of a Matrix</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]])</span>
+<span class="n">A</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/a3df0f2ba2d8aac76a543ae719815ee28d4b68a05dfad8272127bce0a2485094.png" src="../../../_images/a3df0f2ba2d8aac76a543ae719815ee28d4b68a05dfad8272127bce0a2485094.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="n">B</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/055949565f071b896c2962f0fa917ee2f9358c8ae09503b05f392025e79416c5.png" src="../../../_images/055949565f071b896c2962f0fa917ee2f9358c8ae09503b05f392025e79416c5.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">9</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
+<span class="n">A</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/2fa5fe725f5a862ce2de5a10cae8c7d37c9ffbcf9162f308091e39ddf4802b9b.png" src="../../../_images/2fa5fe725f5a862ce2de5a10cae8c7d37c9ffbcf9162f308091e39ddf4802b9b.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">det</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/2e56aa3a2c8daf2409685b30e66d2c373363b4932c41106c69754bc790cbed9f.png" src="../../../_images/2e56aa3a2c8daf2409685b30e66d2c373363b4932c41106c69754bc790cbed9f.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">inv</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/1736eb81fe8d82e495bd86828e8f27e74ccf3278b90a694070aa5c1cb2450347.png" src="../../../_images/1736eb81fe8d82e495bd86828e8f27e74ccf3278b90a694070aa5c1cb2450347.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">*</span> <span class="n">A</span><span class="o">.</span><span class="n">inv</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/3a403c711c9ecfce96798b36ce6bc090e6f902c4f0af87a494c3ad13d0de3dfd.png" src="../../../_images/3a403c711c9ecfce96798b36ce6bc090e6f902c4f0af87a494c3ad13d0de3dfd.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">Matrix</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">22</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">32</span><span class="p">]])</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;Matrix:&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="s2">&quot;rref and pivot column indices:&quot;</span><span class="p">,</span> <span class="n">A</span><span class="o">.</span><span class="n">rref</span><span class="p">())</span>
+<span class="n">display</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">rank</span><span class="p">())</span>
+<span class="n">display</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">det</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Matrix:&#39;
+</pre></div>
+</div>
+<img alt="../../../_images/0f050781c71bebab9325bb72b6780425f23509a484b3e89492fa914b81c84db8.png" src="../../../_images/0f050781c71bebab9325bb72b6780425f23509a484b3e89492fa914b81c84db8.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;rref and pivot column indices:&#39;
+</pre></div>
+</div>
+<img alt="../../../_images/08ee762bb0ea71c0c6b4b97ccb4d4fdd94c9952d26f7e93cd1556d44ad880f52.png" src="../../../_images/08ee762bb0ea71c0c6b4b97ccb4d4fdd94c9952d26f7e93cd1556d44ad880f52.png" />
+<img alt="../../../_images/d09c16c60c1bec6d87b5a6ea36a28d98601be002bd4b459592b55e0896ad9754.png" src="../../../_images/d09c16c60c1bec6d87b5a6ea36a28d98601be002bd4b459592b55e0896ad9754.png" />
+<img alt="../../../_images/702ba12f4bf2cef7092842f0bdd4dc2b8bfdc07d13bc79cc481075cd1cc7c88c.png" src="../../../_images/702ba12f4bf2cef7092842f0bdd4dc2b8bfdc07d13bc79cc481075cd1cc7c88c.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">22</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">32</span><span class="p">]])</span>
+<span class="n">display</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">rank</span><span class="p">())</span>
+<span class="n">display</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">det</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/d3abf7b92a8904c1c53de3ec7d20b37b08a9591d5f3c1aa94d93432e9b8a7fb1.png" src="../../../_images/d3abf7b92a8904c1c53de3ec7d20b37b08a9591d5f3c1aa94d93432e9b8a7fb1.png" />
+<img alt="../../../_images/b35a07fa8e7c4fdcdbb03380d4c1b7772ba0cf0df7352060ea90004f02c2c1f0.png" src="../../../_images/b35a07fa8e7c4fdcdbb03380d4c1b7772ba0cf0df7352060ea90004f02c2c1f0.png" />
+<img alt="../../../_images/7b7af247cb00b367f302365fc1b067cb5b0cd94dffb76dfebc4ff770b1d9281a.png" src="../../../_images/7b7af247cb00b367f302365fc1b067cb5b0cd94dffb76dfebc4ff770b1d9281a.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A_cofactor</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">cofactor_matrix</span><span class="p">()</span>
+<span class="n">display</span><span class="p">(</span><span class="n">A_cofactor</span><span class="p">)</span>
+<span class="n">A_cofactor_T</span> <span class="o">=</span> <span class="n">A_cofactor</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="n">display</span><span class="p">(</span><span class="n">A_cofactor_T</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/0052c841fd8e2bdab2159b7e919adae25b6c048acdad6c1aa6ce317e9a6947b8.png" src="../../../_images/0052c841fd8e2bdab2159b7e919adae25b6c048acdad6c1aa6ce317e9a6947b8.png" />
+<img alt="../../../_images/da8328b2663ff618cf8709c4fec447fdcbeb3a026c813c744e5031c96fc91284.png" src="../../../_images/da8328b2663ff618cf8709c4fec447fdcbeb3a026c813c744e5031c96fc91284.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A_inverse_1</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">det</span><span class="p">())</span> <span class="o">*</span> <span class="n">A_cofactor_T</span>
+<span class="n">A_inverse_2</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">inv</span><span class="p">()</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">A_inverse_1</span> <span class="o">==</span> <span class="n">A_inverse_2</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">A_inverse_1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/2cc43aa9c0c5f70e6590ea01b1db6b324840cd368beb85bb19a54492bf97423a.png" src="../../../_images/2cc43aa9c0c5f70e6590ea01b1db6b324840cd368beb85bb19a54492bf97423a.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the identity matrix</span>
+
+<span class="n">A_inverse_1</span> <span class="o">*</span> <span class="n">A</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/597554466c428d6c6346f4b13857f5b068390be2e8641339e48b38985bc88975.png" src="../../../_images/597554466c428d6c6346f4b13857f5b068390be2e8641339e48b38985bc88975.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">is_anti_symmetric</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">cofactor_matrix</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/0052c841fd8e2bdab2159b7e919adae25b6c048acdad6c1aa6ce317e9a6947b8.png" src="../../../_images/0052c841fd8e2bdab2159b7e919adae25b6c048acdad6c1aa6ce317e9a6947b8.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">rref</span><span class="p">())</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">rank</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/d3abf7b92a8904c1c53de3ec7d20b37b08a9591d5f3c1aa94d93432e9b8a7fb1.png" src="../../../_images/d3abf7b92a8904c1c53de3ec7d20b37b08a9591d5f3c1aa94d93432e9b8a7fb1.png" />
+<img alt="../../../_images/7ba4623a9e14a69e796f25827b8584ad38f4c05b4328ccf4f4f4e353ca54cd7d.png" src="../../../_images/7ba4623a9e14a69e796f25827b8584ad38f4c05b4328ccf4f4f4e353ca54cd7d.png" />
+<img alt="../../../_images/b35a07fa8e7c4fdcdbb03380d4c1b7772ba0cf0df7352060ea90004f02c2c1f0.png" src="../../../_images/b35a07fa8e7c4fdcdbb03380d4c1b7772ba0cf0df7352060ea90004f02c2c1f0.png" />
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../../../python-matrix-multiplication/" class="btn btn-neutral float-left" title="Python Matrix Multiplication: NumPy, SymPy, and the Math Behind It" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../../category-python-for-beginners-posts/" class="btn btn-neutral float-right" title="Python for Beginners" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, John Lockwood.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QX7KGT4YPE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-QX7KGT4YPE', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

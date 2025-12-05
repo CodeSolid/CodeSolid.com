@@ -1,23 +1,25 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Python Function Best Practices &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
 
   
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=19645805"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=19645805"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" />
@@ -138,7 +140,7 @@
 </pre></div>
 </div>
 <p>Granted, the lack of clarity is really around the variables here. What are the subscription levels, and what is the magic number 2 doing? So far this code is completely mysterious. Consider instead:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_platinum_user</span><span class="p">(</span><span class="n">is_subscriber</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">subscription_level</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_platinum_user</span><span class="p">(</span><span class="n">is_subscriber</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">subscription_level</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
     <span class="n">platinum_level</span> <span class="o">=</span> <span class="mi">2</span>
     <span class="k">return</span> <span class="n">is_subscriber</span> <span class="ow">and</span> <span class="n">subscription_level</span> <span class="o">==</span> <span class="n">platinum_level</span>
 
@@ -207,7 +209,7 @@
 <p>I am indebted to Steve Macguire’s book, Writing Solid Code, both for the inspiration that led to the name of this website and to for the current best practice. Macguire recommends using asserts to check a function’s “invariants”, which is a fancy word for something we hold to be true. So when “we hold these truths to be self-evident, that all [persons] are created equal”, that’s an invariant.</p>
 <p>Like C, the language that was the topic of Macguire’s book and that had an assert macro, Python has an “assert” function that can be used to check if preconditions are met. One of the best places to put such checks is at the start of a function, to check that the arguments passed to the function makes sense.</p>
 <p>When we discussed returning early from a function, we had an example that checked to see if a list were passed as None or empty, and returned early from the function.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">count_sales_over_one_hundred</span><span class="p">(</span><span class="n">sales</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count_sales_over_one_hundred</span><span class="p">(</span><span class="n">sales</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;An early return example&quot;&quot;&quot;</span>    
     <span class="k">if</span> <span class="ow">not</span> <span class="n">sales</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">0</span>
@@ -216,7 +218,7 @@
 </pre></div>
 </div>
 <p>Though this code works just fine, it could be improved somewhat, since generally, passing None where we’re expecting a valid list or another type should be handled as a programmer error. Since an empty list is safe to iterate over if we’re counting things (i.e., we won’t iterate at all, and the count will be zero, as expected), we can treat None separately here as a programmer error by using an assert:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">count_sales_over_one_hundred</span><span class="p">(</span><span class="n">sales</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count_sales_over_one_hundred</span><span class="p">(</span><span class="n">sales</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Assert example&quot;&quot;&quot;</span>
     <span class="k">assert</span> <span class="n">sales</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
     <span class="c1"># Do count otherwise...</span>
@@ -225,7 +227,7 @@
 <p>Note that in production, asserts may be optimized out of your code for example, by running it as shown here:</p>
 <p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-O</span> <span class="pre">progam_name.py</span></code></p>
 <p>Because of this, it’s important when using asserts not to check errors that may be real runtime exceptions this way (files that fail to open, for example). Also, <em>never</em> use assert “inline” to check the return value of a function. The following code does something important when run with assertions on (the default). Using the <code class="docutils literal notranslate"><span class="pre">-O</span></code> or -OO switch, <code class="docutils literal notranslate"><span class="pre">something_important</span></code> is never called!</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">something_important</span><span class="p">():</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">something_important</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Doing something important here...&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="kc">True</span>
 

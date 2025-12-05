@@ -1,25 +1,27 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Using SymPy for Plotting Geometry &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
 
   
-      <script src="../../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../_static/documentation_options.js?v=19645805"></script>
-      <script src="../../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=19645805"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex/" />
     <link rel="search" title="Search" href="../../search/" />
@@ -151,11 +153,11 @@
 <p>Here’s the code:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="kn">import</span>  <span class="n">sqrt</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sympy.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">Triangle</span><span class="p">,</span> <span class="n">Circle</span><span class="p">,</span> <span class="n">Point</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sympy.plotting.plot_implicit</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_implicit</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span>  <span class="n">sqrt</span>
+<span class="kn">from</span> <span class="nn">sympy.geometry</span> <span class="kn">import</span> <span class="n">Triangle</span><span class="p">,</span> <span class="n">Circle</span><span class="p">,</span> <span class="n">Point</span>
+<span class="kn">from</span> <span class="nn">sympy.plotting.plot_implicit</span> <span class="kn">import</span> <span class="n">plot_implicit</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
@@ -164,7 +166,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 
-<span class="k">def</span><span class="w"> </span><span class="nf">make_plottable</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">make_plottable</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">):</span>
     <span class="c1"># converts (&quot;flattens&quot;) two points to two arrays with x-value, y-value</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">p1</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p2</span><span class="o">.</span><span class="n">x</span><span class="p">],[</span><span class="n">p1</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">p2</span><span class="o">.</span><span class="n">y</span><span class="p">]</span>
 
@@ -186,7 +188,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ef267a746e066b780138f0deb87fbd5f4dbf61c958184f37c32e2b3c5a475460.png" src="../../_images/ef267a746e066b780138f0deb87fbd5f4dbf61c958184f37c32e2b3c5a475460.png" />
+<img alt="../../_images/4488ea3dc84e9218e3eff15eb3488de6744d7d7391d39b5ba2bc75136ea7bd46.png" src="../../_images/4488ea3dc84e9218e3eff15eb3488de6744d7d7391d39b5ba2bc75136ea7bd46.png" />
 </div>
 </div>
 <p>As you can see, that’s looking pretty equilateral. We’ll accept it as a postulate for now that it is.  Now to get our Euclidean diagram, we need to draw a circle.  Let’s try to draw the first one.  The documentation says we can do this using plot_implicit.</p>
@@ -199,12 +201,12 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/974ad751dab821544ad18f9e354eead1c1ea2815b0d1e7c14094147f5d164ffc.png" src="../../_images/974ad751dab821544ad18f9e354eead1c1ea2815b0d1e7c14094147f5d164ffc.png" />
+<img alt="../../_images/b506702d74bcbeea86461a578bdb517b7bccdd91452025e0fe2a83515a16cbf2.png" src="../../_images/b506702d74bcbeea86461a578bdb517b7bccdd91452025e0fe2a83515a16cbf2.png" />
 </div>
 </div>
 <p>Being the astute reader that you are, you’ve naturally noticed the absence of a circle here, where the documentation says there should be one:</p>
 <blockquote>The plotting module is capable of plotting some 2D geometric entities like line, circle and ellipse. The following example plots a circle centred at origin and of radius 2 units.
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x y&#39;</span><span class="p">)</span>
 <span class="n">plot_implicit</span><span class="p">(</span><span class="n">Eq</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
@@ -213,7 +215,7 @@
 <p>I noticed it, too!  “Maybe it’s a bug,” I thought.  “Let’s try some smaller circles.”</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="kn">import</span> <span class="n">symbols</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">symbols</span>
 <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x y&#39;</span><span class="p">)</span>
 <span class="n">Circle</span><span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="mi">5</span><span class="p">)</span>
 <span class="n">plot_implicit</span><span class="p">(</span><span class="n">Circle</span><span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">equation</span><span class="p">(),</span><span class="n">aspect_ratio</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
@@ -222,9 +224,9 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c71cb2579ac1dfae73510ad88ba8922d9400729d621e8be0f33a2b426498f3b7.png" src="../../_images/c71cb2579ac1dfae73510ad88ba8922d9400729d621e8be0f33a2b426498f3b7.png" />
-<img alt="../../_images/588edffeffc9f2c292ab0a8408ca23ec9f57ac51a888be415120be8ab78dc8fa.png" src="../../_images/588edffeffc9f2c292ab0a8408ca23ec9f57ac51a888be415120be8ab78dc8fa.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sympy.plotting.backends.matplotlibbackend.matplotlib.MatplotlibBackend at 0x10da22270&gt;
+<img alt="../../_images/a3b4310db7b6d71376d41478cdc513955ed40b34305993c36f82743c52cb41f4.png" src="../../_images/a3b4310db7b6d71376d41478cdc513955ed40b34305993c36f82743c52cb41f4.png" />
+<img alt="../../_images/62530ada3d511a2625e5179e03064a175c194282b811b3c6eff39a07fc0ac466.png" src="../../_images/62530ada3d511a2625e5179e03064a175c194282b811b3c6eff39a07fc0ac466.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sympy.plotting.plot.Plot at 0x11fe37010&gt;
 </pre></div>
 </div>
 </div>
@@ -236,7 +238,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 
-<span class="k">def</span><span class="w"> </span><span class="nf">make_plottable</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">make_plottable</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">):</span>
     <span class="c1"># converts (&quot;flattens&quot;) two points to two arrays with x-value, y-value</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">p1</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p2</span><span class="o">.</span><span class="n">x</span><span class="p">],[</span><span class="n">p1</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">p2</span><span class="o">.</span><span class="n">y</span><span class="p">]</span>
 
@@ -274,7 +276,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f6829cfe10edb79c6e942cb53c7cde94c41a0f7149c9c744df97b12a0b079002.png" src="../../_images/f6829cfe10edb79c6e942cb53c7cde94c41a0f7149c9c744df97b12a0b079002.png" />
+<img alt="../../_images/7463f6c45f52ba78aa23e27ac52b9f45cc7e7f91b92e7d240973068485549b1c.png" src="../../_images/7463f6c45f52ba78aa23e27ac52b9f45cc7e7f91b92e7d240973068485549b1c.png" />
 </div>
 </div>
 <p>I know, that’s quite a lot of Matplotlib arm-waving for what Euclid no doubt dispatched quickly with a compass.</p>
@@ -285,7 +287,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 
-<span class="k">def</span><span class="w"> </span><span class="nf">make_plottable</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">make_plottable</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">):</span>
     <span class="c1"># converts (&quot;flattens&quot;) two points to two arrays with x-value, y-value</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">p1</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p2</span><span class="o">.</span><span class="n">x</span><span class="p">],[</span><span class="n">p1</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">p2</span><span class="o">.</span><span class="n">y</span><span class="p">]</span>
 
@@ -331,7 +333,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b1d4e8fea1b870ef027fffb71dc05440d2a27be86de77fbfb94f215f8787c121.png" src="../../_images/b1d4e8fea1b870ef027fffb71dc05440d2a27be86de77fbfb94f215f8787c121.png" />
+<img alt="../../_images/c1c6a49c12448ad86315ada49eaec59cb9bdd90c31acdca538096102655c1c94.png" src="../../_images/c1c6a49c12448ad86315ada49eaec59cb9bdd90c31acdca538096102655c1c94.png" />
 </div>
 </div>
 <p>There is our completed diagram.  If you want to see how this relates to Euclid’s original proposition and its diagram, you can read about those <a class="reference external" href="http://aleph0.clarku.edu/~djoyce/elements/bookI/propI1.html">here</a>.</p>
@@ -368,7 +370,7 @@ Our sides have the same length, as shown here:  [10, 10, 10]
 <p>Let’s multiply the sin of that value times one of our sides, to see if it makes sense.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">pi</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">pi</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">pi</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>

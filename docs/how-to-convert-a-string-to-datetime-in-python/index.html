@@ -1,23 +1,25 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>How to Convert a String to Datetime in Python? &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
 
   
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=19645805"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=19645805"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" /> 
@@ -135,7 +137,7 @@ If the input string does not match the provided format, the ValueError occurs.</
 <h2>String to Datetime Object<a class="headerlink" href="#string-to-datetime-object" title="Link to this heading"></a></h2>
 <p>Let’s look at an example where the string representing the date and time is in standard format (dd/mm/yyyy hh:mm:ss).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#importing module</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 
 <span class="c1"># date string in DD/MM/YYYY HH:MM:SS format</span>
 <span class="n">date</span> <span class="o">=</span> <span class="s2">&quot;14/01/2002 21:30:15&quot;</span>
@@ -199,7 +201,7 @@ Let’s look at the example of accessing separate parts:</p>
 <p>Python has a built-in pytz module to get information about the world’s different time zones.</p>
 <p>Below is an example showing how to get the current date and time in Berlin:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing time zones module</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pytz</span>
+<span class="kn">import</span> <span class="nn">pytz</span>
 
 <span class="c1"># using &#39;pytz.timezone&#39; to get date and time of Berlin</span>
 <span class="n">datetime_berlin</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">pytz</span><span class="o">.</span><span class="n">timezone</span><span class="p">(</span><span class="s1">&#39;Europe/Berlin&#39;</span><span class="p">))</span>
@@ -227,7 +229,7 @@ Let’s look at the example of accessing separate parts:</p>
 <p>To convert a string date to a date object, we first needed to convert the string to a datetime object using strptime(), as we have already did in the example above.<br />
 Then we have to use datetime.date() to extract only the date object part from the datetime instance.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#importing module</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 
 <span class="c1"># date string in DD/MM/YYYY HH:MM:SS format</span>
 <span class="n">date</span> <span class="o">=</span> <span class="s2">&quot;14/01/2002 21:30:15&quot;</span>
@@ -248,7 +250,7 @@ Then we have to use datetime.date() to extract only the date object part from th
 <h3>Presenting Date Objects in Different Formats<a class="headerlink" href="#presenting-date-objects-in-different-formats" title="Link to this heading"></a></h3>
 <p>Using the formatting codes of the datetime module, we can represent date objects in different formats. For example, YYYY/DD/MM, DD-MM-YYYY, or in text form.</p>
 <p>Let’s look at an example of presenting a date in the form of text:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
 
 <span class="c1"># getting today&#39;s date</span>
 <span class="n">date_today</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
@@ -274,7 +276,7 @@ Then we have to use datetime.date() to extract only the date object part from th
 <p>We can also use the datetime.time class to convert a string containing the time to a time object.</p>
 <p>As with the date object, we first need to convert the string to a datetime object. Then use the datetime.time() function (constructor) to extract only the time object from the datetime object.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#importing module</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 
 <span class="c1"># date string in DD/MM/YYYY HH:MM:SS format</span>
 <span class="n">date</span> <span class="o">=</span> <span class="s2">&quot;14/01/2002 21:30:15&quot;</span>
@@ -295,7 +297,7 @@ Then we have to use datetime.date() to extract only the date object part from th
 <h3>Presenting Time Objects in Different Formats<a class="headerlink" href="#presenting-time-objects-in-different-formats" title="Link to this heading"></a></h3>
 <p>Like the date object, we can convert the time object into different formats.</p>
 <p>Let’s see how to format time objects to represent the time in 12 or 24-hour or AM/PM formats:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 
 <span class="c1"># getting current time</span>
 <span class="n">time_now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
@@ -327,7 +329,7 @@ Then we have to use datetime.date() to extract only the date object part from th
 <h2>Converting a Pandas Column to Datetime<a class="headerlink" href="#converting-a-pandas-column-to-datetime" title="Link to this heading"></a></h2>
 <p>Pandas has a built-in to_datetime() function to convert a column to datetime.<br />
 Let’s convert this data frame to a datetime object:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="c1"># pandas dataframe</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span>
@@ -352,7 +354,7 @@ Let’s convert this part into a datetime object.</p>
 <p>Output:</p>
 <p><img alt="" src="../_images/pandas-datetime-1024x318.png" /></p>
 <p>We have just converted birthdays into datetime objects, which means that now it’s possible to make various arithmetic calculations on them.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">timedelta</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">timedelta</span>
 
 <span class="c1"># using &#39;._get_value&#39; to get access to the dataframes birthday elements</span>
 <span class="n">date1</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">_get_value</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="s1">&#39;Birthday&#39;</span><span class="p">)</span>
@@ -377,7 +379,7 @@ Let’s convert this part into a datetime object.</p>
 <h3>String to Datetime with Dateutil<a class="headerlink" href="#string-to-datetime-with-dateutil" title="Link to this heading"></a></h3>
 <p>The dateutil module is an extension of the datetime module. While using it, we don’t need to pass any formatting code to convert a string into a datetime object.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing dateutil</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">dateutil.parser</span><span class="w"> </span><span class="kn">import</span> <span class="n">parse</span>
+<span class="kn">from</span> <span class="nn">dateutil.parser</span> <span class="kn">import</span> <span class="n">parse</span>
 
 <span class="c1"># list of string dates with time</span>
 <span class="n">dates_list</span> <span class="o">=</span> <span class="p">[</span>
@@ -406,7 +408,7 @@ Let’s convert this part into a datetime object.</p>
 <p>Like dateutil, Maya makes it easy to parse the string. However, before we can use this library, we must first download it.</p>
 <p>Use ‘pip install maya’ to install it.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing maya</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">maya</span>
+<span class="kn">import</span> <span class="nn">maya</span>
 
 <span class="c1"># string to datetime with specific timezone</span>
 <span class="n">date</span> <span class="o">=</span> <span class="n">maya</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;2022-12-13T20:45:25Z&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="n">to_timezone</span> <span class="o">=</span> <span class="s2">&quot;Europe/Berlin&quot;</span><span class="p">)</span>
@@ -424,7 +426,7 @@ Let’s convert this part into a datetime object.</p>
 <h3>String to Datetime with Arrow<a class="headerlink" href="#string-to-datetime-with-arrow" title="Link to this heading"></a></h3>
 <p>Arrow is another library for dealing with datetime in Python. It returns a Python datetime object from the arrow object after interpretation.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># importing arrow</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">arrow</span>
+<span class="kn">import</span> <span class="nn">arrow</span>
 
 <span class="c1"># converting timezones using the to() method</span>
 <span class="n">date</span> <span class="o">=</span> <span class="n">arrow</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;2022-12-13T20:45:25Z&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">&#39;America/New_York&#39;</span><span class="p">)</span>
@@ -442,7 +444,7 @@ Let’s convert this part into a datetime object.</p>
 <h2>Converting Datetime Back into Integer, Float, or Strings<a class="headerlink" href="#converting-datetime-back-into-integer-float-or-strings" title="Link to this heading"></a></h2>
 <p>We have looked at how to display strings as datetime objects. But we can also convert these datetime objects to integers, float, or strings.</p>
 <p>To do this, we will use the strftime() method with functions to convert, such as int() or float().</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 
 <span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
 

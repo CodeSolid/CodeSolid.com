@@ -1,25 +1,27 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../../../../">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chapter 12: Vector Valued Functions &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
 
   
-      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../../../_static/documentation_options.js?v=19645805"></script>
-      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../_static/documentation_options.js?v=19645805"></script>
+        <script src="../../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex/" />
     <link rel="search" title="Search" href="../../../../search/" /> 
@@ -1482,7 +1484,7 @@ function rescaleFatLines() {
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">vvf_limit</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">vvf_limit</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns a list with the limit of a vector valued function</span>
 
 <span class="sd">    Parameters:  </span>
@@ -2187,7 +2189,7 @@ function rescaleFatLines() {
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Import the Cylinder shape</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sage.plot.plot3d.shapes</span><span class="w"> </span><span class="kn">import</span> <span class="n">Cylinder</span>
+<span class="kn">from</span> <span class="nn">sage.plot.plot3d.shapes</span> <span class="kn">import</span> <span class="n">Cylinder</span>
  
 <span class="c1"># 2. Create the cylinder object: Cylinder(radius, height)</span>
 <span class="n">C</span> <span class="o">=</span> <span class="n">Cylinder</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
@@ -2818,7 +2820,7 @@ function rescaleFatLines() {
 <p>The derivative of a vector valued function is simply the derivative of each component, so as in the case of limits, we can implement a function to find one easily in Sage.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">vvf_diff</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">diff_n</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">vvf_diff</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">diff_n</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns a list representing the limit of a vector valued function</span>
 
 <span class="sd">    Parameters:  </span>
@@ -2989,7 +2991,7 @@ T(t) = \frac{r^{\prime}(t)}{\|r^{\prime}(t)\|}
 Tangent vector: (3/5, 4/5)
 </pre></div>
 </div>
-<img alt="../../../../_images/89e3624a183a1f83e8e2e54566e5fa6bfc7931c74e898e516cb75c1c2a7d5875.png" src="../../../../_images/89e3624a183a1f83e8e2e54566e5fa6bfc7931c74e898e516cb75c1c2a7d5875.png" />
+<img alt="../../../../_images/5107bc7789e11b25ddcdeb55a0764bb7534b4a0de512b01f69a3c42a2fff3659.png" src="../../../../_images/5107bc7789e11b25ddcdeb55a0764bb7534b4a0de512b01f69a3c42a2fff3659.png" />
 </div>
 </div>
 </section>
@@ -2998,7 +3000,7 @@ Tangent vector: (3/5, 4/5)
 <p>Since we’ll need it again below for a curvature problem, let’s implement a function to find a unit tangent vector:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">vvf_unit_tangent_vector</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span> <span class="n">var</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">vvf_unit_tangent_vector</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span> <span class="n">var</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; gets a unit tangent vector for the vector vec defined in terms of the variable var&quot;&quot;&quot;</span>
     <span class="n">r_prime</span> <span class="o">=</span> <span class="n">vector</span><span class="p">(</span><span class="n">vvf_diff</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">var</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">r_prime</span><span class="o">/</span><span class="n">r_prime</span><span class="o">.</span><span class="n">norm</span><span class="p">()</span>
@@ -3035,7 +3037,7 @@ $<span class="math notranslate nohighlight">\(
 <p>As we did before for limits and derivatives, we can easily implement this in sage</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">vvf_integrate</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">limits</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">vvf_integrate</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">limits</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns a list with the integral of each component of a vector-valued function</span>
 
 <span class="sd">    Parameters:  </span>
@@ -3117,7 +3119,7 @@ to each term for the next problem:
 <span class="c1"># of each funciton, so get the derivative first.</span>
 
 <span class="c1"># Copied from another notebook -- at some point this needs to be a library!</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">get_angle_between_vectors</span><span class="p">(</span><span class="n">v</span><span class="p">:</span> <span class="n">vector</span><span class="p">,</span> <span class="n">w</span><span class="p">:</span> <span class="n">vector</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">get_angle_between_vectors</span><span class="p">(</span><span class="n">v</span><span class="p">:</span> <span class="n">vector</span><span class="p">,</span> <span class="n">w</span><span class="p">:</span> <span class="n">vector</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;returns the angle between two vectors in radians.&quot;&quot;&quot;</span>
     <span class="n">cos_theta</span> <span class="o">=</span> <span class="p">(</span><span class="n">v</span><span class="o">*</span><span class="n">w</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">norm</span><span class="p">()</span> <span class="o">*</span> <span class="n">w</span><span class="o">.</span><span class="n">norm</span><span class="p">())</span>
     <span class="k">return</span> <span class="n">acos</span><span class="p">(</span><span class="n">cos_theta</span><span class="p">)</span>
@@ -3232,7 +3234,7 @@ acceleration at -2 [0, 60, -2]
 
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">vvf_initial_values</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">init_val</span><span class="p">,</span> <span class="n">init_val_equals</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">vvf_initial_values</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">init_val</span><span class="p">,</span> <span class="n">init_val_equals</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Given an integral of a function in vec, returns a function based on initial values.</span>
 
 <span class="sd">        This involved solving for the constant of integration for each term.</span>
@@ -3327,7 +3329,7 @@ At this point R_0 contains our final answer.
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;arc_len: &quot;</span><span class="p">,</span> <span class="n">arc_len</span><span class="p">)</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">vvf_arc_length</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">vvf_arc_length</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="n">r_prime</span> <span class="o">=</span> <span class="n">vector</span><span class="p">(</span><span class="n">vvf_diff</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span> <span class="n">var</span><span class="p">))</span>
     <span class="n">magnitude</span> <span class="o">=</span> <span class="n">r_prime</span><span class="o">.</span><span class="n">norm</span><span class="p">()</span>
     <span class="n">arc_len</span> <span class="o">=</span> <span class="n">integrate</span><span class="p">(</span><span class="n">magnitude</span><span class="p">,</span> <span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
@@ -3430,7 +3432,7 @@ K &amp;= \frac{\left\| r^{\prime}(t) \times r^{\prime\prime}(t) \right\|}{\left\
 <p>Below we will implement formula 2 in SageMath:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">vvf_get_curvature</span><span class="p">(</span><span class="n">vvf</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">vvf_get_curvature</span><span class="p">(</span><span class="n">vvf</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Determines the curvature of the vector valued function vvf for the variable at value.        Implements function 2 shown in the avoc</span>
 
 <span class="sd">    Parameters:</span>
@@ -3538,7 +3540,7 @@ Curvature, approx:  0.471404520791032
 <span class="c1"># needed based on that video, but the correct vector form for the problem is </span>
 <span class="c1"># r = vector([x, -3*x^5, 0]), as below.</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">vvf_get_curvature_formula1</span><span class="p">(</span><span class="n">vvf</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">vvf_get_curvature_formula1</span><span class="p">(</span><span class="n">vvf</span><span class="p">,</span> <span class="n">variable</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
     <span class="n">unit_tangent_vector</span> <span class="o">=</span> <span class="n">vvf_unit_tangent_vector</span><span class="p">(</span><span class="n">vvf</span><span class="p">,</span> <span class="n">variable</span><span class="p">)</span>
     <span class="n">dT</span> <span class="o">=</span> <span class="n">vvf_diff</span><span class="p">(</span><span class="n">unit_tangent_vector</span><span class="p">,</span> <span class="n">variable</span><span class="p">)</span>
     <span class="c1">#print(dT.norm())</span>
@@ -3600,7 +3602,7 @@ z &amp;= z
 \end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">point_cylindrical_to_rectangular</span><span class="p">(</span><span class="n">vec</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">point_cylindrical_to_rectangular</span><span class="p">(</span><span class="n">vec</span><span class="p">):</span>
     <span class="n">l</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span>
     <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span>
     <span class="n">r</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">l</span>  <span class="c1"># unpack</span>
@@ -3626,7 +3628,7 @@ z &amp;= z
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">point_rectangular_to_cylindrical</span><span class="p">(</span><span class="n">vec</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">point_rectangular_to_cylindrical</span><span class="p">(</span><span class="n">vec</span><span class="p">):</span>
     <span class="n">l</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span>
     <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span>
     <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">l</span>  <span class="c1"># unpack</span>
@@ -3792,7 +3794,7 @@ z = \rho \cos \phi \\
 \end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">point_rectangular_to_spherical</span><span class="p">(</span><span class="n">rectangular</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">point_rectangular_to_spherical</span><span class="p">(</span><span class="n">rectangular</span><span class="p">):</span>
     <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">rectangular</span>
     <span class="n">rho</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
     <span class="n">theta</span> <span class="o">=</span> <span class="n">atan2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
@@ -3815,7 +3817,7 @@ z = \rho \cos \phi \\
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">point_spherical_to_rectangular</span><span class="p">(</span><span class="n">spherical</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">point_spherical_to_rectangular</span><span class="p">(</span><span class="n">spherical</span><span class="p">):</span>
     <span class="n">rho</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">phi</span> <span class="o">=</span> <span class="n">spherical</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">rho</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">rho</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">phi</span><span class="p">)</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>

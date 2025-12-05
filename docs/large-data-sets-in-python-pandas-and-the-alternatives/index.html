@@ -1,23 +1,25 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Large Data Sets in Python: Pandas And The Alternatives &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
 
   
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=19645805"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=19645805"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" />
@@ -154,20 +156,20 @@ pip<span class="w"> </span>install<span class="w"> </span>jupyterlab<span class=
 </pre></div>
 </div>
 <p>We timed some initial tests using timeit programmatically, as described in How to Profile Python Code. Still, since timeit can be a bit unwieldy for running several tests, we improved upon some code we found that did a reasonable job of setting up a timer in a context manager, so we could easily test a block of code. Here is that code in timer.py</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
 
-<span class="k">class</span><span class="w"> </span><span class="nc">Timer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">Timer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Allows setting up a timer as a context manager, for example:</span>
 <span class="sd">       with Timer(&quot;My process&quot;):</span>
 <span class="sd">           # Code you want to time here</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tstart</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;[</span><span class="si">%s</span><span class="s1">]&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,)</span>
         <span class="n">elapsed</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">tstart</span>
@@ -176,8 +178,8 @@ pip<span class="w"> </span>install<span class="w"> </span>jupyterlab<span class=
 </div>
 <p>We first wanted to determine our baseline performance for loading the CSV in Pandas as we usually would.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read from CSV</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">timer</span><span class="w"> </span><span class="kn">import</span> <span class="n">Timer</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">timer</span> <span class="kn">import</span> <span class="n">Timer</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="k">with</span> <span class="n">Timer</span><span class="p">(</span><span class="s2">&quot;Pandas plain read_csv&quot;</span><span class="p">):</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/train.csv&quot;</span><span class="p">)</span>
 </pre></div>
@@ -188,7 +190,7 @@ Elapsted<span class="w"> </span>time:<span class="w"> </span><span class="m">35<
 </pre></div>
 </div>
 <p>Before dealing with other file types or non-Pandas libraries, let’s try the “minimally invasive” approach of making the data types explicit. Pandas tend to load everything as a float64, but we can be more precise about things. Looking at the data using <code class="docutils literal notranslate"><span class="pre">df.head()</span></code>, we can set up the following dictionary of column names to data types for the data that’s displayed:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">dtypes</span> <span class="o">=</span> <span class="p">{</span>
 <span class="s1">&#39;row_id&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">,</span>
  <span class="s1">&#39;timestamp&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> 
@@ -205,8 +207,8 @@ Elapsted<span class="w"> </span>time:<span class="w"> </span><span class="m">35<
 </div>
 <p>With this in place, let’s see if we did any good.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read from CSV with types specified</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">timer</span><span class="w"> </span><span class="kn">import</span> <span class="n">Timer</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">timer</span> <span class="kn">import</span> <span class="n">Timer</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="k">with</span> <span class="n">Timer</span><span class="p">(</span><span class="s2">&quot;Pandas read_csv with types&quot;</span><span class="p">):</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/train.csv&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtypes</span><span class="p">)</span>
 </pre></div>
@@ -224,8 +226,8 @@ Elapsed<span class="w"> </span>time:<span class="w"> </span><span class="m">31</
 <p>Polars is billed as a “Lightning-fast DataFrame library for Rust and Python.” It features faster read performance (which we’ll show in a minute) and a lazy mode where expressions (such as grouping, selecting rows, etc.) are optimized and run in parallel.</p>
 <p>As a bonus, I also believe that the expression syntax is often far more intuitive in Polars than indexing methods in Pandas, such as <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code>.</p>
 <p>Before getting into some of these advanced features, let’s do a non-lazy read of the whole DataFrame in Polars to see how it compares to read_csv in Pandas. For this operation, the function name we want is the same.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">timer</span><span class="w"> </span><span class="kn">import</span> <span class="n">Timer</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">polars</span> <span class="k">as</span> <span class="nn">pl</span>
+<span class="kn">from</span> <span class="nn">timer</span> <span class="kn">import</span> <span class="n">Timer</span>
 
 <span class="k">with</span> <span class="n">Timer</span><span class="p">(</span><span class="s2">&quot;Read csv using polars&quot;</span><span class="p">):</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/train.csv&quot;</span><span class="p">)</span>
@@ -244,10 +246,10 @@ Elapsed<span class="w"> </span>time:<span class="w"> </span><span class="m">9</s
 <p>One issue with this approach is that the libraries that support other file types don’t always work in all environments. Especially on my M1 (Apple Silicon) Mac, building these libraries have been problematic. For example, the Pandas “feather” format relies on PyArrow, which is not readily installable (though there may be <a class="reference external" href="https://github.com/python-poetry/poetry/issues/3627">workarounds</a> if you need to install it).</p>
 <p>I’ve had better luck with reading and writing parquet files using fastparquet. Still, even with this, the to_parquet method of the Pandas DataFrame threw a data type conversion error after several seconds.</p>
 <p>I was able to both write the file and read it back successfully using Polars, and once this was done, it also became readable using Pandas. The downside is that loading the code in Polars from CSV and writing it back to parquet format took about 30 seconds. Once this is done, however, reading the same data set in parquet format sped things up considerably compared to CSV, both for Pandas and Polars. Here are the code and the results:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">polars</span> <span class="k">as</span> <span class="nn">pl</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">timer</span><span class="w"> </span><span class="kn">import</span> <span class="n">Timer</span>
+<span class="kn">from</span> <span class="nn">timer</span> <span class="kn">import</span> <span class="n">Timer</span>
 
 <span class="c1"># Be patient, this will take several seconds</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/train.csv&quot;</span><span class="p">)</span>
@@ -291,10 +293,10 @@ Elapsed<span class="w"> </span>time:<span class="w"> </span><span class="m">4</s
 <h3>Lazy Loading of Rows in Dask<a class="headerlink" href="#lazy-loading-of-rows-in-dask" title="Link to this heading"></a></h3>
 <p>Unlike Polars, but like Pandas, many operations for selecting rows depend on what index is set. The Dask documentation advises us to set the index once since it’s expensive and to cache it back to the dataframe object.</p>
 <p>Let’s take a look at the cost of this and the results for retrieving a set of rows from fairly early in the file. (We use both the “dtype” setting and the low_memory setting on read_csv to avoid a warning in Dask).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dask</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataframe</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">timer</span><span class="w"> </span><span class="kn">import</span> <span class="n">Timer</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dask</span> <span class="kn">import</span> <span class="n">dataframe</span>
+<span class="kn">from</span> <span class="nn">timer</span> <span class="kn">import</span> <span class="n">Timer</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">dtypes</span> <span class="o">=</span> <span class="p">{</span>
 <span class="s1">&#39;row_id&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">,</span>
  <span class="s1">&#39;timestamp&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> 
@@ -353,8 +355,8 @@ Elapsed<span class="w"> </span>time:<span class="w"> </span><span class="m">0</s
 <h3>Lazy Mode in Polars<a class="headerlink" href="#lazy-mode-in-polars" title="Link to this heading"></a></h3>
 <p>Now let’s see if we can use lazy mode in Polars to just retrieve a few rows. To do this, we’ll use the <code class="docutils literal notranslate"><span class="pre">scan_csv</span></code> method, which does not read the whole file in memory as <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> does, instead, it will only retrieve the rows that match the filter expression. We won’t have to set an index as we would in Dask or Pandas.</p>
 <p>We’ll try to select the same user from early in the file as we did with Dask and Pandas, then we’ll do the same thing for a user later in the file.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">timer</span><span class="w"> </span><span class="kn">import</span> <span class="n">Timer</span> 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">polars</span> <span class="k">as</span> <span class="nn">pl</span>
+<span class="kn">from</span> <span class="nn">timer</span> <span class="kn">import</span> <span class="n">Timer</span> 
 
 <span class="k">with</span> <span class="n">Timer</span><span class="p">(</span><span class="s2">&quot;Scan CSV for early user (Polars)&quot;</span><span class="p">):</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">scan_csv</span><span class="p">(</span><span class="s2">&quot;data/train.csv&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s1">&#39;user_id&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">40828</span><span class="p">)</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>

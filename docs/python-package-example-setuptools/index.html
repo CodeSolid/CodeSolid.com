@@ -1,23 +1,25 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Python Package Example: Setuptools &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
 
   
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=19645805"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=19645805"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" />
@@ -150,8 +152,8 @@ python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </
 <h2>Pyproject.toml<a class="headerlink" href="#pyproject-toml" title="Link to this heading"></a></h2>
 <p>At the root of our repository, we create a pyproject.toml file:</p>
 <div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[build-system]</span>
-<span class="n">requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;setuptools&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;wheel&quot;</span><span class="p">]</span>
-<span class="n">build-backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;setuptools.build_meta&quot;</span>
+<span class="n">requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;setuptools&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;wheel&quot;</span><span class="p">]</span>
+<span class="n">build-backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;setuptools.build_meta&quot;</span>
 </pre></div>
 </div>
 <p>This is all this file needs to contain to get started, and basically tells the Python build system that we want to use setuptools as our build tool, and we also want to use setuptools as our build system. It also enables the use of wheel, which speeds up our build and the build of any dependencies we require. Our next steps will be to create a package to install and create a configuration file to give setuptools information about how to build our project.</p>
@@ -174,11 +176,11 @@ mkdir<span class="w"> </span><span class="nb">test</span>
 <p>Let’s give our package something to do by creating a module in our package:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># src/hellosetup/module1.py</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">get_article_url</span><span class="p">():</span>
+<span class="k">def</span> <span class="nf">get_article_url</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;returns the article describing how to publish this package&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="s2">&quot;https://codesolid.com/python-package-example-setuptools&quot;</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">():</span>
+<span class="k">def</span> <span class="nf">greet</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Say hi to setuptools so as not to appear rude&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="s2">&quot;Hello, setuptools!&quot;</span>
 </pre></div>
@@ -190,7 +192,7 @@ mkdir<span class="w"> </span><span class="nb">test</span>
 <p>Making sure we’re in the shell with our virtual environment activated, we can simply type <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pytest</span></code>. We create a file in our editor and start typing…</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># test/test_hellosetup.py</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">hellosetup.module1</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_article_url</span><span class="p">,</span> <span class="n">greet</span>
+<span class="kn">from</span> <span class="nn">hellosetup.module1</span> <span class="kn">import</span> <span class="n">get_article_url</span><span class="p">,</span> <span class="n">greet</span>
 </pre></div>
 </div>
 <p>But wait a minute, this is ugly. We created a Python module with the name module1, which is maybe OK for a tutorial, but we don’t want the cool kids to know we have dumb module names. How can we fix this?</p>
@@ -202,11 +204,11 @@ mkdir<span class="w"> </span><span class="nb">test</span>
 
 <span class="sd">&quot;&quot;&quot;Import some key functions for now&quot;&quot;&quot;</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">.module1</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_article_url</span><span class="p">,</span> <span class="n">greet</span>
+<span class="kn">from</span> <span class="nn">.module1</span> <span class="kn">import</span> <span class="n">get_article_url</span><span class="p">,</span> <span class="n">greet</span>
 </pre></div>
 </div>
 <p>Now back in our test file, we see that we can change our import statement to read:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">hellosetup</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_article_url</span><span class="p">,</span> <span class="n">greet</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">hellosetup</span> <span class="kn">import</span> <span class="n">get_article_url</span><span class="p">,</span> <span class="n">greet</span>
 </pre></div>
 </div>
 <p>There, that’s much better.</p>
@@ -214,15 +216,15 @@ mkdir<span class="w"> </span><span class="nb">test</span>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># test/test_hellosetup.py</span>
 
 <span class="c1"># Allow pytest to find the package root</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">sys</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;src&quot;</span><span class="p">)</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">hellosetup</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_article_url</span><span class="p">,</span> <span class="n">greet</span>
+<span class="kn">from</span> <span class="nn">hellosetup</span> <span class="kn">import</span> <span class="n">get_article_url</span><span class="p">,</span> <span class="n">greet</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">test_greet</span><span class="p">():</span>
+<span class="k">def</span> <span class="nf">test_greet</span><span class="p">():</span>
     <span class="k">assert</span> <span class="n">greet</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;Hello, setuptools!&quot;</span>
     
-<span class="k">def</span><span class="w"> </span><span class="nf">test_get_article_url</span><span class="p">():</span>
+<span class="k">def</span> <span class="nf">test_get_article_url</span><span class="p">():</span>
     <span class="k">assert</span> <span class="s2">&quot;codesolid.com&quot;</span> <span class="ow">in</span> <span class="n">get_article_url</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -233,18 +235,18 @@ mkdir<span class="w"> </span><span class="nb">test</span>
 <h2>Setuptools Configuration<a class="headerlink" href="#setuptools-configuration" title="Link to this heading"></a></h2>
 <p>In many established packages, you may find a file named “setup.py”. This is a file that used to be required for using setuptools, but more recently <a class="reference external" href="https://setuptools.pypa.io/en/latest/userguide/quickstart.html#transitioning-from-setup-py-to-setup-cfg">its use has been discouraged</a> in favor of storing configuration in “setup.cfg”. With this in mind, let’s create a basic setup.cfg file in the root of our project to configure setuptools to be able to install our package.</p>
 <div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[metadata]</span>
-<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">hellosetup</span>
-<span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">.</span><span class="n">1</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hellosetup</span>
+<span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0.1</span>
 
 <span class="k">[options]</span>
 <span class="n">package_dir</span><span class="o">=</span>
-<span class="w">    </span><span class="err">=src</span>
-<span class="n">packages</span><span class="o">=</span><span class="err">find:</span>
+<span class="w">    </span><span class="o">=</span><span class="n">src</span>
+<span class="n">packages</span><span class="o">=</span><span class="n">find</span><span class="p">:</span>
 
 <span class="k">[options.packages.find]</span>
-<span class="n">where</span><span class="o">=</span><span class="err">src</span>
+<span class="n">where</span><span class="o">=</span><span class="n">src</span>
 <span class="n">install_requires</span><span class="w"> </span><span class="o">=</span>
-<span class="w">    </span><span class="err">importlib; python</span><span class="mi">_</span><span class="n">version</span><span class="w"> </span><span class="err">&gt;</span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;3.0&quot;</span>
+<span class="w">    </span><span class="n">importlib</span><span class="p">;</span><span class="w"> </span><span class="n">python_version</span><span class="w"> </span><span class="err">&gt;</span><span class="o">=</span><span class="w"> </span><span class="s">&quot;3.0&quot;</span>
 </pre></div>
 </div>
 <p><strong>IMPORTANT:</strong> You’ll want to give your project a new name that’s different from what I’ve used here to avoid conflicts, and you should adjust your other project files as well to make them consistent.</p>
@@ -320,25 +322,25 @@ git<span class="w"> </span>push<span class="w"> </span>--tag
 </div>
 <p>Next, we’ll edit our configuration. Because pyproject.toml simply points to the backend builder, setuptools, we won’t need to touch pyproject.toml. Here’s how the edited file should look:</p>
 <div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[metadata]</span>
-<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">hellosetup</span>
-<span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">.</span><span class="n">2</span>
-<span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">A package created with a setuptools tutorial.  See article link for more details.</span>
-<span class="n">long_description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">file: README.rst</span>
-<span class="n">long_description_content_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">text/x-rst</span>
-<span class="n">license</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">BSD </span><span class="mi">3</span><span class="n">-Clause</span><span class="w"> </span><span class="n">License</span>
-<span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">https://codesolid.com/python-package-example-setuptools</span>
+<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hellosetup</span>
+<span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0.2</span>
+<span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="n">package</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">setuptools</span><span class="w"> </span><span class="n">tutorial</span><span class="p">.</span><span class="w">  </span><span class="n">See</span><span class="w"> </span><span class="n">article</span><span class="w"> </span><span class="n">link</span><span class="w"> </span><span class="n">for</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">details</span><span class="p">.</span>
+<span class="n">long_description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">file</span><span class="p">:</span><span class="w"> </span><span class="n">README</span><span class="p">.</span><span class="n">rst</span>
+<span class="n">long_description_content_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">text</span><span class="err">/</span><span class="n">x-rst</span>
+<span class="n">license</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BSD</span><span class="w"> </span><span class="mi">3</span><span class="err">-</span><span class="n">Clause</span><span class="w"> </span><span class="n">License</span>
+<span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">https</span><span class="p">:</span><span class="err">//</span><span class="n">codesolid</span><span class="p">.</span><span class="n">com</span><span class="err">/</span><span class="n">python-package-example-setuptools</span>
 <span class="n">project_urls</span><span class="o">=</span>
-<span class="w">    </span><span class="err">Source=https://github.com/CodeSolid/python-package-example-setuptools</span>
+<span class="w">    </span><span class="n">Source</span><span class="o">=</span><span class="n">https</span><span class="p">:</span><span class="err">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="err">/</span><span class="n">CodeSolid</span><span class="err">/</span><span class="n">python-package-example-setuptools</span>
 
 <span class="k">[options]</span>
 <span class="n">package_dir</span><span class="o">=</span>
-<span class="w">    </span><span class="err">=src</span>
-<span class="n">packages</span><span class="o">=</span><span class="err">find:</span>
+<span class="w">    </span><span class="o">=</span><span class="n">src</span>
+<span class="n">packages</span><span class="o">=</span><span class="n">find</span><span class="p">:</span>
 
 <span class="k">[options.packages.find]</span>
-<span class="n">where</span><span class="o">=</span><span class="err">src</span>
+<span class="n">where</span><span class="o">=</span><span class="n">src</span>
 <span class="n">install_requires</span><span class="w"> </span><span class="o">=</span>
-<span class="w">    </span><span class="err">importlib; python</span><span class="mi">_</span><span class="n">version</span><span class="w"> </span><span class="err">&gt;</span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;3.0&quot;</span>
+<span class="w">    </span><span class="n">importlib</span><span class="p">;</span><span class="w"> </span><span class="n">python_version</span><span class="w"> </span><span class="err">&gt;</span><span class="o">=</span><span class="w"> </span><span class="s">&quot;3.0&quot;</span>
 </pre></div>
 </div>
 <p>As you can see, we’ve changed the version, added values for “url” (a single value) and project_urls (a dictionary). We’ve also added a description. For long_description, we had to create a new file, README.rst. As an aside, trying to give it a different name didn’t work, but we could have pointed to the original REAME.md by setting <code class="docutils literal notranslate"><span class="pre">long_description_content_type</span> <span class="pre">=</span> <span class="pre">text/markdown</span></code>. That file is <a class="reference external" href="https://github.com/CodeSolid/python-package-example-setuptools/blob/main/README.rst">here</a>, if you’re curious.</p>

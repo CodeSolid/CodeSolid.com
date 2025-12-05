@@ -1,23 +1,25 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Function In Python: An Introductory Tutorial &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
 
   
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=19645805"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=19645805"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" />
@@ -140,7 +142,7 @@
 <section id="python-functions-some-examples">
 <h3>Python Functions: Some Examples<a class="headerlink" href="#python-functions-some-examples" title="Link to this heading"></a></h3>
 <p>You define a function in Python with the following syntax:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">function_name</span><span class="p">(</span><span class="n">parameter_1</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">parameter_n</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">function_name</span><span class="p">(</span><span class="n">parameter_1</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">parameter_n</span><span class="p">):</span>
     <span class="n">statement_1</span>
     <span class="o">...</span>
     <span class="n">statement_N</span>
@@ -156,11 +158,11 @@
 <p>Multiple parameters, if any, are separated by commas.</p>
 <p>The print function is a good example of the “looseness” of the definition of a function because it doesn’t return a result. We call print for to get the “side effect” of displaying a result on the screen.</p>
 <p>Let’s look at some simple examples of function definitions and how we might call them. We first define a function like print that we call for its side effects, and then we define another that fits a stricter, mathematical idea of what a function does.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">log_info</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">log_info</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A function with one parameter called for side effects only.  No return value.&quot;&quot;&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;INFO: </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     
-<span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A function with two parameters and a return value&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">n1</span> <span class="o">+</span> <span class="n">n2</span>
 
@@ -186,7 +188,7 @@ INFO: log_result is None? True</p>
 <p>Python has a very rich and flexible syntax for passing arguments to a function. In fact, it’s so rich and flexible that we’ve published a whole separate article on <a class="reference external" href="https://codesolid.com/python-function-arguments-and-parameters-examples/">Python Function Arguments</a> that goes over all the rules and special cases.</p>
 <p>To briefly summarize some of the main points without getting into all the detailed syntax and special cases, if you have a plain function with a set of parameters, you can in general specify those parameters either by keyword or by position.</p>
 <p>Let’s suppose for example that you’re tired of looking up string formatting codes for displaying different numbers in base 2, base 16, and so forth. You decide to write a function that takes a decimal number and a string representing a base you want to display it as, and returns a string. The bases you want to be able to pass to it are “hex” for hexadecimal, “bin” for binary, “oct” for octal, and “dec” for decimal.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">int_to_string</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">target_base</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span> 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">int_to_string</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">target_base</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span> 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Format an integer as a string, in one of the bases given by the keys in supported&quot;&quot;&quot;</span>
     <span class="n">supported</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;hex&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{0:0x}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;bin&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{:0b}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;dec&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{0:0d}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;oct&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{0:0o}</span><span class="s2">&quot;</span><span class="p">}</span>
     <span class="k">assert</span> <span class="n">target_base</span> <span class="ow">in</span> <span class="n">supported</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
@@ -251,7 +253,7 @@ INFO: log_result is None? True</p>
 <section id="early-returns-from-a-function">
 <h3>Early Returns from a Function<a class="headerlink" href="#early-returns-from-a-function" title="Link to this heading"></a></h3>
 <p>A function can have more than one return statement. There’s some debate as to whether that’s a good idea or not, but many developers feel it makes sense if you already know the answer. Let’s suppose you have a function that takes a list of sales objects and counts those with a total value greater than $100.00. If the list is either null or empty, it makes no sense to continue, since the answer has to be zero. In that case, an early return at the top of the function might make perfect sense:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">count_sales_over_one_hundred</span><span class="p">(</span><span class="n">sales</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count_sales_over_one_hundred</span><span class="p">(</span><span class="n">sales</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Assert example&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">sales</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">0</span>

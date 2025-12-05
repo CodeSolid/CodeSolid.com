@@ -29,6 +29,7 @@ CodeSolid: Exploring Python and Mathematics
    :hidden:
 
    category-math-and-math-software
+   category-python-linear-algebra
    category-python-for-beginners-posts
    category-python-functions
    category-python-math-and-science
@@ -44,7 +45,10 @@ CodeSolid features articles on a number of topics in applied math, Python, Jupyt
 
 Since our editor and main contributor, John Lockwood, is currently working on enough undergraduate mathematics to "tackle" quantum mechanics, we expect to occasionally spin off an article or Jupyter Notebook based on that.  
 
-One recent contribution reviews the `Dirac Notation for Complex Inner Products and How to Implement that in Python <complex-inner-products>`_.
+Some recent writings include:
+
+* `Sage Notes on a Multivariable Calculus Course <sage/calc3/index/>`_.
+* `Dirac Notation for Complex Inner Products and How to Implement that in Python <complex-inner-products>`_.
 
 
 

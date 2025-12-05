@@ -1,23 +1,25 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Python JSON: Easily Work With Dictionaries, Files, and Custom Objects &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
 
   
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=19645805"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=19645805"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" />
@@ -156,8 +158,8 @@
 </ul>
 <p>Tip: If you need a refresher on dictionary objects, see our beginner article, <a class="reference external" href="https://codesolid.com/python-dictionaries-with-exercises/">Python Dictionaries for Beginners: A Complete Lesson With Exercises</a>.</p>
 <p>To encode Python dictionaries to JSON, we can use the json.dumps() method. This method accepts a Python dictionary as its input, and returns a JSON string. To remember the name of this method, think about dumping a dictionary into a string (hence, “dumps”). Here’s an example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pprint</span><span class="w"> </span><span class="kn">import</span> <span class="n">pprint</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
 
 <span class="c1"># Create a Python dictionary object</span>
 <span class="n">website</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;codesolid.com&quot;</span><span class="p">,</span> <span class="s2">&quot;editor&quot;</span><span class="p">:</span> <span class="s2">&quot;John Lockwood&quot;</span><span class="p">,</span> <span class="s2">&quot;topics&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Python&quot;</span><span class="p">,</span> <span class="s2">&quot;Docker&quot;</span><span class="p">,</span> <span class="s2">&quot;Lambda Functions&quot;</span><span class="p">,</span> <span class="s2">&quot;Python for Beginners&quot;</span><span class="p">]}</span>
@@ -170,7 +172,7 @@
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Dumps</span> <span class="n">convered</span> <span class="n">a</span> <span class="nb">type</span><span class="p">,</span> <span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="err">&#39;</span><span class="nc">dict</span><span class="s1">&#39;&gt; to JSON as a type, &lt;class &#39;</span><span class="nb">str</span><span class="s1">&#39;&gt;.</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Dumps</span> <span class="n">convered</span> <span class="n">a</span> <span class="nb">type</span><span class="p">,</span> <span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">dict</span><span class="s1">&#39;&gt; to JSON as a type, &lt;class &#39;</span><span class="nb">str</span><span class="s1">&#39;&gt;.</span>
 <span class="n">String</span> <span class="n">value</span><span class="p">:</span>
 <span class="p">{</span><span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;codesolid.com&quot;</span><span class="p">,</span> <span class="s2">&quot;editor&quot;</span><span class="p">:</span> <span class="s2">&quot;John Lockwood&quot;</span><span class="p">,</span> <span class="s2">&quot;topics&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Python&quot;</span><span class="p">,</span> <span class="s2">&quot;Docker&quot;</span><span class="p">,</span> <span class="s2">&quot;Lambda Functions&quot;</span><span class="p">,</span> <span class="s2">&quot;Python for Beginners&quot;</span><span class="p">]}</span>
 </pre></div>
@@ -206,7 +208,7 @@ Loads<span class="w"> </span>returns<span class="w"> </span>a<span class="w"> </
 <p>Both of these methods take two arguments: The Python data to write (or read) and the name of the file to write (or read) the data to. Here’s an example of how to use each method.</p>
 <section id="writing-a-python-dictionary-to-a-json-file">
 <h3>Writing A Python Dictionary to a JSON File<a class="headerlink" href="#writing-a-python-dictionary-to-a-json-file" title="Link to this heading"></a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
 
 <span class="n">file_name</span> <span class="o">=</span> <span class="s2">&quot;website.json&quot;</span>
 
@@ -226,7 +228,7 @@ Loads<span class="w"> </span>returns<span class="w"> </span>a<span class="w"> </
 <section id="reading-a-json-file-to-a-python-dictionary">
 <h3>Reading A JSON File to a Python Dictionary<a class="headerlink" href="#reading-a-json-file-to-a-python-dictionary" title="Link to this heading"></a></h3>
 <p>Given the file we wrote before, we can load it using the json.load method. Just as <code class="docutils literal notranslate"><span class="pre">dumps</span></code> is analogous to <code class="docutils literal notranslate"><span class="pre">dump</span></code>, <code class="docutils literal notranslate"><span class="pre">loads</span></code> is analogous to <code class="docutils literal notranslate"><span class="pre">load</span></code>. The code is straightforward:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
 
 <span class="n">file_name</span> <span class="o">=</span> <span class="s2">&quot;website.json&quot;</span>
 
@@ -255,8 +257,8 @@ The Zen of Python, by Tim Peters</p>
 <li><p>We can write code to interoperate with the python json module. The approach I’ve chosen here is a custom JSONEncoder and JSONDecoder.</p></li>
 </ul>
 <p>Let’s show both of these approaches in turn, and to keep things simple, we’ll use the same class for all our examples:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Restaurant</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">distance</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">favorite</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Restaurant</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">distance</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">favorite</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">distance</span> <span class="o">=</span> <span class="n">distance</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">favorite</span> <span class="o">=</span> <span class="n">favorite</span>
@@ -267,20 +269,20 @@ The Zen of Python, by Tim Peters</p>
 <section id="serializing-python-classes-to-and-from-json-directly">
 <h2>Serializing Python Classes To and From JSON Directly<a class="headerlink" href="#serializing-python-classes-to-and-from-json-directly" title="Link to this heading"></a></h2>
 <p>The first approach is to add the methods to_json and from_json directly to the Restaurant class. These methods will take care of converting our objects to and from JSON strings. Here’s how that might look:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
 
-<span class="k">class</span><span class="w"> </span><span class="nc">Restaurant</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">Restaurant</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;demonstrates adding to_json and from_json methods to a custom class&quot;&quot;&quot;</span>
     
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">distance</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">favorite</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">distance</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">favorite</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">distance</span> <span class="o">=</span> <span class="n">distance</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">favorite</span> <span class="o">=</span> <span class="n">favorite</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;Restaurant(name=&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">&quot;, distance=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">distance</span><span class="si">}</span><span class="s1">, favorite=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">favorite</span><span class="si">}</span><span class="s1">)&#39;</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
             <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
             <span class="s1">&#39;distance&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">distance</span><span class="p">,</span>
@@ -288,7 +290,7 @@ The Zen of Python, by Tim Peters</p>
         <span class="p">})</span>
 
     <span class="nd">@classmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">from_json</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">json_str</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">from_json</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">json_str</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
         <span class="n">dct</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_str</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="o">**</span><span class="n">dct</span><span class="p">)</span>
     
@@ -310,7 +312,7 @@ The Zen of Python, by Tim Peters</p>
 <h3>Discussion: to_json<a class="headerlink" href="#discussion-to-json" title="Link to this heading"></a></h3>
 <p>You’ll notice that in this example, we’ve kept the names in the JSON the same as in the class, but often when we’re inter-operating with JavaScript, we might change the names appropriately to match front-end naming conventions or other requirements. For a class like this that does not include any nested objects, we can implement to_json even more simply, as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Take advantage of __dict__ property on object to dump JSON, if no nested objects.</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -324,29 +326,29 @@ The Zen of Python, by Tim Peters</p>
 <section id="using-jsonencoder-and-jsondecoder-to-serialize-python-classes">
 <h2>Using JSONEncoder and JSONDecoder to Serialize Python Classes<a class="headerlink" href="#using-jsonencoder-and-jsondecoder-to-serialize-python-classes" title="Link to this heading"></a></h2>
 <p>Our other approach to working providing custom serialization and deserialization for a Python class is to create custom JSON encoders and decoders. Let’s see how that might look:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">json</span><span class="w"> </span><span class="kn">import</span> <span class="n">JSONEncoder</span><span class="p">,</span> <span class="n">JSONDecoder</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">Restaurant</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">distance</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">favorite</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">json</span> <span class="kn">import</span> <span class="n">JSONEncoder</span><span class="p">,</span> <span class="n">JSONDecoder</span>
+<span class="k">class</span> <span class="nc">Restaurant</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">distance</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">favorite</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">distance</span> <span class="o">=</span> <span class="n">distance</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">favorite</span> <span class="o">=</span> <span class="n">favorite</span>
         
-    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;Restaurant(name=&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">&quot;, distance=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">distance</span><span class="si">}</span><span class="s1">, favorite=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">favorite</span><span class="si">}</span><span class="s1">)&#39;</span>
 
-<span class="k">class</span><span class="w"> </span><span class="nc">RestaurantDecoder</span><span class="p">(</span><span class="n">JSONDecoder</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">RestaurantDecoder</span><span class="p">(</span><span class="n">JSONDecoder</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Parses a JSON restaurant string to a Restaurant object&quot;&quot;&quot;</span>
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">object_hook</span><span class="p">(</span><span class="n">dct</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">object_hook</span><span class="p">(</span><span class="n">dct</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">Restaurant</span><span class="p">(</span><span class="n">dct</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span> <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;distance&#39;</span><span class="p">],</span> <span class="n">dct</span><span class="p">[</span><span class="s1">&#39;favorite&#39;</span><span class="p">])</span>
     
-    <span class="k">def</span><span class="w"> </span><span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">object_hook</span><span class="o">=</span><span class="n">RestaurantDecoder</span><span class="o">.</span><span class="n">object_hook</span><span class="p">)</span>
     
-<span class="k">class</span><span class="w"> </span><span class="nc">RestaurantEncoder</span><span class="p">(</span><span class="n">JSONEncoder</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">RestaurantEncoder</span><span class="p">(</span><span class="n">JSONEncoder</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Encodes a Restaurant object to a JSON string&quot;&quot;&quot;</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">Restaurant</span><span class="p">):</span>
             <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="vm">__dict__</span>
         

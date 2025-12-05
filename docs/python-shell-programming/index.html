@@ -1,23 +1,25 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Python Shell Programming: Overview and Top Tools &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
 
   
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=19645805"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=19645805"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" />
@@ -177,24 +179,24 @@
 <span class="sd">Shows a basic use of the subprocess module.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">platform</span><span class="w"> </span><span class="kn">import</span> <span class="n">system</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">from</span> <span class="nn">platform</span> <span class="kn">import</span> <span class="n">system</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">file_lister</span><span class="p">():</span>
+<span class="k">def</span> <span class="nf">file_lister</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Gets a platform-appropriate file lister&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">system</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;Windows&quot;</span><span class="p">:</span>
          <span class="k">return</span> <span class="s2">&quot;type&quot;</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="s2">&quot;cat&quot;</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">call_subprocess</span><span class="p">():</span>
+<span class="k">def</span> <span class="nf">call_subprocess</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the contents of the current file using a subprocess.&quot;&quot;&quot;</span>
     <span class="n">args</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">file_lister</span><span class="p">()</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="vm">__file__</span><span class="si">}</span><span class="s2">&quot;</span>
     <span class="n">results</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
         <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">display_summary</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">display_summary</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">lines</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">display_summary</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">lines</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Prints only the first few lines of the file&quot;&quot;&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Here are the first </span><span class="si">{</span><span class="n">lines</span><span class="si">}</span><span class="s2"> lines of the file:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="n">lines</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)[:</span><span class="n">lines</span><span class="p">]</span>
@@ -237,13 +239,13 @@ subprocess.CalledProcessError:<span class="w"> </span>Command<span class="w"> </
 <span class="sd">Subprocess demo with a general purpose exception handler added.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">subprocess</span><span class="w"> </span><span class="kn">import</span> <span class="n">run</span><span class="p">,</span> <span class="n">CalledProcessError</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">platform</span><span class="w"> </span><span class="kn">import</span> <span class="n">system</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">traceback</span><span class="w"> </span><span class="kn">import</span> <span class="n">print_exception</span><span class="p">,</span> <span class="n">format_exc</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sys</span><span class="w"> </span><span class="kn">import</span> <span class="n">exit</span>
+<span class="kn">from</span> <span class="nn">subprocess</span> <span class="kn">import</span> <span class="n">run</span><span class="p">,</span> <span class="n">CalledProcessError</span>
+<span class="kn">from</span> <span class="nn">platform</span> <span class="kn">import</span> <span class="n">system</span>
+<span class="kn">from</span> <span class="nn">traceback</span> <span class="kn">import</span> <span class="n">print_exception</span><span class="p">,</span> <span class="n">format_exc</span>
+<span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">exit</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">file_lister</span><span class="p">():</span>
+<span class="k">def</span> <span class="nf">file_lister</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Gets a platform-appropriate file lister&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">system</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;Windows&quot;</span><span class="p">:</span>
         <span class="k">return</span> <span class="s2">&quot;type&quot;</span>
@@ -251,7 +253,7 @@ subprocess.CalledProcessError:<span class="w"> </span>Command<span class="w"> </
         <span class="k">return</span> <span class="s2">&quot;cat&quot;</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">handle_exception</span><span class="p">(</span><span class="n">error</span><span class="p">:</span> <span class="n">CalledProcessError</span><span class="p">,</span> <span class="n">print_last</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+<span class="k">def</span> <span class="nf">handle_exception</span><span class="p">(</span><span class="n">error</span><span class="p">:</span> <span class="n">CalledProcessError</span><span class="p">,</span> <span class="n">print_last</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
     <span class="n">stack_trace</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Handle a subprocess.run error CalledProcessError:</span>
 
@@ -271,7 +273,7 @@ subprocess.CalledProcessError:<span class="w"> </span>Command<span class="w"> </
     <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">call_subprocess</span><span class="p">():</span>
+<span class="k">def</span> <span class="nf">call_subprocess</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Demonstrate a subprocess.run exception handler&quot;&quot;&quot;</span>
     <span class="n">args</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">file_lister</span><span class="p">()</span><span class="si">}</span><span class="s2"> NO_SUCH_FILE&quot;</span>
     <span class="k">try</span><span class="p">:</span>
@@ -281,7 +283,7 @@ subprocess.CalledProcessError:<span class="w"> </span>Command<span class="w"> </
         <span class="n">handle_exception</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">display_summary</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">lines</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">display_summary</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">lines</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Prints only the first few lines of the file&quot;&quot;&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Here are the first </span><span class="si">{</span><span class="n">lines</span><span class="si">}</span><span class="s2"> lines of the file:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="n">lines</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)[:</span><span class="n">lines</span><span class="p">]</span>

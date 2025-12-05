@@ -6,6 +6,7 @@ Python Math and Science
    :caption: Articles:
    :maxdepth: 1
    
+   
    creating-a-python-interactive-plot
    using-latex-in-python
    sympy-solving-math-equations-in-python

@@ -1,23 +1,25 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Python Date and Time Functions: The Complete Tutorial &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
 
   
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=19645805"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=19645805"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" />
@@ -181,7 +183,7 @@
 <p>As long as you don’t yet care about time zones, getting and displaying the current system time for the computer running the Python program is simply a matter of importing the datetime class from the datetime module and calling datetime.now().</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Display the current local time&quot;&quot;&quot;</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">now</span><span class="p">)</span>
 </pre></div>
@@ -203,7 +205,7 @@
 <h3>How to Get the Current Date in Python<a class="headerlink" href="#how-to-get-the-current-date-in-python" title="Link to this heading"></a></h3>
 <p>If you’re not interested in the time, only interested in recording or displaying the current date in Python, using the datetime module’s date class is one way to get it. Instead of datetime.now(), one calls date.today() to get the current date.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print the current date only</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
 <span class="n">today</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">today</span><span class="p">)</span>
 </pre></div>
@@ -220,7 +222,7 @@
 <p>The datetime class can be thought of as the union of the fields from through other datetime module classes: date and time. In fact, we can get a date instance or an instance of the time class from a datetime instance. We can write a short program to display what each of these classes contains:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;datetime module basic field demo&quot;&quot;&quot;</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 
 <span class="c1"># Get a datetime instance, and break it down into component parts</span>
 <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
@@ -266,7 +268,7 @@
 <li><p>Your application runs on the web, and your users are distributed throughout the country or around the world.</p></li>
 </ul>
 <p>For this reason, the Python documentation makes a distinction between datetime and time objects that are “aware” vs. those that are “naive”. An aware instance has valid time zone information associated with it; whereas a naive object lacks it. An aware object represents a definite instance in time; a naive object is local, and valid only in the user’s time zone. The following function can be used to tell the difference if you need to:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">datetime_is_aware</span><span class="p">(</span><span class="n">dt</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">datetime_is_aware</span><span class="p">(</span><span class="n">dt</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns true if the timezone is present and valid. </span>
 <span class="sd">         </span>
 <span class="sd">         dt must be a datetime.datetime</span>
@@ -281,7 +283,7 @@
 <p>Fortunately, creating instances that are time zone aware is quite easy to do in Python. Simply call the datetime function <code class="docutils literal notranslate"><span class="pre">astimezone</span></code> on a naive instance to return an aware datetime instance. With the function above to check our result, here’s a short example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Naive datetimes vs aware datetimes&quot;&quot;&quot;</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 
 <span class="n">dt_naive</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
 <span class="n">dt_aware</span> <span class="o">=</span> <span class="n">dt_naive</span><span class="o">.</span><span class="n">astimezone</span><span class="p">()</span>
@@ -301,7 +303,7 @@ datetime.datetime<span class="o">(</span><span class="m">2022</span>,<span class
 <p>To get a timezone aware instance representing the current time, you first need to call <code class="docutils literal notranslate"><span class="pre">astimezone</span></code> on the datetime instance so that the instance itself is timezone aware, then call <code class="docutils literal notranslate"><span class="pre">timetz</span></code> on the result.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Get a timezone aware time object&quot;&quot;&quot;</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 <span class="n">my_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">astimezone</span><span class="p">()</span><span class="o">.</span><span class="n">timetz</span><span class="p">()</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">my_time</span><span class="p">))</span>
@@ -319,7 +321,7 @@ datetime.datetime<span class="o">(</span><span class="m">2022</span>,<span class
 <p>To use the database, our first task is to find a name that seems to be about Guam that we can use. We can write a short snippet of code to get a set of available names using zoneinfo’s <code class="docutils literal notranslate"><span class="pre">available_timezones</span></code> function, to see if we can scare up a string that will work for Guam:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Lookup Guam&quot;&quot;&quot;</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">zoneinfo</span>
+<span class="kn">import</span> <span class="nn">zoneinfo</span>
 <span class="k">for</span> <span class="n">info</span> <span class="ow">in</span> <span class="n">zoneinfo</span><span class="o">.</span><span class="n">available_timezones</span><span class="p">():</span>
     <span class="k">if</span> <span class="s2">&quot;Guam&quot;</span> <span class="ow">in</span> <span class="n">info</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
@@ -360,14 +362,14 @@ datetime.datetime<span class="o">(</span><span class="m">2022</span>,<span class
 <p>Alright, let’s see. It’s 5:31 PM on May 27th here in North Carolina, and in Guam, it’s already tomorrow at 7:31 AM. Currently, Eastern Daylight Time is UTC-4, and we learned earlier that Guam is UTC+10. Sure enough, 7:31 AM tomorrow is 14 hours ahead of 5:31 today.</p>
 <p>With the Guam time zone as a module constant somewhere, our routine to get a current time object for the log (always relative to Guam), is quite simple:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the current time in Guam:</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">zoneinfo</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZoneInfo</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">zoneinfo</span> <span class="kn">import</span> <span class="n">ZoneInfo</span>
 
 <span class="n">TZ_GUAM</span> <span class="o">=</span> <span class="n">ZoneInfo</span><span class="p">(</span><span class="s2">&quot;Pacific/Guam&quot;</span><span class="p">)</span>
 
 <span class="c1"># ...</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">guam_now</span><span class="p">():</span>
+<span class="k">def</span> <span class="nf">guam_now</span><span class="p">():</span>
     <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">TZ_GUAM</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -383,8 +385,8 @@ datetime.datetime<span class="o">(</span><span class="m">2022</span>,<span class
 <p>To construct future dates or datetime objects, we simply pass the fields we discussed earlier into the appropriate constructor. For datetime, we can specify the <code class="docutils literal notranslate"><span class="pre">tzinfo</span></code> field if we wish, and we have to pass the date fields (the time fields are optional).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Using the date and datetime constructors</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">date</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">zoneinfo</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZoneInfo</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">date</span>
+<span class="kn">from</span> <span class="nn">zoneinfo</span> <span class="kn">import</span> <span class="n">ZoneInfo</span>
 
 <span class="n">independence_day</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">1776</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 
@@ -416,7 +418,7 @@ datetime.datetime<span class="o">(</span><span class="m">2022</span>,<span class
 <p>You generally construct a <code class="docutils literal notranslate"><span class="pre">timedelta</span></code> object using either days or seconds as a value. (You can also use both). Either value can be positive or negative. Here are some <code class="docutils literal notranslate"><span class="pre">timedelta</span></code> examples:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Constructing a Python timedelta object&quot;&quot;&quot;</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">timedelta</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">timedelta</span>
 
 <span class="c1"># 22 minutes from now</span>
 <span class="n">td1</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="mi">22</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
@@ -440,7 +442,7 @@ datetime.datetime<span class="o">(</span><span class="m">2022</span>,<span class
 <p>With that knowledge, we can easily write our simple library due-date program:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Using timedelta to calculate a due date&quot;&quot;&quot;</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">timedelta</span><span class="p">,</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">timedelta</span><span class="p">,</span> <span class="n">datetime</span>
 
 <span class="n">LOAN_PERIOD_DAYS</span> <span class="o">=</span> <span class="mi">21</span>
 
@@ -460,7 +462,7 @@ datetime.datetime<span class="o">(</span><span class="m">2022</span>,<span class
 <p>There is a caveat when adding or subtracting times. Unlike adding or subtracting date objects, which we saw above uses simple math operators, in the case of <code class="docutils literal notranslate"><span class="pre">datetime.time</span></code>, the + and - operators are not overloaded. So time intervals can not be added or subtracted on time objects. So the way you have to do it is to add or subtract the time interval you want to the datetime object first, then use the datetime object’s <code class="docutils literal notranslate"><span class="pre">time</span></code> function to return just the time if that’s what you want.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Travel 3 minutes into the past:</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
 <span class="n">MINUTES_AGO</span> <span class="o">=</span> <span class="mi">3</span>
 
 <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
@@ -492,9 +494,9 @@ datetime.datetime<span class="o">(</span><span class="m">2022</span>,<span class
 <p>Now that we know that subtracting dates or datetimes will return a timedelta object, let’s work a fun program with it.</p>
 <p>If your kids need to know when Santa will be here, here’s how you could do it. (Apologies in advance to those who don’t celebrate that particular winter holiday, but feel free to adapt the code!).</p>
 <p>ou’ll notice we’ll also do a datetime comparison in this program; we’ll explain it all after showing the code.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">get_christmas_year</span><span class="p">(</span><span class="n">today</span><span class="p">:</span> <span class="n">date</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">get_christmas_year</span><span class="p">(</span><span class="n">today</span><span class="p">:</span> <span class="n">date</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;The next Christmas will usually be this year, but not between Christmas and New Year&#39;s&quot;&quot;&quot;</span>
     <span class="n">year</span> <span class="o">=</span> <span class="n">today</span><span class="o">.</span><span class="n">year</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">today</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="mi">12</span> <span class="ow">and</span> <span class="n">today</span><span class="o">.</span><span class="n">day</span> <span class="o">&gt;</span> <span class="mi">25</span><span class="p">)</span> <span class="k">else</span> <span class="n">today</span><span class="o">.</span><span class="n">year</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="k">return</span> <span class="n">year</span>
@@ -528,8 +530,8 @@ datetime.datetime<span class="o">(</span><span class="m">2022</span>,<span class
 <h3>Formatting Dates and Times with Strftime<a class="headerlink" href="#formatting-dates-and-times-with-strftime" title="Link to this heading"></a></h3>
 <p>We’ll start with some formatting examples with strftime. Since we’ll need a date and time for the example, I’m going to choose a day that’s special for me, narrow the time down as much as I can, and throw a Hail Mary pass on the microseconds.</p>
 <p>So here we go:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">zoneinfo</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZoneInfo</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">zoneinfo</span> <span class="kn">import</span> <span class="n">ZoneInfo</span>
 
 <span class="n">california</span> <span class="o">=</span> <span class="n">ZoneInfo</span><span class="p">(</span><span class="s2">&quot;America/Los_Angeles&quot;</span><span class="p">)</span>
 <span class="n">special_day</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2011</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">123456</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=</span><span class="n">california</span><span class="p">)</span>
@@ -604,7 +606,7 @@ The<span class="w"> </span>event<span class="w"> </span>took<span class="w"> </s
 <p>A simple example can show strptime in action.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Simple strptime example&quot;&quot;&quot;</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 
 <span class="n">date_string</span> <span class="o">=</span> <span class="s2">&quot;Saturday, October 01, 2011&quot;</span>
 <span class="n">format_string</span> <span class="o">=</span> <span class="s2">&quot;%A, %B </span><span class="si">%d</span><span class="s2">, %Y&quot;</span>
@@ -631,8 +633,8 @@ The<span class="w"> </span>event<span class="w"> </span>took<span class="w"> </s
 <p>Meantime, since the datetime library in core Python is fine if you control both the strings created and the parsing side, let’s show a quick example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;datetime ISO format handling demo&quot;&quot;&quot;</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">zoneinfo</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZoneInfo</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">zoneinfo</span> <span class="kn">import</span> <span class="n">ZoneInfo</span>
 
 <span class="n">california</span> <span class="o">=</span> <span class="n">ZoneInfo</span><span class="p">(</span><span class="s2">&quot;America/Los_Angeles&quot;</span><span class="p">)</span>
 <span class="n">special_day</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2011</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">123456</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=</span><span class="n">california</span><span class="p">)</span>
@@ -688,14 +690,14 @@ The<span class="w"> </span>event<span class="w"> </span>took<span class="w"> </s
 <h3>Dateutil’s General Date and Time Parser Class<a class="headerlink" href="#dateutil-s-general-date-and-time-parser-class" title="Link to this heading"></a></h3>
 <p>In our discussion of Python datetime’s <code class="docutils literal notranslate"><span class="pre">strptime</span></code> function, we showed how <code class="docutils literal notranslate"><span class="pre">strptime</span></code> could be used to parse dates and times using format strings that are compatible with those used in <code class="docutils literal notranslate"><span class="pre">strftime</span></code>. Having to provide the format codes explicitly gives precise control over how a date gets parsed, but in contrast, the dateutil.parser module does an excellent job of parsing arbitrary dates without a formatting string. Simply pass the string containing the date or time to the parse function, and most of the time, it will do the right thing.</p>
 <p>In the following code, we show today’s date. We then use a list of date strings, and pass each one to “parse”, building a table of the examples and the resultant parsed datetime object. The core of it (boiled down), is:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dateutil</span><span class="w"> </span><span class="kn">import</span> <span class="n">parser</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dateutil</span> <span class="kn">import</span> <span class="n">parser</span>
 <span class="c1"># ...</span>
 <span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Demonstrates dateutil&#39;s flexible parse method&quot;&quot;&quot;</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">dateutil</span><span class="w"> </span><span class="kn">import</span> <span class="n">parser</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">dateutil</span> <span class="kn">import</span> <span class="n">parser</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Today is </span><span class="si">{</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">date</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
@@ -728,8 +730,8 @@ Wednesday<span class="w"> </span>at<span class="w"> </span><span class="m">4</sp
 <p>Here again, the dateutil module provides a solution that’s far more flexible. In the code below, for example, we use the <code class="docutils literal notranslate"><span class="pre">relativedelta</span></code> class to calculate some date offsets in terms of weeks and months.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Using dateutil&#39;s relativedelta class&quot;&quot;&quot;</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">dateutil.relativedelta</span><span class="w"> </span><span class="kn">import</span> <span class="n">relativedelta</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">dateutil.relativedelta</span> <span class="kn">import</span> <span class="n">relativedelta</span>
 
 <span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
 
@@ -754,8 +756,8 @@ Today<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>
 <p>For our last DateUtil example, let’s take a look at how we might code a series of recurring events, similar to what you might do when you schedule a repeating meeting in Outlook:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;dateutil example, repeating an date five times beginning with today&#39;s date&quot;&quot;&quot;</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">dateutil.rrule</span><span class="w"> </span><span class="kn">import</span> <span class="n">rrule</span><span class="p">,</span> <span class="n">WEEKLY</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">dateutil.rrule</span> <span class="kn">import</span> <span class="n">rrule</span><span class="p">,</span> <span class="n">WEEKLY</span>
 
 <span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
 <span class="n">days</span> <span class="o">=</span> <span class="n">rrule</span><span class="p">(</span><span class="n">WEEKLY</span><span class="p">,</span> <span class="n">dtstart</span><span class="o">=</span><span class="n">today</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>

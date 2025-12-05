@@ -1,23 +1,25 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Apache Airflow: Python ETL and Scheduling Made Easy &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
 
   
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=19645805"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=19645805"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" /> 
@@ -182,7 +184,7 @@ conda<span class="w"> </span>activate<span class="w"> </span>airflow
 <p>Aside from making it easier to return data, one nice thing that falls out of the API is that the tasks now match the function name. The naming mismatch (“t1” for “print_date”) that we quibbled with earlier now goes away. You can see this in the functions’ names in the last snippet.</p>
 <p>That’s because the tasks are now set up as plain Python functions with an <code class="docutils literal notranslate"><span class="pre">&#64;task()</span></code> annotation added. For example, here’s the code for the <code class="docutils literal notranslate"><span class="pre">extract</span></code> task.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="nd">@task</span><span class="p">()</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">extract</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">extract</span><span class="p">():</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        #### Extract task</span>
 <span class="sd">        A simple Extract task to get data ready for the rest of the data</span>
@@ -221,12 +223,12 @@ conda<span class="w"> </span>activate<span class="w"> </span>airflow
 <p>So with these motivating questions in mind, here is the code for Yet Another Apache Airflow Tutorial, <code class="docutils literal notranslate"><span class="pre">scheduled.py</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># scheduled.py</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">pendulum</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">airflow.decorators</span><span class="w"> </span><span class="kn">import</span> <span class="n">dag</span><span class="p">,</span> <span class="n">task</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">airflow.operators.bash</span><span class="w"> </span><span class="kn">import</span> <span class="n">BashOperator</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pathlib</span>
+<span class="kn">import</span> <span class="nn">pendulum</span>
+<span class="kn">from</span> <span class="nn">airflow.decorators</span> <span class="kn">import</span> <span class="n">dag</span><span class="p">,</span> <span class="n">task</span>
+<span class="kn">from</span> <span class="nn">airflow.operators.bash</span> <span class="kn">import</span> <span class="n">BashOperator</span>
+<span class="kn">import</span> <span class="nn">pathlib</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">get_log_info</span><span class="p">():</span>
+<span class="k">def</span> <span class="nf">get_log_info</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;returns the log directory and logfile name&quot;&quot;&quot;</span>    
     <span class="n">airflow_home</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;airflow&#39;</span><span class="p">)</span>
     <span class="n">log_dir</span> <span class="o">=</span> <span class="n">airflow_home</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;task_logs&quot;</span><span class="p">)</span>
@@ -240,14 +242,14 @@ conda<span class="w"> </span>activate<span class="w"> </span>airflow
     <span class="n">catchup</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;example&quot;</span><span class="p">,</span> <span class="s2">&quot;CodeSolid&quot;</span><span class="p">],</span>
 <span class="p">)</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">scheduled_task</span><span class="p">():</span>
+<span class="k">def</span> <span class="nf">scheduled_task</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    ### Record the date every minute. </span>
 <span class="sd">    An example task combining @task decorators with tasks </span>
 <span class="sd">    defined as operators</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="nd">@task</span><span class="p">()</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">setup</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">setup</span><span class="p">():</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        #### Setup task</span>
 <span class="sd">        Creates a task_logs directory if it doesn&#39;t exist.  </span>
@@ -267,7 +269,7 @@ conda<span class="w"> </span>activate<span class="w"> </span>airflow
             <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">log_dir</span><span class="p">)</span>
 
     <span class="nd">@task</span> 
-    <span class="k">def</span><span class="w"> </span><span class="nf">prove_python_task</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">prove_python_task</span><span class="p">():</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Making sure I can log from Python as well as bash.</span>
 <span class="sd">        Another TaskFlow style task</span>
 <span class="sd">        &quot;&quot;&quot;</span>

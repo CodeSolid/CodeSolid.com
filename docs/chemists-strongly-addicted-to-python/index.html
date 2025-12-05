@@ -1,23 +1,25 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chemists Strongly Addicted to Python! &mdash; CodeSolid.com 0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
 
   
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=19645805"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=19645805"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" />
@@ -123,7 +125,7 @@
 <p>CH4 + O2 -&gt; CO2 + H2O.</p>
 <p>To write this equation properly, the atoms on each side must be identical in quantity [Matter is neither created nor destroyed in a chemical reaction - Antoine Lavoisier]. Thus the fun challenge of balancing equations. This can get rather complicated, but SymPy helps! First, we assign some symbols then explore how to express the chemical equation in ‘SymPy terms’.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#assumes the Sympy package has been installed</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>    
+<span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>    
 <span class="n">sp</span><span class="o">.</span><span class="n">init_session</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -227,7 +229,7 @@ Instead of guessing from a plot, we can calculate the critical parameters with h
 <span class="c1">#data for carbon dioxide</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">press_z</span> <span class="p">(</span><span class="mf">223.15</span><span class="p">,</span> <span class="mf">6e-5</span><span class="p">)</span> <span class="p">)</span>  <span class="c1">#T=223.15; V=6e-5  -&gt;returns 6943008.947454035</span>
 <span class="c1">#import what is need to plot</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 <span class="c1">#generate the data array to be plotted</span>
 <span class="c1">#set the temperature range</span>
@@ -270,11 +272,11 @@ Instead of guessing from a plot, we can calculate the critical parameters with h
 <p><img alt="" src="../_images/VDW_CO2.jpg" /></p>
 <p>It should be pretty clear that Sympy is a useful tool for many areas in chemistry, Now let’s explore a package that takes advantage of the power of SymPy but adds the ‘language’ of chemistry. A current favorite is Chempy, available as a package or on GitHub. Installation on Macs and Linux is straight forward but for Windows you will need to load each required package by hand. Some required packages related to the Sundials solvers may not load but are not needed for this code.</p>
 <p>We’ll assume Chempy has been installed and illustrate some code demonstrating the ‘chemistry awareness of the package. The context is in balancing equations but there is more to it. Of interest is the use of python dictionaries and how one should denote the left-hand side(lhs) and right-hand(rhs) side of the equation to be balanced.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">chempy</span><span class="w"> </span><span class="kn">import</span> <span class="n">balance_stoichiometry</span>  
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">chempy</span> <span class="kn">import</span> <span class="n">balance_stoichiometry</span>  
 <span class="n">reactants</span><span class="p">,</span> <span class="n">products</span> <span class="o">=</span> <span class="n">balance_stoichiometry</span><span class="p">(</span> <span class="p">{</span><span class="s1">&#39;NH4ClO4&#39;</span><span class="p">,</span> <span class="s1">&#39;Al&#39;</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;Al2O3&#39;</span><span class="p">,</span> <span class="s1">&#39;HCl&#39;</span><span class="p">,</span> <span class="s1">&#39;H2O&#39;</span><span class="p">,</span> <span class="s1">&#39;N2&#39;</span> <span class="p">}</span> <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">reactants</span><span class="p">))</span>           <span class="c1">#leads to  {&#39;Al&#39;: 10, &#39;NH4ClO4&#39;: 6}</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">products</span><span class="p">))</span>           <span class="c1">#leads to {&#39;Al2O3&#39;: 5, &#39;H2O&#39;: 9, &#39;HCl&#39;: 6, &#39;N2&#39;: 3}</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">chempy</span><span class="w"> </span><span class="kn">import</span> <span class="n">mass_fractions</span>
+<span class="kn">from</span> <span class="nn">chempy</span> <span class="kn">import</span> <span class="n">mass_fractions</span>
 <span class="k">for</span> <span class="n">fractions</span> <span class="ow">in</span> <span class="nb">map</span><span class="p">(</span><span class="n">mass_fractions</span><span class="p">,</span> <span class="p">[</span><span class="n">reactants</span><span class="p">,</span> <span class="n">products</span><span class="p">]):</span>
     <span class="nb">print</span><span class="p">({</span><span class="n">k</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">{0:.3g}</span><span class="s1"> wt%&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">v</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">fractions</span><span class="o">.</span><span class="n">items</span><span class="p">()})</span>
 <span class="c1"># the result is  {&#39;Al&#39;: &#39;27.7 wt%&#39;, &#39;NH4ClO4&#39;: &#39;72.3 wt%&#39;}</span>
@@ -303,15 +305,15 @@ Instead of guessing from a plot, we can calculate the critical parameters with h
 <p>This was a lot simpler, and the result is clear about reactants and products!</p>
 <p>The next section will cover how Chempy can help with generation of kinetic models for reaction simulation. This is a very active area of investigation in chemistry and adequate kinetic models are critical to understand many import processes. Chempy is able to interpret common chemical notation and convert it to the proper math equations to be used in a solver for the differential equations. The example reaction is that of molecular bromine and nitrous oxide to synthesize nitrosyl bromide. In a closed system, this is actually an equilibrium reaction. Chempy sorts it out!</p>
 <p>Chempy has a nice feature where we can use some standard notation to indicate a reaction. This string representation of a reaction is processed into first a set of chemical equations then these are converted to a series of equations and parameters for eventual use by the Chempy ODE solver. I would suggest starting a new notebook to handle the necessary imports.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">defaultdict</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">chempy</span><span class="w"> </span><span class="kn">import</span> <span class="n">Reaction</span><span class="p">,</span> <span class="n">Substance</span><span class="p">,</span> <span class="n">ReactionSystem</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">chempy.kinetics.ode</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_odesys</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">chempy</span> <span class="kn">import</span> <span class="n">Reaction</span><span class="p">,</span> <span class="n">Substance</span><span class="p">,</span> <span class="n">ReactionSystem</span>
+<span class="kn">from</span> <span class="nn">chempy.kinetics.ode</span> <span class="kn">import</span> <span class="n">get_odesys</span>
+<span class="kn">import</span> <span class="nn">sympy</span>
 <span class="n">sympy</span><span class="o">.</span><span class="n">init_printing</span><span class="p">()</span>
 <span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 <span class="c1">#now for the reaction</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">chempy</span><span class="w"> </span><span class="kn">import</span> <span class="n">balance_stoichiometry</span>  
+<span class="kn">from</span> <span class="nn">chempy</span> <span class="kn">import</span> <span class="n">balance_stoichiometry</span>  
 <span class="n">reactants</span><span class="p">,</span> <span class="n">products</span> <span class="o">=</span> <span class="n">balance_stoichiometry</span><span class="p">(</span> <span class="p">{</span><span class="s1">&#39;NO&#39;</span><span class="p">,</span> <span class="s1">&#39;Br2&#39;</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;NOBr&#39;</span><span class="p">}</span> <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">reactants</span><span class="p">))</span>   <span class="c1">#printing is for understanding the system</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">products</span><span class="p">))</span> 
